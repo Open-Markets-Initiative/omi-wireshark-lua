@@ -25,6 +25,7 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.current_refresh_pkt = ProtoField.new
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.bbo.xdp.v2.4.c.deliveryflag", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.endseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arcaequities.bbo.xdp.v2.4.c.exchangecode", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.arcaequities.bbo.xdp.v2.4.c.fullrefreshheader", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaequities.bbo.xdp.v2.4.c.haltcondition", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.id = ProtoField.new("Id", "nyse.arcaequities.bbo.xdp.v2.4.c.id", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.lastseqnum", ftypes.UINT32)
@@ -123,14 +124,14 @@ nyse_arcaequities_bbo_xdp_v2_4_c.absolute_time_base = 0
 local show = {}
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Element Dissection Options
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -1996,15 +1997,82 @@ nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.dissect = function(buffer, offset
   end
 end
 
+-- Full Refresh Header
+nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.size =
+  nyse_arcaequities_bbo_xdp_v2_4_c.last_seq_num.size + 
+  nyse_arcaequities_bbo_xdp_v2_4_c.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_arcaequities_bbo_xdp_v2_4_c.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.size =
-  nyse_arcaequities_bbo_xdp_v2_4_c.current_refresh_pkt.size + 
-  nyse_arcaequities_bbo_xdp_v2_4_c.total_refresh_pkts.size + 
-  nyse_arcaequities_bbo_xdp_v2_4_c.last_seq_num.size + 
-  nyse_arcaequities_bbo_xdp_v2_4_c.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_arcaequities_bbo_xdp_v2_4_c.current_refresh_pkt.size
+
+  index = index + nyse_arcaequities_bbo_xdp_v2_4_c.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.display = function(packet, parent, length)
@@ -2021,11 +2089,8 @@ nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.fields = function(buffer
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_arcaequities_bbo_xdp_v2_4_c.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

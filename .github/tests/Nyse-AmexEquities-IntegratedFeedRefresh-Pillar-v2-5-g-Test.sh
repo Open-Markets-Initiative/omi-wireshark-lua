@@ -59,8 +59,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.currentrefreshpkt" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.totalrefreshpkts" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.lastseqnum" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.lastsymbolseqnum" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/AmexEquities/IntegratedFeedRefresh/Nyse_AmexEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \

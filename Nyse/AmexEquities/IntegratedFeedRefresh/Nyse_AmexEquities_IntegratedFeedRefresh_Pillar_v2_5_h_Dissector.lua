@@ -27,6 +27,7 @@ omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.eth_eligible = 
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.exchangecode", ftypes.STRING)
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.firm_id = ProtoField.new("Firm Id", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.firmid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.freezestatus", ftypes.UINT8)
+omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.fullrefreshheader", ftypes.STRING)
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.haltcondition", ftypes.STRING)
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.id = ProtoField.new("Id", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.id", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.h.imbalanceside", ftypes.STRING)
@@ -2055,10 +2056,6 @@ nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.symbol_index.dissect = fun
 
   if record ~= nil then
     nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.symbol_index_mapping_message.current = record
-    if record.symbol_index ~= nil then
-      local entry_symbol_index = field_tree:add(omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.symbol_index, record.symbol_index)
-      entry_symbol_index:set_generated()
-    end
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.symbol, record.symbol)
       entry_symbol:set_generated()
@@ -2892,15 +2889,82 @@ nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.imbalance_message.dissect 
   end
 end
 
+-- Full Refresh Header
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.size =
+  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_seq_num.size + 
+  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.size =
-  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.current_refresh_pkt.size + 
-  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.total_refresh_pkts.size + 
-  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_seq_num.size + 
-  nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.current_refresh_pkt.size
+
+  index = index + nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.display = function(packet, parent, length)
@@ -2917,11 +2981,8 @@ nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_message.fie
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_amexequities_integratedfeedrefresh_pillar_v2_5_h.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

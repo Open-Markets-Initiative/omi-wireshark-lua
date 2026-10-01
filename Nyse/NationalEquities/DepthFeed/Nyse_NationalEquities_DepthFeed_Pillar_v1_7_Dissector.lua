@@ -1901,10 +1901,6 @@ nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect = function(buff
 
   if record ~= nil then
     nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index_mapping_message.current = record
-    if record.symbol_index ~= nil then
-      local entry_symbol_index = field_tree:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.symbol_index, record.symbol_index)
-      entry_symbol_index:set_generated()
-    end
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.symbol, record.symbol)
       entry_symbol:set_generated()

@@ -29,8 +29,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.currentrefreshpkt" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.totalrefreshpkts" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.lastseqnum" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.lastsymbolseqnum" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/TexasEquities/IntegratedFeedRefresh/Nyse_TexasEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \

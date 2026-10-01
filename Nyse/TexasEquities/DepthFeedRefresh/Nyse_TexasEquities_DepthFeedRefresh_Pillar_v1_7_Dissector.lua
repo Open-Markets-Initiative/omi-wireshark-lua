@@ -25,6 +25,7 @@ omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.current_refresh_pkt =
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.deliveryflag", ftypes.UINT8)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.exchangecode", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.freezestatus", ftypes.UINT8)
+omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.fullrefreshheader", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.haltcondition", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.imbalanceside", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.texasequities.depthfeedrefresh.pillar.v1.7.indicativematchprice", ftypes.INT32)
@@ -1950,10 +1951,6 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_7.symbol_index.dissect = function(
 
   if record ~= nil then
     nyse_texasequities_depthfeedrefresh_pillar_v1_7.symbol_index_mapping_message.current = record
-    if record.symbol_index ~= nil then
-      local entry_symbol_index = field_tree:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.symbol_index, record.symbol_index)
-      entry_symbol_index:set_generated()
-    end
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.symbol, record.symbol)
       entry_symbol:set_generated()
@@ -2906,15 +2903,82 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_7.delta_message.dissect = function
   end
 end
 
+-- Full Refresh Header
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.size =
+  nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_seq_num.size + 
+  nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_texasequities_depthfeedrefresh_pillar_v1_7.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_texasequities_depthfeedrefresh_pillar_v1_7.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_message.size =
-  nyse_texasequities_depthfeedrefresh_pillar_v1_7.current_refresh_pkt.size + 
-  nyse_texasequities_depthfeedrefresh_pillar_v1_7.total_refresh_pkts.size + 
-  nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_seq_num.size + 
-  nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_texasequities_depthfeedrefresh_pillar_v1_7.current_refresh_pkt.size
+
+  index = index + nyse_texasequities_depthfeedrefresh_pillar_v1_7.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_message.display = function(packet, parent, length)
@@ -2931,11 +2995,8 @@ nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_message.fields = 
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_texasequities_depthfeedrefresh_pillar_v1_7.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_texasequities_depthfeedrefresh_pillar_v1_7.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_texasequities_depthfeedrefresh_pillar_v1_7.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

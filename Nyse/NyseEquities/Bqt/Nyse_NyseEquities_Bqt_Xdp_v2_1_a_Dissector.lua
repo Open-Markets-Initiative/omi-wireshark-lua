@@ -30,6 +30,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.current_refresh_pkt = ProtoField.new
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseequities.bqt.xdp.v2.1.a.deliveryflag", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.nyseequities.bqt.xdp.v2.1.a.endseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.nyseequities.bqt.xdp.v2.1.a.exchangecode", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.nyseequities.bqt.xdp.v2.1.a.fullrefreshheader", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.nyseequities.bqt.xdp.v2.1.a.haltcondition", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.high_price = ProtoField.new("High Price", "nyse.nyseequities.bqt.xdp.v2.1.a.highprice", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.nyseequities.bqt.xdp.v2.1.a.lastseqnum", ftypes.UINT32)
@@ -3448,15 +3449,82 @@ nyse_nyseequities_bqt_xdp_v2_1_a.bqt_message.dissect = function(buffer, offset, 
   end
 end
 
+-- Full Refresh Header
+nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.size =
+  nyse_nyseequities_bqt_xdp_v2_1_a.last_seq_num.size + 
+  nyse_nyseequities_bqt_xdp_v2_1_a.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_nyseequities_bqt_xdp_v2_1_a.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_1_a.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_nyseequities_bqt_xdp_v2_1_a.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_message.size =
-  nyse_nyseequities_bqt_xdp_v2_1_a.current_refresh_pkt.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.total_refresh_pkts.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.last_seq_num.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.current_refresh_pkt.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_message.display = function(packet, parent, length)
@@ -3473,11 +3541,8 @@ nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_message.fields = function(buffer
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_nyseequities_bqt_xdp_v2_1_a.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_nyseequities_bqt_xdp_v2_1_a.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_1_a.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_nyseequities_bqt_xdp_v2_1_a.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

@@ -31,6 +31,7 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.end_seq_num = ProtoFie
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.exchangecode", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.firm_id = ProtoField.new("Firm Id", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.firmid", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.freezestatus", ftypes.UINT8)
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.fullrefreshheader", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.haltcondition", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.high_price = ProtoField.new("High Price", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.highprice", ftypes.UINT32)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.id = ProtoField.new("Id", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.id", ftypes.UINT32)
@@ -3969,15 +3970,82 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.add_order_message.dissect = funct
   end
 end
 
+-- Full Refresh Header
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.size =
+  nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_seq_num.size + 
+  nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_nyseequities_integratedfeed_pillar_v2_5_a.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_message.size =
-  nyse_nyseequities_integratedfeed_pillar_v2_5_a.current_refresh_pkt.size + 
-  nyse_nyseequities_integratedfeed_pillar_v2_5_a.total_refresh_pkts.size + 
-  nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_seq_num.size + 
-  nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_nyseequities_integratedfeed_pillar_v2_5_a.current_refresh_pkt.size
+
+  index = index + nyse_nyseequities_integratedfeed_pillar_v2_5_a.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_message.display = function(packet, parent, length)
@@ -3994,11 +4062,8 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_message.fields = f
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_nyseequities_integratedfeed_pillar_v2_5_a.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_nyseequities_integratedfeed_pillar_v2_5_a.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_nyseequities_integratedfeed_pillar_v2_5_a.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

@@ -29,8 +29,6 @@ runuser -u tester -- tshark \
 
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.currentrefreshpkt" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.RefreshHeaderMessage.json
 grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.totalrefreshpkts" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.RefreshHeaderMessage.json
-grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.lastseqnum" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.RefreshHeaderMessage.json
-grep "nyse.nyseequities.integratedfeed.xdp.v2.3.a.lastsymbolseqnum" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.3.a.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.3.a/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_3_a_Dissector.lua" \

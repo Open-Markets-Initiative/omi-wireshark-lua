@@ -380,35 +380,20 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.delivery_flag.display = function(value)
   if value == 1 then
     return "Delivery Flag: Heartbeat (1)"
   end
+  if value == 2 then
+    return "Delivery Flag: Contains Original And Refresh Msgs (2)"
+  end
+  if value == 3 then
+    return "Delivery Flag: Contains Only Refresh Messages (3)"
+  end
   if value == 10 then
-    return "Delivery Flag: Xdp Failover (10)"
+    return "Delivery Flag: XDP Failover (10)"
   end
   if value == 11 then
-    return "Delivery Flag: Original Message (11)"
+    return "Delivery Flag: Contains Only Original Messages (11)"
   end
   if value == 12 then
     return "Delivery Flag: Sequence Number Reset Message (12)"
-  end
-  if value == 13 then
-    return "Delivery Flag: One Retransmission Packet (13)"
-  end
-  if value == 15 then
-    return "Delivery Flag: Retransmission Sequence Message (15)"
-  end
-  if value == 17 then
-    return "Delivery Flag: One Refresh Packet (17)"
-  end
-  if value == 18 then
-    return "Delivery Flag: Refresh Sequence Start (18)"
-  end
-  if value == 19 then
-    return "Delivery Flag: Refresh Sequence Message (19)"
-  end
-  if value == 20 then
-    return "Delivery Flag: Refresh Sequence End (20)"
-  end
-  if value == 21 then
-    return "Delivery Flag: Message Unavailable (21)"
   end
 
   return "Delivery Flag: Unknown("..value..")"
@@ -2252,7 +2237,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.fields = function(buffer, 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
   index, packet_size = nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_size.dissect(buffer, index, packet, parent)
 
-  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, delivery_flag = nyse_arcaoptions_complexfeed_xdp_v1_3_a.delivery_flag.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer

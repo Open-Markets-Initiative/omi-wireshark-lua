@@ -37,6 +37,7 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.current_refresh_pkt = ProtoFie
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexoptions.topfeed.pillar.v1.2.j.deliveryflag", ftypes.UINT8)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.amexoptions.topfeed.pillar.v1.2.j.endseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexoptions.topfeed.pillar.v1.2.j.exchangecode", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.amexoptions.topfeed.pillar.v1.2.j.fullrefreshheader", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexoptions.topfeed.pillar.v1.2.j.haltcondition", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.high_price = ProtoField.new("High Price", "nyse.amexoptions.topfeed.pillar.v1.2.j.highprice", ftypes.INT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.id = ProtoField.new("Id", "nyse.amexoptions.topfeed.pillar.v1.2.j.id", ftypes.UINT32)
@@ -2520,10 +2521,6 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.series_index.dissect = function(buffer, o
 
   if record ~= nil then
     nyse_amexoptions_topfeed_pillar_v1_2_j.outright_series_index_mapping_message.current = record
-    if record.series_index ~= nil then
-      local entry_series_index = field_tree:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.series_index, record.series_index)
-      entry_series_index:set_generated()
-    end
     if record.option_symbol_root ~= nil then
       local entry_option_symbol_root = field_tree:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.option_symbol_root, record.option_symbol_root)
       entry_option_symbol_root:set_generated()
@@ -4796,15 +4793,82 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_request_message.dissect = functio
   end
 end
 
+-- Full Refresh Header
+nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header = {}
+
+-- Size: Full Refresh Header
+nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.size =
+  nyse_amexoptions_topfeed_pillar_v1_2_j.last_seq_num.size + 
+  nyse_amexoptions_topfeed_pillar_v1_2_j.last_symbol_seq_num.size
+
+-- Display: Full Refresh Header
+nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Full Refresh Header
+nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_amexoptions_topfeed_pillar_v1_2_j.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_amexoptions_topfeed_pillar_v1_2_j.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Full Refresh Header
+nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.full_refresh_header, buffer(offset, 0))
+    local index = nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Layout
+nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_layout = {}
+
+-- Dissect: Refresh Header Layout
+nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
+  -- Dissect Full Refresh Header
+  if current_refresh_pkt == 1 then
+    return nyse_amexoptions_topfeed_pillar_v1_2_j.full_refresh_header.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Short Refresh Header
+  return offset
+end
+
 -- Refresh Header Message
 nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message = {}
 
--- Size: Refresh Header Message
-nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.size =
-  nyse_amexoptions_topfeed_pillar_v1_2_j.current_refresh_pkt.size + 
-  nyse_amexoptions_topfeed_pillar_v1_2_j.total_refresh_pkts.size + 
-  nyse_amexoptions_topfeed_pillar_v1_2_j.last_seq_num.size + 
-  nyse_amexoptions_topfeed_pillar_v1_2_j.last_symbol_seq_num.size
+-- Calculate size of: Refresh Header Message
+nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amexoptions_topfeed_pillar_v1_2_j.current_refresh_pkt.size
+
+  index = index + nyse_amexoptions_topfeed_pillar_v1_2_j.total_refresh_pkts.size
+
+  -- Calculate runtime size of Refresh Header Layout field
+  local refresh_header_layout_offset = offset + index
+  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
+  index = index + nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+
+  return index
+end
 
 -- Display: Refresh Header Message
 nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.display = function(packet, parent, length)
@@ -4821,11 +4885,8 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_message.fields = function(
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_amexoptions_topfeed_pillar_v1_2_j.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Binary
-  index, last_seq_num = nyse_amexoptions_topfeed_pillar_v1_2_j.last_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Last Symbol Seq Num: Binary
-  index, last_symbol_seq_num = nyse_amexoptions_topfeed_pillar_v1_2_j.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+  -- Refresh Header Layout: Runtime Type with 2 branches
+  index = nyse_amexoptions_topfeed_pillar_v1_2_j.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
 
   return index
 end

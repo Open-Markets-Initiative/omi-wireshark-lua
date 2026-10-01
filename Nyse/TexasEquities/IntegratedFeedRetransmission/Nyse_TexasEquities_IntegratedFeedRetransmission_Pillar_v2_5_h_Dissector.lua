@@ -2280,10 +2280,6 @@ nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.disse
 
   if record ~= nil then
     nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mapping_message.current = record
-    if record.symbol_index ~= nil then
-      local entry_symbol_index = field_tree:add(omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol_index, record.symbol_index)
-      entry_symbol_index:set_generated()
-    end
     if record.symbol ~= nil then
       local entry_symbol = field_tree:add(omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol, record.symbol)
       entry_symbol:set_generated()
