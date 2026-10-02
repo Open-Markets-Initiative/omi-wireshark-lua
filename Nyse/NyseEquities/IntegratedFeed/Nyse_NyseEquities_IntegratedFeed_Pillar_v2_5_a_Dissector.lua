@@ -4936,8 +4936,8 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.message.fields = function(buffer,
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number, UInt64.new(nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_nyseequities_integratedfeed_pillar_v2_5_a.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number, UInt64.new(nyse_nyseequities_integratedfeed_pillar_v2_5_a.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -5110,7 +5110,7 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_a.packet_header.fields = function(b
   index, send_time = nyse_nyseequities_integratedfeed_pillar_v2_5_a.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_nyseequities_integratedfeed_pillar_v2_5_a.sequence = seq_num
+  nyse_nyseequities_integratedfeed_pillar_v2_5_a.packet_sequence = seq_num
 
   return index
 end

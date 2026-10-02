@@ -2264,6 +2264,19 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissec
   local value = range:le_uint()
   local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Symbol Index
+nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.symbol_index, range, value, display)
 
@@ -3059,7 +3072,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.retail_price_improv
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3112,7 +3125,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.cross_correction_me
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3167,7 +3180,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.trade_cancel_messag
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3222,7 +3235,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.cross_trade_message
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3290,7 +3303,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.non_displayed_trade
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3372,7 +3385,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.add_order_refresh_m
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3468,7 +3481,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.imbalance_message.f
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3586,7 +3599,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.replace_order_messa
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3662,7 +3675,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.order_execution_mes
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3742,7 +3755,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.delete_order_messag
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3802,7 +3815,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.modify_order_messag
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3874,7 +3887,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.add_order_message.f
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4007,7 +4020,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.security_status_mes
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4099,7 +4112,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_clear_messag
   index, source_time_ns = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -4164,8 +4177,8 @@ end
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.symbol.dissect(buffer, index, packet, parent)
@@ -4513,8 +4526,8 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.message.fields = fu
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.message_sequence_number, UInt64.new(nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.message_sequence_number, UInt64.new(nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4687,7 +4700,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.packet_header.field
   index, send_time = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.sequence = seq_num
+  nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.packet_sequence = seq_num
 
   return index
 end

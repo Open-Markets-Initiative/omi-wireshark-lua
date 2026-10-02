@@ -2850,7 +2850,8 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.server_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3600,7 +3601,8 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

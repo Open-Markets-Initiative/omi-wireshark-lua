@@ -2266,7 +2266,8 @@ nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.server_packet.dissect = func
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -2585,7 +2586,8 @@ nasdaq_iseoptions_spreaddepthofmarket_glimpse_v2_02.client_packet.dissect = func
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

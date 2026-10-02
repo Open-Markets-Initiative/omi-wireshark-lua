@@ -2340,8 +2340,8 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.message.fields = function(buffer, offset
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_ntxoptions_topofmarket_itch_v1_2.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_sequence_number, UInt64.new(nasdaq_ntxoptions_topofmarket_itch_v1_2.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_ntxoptions_topofmarket_itch_v1_2.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_sequence_number, UInt64.new(nasdaq_ntxoptions_topofmarket_itch_v1_2.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2469,7 +2469,7 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.packet_header.fields = function(buffer, 
   index, message_count = nasdaq_ntxoptions_topofmarket_itch_v1_2.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_ntxoptions_topofmarket_itch_v1_2.sequence = sequence_number
+  nasdaq_ntxoptions_topofmarket_itch_v1_2.packet_sequence = sequence_number
 
   return index
 end

@@ -3362,8 +3362,8 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message.fields = function(buff
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.fields.message_sequence_number, UInt64.new(nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.fields.message_sequence_number, UInt64.new(nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3491,7 +3491,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.packet_header.fields = functio
   index, message_count = nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.sequence = sequence_number
+  nasdaq_nordicderivatives_depthofbook_itch_v2_22_4.packet_sequence = sequence_number
 
   return index
 end

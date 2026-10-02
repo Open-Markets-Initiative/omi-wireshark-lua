@@ -2901,8 +2901,8 @@ sgx_titandt_depthofbook_itch_v1_4.message.fields = function(buffer, offset, pack
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and sgx_titandt_depthofbook_itch_v1_4.sequence ~= nil then
-    local sequence = parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.message_sequence_number, UInt64.new(sgx_titandt_depthofbook_itch_v1_4.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and sgx_titandt_depthofbook_itch_v1_4.packet_sequence ~= nil then
+    local sequence = parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.message_sequence_number, UInt64.new(sgx_titandt_depthofbook_itch_v1_4.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3030,7 +3030,7 @@ sgx_titandt_depthofbook_itch_v1_4.packet_header.fields = function(buffer, offset
   index, message_count = sgx_titandt_depthofbook_itch_v1_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  sgx_titandt_depthofbook_itch_v1_4.sequence = sequence_number
+  sgx_titandt_depthofbook_itch_v1_4.packet_sequence = sequence_number
 
   return index
 end

@@ -1679,8 +1679,8 @@ nyse_arcaequities_arcabook_pillar_v2_1.message.fields = function(buffer, offset,
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_arcaequities_arcabook_pillar_v2_1.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_sequence_number, UInt64.new(nyse_arcaequities_arcabook_pillar_v2_1.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_arcaequities_arcabook_pillar_v2_1.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_sequence_number, UInt64.new(nyse_arcaequities_arcabook_pillar_v2_1.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1853,7 +1853,7 @@ nyse_arcaequities_arcabook_pillar_v2_1.packet_header.fields = function(buffer, o
   index, send_time = nyse_arcaequities_arcabook_pillar_v2_1.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_arcaequities_arcabook_pillar_v2_1.sequence = seq_num
+  nyse_arcaequities_arcabook_pillar_v2_1.packet_sequence = seq_num
 
   return index
 end

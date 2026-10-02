@@ -1989,8 +1989,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2022.message.fields = function(buffer, offs
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nsmequities_noiview_itch_v3_0_2022.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nsmequities_noiview_itch_v3_0_2022.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_noiview_itch_v3_0_2022.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nsmequities_noiview_itch_v3_0_2022.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nsmequities_noiview_itch_v3_0_2022.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_noiview_itch_v3_0_2022.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2118,7 +2118,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2022.packet_header.fields = function(buffer
   index, message_count = nasdaq_nsmequities_noiview_itch_v3_0_2022.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nsmequities_noiview_itch_v3_0_2022.sequence = sequence_number
+  nasdaq_nsmequities_noiview_itch_v3_0_2022.packet_sequence = sequence_number
 
   return index
 end

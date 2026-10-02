@@ -1027,8 +1027,8 @@ bruceats_bruceequities_depthofbook_itch_v1_0.message.fields = function(buffer, o
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and bruceats_bruceequities_depthofbook_itch_v1_0.sequence ~= nil then
-    local sequence = parent:add(omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_sequence_number, UInt64.new(bruceats_bruceequities_depthofbook_itch_v1_0.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and bruceats_bruceequities_depthofbook_itch_v1_0.packet_sequence ~= nil then
+    local sequence = parent:add(omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_sequence_number, UInt64.new(bruceats_bruceequities_depthofbook_itch_v1_0.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1156,7 +1156,7 @@ bruceats_bruceequities_depthofbook_itch_v1_0.packet_header.fields = function(buf
   index, message_count = bruceats_bruceequities_depthofbook_itch_v1_0.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  bruceats_bruceequities_depthofbook_itch_v1_0.sequence = sequence_number
+  bruceats_bruceequities_depthofbook_itch_v1_0.packet_sequence = sequence_number
 
   return index
 end

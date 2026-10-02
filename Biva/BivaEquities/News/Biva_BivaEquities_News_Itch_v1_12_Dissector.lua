@@ -1960,8 +1960,8 @@ biva_bivaequities_news_itch_v1_12.message.fields = function(buffer, offset, pack
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and biva_bivaequities_news_itch_v1_12.sequence ~= nil then
-    local sequence = parent:add(omi_biva_bivaequities_news_itch_v1_12.fields.message_sequence_number, UInt64.new(biva_bivaequities_news_itch_v1_12.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and biva_bivaequities_news_itch_v1_12.packet_sequence ~= nil then
+    local sequence = parent:add(omi_biva_bivaequities_news_itch_v1_12.fields.message_sequence_number, UInt64.new(biva_bivaequities_news_itch_v1_12.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2089,7 +2089,7 @@ biva_bivaequities_news_itch_v1_12.packet_header.fields = function(buffer, offset
   index, message_count = biva_bivaequities_news_itch_v1_12.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  biva_bivaequities_news_itch_v1_12.sequence = sequence_number
+  biva_bivaequities_news_itch_v1_12.packet_sequence = sequence_number
 
   return index
 end

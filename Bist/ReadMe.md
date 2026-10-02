@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Bist.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bist.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Glimpse][Omi.Encoding.Glimpse] | [2.7][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Dissector] | 1/17/2025 | 3461 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Pdf] - [pdf][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Pdf] |
+| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Glimpse][Omi.Encoding.Glimpse] | [2.7][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Dissector] | 1/17/2025 | 3463 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Pdf] - [pdf][Bist.BorsaIstanbul.GeniumInet.Glimpse.v2.7.Pdf] |
 | [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Itch][Omi.Encoding.Itch] | [21.12][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector] | 2/28/2025 | 3320 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] - [pdf][Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf] |
 
 
@@ -15,14 +15,14 @@
 
 | Division | [Protocol][Omi.Bist.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bist.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [2025.0206][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Dissector] | 2/6/2025 | 3972 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Pdf] - [pdf][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Pdf] |
+| [BorsaIstanbul][BorsaIstanbul.Exchange] | [GeniumInet][Bist.BorsaIstanbul.GeniumInet] | [Ouch][Omi.Encoding.Ouch] | [2025.0206][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Dissector] | 2/6/2025 | 3974 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Url] - [pdf][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Pdf] - [pdf][Bist.BorsaIstanbul.GeniumInet.Ouch.v2025.0206.Pdf] |
 
 
 ### Protocols
 
 | Division | [Protocol][Omi.Bist.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Bist.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BorsaIstanbul][BorsaIstanbul.Exchange] | [MarketInfo][Bist.BorsaIstanbul.MarketInfo] | [Tip][Omi.Encoding.Tip] | [2.2.8][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Dissector] | 6/22/2026 | 11890 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Url] - [html][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Html] - [xml][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Xml] - [pdf][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Pdf] |
+| [BorsaIstanbul][BorsaIstanbul.Exchange] | [MarketInfo][Bist.BorsaIstanbul.MarketInfo] | [Tip][Omi.Encoding.Tip] | [2.2.8][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Dissector] | 6/22/2026 | 11892 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Url] - [html][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Html] - [xml][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Xml] - [pdf][Bist.BorsaIstanbul.MarketInfo.Tip.v2.2.8.Pdf] |
 
 
 <p align="center"><a href="https://www.borsaistanbul.com/en" title="Borsa İstanbul A.Ş. Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/borsaistanbul" title="Borsa İstanbul A.Ş. on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Borsa_Istanbul" title="Borsa İstanbul A.Ş. on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

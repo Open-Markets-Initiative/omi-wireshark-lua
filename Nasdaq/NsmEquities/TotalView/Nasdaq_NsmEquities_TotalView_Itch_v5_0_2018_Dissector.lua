@@ -1568,6 +1568,19 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.dissect = function(buffe
   local value = range:uint()
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.locate_code, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Locate Code
+nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.lookup = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.locate_code, range, value, display)
 
@@ -2947,6 +2960,19 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect = function(buff
   local value = range:uint()
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.stock_locate, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Stock Locate
+nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.stock_locate, range, value, display)
 
@@ -3250,7 +3276,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.retail_price_improvement_indicator_m
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3313,7 +3339,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.net_order_imbalance_indicator_messag
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3389,7 +3415,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.broken_trade_message.fields = functi
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3445,7 +3471,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.cross_trade_message.fields = functio
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3514,7 +3540,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.non_cross_trade_message.fields = fun
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3584,7 +3610,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.order_replace_message.fields = funct
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3645,7 +3671,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.order_delete_message.fields = functi
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3698,7 +3724,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.order_cancel_message.fields = functi
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3757,7 +3783,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.order_executed_with_price_message.fi
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3823,7 +3849,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.order_executed_message.fields = func
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3886,7 +3912,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.add_order_with_mpid_attribution_mess
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -3957,7 +3983,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.add_order_no_mpid_attribution_messag
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4023,7 +4049,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.operational_halt_message.fields = fu
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4085,7 +4111,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.luld_auction_collar_message.fields =
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4152,7 +4178,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.ipo_quoting_period_update.fields = f
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4213,7 +4239,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.mwcb_status_level_message.fields = f
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4267,7 +4293,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.mwcb_decline_level_message.fields = 
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4329,7 +4355,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.market_participant_position_message.
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4394,7 +4420,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.reg_sho_short_sale_price_test_restri
   local index = offset
 
   -- Locate Code: Integer (record lookup)
-  index, locate_code, locate_code_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.dissect(buffer, index, packet, parent)
+  index, locate_code, locate_code_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.locate_code.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4452,7 +4478,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_trading_action_message.fields 
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4525,8 +4551,8 @@ end
 nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  -- Stock Locate: Integer
+  index, stock_locate = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4639,7 +4665,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.system_event_message.fields = functi
   local index = offset
 
   -- Stock Locate: Integer (record lookup)
-  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
+  index, stock_locate, stock_locate_record = nasdaq_nsmequities_totalview_itch_v5_0_2018.stock_locate.lookup(buffer, index, packet, parent)
 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
@@ -4841,8 +4867,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.message.fields = function(buffer, of
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nsmequities_totalview_itch_v5_0_2018.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_totalview_itch_v5_0_2018.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nsmequities_totalview_itch_v5_0_2018.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2018.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_totalview_itch_v5_0_2018.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4970,7 +4996,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.packet_header.fields = function(buff
   index, message_count = nasdaq_nsmequities_totalview_itch_v5_0_2018.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nsmequities_totalview_itch_v5_0_2018.sequence = sequence_number
+  nasdaq_nsmequities_totalview_itch_v5_0_2018.packet_sequence = sequence_number
 
   return index
 end
@@ -5537,7 +5563,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.server_packet.dissect = function(buf
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -5856,7 +5883,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.client_packet.dissect = function(buf
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

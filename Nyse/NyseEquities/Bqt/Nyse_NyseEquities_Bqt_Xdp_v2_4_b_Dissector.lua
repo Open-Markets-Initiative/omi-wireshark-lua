@@ -2642,6 +2642,19 @@ nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect = function(buffer, offset,
   local value = range:le_uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Symbol Index
+nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.symbol_index, range, value, display)
 
@@ -3639,7 +3652,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.fields =
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -3714,7 +3727,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.f
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Nyse Group High Price: Binary
   index, nyse_group_high_price = nyse_nyseequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.dissect(buffer, index, packet, parent)
@@ -3813,7 +3826,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.f
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3889,7 +3902,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.fields =
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3977,7 +3990,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.fields = 
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -4067,7 +4080,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.fields 
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4154,7 +4167,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.fields = func
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -4220,7 +4233,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_trade_message.fields = function(bu
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -4306,7 +4319,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.fields = function(
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4436,7 +4449,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.fields 
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -4507,7 +4520,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.best_quotes_message.fields = function(buffer, o
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Number: Binary
   index, symbol_seq_number = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
@@ -4852,7 +4865,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.refresh_request_message.fields = function(buffe
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
@@ -4905,7 +4918,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.fields = f
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
@@ -5034,7 +5047,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.security_status_message.fields = function(buffe
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -5123,7 +5136,7 @@ nyse_nyseequities_bqt_xdp_v2_4_b.symbol_clear_message.fields = function(buffer, 
   index, source_time_ns = nyse_nyseequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_bqt_xdp_v2_4_b.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -5183,8 +5196,8 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_nyseequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_nyseequities_bqt_xdp_v2_4_b.symbol.dissect(buffer, index, packet, parent)

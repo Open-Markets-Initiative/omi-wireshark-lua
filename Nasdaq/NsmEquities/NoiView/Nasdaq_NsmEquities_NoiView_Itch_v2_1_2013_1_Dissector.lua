@@ -15,7 +15,6 @@ local nasdaq_nsmequities_noiview_itch_v2_1_2013_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities NoiView Itch 2.1.2013.1 Fields
-omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.count = ProtoField.new("Count", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.count", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.crossprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.currentreferenceprice", ftypes.DOUBLE)
@@ -25,9 +24,10 @@ omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.far_price = ProtoField.ne
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.financialstatusindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.imbalancedirection", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.imbalanceshares", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.length = ProtoField.new("Length", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.length", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.marketcategory", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.matchnumber", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.messagecount", ftypes.UINT16)
+omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.nearprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.pairedshares", ftypes.STRING)
@@ -36,7 +36,7 @@ omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.reason = ProtoField.new("
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.regshoaction", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.roundlotsize", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.roundlotsonly", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.sequence = ProtoField.new("Sequence", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.sequence", ftypes.UINT32)
+omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.sequencenumber", ftypes.UINT32)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.session", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.shares", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.stock", ftypes.STRING)
@@ -62,6 +62,7 @@ omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.heartbeat = ProtoField.ne
 
 -- Nasdaq NsmEquities NoiView Itch 2.1.2013.1 Generated Fields
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.messageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.noiview.itch.v2.1.2013.1.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities NoiView Itch 2.1.2013.1 Formatting
@@ -92,12 +93,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq NsmEquities NoiView Itch 2.1.2013.1 Show Options
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -117,6 +120,9 @@ function omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_indexes then
     show.indexes = omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_sequences then
+    show.sequences = omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.show_sequences
   end
   if nasdaq_nsmequities_noiview_itch_v2_1_2013_1.timestamp_format ~= omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.timestamp_format then
     nasdaq_nsmequities_noiview_itch_v2_1_2013_1.timestamp_format = omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.prefs.timestamp_format
@@ -146,29 +152,6 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities NoiView Itch 2.1.2013.1 Fields
 -----------------------------------------------------------------------
-
--- Count
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count = {}
-
--- Size: Count
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.size = 2
-
--- Display: Count
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.count, range, value, display)
-
-  return offset + length, value
-end
 
 -- Cross Price
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.cross_price = {}
@@ -537,29 +520,6 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.imbalance_shares.dissect = function(
   return offset + length, value
 end
 
--- Length
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length = {}
-
--- Size: Length
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.size = 2
-
--- Display: Length
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Market Category
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.market_category = {}
 
@@ -629,6 +589,52 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.match_number.dissect = function(buff
   local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.match_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count = {}
+
+-- Size: Message Count
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length = {}
+
+-- Size: Message Length
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1011,25 +1017,25 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.round_lots_only.dissect = function(b
   return offset + length, value
 end
 
--- Sequence
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence = {}
+-- Sequence Number
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number = {}
 
--- Size: Sequence
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.size = 4
+-- Size: Sequence Number
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.size = 4
 
--- Display: Sequence
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.display = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.display = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.size
+-- Dissect: Sequence Number
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.sequence, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -1519,7 +1525,7 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_header = {}
 
 -- Size: Message Header
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_header.size =
-  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.size + 
+  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.size + 
   nasdaq_nsmequities_noiview_itch_v2_1_2013_1.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_type.size
 
@@ -1532,8 +1538,8 @@ end
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.length.dissect(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_length.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Ascii String
   index, timestamp = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.timestamp.dissect(buffer, index, packet, parent)
@@ -1569,10 +1575,10 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message = {}
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Length
-  local length = buffer(offset, 2):uint()
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
 
-  return length + 2
+  return message_length + 2
 end
 
 -- Display: Message
@@ -1588,6 +1594,12 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message.fields = function(buffer, of
   if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_index, message_index)
     iteration:set_generated()
+  end
+
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nsmequities_noiview_itch_v2_1_2013_1.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_sequence + message_index - 1))
+    sequence:set_generated()
   end
 
   -- Message Header: Struct of 3 fields
@@ -1662,24 +1674,24 @@ end
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.messages = {}
 
 -- Dissect: Messages
-nasdaq_nsmequities_noiview_itch_v2_1_2013_1.messages.dissect = function(buffer, offset, packet, parent, count)
+nasdaq_nsmequities_noiview_itch_v2_1_2013_1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return nasdaq_nsmequities_noiview_itch_v2_1_2013_1.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if count == 65535 then
+  if message_count == 65535 then
     return nasdaq_nsmequities_noiview_itch_v2_1_2013_1.end_of_session.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(offset, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -1692,8 +1704,8 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_header = {}
 -- Size: Packet Header
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_header.size =
   nasdaq_nsmequities_noiview_itch_v2_1_2013_1.session.size + 
-  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.size + 
-  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.size
+  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.size + 
+  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.size
 
 -- Display: Packet Header
 nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_header.display = function(packet, parent, length)
@@ -1707,11 +1719,14 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_header.fields = function(buff
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_sequence = sequence_number
 
   return index
 end
@@ -1749,11 +1764,11 @@ nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet.dissect = function(buffer, pa
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):le_uint()
 
   -- Messages: Runtime Type with 3 branches
-  index = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.messages.dissect(buffer, index, packet, parent, count)
+  index = nasdaq_nsmequities_noiview_itch_v2_1_2013_1.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

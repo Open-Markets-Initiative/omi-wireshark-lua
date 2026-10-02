@@ -1831,8 +1831,8 @@ jnx_jnxequities_pts_itch_v1_6.message.fields = function(buffer, offset, packet, 
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and jnx_jnxequities_pts_itch_v1_6.sequence ~= nil then
-    local sequence = parent:add(omi_jnx_jnxequities_pts_itch_v1_6.fields.message_sequence_number, UInt64.new(jnx_jnxequities_pts_itch_v1_6.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and jnx_jnxequities_pts_itch_v1_6.packet_sequence ~= nil then
+    local sequence = parent:add(omi_jnx_jnxequities_pts_itch_v1_6.fields.message_sequence_number, UInt64.new(jnx_jnxequities_pts_itch_v1_6.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1960,7 +1960,7 @@ jnx_jnxequities_pts_itch_v1_6.packet_header.fields = function(buffer, offset, pa
   index, message_count = jnx_jnxequities_pts_itch_v1_6.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  jnx_jnxequities_pts_itch_v1_6.sequence = sequence_number
+  jnx_jnxequities_pts_itch_v1_6.packet_sequence = sequence_number
 
   return index
 end

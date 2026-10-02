@@ -3194,8 +3194,8 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.message.fields = function(buffer, offse
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nsmequities_totalview_itch_v4_0_f.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_totalview_itch_v4_0_f.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nsmequities_totalview_itch_v4_0_f.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_totalview_itch_v4_0_f.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3323,7 +3323,7 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.packet_header.fields = function(buffer,
   index, message_count = nasdaq_nsmequities_totalview_itch_v4_0_f.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nsmequities_totalview_itch_v4_0_f.sequence = sequence_number
+  nasdaq_nsmequities_totalview_itch_v4_0_f.packet_sequence = sequence_number
 
   return index
 end
@@ -3874,7 +3874,8 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.server_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -4193,7 +4194,8 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.client_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

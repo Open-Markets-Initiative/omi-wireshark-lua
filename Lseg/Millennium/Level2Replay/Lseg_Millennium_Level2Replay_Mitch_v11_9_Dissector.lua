@@ -3719,7 +3719,8 @@ lseg_millennium_level2replay_mitch_v11_9.packet.dissect = function(buffer, packe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

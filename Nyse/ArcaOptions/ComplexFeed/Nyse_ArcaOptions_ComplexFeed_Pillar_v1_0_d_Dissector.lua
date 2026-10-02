@@ -4339,8 +4339,8 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.fields = function(buffer, off
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4513,7 +4513,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_header.fields = function(buffe
   index, send_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence = seq_num
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_sequence = seq_num
 
   return index
 end

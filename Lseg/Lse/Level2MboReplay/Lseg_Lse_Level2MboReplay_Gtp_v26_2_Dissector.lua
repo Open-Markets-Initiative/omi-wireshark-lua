@@ -3590,7 +3590,8 @@ lseg_lse_level2mboreplay_gtp_v26_2.packet.dissect = function(buffer, packet, par
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

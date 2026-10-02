@@ -21,7 +21,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.capacity_of_participant = ProtoFiel
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.asxsecurities.trade.ouch.v3.6.clearingparticipant", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_account = ProtoField.new("Client Account", "asx.asxsecurities.trade.ouch.v3.6.clientaccount", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet_type = ProtoField.new("Packet Type", "asx.asxsecurities.trade.ouch.v3.6.clientpackettype", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.asxsecurities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, {[0]="Not Crossed", [1]="Principal Order", [3]="Agency Order", [4]="Mixed Agency And Principal Order"}, base.DEC, 0x06)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoField.new("Crossing Dealing Capacity", "asx.asxsecurities.trade.ouch.v3.6.crossingdealingcapacity", ftypes.UINT8, {[0]="Not Crossed", [1]="Principal Order", [2]="Agency Order", [3]="Mixed Agency And Principal Order"}, base.DEC, 0x06)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.asxsecurities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.asxsecurities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.asxsecurities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
@@ -2482,7 +2482,8 @@ asx_asxsecurities_trade_ouch_v3_6.server_packet.dissect = function(buffer, packe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3088,7 +3089,8 @@ asx_asxsecurities_trade_ouch_v3_6.client_packet.dissect = function(buffer, packe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

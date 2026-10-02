@@ -2547,7 +2547,8 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.server_packet.dissect = function(
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -2866,7 +2867,8 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.client_packet.dissect = function(
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

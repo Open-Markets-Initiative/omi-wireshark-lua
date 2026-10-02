@@ -3365,7 +3365,8 @@ nasdaq_nsmequities_rash_asciirash_v1_0_2016.server_packet.dissect = function(buf
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3999,7 +4000,8 @@ nasdaq_nsmequities_rash_asciirash_v1_0_2016.client_packet.dissect = function(buf
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

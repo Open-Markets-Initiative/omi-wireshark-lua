@@ -1076,8 +1076,8 @@ iex_iexequities_tops_iextp_v1_56.message.fields = function(buffer, offset, packe
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and iex_iexequities_tops_iextp_v1_56.sequence ~= nil then
-    local sequence = parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.message_sequence_number, UInt64.new(iex_iexequities_tops_iextp_v1_56.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and iex_iexequities_tops_iextp_v1_56.packet_sequence ~= nil then
+    local sequence = parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.message_sequence_number, UInt64.new(iex_iexequities_tops_iextp_v1_56.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1212,7 +1212,7 @@ iex_iexequities_tops_iextp_v1_56.iextp_header.fields = function(buffer, offset, 
   index, send_time = iex_iexequities_tops_iextp_v1_56.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  iex_iexequities_tops_iextp_v1_56.sequence = first_message_sequence_number
+  iex_iexequities_tops_iextp_v1_56.packet_sequence = first_message_sequence_number
 
   return index
 end

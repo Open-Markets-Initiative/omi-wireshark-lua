@@ -41,7 +41,6 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("
 omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.uqdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message = ProtoField.new("Control Message", "nasdaq.uqdf.output.utp.v1.5.controlmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.uqdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.count = ProtoField.new("Count", "nasdaq.uqdf.output.utp.v1.5.count", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.uqdf.output.utp.v1.5.financialstatusindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.finra_adf_mpid_appendage = ProtoField.new("Finra Adf Mpid Appendage", "nasdaq.uqdf.output.utp.v1.5.finraadfmpidappendage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.finra_adf_mpid_appendage_indicator = ProtoField.new("Finra Adf Mpid Appendage Indicator", "nasdaq.uqdf.output.utp.v1.5.finraadfmpidappendageindicator", ftypes.STRING)
@@ -66,6 +65,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "nasdaq.uqdf.output.utp.v1.5.marketcenteroriginatorid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.uqdf.output.utp.v1.5.markettier", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_category = ProtoField.new("Message Category", "nasdaq.uqdf.output.utp.v1.5.messagecategory", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.message_count = ProtoField.new("Message Count", "nasdaq.uqdf.output.utp.v1.5.messagecount", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_info = ProtoField.new("Message Info", "nasdaq.uqdf.output.utp.v1.5.messageinfo", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.uqdf.output.utp.v1.5.messagelength", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.uqdf.output.utp.v1.5.mwcblevel1", ftypes.UINT64)
@@ -94,7 +94,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_message_type = ProtoField.new("Quot
 omi_nasdaq_uqdf_output_utp_v1_5.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.uqdf.output.utp.v1.5.regshoaction", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "nasdaq.uqdf.output.utp.v1.5.retailinterestindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.uqdf.output.utp.v1.5.roundlotsize", ftypes.UINT16)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.sequence = ProtoField.new("Sequence", "nasdaq.uqdf.output.utp.v1.5.sequence", ftypes.UINT64)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.uqdf.output.utp.v1.5.sequencenumber", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.session = ProtoField.new("Session", "nasdaq.uqdf.output.utp.v1.5.session", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.short_form_national_bbo_appendage = ProtoField.new("Short Form National Bbo Appendage", "nasdaq.uqdf.output.utp.v1.5.shortformnationalbboappendage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.uqdf.output.utp.v1.5.shortsalethresholdindicator", ftypes.STRING)
@@ -141,6 +141,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("St
 -- Nasdaq Uqdf Output Utp 1.5 Generated Fields
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v1.5.marketcentercloserecapindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v1.5.messageindex", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.uqdf.output.utp.v1.5.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -154,6 +155,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq Uqdf Output Utp 1.5 Show Options
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -161,6 +163,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages = Pref.bool("Sho
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v1_5.prefs_changed()
@@ -180,6 +183,9 @@ function omi_nasdaq_uqdf_output_utp_v1_5.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_indexes then
     show.indexes = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_sequences then
+    show.sequences = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_sequences
   end
 end
 
@@ -823,29 +829,6 @@ nasdaq_uqdf_output_utp_v1_5.control_message_type.dissect = function(buffer, offs
   local display = nasdaq_uqdf_output_utp_v1_5.control_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-nasdaq_uqdf_output_utp_v1_5.count = {}
-
--- Size: Count
-nasdaq_uqdf_output_utp_v1_5.count.size = 2
-
--- Display: Count
-nasdaq_uqdf_output_utp_v1_5.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_uqdf_output_utp_v1_5.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_uqdf_output_utp_v1_5.count.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_uqdf_output_utp_v1_5.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -1588,6 +1571,29 @@ nasdaq_uqdf_output_utp_v1_5.message_category.dissect = function(buffer, offset, 
   local display = nasdaq_uqdf_output_utp_v1_5.message_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.message_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_uqdf_output_utp_v1_5.message_count = {}
+
+-- Size: Message Count
+nasdaq_uqdf_output_utp_v1_5.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_uqdf_output_utp_v1_5.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_uqdf_output_utp_v1_5.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v1_5.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_uqdf_output_utp_v1_5.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2353,25 +2359,25 @@ nasdaq_uqdf_output_utp_v1_5.round_lot_size.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Sequence
-nasdaq_uqdf_output_utp_v1_5.sequence = {}
+-- Sequence Number
+nasdaq_uqdf_output_utp_v1_5.sequence_number = {}
 
--- Size: Sequence
-nasdaq_uqdf_output_utp_v1_5.sequence.size = 8
+-- Size: Sequence Number
+nasdaq_uqdf_output_utp_v1_5.sequence_number.size = 8
 
--- Display: Sequence
-nasdaq_uqdf_output_utp_v1_5.sequence.display = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_uqdf_output_utp_v1_5.sequence_number.display = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_uqdf_output_utp_v1_5.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_uqdf_output_utp_v1_5.sequence.size
+-- Dissect: Sequence Number
+nasdaq_uqdf_output_utp_v1_5.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v1_5.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_uqdf_output_utp_v1_5.sequence.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_uqdf_output_utp_v1_5.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.sequence, range, value, display)
+  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4619,6 +4625,12 @@ nasdaq_uqdf_output_utp_v1_5.message.fields = function(buffer, offset, packet, pa
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_uqdf_output_utp_v1_5.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.message_sequence_number, UInt64.new(nasdaq_uqdf_output_utp_v1_5.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 3 fields
   index, message_header = nasdaq_uqdf_output_utp_v1_5.message_header.dissect(buffer, index, packet, parent)
 
@@ -4658,8 +4670,8 @@ nasdaq_uqdf_output_utp_v1_5.packet_header = {}
 -- Size: Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header.size =
   nasdaq_uqdf_output_utp_v1_5.session.size + 
-  nasdaq_uqdf_output_utp_v1_5.sequence.size + 
-  nasdaq_uqdf_output_utp_v1_5.count.size
+  nasdaq_uqdf_output_utp_v1_5.sequence_number.size + 
+  nasdaq_uqdf_output_utp_v1_5.message_count.size
 
 -- Display: Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header.display = function(packet, parent, length)
@@ -4673,11 +4685,14 @@ nasdaq_uqdf_output_utp_v1_5.packet_header.fields = function(buffer, offset, pack
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_uqdf_output_utp_v1_5.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_uqdf_output_utp_v1_5.sequence.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_uqdf_output_utp_v1_5.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_uqdf_output_utp_v1_5.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_uqdf_output_utp_v1_5.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_uqdf_output_utp_v1_5.packet_sequence = sequence_number
 
   return index
 end
@@ -4715,11 +4730,11 @@ nasdaq_uqdf_output_utp_v1_5.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_uqdf_output_utp_v1_5.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):uint()
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()

@@ -3025,7 +3025,8 @@ jse_itac_enhancednativetradingrecovery_ntgi_v4_04.packet.dissect = function(buff
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

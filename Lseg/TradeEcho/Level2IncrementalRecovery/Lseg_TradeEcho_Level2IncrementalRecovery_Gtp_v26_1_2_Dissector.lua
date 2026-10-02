@@ -2536,7 +2536,8 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

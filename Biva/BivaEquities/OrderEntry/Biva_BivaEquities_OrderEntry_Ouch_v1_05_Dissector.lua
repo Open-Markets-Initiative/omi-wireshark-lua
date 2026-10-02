@@ -2232,7 +2232,8 @@ biva_bivaequities_orderentry_ouch_v1_05.server_packet.dissect = function(buffer,
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -2734,7 +2735,8 @@ biva_bivaequities_orderentry_ouch_v1_05.client_packet.dissect = function(buffer,
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

@@ -1915,8 +1915,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.order_status.size = 1
 
 -- Display: Order Status
 miax_pearlequities_expressorders_meo_v2_7_b.order_status.display = function(value)
-  if value == "“ “" then
-    return "Order Status: Successful (“ “)"
+  if value == " " then
+    return "Order Status: Successful (<whitespace>)"
   end
   if value == "A" then
     return "Order Status: Duplicate Client Order Id (A)"
@@ -6384,7 +6384,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.packet.dissect = function(buffer, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

@@ -4125,7 +4125,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -4444,7 +4445,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

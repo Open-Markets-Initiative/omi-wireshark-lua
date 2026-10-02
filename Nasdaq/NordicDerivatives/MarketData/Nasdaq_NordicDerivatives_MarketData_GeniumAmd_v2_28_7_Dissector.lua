@@ -1391,6 +1391,19 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect = fu
   local value = range:uint()
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Order Book Id
+nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, range, value, display)
 
@@ -2589,7 +2602,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_by_level_message.fi
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Last Message: Numeric
   index, last_message = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_message.dissect(buffer, index, packet, parent)
@@ -2660,7 +2673,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_message.fields = fun
   index, price_type = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Price Price 4: Price
   index, price_price_4 = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price.dissect(buffer, index, packet, parent)
@@ -2712,7 +2725,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.open_interest_messsage.fie
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Open Interest: Numeric
   index, open_interest = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.open_interest.dissect(buffer, index, packet, parent)
@@ -2767,7 +2780,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.quote_request_message.fiel
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Reserved Alpha 7: Alpha
   index, reserved_alpha_7 = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_7.dissect(buffer, index, packet, parent)
@@ -2880,7 +2893,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reported_trade.fields = fu
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Traded Quantity: Numeric
   index, traded_quantity = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.traded_quantity.dissect(buffer, index, packet, parent)
@@ -3001,7 +3014,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.tick_size_table_entry.fiel
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Tick Size: Price
   index, tick_size = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.dissect(buffer, index, packet, parent)
@@ -3185,8 +3198,8 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.field
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric
+  index, order_book_id = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alpha
   index, symbol = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.symbol.dissect(buffer, index, packet, parent)
@@ -3465,8 +3478,8 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.message.fields = function(
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.message_sequence_number, UInt64.new(nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.message_sequence_number, UInt64.new(nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3594,7 +3607,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.packet_header.fields = fun
   index, message_count = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.sequence = sequence_number
+  nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.packet_sequence = sequence_number
 
   return index
 end

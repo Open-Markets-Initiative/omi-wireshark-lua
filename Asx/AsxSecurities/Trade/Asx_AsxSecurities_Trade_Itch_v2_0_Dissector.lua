@@ -2989,8 +2989,8 @@ asx_asxsecurities_trade_itch_v2_0.message.fields = function(buffer, offset, pack
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and asx_asxsecurities_trade_itch_v2_0.sequence ~= nil then
-    local sequence = parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.message_sequence_number, UInt64.new(asx_asxsecurities_trade_itch_v2_0.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and asx_asxsecurities_trade_itch_v2_0.packet_sequence ~= nil then
+    local sequence = parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.message_sequence_number, UInt64.new(asx_asxsecurities_trade_itch_v2_0.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3118,7 +3118,7 @@ asx_asxsecurities_trade_itch_v2_0.packet_header.fields = function(buffer, offset
   index, message_count = asx_asxsecurities_trade_itch_v2_0.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  asx_asxsecurities_trade_itch_v2_0.sequence = sequence_number
+  asx_asxsecurities_trade_itch_v2_0.packet_sequence = sequence_number
 
   return index
 end

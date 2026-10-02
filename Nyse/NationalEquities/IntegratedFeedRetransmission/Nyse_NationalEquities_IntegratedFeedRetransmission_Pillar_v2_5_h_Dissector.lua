@@ -2264,6 +2264,19 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.di
   local value = range:le_uint()
   local display = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Symbol Index
+nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.fields.symbol_index, range, value, display)
 
@@ -3059,7 +3072,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.retail_price_im
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3112,7 +3125,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.cross_correctio
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3167,7 +3180,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.trade_cancel_me
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3222,7 +3235,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.cross_trade_mes
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3290,7 +3303,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.non_displayed_t
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3372,7 +3385,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.add_order_refre
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3468,7 +3481,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_messa
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3586,7 +3599,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.replace_order_m
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3662,7 +3675,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.order_execution
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3742,7 +3755,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.delete_order_me
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3802,7 +3815,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.modify_order_me
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3874,7 +3887,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.add_order_messa
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4007,7 +4020,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.security_status
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -4099,7 +4112,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_clear_me
   index, source_time_ns = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -4164,8 +4177,8 @@ end
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.symbol.dissect(buffer, index, packet, parent)
@@ -4513,8 +4526,8 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.message.fields 
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.fields.message_sequence_number, UInt64.new(nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.fields.message_sequence_number, UInt64.new(nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4687,7 +4700,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.packet_header.f
   index, send_time = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.sequence = seq_num
+  nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_h.packet_sequence = seq_num
 
   return index
 end

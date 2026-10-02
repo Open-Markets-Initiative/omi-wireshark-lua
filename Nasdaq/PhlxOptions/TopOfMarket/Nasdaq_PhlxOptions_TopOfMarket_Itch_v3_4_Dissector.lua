@@ -2831,8 +2831,8 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.message.fields = function(buffer, offse
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_phlxoptions_topofmarket_itch_v3_4.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.message_sequence_number, UInt64.new(nasdaq_phlxoptions_topofmarket_itch_v3_4.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_phlxoptions_topofmarket_itch_v3_4.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v3_4.fields.message_sequence_number, UInt64.new(nasdaq_phlxoptions_topofmarket_itch_v3_4.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2960,7 +2960,7 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.packet_header.fields = function(buffer,
   index, message_count = nasdaq_phlxoptions_topofmarket_itch_v3_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_phlxoptions_topofmarket_itch_v3_4.sequence = sequence_number
+  nasdaq_phlxoptions_topofmarket_itch_v3_4.packet_sequence = sequence_number
 
   return index
 end
@@ -3568,7 +3568,8 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.server_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3887,7 +3888,8 @@ nasdaq_phlxoptions_topofmarket_itch_v3_4.client_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

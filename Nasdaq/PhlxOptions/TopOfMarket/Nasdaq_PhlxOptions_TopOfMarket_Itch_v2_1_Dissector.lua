@@ -69,15 +69,15 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.requested_sequence_number = 
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.phlxoptions.topofmarket.itch.v2.1.requestedsession", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.phlxoptions.topofmarket.itch.v2.1.reserved16", ftypes.BYTES)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.topofmarket.itch.v2.1.securitysymbol", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.topofmarket.itch.v2.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.phlxoptions.topofmarket.itch.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.topofmarket.itch.v2.1.serverpackettype", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.topofmarket.itch.v2.1.session", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.size_long = ProtoField.new("Size Long", "nasdaq.phlxoptions.topofmarket.itch.v2.1.sizelong", ftypes.UINT32)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.size_short = ProtoField.new("Size Short", "nasdaq.phlxoptions.topofmarket.itch.v2.1.sizeshort", ftypes.UINT16)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.topofmarket.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.phlxoptions.topofmarket.itch.v2.1.trackingnumber", ftypes.UINT16)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.phlxoptions.topofmarket.itch.v2.1.tradable", ftypes.STRING)
-omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.phlxoptions.topofmarket.itch.v2.1.udpsequencenumber", ftypes.UINT64)
-omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.phlxoptions.topofmarket.itch.v2.1.udpsession", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.topofmarket.itch.v2.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.phlxoptions.topofmarket.itch.v2.1.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.phlxoptions.topofmarket.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
@@ -90,10 +90,10 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.client_soup_bin_tcp_packet =
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topofmarket.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topofmarket.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v2.1.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v2.1.packetheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.server_packet = ProtoField.new("Tcp Packet", "nasdaq.phlxoptions.topofmarket.itch.v2.1.serverpacket", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v2.1.serverpacketheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.phlxoptions.topofmarket.itch.v2.1.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v2.1.udppacketheader", ftypes.STRING)
 
 -- Nasdaq PhlxOptions TopOfMarket 2.1 Application Messages
 omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.phlxoptions.topofmarket.itch.v2.1.bestaskupdatelongformmessage", ftypes.STRING)
@@ -1644,6 +1644,29 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.security_symbol.dissect = function(buff
   return offset + length, value
 end
 
+-- Sequence Number
+nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequenced Message Type
 nasdaq_phlxoptions_topofmarket_itch_v2_1.sequenced_message_type = {}
 
@@ -1736,6 +1759,45 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.server_packet_type.dissect = function(b
   local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_phlxoptions_topofmarket_itch_v2_1.session = {}
+
+-- Size: Session
+nasdaq_phlxoptions_topofmarket_itch_v2_1.session.size = 10
+
+-- Display: Session
+nasdaq_phlxoptions_topofmarket_itch_v2_1.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_phlxoptions_topofmarket_itch_v2_1.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_topofmarket_itch_v2_1.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -1878,68 +1940,6 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.tradable.dissect = function(buffer, off
   local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.tradable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.tradable, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Sequence Number
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number = {}
-
--- Size: Udp Sequence Number
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.size = 8
-
--- Display: Udp Sequence Number
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.display = function(value)
-  return "Udp Sequence Number: "..value
-end
-
--- Dissect: Udp Sequence Number
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Session
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session = {}
-
--- Size: Udp Session
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.size = 10
-
--- Display: Udp Session
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Udp Session: No Value"
-  end
-
-  return "Udp Session: "..value
-end
-
--- Dissect: Udp Session
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_session, range, value, display)
 
   return offset + length, value
 end
@@ -2819,8 +2819,8 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.message.fields = function(buffer, offse
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.message_sequence_number, UInt64.new(nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.message_sequence_number, UInt64.new(nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2920,54 +2920,54 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.messages.dissect = function(buffer, off
   end
 end
 
--- Udp Packet Header
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header = {}
+-- Packet Header
+nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header = {}
 
--- Size: Udp Packet Header
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.size =
-  nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.size + 
-  nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.size + 
+-- Size: Packet Header
+nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.size =
+  nasdaq_phlxoptions_topofmarket_itch_v2_1.session.size + 
+  nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.size + 
   nasdaq_phlxoptions_topofmarket_itch_v2_1.message_count.size
 
--- Display: Udp Packet Header
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.display = function(packet, parent, length)
+-- Display: Packet Header
+nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Udp Packet Header
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Packet Header
+nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Udp Session: 10 Byte Ascii String
-  index, udp_session = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_session.dissect(buffer, index, packet, parent)
+  -- Session: 10 Byte Ascii String
+  index, session = nasdaq_phlxoptions_topofmarket_itch_v2_1.session.dissect(buffer, index, packet, parent)
 
-  -- Udp Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, udp_sequence_number = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_sequence_number.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_phlxoptions_topofmarket_itch_v2_1.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_phlxoptions_topofmarket_itch_v2_1.sequence = udp_sequence_number
+  nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_sequence = sequence_number
 
   return index
 end
 
--- Dissect: Udp Packet Header
-nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Packet Header
+nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.udp_packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_phlxoptions_topofmarket_itch_v2_1.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.display(packet, parent, length)
+    local display = nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2976,15 +2976,15 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.packet = {}
 
 -- Verify required size of Udp packet
 nasdaq_phlxoptions_topofmarket_itch_v2_1.packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.size
+  return buffer:len() >= nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.size
 end
 
 -- Dissect Packet
 nasdaq_phlxoptions_topofmarket_itch_v2_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Udp Packet Header: Struct of 3 fields
-  index, udp_packet_header = nasdaq_phlxoptions_topofmarket_itch_v2_1.udp_packet_header.dissect(buffer, index, packet, parent)
+  -- Packet Header: Struct of 3 fields
+  index, packet_header = nasdaq_phlxoptions_topofmarket_itch_v2_1.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
@@ -3530,7 +3530,8 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.server_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3849,7 +3850,8 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.client_packet.dissect = function(buffer
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

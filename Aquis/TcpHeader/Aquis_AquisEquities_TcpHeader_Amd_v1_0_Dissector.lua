@@ -295,7 +295,8 @@ aquis_aquisequities_tcpheader_amd_v1_0.packet.dissect = function(buffer, packet,
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

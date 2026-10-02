@@ -1569,8 +1569,8 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.message.fields = function(buffer, off
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nordicequities_lastsale_itch_v1_2_9.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_sequence_number, UInt64.new(nasdaq_nordicequities_lastsale_itch_v1_2_9.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nordicequities_lastsale_itch_v1_2_9.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_sequence_number, UInt64.new(nasdaq_nordicequities_lastsale_itch_v1_2_9.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1698,7 +1698,7 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.packet_header.fields = function(buffe
   index, message_count = nasdaq_nordicequities_lastsale_itch_v1_2_9.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nordicequities_lastsale_itch_v1_2_9.sequence = sequence_number
+  nasdaq_nordicequities_lastsale_itch_v1_2_9.packet_sequence = sequence_number
 
   return index
 end

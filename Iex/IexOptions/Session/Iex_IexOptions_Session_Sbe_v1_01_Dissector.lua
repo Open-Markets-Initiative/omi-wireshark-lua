@@ -1592,7 +1592,8 @@ iex_iexoptions_session_sbe_v1_01.server_packet.dissect = function(buffer, packet
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -1627,7 +1628,8 @@ iex_iexoptions_session_sbe_v1_01.client_packet.dissect = function(buffer, packet
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

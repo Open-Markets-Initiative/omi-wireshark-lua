@@ -1885,6 +1885,19 @@ nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect = function(buff
   local value = range:le_uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Symbol Index
+nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.symbol_index, range, value, display)
 
@@ -2519,7 +2532,7 @@ nyse_nationalequities_depthfeed_pillar_v1_7.imbalance_message.fields = function(
   index, source_time_ns = nyse_nationalequities_depthfeed_pillar_v1_7.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2788,7 +2801,7 @@ nyse_nationalequities_depthfeed_pillar_v1_7.delta_message.fields = function(buff
   index, source_time_ns = nyse_nationalequities_depthfeed_pillar_v1_7.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2868,7 +2881,7 @@ nyse_nationalequities_depthfeed_pillar_v1_7.security_status_message.fields = fun
   index, source_time_ns = nyse_nationalequities_depthfeed_pillar_v1_7.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2957,7 +2970,7 @@ nyse_nationalequities_depthfeed_pillar_v1_7.symbol_clear_message.fields = functi
   index, source_time_ns = nyse_nationalequities_depthfeed_pillar_v1_7.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nationalequities_depthfeed_pillar_v1_7.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -3017,8 +3030,8 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_nationalequities_depthfeed_pillar_v1_7.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_nationalequities_depthfeed_pillar_v1_7.symbol.dissect(buffer, index, packet, parent)
@@ -3253,8 +3266,8 @@ nyse_nationalequities_depthfeed_pillar_v1_7.message.fields = function(buffer, of
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_nationalequities_depthfeed_pillar_v1_7.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.message_sequence_number, UInt64.new(nyse_nationalequities_depthfeed_pillar_v1_7.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_nationalequities_depthfeed_pillar_v1_7.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_7.fields.message_sequence_number, UInt64.new(nyse_nationalequities_depthfeed_pillar_v1_7.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3427,7 +3440,7 @@ nyse_nationalequities_depthfeed_pillar_v1_7.packet_header.fields = function(buff
   index, send_time = nyse_nationalequities_depthfeed_pillar_v1_7.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_nationalequities_depthfeed_pillar_v1_7.sequence = seq_num
+  nyse_nationalequities_depthfeed_pillar_v1_7.packet_sequence = seq_num
 
   return index
 end

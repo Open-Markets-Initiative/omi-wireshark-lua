@@ -2014,6 +2014,19 @@ nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect = function(buffer, o
   local value = range:le_uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Symbol Index
+nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.symbol_index, range, value, display)
 
@@ -2549,7 +2562,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_cancel_mes
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2625,7 +2638,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trf_fractional_prior_day_trade_message.fi
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2714,7 +2727,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trf_fractional_trade_correction_message.f
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2797,7 +2810,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trf_trade_cancel_message.fields = functio
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2861,7 +2874,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trf_fractional_trade_message.fields = fun
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2944,7 +2957,7 @@ nyse_amexequities_trades_pillar_v2_6_a.stock_summary_message.fields = function(b
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- High Price: Binary
   index, high_price = nyse_amexequities_trades_pillar_v2_6_a.high_price_calculate.dissect(buffer, index, packet, parent)
@@ -3016,7 +3029,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trade_correction_message.fields = functio
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3093,7 +3106,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trade_cancel_message.fields = function(bu
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3155,7 +3168,7 @@ nyse_amexequities_trades_pillar_v2_6_a.trade_message.fields = function(buffer, o
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3494,7 +3507,7 @@ nyse_amexequities_trades_pillar_v2_6_a.refresh_request_message.fields = function
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_amexequities_trades_pillar_v2_6_a.source_id.dissect(buffer, index, packet, parent)
@@ -3547,7 +3560,7 @@ nyse_amexequities_trades_pillar_v2_6_a.symbol_index_mapping_request_message.fiel
   local index = offset
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_amexequities_trades_pillar_v2_6_a.source_id.dissect(buffer, index, packet, parent)
@@ -3675,7 +3688,7 @@ nyse_amexequities_trades_pillar_v2_6_a.security_status_message.fields = function
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_trades_pillar_v2_6_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -3760,7 +3773,7 @@ nyse_amexequities_trades_pillar_v2_6_a.symbol_clear_message.fields = function(bu
   index, source_time_ns = nyse_amexequities_trades_pillar_v2_6_a.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_amexequities_trades_pillar_v2_6_a.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -3817,8 +3830,8 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary (record lookup)
-  index, symbol_index, symbol_index_record = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_trades_pillar_v2_6_a.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Symbol: ASCII
   index, symbol = nyse_amexequities_trades_pillar_v2_6_a.symbol.dissect(buffer, index, packet, parent)
@@ -4161,8 +4174,8 @@ nyse_amexequities_trades_pillar_v2_6_a.message.fields = function(buffer, offset,
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_amexequities_trades_pillar_v2_6_a.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.message_sequence_number, UInt64.new(nyse_amexequities_trades_pillar_v2_6_a.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_amexequities_trades_pillar_v2_6_a.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.message_sequence_number, UInt64.new(nyse_amexequities_trades_pillar_v2_6_a.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4335,7 +4348,7 @@ nyse_amexequities_trades_pillar_v2_6_a.packet_header.fields = function(buffer, o
   index, send_time = nyse_amexequities_trades_pillar_v2_6_a.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_amexequities_trades_pillar_v2_6_a.sequence = seq_num
+  nyse_amexequities_trades_pillar_v2_6_a.packet_sequence = seq_num
 
   return index
 end

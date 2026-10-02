@@ -3996,7 +3996,8 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.tcp_packet.dissect = function(buffer, 
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

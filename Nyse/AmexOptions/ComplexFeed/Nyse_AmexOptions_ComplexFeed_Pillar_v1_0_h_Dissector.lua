@@ -2069,6 +2069,19 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect = function(buffe
   local value = range:le_uint()
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Series Index
+nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, range, value, display)
 
@@ -3256,7 +3269,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_rfq_message.fields = function(
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3339,7 +3352,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_trade_message.fields = functi
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3416,7 +3429,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_quote_message.fields = functi
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -3992,7 +4005,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.complex_series_index_mapping_message.
   local index = offset
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup(buffer, index, packet, parent)
 
   -- Market Id: Binary
   index, market_id = nyse_amexoptions_complexfeed_pillar_v1_0_h.market_id.dissect(buffer, index, packet, parent)
@@ -4058,7 +4071,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.options_status_message.fields = funct
   index, source_time_ns = nyse_amexoptions_complexfeed_pillar_v1_0_h.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4122,8 +4135,8 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary
+  index, series_index = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Type: Binary
   index, series_type = nyse_amexoptions_complexfeed_pillar_v1_0_h.series_type.dissect(buffer, index, packet, parent)
@@ -4696,8 +4709,8 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.message.fields = function(buffer, off
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_amexoptions_complexfeed_pillar_v1_0_h.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_sequence_number, UInt64.new(nyse_amexoptions_complexfeed_pillar_v1_0_h.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_sequence_number, UInt64.new(nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -4870,7 +4883,7 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_header.fields = function(buffe
   index, send_time = nyse_amexoptions_complexfeed_pillar_v1_0_h.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_amexoptions_complexfeed_pillar_v1_0_h.sequence = seq_num
+  nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_sequence = seq_num
 
   return index
 end

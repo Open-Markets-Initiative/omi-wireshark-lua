@@ -2347,8 +2347,8 @@ nasdaq_nomoptions_bono_itch_v3_2.message.fields = function(buffer, offset, packe
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nomoptions_bono_itch_v3_2.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_sequence_number, UInt64.new(nasdaq_nomoptions_bono_itch_v3_2.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nomoptions_bono_itch_v3_2.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_sequence_number, UInt64.new(nasdaq_nomoptions_bono_itch_v3_2.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2476,7 +2476,7 @@ nasdaq_nomoptions_bono_itch_v3_2.packet_header.fields = function(buffer, offset,
   index, message_count = nasdaq_nomoptions_bono_itch_v3_2.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nomoptions_bono_itch_v3_2.sequence = sequence_number
+  nasdaq_nomoptions_bono_itch_v3_2.packet_sequence = sequence_number
 
   return index
 end

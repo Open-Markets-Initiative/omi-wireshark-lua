@@ -1693,8 +1693,8 @@ odx_odxequities_pts_itch_v2_2.message.fields = function(buffer, offset, packet, 
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and odx_odxequities_pts_itch_v2_2.sequence ~= nil then
-    local sequence = parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.message_sequence_number, UInt64.new(odx_odxequities_pts_itch_v2_2.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and odx_odxequities_pts_itch_v2_2.packet_sequence ~= nil then
+    local sequence = parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.message_sequence_number, UInt64.new(odx_odxequities_pts_itch_v2_2.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -1822,7 +1822,7 @@ odx_odxequities_pts_itch_v2_2.packet_header.fields = function(buffer, offset, pa
   index, message_count = odx_odxequities_pts_itch_v2_2.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  odx_odxequities_pts_itch_v2_2.sequence = sequence_number
+  odx_odxequities_pts_itch_v2_2.packet_sequence = sequence_number
 
   return index
 end

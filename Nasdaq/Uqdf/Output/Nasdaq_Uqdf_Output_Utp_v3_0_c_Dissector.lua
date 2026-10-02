@@ -114,6 +114,8 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.reason_for_the_trading_action = ProtoFi
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.uqdf.output.utp.v3.0.c.regshoaction", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "nasdaq.uqdf.output.utp.v3.0.c.retailinterestindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.uqdf.output.utp.v3.0.c.roundlotsize", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.sequencenumber", ftypes.UINT64)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.session = ProtoField.new("Session", "nasdaq.uqdf.output.utp.v3.0.c.session", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.uqdf.output.utp.v3.0.c.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_generated_update_flag = ProtoField.new("Sip Generated Update Flag", "nasdaq.uqdf.output.utp.v3.0.c.sipgeneratedupdateflag", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.uqdf.output.utp.v3.0.c.siptimestamp", ftypes.UINT64)
@@ -127,15 +129,13 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_1 = ProtoField.new("Timestamp
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.timestamp_2 = ProtoField.new("Timestamp 2", "nasdaq.uqdf.output.utp.v3.0.c.timestamp2", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.uqdf.output.utp.v3.0.c.tradingactioncode", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.tradingactionsequencenumber", ftypes.UINT32)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.udpsequencenumber", ftypes.UINT64)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.uqdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.uqdf.output.utp.v3.0.c.version", ftypes.STRING)
 
 -- Nasdaq Uqdf Output Utp 3.0.c Framing
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message = ProtoField.new("Message", "nasdaq.uqdf.output.utp.v3.0.c.message", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_header = ProtoField.new("Message Header", "nasdaq.uqdf.output.utp.v3.0.c.messageheader", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.uqdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.uqdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.packet = ProtoField.new("Packet", "nasdaq.uqdf.output.utp.v3.0.c.packet", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.uqdf.output.utp.v3.0.c.packetheader", ftypes.STRING)
 
 -- Nasdaq Uqdf Output 3.0.c Application Messages
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.uqdf.output.utp.v3.0.c.auctioncollarmessage", ftypes.STRING)
@@ -169,6 +169,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.heartbeat = ProtoField.new("Heartbeat",
 -- Nasdaq Uqdf Output Utp 3.0.c Generated Fields
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v3.0.c.marketcentercloserecapindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v3.0.c.messageindex", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -182,6 +183,7 @@ show.application_messages = true
 show.repeating_groups = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq Uqdf Output Utp 3.0.c Show Options
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -189,6 +191,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_application_messages = Pref.bool("S
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
@@ -208,6 +211,9 @@ function omi_nasdaq_uqdf_output_utp_v3_0_c.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes then
     show.indexes = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences then
+    show.sequences = omi_nasdaq_uqdf_output_utp_v3_0_c.prefs.show_sequences
   end
 end
 
@@ -3074,6 +3080,68 @@ nasdaq_uqdf_output_utp_v3_0_c.round_lot_size.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Sequence Number
+nasdaq_uqdf_output_utp_v3_0_c.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_uqdf_output_utp_v3_0_c.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_uqdf_output_utp_v3_0_c.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_uqdf_output_utp_v3_0_c.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_uqdf_output_utp_v3_0_c.session = {}
+
+-- Size: Session
+nasdaq_uqdf_output_utp_v3_0_c.session.size = 10
+
+-- Display: Session
+nasdaq_uqdf_output_utp_v3_0_c.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_uqdf_output_utp_v3_0_c.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_uqdf_output_utp_v3_0_c.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Sale Threshold Indicator
 nasdaq_uqdf_output_utp_v3_0_c.short_sale_threshold_indicator = {}
 
@@ -3445,68 +3513,6 @@ nasdaq_uqdf_output_utp_v3_0_c.trading_action_sequence_number.dissect = function(
   local display = nasdaq_uqdf_output_utp_v3_0_c.trading_action_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.trading_action_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Sequence Number
-nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number = {}
-
--- Size: Udp Sequence Number
-nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.size = 8
-
--- Display: Udp Sequence Number
-nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.display = function(value)
-  return "Udp Sequence Number: "..value
-end
-
--- Dissect: Udp Sequence Number
-nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Session
-nasdaq_uqdf_output_utp_v3_0_c.udp_session = {}
-
--- Size: Udp Session
-nasdaq_uqdf_output_utp_v3_0_c.udp_session.size = 10
-
--- Display: Udp Session
-nasdaq_uqdf_output_utp_v3_0_c.udp_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Udp Session: No Value"
-  end
-
-  return "Udp Session: "..value
-end
-
--- Dissect: Udp Session
-nasdaq_uqdf_output_utp_v3_0_c.udp_session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_uqdf_output_utp_v3_0_c.udp_session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_uqdf_output_utp_v3_0_c.udp_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_session, range, value, display)
 
   return offset + length, value
 end
@@ -6600,6 +6606,12 @@ nasdaq_uqdf_output_utp_v3_0_c.message.fields = function(buffer, offset, packet, 
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_uqdf_output_utp_v3_0_c.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_sequence_number, UInt64.new(nasdaq_uqdf_output_utp_v3_0_c.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 3 fields
   index, message_header = nasdaq_uqdf_output_utp_v3_0_c.message_header.dissect(buffer, index, packet, parent)
 
@@ -6686,68 +6698,71 @@ nasdaq_uqdf_output_utp_v3_0_c.messages.dissect = function(buffer, offset, packet
   end
 end
 
--- Udp Packet Header
-nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header = {}
+-- Packet Header
+nasdaq_uqdf_output_utp_v3_0_c.packet_header = {}
 
--- Size: Udp Packet Header
-nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.size =
-  nasdaq_uqdf_output_utp_v3_0_c.udp_session.size + 
-  nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.size + 
+-- Size: Packet Header
+nasdaq_uqdf_output_utp_v3_0_c.packet_header.size =
+  nasdaq_uqdf_output_utp_v3_0_c.session.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.sequence_number.size + 
   nasdaq_uqdf_output_utp_v3_0_c.message_count.size
 
--- Display: Udp Packet Header
-nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.display = function(packet, parent, length)
+-- Display: Packet Header
+nasdaq_uqdf_output_utp_v3_0_c.packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Udp Packet Header
-nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Packet Header
+nasdaq_uqdf_output_utp_v3_0_c.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Udp Session: 10 Byte Ascii String
-  index, udp_session = nasdaq_uqdf_output_utp_v3_0_c.udp_session.dissect(buffer, index, packet, parent)
+  -- Session: 10 Byte Ascii String
+  index, session = nasdaq_uqdf_output_utp_v3_0_c.session.dissect(buffer, index, packet, parent)
 
-  -- Udp Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, udp_sequence_number = nasdaq_uqdf_output_utp_v3_0_c.udp_sequence_number.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_uqdf_output_utp_v3_0_c.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_uqdf_output_utp_v3_0_c.message_count.dissect(buffer, index, packet, parent)
 
+  -- Sequence base for the packet's messages
+  nasdaq_uqdf_output_utp_v3_0_c.packet_sequence = sequence_number
+
   return index
 end
 
--- Dissect: Udp Packet Header
-nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Packet Header
+nasdaq_uqdf_output_utp_v3_0_c.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.udp_packet_header, buffer(offset, 0))
-    local index = nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.display(packet, parent, length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v3_0_c.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
--- Mold Udp 64 Packet
-nasdaq_uqdf_output_utp_v3_0_c.mold_udp_64_packet = {}
+-- Packet
+nasdaq_uqdf_output_utp_v3_0_c.packet = {}
 
 -- Verify required size of Udp packet
-nasdaq_uqdf_output_utp_v3_0_c.mold_udp_64_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.size
+nasdaq_uqdf_output_utp_v3_0_c.packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_uqdf_output_utp_v3_0_c.packet_header.size
 end
 
--- Dissect Mold Udp 64 Packet
-nasdaq_uqdf_output_utp_v3_0_c.mold_udp_64_packet.dissect = function(buffer, packet, parent)
+-- Dissect Packet
+nasdaq_uqdf_output_utp_v3_0_c.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Udp Packet Header: Struct of 3 fields
-  index, udp_packet_header = nasdaq_uqdf_output_utp_v3_0_c.udp_packet_header.dissect(buffer, index, packet, parent)
+  -- Packet Header: Struct of 3 fields
+  index, packet_header = nasdaq_uqdf_output_utp_v3_0_c.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
@@ -6774,7 +6789,7 @@ function omi_nasdaq_uqdf_output_utp_v3_0_c.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c, buffer(), omi_nasdaq_uqdf_output_utp_v3_0_c.description, "("..buffer:len().." Bytes)")
-  return nasdaq_uqdf_output_utp_v3_0_c.mold_udp_64_packet.dissect(buffer, packet, protocol)
+  return nasdaq_uqdf_output_utp_v3_0_c.packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -6785,7 +6800,7 @@ end
 -- Dissector Heuristic for Nasdaq Uqdf Output Utp 3.0.c (Udp)
 local function omi_nasdaq_uqdf_output_utp_v3_0_c_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_uqdf_output_utp_v3_0_c.mold_udp_64_packet.requiredsize(buffer) then return false end
+  if not nasdaq_uqdf_output_utp_v3_0_c.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_uqdf_output_utp_v3_0_c

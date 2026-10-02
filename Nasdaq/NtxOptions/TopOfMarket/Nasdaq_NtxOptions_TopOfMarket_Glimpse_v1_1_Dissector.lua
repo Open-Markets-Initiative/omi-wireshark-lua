@@ -3119,7 +3119,8 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.server_packet.dissect = function(buff
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3438,7 +3439,8 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.client_packet.dissect = function(buff
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

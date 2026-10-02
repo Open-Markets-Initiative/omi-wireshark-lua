@@ -2424,7 +2424,8 @@ asx_asxsecurities_trade_ouch_v2_0.server_packet.dissect = function(buffer, packe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -3070,7 +3071,8 @@ asx_asxsecurities_trade_ouch_v2_0.client_packet.dissect = function(buffer, packe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

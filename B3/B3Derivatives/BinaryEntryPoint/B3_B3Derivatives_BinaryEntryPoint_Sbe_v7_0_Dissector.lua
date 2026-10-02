@@ -14075,7 +14075,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.packet.dissect = function(buffer, pac
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

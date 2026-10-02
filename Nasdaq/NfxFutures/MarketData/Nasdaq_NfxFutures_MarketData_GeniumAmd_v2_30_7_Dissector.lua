@@ -907,6 +907,19 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect = function(
   local value = range:uint()
   local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Order Book Id
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup = function(buffer, offset, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, range, value, display)
 
@@ -1888,7 +1901,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_message.fields = function(b
   index, price_type = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_type.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.dissect(buffer, index, packet, parent)
@@ -1936,7 +1949,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest_message.fields = fu
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Open Interest: Numeric
   index, open_interest = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest.dissect(buffer, index, packet, parent)
@@ -2037,7 +2050,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.reported_trade.fields = function(
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Traded Quantity: Numeric
   index, traded_quantity = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.traded_quantity.dissect(buffer, index, packet, parent)
@@ -2112,7 +2125,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_state_message.fields =
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- State Name: Alpha
   index, state_name = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.state_name.dissect(buffer, index, packet, parent)
@@ -2206,7 +2219,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size_table_entry.fields = fu
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.lookup(buffer, index, packet, parent)
 
   -- Tick Size: Price
   index, tick_size = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.dissect(buffer, index, packet, parent)
@@ -2346,8 +2359,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.fields = fun
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric (record lookup)
-  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric
+  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alpha
   index, symbol = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.symbol.dissect(buffer, index, packet, parent)
@@ -2602,8 +2615,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.message.fields = function(buffer,
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.message_sequence_number, UInt64.new(nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.message_sequence_number, UInt64.new(nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2731,7 +2744,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.packet_header.fields = function(b
   index, message_count = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.sequence = sequence_number
+  nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.packet_sequence = sequence_number
 
   return index
 end

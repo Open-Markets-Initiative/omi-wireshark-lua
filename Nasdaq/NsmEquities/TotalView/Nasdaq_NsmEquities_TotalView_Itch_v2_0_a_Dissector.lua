@@ -17,16 +17,16 @@ local nasdaq_nsmequities_totalview_itch_v2_0_a = {}
 -- Nasdaq NsmEquities TotalView Itch 2.0.a Fields
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.itch.v2.0.a.canceledshares", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.itch.v2.0.a.clientpackettype", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.count = ProtoField.new("Count", "nasdaq.nsmequities.totalview.itch.v2.0.a.count", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.totalview.itch.v2.0.a.debugpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.itch.v2.0.a.display", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.itch.v2.0.a.eventcode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.itch.v2.0.a.executedshares", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.length = ProtoField.new("Length", "nasdaq.nsmequities.totalview.itch.v2.0.a.length", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.totalview.itch.v2.0.a.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.totalview.itch.v2.0.a.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.totalview.itch.v2.0.a.loginrequestpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.matchnumber", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.itch.v2.0.a.messagecount", ftypes.UINT16)
+omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.totalview.itch.v2.0.a.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.itch.v2.0.a.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.mmid = ProtoField.new("Mmid", "nasdaq.nsmequities.totalview.itch.v2.0.a.mmid", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.orderreferencenumber", ftypes.STRING)
@@ -35,8 +35,7 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.price = ProtoField.new("Pric
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.itch.v2.0.a.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.itch.v2.0.a.requestedsession", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequence = ProtoField.new("Sequence", "nasdaq.nsmequities.totalview.itch.v2.0.a.sequence", ftypes.UINT32)
-omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.sequencenumber", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.sequencenumber", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.itch.v2.0.a.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.itch.v2.0.a.serverpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.itch.v2.0.a.session", ftypes.STRING)
@@ -77,6 +76,7 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.heartbeat = ProtoField.new("
 
 -- Nasdaq NsmEquities TotalView Itch 2.0.a Generated Fields
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.itch.v2.0.a.messageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.itch.v2.0.a.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 2.0.a Formatting
@@ -114,6 +114,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq NsmEquities TotalView Itch 2.0.a Show Options
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -123,6 +124,7 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_application_messages = P
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -142,6 +144,9 @@ function omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_indexes then
     show.indexes = omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_sequences then
+    show.sequences = omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.show_sequences
   end
   if nasdaq_nsmequities_totalview_itch_v2_0_a.timestamp_format ~= omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.timestamp_format then
     nasdaq_nsmequities_totalview_itch_v2_0_a.timestamp_format = omi_nasdaq_nsmequities_totalview_itch_v2_0_a.prefs.timestamp_format
@@ -239,29 +244,6 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.client_packet_type.dissect = function(b
   return offset + length, value
 end
 
--- Count
-nasdaq_nsmequities_totalview_itch_v2_0_a.count = {}
-
--- Size: Count
-nasdaq_nsmequities_totalview_itch_v2_0_a.count.size = 2
-
--- Display: Count
-nasdaq_nsmequities_totalview_itch_v2_0_a.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_nsmequities_totalview_itch_v2_0_a.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v2_0_a.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nasdaq_nsmequities_totalview_itch_v2_0_a.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Display
 nasdaq_nsmequities_totalview_itch_v2_0_a.display = {}
 
@@ -350,29 +332,6 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.executed_shares.dissect = function(buff
   return offset + length, value
 end
 
--- Length
-nasdaq_nsmequities_totalview_itch_v2_0_a.length = {}
-
--- Size: Length
-nasdaq_nsmequities_totalview_itch_v2_0_a.length.size = 2
-
--- Display: Length
-nasdaq_nsmequities_totalview_itch_v2_0_a.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-nasdaq_nsmequities_totalview_itch_v2_0_a.length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v2_0_a.length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v2_0_a.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Match Number
 nasdaq_nsmequities_totalview_itch_v2_0_a.match_number = {}
 
@@ -397,6 +356,52 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.match_number.dissect = function(buffer,
   local display = nasdaq_nsmequities_totalview_itch_v2_0_a.match_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.match_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_count = {}
+
+-- Size: Message Count
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_length = {}
+
+-- Size: Message Length
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -635,34 +640,11 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.requested_session.dissect = function(bu
   return offset + length, value
 end
 
--- Sequence
-nasdaq_nsmequities_totalview_itch_v2_0_a.sequence = {}
-
--- Size: Sequence
-nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.size = 4
-
--- Display: Sequence
-nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.display = function(value)
-  return "Sequence: "..value
-end
-
--- Dissect: Sequence
-nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequence Number
 nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number = {}
 
 -- Size: Sequence Number
-nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.size = 10
+nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.size = 4
 
 -- Display: Sequence Number
 nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.display = function(value)
@@ -673,7 +655,7 @@ end
 nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:uint()
   local display = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.sequence_number, range, value, display)
@@ -1389,7 +1371,7 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.message_header = {}
 
 -- Size: Message Header
 nasdaq_nsmequities_totalview_itch_v2_0_a.message_header.size =
-  nasdaq_nsmequities_totalview_itch_v2_0_a.length.size + 
+  nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.size + 
   nasdaq_nsmequities_totalview_itch_v2_0_a.timestamp.size + 
   nasdaq_nsmequities_totalview_itch_v2_0_a.message_type.size
 
@@ -1402,8 +1384,8 @@ end
 nasdaq_nsmequities_totalview_itch_v2_0_a.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_nsmequities_totalview_itch_v2_0_a.length.dissect(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_nsmequities_totalview_itch_v2_0_a.message_length.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Ascii String
   index, timestamp = nasdaq_nsmequities_totalview_itch_v2_0_a.timestamp.dissect(buffer, index, packet, parent)
@@ -1439,10 +1421,10 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.message = {}
 nasdaq_nsmequities_totalview_itch_v2_0_a.message.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Length
-  local length = buffer(offset, 2):uint()
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
 
-  return length + 2
+  return message_length + 2
 end
 
 -- Display: Message
@@ -1458,6 +1440,12 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.message.fields = function(buffer, offse
   if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_index, message_index)
     iteration:set_generated()
+  end
+
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_nsmequities_totalview_itch_v2_0_a.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0_a.fields.message_sequence_number, UInt64.new(nasdaq_nsmequities_totalview_itch_v2_0_a.packet_sequence + message_index - 1))
+    sequence:set_generated()
   end
 
   -- Message Header: Struct of 3 fields
@@ -1532,24 +1520,24 @@ end
 nasdaq_nsmequities_totalview_itch_v2_0_a.messages = {}
 
 -- Dissect: Messages
-nasdaq_nsmequities_totalview_itch_v2_0_a.messages.dissect = function(buffer, offset, packet, parent, count)
+nasdaq_nsmequities_totalview_itch_v2_0_a.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return nasdaq_nsmequities_totalview_itch_v2_0_a.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if count == 65535 then
+  if message_count == 65535 then
     return nasdaq_nsmequities_totalview_itch_v2_0_a.end_of_session.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(offset, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_totalview_itch_v2_0_a.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -1562,8 +1550,8 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.packet_header = {}
 -- Size: Packet Header
 nasdaq_nsmequities_totalview_itch_v2_0_a.packet_header.size =
   nasdaq_nsmequities_totalview_itch_v2_0_a.session.size + 
-  nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.size + 
-  nasdaq_nsmequities_totalview_itch_v2_0_a.count.size
+  nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.size + 
+  nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.size
 
 -- Display: Packet Header
 nasdaq_nsmequities_totalview_itch_v2_0_a.packet_header.display = function(packet, parent, length)
@@ -1577,11 +1565,14 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.packet_header.fields = function(buffer,
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_nsmequities_totalview_itch_v2_0_a.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_nsmequities_totalview_itch_v2_0_a.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_nsmequities_totalview_itch_v2_0_a.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_nsmequities_totalview_itch_v2_0_a.packet_sequence = sequence_number
 
   return index
 end
@@ -1619,11 +1610,11 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.packet.dissect = function(buffer, packe
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_nsmequities_totalview_itch_v2_0_a.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):le_uint()
 
   -- Messages: Runtime Type with 3 branches
-  index = nasdaq_nsmequities_totalview_itch_v2_0_a.messages.dissect(buffer, index, packet, parent, count)
+  index = nasdaq_nsmequities_totalview_itch_v2_0_a.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end
@@ -1825,7 +1816,7 @@ nasdaq_nsmequities_totalview_itch_v2_0_a.login_accepted_packet.fields = function
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_nsmequities_totalview_itch_v2_0_a.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 10 Byte Ascii String
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = nasdaq_nsmequities_totalview_itch_v2_0_a.sequence_number.dissect(buffer, index, packet, parent)
 
   return index

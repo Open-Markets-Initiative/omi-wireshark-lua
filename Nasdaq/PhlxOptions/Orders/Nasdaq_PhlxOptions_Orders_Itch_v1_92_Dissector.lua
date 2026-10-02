@@ -25,7 +25,6 @@ omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.auction_type = ProtoField.new("A
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.orders.itch.v1.92.clientpackettype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.complex_order_leg = ProtoField.new("Complex Order Leg", "nasdaq.phlxoptions.orders.itch.v1.92.complexorderleg", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.complex_order_strategy_leg = ProtoField.new("Complex Order Strategy Leg", "nasdaq.phlxoptions.orders.itch.v1.92.complexorderstrategyleg", ftypes.STRING)
-omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.count = ProtoField.new("Count", "nasdaq.phlxoptions.orders.itch.v1.92.count", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.orders.itch.v1.92.currenttradingstate", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlxoptions.orders.itch.v1.92.customerfirmindicator", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.day = ProtoField.new("Day", "nasdaq.phlxoptions.orders.itch.v1.92.day", ftypes.UINT16, nil, base.DEC, 0x001F)
@@ -39,10 +38,11 @@ omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.explicit_strike_price = ProtoFie
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlxoptions.orders.itch.v1.92.imbalancevolume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlxoptions.orders.itch.v1.92.legopencloseindicator", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlxoptions.orders.itch.v1.92.legratio", ftypes.UINT32)
-omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.length = ProtoField.new("Length", "nasdaq.phlxoptions.orders.itch.v1.92.length", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlxoptions.orders.itch.v1.92.limitprice", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlxoptions.orders.itch.v1.92.marketqualifier", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlxoptions.orders.itch.v1.92.matchedvolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.orders.itch.v1.92.messagecount", ftypes.UINT16)
+omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.orders.itch.v1.92.messagelength", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.orders.itch.v1.92.messagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.month = ProtoField.new("Month", "nasdaq.phlxoptions.orders.itch.v1.92.month", ftypes.UINT16, nil, base.DEC, 0x01E0)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.orders.itch.v1.92.nanoseconds", ftypes.UINT32)
@@ -66,7 +66,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.requested_session = ProtoField.n
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.phlxoptions.orders.itch.v1.92.reserved3", ftypes.BYTES)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlxoptions.orders.itch.v1.92.seconds", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.orders.itch.v1.92.securitysymbol", ftypes.STRING)
-omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlxoptions.orders.itch.v1.92.sequence", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.orders.itch.v1.92.sequencenumber", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.phlxoptions.orders.itch.v1.92.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.orders.itch.v1.92.serverpackettype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.orders.itch.v1.92.session", ftypes.STRING)
@@ -531,29 +531,6 @@ nasdaq_phlxoptions_orders_itch_v1_92.client_packet_type.dissect = function(buffe
   return offset + length, value
 end
 
--- Count
-nasdaq_phlxoptions_orders_itch_v1_92.count = {}
-
--- Size: Count
-nasdaq_phlxoptions_orders_itch_v1_92.count.size = 2
-
--- Display: Count
-nasdaq_phlxoptions_orders_itch_v1_92.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-nasdaq_phlxoptions_orders_itch_v1_92.count.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_92.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_92.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Current Trading State
 nasdaq_phlxoptions_orders_itch_v1_92.current_trading_state = {}
 
@@ -883,29 +860,6 @@ nasdaq_phlxoptions_orders_itch_v1_92.leg_ratio.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Length
-nasdaq_phlxoptions_orders_itch_v1_92.length = {}
-
--- Size: Length
-nasdaq_phlxoptions_orders_itch_v1_92.length.size = 2
-
--- Display: Length
-nasdaq_phlxoptions_orders_itch_v1_92.length.display = function(value)
-  return "Length: "..value
-end
-
--- Dissect: Length
-nasdaq_phlxoptions_orders_itch_v1_92.length.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_92.length.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_92.length.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Limit Price
 nasdaq_phlxoptions_orders_itch_v1_92.limit_price = {}
 
@@ -987,6 +941,52 @@ nasdaq_phlxoptions_orders_itch_v1_92.matched_volume.dissect = function(buffer, o
   local display = nasdaq_phlxoptions_orders_itch_v1_92.matched_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.matched_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nasdaq_phlxoptions_orders_itch_v1_92.message_count = {}
+
+-- Size: Message Count
+nasdaq_phlxoptions_orders_itch_v1_92.message_count.size = 2
+
+-- Display: Message Count
+nasdaq_phlxoptions_orders_itch_v1_92.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nasdaq_phlxoptions_orders_itch_v1_92.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_92.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_92.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+nasdaq_phlxoptions_orders_itch_v1_92.message_length = {}
+
+-- Size: Message Length
+nasdaq_phlxoptions_orders_itch_v1_92.message_length.size = 2
+
+-- Display: Message Length
+nasdaq_phlxoptions_orders_itch_v1_92.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+nasdaq_phlxoptions_orders_itch_v1_92.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_92.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_92.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -1611,25 +1611,25 @@ nasdaq_phlxoptions_orders_itch_v1_92.security_symbol.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Sequence
-nasdaq_phlxoptions_orders_itch_v1_92.sequence = {}
+-- Sequence Number
+nasdaq_phlxoptions_orders_itch_v1_92.sequence_number = {}
 
--- Size: Sequence
-nasdaq_phlxoptions_orders_itch_v1_92.sequence.size = 4
+-- Size: Sequence Number
+nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.size = 4
 
--- Display: Sequence
-nasdaq_phlxoptions_orders_itch_v1_92.sequence.display = function(value)
-  return "Sequence: "..value
+-- Display: Sequence Number
+nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.display = function(value)
+  return "Sequence Number: "..value
 end
 
--- Dissect: Sequence
-nasdaq_phlxoptions_orders_itch_v1_92.sequence.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_92.sequence.size
+-- Dissect: Sequence Number
+nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_92.sequence.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequence, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3134,7 +3134,7 @@ nasdaq_phlxoptions_orders_itch_v1_92.message_header = {}
 
 -- Size: Message Header
 nasdaq_phlxoptions_orders_itch_v1_92.message_header.size =
-  nasdaq_phlxoptions_orders_itch_v1_92.length.size + 
+  nasdaq_phlxoptions_orders_itch_v1_92.message_length.size + 
   nasdaq_phlxoptions_orders_itch_v1_92.message_type.size
 
 -- Display: Message Header
@@ -3146,8 +3146,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = nasdaq_phlxoptions_orders_itch_v1_92.length.dissect(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_phlxoptions_orders_itch_v1_92.message_length.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 11 values
   index, message_type = nasdaq_phlxoptions_orders_itch_v1_92.message_type.dissect(buffer, index, packet, parent)
@@ -3180,10 +3180,10 @@ nasdaq_phlxoptions_orders_itch_v1_92.message = {}
 nasdaq_phlxoptions_orders_itch_v1_92.message.size = function(buffer, offset)
   local index = offset
 
-  -- Dependency element: Length
-  local length = buffer(offset, 2):uint()
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):uint()
 
-  return length + 2
+  return message_length + 2
 end
 
 -- Display: Message
@@ -3199,6 +3199,12 @@ nasdaq_phlxoptions_orders_itch_v1_92.message.fields = function(buffer, offset, p
   if message_index ~= nil and show.indexes then
     local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_index, message_index)
     iteration:set_generated()
+  end
+
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_phlxoptions_orders_itch_v1_92.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_92.fields.message_sequence_number, UInt64.new(nasdaq_phlxoptions_orders_itch_v1_92.packet_sequence + message_index - 1))
+    sequence:set_generated()
   end
 
   -- Message Header: Struct of 2 fields
@@ -3273,24 +3279,24 @@ end
 nasdaq_phlxoptions_orders_itch_v1_92.messages = {}
 
 -- Dissect: Messages
-nasdaq_phlxoptions_orders_itch_v1_92.messages.dissect = function(buffer, offset, packet, parent, count)
+nasdaq_phlxoptions_orders_itch_v1_92.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return nasdaq_phlxoptions_orders_itch_v1_92.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session
-  if count == 65535 then
+  if message_count == 65535 then
     return nasdaq_phlxoptions_orders_itch_v1_92.end_of_session.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
-    -- Dependency element: Length
-    local length = buffer(offset, 2):uint()
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):uint()
 
     -- Runtime Size Of: Message
-    local size_of_message = length + 2
+    local size_of_message = message_length + 2
 
     -- Message: Struct of 2 fields
     offset = nasdaq_phlxoptions_orders_itch_v1_92.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -3303,8 +3309,8 @@ nasdaq_phlxoptions_orders_itch_v1_92.packet_header = {}
 -- Size: Packet Header
 nasdaq_phlxoptions_orders_itch_v1_92.packet_header.size =
   nasdaq_phlxoptions_orders_itch_v1_92.session.size + 
-  nasdaq_phlxoptions_orders_itch_v1_92.sequence.size + 
-  nasdaq_phlxoptions_orders_itch_v1_92.count.size
+  nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.size + 
+  nasdaq_phlxoptions_orders_itch_v1_92.message_count.size
 
 -- Display: Packet Header
 nasdaq_phlxoptions_orders_itch_v1_92.packet_header.display = function(packet, parent, length)
@@ -3318,11 +3324,14 @@ nasdaq_phlxoptions_orders_itch_v1_92.packet_header.fields = function(buffer, off
   -- Session: 10 Byte Ascii String
   index, session = nasdaq_phlxoptions_orders_itch_v1_92.session.dissect(buffer, index, packet, parent)
 
-  -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = nasdaq_phlxoptions_orders_itch_v1_92.sequence.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_phlxoptions_orders_itch_v1_92.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = nasdaq_phlxoptions_orders_itch_v1_92.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = nasdaq_phlxoptions_orders_itch_v1_92.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_phlxoptions_orders_itch_v1_92.packet_sequence = sequence_number
 
   return index
 end
@@ -3360,11 +3369,11 @@ nasdaq_phlxoptions_orders_itch_v1_92.packet.dissect = function(buffer, packet, p
   -- Packet Header: Struct of 3 fields
   index, packet_header = nasdaq_phlxoptions_orders_itch_v1_92.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 2, 2):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 2, 2):le_uint()
 
   -- Messages: Runtime Type with 3 branches
-  index = nasdaq_phlxoptions_orders_itch_v1_92.messages.dissect(buffer, index, packet, parent, count)
+  index = nasdaq_phlxoptions_orders_itch_v1_92.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end
@@ -3912,7 +3921,8 @@ nasdaq_phlxoptions_orders_itch_v1_92.server_packet.dissect = function(buffer, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -4231,7 +4241,8 @@ nasdaq_phlxoptions_orders_itch_v1_92.client_packet.dissect = function(buffer, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

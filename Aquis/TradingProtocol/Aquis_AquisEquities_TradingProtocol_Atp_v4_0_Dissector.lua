@@ -3620,7 +3620,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.packet.dissect = function(buffer, p
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

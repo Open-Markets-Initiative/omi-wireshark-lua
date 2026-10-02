@@ -55,7 +55,6 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.loginresponsetext" Cboe.BzxEqui
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.nounspecifiedunitreplay" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LoginResponseMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.lastreceivedsequencenumber" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LoginResponseMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofunits" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LoginResponseMessage.json
-grep "cboe.bzxequities.binaryorderentry.boe.v2.3.unitsequence" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LoginResponseMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofparamgroups" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LoginResponseMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/LogoutMessage.pcap" \
@@ -68,7 +67,6 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.logoutreason" Cboe.BzxEquities.
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.logoutreasontext" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LogoutMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.lastreceivedsequencenumber" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LogoutMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofunits" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LogoutMessage.json
-grep "cboe.bzxequities.binaryorderentry.boe.v2.3.unitsequence" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LogoutMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/LogoutRequestMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \

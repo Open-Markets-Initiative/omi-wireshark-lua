@@ -5482,7 +5482,8 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.packet.dissect = function(buffe
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

@@ -6094,7 +6094,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.server_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -6734,7 +6735,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.client_packet.dissect = function(b
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

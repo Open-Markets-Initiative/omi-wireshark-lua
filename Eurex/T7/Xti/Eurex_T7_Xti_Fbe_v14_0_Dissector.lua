@@ -24187,7 +24187,8 @@ eurex_t7_xti_fbe_v14_0.server_packet.dissect = function(buffer, packet, parent)
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -29662,7 +29663,8 @@ eurex_t7_xti_fbe_v14_0.client_packet.dissect = function(buffer, packet, parent)
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

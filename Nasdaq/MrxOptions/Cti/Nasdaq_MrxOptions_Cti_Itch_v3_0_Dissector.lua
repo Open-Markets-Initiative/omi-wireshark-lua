@@ -5058,7 +5058,8 @@ nasdaq_mrxoptions_cti_itch_v3_0.server_packet.dissect = function(buffer, packet,
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -5377,7 +5378,8 @@ nasdaq_mrxoptions_cti_itch_v3_0.client_packet.dissect = function(buffer, packet,
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

@@ -15644,7 +15644,8 @@ cme_globex_ilink3_sbe_v8_7.server_packet.dissect = function(buffer, packet, pare
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -18277,7 +18278,8 @@ cme_globex_ilink3_sbe_v8_7.client_packet.dissect = function(buffer, packet, pare
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

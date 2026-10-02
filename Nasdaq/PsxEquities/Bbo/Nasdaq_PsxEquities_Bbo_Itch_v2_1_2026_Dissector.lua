@@ -1966,8 +1966,8 @@ nasdaq_psxequities_bbo_itch_v2_1_2026.message.fields = function(buffer, offset, 
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_psxequities_bbo_itch_v2_1_2026.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.message_sequence_number, UInt64.new(nasdaq_psxequities_bbo_itch_v2_1_2026.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_psxequities_bbo_itch_v2_1_2026.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2026.fields.message_sequence_number, UInt64.new(nasdaq_psxequities_bbo_itch_v2_1_2026.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -2095,7 +2095,7 @@ nasdaq_psxequities_bbo_itch_v2_1_2026.packet_header.fields = function(buffer, of
   index, message_count = nasdaq_psxequities_bbo_itch_v2_1_2026.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_psxequities_bbo_itch_v2_1_2026.sequence = sequence_number
+  nasdaq_psxequities_bbo_itch_v2_1_2026.packet_sequence = sequence_number
 
   return index
 end

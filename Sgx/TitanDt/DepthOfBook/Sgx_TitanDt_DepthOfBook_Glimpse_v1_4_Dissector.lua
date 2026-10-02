@@ -2631,7 +2631,8 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet.dissect = function(buffer, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -2950,7 +2951,8 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_packet.dissect = function(buffer, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

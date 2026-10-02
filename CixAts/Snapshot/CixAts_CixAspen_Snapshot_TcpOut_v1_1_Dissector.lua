@@ -1820,7 +1820,8 @@ cixats_cixaspen_snapshot_tcpout_v1_1.packet.dissect = function(buffer, packet, p
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

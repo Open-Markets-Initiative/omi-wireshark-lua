@@ -15743,7 +15743,8 @@ bse_bseindia_eti_fbe_v1_6_14.server_packet.dissect = function(buffer, packet, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -18607,7 +18608,8 @@ bse_bseindia_eti_fbe_v1_6_14.client_packet.dissect = function(buffer, packet, pa
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

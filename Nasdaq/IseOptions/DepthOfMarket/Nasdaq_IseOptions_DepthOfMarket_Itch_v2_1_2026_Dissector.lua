@@ -70,8 +70,10 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.requested_session = Pr
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.reserved16", ftypes.BYTES)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.reserved4", ftypes.BYTES)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.securitysymbol", ftypes.STRING)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.sequencenumber", ftypes.UINT64)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.serverpackettype", ftypes.STRING)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.session = ProtoField.new("Session", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.session", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.side = ProtoField.new("Side", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.side", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.side_imbalance_direction = ProtoField.new("Side Imbalance Direction", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.sideimbalancedirection", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.strategyid", ftypes.UINT32)
@@ -80,8 +82,6 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.tracking_number = Prot
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.tradable", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.trade_condition = ProtoField.new("Trade Condition", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.tradecondition", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.trade_type = ProtoField.new("Trade Type", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.tradetype", ftypes.STRING)
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.udpsequencenumber", ftypes.UINT64)
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.udpsession", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.unsequencedmessagetype", ftypes.STRING)
@@ -96,10 +96,10 @@ omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.client_soup_bin_tcp_pa
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.message", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.packet", ftypes.STRING)
+omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.packetheader", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.server_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.serverpacket", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.serverpacketheader", ftypes.STRING)
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.udppacketheader", ftypes.STRING)
 
 -- Nasdaq IseOptions DepthOfMarket 2.1.2026 Application Messages
 omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.add_order_long_form_message = ProtoField.new("Add Order Long Form Message", "nasdaq.iseoptions.depthofmarket.itch.v2.1.2026.addorderlongformmessage", ftypes.STRING)
@@ -1786,6 +1786,29 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.security_symbol.dissect = functio
   return offset + length, value
 end
 
+-- Sequence Number
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number = {}
+
+-- Size: Sequence Number
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.size = 8
+
+-- Display: Sequence Number
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequenced Message Type
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequenced_message_type = {}
 
@@ -1908,6 +1931,45 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_packet_type.dissect = func
   local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session = {}
+
+-- Size: Session
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.size = 10
+
+-- Display: Session
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2143,68 +2205,6 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.trade_type.dissect = function(buf
   local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.trade_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Sequence Number
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number = {}
-
--- Size: Udp Sequence Number
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.size = 8
-
--- Display: Udp Sequence Number
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.display = function(value)
-  return "Udp Sequence Number: "..value
-end
-
--- Dissect: Udp Sequence Number
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Udp Session
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session = {}
-
--- Size: Udp Session
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.size = 10
-
--- Display: Udp Session
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Udp Session: No Value"
-  end
-
-  return "Udp Session: "..value
-end
-
--- Dissect: Udp Session
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_session, range, value, display)
 
   return offset + length, value
 end
@@ -3830,8 +3830,8 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.message.fields = function(buffer,
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence ~= nil then
-    local sequence = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message_sequence_number, UInt64.new(nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.message_sequence_number, UInt64.new(nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -3931,54 +3931,54 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.messages.dissect = function(buffe
   end
 end
 
--- Udp Packet Header
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header = {}
+-- Packet Header
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header = {}
 
--- Size: Udp Packet Header
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.size =
-  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.size + 
-  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.size + 
+-- Size: Packet Header
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.size =
+  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.size + 
+  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.size + 
   nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.message_count.size
 
--- Display: Udp Packet Header
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.display = function(packet, parent, length)
+-- Display: Packet Header
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Udp Packet Header
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Packet Header
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Udp Session: 10 Byte Ascii String
-  index, udp_session = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_session.dissect(buffer, index, packet, parent)
+  -- Session: 10 Byte Ascii String
+  index, session = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.session.dissect(buffer, index, packet, parent)
 
-  -- Udp Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, udp_sequence_number = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_sequence_number.dissect(buffer, index, packet, parent)
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence_number.dissect(buffer, index, packet, parent)
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.message_count.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.sequence = udp_sequence_number
+  nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_sequence = sequence_number
 
   return index
 end
 
--- Dissect: Udp Packet Header
-nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Packet Header
+nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.udp_packet_header, buffer(offset, 0))
-    local index = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.display(packet, parent, length)
+    local display = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3987,15 +3987,15 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet = {}
 
 -- Verify required size of Udp packet
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.size
+  return buffer:len() >= nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.size
 end
 
 -- Dissect Packet
 nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Udp Packet Header: Struct of 3 fields
-  index, udp_packet_header = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.udp_packet_header.dissect(buffer, index, packet, parent)
+  -- Packet Header: Struct of 3 fields
+  index, packet_header = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):uint()
@@ -4581,7 +4581,8 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.server_packet.dissect = function(
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 
@@ -4900,7 +4901,8 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.client_packet.dissect = function(
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
-      break
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
     end
   end
 

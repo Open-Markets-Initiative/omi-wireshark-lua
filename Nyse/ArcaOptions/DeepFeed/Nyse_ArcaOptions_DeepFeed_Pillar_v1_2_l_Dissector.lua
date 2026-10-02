@@ -2694,6 +2694,19 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect = function(buffer, 
   local value = range:le_uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.display(value, buffer, offset, packet, parent)
 
+  parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-- Lookup: Series Index
+nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.display(value, buffer, offset, packet, parent)
+
   if not show.records then
     parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.series_index, range, value, display)
 
@@ -4014,7 +4027,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_outright_series_summary_message.
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- High Price: Signed Binary
   index, high_price = nyse_arcaoptions_deepfeed_pillar_v1_2_l.high_price_calculate.dissect(buffer, index, packet, parent)
@@ -4075,7 +4088,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_trade_cancel_message.fields = fu
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4130,7 +4143,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_cross_trade_message.fields = fun
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4197,7 +4210,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_non_displayed_trade_message.fiel
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4278,7 +4291,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_series_rfq_message.fields = func
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4361,7 +4374,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_refresh_message.fields
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4448,7 +4461,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4545,7 +4558,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_replace_order_message.fields = f
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4622,7 +4635,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_order_execution_message.fields =
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4696,7 +4709,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_delete_order_message.fields = fu
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4756,7 +4769,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_modify_order_message.fields = fu
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -4829,7 +4842,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_add_order_message.fields = funct
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -5402,7 +5415,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.complex_series_index_mapping_message.fie
   local index = offset
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Market Id: Binary
   index, market_id = nyse_arcaoptions_deepfeed_pillar_v1_2_l.market_id.dissect(buffer, index, packet, parent)
@@ -5468,7 +5481,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.options_status_message.fields = function
   index, source_time_ns = nyse_arcaoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
 
   -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_seq_num.dissect(buffer, index, packet, parent)
@@ -5532,8 +5545,8 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: Binary (record lookup)
-  index, series_index, series_index_record = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
+  -- Series Index: Binary
+  index, series_index = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_index.dissect(buffer, index, packet, parent)
 
   -- Series Type: Binary
   index, series_type = nyse_arcaoptions_deepfeed_pillar_v1_2_l.series_type.dissect(buffer, index, packet, parent)
@@ -6142,8 +6155,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.message.fields = function(buffer, offset
   end
 
   -- Implicit Message Sequence Number
-  if message_index ~= nil and show.sequences and nyse_arcaoptions_deepfeed_pillar_v1_2_l.sequence ~= nil then
-    local sequence = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_deepfeed_pillar_v1_2_l.sequence + message_index - 1))
+  if message_index ~= nil and show.sequences and nyse_arcaoptions_deepfeed_pillar_v1_2_l.packet_sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.message_sequence_number, UInt64.new(nyse_arcaoptions_deepfeed_pillar_v1_2_l.packet_sequence + message_index - 1))
     sequence:set_generated()
   end
 
@@ -6316,7 +6329,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.packet_header.fields = function(buffer, 
   index, send_time = nyse_arcaoptions_deepfeed_pillar_v1_2_l.send_time.dissect(buffer, index, packet, parent)
 
   -- Sequence base for the packet's messages
-  nyse_arcaoptions_deepfeed_pillar_v1_2_l.sequence = seq_num
+  nyse_arcaoptions_deepfeed_pillar_v1_2_l.packet_sequence = seq_num
 
   return index
 end

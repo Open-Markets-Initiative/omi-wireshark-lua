@@ -2652,8 +2652,8 @@ box_boxoptions_solaorderentry_sail_v2_25.message_type.display = function(value)
   if value == "OT" then
     return "Message Type: Complex Order Auction Entry (OT)"
   end
-  if value == "Q<i>" then
-    return "Message Type: Bulk Quote (Q<i>)"
+  if value == "QP" then
+    return "Message Type: Bulk Quote (QP)"
   end
   if value == "RE" then
     return "Message Type: Executing Participant Connection (RE)"
@@ -10165,7 +10165,7 @@ box_boxoptions_solaorderentry_sail_v2_25.firm_message.dissect = function(buffer,
     return box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bulk Quote
-  if message_type == "Q<i>" then
+  if message_type == "QP" then
     return box_boxoptions_solaorderentry_sail_v2_25.bulk_quote.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Executing Participant Connection
@@ -10471,7 +10471,7 @@ box_boxoptions_solaorderentry_sail_v2_25.firm_packet.fingerprint = function(buff
   end
 
   -- Bulk Quote
-  if message_type == "Q<i>" then
+  if message_type == "QP" then
     return true
   end
 
