@@ -36,7 +36,7 @@ omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reg_sho_action = ProtoField
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.psxequities.totalview.glimpse.v3.2.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.totalview.glimpse.v3.2.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.totalview.glimpse.v3.2.requestedsession", ftypes.STRING)
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reserved = ProtoField.new("Reserved", "nasdaq.psxequities.totalview.glimpse.v3.2.reserved", ftypes.STRING)
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reserved_1 = ProtoField.new("Reserved 1", "nasdaq.psxequities.totalview.glimpse.v3.2.reserved1", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psxequities.totalview.glimpse.v3.2.roundlotsize", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.totalview.glimpse.v3.2.roundlotsonly", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.second = ProtoField.new("Second", "nasdaq.psxequities.totalview.glimpse.v3.2.second", ftypes.STRING)
@@ -709,25 +709,25 @@ nasdaq_psxequities_totalview_glimpse_v3_2.requested_session.dissect = function(b
   return offset + length, value
 end
 
--- Reserved
-nasdaq_psxequities_totalview_glimpse_v3_2.reserved = {}
+-- Reserved 1
+nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1 = {}
 
--- Size: Reserved
-nasdaq_psxequities_totalview_glimpse_v3_2.reserved.size = 1
+-- Size: Reserved 1
+nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.size = 1
 
--- Display: Reserved
-nasdaq_psxequities_totalview_glimpse_v3_2.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-nasdaq_psxequities_totalview_glimpse_v3_2.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_totalview_glimpse_v3_2.reserved.size
+-- Dissect: Reserved 1
+nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_psxequities_totalview_glimpse_v3_2.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1179,7 +1179,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.stock_trading_action_message = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.stock_trading_action_message.size =
   nasdaq_psxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.size + 
-  nasdaq_psxequities_totalview_glimpse_v3_2.reserved.size + 
+  nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.size + 
   nasdaq_psxequities_totalview_glimpse_v3_2.reason.size
 
 -- Display: Stock Trading Action Message
@@ -1197,8 +1197,8 @@ nasdaq_psxequities_totalview_glimpse_v3_2.stock_trading_action_message.fields = 
   -- Trading State: Alphabetic
   index, trading_state = nasdaq_psxequities_totalview_glimpse_v3_2.trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reserved: Alphanumeric
-  index, reserved = nasdaq_psxequities_totalview_glimpse_v3_2.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = nasdaq_psxequities_totalview_glimpse_v3_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reason: Alphanumeric
   index, reason = nasdaq_psxequities_totalview_glimpse_v3_2.reason.dissect(buffer, index, packet, parent)
@@ -1313,7 +1313,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.fie
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Numeric
   index, price = nasdaq_psxequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
 
   -- Attribution: Alpha
@@ -1372,7 +1372,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.add_order_message.fields = function(bu
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Numeric
   index, price = nasdaq_psxequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
 
   return index

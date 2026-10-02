@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1256 | 8,432,823 |
+| 1256 | 8,436,230 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -149,6 +149,7 @@ Enjoy.
 [Omi.Encoding.AsciiDrop]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiDrop.md "AsciiDrop Encoding"
 [Omi.Encoding.AsciiRash]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiRash.md "AsciiRash Encoding"
 [Omi.Encoding.Sqf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sqf.md "Sqf Encoding"
+[Omi.Encoding.AsciiItch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiItch.md "AsciiItch Encoding"
 [Omi.Encoding.GeniumAmd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/GeniumAmd.md "GeniumAmd Encoding"
 [Omi.Encoding.Binary]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Binary.md "Binary Encoding"
 [Omi.Encoding.Utp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Utp.md "Utp Encoding"

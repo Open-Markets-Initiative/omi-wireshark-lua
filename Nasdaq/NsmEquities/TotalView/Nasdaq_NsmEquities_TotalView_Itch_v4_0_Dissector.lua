@@ -2164,13 +2164,13 @@ nasdaq_nsmequities_totalview_itch_v4_0.net_order_imbalance_indicator_message.fie
   -- Stock: Alpha (record lookup)
   index, stock, stock_record = nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup(buffer, index, packet, parent)
 
-  -- Far Price: Price (4)
+  -- Far Price: Integer
   index, far_price = nasdaq_nsmequities_totalview_itch_v4_0.far_price.dissect(buffer, index, packet, parent)
 
-  -- Near Price: Price (4)
+  -- Near Price: Integer
   index, near_price = nasdaq_nsmequities_totalview_itch_v4_0.near_price.dissect(buffer, index, packet, parent)
 
-  -- Current Reference Price: Price (4)
+  -- Current Reference Price: Integer
   index, current_reference_price = nasdaq_nsmequities_totalview_itch_v4_0.current_reference_price.dissect(buffer, index, packet, parent)
 
   -- Cross Type: Alpha
@@ -2274,7 +2274,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.cross_trade_message.fields = function(buf
   -- Stock: Alpha (record lookup)
   index, stock, stock_record = nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup(buffer, index, packet, parent)
 
-  -- Cross Price: Price (4)
+  -- Cross Price: Integer
   index, cross_price = nasdaq_nsmequities_totalview_itch_v4_0.cross_price.dissect(buffer, index, packet, parent)
 
   -- Match Number: Integer
@@ -2341,7 +2341,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.trade_message.fields = function(buffer, o
   -- Stock: Alpha (record lookup)
   index, stock, stock_record = nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Integer
   index, price = nasdaq_nsmequities_totalview_itch_v4_0.price.dissect(buffer, index, packet, parent)
 
   -- Match Number: Integer
@@ -2400,7 +2400,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.order_replace_message.fields = function(b
   -- Shares: Integer
   index, shares = nasdaq_nsmequities_totalview_itch_v4_0.shares.dissect(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Integer
   index, price = nasdaq_nsmequities_totalview_itch_v4_0.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2552,7 +2552,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.order_executed_with_price_message.fields 
   -- Printable: Alpha
   index, printable = nasdaq_nsmequities_totalview_itch_v4_0.printable.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: Price (4)
+  -- Execution Price: Integer
   index, execution_price = nasdaq_nsmequities_totalview_itch_v4_0.execution_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2665,7 +2665,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.add_order_with_mpid_message.fields = func
   -- Stock: Alpha (record lookup)
   index, stock, stock_record = nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Integer
   index, price = nasdaq_nsmequities_totalview_itch_v4_0.price.dissect(buffer, index, packet, parent)
 
   -- Attribution: Alpha
@@ -2728,7 +2728,7 @@ nasdaq_nsmequities_totalview_itch_v4_0.add_order_message.fields = function(buffe
   -- Stock: Alpha (record lookup)
   index, stock, stock_record = nasdaq_nsmequities_totalview_itch_v4_0.stock.lookup(buffer, index, packet, parent)
 
-  -- Price: Price (4)
+  -- Price: Integer
   index, price = nasdaq_nsmequities_totalview_itch_v4_0.price.dissect(buffer, index, packet, parent)
 
   return index

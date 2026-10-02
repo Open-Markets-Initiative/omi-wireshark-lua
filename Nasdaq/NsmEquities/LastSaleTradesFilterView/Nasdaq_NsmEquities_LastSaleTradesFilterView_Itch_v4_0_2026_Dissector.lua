@@ -2391,7 +2391,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.trade_correction_mess
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2479,7 +2479,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.trade_cancel_error_me
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2555,7 +2555,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.trade_report_message.
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric

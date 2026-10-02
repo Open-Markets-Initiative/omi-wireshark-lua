@@ -703,7 +703,12 @@ end
 nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.fields.itch_sequence_number, range, value, display)
@@ -1666,7 +1671,7 @@ end
 nasdaq_psxequities_totalview_glimpse_v5_0_2022.end_of_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Itch Sequence Number: Alphanumeric
+  -- Itch Sequence Number: Numeric
   index, itch_sequence_number = nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.dissect(buffer, index, packet, parent)
 
   return index

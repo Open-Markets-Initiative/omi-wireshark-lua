@@ -4725,7 +4725,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_message.fields = fu
   -- Quantity: Numeric
   index, quantity = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Appendage Length: Numeric
@@ -4880,7 +4880,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_message.fields = fun
   -- Quantity: Numeric
   index, quantity = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Liquidity Flag: Alpha
@@ -5029,7 +5029,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_message.fields = funct
   -- Quantity Prevented From Trading: Numeric
   index, quantity_prevented_from_trading = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.quantity_prevented_from_trading.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Liquidity Flag: Alpha
@@ -5393,7 +5393,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_message.fields = fun
   -- Order Qty: Numeric
   index, order_qty = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Side: Alpha
@@ -5688,7 +5688,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_message.fields = fun
   -- Order Qty: Numeric
   index, order_qty = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Side: Alpha
@@ -6720,7 +6720,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_message.field
   -- Order Qty: Numeric
   index, order_qty = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Side: Alpha
@@ -6998,7 +6998,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_message.fields = functi
   -- Order Qty: Numeric
   index, order_qty = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: Price
+  -- Price: Numeric
   index, price = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.price.dissect(buffer, index, packet, parent)
 
   -- Side: Alpha

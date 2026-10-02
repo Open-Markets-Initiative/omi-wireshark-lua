@@ -1269,7 +1269,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.abbreviated_name.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.abbreviated_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.abbreviated_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.abbreviated_name, range, value, display)
+  return item, text
 end
 
 -- About Instrument Name (ABIn): String 16
@@ -1287,7 +1288,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.about_instrument_name.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.about_instrument_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.about_instrument_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.about_instrument_name, range, value, display)
+  return item, text
 end
 
 -- About Isin (ABIs): String 12
@@ -1305,7 +1307,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.about_isin.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.about_isin.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.about_isin, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.about_isin, range, value, display)
+  return item, text
 end
 
 -- Accident Policies (ACCp): YesNo
@@ -1329,7 +1332,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accident_policies.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accident_policies.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accident_policies, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accident_policies, range, value, display)
+  return item, text
 end
 
 -- Accidents Number (ACCn): Float 12,6
@@ -1351,7 +1355,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accidents_number.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accidents_number.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accidents_number, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accidents_number, range, value, display)
+  return item, text
 end
 
 -- Accrued Interest (AINt): Float 12,6
@@ -1373,7 +1378,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accrued_interest.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accrued_interest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accrued_interest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accrued_interest, range, value, display)
+  return item, text
 end
 
 -- Accumulated Turnover (f): Float 16,2
@@ -1395,7 +1401,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accumulated_turnover.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accumulated_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accumulated_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accumulated_turnover, range, value, display)
+  return item, text
 end
 
 -- Accumulated Volume (o): Float 16,2
@@ -1417,7 +1424,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accumulated_volume.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.accumulated_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accumulated_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.accumulated_volume, range, value, display)
+  return item, text
 end
 
 -- Activity Name (ACTn): String 200
@@ -1435,7 +1443,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_name.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_name, range, value, display)
+  return item, text
 end
 
 -- Activity Turnover Pct (ACTu): Float 12,6
@@ -1457,7 +1466,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_turnover_pct.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_turnover_pct.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_turnover_pct, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_turnover_pct, range, value, display)
+  return item, text
 end
 
 -- Activity Type (ACTt): String 20
@@ -1475,7 +1485,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_type.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.activity_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.activity_type, range, value, display)
+  return item, text
 end
 
 -- ADNT (MADd): Float 12,6
@@ -1497,7 +1508,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.adnt.dissect = function(buf
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.adnt.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.adnt, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.adnt, range, value, display)
+  return item, text
 end
 
 -- Aggressive Party (Ag): Char
@@ -1515,7 +1527,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aggressive_party.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aggressive_party.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aggressive_party, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aggressive_party, range, value, display)
+  return item, text
 end
 
 -- Air Pollution (AIRp): Float 12,6
@@ -1537,7 +1550,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.air_pollution.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.air_pollution.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.air_pollution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.air_pollution, range, value, display)
+  return item, text
 end
 
 -- Aligned CCA Revenue E (CARe): Float 1,6
@@ -1559,7 +1573,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_e.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_e.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_e, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_e, range, value, display)
+  return item, text
 end
 
 -- Aligned CCA Revenue O (CARo): Float 1,6
@@ -1581,7 +1596,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_o.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_o.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_o, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_o, range, value, display)
+  return item, text
 end
 
 -- Aligned CCA Revenue T (CARt): Float 1,6
@@ -1603,7 +1619,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_t.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_cca_revenue_t.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_t, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_cca_revenue_t, range, value, display)
+  return item, text
 end
 
 -- Aligned CCACAPEXE (CACe): Float 1,6
@@ -1625,7 +1642,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapexe.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapexe.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapexe, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapexe, range, value, display)
+  return item, text
 end
 
 -- Aligned CCACAPEXO (CACo): Float 1,6
@@ -1647,7 +1665,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapexo.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapexo.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapexo, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapexo, range, value, display)
+  return item, text
 end
 
 -- Aligned CCACAPEXT (CACt): Float 1,6
@@ -1669,7 +1688,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapext.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccacapext.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapext, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccacapext, range, value, display)
+  return item, text
 end
 
 -- Aligned CCAOPEXE (CAOe): Float 1,6
@@ -1691,7 +1711,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopexe.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopexe.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopexe, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopexe, range, value, display)
+  return item, text
 end
 
 -- Aligned CCAOPEXO (CAOo): Float 1,6
@@ -1713,7 +1734,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopexo.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopexo.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopexo, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopexo, range, value, display)
+  return item, text
 end
 
 -- Aligned CCAOPEXT (CAOt): Float 1,6
@@ -1735,7 +1757,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopext.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccaopext.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopext, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccaopext, range, value, display)
+  return item, text
 end
 
 -- Aligned CCM Revenue E (CMRe): Float 1,6
@@ -1757,7 +1780,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_e.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_e.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_e, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_e, range, value, display)
+  return item, text
 end
 
 -- Aligned CCM Revenue O (CMRo): Float 1,6
@@ -1779,7 +1803,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_o.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_o.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_o, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_o, range, value, display)
+  return item, text
 end
 
 -- Aligned CCM Revenue T (CMRt): Float 1,6
@@ -1801,7 +1826,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_t.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccm_revenue_t.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_t, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccm_revenue_t, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMCAPEXE (CMCe): Float 1,6
@@ -1823,7 +1849,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapexe.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapexe.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapexe, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapexe, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMCAPEXO (CMCo): Float 1,6
@@ -1845,7 +1872,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapexo.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapexo.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapexo, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapexo, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMCAPEXT (CMCt): Float 1,6
@@ -1867,7 +1895,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapext.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmcapext.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapext, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmcapext, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMOPEXE (CMOe): Float 1,6
@@ -1889,7 +1918,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopexe.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopexe.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopexe, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopexe, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMOPEXO (CMOo): Float 1,6
@@ -1911,7 +1941,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopexo.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopexo.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopexo, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopexo, range, value, display)
+  return item, text
 end
 
 -- Aligned CCMOPEXT (CMOt): Float 1,6
@@ -1933,7 +1964,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopext.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aligned_ccmopext.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopext, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aligned_ccmopext, range, value, display)
+  return item, text
 end
 
 -- All Trades Average Price (ATAp): Float 12,6
@@ -1955,7 +1987,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_average_price.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_average_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_average_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_average_price, range, value, display)
+  return item, text
 end
 
 -- All Trades Turnover (ATt): Float 16,2
@@ -1977,7 +2010,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_turnover.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_turnover, range, value, display)
+  return item, text
 end
 
 -- All Trades Volume (ATv): Float 16,2
@@ -1999,7 +2033,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_volume.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.all_trades_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.all_trades_volume, range, value, display)
+  return item, text
 end
 
 -- Allocation Profile (AAp): Integer 9
@@ -2022,7 +2057,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.allocation_profile.dissect 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.allocation_profile.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.allocation_profile, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.allocation_profile, range, value, display)
+  return item, text
 end
 
 -- Amortization Type (ATy): AmortizationType 2
@@ -2081,7 +2117,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.amortization_type.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.amortization_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.amortization_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.amortization_type, range, value, display)
+  return item, text
 end
 
 -- Anti Corruption (ANCr): YesNo
@@ -2105,7 +2142,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.anti_corruption.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.anti_corruption.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.anti_corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.anti_corruption, range, value, display)
+  return item, text
 end
 
 -- Aod Mic (AOm): String 4
@@ -2123,7 +2161,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aod_mic.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aod_mic.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aod_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aod_mic, range, value, display)
+  return item, text
 end
 
 -- Approved Reviewer (APRr): String 240
@@ -2141,7 +2180,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.approved_reviewer.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.approved_reviewer.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.approved_reviewer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.approved_reviewer, range, value, display)
+  return item, text
 end
 
 -- Asian Tail End Date (ATEd): Date
@@ -2162,7 +2202,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asian_tail_end_date.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asian_tail_end_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asian_tail_end_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asian_tail_end_date, range, value, display)
+  return item, text
 end
 
 -- Asian Tail Start Date (ATSd): Date
@@ -2183,7 +2224,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asian_tail_start_date.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asian_tail_start_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asian_tail_start_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asian_tail_start_date, range, value, display)
+  return item, text
 end
 
 -- Ask Corresponding At Level (Ya): Ifloat 12,6
@@ -2213,6 +2255,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_corresponding_at_level.
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_corresponding_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Corresponding At Level1 (AYa): Float 12,6
@@ -2234,7 +2277,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_corresponding_at_level1
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_corresponding_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_corresponding_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_corresponding_at_level1, range, value, display)
+  return item, text
 end
 
 -- Ask Level Deleted (e): Integer 3
@@ -2257,7 +2301,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_level_deleted.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_level_deleted.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_level_deleted, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_level_deleted, range, value, display)
+  return item, text
 end
 
 -- Ask MMO At Level (Ma): Iboolean
@@ -2275,7 +2320,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_mmo_at_level.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_mmo_at_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_mmo_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_mmo_at_level, range, value, display)
+  return item, text
 end
 
 -- Ask Order Coverage (OCa): Float 3,4
@@ -2297,7 +2343,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_order_coverage.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_order_coverage.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_order_coverage, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_order_coverage, range, value, display)
+  return item, text
 end
 
 -- Ask Orders At Level (k): Iinteger 9
@@ -2328,6 +2375,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_orders_at_level.dissect
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_orders_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Price (Pa): Float 12,6
@@ -2349,7 +2397,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_price.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_price, range, value, display)
+  return item, text
 end
 
 -- Ask Price At Level (a): Ifloat 12,6
@@ -2379,6 +2428,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_price_at_level.dissect 
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_price_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Price At Level1 (APl): Float 12,6
@@ -2400,7 +2450,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_price_at_level1.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_price_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_price_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Ask Volume At Level (j): Ifloat 16,2
@@ -2430,6 +2481,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_volume_at_level.dissect
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_volume_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Volume At Level1 (AVl): Float 16,2
@@ -2451,7 +2503,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_volume_at_level1.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ask_volume_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_volume_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ask_volume_at_level1, range, value, display)
+  return item, text
 end
 
 -- Asset Class (ACl): String 60
@@ -2469,7 +2522,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_class.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_class.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_class, range, value, display)
+  return item, text
 end
 
 -- Asset Class Of The Underlying (MACu): String 4
@@ -2487,7 +2541,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_class_of_the_underlyi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_class_of_the_underlying.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_class_of_the_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_class_of_the_underlying, range, value, display)
+  return item, text
 end
 
 -- Asset Reference (AARf): Integer 9
@@ -2510,7 +2565,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_reference.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.asset_reference.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_reference, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.asset_reference, range, value, display)
+  return item, text
 end
 
 -- Associated With Disclosure Id (AWDi): String 10
@@ -2528,7 +2584,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.associated_with_disclosure_
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.associated_with_disclosure_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.associated_with_disclosure_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.associated_with_disclosure_id, range, value, display)
+  return item, text
 end
 
 -- Auction Extension (Ae): Boolean
@@ -2546,7 +2603,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.auction_extension.dissect =
   local value = true
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.auction_extension.display()
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.auction_extension, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.auction_extension, range, value, display)
+  return item, text
 end
 
 -- AUM (ASm): Integer 15
@@ -2569,7 +2627,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aum.dissect = function(buff
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.aum.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aum, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.aum, range, value, display)
+  return item, text
 end
 
 -- Autocall Barrier (AUb): Float 12,6
@@ -2591,7 +2650,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.autocall_barrier.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.autocall_barrier.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.autocall_barrier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.autocall_barrier, range, value, display)
+  return item, text
 end
 
 -- Automatch (AUm): YesNo
@@ -2615,7 +2675,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.automatch.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.automatch.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.automatch, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.automatch, range, value, display)
+  return item, text
 end
 
 -- Average Corresponding (Yv): Float 12,6
@@ -2637,7 +2698,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_corresponding.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_corresponding, range, value, display)
+  return item, text
 end
 
 -- Average Daily Turnover (ADt): Float 16,2
@@ -2659,7 +2721,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_daily_turnover.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_daily_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_daily_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_daily_turnover, range, value, display)
+  return item, text
 end
 
 -- Average Price (m): Float 12,6
@@ -2681,7 +2744,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price, range, value, display)
+  return item, text
 end
 
 -- Average Price Latest (ATRp): Float 14,6
@@ -2703,7 +2767,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price_latest.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price_latest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price_latest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price_latest, range, value, display)
+  return item, text
 end
 
 -- Average Price Latest Date (APLd): Date
@@ -2724,7 +2789,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price_latest_date.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.average_price_latest_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price_latest_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.average_price_latest_date, range, value, display)
+  return item, text
 end
 
 -- Away Markets (Am): Idlist
@@ -2742,7 +2808,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.away_markets.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.away_markets.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.away_markets, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.away_markets, range, value, display)
+  return item, text
 end
 
 -- Back Off Time (BOt): Integer 9
@@ -2765,7 +2832,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.back_off_time.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.back_off_time.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.back_off_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.back_off_time, range, value, display)
+  return item, text
 end
 
 -- BAI All (BAa): Float 12,6
@@ -2787,7 +2855,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bai_all.dissect = function(
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bai_all.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bai_all, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bai_all, range, value, display)
+  return item, text
 end
 
 -- BAI Best (BAb): Float 12,6
@@ -2809,7 +2878,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bai_best.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bai_best.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bai_best, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bai_best, range, value, display)
+  return item, text
 end
 
 -- Barrier Ceiling (BACe): Float 12,6
@@ -2831,7 +2901,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_ceiling.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_ceiling.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_ceiling, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_ceiling, range, value, display)
+  return item, text
 end
 
 -- Barrier Floor (BAFl): Float 12,6
@@ -2853,7 +2924,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_floor.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_floor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_floor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_floor, range, value, display)
+  return item, text
 end
 
 -- Barrier Type (BARt): Id
@@ -2876,7 +2948,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_type.dissect = func
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.barrier_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.barrier_type, range, value, display)
+  return item, text
 end
 
 -- Base Currency (CUb): String 3
@@ -2894,7 +2967,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_currency.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_currency, range, value, display)
+  return item, text
 end
 
 -- Base Date (DBa): Date
@@ -2915,7 +2989,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_date.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_date, range, value, display)
+  return item, text
 end
 
 -- Base Point Spread (MBPs): Integer 6
@@ -2938,7 +3013,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_point_spread.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_point_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_point_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_point_spread, range, value, display)
+  return item, text
 end
 
 -- Base Product Code (MBPc): String 4
@@ -2956,7 +3032,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_product_code.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_product_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_product_code, range, value, display)
+  return item, text
 end
 
 -- Base Ratio (BRa): Integer 12
@@ -2979,7 +3056,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_ratio.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_ratio, range, value, display)
+  return item, text
 end
 
 -- Base Value (VBa): Float 12,6
@@ -3001,7 +3079,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.base_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.base_value, range, value, display)
+  return item, text
 end
 
 -- Basket Divisor (BADi): String 32
@@ -3019,7 +3098,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basket_divisor.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basket_divisor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.basket_divisor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.basket_divisor, range, value, display)
+  return item, text
 end
 
 -- Basket Share (BSh): Float 3,6
@@ -3041,7 +3121,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basket_share.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basket_share.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.basket_share, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.basket_share, range, value, display)
+  return item, text
 end
 
 -- Benchmark (ABLg): YesNo
@@ -3065,7 +3146,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.benchmark.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.benchmark.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.benchmark, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.benchmark, range, value, display)
+  return item, text
 end
 
 -- Best Bid Price Latest (BBPl): Float 14,6
@@ -3087,7 +3169,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.best_bid_price_latest.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.best_bid_price_latest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.best_bid_price_latest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.best_bid_price_latest, range, value, display)
+  return item, text
 end
 
 -- Best Bid Price Latest Date (BBPd): Date
@@ -3108,7 +3191,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.best_bid_price_latest_date.
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.best_bid_price_latest_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.best_bid_price_latest_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.best_bid_price_latest_date, range, value, display)
+  return item, text
 end
 
 -- Bic Code (BIc): String 11
@@ -3126,7 +3210,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bic_code.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bic_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bic_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bic_code, range, value, display)
+  return item, text
 end
 
 -- Bid Corresponding At Level (Yb): Ifloat 12,6
@@ -3156,6 +3241,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_corresponding_at_level.
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_corresponding_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Corresponding At Level1 (BYl): Float 12,6
@@ -3177,7 +3263,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_corresponding_at_level1
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_corresponding_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_corresponding_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_corresponding_at_level1, range, value, display)
+  return item, text
 end
 
 -- Bid Corresponding Diff (BYd): Float 12,6
@@ -3199,7 +3286,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_corresponding_diff.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_corresponding_diff.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_corresponding_diff, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_corresponding_diff, range, value, display)
+  return item, text
 end
 
 -- Bid Level Deleted (c): Integer 3
@@ -3222,7 +3310,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_level_deleted.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_level_deleted.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_level_deleted, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_level_deleted, range, value, display)
+  return item, text
 end
 
 -- Bid MMO At Level (Mb): Iboolean
@@ -3240,7 +3329,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_mmo_at_level.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_mmo_at_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_mmo_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_mmo_at_level, range, value, display)
+  return item, text
 end
 
 -- Bid Order Coverage (OCb): Float 3,4
@@ -3262,7 +3352,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_order_coverage.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_order_coverage.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_order_coverage, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_order_coverage, range, value, display)
+  return item, text
 end
 
 -- Bid Orders At Level (h): Iinteger 9
@@ -3293,6 +3384,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_orders_at_level.dissect
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_orders_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Price (Pb): Float 12,6
@@ -3314,7 +3406,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price, range, value, display)
+  return item, text
 end
 
 -- Bid Price At Level (b): Ifloat 12,6
@@ -3344,6 +3437,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price_at_level.dissect 
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Price At Level1 (BPr): Float 12,6
@@ -3365,7 +3459,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price_at_level1.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Bid Price Diff (d): Float 12,6
@@ -3387,7 +3482,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price_diff.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_price_diff.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price_diff, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_price_diff, range, value, display)
+  return item, text
 end
 
 -- Bid Side Sort Order (BSSo): BidSideSortOrder 1
@@ -3416,7 +3512,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_side_sort_order.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_side_sort_order.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_side_sort_order, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_side_sort_order, range, value, display)
+  return item, text
 end
 
 -- Bid Volume At Level (g): Ifloat 16,2
@@ -3446,6 +3543,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_volume_at_level.dissect
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_volume_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Volume At Level1 (BVl): Float 16,2
@@ -3467,7 +3565,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_volume_at_level1.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bid_volume_at_level1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_volume_at_level1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bid_volume_at_level1, range, value, display)
+  return item, text
 end
 
 -- Biodiversity Negative (BIOn): YesNo
@@ -3491,7 +3590,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.biodiversity_negative.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.biodiversity_negative.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.biodiversity_negative, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.biodiversity_negative, range, value, display)
+  return item, text
 end
 
 -- Biodiversity Protection (BDPr): YesNo
@@ -3515,7 +3615,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.biodiversity_protection.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.biodiversity_protection.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.biodiversity_protection, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.biodiversity_protection, range, value, display)
+  return item, text
 end
 
 -- Block Id (BLi): Id
@@ -3538,7 +3639,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.block_id.dissect = function
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.block_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.block_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.block_id, range, value, display)
+  return item, text
 end
 
 -- Bloomberg Code (BBGc): String 40
@@ -3556,7 +3658,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bloomberg_code.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bloomberg_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bloomberg_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bloomberg_code, range, value, display)
+  return item, text
 end
 
 -- Board Gender Ratio (BOGr): Float 12,6
@@ -3578,7 +3681,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.board_gender_ratio.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.board_gender_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.board_gender_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.board_gender_ratio, range, value, display)
+  return item, text
 end
 
 -- Bond Closing Date (ABCd): Date
@@ -3599,7 +3703,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_closing_date.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_closing_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_closing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_closing_date, range, value, display)
+  return item, text
 end
 
 -- Bond First Issuing Date (ABFi): Date
@@ -3620,7 +3725,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_first_issuing_date.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_first_issuing_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_first_issuing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_first_issuing_date, range, value, display)
+  return item, text
 end
 
 -- Bond Issuer Type (ABIt): Integer 9
@@ -3643,7 +3749,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_issuer_type.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_issuer_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_issuer_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_issuer_type, range, value, display)
+  return item, text
 end
 
 -- Bond Maturity (ABOm): Float 3,2
@@ -3665,7 +3772,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_maturity.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_maturity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_maturity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_maturity, range, value, display)
+  return item, text
 end
 
 -- Bond Outst Int (BOOi): Integer 9
@@ -3688,7 +3796,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outst_int.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outst_int.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outst_int, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outst_int, range, value, display)
+  return item, text
 end
 
 -- Bond Outstanding Bond Loans (OUBl): Integer 15
@@ -3711,7 +3820,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outstanding_bond_loans
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outstanding_bond_loans.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outstanding_bond_loans, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outstanding_bond_loans, range, value, display)
+  return item, text
 end
 
 -- Bond Outstanding Cash Loans (OBCl): Integer 15
@@ -3734,7 +3844,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outstanding_cash_loans
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_outstanding_cash_loans.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outstanding_cash_loans, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_outstanding_cash_loans, range, value, display)
+  return item, text
 end
 
 -- Bond Publication Date (ABPd): Date
@@ -3755,7 +3866,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_publication_date.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_publication_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_publication_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_publication_date, range, value, display)
+  return item, text
 end
 
 -- Bond Publication Note (ABPn): String 12
@@ -3773,7 +3885,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_publication_note.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_publication_note.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_publication_note, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_publication_note, range, value, display)
+  return item, text
 end
 
 -- Bond Seniority (MPRo): String 4
@@ -3791,7 +3904,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_seniority.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_seniority.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_seniority, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_seniority, range, value, display)
+  return item, text
 end
 
 -- Bond Type (BTy): BondType 1
@@ -3826,7 +3940,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_type.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_type, range, value, display)
+  return item, text
 end
 
 -- Bond Type Group (ACBt): Integer 9
@@ -3849,7 +3964,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_type_group.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_type_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_type_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bond_type_group, range, value, display)
+  return item, text
 end
 
 -- Bribery Corruption (BRCo): YesNo
@@ -3873,7 +3989,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bribery_corruption.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bribery_corruption.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bribery_corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.bribery_corruption, range, value, display)
+  return item, text
 end
 
 -- Business Date (Bd): Date
@@ -3894,7 +4011,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.business_date.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.business_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.business_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.business_date, range, value, display)
+  return item, text
 end
 
 -- Buy Or Sell (Bs): BuyOrSell
@@ -3923,7 +4041,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.buy_or_sell.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.buy_or_sell.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.buy_or_sell, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.buy_or_sell, range, value, display)
+  return item, text
 end
 
 -- Buyers At Level (r): Istringlist 7
@@ -3949,6 +4068,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.buyers_at_level.dissect = f
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.buyers_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Calc Convention (Cc): BondCalcConvention 1
@@ -3992,7 +4112,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calc_convention.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calc_convention.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calc_convention, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calc_convention, range, value, display)
+  return item, text
 end
 
 -- Calc Price From Rate (CPFr): YesNo
@@ -4016,7 +4137,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calc_price_from_rate.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calc_price_from_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calc_price_from_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calc_price_from_rate, range, value, display)
+  return item, text
 end
 
 -- Calculation Date (CCd): Date
@@ -4037,7 +4159,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calculation_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calculation_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calculation_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calculation_date, range, value, display)
+  return item, text
 end
 
 -- Calculation Type (TYc): Id
@@ -4060,7 +4183,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calculation_type.dissect = 
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.calculation_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calculation_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.calculation_type, range, value, display)
+  return item, text
 end
 
 -- Call Price (APc): Float 14,6
@@ -4082,7 +4206,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.call_price.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.call_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.call_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.call_price, range, value, display)
+  return item, text
 end
 
 -- Callability (ACCo): Integer 9
@@ -4105,7 +4230,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.callability.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.callability.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.callability, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.callability, range, value, display)
+  return item, text
 end
 
 -- Capital Center (CAPc): String 35
@@ -4123,7 +4249,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.capital_center.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.capital_center.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.capital_center, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.capital_center, range, value, display)
+  return item, text
 end
 
 -- Carbon Emission Reduction (CERn): YesNo
@@ -4147,7 +4274,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_emission_reduction.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_emission_reduction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_emission_reduction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_emission_reduction, range, value, display)
+  return item, text
 end
 
 -- Carbon Footprint (CRBf): Float 12,6
@@ -4169,7 +4297,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_footprint.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_footprint.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_footprint, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_footprint, range, value, display)
+  return item, text
 end
 
 -- Carbon Footprint1and2 (CRBp): Float 12,6
@@ -4191,7 +4320,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_footprint1and2.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_footprint1and2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_footprint1and2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_footprint1and2, range, value, display)
+  return item, text
 end
 
 -- Carbon Scope Flag (GHFi): Integer 1
@@ -4214,7 +4344,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_scope_flag.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.carbon_scope_flag.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_scope_flag, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.carbon_scope_flag, range, value, display)
+  return item, text
 end
 
 -- Cash Flow Spec1 (ACFo): Integer 3
@@ -4237,7 +4368,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec1.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec1, range, value, display)
+  return item, text
 end
 
 -- Cash Flow Spec2 (ACFl): Integer 3
@@ -4260,7 +4392,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec2.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec2, range, value, display)
+  return item, text
 end
 
 -- Cash Flow Spec3 (ACFs): Integer 3
@@ -4283,7 +4416,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec3.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_spec3.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec3, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_flow_spec3, range, value, display)
+  return item, text
 end
 
 -- Cash Interest (CASi): Float 5,2
@@ -4305,7 +4439,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_interest.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_interest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_interest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_interest, range, value, display)
+  return item, text
 end
 
 -- Cash Loans Outstanding (CLOu): Integer 15
@@ -4328,7 +4463,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_loans_outstanding.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_loans_outstanding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_loans_outstanding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cash_loans_outstanding, range, value, display)
+  return item, text
 end
 
 -- Cashflow Due Date (CFDd): Date
@@ -4349,7 +4485,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_due_date.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_due_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_due_date, range, value, display)
+  return item, text
 end
 
 -- Cashflow Installment Amount (CFIa): Integer 15
@@ -4372,7 +4509,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_installment_amount
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_installment_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_installment_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_installment_amount, range, value, display)
+  return item, text
 end
 
 -- Cashflow Interest Amount (CFIn): Integer 15
@@ -4395,7 +4533,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_interest_amount.di
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_interest_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_interest_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_interest_amount, range, value, display)
+  return item, text
 end
 
 -- Cashflow Status (ACSt): Integer 9
@@ -4418,7 +4557,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_status.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cashflow_status.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_status, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cashflow_status, range, value, display)
+  return item, text
 end
 
 -- CCP List (CCPl): Idlist
@@ -4436,7 +4576,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ccp_list.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ccp_list.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ccp_list, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ccp_list, range, value, display)
+  return item, text
 end
 
 -- Certificate Size (ACTs): Float 14,6
@@ -4458,7 +4599,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.certificate_size.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.certificate_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.certificate_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.certificate_size, range, value, display)
+  return item, text
 end
 
 -- CFI Code (CFc): String 6
@@ -4476,7 +4618,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cfi_code.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cfi_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cfi_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cfi_code, range, value, display)
+  return item, text
 end
 
 -- Chaining Info Type (CHi): ChainingInfoType 1
@@ -4505,7 +4648,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.chaining_info_type.dissect 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.chaining_info_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.chaining_info_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.chaining_info_type, range, value, display)
+  return item, text
 end
 
 -- Character Code (CHc): String 10
@@ -4523,7 +4667,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.character_code.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.character_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.character_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.character_code, range, value, display)
+  return item, text
 end
 
 -- Child Labor Incident (CLIt): YesNo
@@ -4547,7 +4692,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.child_labor_incident.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.child_labor_incident.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.child_labor_incident, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.child_labor_incident, range, value, display)
+  return item, text
 end
 
 -- CI Ask (CIa): Float 12,6
@@ -4569,7 +4715,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ci_ask.dissect = function(b
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ci_ask.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ci_ask, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ci_ask, range, value, display)
+  return item, text
 end
 
 -- CI Bid (CIb): Float 12,6
@@ -4591,7 +4738,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ci_bid.dissect = function(b
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ci_bid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ci_bid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ci_bid, range, value, display)
+  return item, text
 end
 
 -- Cibor Strike (ACs): Float 4,10
@@ -4613,7 +4761,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cibor_strike.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cibor_strike.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cibor_strike, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cibor_strike, range, value, display)
+  return item, text
 end
 
 -- Circuit Breaker (Cb): CircuitBreaker 1
@@ -4642,7 +4791,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.circuit_breaker.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.circuit_breaker.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.circuit_breaker, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.circuit_breaker, range, value, display)
+  return item, text
 end
 
 -- Clean Price (XPi): Float 6,6
@@ -4664,7 +4814,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clean_price.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clean_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clean_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clean_price, range, value, display)
+  return item, text
 end
 
 -- Clearing Member (CLm): String 30
@@ -4682,7 +4833,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_member.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_member.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_member, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_member, range, value, display)
+  return item, text
 end
 
 -- Clearing Venue Id (CLId): Id
@@ -4705,7 +4857,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_venue_id.dissect =
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_venue_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_venue_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_venue_id, range, value, display)
+  return item, text
 end
 
 -- Clearing Venue Type (CLVt): ClearingVenueType 1
@@ -4734,7 +4887,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_venue_type.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.clearing_venue_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_venue_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.clearing_venue_type, range, value, display)
+  return item, text
 end
 
 -- Closing Value (CLv): Float 12,6
@@ -4756,7 +4910,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_value.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_value, range, value, display)
+  return item, text
 end
 
 -- Closing VWAP (CWp): Float 10,8
@@ -4778,7 +4933,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_vwap.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_vwap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_vwap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_vwap, range, value, display)
+  return item, text
 end
 
 -- Closing VWAP Intvl (CWi): Float 10,8
@@ -4800,7 +4956,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_vwap_intvl.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.closing_vwap_intvl.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_vwap_intvl, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.closing_vwap_intvl, range, value, display)
+  return item, text
 end
 
 -- Code Level (CDLv): Integer 3
@@ -4823,7 +4980,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_level.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_level, range, value, display)
+  return item, text
 end
 
 -- Code Term To Maturity (CTMa): Integer 9
@@ -4846,7 +5004,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_term_to_maturity.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_term_to_maturity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_term_to_maturity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_term_to_maturity, range, value, display)
+  return item, text
 end
 
 -- Code Yield Avg Group (CTAg): Integer 9
@@ -4869,7 +5028,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_yield_avg_group.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.code_yield_avg_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_yield_avg_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.code_yield_avg_group, range, value, display)
+  return item, text
 end
 
 -- Collateralization Details (COd): String 200
@@ -4887,7 +5047,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.collateralization_details.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.collateralization_details.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.collateralization_details, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.collateralization_details, range, value, display)
+  return item, text
 end
 
 -- Combo Type (Ct): ComboType 2
@@ -4973,7 +5134,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.combo_type.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.combo_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.combo_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.combo_type, range, value, display)
+  return item, text
 end
 
 -- Commodities Or Emission Allowance Derivative Indicator (MJCj): YesNo
@@ -4997,7 +5159,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.commodities_or_emission_all
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.commodities_or_emission_allowance_derivative_indicator.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.commodities_or_emission_allowance_derivative_indicator, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.commodities_or_emission_allowance_derivative_indicator, range, value, display)
+  return item, text
 end
 
 -- Contract Size (CSz): Float 12,6
@@ -5019,7 +5182,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_size.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_size, range, value, display)
+  return item, text
 end
 
 -- Contract Size UL (CSu): Float 12,6
@@ -5041,7 +5205,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_size_ul.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_size_ul.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_size_ul, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_size_ul, range, value, display)
+  return item, text
 end
 
 -- Contract Sub Type (MCSt): YesNo
@@ -5065,7 +5230,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_sub_type.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_sub_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_sub_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_sub_type, range, value, display)
+  return item, text
 end
 
 -- Contract Type (MCTy): String 4
@@ -5083,7 +5249,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_type.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.contract_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.contract_type, range, value, display)
+  return item, text
 end
 
 -- Controversial Weapon (CONw): YesNo
@@ -5107,7 +5274,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.controversial_weapon.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.controversial_weapon.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.controversial_weapon, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.controversial_weapon, range, value, display)
+  return item, text
 end
 
 -- Conversion Price (CVp): Float 12,6
@@ -5129,7 +5297,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.conversion_price.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.conversion_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.conversion_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.conversion_price, range, value, display)
+  return item, text
 end
 
 -- Convert From Date (CFd): Date
@@ -5150,7 +5319,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convert_from_date.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convert_from_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convert_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convert_from_date, range, value, display)
+  return item, text
 end
 
 -- Convert Through Date (CTd): Date
@@ -5171,7 +5341,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convert_through_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convert_through_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convert_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convert_through_date, range, value, display)
+  return item, text
 end
 
 -- Convexity (Cx): Float 13,6
@@ -5193,7 +5364,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convexity.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.convexity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convexity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.convexity, range, value, display)
+  return item, text
 end
 
 -- Correction Factor (Cf): Float 4,6
@@ -5215,7 +5387,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.correction_factor.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.correction_factor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.correction_factor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.correction_factor, range, value, display)
+  return item, text
 end
 
 -- Corruption (CORr): YesNo
@@ -5239,7 +5412,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corruption.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corruption.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.corruption, range, value, display)
+  return item, text
 end
 
 -- Country (CNy): String 2
@@ -5257,7 +5431,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.country.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.country.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.country, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.country, range, value, display)
+  return item, text
 end
 
 -- Country Name (CONy): String 80
@@ -5275,7 +5450,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.country_name.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.country_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.country_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.country_name, range, value, display)
+  return item, text
 end
 
 -- Coupon After Extension (CAe): Float 12,6
@@ -5297,7 +5473,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_after_extension.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_after_extension.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_after_extension, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_after_extension, range, value, display)
+  return item, text
 end
 
 -- Coupon And Repayment Date (CRd): Date
@@ -5318,7 +5495,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_and_repayment_date.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_and_repayment_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_and_repayment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_and_repayment_date, range, value, display)
+  return item, text
 end
 
 -- Coupon Barrier (COb): Float 12,6
@@ -5340,7 +5518,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_barrier.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_barrier.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_barrier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_barrier, range, value, display)
+  return item, text
 end
 
 -- Coupon Date (Cd): Date
@@ -5361,7 +5540,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_date.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_date, range, value, display)
+  return item, text
 end
 
 -- Coupon Frequency (CFq): Float 12,6
@@ -5383,7 +5563,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_frequency.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_frequency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_frequency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_frequency, range, value, display)
+  return item, text
 end
 
 -- Coupon Rate (RCp): Float 12,6
@@ -5405,7 +5586,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_rate.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_rate, range, value, display)
+  return item, text
 end
 
 -- Coupon Size (CPz): Float 12,6
@@ -5427,7 +5609,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_size.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_size, range, value, display)
+  return item, text
 end
 
 -- Coupon Spread (Cs): Float 12,6
@@ -5449,7 +5632,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_spread.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_spread, range, value, display)
+  return item, text
 end
 
 -- Coupon Type (ACt): Integer 9
@@ -5472,7 +5656,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_type.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.coupon_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.coupon_type, range, value, display)
+  return item, text
 end
 
 -- Creditor Index Factor (CIf): Float 12,6
@@ -5494,7 +5679,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.creditor_index_factor.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.creditor_index_factor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.creditor_index_factor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.creditor_index_factor, range, value, display)
+  return item, text
 end
 
 -- Cross Level (CRl): CrossLevel 1
@@ -5532,7 +5718,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cross_level.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cross_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cross_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cross_level, range, value, display)
+  return item, text
 end
 
 -- Cross Type (CRt): CrossType 1
@@ -5582,7 +5769,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cross_type.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cross_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cross_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.cross_type, range, value, display)
+  return item, text
 end
 
 -- Currency Converted Closing Price (CCCp): Floatlist 12,6
@@ -5600,7 +5788,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_converted_closing_
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_converted_closing_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_converted_closing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_converted_closing_price, range, value, display)
+  return item, text
 end
 
 -- Currency Converted Market Cap (CCMc): Floatlist 16,2
@@ -5618,7 +5807,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_converted_market_c
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_converted_market_cap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_converted_market_cap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_converted_market_cap, range, value, display)
+  return item, text
 end
 
 -- Currency List (CLi): Stringlist 3
@@ -5636,7 +5826,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_list.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_list.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_list, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_list, range, value, display)
+  return item, text
 end
 
 -- Currency Pair (CUPa): String 6
@@ -5654,7 +5845,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_pair.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.currency_pair.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_pair, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.currency_pair, range, value, display)
+  return item, text
 end
 
 -- Current Value (Vc): Float 12,6
@@ -5676,7 +5868,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.current_value.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.current_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.current_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.current_value, range, value, display)
+  return item, text
 end
 
 -- Custodian Bank (CBa): String 60
@@ -5694,7 +5887,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.custodian_bank.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.custodian_bank.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.custodian_bank, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.custodian_bank, range, value, display)
+  return item, text
 end
 
 -- Data Source (DASo): String 80
@@ -5712,7 +5906,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.data_source.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.data_source.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.data_source, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.data_source, range, value, display)
+  return item, text
 end
 
 -- Date (Dt): Date
@@ -5733,7 +5928,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date, range, value, display)
+  return item, text
 end
 
 -- Date Agreement (Da): Date
@@ -5754,7 +5950,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_agreement.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_agreement.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_agreement, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_agreement, range, value, display)
+  return item, text
 end
 
 -- Date Exec (Dx): Date
@@ -5775,7 +5972,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_exec.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_exec.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_exec, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_exec, range, value, display)
+  return item, text
 end
 
 -- Date Of Issue (DIs): Date
@@ -5796,7 +5994,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_of_issue.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_of_issue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_of_issue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_of_issue, range, value, display)
+  return item, text
 end
 
 -- Date Of X Coupon (ADXc): Date
@@ -5817,7 +6016,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_of_x_coupon.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_of_x_coupon.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_of_x_coupon, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_of_x_coupon, range, value, display)
+  return item, text
 end
 
 -- Date Trade Execution (DTTe): Date
@@ -5838,7 +6038,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_trade_execution.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.date_trade_execution.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_trade_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.date_trade_execution, range, value, display)
+  return item, text
 end
 
 -- Dated Date (DAd): Date
@@ -5859,7 +6060,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dated_date.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dated_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dated_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dated_date, range, value, display)
+  return item, text
 end
 
 -- Day Count Method (DCm): DayCountMethod 2
@@ -5906,7 +6108,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.day_count_method.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.day_count_method.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.day_count_method, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.day_count_method, range, value, display)
+  return item, text
 end
 
 -- Day Type (TDt): Id
@@ -5929,7 +6132,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.day_type.dissect = function
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.day_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.day_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.day_type, range, value, display)
+  return item, text
 end
 
 -- Days In Current Period (DICp): Integer 4
@@ -5952,7 +6156,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_in_current_period.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_in_current_period.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_in_current_period, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_in_current_period, range, value, display)
+  return item, text
 end
 
 -- Days To Next Cash Flow (DNCf): Integer 4
@@ -5975,7 +6180,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_to_next_cash_flow.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_to_next_cash_flow.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_to_next_cash_flow, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_to_next_cash_flow, range, value, display)
+  return item, text
 end
 
 -- Days X Coupon (ACXc): Integer 3
@@ -5998,7 +6204,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_x_coupon.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.days_x_coupon.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_x_coupon, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.days_x_coupon, range, value, display)
+  return item, text
 end
 
 -- Debt Same Maturity (DSm): YesNo
@@ -6022,7 +6229,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.debt_same_maturity.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.debt_same_maturity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.debt_same_maturity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.debt_same_maturity, range, value, display)
+  return item, text
 end
 
 -- Deductible Amount DKK (DADk): Integer 15
@@ -6045,7 +6253,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deductible_amount_dkk.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deductible_amount_dkk.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deductible_amount_dkk, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deductible_amount_dkk, range, value, display)
+  return item, text
 end
 
 -- Deductible Amount Number (DANr): Integer 15
@@ -6068,7 +6277,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deductible_amount_number.di
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deductible_amount_number.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deductible_amount_number, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deductible_amount_number, range, value, display)
+  return item, text
 end
 
 -- Deforestation Policy (DEFo): YesNo
@@ -6092,7 +6302,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deforestation_policy.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.deforestation_policy.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deforestation_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.deforestation_policy, range, value, display)
+  return item, text
 end
 
 -- Delivered (De): YesNo
@@ -6116,7 +6327,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.delivered.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.delivered.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.delivered, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.delivered, range, value, display)
+  return item, text
 end
 
 -- Delivery Cash Settlement Location (MDCl): String 25
@@ -6134,7 +6346,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.delivery_cash_settlement_lo
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.delivery_cash_settlement_location.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.delivery_cash_settlement_location, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.delivery_cash_settlement_location, range, value, display)
+  return item, text
 end
 
 -- Derivative Type (DTy): DerivativeType 2
@@ -6205,7 +6418,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.derivative_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.derivative_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.derivative_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.derivative_type, range, value, display)
+  return item, text
 end
 
 -- Description (DSc): String 200
@@ -6223,7 +6437,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.description.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.description.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.description, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.description, range, value, display)
+  return item, text
 end
 
 -- Diff12 Mon Nom (Mn): Float 12,6
@@ -6245,7 +6460,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff12_mon_nom.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff12_mon_nom.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff12_mon_nom, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff12_mon_nom, range, value, display)
+  return item, text
 end
 
 -- Diff12 Mon Per (Dm): Float 12,6
@@ -6267,7 +6483,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff12_mon_per.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff12_mon_per.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff12_mon_per, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff12_mon_per, range, value, display)
+  return item, text
 end
 
 -- Diff Day Nom (Dn): Float 12,6
@@ -6289,7 +6506,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_day_nom.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_day_nom.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_day_nom, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_day_nom, range, value, display)
+  return item, text
 end
 
 -- Diff Day Per (Dd): Float 12,6
@@ -6311,7 +6529,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_day_per.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_day_per.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_day_per, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_day_per, range, value, display)
+  return item, text
 end
 
 -- Diff Last Corresponding (Yd): Float 12,6
@@ -6333,7 +6552,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_last_corresponding.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_last_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_last_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_last_corresponding, range, value, display)
+  return item, text
 end
 
 -- Diff Last Price (Pd): Float 12,6
@@ -6355,7 +6575,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_last_price.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_last_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_last_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_last_price, range, value, display)
+  return item, text
 end
 
 -- Diff Year Nom (Yn): Float 12,6
@@ -6377,7 +6598,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_year_nom.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_year_nom.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_year_nom, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_year_nom, range, value, display)
+  return item, text
 end
 
 -- Diff Year Per (Dy): Float 12,6
@@ -6399,7 +6621,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_year_per.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.diff_year_per.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_year_per, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.diff_year_per, range, value, display)
+  return item, text
 end
 
 -- Directed Order State (DOs): DirectedOrderState
@@ -6434,7 +6657,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.directed_order_state.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.directed_order_state.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.directed_order_state, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.directed_order_state, range, value, display)
+  return item, text
 end
 
 -- Direction (Di): String 10
@@ -6452,7 +6676,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.direction.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.direction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.direction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.direction, range, value, display)
+  return item, text
 end
 
 -- Dirty Price (JJs): Float 6,6
@@ -6474,7 +6699,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dirty_price.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dirty_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dirty_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dirty_price, range, value, display)
+  return item, text
 end
 
 -- Disclosure Id (DSId): String 10
@@ -6492,7 +6718,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_id.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_id, range, value, display)
+  return item, text
 end
 
 -- Disclosure Text (DDIs): String 1300
@@ -6510,7 +6737,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_text.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_text.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_text, range, value, display)
+  return item, text
 end
 
 -- Disclosure Type (DIt): Integer 9
@@ -6533,7 +6761,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.disclosure_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.disclosure_type, range, value, display)
+  return item, text
 end
 
 -- Dividend From Year (DFy): Integer 4
@@ -6556,7 +6785,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dividend_from_year.dissect 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dividend_from_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dividend_from_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dividend_from_year, range, value, display)
+  return item, text
 end
 
 -- Divisor (IXDv): Float 12,6
@@ -6578,7 +6808,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.divisor.dissect = function(
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.divisor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.divisor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.divisor, range, value, display)
+  return item, text
 end
 
 -- DK Bond Type (ABTy): Integer 9
@@ -6601,7 +6832,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dk_bond_type.dissect = func
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dk_bond_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dk_bond_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dk_bond_type, range, value, display)
+  return item, text
 end
 
 -- Dollar Duration (FBm): Float 6,6
@@ -6623,7 +6855,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dollar_duration.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dollar_duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dollar_duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.dollar_duration, range, value, display)
+  return item, text
 end
 
 -- Draw Date (ADRd): Date
@@ -6644,7 +6877,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.draw_date.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.draw_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.draw_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.draw_date, range, value, display)
+  return item, text
 end
 
 -- Drawing Price (DRAw): Float 14,6
@@ -6666,7 +6900,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.drawing_price.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.drawing_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.drawing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.drawing_price, range, value, display)
+  return item, text
 end
 
 -- Drawn Amount (DRAm): Integer 15
@@ -6689,7 +6924,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.drawn_amount.dissect = func
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.drawn_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.drawn_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.drawn_amount, range, value, display)
+  return item, text
 end
 
 -- Due Date (DDAt): Date
@@ -6710,7 +6946,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.due_date.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.due_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.due_date, range, value, display)
+  return item, text
 end
 
 -- Duration (Du): Float 12,6
@@ -6732,7 +6969,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration, range, value, display)
+  return item, text
 end
 
 -- Duration From Date (DUf): Date
@@ -6753,7 +6991,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration_from_date.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration_from_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration_from_date, range, value, display)
+  return item, text
 end
 
 -- Duration Through Date (DUt): Date
@@ -6774,7 +7013,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration_through_date.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.duration_through_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.duration_through_date, range, value, display)
+  return item, text
 end
 
 -- Emission Type (MEt): String 4
@@ -6792,7 +7032,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.emission_type.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.emission_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.emission_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.emission_type, range, value, display)
+  return item, text
 end
 
 -- Emission Water (EMIw): Float 12,6
@@ -6814,7 +7055,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.emission_water.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.emission_water.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.emission_water, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.emission_water, range, value, display)
+  return item, text
 end
 
 -- End Of Day (EOd): YesNo
@@ -6838,7 +7080,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_day.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_day.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.end_of_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.end_of_day, range, value, display)
+  return item, text
 end
 
 -- End Of Event Type (EOEt): EndOfEventType
@@ -6867,7 +7110,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_event_type.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_event_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.end_of_event_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.end_of_event_type, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector A (ECCa): Float 12,6
@@ -6889,7 +7133,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_a.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_a, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_a, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector B (ECCb): Float 12,6
@@ -6911,7 +7156,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_b.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_b, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_b, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector C (ECCc): Float 12,6
@@ -6933,7 +7179,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_c.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_c, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_c, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector D (ECCd): Float 12,6
@@ -6955,7 +7202,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_d.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_d, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_d, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector E (ECCe): Float 12,6
@@ -6977,7 +7225,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_e.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_e, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_e, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector F (ECCf): Float 12,6
@@ -6999,7 +7248,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_f.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_f, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_f, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector G (ECCg): Float 12,6
@@ -7021,7 +7271,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_g.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_g, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_g, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector H (ECCh): Float 12,6
@@ -7043,7 +7294,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_h.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_h, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_h, range, value, display)
+  return item, text
 end
 
 -- Energy Consumption Climate Sector L (ECCl): Float 12,6
@@ -7065,7 +7317,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.energy_consumption_climate_sector_l.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_l, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.energy_consumption_climate_sector_l, range, value, display)
+  return item, text
 end
 
 -- Environmental Certification Name (ECNa): String 80
@@ -7083,7 +7336,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.environmental_certification
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.environmental_certification_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.environmental_certification_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.environmental_certification_name, range, value, display)
+  return item, text
 end
 
 -- Equilibrium Price (EQp): Float 12,6
@@ -7105,7 +7359,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.equilibrium_price.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.equilibrium_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.equilibrium_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.equilibrium_price, range, value, display)
+  return item, text
 end
 
 -- Esg Instrument Type (INTy): String 32
@@ -7123,7 +7378,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_instrument_type.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_instrument_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.esg_instrument_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.esg_instrument_type, range, value, display)
+  return item, text
 end
 
 -- EUSIPA (EUs): Id
@@ -7146,7 +7402,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.eusipa.dissect = function(b
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.eusipa.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.eusipa, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.eusipa, range, value, display)
+  return item, text
 end
 
 -- Eusipa Name (EUn): String 240
@@ -7164,7 +7421,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.eusipa_name.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.eusipa_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.eusipa_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.eusipa_name, range, value, display)
+  return item, text
 end
 
 -- Event Id (Ei): Integer 4
@@ -7187,7 +7445,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.event_id.dissect = function
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.event_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.event_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.event_id, range, value, display)
+  return item, text
 end
 
 -- Event Message Type (APMt): String 5
@@ -7205,7 +7464,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.event_message_type.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.event_message_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.event_message_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.event_message_type, range, value, display)
+  return item, text
 end
 
 -- Ex Date (Ed): Date
@@ -7226,7 +7486,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ex_date.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ex_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ex_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ex_date, range, value, display)
+  return item, text
 end
 
 -- Excessive CEO Pay Ratio (CEOp): Float 12,6
@@ -7248,7 +7509,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.excessive_ceo_pay_ratio.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.excessive_ceo_pay_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.excessive_ceo_pay_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.excessive_ceo_pay_ratio, range, value, display)
+  return item, text
 end
 
 -- Exchange Id (Ex): Id
@@ -7271,7 +7533,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_id.dissect = funct
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_id, range, value, display)
+  return item, text
 end
 
 -- Exchange Name (EXCn): String 40
@@ -7289,7 +7552,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_name.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_name, range, value, display)
+  return item, text
 end
 
 -- Exchange Rate (EXRt): Float 12,6
@@ -7311,7 +7575,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_rate.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exchange_rate, range, value, display)
+  return item, text
 end
 
 -- Exercise Currency (EXc): String 3
@@ -7329,7 +7594,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_currency.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_currency, range, value, display)
+  return item, text
 end
 
 -- Exercise From Date (EXb): Date
@@ -7350,7 +7616,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_from_date.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_from_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_from_date, range, value, display)
+  return item, text
 end
 
 -- Exercise To Date (EXe): Date
@@ -7371,7 +7638,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_to_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_to_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_to_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_to_date, range, value, display)
+  return item, text
 end
 
 -- Exercise Type (DXt): ExerciseType 1
@@ -7421,7 +7689,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_type.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exercise_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exercise_type, range, value, display)
+  return item, text
 end
 
 -- Expected Quoting Hours Based On Underlying (EQHr): String 32
@@ -7439,7 +7708,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.expected_quoting_hours_base
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.expected_quoting_hours_based_on_underlying.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.expected_quoting_hours_based_on_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.expected_quoting_hours_based_on_underlying, range, value, display)
+  return item, text
 end
 
 -- Expiration Type (Et): ExpirationType
@@ -7477,7 +7747,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.expiration_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.expiration_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.expiration_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.expiration_type, range, value, display)
+  return item, text
 end
 
 -- Exposure Fossil Fuel (EFf): YesNo
@@ -7501,7 +7772,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exposure_fossil_fuel.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exposure_fossil_fuel.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exposure_fossil_fuel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.exposure_fossil_fuel, range, value, display)
+  return item, text
 end
 
 -- Extraordinary Payment Terms (EOPt): Integer 9
@@ -7524,7 +7796,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.extraordinary_payment_terms
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.extraordinary_payment_terms.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.extraordinary_payment_terms, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.extraordinary_payment_terms, range, value, display)
+  return item, text
 end
 
 -- Face Value (Fv): Float 19,8
@@ -7546,7 +7819,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.face_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.face_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.face_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.face_value, range, value, display)
+  return item, text
 end
 
 -- Factor (Fa): FactorType
@@ -7590,7 +7864,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor.dissect = function(b
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor, range, value, display)
+  return item, text
 end
 
 -- Factor Date (FAd): Date
@@ -7611,7 +7886,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor_date.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor_date, range, value, display)
+  return item, text
 end
 
 -- Factor Value (FAv): Float 12,6
@@ -7633,7 +7909,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor_value.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.factor_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.factor_value, range, value, display)
+  return item, text
 end
 
 -- Fair Value (MFv): Float 12,6
@@ -7655,7 +7932,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value, range, value, display)
+  return item, text
 end
 
 -- Fair Value Ranking (MFr): Float 12,6
@@ -7677,7 +7955,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value_ranking.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value_ranking.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value_ranking, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value_ranking, range, value, display)
+  return item, text
 end
 
 -- Fair Value Spread (MFs): Float 12,6
@@ -7699,7 +7978,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value_spread.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fair_value_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fair_value_spread, range, value, display)
+  return item, text
 end
 
 -- Field Description (AFe): String 200
@@ -7717,7 +7997,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_description.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_description.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_description, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_description, range, value, display)
+  return item, text
 end
 
 -- Field Name (AFn): String 50
@@ -7735,7 +8016,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_name.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_name, range, value, display)
+  return item, text
 end
 
 -- Field Value (AFv): Integer 9
@@ -7758,7 +8040,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_value.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.field_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.field_value, range, value, display)
+  return item, text
 end
 
 -- Filtering Class (AFTc): Integer 9
@@ -7781,7 +8064,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.filtering_class.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.filtering_class.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.filtering_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.filtering_class, range, value, display)
+  return item, text
 end
 
 -- Final Price Type (MFPt): String 4
@@ -7799,7 +8083,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.final_price_type.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.final_price_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.final_price_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.final_price_type, range, value, display)
+  return item, text
 end
 
 -- Final Terms (FTe): String 240
@@ -7817,7 +8102,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.final_terms.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.final_terms.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.final_terms, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.final_terms, range, value, display)
+  return item, text
 end
 
 -- First Corresponding (Yf): Float 12,6
@@ -7839,7 +8125,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_corresponding.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_corresponding, range, value, display)
+  return item, text
 end
 
 -- First Fixing Dates (AFDa): Stringlist 4
@@ -7857,7 +8144,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_fixing_dates.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_fixing_dates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_fixing_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_fixing_dates, range, value, display)
+  return item, text
 end
 
 -- First Installment Date (FId): Date
@@ -7878,7 +8166,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_installment_date.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_installment_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_installment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_installment_date, range, value, display)
+  return item, text
 end
 
 -- First Ordinary Coupon Date (FCd): Date
@@ -7899,7 +8188,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_ordinary_coupon_date.
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_ordinary_coupon_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_ordinary_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_ordinary_coupon_date, range, value, display)
+  return item, text
 end
 
 -- First Price (Pf): Float 12,6
@@ -7921,7 +8211,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_price.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_price, range, value, display)
+  return item, text
 end
 
 -- First Reset Day (AFr): Date
@@ -7942,7 +8233,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_reset_day.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.first_reset_day.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_reset_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.first_reset_day, range, value, display)
+  return item, text
 end
 
 -- FISN (FISn): String 35
@@ -7960,7 +8252,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fisn.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fisn.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fisn, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fisn, range, value, display)
+  return item, text
 end
 
 -- Five Weeks And More Options Volume (FMWv): Float 16,2
@@ -7982,7 +8275,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.five_weeks_and_more_options
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.five_weeks_and_more_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.five_weeks_and_more_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.five_weeks_and_more_options_volume, range, value, display)
+  return item, text
 end
 
 -- Fixation Date (Fd): Date
@@ -8003,7 +8297,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixation_date.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixation_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixation_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixation_date, range, value, display)
+  return item, text
 end
 
 -- Fixed Income Type (FIt): FixedIncomeType 2
@@ -8062,7 +8357,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixed_income_type.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixed_income_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixed_income_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixed_income_type, range, value, display)
+  return item, text
 end
 
 -- Fixing Calendar (AFc): Integer 9
@@ -8085,7 +8381,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixing_calendar.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixing_calendar.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixing_calendar, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixing_calendar, range, value, display)
+  return item, text
 end
 
 -- Fixing Date (FDt): Date
@@ -8106,7 +8403,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixing_date.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixing_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixing_date, range, value, display)
+  return item, text
 end
 
 -- Fixings (Fx): YesNo
@@ -8130,7 +8428,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixings.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fixings.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixings, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fixings, range, value, display)
+  return item, text
 end
 
 -- Flexible Market Type (FLm): FlexibleMarketType
@@ -8159,7 +8458,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.flexible_market_type.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.flexible_market_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.flexible_market_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.flexible_market_type, range, value, display)
+  return item, text
 end
 
 -- Flexible Series (FLs): YesNo
@@ -8183,7 +8483,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.flexible_series.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.flexible_series.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.flexible_series, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.flexible_series, range, value, display)
+  return item, text
 end
 
 -- Forced Compulsory Labor (FCLb): YesNo
@@ -8207,7 +8508,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.forced_compulsory_labor.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.forced_compulsory_labor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.forced_compulsory_labor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.forced_compulsory_labor, range, value, display)
+  return item, text
 end
 
 -- Fossil Fuel Activities (FFAc): Float 12,6
@@ -8229,7 +8531,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fossil_fuel_activities.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fossil_fuel_activities.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fossil_fuel_activities, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fossil_fuel_activities, range, value, display)
+  return item, text
 end
 
 -- Four To Five Weeks Options Volume (FFWv): Float 16,2
@@ -8251,7 +8554,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.four_to_five_weeks_options_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.four_to_five_weeks_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.four_to_five_weeks_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.four_to_five_weeks_options_volume, range, value, display)
+  return item, text
 end
 
 -- Freedom Expression Score (FESc): Float 12,6
@@ -8273,7 +8577,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.freedom_expression_score.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.freedom_expression_score.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.freedom_expression_score, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.freedom_expression_score, range, value, display)
+  return item, text
 end
 
 -- Fund Domicile (AFDo): Integer 9
@@ -8296,7 +8601,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_domicile.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_domicile.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fund_domicile, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fund_domicile, range, value, display)
+  return item, text
 end
 
 -- Fund Manager (FUm): String 60
@@ -8314,7 +8620,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_manager.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_manager.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fund_manager, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.fund_manager, range, value, display)
+  return item, text
 end
 
 -- Further Sub Product Code (MFPc): String 4
@@ -8332,7 +8639,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.further_sub_product_code.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.further_sub_product_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.further_sub_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.further_sub_product_code, range, value, display)
+  return item, text
 end
 
 -- Gender Pay Ratio (GPAy): Float 12,6
@@ -8354,7 +8662,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.gender_pay_ratio.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.gender_pay_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.gender_pay_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.gender_pay_ratio, range, value, display)
+  return item, text
 end
 
 -- GHG Emissions Scope1 (GHGa): Float 12,6
@@ -8376,7 +8685,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope1.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope1, range, value, display)
+  return item, text
 end
 
 -- GHG Emissions Scope2 (GHGb): Float 12,6
@@ -8398,7 +8708,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope2.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope2, range, value, display)
+  return item, text
 end
 
 -- GHG Emissions Scope3 (GHGc): Float 12,6
@@ -8420,7 +8731,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope3.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_emissions_scope3.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope3, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_emissions_scope3, range, value, display)
+  return item, text
 end
 
 -- GHG Intensity Company (GHGi): Float 12,6
@@ -8442,7 +8754,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_intensity_company.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_intensity_company.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_intensity_company, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_intensity_company, range, value, display)
+  return item, text
 end
 
 -- GHG Intensity Country (GHGo): Float 12,6
@@ -8464,7 +8777,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_intensity_country.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ghg_intensity_country.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_intensity_country, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ghg_intensity_country, range, value, display)
+  return item, text
 end
 
 -- Government Guarantee (AGGu): Integer 9
@@ -8487,7 +8801,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.government_guarantee.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.government_guarantee.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.government_guarantee, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.government_guarantee, range, value, display)
+  return item, text
 end
 
 -- Green Bond (GRBo): YesNo
@@ -8511,7 +8826,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_bond.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_bond.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_bond, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_bond, range, value, display)
+  return item, text
 end
 
 -- Green Designation Item (GDEi): GreenDesignationItem
@@ -8543,7 +8859,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_designation_item.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_designation_item.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_designation_item, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_designation_item, range, value, display)
+  return item, text
 end
 
 -- Green Equity Designation (GEDe): YesNo
@@ -8567,7 +8884,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_equity_designation.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_equity_designation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_equity_designation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_equity_designation, range, value, display)
+  return item, text
 end
 
 -- Green Equity Transition Designation (GETd): YesNo
@@ -8591,7 +8909,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_equity_transition_des
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.green_equity_transition_designation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_equity_transition_designation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.green_equity_transition_designation, range, value, display)
+  return item, text
 end
 
 -- Grievance Handling (GRHa): YesNo
@@ -8615,7 +8934,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.grievance_handling.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.grievance_handling.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.grievance_handling, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.grievance_handling, range, value, display)
+  return item, text
 end
 
 -- Group Source Id (GSi): String 32
@@ -8633,7 +8953,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.group_source_id.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.group_source_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.group_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.group_source_id, range, value, display)
+  return item, text
 end
 
 -- Has Amortization (Ha): YesNo
@@ -8657,7 +8978,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.has_amortization.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.has_amortization.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.has_amortization, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.has_amortization, range, value, display)
+  return item, text
 end
 
 -- Hazardous Waste (HWr): Float 12,6
@@ -8679,7 +9001,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.hazardous_waste.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.hazardous_waste.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.hazardous_waste, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.hazardous_waste, range, value, display)
+  return item, text
 end
 
 -- Head Line (NHl): String 80
@@ -8697,7 +9020,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.head_line.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.head_line.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.head_line, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.head_line, range, value, display)
+  return item, text
 end
 
 -- High Corresponding (Yh): Float 12,6
@@ -8719,7 +9043,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding, range, value, display)
+  return item, text
 end
 
 -- High Corresponding Month (HYm): Float 12,6
@@ -8741,7 +9066,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding_month.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding_month.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding_month, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding_month, range, value, display)
+  return item, text
 end
 
 -- High Corresponding Year (HYy): Float 12,6
@@ -8763,7 +9089,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding_year.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_corresponding_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_corresponding_year, range, value, display)
+  return item, text
 end
 
 -- High Price (Ph): Float 12,6
@@ -8785,7 +9112,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price, range, value, display)
+  return item, text
 end
 
 -- High Price Month (HPm): Float 12,6
@@ -8807,7 +9135,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_month.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_month.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_month, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_month, range, value, display)
+  return item, text
 end
 
 -- High Price Month Date (HPMd): Date
@@ -8828,7 +9157,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_month_date.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_month_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_month_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_month_date, range, value, display)
+  return item, text
 end
 
 -- High Price Year (HPy): Float 12,6
@@ -8850,7 +9180,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_year.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_year, range, value, display)
+  return item, text
 end
 
 -- High Price Year Date (HPYd): Date
@@ -8871,7 +9202,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_year_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_price_year_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_year_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_price_year_date, range, value, display)
+  return item, text
 end
 
 -- High Tsp (Ht): Time
@@ -8892,7 +9224,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_tsp.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_tsp.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_tsp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_tsp, range, value, display)
+  return item, text
 end
 
 -- High Value (Vh): Float 12,6
@@ -8914,7 +9247,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.high_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.high_value, range, value, display)
+  return item, text
 end
 
 -- HR Due Diligence (HRDd): YesNo
@@ -8938,7 +9272,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.hr_due_diligence.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.hr_due_diligence.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.hr_due_diligence, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.hr_due_diligence, range, value, display)
+  return item, text
 end
 
 -- Human Right Issues (HURi): YesNo
@@ -8962,7 +9297,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_right_issues.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_right_issues.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_right_issues, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_right_issues, range, value, display)
+  return item, text
 end
 
 -- Human Rights Performance (HRPe): YesNo
@@ -8986,7 +9322,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_rights_performance.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_rights_performance.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_rights_performance, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_rights_performance, range, value, display)
+  return item, text
 end
 
 -- Human Rights Policy (HRp): YesNo
@@ -9010,7 +9347,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_rights_policy.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_rights_policy.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_rights_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_rights_policy, range, value, display)
+  return item, text
 end
 
 -- Human Trafficking (HUTr): YesNo
@@ -9034,7 +9372,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_trafficking.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.human_trafficking.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_trafficking, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.human_trafficking, range, value, display)
+  return item, text
 end
 
 -- Id Code (i): Id
@@ -9057,7 +9396,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_code.dissect = function(
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_code, range, value, display)
+  return item, text
 end
 
 -- Id Leg (Il): Id
@@ -9080,7 +9420,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_leg.dissect = function(b
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_leg.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_leg, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_leg, range, value, display)
+  return item, text
 end
 
 -- Id Orderbook (IDo): Id
@@ -9103,7 +9444,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_orderbook.dissect = func
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.id_orderbook.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_orderbook, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.id_orderbook, range, value, display)
+  return item, text
 end
 
 -- Imbalance Direction (IMd): ImbalanceDirection 1
@@ -9138,7 +9480,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.imbalance_direction.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.imbalance_direction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.imbalance_direction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.imbalance_direction, range, value, display)
+  return item, text
 end
 
 -- Imbalance Shares (IMs): Integer 13
@@ -9161,7 +9504,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.imbalance_shares.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.imbalance_shares.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.imbalance_shares, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.imbalance_shares, range, value, display)
+  return item, text
 end
 
 -- Income Equality Score (IESc): Float 12,6
@@ -9183,7 +9527,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.income_equality_score.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.income_equality_score.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.income_equality_score, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.income_equality_score, range, value, display)
+  return item, text
 end
 
 -- Income Treatment (ITr): String 18
@@ -9201,7 +9546,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.income_treatment.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.income_treatment.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.income_treatment, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.income_treatment, range, value, display)
+  return item, text
 end
 
 -- Index Cap Size Type (ICs): Id
@@ -9224,7 +9570,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_cap_size_type.dissect
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_cap_size_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_cap_size_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_cap_size_type, range, value, display)
+  return item, text
 end
 
 -- Index Category Type (INDc): Id
@@ -9247,7 +9594,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_category_type.dissect
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_category_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_category_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_category_type, range, value, display)
+  return item, text
 end
 
 -- Index Currency (CUx): String 3
@@ -9265,7 +9613,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_currency.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_currency, range, value, display)
+  return item, text
 end
 
 -- Index Date (IXd): Date
@@ -9286,7 +9635,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_date.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_date, range, value, display)
+  return item, text
 end
 
 -- Index Duration (DUx): Float 12,6
@@ -9308,7 +9658,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_duration.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_duration, range, value, display)
+  return item, text
 end
 
 -- Index Factor (IDXf): Float 12,6
@@ -9330,7 +9681,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_factor.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_factor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_factor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_factor, range, value, display)
+  return item, text
 end
 
 -- Index Indicator (Ii): Float 3,4
@@ -9352,7 +9704,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_indicator.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_indicator.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_indicator, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_indicator, range, value, display)
+  return item, text
 end
 
 -- Index Name (INAm): String 100
@@ -9370,7 +9723,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_name.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_name, range, value, display)
+  return item, text
 end
 
 -- Index Price Type (IPt): Id
@@ -9393,7 +9747,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_price_type.dissect = 
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_price_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_price_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_price_type, range, value, display)
+  return item, text
 end
 
 -- Index Region (INDr): Id
@@ -9416,7 +9771,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_region.dissect = func
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_region.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_region, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_region, range, value, display)
+  return item, text
 end
 
 -- Index Status (Is): Id
@@ -9439,7 +9795,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_status.dissect = func
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_status.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_status, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_status, range, value, display)
+  return item, text
 end
 
 -- Index Sub Type (INDs): Id
@@ -9462,7 +9819,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_sub_type.dissect = fu
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_sub_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_sub_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_sub_type, range, value, display)
+  return item, text
 end
 
 -- Index Turnover Currency (ITc): String 3
@@ -9480,7 +9838,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_turnover_currency.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_turnover_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_turnover_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_turnover_currency, range, value, display)
+  return item, text
 end
 
 -- Index Type (ITy): Id
@@ -9503,7 +9862,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_type.dissect = functi
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.index_type, range, value, display)
+  return item, text
 end
 
 -- Indicative Close Price (ICp): Float 12,6
@@ -9525,7 +9885,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_close_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_close_price, range, value, display)
+  return item, text
 end
 
 -- Indicative Close Price Date (ICPd): Date
@@ -9546,7 +9907,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_date
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_close_price_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_close_price_date, range, value, display)
+  return item, text
 end
 
 -- Indicative Quotes (Iq): YesNo
@@ -9570,7 +9932,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_quotes.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_quotes.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_quotes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.indicative_quotes, range, value, display)
+  return item, text
 end
 
 -- Industry (INDu): String 80
@@ -9588,7 +9951,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.industry.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.industry.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.industry, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.industry, range, value, display)
+  return item, text
 end
 
 -- Industry Sector (ISEc): String 80
@@ -9606,7 +9970,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.industry_sector.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.industry_sector.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.industry_sector, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.industry_sector, range, value, display)
+  return item, text
 end
 
 -- Installment Frequency (IFq): Float 12,6
@@ -9628,7 +9993,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.installment_frequency.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.installment_frequency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.installment_frequency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.installment_frequency, range, value, display)
+  return item, text
 end
 
 -- Instrument External Text (IEt): String 80
@@ -9646,7 +10012,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_external_text.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_external_text.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_external_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_external_text, range, value, display)
+  return item, text
 end
 
 -- Instrument Identification Code Type (IICt): String 4
@@ -9664,7 +10031,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_identification_c
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_identification_code_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_identification_code_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_identification_code_type, range, value, display)
+  return item, text
 end
 
 -- Instrument Name (INn): String 16
@@ -9682,7 +10050,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_name.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_name, range, value, display)
+  return item, text
 end
 
 -- Instrument Source Id (INi): String 32
@@ -9700,7 +10069,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_source_id.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_source_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_source_id, range, value, display)
+  return item, text
 end
 
 -- Instrument Source Type (NIs): String 4
@@ -9718,7 +10088,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_source_type.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_source_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_source_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_source_type, range, value, display)
+  return item, text
 end
 
 -- Instrument Sub Type (INt): Id
@@ -9741,7 +10112,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_sub_type.dissect
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_sub_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_sub_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_sub_type, range, value, display)
+  return item, text
 end
 
 -- Instrument Type (It): Id
@@ -9764,7 +10136,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_type.dissect = f
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.instrument_type, range, value, display)
+  return item, text
 end
 
 -- Interest Base (AINb): Integer 9
@@ -9787,7 +10160,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base, range, value, display)
+  return item, text
 end
 
 -- Interest Base Cap (AIBc): Float 4,6
@@ -9809,7 +10183,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_cap.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_cap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_cap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_cap, range, value, display)
+  return item, text
 end
 
 -- Interest Base Floor (AIBf): Float 4,6
@@ -9831,7 +10206,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_floor.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_floor.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_floor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_floor, range, value, display)
+  return item, text
 end
 
 -- Interest Base Spread (AIBr): Float 5,6
@@ -9853,7 +10229,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_spread.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_base_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_base_spread, range, value, display)
+  return item, text
 end
 
 -- Interest From Date (IFd): Date
@@ -9874,7 +10251,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_from_date.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_from_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_from_date, range, value, display)
+  return item, text
 end
 
 -- Interest Limit (INTl): YesNo
@@ -9898,7 +10276,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_limit.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_limit.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_limit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_limit, range, value, display)
+  return item, text
 end
 
 -- Interest Payment Dates (IPAd): Stringlist 4
@@ -9916,7 +10295,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_payment_dates.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_payment_dates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_payment_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_payment_dates, range, value, display)
+  return item, text
 end
 
 -- Interest Rate (Ri): Float 12,6
@@ -9938,7 +10318,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_rate.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_rate, range, value, display)
+  return item, text
 end
 
 -- Interest Trigger (INTt): Integer 9
@@ -9961,7 +10342,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_trigger.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.interest_trigger.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_trigger, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.interest_trigger, range, value, display)
+  return item, text
 end
 
 -- Internal Ranking (INr): YesNo
@@ -9985,7 +10367,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.internal_ranking.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.internal_ranking.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.internal_ranking, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.internal_ranking, range, value, display)
+  return item, text
 end
 
 -- Investment Focus Geographic (AIFg): Integer 9
@@ -10008,7 +10391,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.investment_focus_geographic
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.investment_focus_geographic.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.investment_focus_geographic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.investment_focus_geographic, range, value, display)
+  return item, text
 end
 
 -- Investment Focus Instruments (AIFi): Integer 9
@@ -10031,7 +10415,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.investment_focus_instrument
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.investment_focus_instruments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.investment_focus_instruments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.investment_focus_instruments, range, value, display)
+  return item, text
 end
 
 -- Is Global CCP (IAc): YesNo
@@ -10055,7 +10440,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_global_ccp.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_global_ccp.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_global_ccp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_global_ccp, range, value, display)
+  return item, text
 end
 
 -- Is Hot Inserted (HOt): Boolean
@@ -10073,7 +10459,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_hot_inserted.dissect = f
   local value = true
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_hot_inserted.display()
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_hot_inserted, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_hot_inserted, range, value, display)
+  return item, text
 end
 
 -- Is Official Closing Price (ISOc): YesNo
@@ -10097,7 +10484,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_official_closing_price.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_official_closing_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_official_closing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_official_closing_price, range, value, display)
+  return item, text
 end
 
 -- Is Official Closing Turnover (ISOt): YesNo
@@ -10121,7 +10509,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_official_closing_turnove
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_official_closing_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_official_closing_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_official_closing_turnover, range, value, display)
+  return item, text
 end
 
 -- Is Test (ITSt): YesNo
@@ -10145,7 +10534,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_test.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.is_test.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_test, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.is_test, range, value, display)
+  return item, text
 end
 
 -- Isin (ISn): String 12
@@ -10163,7 +10553,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.isin.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.isin.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.isin, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.isin, range, value, display)
+  return item, text
 end
 
 -- Issue Currency (CUi): String 3
@@ -10181,7 +10572,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issue_currency.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issue_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issue_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issue_currency, range, value, display)
+  return item, text
 end
 
 -- Issuer Id (ISi): Id
@@ -10204,7 +10596,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_id.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_id, range, value, display)
+  return item, text
 end
 
 -- Issuer Name (AISn): String 60
@@ -10222,7 +10615,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_name.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_name, range, value, display)
+  return item, text
 end
 
 -- Issuer Sign (ISs): String 6
@@ -10240,7 +10634,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_sign.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_sign.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_sign, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_sign, range, value, display)
+  return item, text
 end
 
 -- Issuer Type (ISt): Integer 9
@@ -10263,7 +10658,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_type.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuer_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuer_type, range, value, display)
+  return item, text
 end
 
 -- Issuing Auctions (Ia): YesNo
@@ -10287,7 +10683,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuing_auctions.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuing_auctions.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuing_auctions, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuing_auctions, range, value, display)
+  return item, text
 end
 
 -- Issuing Price (ISSp): Float 14,6
@@ -10309,7 +10706,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuing_price.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.issuing_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.issuing_price, range, value, display)
+  return item, text
 end
 
 -- KID Update (KIDu): YesNo
@@ -10333,7 +10731,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update, range, value, display)
+  return item, text
 end
 
 -- KID Update Date (KIDd): Date
@@ -10354,7 +10753,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update_date.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update_date, range, value, display)
+  return item, text
 end
 
 -- KID Update Time (KIDt): Time
@@ -10375,7 +10775,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update_time.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.kid_update_time.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.kid_update_time, range, value, display)
+  return item, text
 end
 
 -- Language (LAn): String 3
@@ -10393,7 +10794,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.language.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.language.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.language, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.language, range, value, display)
+  return item, text
 end
 
 -- Language Code (LAc): String 3
@@ -10411,7 +10813,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.language_code.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.language_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.language_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.language_code, range, value, display)
+  return item, text
 end
 
 -- Last Block (BLl): YesNo
@@ -10435,7 +10838,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_block.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_block.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_block, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_block, range, value, display)
+  return item, text
 end
 
 -- Last Corresponding (Yl): Float 12,6
@@ -10457,7 +10861,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_corresponding.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_corresponding, range, value, display)
+  return item, text
 end
 
 -- Last Coupon Date (LCOd): Date
@@ -10478,7 +10883,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_coupon_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_coupon_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_coupon_date, range, value, display)
+  return item, text
 end
 
 -- Last Due Date (ALDd): Date
@@ -10499,7 +10905,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_due_date.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_due_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_due_date, range, value, display)
+  return item, text
 end
 
 -- Last Fixing Day (AFDz): Integer 3
@@ -10522,7 +10929,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_fixing_day.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_fixing_day.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_fixing_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_fixing_day, range, value, display)
+  return item, text
 end
 
 -- Last Paid Date (LPd): Date
@@ -10543,7 +10951,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_paid_date.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_paid_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_paid_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_paid_date, range, value, display)
+  return item, text
 end
 
 -- Last Price (Pl): Float 12,6
@@ -10565,7 +10974,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_price.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_price, range, value, display)
+  return item, text
 end
 
 -- Last Trade Report Price (LTRp): Float 12,6
@@ -10587,7 +10997,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_trade_report_price.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_trade_report_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_trade_report_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_trade_report_price, range, value, display)
+  return item, text
 end
 
 -- Last Trade Report Quantity (LTRq): Integer 10
@@ -10610,7 +11021,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_trade_report_quantity.
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_trade_report_quantity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_trade_report_quantity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_trade_report_quantity, range, value, display)
+  return item, text
 end
 
 -- Last Traded Date (LTd): Date
@@ -10631,7 +11043,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_traded_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.last_traded_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_traded_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.last_traded_date, range, value, display)
+  return item, text
 end
 
 -- Lead Manager (LMa): String 8
@@ -10649,7 +11062,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lead_manager.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lead_manager.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lead_manager, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lead_manager, range, value, display)
+  return item, text
 end
 
 -- Legal Construction (ALc): Integer 9
@@ -10672,7 +11086,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.legal_construction.dissect 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.legal_construction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.legal_construction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.legal_construction, range, value, display)
+  return item, text
 end
 
 -- LEI (MLEi): String 20
@@ -10690,7 +11105,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lei.dissect = function(buff
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lei.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lei, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lei, range, value, display)
+  return item, text
 end
 
 -- Level Of Funding (LOf): Float 12,6
@@ -10712,7 +11128,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.level_of_funding.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.level_of_funding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.level_of_funding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.level_of_funding, range, value, display)
+  return item, text
 end
 
 -- Leverage (LEv): String 18
@@ -10730,7 +11147,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.leverage.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.leverage.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.leverage, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.leverage, range, value, display)
+  return item, text
 end
 
 -- Leverage Ratio (LRa): Float 12,6
@@ -10752,7 +11170,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.leverage_ratio.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.leverage_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.leverage_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.leverage_ratio, range, value, display)
+  return item, text
 end
 
 -- Link Prospect (LIp): String 240
@@ -10770,7 +11189,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.link_prospect.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.link_prospect.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.link_prospect, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.link_prospect, range, value, display)
+  return item, text
 end
 
 -- Link Underlying (LIu): String 240
@@ -10788,7 +11208,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.link_underlying.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.link_underlying.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.link_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.link_underlying, range, value, display)
+  return item, text
 end
 
 -- Links (LNk): Integer 2
@@ -10811,7 +11232,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.links.dissect = function(bu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.links.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.links, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.links, range, value, display)
+  return item, text
 end
 
 -- Liquid (MLIq): YesNo
@@ -10835,7 +11257,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquid.dissect = function(b
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquid, range, value, display)
+  return item, text
 end
 
 -- Liquidity Group (LQg): String 3
@@ -10853,7 +11276,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_group.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_group, range, value, display)
+  return item, text
 end
 
 -- Liquidity Provider (LPe): YesNo
@@ -10877,7 +11301,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_provider.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_provider.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_provider, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_provider, range, value, display)
+  return item, text
 end
 
 -- Liquidity Provider Level (LPl): Idlist 9
@@ -10895,7 +11320,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_provider_level.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.liquidity_provider_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_provider_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.liquidity_provider_level, range, value, display)
+  return item, text
 end
 
 -- LIS Post Trade (MLPo): Float 12,6
@@ -10917,7 +11343,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lis_post_trade.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lis_post_trade.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lis_post_trade, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lis_post_trade, range, value, display)
+  return item, text
 end
 
 -- LIS Pre Trade (MLPr): Float 12,6
@@ -10939,7 +11366,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lis_pre_trade.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lis_pre_trade.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lis_pre_trade, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lis_pre_trade, range, value, display)
+  return item, text
 end
 
 -- List Currency (LCy): String 3
@@ -10957,7 +11385,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_currency.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_currency, range, value, display)
+  return item, text
 end
 
 -- List Position (Po): Integer 9
@@ -10980,7 +11409,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_position.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_position.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_position, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_position, range, value, display)
+  return item, text
 end
 
 -- List Type (LSt): Id
@@ -11003,7 +11433,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_type.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.list_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.list_type, range, value, display)
+  return item, text
 end
 
 -- Listed Issuer (Li): YesNo
@@ -11027,7 +11458,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.listed_issuer.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.listed_issuer.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.listed_issuer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.listed_issuer, range, value, display)
+  return item, text
 end
 
 -- Listing Date (LDa): Date
@@ -11048,7 +11480,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.listing_date.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.listing_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.listing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.listing_date, range, value, display)
+  return item, text
 end
 
 -- LLD Volume Type (LLVt): LLDVolumeType
@@ -11080,7 +11513,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lld_volume_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lld_volume_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lld_volume_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lld_volume_type, range, value, display)
+  return item, text
 end
 
 -- Loan Group (LOGr): Integer 9
@@ -11103,7 +11537,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_group.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_group, range, value, display)
+  return item, text
 end
 
 -- Loan Number (Ln): String 12
@@ -11121,7 +11556,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_number.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_number.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_number, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_number, range, value, display)
+  return item, text
 end
 
 -- Loan Type (ALOt): Integer 9
@@ -11144,7 +11580,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type, range, value, display)
+  return item, text
 end
 
 -- Loan Type Spec1 (ALTs): Float 4,2
@@ -11166,7 +11603,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec1.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec1, range, value, display)
+  return item, text
 end
 
 -- Loan Type Spec2 (ALTp): Float 4,2
@@ -11188,7 +11626,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec2.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec2, range, value, display)
+  return item, text
 end
 
 -- Loan Type Spec3 (ALTe): Float 4,2
@@ -11210,7 +11649,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec3.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.loan_type_spec3.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec3, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.loan_type_spec3, range, value, display)
+  return item, text
 end
 
 -- Local Round Trip Classes (LMc): Iinteger 10
@@ -11241,6 +11681,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.local_round_trip_classes.di
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.local_round_trip_classes, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Local Round Trip Costs (LMv): Iinteger 10
@@ -11271,6 +11712,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.local_round_trip_costs.diss
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.local_round_trip_costs, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Local Round Trip Coverages (LMg): Ifloat 3,4
@@ -11300,6 +11742,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.local_round_trip_coverages.
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.local_round_trip_coverages, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Lot Size (LSz): Integer 9
@@ -11322,7 +11765,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lot_size.dissect = function
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lot_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lot_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lot_size, range, value, display)
+  return item, text
 end
 
 -- Lottery Date (DLo): Date
@@ -11343,7 +11787,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lottery_date.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.lottery_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lottery_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.lottery_date, range, value, display)
+  return item, text
 end
 
 -- Low Corresponding (Yo): Float 12,6
@@ -11365,7 +11810,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding, range, value, display)
+  return item, text
 end
 
 -- Low Corresponding Month (LYm): Float 12,6
@@ -11387,7 +11833,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding_month.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding_month.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding_month, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding_month, range, value, display)
+  return item, text
 end
 
 -- Low Corresponding Year (LYy): Float 12,6
@@ -11409,7 +11856,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding_year.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_corresponding_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_corresponding_year, range, value, display)
+  return item, text
 end
 
 -- Low Price (LOp): Float 12,6
@@ -11431,7 +11879,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price, range, value, display)
+  return item, text
 end
 
 -- Low Price Month (LPm): Float 12,6
@@ -11453,7 +11902,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_month.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_month.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_month, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_month, range, value, display)
+  return item, text
 end
 
 -- Low Price Month Date (LPMd): Date
@@ -11474,7 +11924,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_month_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_month_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_month_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_month_date, range, value, display)
+  return item, text
 end
 
 -- Low Price Year (LPy): Float 12,6
@@ -11496,7 +11947,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_year.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_year, range, value, display)
+  return item, text
 end
 
 -- Low Price Year Date (LPYd): Date
@@ -11517,7 +11969,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_year_date.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_price_year_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_year_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_price_year_date, range, value, display)
+  return item, text
 end
 
 -- Low Tsp (Tl): Time
@@ -11538,7 +11991,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_tsp.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_tsp.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_tsp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_tsp, range, value, display)
+  return item, text
 end
 
 -- Low Value (Vl): Float 12,6
@@ -11560,7 +12014,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_value.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.low_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.low_value, range, value, display)
+  return item, text
 end
 
 -- Management Company (MAc): String 60
@@ -11578,7 +12033,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.management_company.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.management_company.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.management_company, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.management_company, range, value, display)
+  return item, text
 end
 
 -- Management Fee (MAf): Float 12,6
@@ -11600,7 +12056,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.management_fee.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.management_fee.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.management_fee, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.management_fee, range, value, display)
+  return item, text
 end
 
 -- Manual Trade Price Collar (MTPc): Float 12,6
@@ -11622,7 +12079,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.manual_trade_price_collar.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.manual_trade_price_collar.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.manual_trade_price_collar, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.manual_trade_price_collar, range, value, display)
+  return item, text
 end
 
 -- Margin Price (MPr): Float 12,6
@@ -11644,7 +12102,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.margin_price.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.margin_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.margin_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.margin_price, range, value, display)
+  return item, text
 end
 
 -- Margin Rate (Mr): Float 11,6
@@ -11666,7 +12125,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.margin_rate.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.margin_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.margin_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.margin_rate, range, value, display)
+  return item, text
 end
 
 -- Market Cap (CAp): Float 16,2
@@ -11688,7 +12148,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_cap.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_cap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_cap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_cap, range, value, display)
+  return item, text
 end
 
 -- Market Condition (MKc): MarketCondition 2
@@ -11720,7 +12181,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_condition.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_condition.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_condition, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_condition, range, value, display)
+  return item, text
 end
 
 -- Market Id (Mk): Id
@@ -11743,7 +12205,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_id.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_id, range, value, display)
+  return item, text
 end
 
 -- Market Name (MKTn): String 40
@@ -11761,7 +12224,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_name.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_name, range, value, display)
+  return item, text
 end
 
 -- Market Sector (MSc): Id
@@ -11784,7 +12248,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_sector.dissect = fun
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_sector.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_sector, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_sector, range, value, display)
+  return item, text
 end
 
 -- Market Type (MKt): Id
@@ -11807,7 +12272,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_type.dissect = funct
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.market_type, range, value, display)
+  return item, text
 end
 
 -- Marketing Material (MAm): String 240
@@ -11825,7 +12291,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.marketing_material.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.marketing_material.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.marketing_material, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.marketing_material, range, value, display)
+  return item, text
 end
 
 -- Maturity Date (DMa): Date
@@ -11846,7 +12313,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.maturity_date.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.maturity_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.maturity_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.maturity_date, range, value, display)
+  return item, text
 end
 
 -- Maturity Value (Mv): Float 12,6
@@ -11868,7 +12336,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.maturity_value.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.maturity_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.maturity_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.maturity_value, range, value, display)
+  return item, text
 end
 
 -- Max Days Order (MDo): Integer 4
@@ -11891,7 +12360,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_days_order.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_days_order.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_days_order, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_days_order, range, value, display)
+  return item, text
 end
 
 -- Max Level (Ml): Float 12,6
@@ -11913,7 +12383,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_level.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_level.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_level, range, value, display)
+  return item, text
 end
 
 -- Max Order Value (MOVa): Float 12,6
@@ -11935,7 +12406,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_order_value.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_order_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_order_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_order_value, range, value, display)
+  return item, text
 end
 
 -- Max Order Volume (MOVo): Float 16,2
@@ -11957,7 +12429,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_order_volume.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_order_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_order_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_order_volume, range, value, display)
+  return item, text
 end
 
 -- Max OT Ratio (MOTr): Float 12,6
@@ -11979,7 +12452,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_ot_ratio.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_ot_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_ot_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_ot_ratio, range, value, display)
+  return item, text
 end
 
 -- Max OT Volume (MOTv): Float 16,2
@@ -12001,7 +12475,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_ot_volume.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.max_ot_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_ot_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.max_ot_volume, range, value, display)
+  return item, text
 end
 
 -- Metal Type (METy): String 6
@@ -12019,7 +12494,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.metal_type.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.metal_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.metal_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.metal_type, range, value, display)
+  return item, text
 end
 
 -- Mi FID Bond Type (MBTy): String 4
@@ -12037,7 +12513,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fid_bond_type.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fid_bond_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fid_bond_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fid_bond_type, range, value, display)
+  return item, text
 end
 
 -- Mi FID Tick Size (MTSr): YesNo
@@ -12061,7 +12538,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fid_tick_size.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fid_tick_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fid_tick_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fid_tick_size, range, value, display)
+  return item, text
 end
 
 -- Mi FIR Id (MIFr): String 4
@@ -12079,7 +12557,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fir_id.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mi_fir_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fir_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mi_fir_id, range, value, display)
+  return item, text
 end
 
 -- Mic Code (MIc): String 4
@@ -12097,7 +12576,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mic_code.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mic_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mic_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mic_code, range, value, display)
+  return item, text
 end
 
 -- Mid Price (MIp): Float 12,6
@@ -12119,7 +12599,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price, range, value, display)
+  return item, text
 end
 
 -- Mid Price Auction (MPa): YesNo
@@ -12143,7 +12624,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price_auction.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price_auction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price_auction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price_auction, range, value, display)
+  return item, text
 end
 
 -- Mid Price Matching (MPm): YesNo 1
@@ -12167,7 +12649,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price_matching.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mid_price_matching.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price_matching, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mid_price_matching, range, value, display)
+  return item, text
 end
 
 -- Min Order Value (MOv): Integer 9
@@ -12190,7 +12673,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.min_order_value.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.min_order_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.min_order_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.min_order_value, range, value, display)
+  return item, text
 end
 
 -- Min Volume (Vm): Integer 10
@@ -12213,7 +12697,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.min_volume.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.min_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.min_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.min_volume, range, value, display)
+  return item, text
 end
 
 -- Minimum Acceptable Quantity (MAq): Float 12,2
@@ -12235,7 +12720,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minimum_acceptable_quantity
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minimum_acceptable_quantity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minimum_acceptable_quantity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minimum_acceptable_quantity, range, value, display)
+  return item, text
 end
 
 -- Minus Bids (Bm): Integer 4
@@ -12258,7 +12744,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minus_bids.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minus_bids.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minus_bids, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minus_bids, range, value, display)
+  return item, text
 end
 
 -- Minus Paid (Pm): Integer 4
@@ -12281,7 +12768,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minus_paid.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.minus_paid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minus_paid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.minus_paid, range, value, display)
+  return item, text
 end
 
 -- Mkt And Sub Mkt Affiliation (AMSa): Integer 9
@@ -12304,7 +12792,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mkt_and_sub_mkt_affiliation
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mkt_and_sub_mkt_affiliation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mkt_and_sub_mkt_affiliation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mkt_and_sub_mkt_affiliation, range, value, display)
+  return item, text
 end
 
 -- MMT (Mt): String 14
@@ -12322,7 +12811,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mmt.dissect = function(buff
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.mmt.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mmt, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.mmt, range, value, display)
+  return item, text
 end
 
 -- Model Prepayment Rate (LOa): Float 6,6
@@ -12344,7 +12834,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.model_prepayment_rate.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.model_prepayment_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.model_prepayment_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.model_prepayment_rate, range, value, display)
+  return item, text
 end
 
 -- Modified Convexity (NAc): Float 6,6
@@ -12366,7 +12857,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_convexity.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_convexity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_convexity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_convexity, range, value, display)
+  return item, text
 end
 
 -- Modified Duration (DUm): Float 12,6
@@ -12388,7 +12880,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_duration.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_duration, range, value, display)
+  return item, text
 end
 
 -- Modified OA Convexity (QJc): Float 6,6
@@ -12410,7 +12903,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_oa_convexity.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_oa_convexity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_oa_convexity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_oa_convexity, range, value, display)
+  return item, text
 end
 
 -- Modified OA Duration (OLi): Float 6,6
@@ -12432,7 +12926,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_oa_duration.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.modified_oa_duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_oa_duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.modified_oa_duration, range, value, display)
+  return item, text
 end
 
 -- Most Relevant Market (MRm): String 4
@@ -12450,7 +12945,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.most_relevant_market.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.most_relevant_market.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.most_relevant_market, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.most_relevant_market, range, value, display)
+  return item, text
 end
 
 -- Name (NAm): String 80
@@ -12468,7 +12964,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.name.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.name, range, value, display)
+  return item, text
 end
 
 -- Name Local (NAl): String 80
@@ -12486,7 +12983,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.name_local.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.name_local.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.name_local, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.name_local, range, value, display)
+  return item, text
 end
 
 -- Nano Second Fraction (Nf): Integer 6
@@ -12509,7 +13007,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nano_second_fraction.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nano_second_fraction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nano_second_fraction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nano_second_fraction, range, value, display)
+  return item, text
 end
 
 -- Negative Interest Model (NIm): Integer 9
@@ -12532,7 +13031,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.negative_interest_model.dis
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.negative_interest_model.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.negative_interest_model, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.negative_interest_model, range, value, display)
+  return item, text
 end
 
 -- Net Asset Value (NAv): Float 12,6
@@ -12554,7 +13054,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_asset_value.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_asset_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.net_asset_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.net_asset_value, range, value, display)
+  return item, text
 end
 
 -- News Id (NWi): Id
@@ -12577,7 +13078,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_id.dissect = function(
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_id, range, value, display)
+  return item, text
 end
 
 -- News Object Type (NOt): NewsObjectType 1
@@ -12618,7 +13120,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_object_type.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_object_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_object_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_object_type, range, value, display)
+  return item, text
 end
 
 -- News Type (NTy): NewsType 1
@@ -12659,7 +13162,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_type.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.news_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.news_type, range, value, display)
+  return item, text
 end
 
 -- Next Coupon Date (DNc): Date
@@ -12680,7 +13184,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_coupon_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_coupon_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_coupon_date, range, value, display)
+  return item, text
 end
 
 -- Next Coupon Rate (NCp): Float 12,6
@@ -12702,7 +13207,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_coupon_rate.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_coupon_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_coupon_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_coupon_rate, range, value, display)
+  return item, text
 end
 
 -- Next Draw Date (HBi): Date
@@ -12723,7 +13229,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_draw_date.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_draw_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_draw_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_draw_date, range, value, display)
+  return item, text
 end
 
 -- Next Prepayment Date (QGt): Date
@@ -12744,7 +13251,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_prepayment_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_prepayment_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_prepayment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_prepayment_date, range, value, display)
+  return item, text
 end
 
 -- Next Settlement Date (ANSd): Date
@@ -12765,7 +13273,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_settlement_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.next_settlement_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.next_settlement_date, range, value, display)
+  return item, text
 end
 
 -- Nine Months Volume (NMDv): Float 16,2
@@ -12787,7 +13296,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nine_months_volume.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nine_months_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nine_months_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nine_months_volume, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Price (NDp): Integer 1
@@ -12810,7 +13320,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_price.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_price, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Price Corr (NDc): Integer 1
@@ -12833,7 +13344,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_price_corr.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_price_corr.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_price_corr, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_price_corr, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Trade Price (NDTp): Integer 1
@@ -12856,7 +13368,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_trade_price.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_trade_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_trade_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_trade_price, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Trade Price Corr (NDTc): Integer 1
@@ -12879,7 +13392,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_trade_price_corr.
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_dec_trade_price_corr.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_trade_price_corr, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_dec_trade_price_corr, range, value, display)
+  return item, text
 end
 
 -- No Of Settlement Days (SSc): Integer 2
@@ -12902,7 +13416,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_settlement_days.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_settlement_days.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_settlement_days, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_settlement_days, range, value, display)
+  return item, text
 end
 
 -- No Of Units (NOUb): Float 12,6
@@ -12924,7 +13439,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_units.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_of_units.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_units, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_of_units, range, value, display)
+  return item, text
 end
 
 -- No Record Days (NRd): Integer 3
@@ -12947,7 +13463,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_record_days.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_record_days.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_record_days, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_record_days, range, value, display)
+  return item, text
 end
 
 -- No Units Traded (NOUt): Integer 12
@@ -12970,7 +13487,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_units_traded.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.no_units_traded.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_units_traded, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.no_units_traded, range, value, display)
+  return item, text
 end
 
 -- Nominal Value (NMv): Float 12,6
@@ -12992,7 +13510,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nominal_value.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nominal_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nominal_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nominal_value, range, value, display)
+  return item, text
 end
 
 -- Non Cooperative Tax (NOCt): YesNo
@@ -13016,7 +13535,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_cooperative_tax.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_cooperative_tax.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_cooperative_tax, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_cooperative_tax, range, value, display)
+  return item, text
 end
 
 -- Non Renewable Consumption (NRCo): Float 12,6
@@ -13038,7 +13558,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_renewable_consumption.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_renewable_consumption.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_renewable_consumption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_renewable_consumption, range, value, display)
+  return item, text
 end
 
 -- Non Renewable Production (NONr): Float 12,6
@@ -13060,7 +13581,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_renewable_production.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.non_renewable_production.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_renewable_production, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.non_renewable_production, range, value, display)
+  return item, text
 end
 
 -- Nordic Mid Eligible (NMe): YesNo
@@ -13084,7 +13606,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nordic_mid_eligible.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nordic_mid_eligible.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nordic_mid_eligible, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nordic_mid_eligible, range, value, display)
+  return item, text
 end
 
 -- Nordic Mid Mic (NMm): String 4
@@ -13102,7 +13625,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nordic_mid_mic.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.nordic_mid_mic.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nordic_mid_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.nordic_mid_mic, range, value, display)
+  return item, text
 end
 
 -- Normalization Factor Interest (NFAi): Integer 9
@@ -13125,7 +13649,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.normalization_factor_intere
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.normalization_factor_interest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.normalization_factor_interest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.normalization_factor_interest, range, value, display)
+  return item, text
 end
 
 -- Normalization Factor Spread (NFAs): Integer 9
@@ -13148,7 +13673,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.normalization_factor_spread
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.normalization_factor_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.normalization_factor_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.normalization_factor_spread, range, value, display)
+  return item, text
 end
 
 -- Note Code (NOc): Id
@@ -13171,7 +13697,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.note_code.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.note_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.note_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.note_code, range, value, display)
+  return item, text
 end
 
 -- Note Codes (NOs): Idlist
@@ -13189,7 +13716,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.note_codes.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.note_codes.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.note_codes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.note_codes, range, value, display)
+  return item, text
 end
 
 -- Notional Amount (MNa): Float 12,6
@@ -13211,7 +13739,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notional_amount.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notional_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.notional_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.notional_amount, range, value, display)
+  return item, text
 end
 
 -- Notional Currency (MNc): String 3
@@ -13229,7 +13758,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notional_currency.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notional_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.notional_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.notional_currency, range, value, display)
+  return item, text
 end
 
 -- Number Bond Loans (NRBl): Integer 15
@@ -13252,7 +13782,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_bond_loans.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_bond_loans.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_bond_loans, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_bond_loans, range, value, display)
+  return item, text
 end
 
 -- Number Cash Loans (NRCl): Integer 15
@@ -13275,7 +13806,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_cash_loans.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_cash_loans.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_cash_loans, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_cash_loans, range, value, display)
+  return item, text
 end
 
 -- Number Of Certificates (ANc): Integer 15
@@ -13298,7 +13830,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_certificates.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_certificates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_certificates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_certificates, range, value, display)
+  return item, text
 end
 
 -- Number Of Debtor Repayments (NDr): Integer 4
@@ -13321,7 +13854,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_debtor_repayments
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_debtor_repayments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_debtor_repayments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_debtor_repayments, range, value, display)
+  return item, text
 end
 
 -- Number Of Fixing Days (AFDn): Integer 3
@@ -13344,7 +13878,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_fixing_days.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_fixing_days.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_fixing_days, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_fixing_days, range, value, display)
+  return item, text
 end
 
 -- Number Of Payouts Pr Year (ANPy): Integer 2
@@ -13367,7 +13902,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_payouts_pr_year.d
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_payouts_pr_year.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_payouts_pr_year, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_payouts_pr_year, range, value, display)
+  return item, text
 end
 
 -- Number Of Trades (q): Integer 9
@@ -13390,7 +13926,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_trades.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_of_trades.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_trades, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_of_trades, range, value, display)
+  return item, text
 end
 
 -- Number Outst Open Termins (ANOo): Integer 3
@@ -13413,7 +13950,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_outst_open_termins.d
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_outst_open_termins.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_outst_open_termins, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_outst_open_termins, range, value, display)
+  return item, text
 end
 
 -- Number Redeemed Loans (NRRl): Integer 15
@@ -13436,7 +13974,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_redeemed_loans.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_redeemed_loans.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_redeemed_loans, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_redeemed_loans, range, value, display)
+  return item, text
 end
 
 -- Number Sec Interest Group (NSIg): Integer 4
@@ -13459,7 +13998,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_sec_interest_group.d
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.number_sec_interest_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_sec_interest_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.number_sec_interest_group, range, value, display)
+  return item, text
 end
 
 -- OA Convexity (LJx): Float 6,6
@@ -13481,7 +14021,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_convexity.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_convexity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_convexity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_convexity, range, value, display)
+  return item, text
 end
 
 -- OA Duration (PXh): Float 6,6
@@ -13503,7 +14044,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_duration.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_duration.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_duration, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_duration, range, value, display)
+  return item, text
 end
 
 -- OA Price (EAc): Float 6,6
@@ -13525,7 +14067,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_price.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_price, range, value, display)
+  return item, text
 end
 
 -- OA Spread (DYv): Float 6,6
@@ -13547,7 +14090,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_spread.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_spread, range, value, display)
+  return item, text
 end
 
 -- OA Spread Change (REm): Float 6,6
@@ -13569,7 +14113,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_spread_change.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oa_spread_change.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_spread_change, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oa_spread_change, range, value, display)
+  return item, text
 end
 
 -- OAPVBP (CNn): Float 6,6
@@ -13591,7 +14136,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp.dissect = function(b
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp, range, value, display)
+  return item, text
 end
 
 -- OAPVBP Convexity (BEe): Float 6,6
@@ -13613,7 +14159,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_convexity.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_convexity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_convexity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_convexity, range, value, display)
+  return item, text
 end
 
 -- OAPVBP Down (QTv): Float 6,6
@@ -13635,7 +14182,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_down.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_down.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_down, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_down, range, value, display)
+  return item, text
 end
 
 -- OAPVBP Up (HDu): Float 6,6
@@ -13657,7 +14205,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_up.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.oapvbp_up.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_up, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.oapvbp_up, range, value, display)
+  return item, text
 end
 
 -- Obs List Text (AOBt): String 100
@@ -13675,7 +14224,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.obs_list_text.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.obs_list_text.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.obs_list_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.obs_list_text, range, value, display)
+  return item, text
 end
 
 -- Off Exch Trade Cancel Limit (OXCl): Integer 5
@@ -13698,7 +14248,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.off_exch_trade_cancel_limit
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.off_exch_trade_cancel_limit.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.off_exch_trade_cancel_limit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.off_exch_trade_cancel_limit, range, value, display)
+  return item, text
 end
 
 -- Official Currency Rates (OCr): YesNo
@@ -13722,7 +14273,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.official_currency_rates.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.official_currency_rates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.official_currency_rates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.official_currency_rates, range, value, display)
+  return item, text
 end
 
 -- Old Index Value (ODXv): Float 12,6
@@ -13744,7 +14296,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.old_index_value.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.old_index_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.old_index_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.old_index_value, range, value, display)
+  return item, text
 end
 
 -- Old Market Cap (OCAp): Float 16,2
@@ -13766,7 +14319,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.old_market_cap.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.old_market_cap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.old_market_cap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.old_market_cap, range, value, display)
+  return item, text
 end
 
 -- One Month Options Volume (ONMv): Float 16,2
@@ -13788,7 +14342,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_month_options_volume.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_month_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_month_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_month_options_volume, range, value, display)
+  return item, text
 end
 
 -- One Month Volume (OMDv): Float 16,2
@@ -13810,7 +14365,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_month_volume.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_month_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_month_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_month_volume, range, value, display)
+  return item, text
 end
 
 -- One To Three Months Options Volume (OTMv): Float 16,2
@@ -13832,7 +14388,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_to_three_months_options
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_to_three_months_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_to_three_months_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_to_three_months_options_volume, range, value, display)
+  return item, text
 end
 
 -- One To Two Weeks Options Volume (OTWv): Float 16,2
@@ -13854,7 +14411,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_to_two_weeks_options_vo
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_to_two_weeks_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_to_two_weeks_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_to_two_weeks_options_volume, range, value, display)
+  return item, text
 end
 
 -- One Week Options Volume (ONWv): Float 16,2
@@ -13876,7 +14434,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_week_options_volume.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_week_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_week_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_week_options_volume, range, value, display)
+  return item, text
 end
 
 -- One Week Volume (OWDv): Float 16,2
@@ -13898,7 +14457,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_week_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_week_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_week_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_week_volume, range, value, display)
+  return item, text
 end
 
 -- One Year Plus Volume (OYDv): Float 16,2
@@ -13920,7 +14480,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_year_plus_volume.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.one_year_plus_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_year_plus_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.one_year_plus_volume, range, value, display)
+  return item, text
 end
 
 -- Open Interest (OPi): Float 12,6
@@ -13942,7 +14503,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_interest, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_interest, range, value, display)
+  return item, text
 end
 
 -- Open Value (OVa): Float 12,6
@@ -13964,7 +14526,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_value, range, value, display)
+  return item, text
 end
 
 -- Open Weighting (OWg): Float 2,8
@@ -13986,7 +14549,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_weighting.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_weighting.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_weighting, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.open_weighting, range, value, display)
+  return item, text
 end
 
 -- Opening Period (OPd): Integer 4
@@ -14009,7 +14573,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.opening_period.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.opening_period.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.opening_period, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.opening_period, range, value, display)
+  return item, text
 end
 
 -- Operational (Op): Operational 1
@@ -14038,7 +14603,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.operational.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.operational.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.operational, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.operational, range, value, display)
+  return item, text
 end
 
 -- Option Free Yield (PDe): Float 6,6
@@ -14060,7 +14626,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.option_free_yield.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.option_free_yield.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.option_free_yield, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.option_free_yield, range, value, display)
+  return item, text
 end
 
 -- Options Volume Type (OVt): OptionsVolumeType
@@ -14089,7 +14656,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.options_volume_type.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.options_volume_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.options_volume_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.options_volume_type, range, value, display)
+  return item, text
 end
 
 -- Order Capacity Required (OCy): YesNo
@@ -14113,7 +14681,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_capacity_required.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_capacity_required.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_capacity_required, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_capacity_required, range, value, display)
+  return item, text
 end
 
 -- Order Class (Cl): OrderClass 1
@@ -14151,7 +14720,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_class.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_class.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_class, range, value, display)
+  return item, text
 end
 
 -- Order Key (l): Integer 12
@@ -14174,7 +14744,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_key.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_key.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_key, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_key, range, value, display)
+  return item, text
 end
 
 -- Order Key Prev (POk): Integer 12
@@ -14197,7 +14768,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_key_prev.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_key_prev.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_key_prev, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_key_prev, range, value, display)
+  return item, text
 end
 
 -- Order Management (ORDm): YesNo 1
@@ -14221,7 +14793,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_management.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_management.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_management, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_management, range, value, display)
+  return item, text
 end
 
 -- Order Price Collar (MOTc): Float 12,6
@@ -14243,7 +14816,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_collar.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_collar.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_price_collar, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.order_price_collar, range, value, display)
+  return item, text
 end
 
 -- Orderbook External Text (OEt): String 12
@@ -14261,7 +14835,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_external_text.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_external_text.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_external_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_external_text, range, value, display)
+  return item, text
 end
 
 -- Orderbook Flush (Of): Boolean
@@ -14279,7 +14854,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_flush.dissect = f
   local value = true
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_flush.display()
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_flush, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_flush, range, value, display)
+  return item, text
 end
 
 -- Orderbook Is Routable (OIr): YesNo
@@ -14303,7 +14879,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_is_routable.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_is_routable.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_is_routable, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_is_routable, range, value, display)
+  return item, text
 end
 
 -- Orderbook Source Id (OSi): String 32
@@ -14321,7 +14898,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_source_id.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_source_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.orderbook_source_id, range, value, display)
+  return item, text
 end
 
 -- Original Issuer Name (AOIn): String 112
@@ -14339,7 +14917,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.original_issuer_name.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.original_issuer_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.original_issuer_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.original_issuer_name, range, value, display)
+  return item, text
 end
 
 -- Original Name (ONm): String 40
@@ -14357,7 +14936,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.original_name.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.original_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.original_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.original_name, range, value, display)
+  return item, text
 end
 
 -- OTC Reporting (OTCr): YesNo 1
@@ -14381,7 +14961,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.otc_reporting.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.otc_reporting.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.otc_reporting, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.otc_reporting, range, value, display)
+  return item, text
 end
 
 -- Other Activities CAPEX (OACa): Float 12,6
@@ -14403,7 +14984,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_capex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_capex, range, value, display)
+  return item, text
 end
 
 -- Other Activities OPEX (OAOp): Float 12,6
@@ -14425,7 +15007,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_opex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_opex, range, value, display)
+  return item, text
 end
 
 -- Other Activities Total CAPEX (OATc): Float 12,6
@@ -14447,7 +15030,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_cape
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_capex, range, value, display)
+  return item, text
 end
 
 -- Other Activities Total OPEX (OATo): Float 12,6
@@ -14469,7 +15053,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_opex
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_opex, range, value, display)
+  return item, text
 end
 
 -- Other Activities Total Turnover (OATt): Float 12,6
@@ -14491,7 +15076,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_turn
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_total_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_total_turnover, range, value, display)
+  return item, text
 end
 
 -- Other Activities Turnover (OATu): Float 12,6
@@ -14513,7 +15099,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_turnover.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_activities_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_activities_turnover, range, value, display)
+  return item, text
 end
 
 -- Other Tick Size Table (MTSt): YesNo
@@ -14537,7 +15124,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_tick_size_table.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.other_tick_size_table.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_tick_size_table, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.other_tick_size_table, range, value, display)
+  return item, text
 end
 
 -- Outside Spread (Os): YesNo
@@ -14561,7 +15149,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.outside_spread.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.outside_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.outside_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.outside_spread, range, value, display)
+  return item, text
 end
 
 -- Outstanding Amount (AOs): Float 16,6
@@ -14583,7 +15172,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.outstanding_amount.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.outstanding_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.outstanding_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.outstanding_amount, range, value, display)
+  return item, text
 end
 
 -- Owner Occupied Dwellings (OOd): Float 12,6
@@ -14605,7 +15195,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.owner_occupied_dwellings.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.owner_occupied_dwellings.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.owner_occupied_dwellings, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.owner_occupied_dwellings, range, value, display)
+  return item, text
 end
 
 -- Paired Shares (Ps): Integer 13
@@ -14628,7 +15219,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.paired_shares.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.paired_shares.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.paired_shares, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.paired_shares, range, value, display)
+  return item, text
 end
 
 -- Parent Id (PAi): Id
@@ -14651,7 +15243,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.parent_id.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.parent_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.parent_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.parent_id, range, value, display)
+  return item, text
 end
 
 -- Parent Index (PARi): Id
@@ -14674,7 +15267,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.parent_index.dissect = func
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.parent_index.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.parent_index, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.parent_index, range, value, display)
+  return item, text
 end
 
 -- Participant (Pt): String 8
@@ -14692,7 +15286,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant, range, value, display)
+  return item, text
 end
 
 -- Participant Id (PId): Id
@@ -14715,7 +15310,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant_id.dissect = fu
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant_id, range, value, display)
+  return item, text
 end
 
 -- Participant Type (PAt): Id
@@ -14738,7 +15334,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant_type.dissect = 
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participant_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participant_type, range, value, display)
+  return item, text
 end
 
 -- Participation Rate (PAr): Float 12,6
@@ -14760,7 +15357,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participation_rate.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.participation_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participation_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.participation_rate, range, value, display)
+  return item, text
 end
 
 -- Payment Date (PDt): Date
@@ -14781,7 +15379,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.payment_date.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.payment_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.payment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.payment_date, range, value, display)
+  return item, text
 end
 
 -- Payment Size (PSz): Float 12,6
@@ -14803,7 +15402,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.payment_size.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.payment_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.payment_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.payment_size, range, value, display)
+  return item, text
 end
 
 -- Pct Weight Avg Interest Group (PWAi): Float 5,2
@@ -14825,7 +15425,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pct_weight_avg_interest_gro
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pct_weight_avg_interest_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pct_weight_avg_interest_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pct_weight_avg_interest_group, range, value, display)
+  return item, text
 end
 
 -- Pending Price (PEp): YesNo
@@ -14849,7 +15450,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pending_price.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pending_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pending_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pending_price, range, value, display)
+  return item, text
 end
 
 -- Period Start (PSt): Time
@@ -14870,7 +15472,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.period_start.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.period_start.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.period_start, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.period_start, range, value, display)
+  return item, text
 end
 
 -- Period Stop (PSp): Time
@@ -14891,7 +15494,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.period_stop.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.period_stop.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.period_stop, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.period_stop, range, value, display)
+  return item, text
 end
 
 -- Physically Collateralized (COz): YesNo
@@ -14915,7 +15519,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.physically_collateralized.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.physically_collateralized.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.physically_collateralized, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.physically_collateralized, range, value, display)
+  return item, text
 end
 
 -- Plus Bids (Bp): Integer 4
@@ -14938,7 +15543,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.plus_bids.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.plus_bids.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.plus_bids, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.plus_bids, range, value, display)
+  return item, text
 end
 
 -- Plus Paid (Pp): Integer 4
@@ -14961,7 +15567,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.plus_paid.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.plus_paid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.plus_paid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.plus_paid, range, value, display)
+  return item, text
 end
 
 -- Policy Published (POPu): YesNo
@@ -14985,7 +15592,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.policy_published.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.policy_published.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.policy_published, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.policy_published, range, value, display)
+  return item, text
 end
 
 -- Political Stability Score (PSSc): Float 12,6
@@ -15007,7 +15615,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.political_stability_score.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.political_stability_score.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.political_stability_score, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.political_stability_score, range, value, display)
+  return item, text
 end
 
 -- Population Type (POt): Id
@@ -15030,7 +15639,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.population_type.dissect = f
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.population_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.population_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.population_type, range, value, display)
+  return item, text
 end
 
 -- Posttrade Anonymity (PTb): CounterPartyInfo 1
@@ -15065,7 +15675,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.posttrade_anonymity.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.posttrade_anonymity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.posttrade_anonymity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.posttrade_anonymity, range, value, display)
+  return item, text
 end
 
 -- Preliminary Date (ZGp): Date
@@ -15086,7 +15697,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_date, range, value, display)
+  return item, text
 end
 
 -- Preliminary Prepayment Rate (QSg): Float 6,6
@@ -15108,7 +15720,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_prepayment_rate
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_prepayment_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_prepayment_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_prepayment_rate, range, value, display)
+  return item, text
 end
 
 -- Preliminary Prepayment Rate Change (DAu): Float 6,6
@@ -15130,7 +15743,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_prepayment_rate
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.preliminary_prepayment_rate_change.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_prepayment_rate_change, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.preliminary_prepayment_rate_change, range, value, display)
+  return item, text
 end
 
 -- Premium (PRe): Float 10,5
@@ -15152,7 +15766,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.premium.dissect = function(
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.premium.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.premium, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.premium, range, value, display)
+  return item, text
 end
 
 -- Pretrade Anonymity (PTa): YesNo
@@ -15176,7 +15791,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pretrade_anonymity.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pretrade_anonymity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pretrade_anonymity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pretrade_anonymity, range, value, display)
+  return item, text
 end
 
 -- Previous Prepayment Rate (ZOa): Float 6,6
@@ -15198,7 +15814,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.previous_prepayment_rate.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.previous_prepayment_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.previous_prepayment_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.previous_prepayment_rate, range, value, display)
+  return item, text
 end
 
 -- Previous Settlement Date (PSd): Date
@@ -15219,7 +15836,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.previous_settlement_date.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.previous_settlement_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.previous_settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.previous_settlement_date, range, value, display)
+  return item, text
 end
 
 -- Price (p): Float 12,6
@@ -15241,7 +15859,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price.dissect = function(bu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price, range, value, display)
+  return item, text
 end
 
 -- Price Condition (Pc): PriceCondition 2
@@ -15282,7 +15901,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_condition.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_condition.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_condition, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_condition, range, value, display)
+  return item, text
 end
 
 -- Price Corresponding (Py): Float 12,6
@@ -15304,7 +15924,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_corresponding.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_corresponding.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_corresponding, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_corresponding, range, value, display)
+  return item, text
 end
 
 -- Price From (PFr): Float 12,6
@@ -15326,7 +15947,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_from.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_from.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_from, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_from, range, value, display)
+  return item, text
 end
 
 -- Price Multiplier (MPMu): Float 12,6
@@ -15348,7 +15970,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_multiplier.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_multiplier.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_multiplier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_multiplier, range, value, display)
+  return item, text
 end
 
 -- Price To (PTo): Float 12,6
@@ -15370,7 +15993,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_to.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_to.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_to, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_to, range, value, display)
+  return item, text
 end
 
 -- Price Tranch Volume (PTv): Float 16,2
@@ -15392,7 +16016,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranch_volume.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranch_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranch_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranch_volume, range, value, display)
+  return item, text
 end
 
 -- Price Tranches In Percent (PTp): String 16
@@ -15410,7 +16035,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranches_in_percent.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranches_in_percent.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranches_in_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranches_in_percent, range, value, display)
+  return item, text
 end
 
 -- Price Tranches In USD (PTu): String 20
@@ -15428,7 +16054,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranches_in_usd.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_tranches_in_usd.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranches_in_usd, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_tranches_in_usd, range, value, display)
+  return item, text
 end
 
 -- Price Type (PRt): PriceType 1
@@ -15469,7 +16096,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_type.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_type, range, value, display)
+  return item, text
 end
 
 -- Price Update Method (PUm): PriceUpdateMethod 1
@@ -15498,7 +16126,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_update_method.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_update_method.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_update_method, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_update_method, range, value, display)
+  return item, text
 end
 
 -- Price Write Up (PRIw): Float 5,12
@@ -15520,7 +16149,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_write_up.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.price_write_up.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_write_up, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.price_write_up, range, value, display)
+  return item, text
 end
 
 -- Primary MIC (PMIc): String 4
@@ -15538,7 +16168,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.primary_mic.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.primary_mic.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.primary_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.primary_mic, range, value, display)
+  return item, text
 end
 
 -- Principal Index Link (APIl): Integer 9
@@ -15561,7 +16192,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.principal_index_link.dissec
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.principal_index_link.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.principal_index_link, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.principal_index_link, range, value, display)
+  return item, text
 end
 
 -- Product (PRo): String 32
@@ -15579,7 +16211,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product, range, value, display)
+  return item, text
 end
 
 -- Product Id (Pi): String 16
@@ -15597,7 +16230,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product_id.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product_id, range, value, display)
+  return item, text
 end
 
 -- Product Segment (PRSg): Id
@@ -15620,7 +16254,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product_segment.dissect = f
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.product_segment.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product_segment, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.product_segment, range, value, display)
+  return item, text
 end
 
 -- Protected MMO (Mp): Boolean
@@ -15638,7 +16273,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.protected_mmo.dissect = fun
   local value = true
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.protected_mmo.display()
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.protected_mmo, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.protected_mmo, range, value, display)
+  return item, text
 end
 
 -- Protected MMO Allowed (PMa): Boolean
@@ -15656,7 +16292,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.protected_mmo_allowed.disse
   local value = true
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.protected_mmo_allowed.display()
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.protected_mmo_allowed, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.protected_mmo_allowed, range, value, display)
+  return item, text
 end
 
 -- Publication Date (APRd): Date
@@ -15677,7 +16314,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_date.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_date, range, value, display)
+  return item, text
 end
 
 -- Publication Type (PTy): Integer 9
@@ -15700,7 +16338,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_type.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_type, range, value, display)
+  return item, text
 end
 
 -- Publication Venue (MPv): String 4
@@ -15718,7 +16357,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_venue.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.publication_venue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_venue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.publication_venue, range, value, display)
+  return item, text
 end
 
 -- Pure Stream Mic (PSm): String 4
@@ -15736,7 +16376,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pure_stream_mic.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.pure_stream_mic.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pure_stream_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.pure_stream_mic, range, value, display)
+  return item, text
 end
 
 -- Quantity Notation (MQn): String 25
@@ -15754,7 +16395,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quantity_notation.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quantity_notation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quantity_notation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quantity_notation, range, value, display)
+  return item, text
 end
 
 -- Quantity Unit (MQu): Float 16,2
@@ -15776,7 +16418,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quantity_unit.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quantity_unit.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quantity_unit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quantity_unit, range, value, display)
+  return item, text
 end
 
 -- Quote Side (Qs): QuoteSide
@@ -15811,7 +16454,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_side.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_side.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quote_side, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.quote_side, range, value, display)
+  return item, text
 end
 
 -- Rank (Rk): Integer
@@ -15834,7 +16478,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rank.dissect = function(buf
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rank.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rank, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rank, range, value, display)
+  return item, text
 end
 
 -- Rate Calc Type (RCt): RateCalcType 1
@@ -15872,7 +16517,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_calc_type.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_calc_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_calc_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_calc_type, range, value, display)
+  return item, text
 end
 
 -- Rate Determination Day (RDd): Integer 8
@@ -15895,7 +16541,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_determination_day.diss
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_determination_day.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_determination_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_determination_day, range, value, display)
+  return item, text
 end
 
 -- Rate Type (RAt): RateType 1
@@ -15933,7 +16580,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_type.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rate_type, range, value, display)
+  return item, text
 end
 
 -- Ratio (Ra): Integer
@@ -15956,7 +16604,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ratio.dissect = function(bu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ratio, range, value, display)
+  return item, text
 end
 
 -- Record Day Type (RDt): RecordDayType 1
@@ -15988,7 +16637,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.record_day_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.record_day_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.record_day_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.record_day_type, range, value, display)
+  return item, text
 end
 
 -- Redeemed Amount (REDa): Integer 15
@@ -16011,7 +16661,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redeemed_amount.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redeemed_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redeemed_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redeemed_amount, range, value, display)
+  return item, text
 end
 
 -- Redemption Amount (REAm): Integer 15
@@ -16034,7 +16685,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_amount.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_amount.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_amount, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_amount, range, value, display)
+  return item, text
 end
 
 -- Redemption Pct Extra New (RPEn): Float 3,10
@@ -16056,7 +16708,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_extra_new.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_extra_new.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_extra_new, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_extra_new, range, value, display)
+  return item, text
 end
 
 -- Redemption Pct New (RPNe): Float 3,10
@@ -16078,7 +16731,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_new.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_new.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_new, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_new, range, value, display)
+  return item, text
 end
 
 -- Redemption Pct Status (RPCs): RedemptionPctStatus
@@ -16107,7 +16761,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_status.disse
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_pct_status.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_status, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_pct_status, range, value, display)
+  return item, text
 end
 
 -- Redemption Price (REDp): Float 14,6
@@ -16129,7 +16784,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_price.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_price, range, value, display)
+  return item, text
 end
 
 -- Redemption Type (REDt): Integer 9
@@ -16152,7 +16808,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.redemption_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.redemption_type, range, value, display)
+  return item, text
 end
 
 -- Ref Instrument (REFi): String 32
@@ -16170,7 +16827,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_instrument.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_instrument.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_instrument, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_instrument, range, value, display)
+  return item, text
 end
 
 -- Ref OA Spread (DBd): Float 6,6
@@ -16192,7 +16850,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oa_spread.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oa_spread.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oa_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oa_spread, range, value, display)
+  return item, text
 end
 
 -- Ref OAS Price (JZf): Float 6,6
@@ -16214,7 +16873,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oas_price.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oas_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oas_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oas_price, range, value, display)
+  return item, text
 end
 
 -- Ref OAS Price Change (FQq): Float 6,6
@@ -16236,7 +16896,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oas_price_change.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ref_oas_price_change.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oas_price_change, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ref_oas_price_change, range, value, display)
+  return item, text
 end
 
 -- Reference Index (RIx): String 10
@@ -16254,7 +16915,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_index.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_index.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_index, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_index, range, value, display)
+  return item, text
 end
 
 -- Reference Price (RPr): Float 12,6
@@ -16276,7 +16938,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price, range, value, display)
+  return item, text
 end
 
 -- Reference Price Date (RPd): Date
@@ -16297,7 +16960,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_date.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_date, range, value, display)
+  return item, text
 end
 
 -- Reference Price Lower Limit (RPl): Integer 3
@@ -16320,7 +16984,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_lower_limit
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_lower_limit.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_lower_limit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_lower_limit, range, value, display)
+  return item, text
 end
 
 -- Reference Price Of Underlying (RPRu): Float 12,6
@@ -16342,7 +17007,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_of_underlyi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_of_underlying.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_of_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_of_underlying, range, value, display)
+  return item, text
 end
 
 -- Reference Price Time (RPt): Time
@@ -16363,7 +17029,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_time.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_time.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_time, range, value, display)
+  return item, text
 end
 
 -- Reference Price Upper Limit (RPu): Integer 3
@@ -16386,7 +17053,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_upper_limit
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_upper_limit.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_upper_limit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_upper_limit, range, value, display)
+  return item, text
 end
 
 -- Reference Price Yield (RPRy): Float 12,6
@@ -16408,7 +17076,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_yield.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_price_yield.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_yield, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_price_yield, range, value, display)
+  return item, text
 end
 
 -- Reference Rate (Rr): String 16
@@ -16426,7 +17095,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_rate.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_rate, range, value, display)
+  return item, text
 end
 
 -- Reference Round Trip Classes (RMc): Iinteger 10
@@ -16457,6 +17127,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_round_trip_classe
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_round_trip_classes, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Reference Round Trip Costs (RMv): Iinteger 10
@@ -16487,6 +17158,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_round_trip_costs.
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_round_trip_costs, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Reference Round Trip Coverages (RMg): Ifloat 3,4
@@ -16516,6 +17188,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reference_round_trip_covera
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reference_round_trip_coverages, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Refinance Failure (RFf): YesNo
@@ -16539,7 +17212,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinance_failure.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinance_failure.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinance_failure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinance_failure, range, value, display)
+  return item, text
 end
 
 -- Refinance Risk (RFr): YesNo
@@ -16563,7 +17237,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinance_risk.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinance_risk.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinance_risk, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinance_risk, range, value, display)
+  return item, text
 end
 
 -- Refinitiv Code (REFc): String 64
@@ -16581,7 +17256,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinitiv_code.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.refinitiv_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinitiv_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.refinitiv_code, range, value, display)
+  return item, text
 end
 
 -- Region (REGn): String 80
@@ -16599,7 +17275,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.region.dissect = function(b
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.region.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.region, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.region, range, value, display)
+  return item, text
 end
 
 -- Region Or Exposure (ROe): String 60
@@ -16617,7 +17294,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.region_or_exposure.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.region_or_exposure.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.region_or_exposure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.region_or_exposure, range, value, display)
+  return item, text
 end
 
 -- Reimbursement Date (RDa): Date
@@ -16638,7 +17316,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reimbursement_date.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reimbursement_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reimbursement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reimbursement_date, range, value, display)
+  return item, text
 end
 
 -- Related Instruments (RIs): YesNo
@@ -16662,7 +17341,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.related_instruments.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.related_instruments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.related_instruments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.related_instruments, range, value, display)
+  return item, text
 end
 
 -- Release Date (RELd): Date
@@ -16683,7 +17363,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.release_date.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.release_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.release_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.release_date, range, value, display)
+  return item, text
 end
 
 -- Release Time (REt): Time
@@ -16704,7 +17385,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.release_time.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.release_time.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.release_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.release_time, range, value, display)
+  return item, text
 end
 
 -- Repayment Dates (ACDd): Stringlist 4
@@ -16722,7 +17404,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_dates.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_dates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_dates, range, value, display)
+  return item, text
 end
 
 -- Repayment Fraction (RPf): Float 12,6
@@ -16744,7 +17427,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_fraction.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_fraction.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_fraction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_fraction, range, value, display)
+  return item, text
 end
 
 -- Repayment Profile (AREp): Integer 9
@@ -16767,7 +17451,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_profile.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_profile.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_profile, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_profile, range, value, display)
+  return item, text
 end
 
 -- Repayment Profile Specification (ARPs): Integer 9
@@ -16790,7 +17475,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_profile_specifica
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.repayment_profile_specification.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_profile_specification, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.repayment_profile_specification, range, value, display)
+  return item, text
 end
 
 -- Replaced Disclosure (REd): String 10
@@ -16808,7 +17494,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.replaced_disclosure.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.replaced_disclosure.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.replaced_disclosure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.replaced_disclosure, range, value, display)
+  return item, text
 end
 
 -- Replication Method (RPm): ReplicationMethod 1
@@ -16840,7 +17527,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.replication_method.dissect 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.replication_method.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.replication_method, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.replication_method, range, value, display)
+  return item, text
 end
 
 -- Report Type (ARt): Integer 9
@@ -16863,7 +17551,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.report_type.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.report_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.report_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.report_type, range, value, display)
+  return item, text
 end
 
 -- Reported Data (REPd): Integer 1
@@ -16886,7 +17575,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_data.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_data.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_data, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_data, range, value, display)
+  return item, text
 end
 
 -- Reported Turnover (Rt): Float 16,2
@@ -16908,7 +17598,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_turnover.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_turnover, range, value, display)
+  return item, text
 end
 
 -- Reported Volume (Rq): Float 16,2
@@ -16930,7 +17621,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reported_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reported_volume, range, value, display)
+  return item, text
 end
 
 -- Reserve Order Threshold (MROt): Integer 9
@@ -16953,7 +17645,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reserve_order_threshold.dis
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reserve_order_threshold.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reserve_order_threshold, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reserve_order_threshold, range, value, display)
+  return item, text
 end
 
 -- Reset Dates (AREa): Stringlist 4
@@ -16971,7 +17664,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reset_dates.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.reset_dates.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reset_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.reset_dates, range, value, display)
+  return item, text
 end
 
 -- Return Type (RTy): ReturnType 1
@@ -17003,7 +17697,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.return_type.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.return_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.return_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.return_type, range, value, display)
+  return item, text
 end
 
 -- Risk Barrier (RIb): Float 12,6
@@ -17025,7 +17720,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.risk_barrier.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.risk_barrier.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.risk_barrier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.risk_barrier, range, value, display)
+  return item, text
 end
 
 -- Round Lot Only (RLo): YesNo
@@ -17049,7 +17745,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_lot_only.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_lot_only.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.round_lot_only, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.round_lot_only, range, value, display)
+  return item, text
 end
 
 -- RTWAS (RWa): Float 12,6
@@ -17071,7 +17768,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rtwas.dissect = function(bu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rtwas.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rtwas, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rtwas, range, value, display)
+  return item, text
 end
 
 -- Rule Of Law Score (ROLs): Float 12,6
@@ -17093,7 +17791,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rule_of_law_score.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rule_of_law_score.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rule_of_law_score, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.rule_of_law_score, range, value, display)
+  return item, text
 end
 
 -- Section Placement (ASSp): Integer 9
@@ -17116,7 +17815,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.section_placement.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.section_placement.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.section_placement, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.section_placement, range, value, display)
+  return item, text
 end
 
 -- Sector Code (SGs): String 10
@@ -17134,7 +17834,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_code.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_code, range, value, display)
+  return item, text
 end
 
 -- Sector Id (SId): Id
@@ -17157,7 +17858,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_id.dissect = functio
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_id, range, value, display)
+  return item, text
 end
 
 -- Sector Name (SECn): String 80
@@ -17175,7 +17877,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_name.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sector_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sector_name, range, value, display)
+  return item, text
 end
 
 -- Security Group Id (CDi): Id
@@ -17198,7 +17901,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.security_group_id.dissect =
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.security_group_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.security_group_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.security_group_id, range, value, display)
+  return item, text
 end
 
 -- Security Type (STy): SecurityType 2
@@ -17257,7 +17961,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.security_type.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.security_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.security_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.security_type, range, value, display)
+  return item, text
 end
 
 -- Self Clearing Supported (SCs): YesNo
@@ -17281,7 +17986,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.self_clearing_supported.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.self_clearing_supported.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.self_clearing_supported, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.self_clearing_supported, range, value, display)
+  return item, text
 end
 
 -- Sellers At Level (w): Istringlist 7
@@ -17307,6 +18013,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sellers_at_level.dissect = 
 
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sellers_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Settlement Date (Sd): Date
@@ -17327,7 +18034,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_date.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_date, range, value, display)
+  return item, text
 end
 
 -- Settlement Price (SEp): Float 12,6
@@ -17349,7 +18057,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_price, range, value, display)
+  return item, text
 end
 
 -- Settlement Type (SEt): SettlementType 1
@@ -17381,7 +18090,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_type.dissect = f
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.settlement_type, range, value, display)
+  return item, text
 end
 
 -- Share Capital (SHc): Float 16,2
@@ -17403,7 +18113,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.share_capital.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.share_capital.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.share_capital, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.share_capital, range, value, display)
+  return item, text
 end
 
 -- Share Class (SHCl): String 4
@@ -17421,7 +18132,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.share_class.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.share_class.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.share_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.share_class, range, value, display)
+  return item, text
 end
 
 -- Shares Listed (LNo): Float 14,0
@@ -17443,7 +18155,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shares_listed.dissect = fun
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shares_listed.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shares_listed, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shares_listed, range, value, display)
+  return item, text
 end
 
 -- Shipping115 Percent (SHh): Float 12,6
@@ -17465,7 +18178,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shipping115_percent.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shipping115_percent.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shipping115_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shipping115_percent, range, value, display)
+  return item, text
 end
 
 -- Shipping3 Percent (STt): Float 12,6
@@ -17487,7 +18201,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shipping3_percent.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.shipping3_percent.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shipping3_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.shipping3_percent, range, value, display)
+  return item, text
 end
 
 -- Simple Yield (Sy): YesNo
@@ -17511,7 +18226,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.simple_yield.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.simple_yield.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.simple_yield, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.simple_yield, range, value, display)
+  return item, text
 end
 
 -- Six Months Volume (SMDv): Float 16,2
@@ -17533,7 +18249,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.six_months_volume.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.six_months_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.six_months_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.six_months_volume, range, value, display)
+  return item, text
 end
 
 -- Six To Twelve Months Options Volume (STMv): Float 16,2
@@ -17555,7 +18272,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.six_to_twelve_months_option
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.six_to_twelve_months_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.six_to_twelve_months_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.six_to_twelve_months_options_volume, range, value, display)
+  return item, text
 end
 
 -- Size Or Sector (SOs): String 60
@@ -17573,7 +18291,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.size_or_sector.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.size_or_sector.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.size_or_sector, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.size_or_sector, range, value, display)
+  return item, text
 end
 
 -- Social Violations (SOCv): YesNo
@@ -17597,7 +18316,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.social_violations.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.social_violations.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.social_violations, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.social_violations, range, value, display)
+  return item, text
 end
 
 -- Sod Eod (SEd): SodEod
@@ -17626,7 +18346,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sod_eod.dissect = function(
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sod_eod.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sod_eod, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sod_eod, range, value, display)
+  return item, text
 end
 
 -- Source Id (Si): String 32
@@ -17644,7 +18365,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.source_id.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.source_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.source_id, range, value, display)
+  return item, text
 end
 
 -- Source System (s): Id 2
@@ -17667,7 +18389,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.source_system.dissect = fun
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.source_system.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.source_system, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.source_system, range, value, display)
+  return item, text
 end
 
 -- Spot Volume (SPOv): Float 16,2
@@ -17689,7 +18412,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.spot_volume.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.spot_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.spot_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.spot_volume, range, value, display)
+  return item, text
 end
 
 -- SSDA Compliant (SSDa): YesNo
@@ -17713,7 +18437,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ssda_compliant.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ssda_compliant.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ssda_compliant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ssda_compliant, range, value, display)
+  return item, text
 end
 
 -- SSTI Post Trade (MSPo): Float 12,6
@@ -17735,7 +18460,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ssti_post_trade.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ssti_post_trade.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ssti_post_trade, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ssti_post_trade, range, value, display)
+  return item, text
 end
 
 -- Start Date (DSt): Date
@@ -17756,7 +18482,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_date.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_date, range, value, display)
+  return item, text
 end
 
 -- Start Time (St): Time
@@ -17777,7 +18504,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_time.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_time.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_time, range, value, display)
+  return item, text
 end
 
 -- Start Value (VSt): Float 12,6
@@ -17799,7 +18527,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_value.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.start_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.start_value, range, value, display)
+  return item, text
 end
 
 -- State Code (Ms): StateCode 2
@@ -17903,7 +18632,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.state_code.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.state_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.state_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.state_code, range, value, display)
+  return item, text
 end
 
 -- Statement Date (STAd): Date
@@ -17924,7 +18654,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.statement_date.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.statement_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.statement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.statement_date, range, value, display)
+  return item, text
 end
 
 -- Stop Codes (STc): Idlist
@@ -17942,7 +18673,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.stop_codes.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.stop_codes.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.stop_codes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.stop_codes, range, value, display)
+  return item, text
 end
 
 -- Strike Bucket (SBu): String 16
@@ -17960,7 +18692,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.strike_bucket.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.strike_bucket.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.strike_bucket, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.strike_bucket, range, value, display)
+  return item, text
 end
 
 -- Strike Price (STp): Float 12,6
@@ -17982,7 +18715,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.strike_price.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.strike_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.strike_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.strike_price, range, value, display)
+  return item, text
 end
 
 -- Style (STl): String 18
@@ -18000,7 +18734,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.style.dissect = function(bu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.style.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.style, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.style, range, value, display)
+  return item, text
 end
 
 -- Sub Product Code (MSPc): String 4
@@ -18018,7 +18753,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sub_product_code.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sub_product_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sub_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sub_product_code, range, value, display)
+  return item, text
 end
 
 -- Subject (SUb): String 60
@@ -18036,7 +18772,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subject.dissect = function(
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subject.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subject, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subject, range, value, display)
+  return item, text
 end
 
 -- Subject Group (SUBg): String 60
@@ -18054,7 +18791,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subject_group.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subject_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subject_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subject_group, range, value, display)
+  return item, text
 end
 
 -- Subordinate Loan Capital (APRo): Integer 9
@@ -18077,7 +18815,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subordinate_loan_capital.di
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subordinate_loan_capital.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subordinate_loan_capital, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subordinate_loan_capital, range, value, display)
+  return item, text
 end
 
 -- Subscription Currency (SCy): String 3
@@ -18095,7 +18834,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subscription_currency.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subscription_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subscription_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subscription_currency, range, value, display)
+  return item, text
 end
 
 -- Subsidized Housing (Sh): Float 12,6
@@ -18117,7 +18857,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subsidized_housing.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.subsidized_housing.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subsidized_housing, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.subsidized_housing, range, value, display)
+  return item, text
 end
 
 -- Supplier Code Of Conduct (SCc): YesNo
@@ -18141,7 +18882,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.supplier_code_of_conduct.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.supplier_code_of_conduct.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.supplier_code_of_conduct, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.supplier_code_of_conduct, range, value, display)
+  return item, text
 end
 
 -- Suspension Reason (SRn): SuspensionReason
@@ -18182,7 +18924,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.suspension_reason.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.suspension_reason.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.suspension_reason, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.suspension_reason, range, value, display)
+  return item, text
 end
 
 -- Sustainability Listing Category (SLc): Stringlist 1
@@ -18200,7 +18943,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainability_listing_cate
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainability_listing_category.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainability_listing_category, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainability_listing_category, range, value, display)
+  return item, text
 end
 
 -- Sustainable Bond Group Id (SBGi): SustainableBondGroupId
@@ -18247,7 +18991,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_bond_group_id.d
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_bond_group_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_bond_group_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_bond_group_id, range, value, display)
+  return item, text
 end
 
 -- Sustainable Land Forestry Agriculture (SLFa): YesNo
@@ -18271,7 +19016,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_land_forestry_a
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_land_forestry_agriculture.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_land_forestry_agriculture, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_land_forestry_agriculture, range, value, display)
+  return item, text
 end
 
 -- Sustainable Ocean Seas (SUSo): YesNo
@@ -18295,7 +19041,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_ocean_seas.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.sustainable_ocean_seas.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_ocean_seas, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.sustainable_ocean_seas, range, value, display)
+  return item, text
 end
 
 -- SWAP Counter Party (SWCp): String 60
@@ -18313,7 +19060,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.swap_counter_party.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.swap_counter_party.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.swap_counter_party, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.swap_counter_party, range, value, display)
+  return item, text
 end
 
 -- Symbol (SYm): String 32
@@ -18331,7 +19079,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.symbol.dissect = function(b
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.symbol.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.symbol, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.symbol, range, value, display)
+  return item, text
 end
 
 -- Table Entry Type (TEt): TableEntryType 2
@@ -18429,7 +19178,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.table_entry_type.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.table_entry_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.table_entry_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.table_entry_type, range, value, display)
+  return item, text
 end
 
 -- TAR Indicator (TARi): TARIndicator
@@ -18458,7 +19208,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tar_indicator.dissect = fun
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tar_indicator.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tar_indicator, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tar_indicator, range, value, display)
+  return item, text
 end
 
 -- Tax Colour (ABTc): Integer 9
@@ -18481,7 +19232,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_colour.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_colour.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_colour, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_colour, range, value, display)
+  return item, text
 end
 
 -- Tax Rate (TXr): Float 12,6
@@ -18503,7 +19255,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_rate.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_rate.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_rate, range, value, display)
+  return item, text
 end
 
 -- Tax Type (TTx): String 32
@@ -18521,7 +19274,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_type.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tax_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tax_type, range, value, display)
+  return item, text
 end
 
 -- Taxation (ATx): Integer 9
@@ -18544,7 +19298,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.taxation.dissect = function
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.taxation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.taxation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.taxation, range, value, display)
+  return item, text
 end
 
 -- Taxonomy Aligned Activity Pct (TAAp): Float 12,6
@@ -18566,7 +19321,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.taxonomy_aligned_activity_p
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.taxonomy_aligned_activity_pct.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.taxonomy_aligned_activity_pct, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.taxonomy_aligned_activity_pct, range, value, display)
+  return item, text
 end
 
 -- Tenor Option Type (TOt): TenorOptionType 1
@@ -18601,7 +19357,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tenor_option_type.dissect =
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tenor_option_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tenor_option_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tenor_option_type, range, value, display)
+  return item, text
 end
 
 -- TER (TEr): Float 12,6
@@ -18623,7 +19380,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ter.dissect = function(buff
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ter.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ter, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ter, range, value, display)
+  return item, text
 end
 
 -- Term (MTRm): String 7
@@ -18641,7 +19399,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.term.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.term.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.term, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.term, range, value, display)
+  return item, text
 end
 
 -- Text (TEx): String 810
@@ -18659,7 +19418,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text.dissect = function(buf
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text, range, value, display)
+  return item, text
 end
 
 -- Text Format (Tf): Integer 9
@@ -18682,7 +19442,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_format.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_format.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_format, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_format, range, value, display)
+  return item, text
 end
 
 -- Text Fragments (TXf): Integer 4
@@ -18705,7 +19466,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_fragments.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_fragments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_fragments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_fragments, range, value, display)
+  return item, text
 end
 
 -- Text Length (TXl): Integer 9
@@ -18728,7 +19490,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_length.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.text_length.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_length, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.text_length, range, value, display)
+  return item, text
 end
 
 -- Theoretical Closing Value (TCv): Float 12,6
@@ -18750,7 +19513,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.theoretical_closing_value.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.theoretical_closing_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.theoretical_closing_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.theoretical_closing_value, range, value, display)
+  return item, text
 end
 
 -- Theoretical Closing Value Date (TCVd): Date
@@ -18771,7 +19535,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.theoretical_closing_value_d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.theoretical_closing_value_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.theoretical_closing_value_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.theoretical_closing_value_date, range, value, display)
+  return item, text
 end
 
 -- Third Country Trading Venue Of Execution (TCTv): String 4
@@ -18789,7 +19554,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_country_trading_venue
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_country_trading_venue_of_execution.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_country_trading_venue_of_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_country_trading_venue_of_execution, range, value, display)
+  return item, text
 end
 
 -- Third Party Assured (TPAs): YesNo
@@ -18813,7 +19579,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_party_assured.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_party_assured.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_party_assured, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_party_assured, range, value, display)
+  return item, text
 end
 
 -- Third Party Name (TPAn): String 240
@@ -18831,7 +19598,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_party_name.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.third_party_name.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_party_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.third_party_name, range, value, display)
+  return item, text
 end
 
 -- Three Months Volume (TMDv): Float 16,2
@@ -18853,7 +19621,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_months_volume.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_months_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_months_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_months_volume, range, value, display)
+  return item, text
 end
 
 -- Three To Four Weeks Options Volume (TFWv): Float 16,2
@@ -18875,7 +19644,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_to_four_weeks_options
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_to_four_weeks_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_to_four_weeks_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_to_four_weeks_options_volume, range, value, display)
+  return item, text
 end
 
 -- Three To Six Months Options Volume (TSMv): Float 16,2
@@ -18897,7 +19667,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_to_six_months_options
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.three_to_six_months_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_to_six_months_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.three_to_six_months_options_volume, range, value, display)
+  return item, text
 end
 
 -- Tick Size (TSz): Float 12,6
@@ -18919,7 +19690,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tick_size.dissect = functio
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tick_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tick_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tick_size, range, value, display)
+  return item, text
 end
 
 -- Tick Size Table Id (ITSz): Id
@@ -18942,7 +19714,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tick_size_table_id.dissect 
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tick_size_table_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tick_size_table_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tick_size_table_id, range, value, display)
+  return item, text
 end
 
 -- Time Exec (t): Time
@@ -18963,7 +19736,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.time_exec.dissect = functio
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.time_exec.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.time_exec, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.time_exec, range, value, display)
+  return item, text
 end
 
 -- Time Offset UTC (TOTa): String 5
@@ -18981,7 +19755,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.time_offset_utc.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.time_offset_utc.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.time_offset_utc, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.time_offset_utc, range, value, display)
+  return item, text
 end
 
 -- Timestamp Agreement (Ta): Time
@@ -19002,7 +19777,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_agreement.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_agreement.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_agreement, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_agreement, range, value, display)
+  return item, text
 end
 
 -- Timestamp Dissemination (TDi): Time
@@ -19023,7 +19799,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_dissemination.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_dissemination.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_dissemination, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_dissemination, range, value, display)
+  return item, text
 end
 
 -- Timestamp Trade Cancel (TCt): Time
@@ -19044,7 +19821,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_trade_cancel.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_trade_cancel.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_trade_cancel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_trade_cancel, range, value, display)
+  return item, text
 end
 
 -- Timestamp Trade Execution (TTe): Time
@@ -19065,7 +19843,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_trade_execution.d
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.timestamp_trade_execution.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_trade_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.timestamp_trade_execution, range, value, display)
+  return item, text
 end
 
 -- Title (TIt): String 240
@@ -19083,7 +19862,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.title.dissect = function(bu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.title.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.title, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.title, range, value, display)
+  return item, text
 end
 
 -- TNOA (ABm): Float 12,6
@@ -19105,7 +19885,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa.dissect = function(buf
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa, range, value, display)
+  return item, text
 end
 
 -- TNOA Ask (ABa): Float 12,6
@@ -19127,7 +19908,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa_ask.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa_ask.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa_ask, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa_ask, range, value, display)
+  return item, text
 end
 
 -- TNOA Bid (ABb): Float 12,6
@@ -19149,7 +19931,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa_bid.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnoa_bid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa_bid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnoa_bid, range, value, display)
+  return item, text
 end
 
 -- TNOB (NBm): Float 12,6
@@ -19171,7 +19954,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob.dissect = function(buf
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob, range, value, display)
+  return item, text
 end
 
 -- TNOB Ask (NBa): Float 12,6
@@ -19193,7 +19977,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob_ask.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob_ask.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob_ask, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob_ask, range, value, display)
+  return item, text
 end
 
 -- TNOB Bid (NBb): Float 12,6
@@ -19215,7 +20000,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob_bid.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tnob_bid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob_bid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tnob_bid, range, value, display)
+  return item, text
 end
 
 -- To Be Cleared (MTc): YesNo
@@ -19239,7 +20025,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.to_be_cleared.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.to_be_cleared.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.to_be_cleared, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.to_be_cleared, range, value, display)
+  return item, text
 end
 
 -- To Float Date (AFd): Date
@@ -19260,7 +20047,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.to_float_date.dissect = fun
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.to_float_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.to_float_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.to_float_date, range, value, display)
+  return item, text
 end
 
 -- Total Aligned Bio CAPEX (TBCx): Float 1,6
@@ -19282,7 +20070,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bio_capex.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bio_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bio_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bio_capex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned Bio Revenue (TBRe): Float 1,6
@@ -19304,7 +20093,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bio_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bio_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bio_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bio_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned BIOOPEX (TBOx): Float 1,6
@@ -19326,7 +20116,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bioopex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_bioopex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bioopex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_bioopex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CAPEX (TACx): Float 1,6
@@ -19348,7 +20139,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_capex.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_capex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCA Revenue (TCAr): Float 1,6
@@ -19370,7 +20162,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_cca_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_cca_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_cca_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_cca_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCACAPEX (TCAx): Float 1,6
@@ -19392,7 +20185,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccacapex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccacapex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccacapex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccacapex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCAOPEX (TCAo): Float 1,6
@@ -19414,7 +20208,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccaopex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccaopex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccaopex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccaopex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCM Revenue (TCMr): Float 1,6
@@ -19436,7 +20231,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccm_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccm_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccm_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccm_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCMCAPEX (TCMx): Float 1,6
@@ -19458,7 +20254,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccmcapex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccmcapex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccmcapex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccmcapex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CCMOPEX (TCMo): Float 1,6
@@ -19480,7 +20277,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccmopex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ccmopex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccmopex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ccmopex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CE Revenue (TCEr): Float 1,6
@@ -19502,7 +20300,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ce_revenue.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ce_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ce_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ce_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CECAPEX (TCEx): Float 1,6
@@ -19524,7 +20323,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_cecapex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_cecapex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_cecapex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_cecapex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned CEOPEX (TCEo): Float 1,6
@@ -19546,7 +20346,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ceopex.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ceopex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ceopex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ceopex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned OPEX (TAOx): Float 1,6
@@ -19568,7 +20369,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_opex.dissect 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_opex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned PPC Revenue (TPPr): Float 1,6
@@ -19590,7 +20392,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppc_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppc_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppc_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppc_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned PPCCAPEX (TPPx): Float 1,6
@@ -19612,7 +20415,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppccapex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppccapex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppccapex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppccapex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned PPCOPEX (TPPo): Float 1,6
@@ -19634,7 +20438,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppcopex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_ppcopex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppcopex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_ppcopex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned Revenue (TARe): Float 1,6
@@ -19656,7 +20461,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_revenue.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned WTR Revenue (TWTr): Float 1,6
@@ -19678,7 +20484,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtr_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtr_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtr_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtr_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Aligned WTRCAPEX (TWTx): Float 1,6
@@ -19700,7 +20507,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtrcapex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtrcapex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtrcapex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtrcapex, range, value, display)
+  return item, text
 end
 
 -- Total Aligned WTROPEX (TWTo): Float 1,6
@@ -19722,7 +20530,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtropex.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_aligned_wtropex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtropex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_aligned_wtropex, range, value, display)
+  return item, text
 end
 
 -- Total Eligible CAPEX (TECx): Float 1,6
@@ -19744,7 +20553,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_capex.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_capex, range, value, display)
+  return item, text
 end
 
 -- Total Eligible OPEX (TEOx): Float 1,6
@@ -19766,7 +20576,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_opex.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_opex, range, value, display)
+  return item, text
 end
 
 -- Total Eligible Revenue (TERe): Float 1,6
@@ -19788,7 +20599,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_revenue.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_eligible_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_eligible_revenue, range, value, display)
+  return item, text
 end
 
 -- Total GHG Emissions (GHGt): Float 12,6
@@ -19810,7 +20622,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_ghg_emissions.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_ghg_emissions.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_ghg_emissions, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_ghg_emissions, range, value, display)
+  return item, text
 end
 
 -- Total Green CAPEX (TGCa): Float 12,6
@@ -19832,7 +20645,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_capex.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_capex, range, value, display)
+  return item, text
 end
 
 -- Total Green Investments (TGIn): Float 12,6
@@ -19854,7 +20668,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_investments.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_investments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_investments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_investments, range, value, display)
+  return item, text
 end
 
 -- Total Green OPEX (TGOp): Float 12,6
@@ -19876,7 +20691,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_opex.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_opex, range, value, display)
+  return item, text
 end
 
 -- Total Green Turnover (TGTu): Float 12,6
@@ -19898,7 +20714,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_turnover.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_green_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_green_turnover, range, value, display)
+  return item, text
 end
 
 -- Total Issue (TIs): Float 16,2
@@ -19920,7 +20737,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_issue.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_issue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_issue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_issue, range, value, display)
+  return item, text
 end
 
 -- Total Non Aligned CAPEX (TNAx): Float 1,6
@@ -19942,7 +20760,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_capex.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_capex, range, value, display)
+  return item, text
 end
 
 -- Total Non Aligned OPEX (TNAo): Float 1,6
@@ -19964,7 +20783,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_opex.diss
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_opex, range, value, display)
+  return item, text
 end
 
 -- Total Non Aligned Revenue (TNAr): Float 1,6
@@ -19986,7 +20806,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_revenue.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_non_aligned_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_non_aligned_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Not Eligible CAPEX (TNEx): Float 1,6
@@ -20008,7 +20829,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_capex.di
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_capex, range, value, display)
+  return item, text
 end
 
 -- Total Not Eligible OPEX (TNEo): Float 1,6
@@ -20030,7 +20852,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_opex.dis
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_opex, range, value, display)
+  return item, text
 end
 
 -- Total Not Eligible Revenue (TNEr): Float 1,6
@@ -20052,7 +20875,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_revenue.
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_not_eligible_revenue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_revenue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_not_eligible_revenue, range, value, display)
+  return item, text
 end
 
 -- Total Order Coverage (OCt): Float 3,4
@@ -20074,7 +20898,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_order_coverage.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_order_coverage.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_order_coverage, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_order_coverage, range, value, display)
+  return item, text
 end
 
 -- Total Taxonomy Aligned CAPEX (TTAc): Float 12,6
@@ -20096,7 +20921,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_cape
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_capex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_capex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_capex, range, value, display)
+  return item, text
 end
 
 -- Total Taxonomy Aligned Investments (TTAi): Float 12,6
@@ -20118,7 +20944,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_inve
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_investments.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_investments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_investments, range, value, display)
+  return item, text
 end
 
 -- Total Taxonomy Aligned OPEX (TTAo): Float 12,6
@@ -20140,7 +20967,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_opex
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_opex.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_opex, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_opex, range, value, display)
+  return item, text
 end
 
 -- Total Taxonomy Aligned Turnover (TTAt): Float 12,6
@@ -20162,7 +20990,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_turn
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_taxonomy_aligned_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_taxonomy_aligned_turnover, range, value, display)
+  return item, text
 end
 
 -- Total Volume (TDv): Float 16,2
@@ -20184,7 +21013,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_volume.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.total_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.total_volume, range, value, display)
+  return item, text
 end
 
 -- Trade Buyer (Tb): String 8
@@ -20202,7 +21032,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_buyer.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_buyer.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_buyer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_buyer, range, value, display)
+  return item, text
 end
 
 -- Trade Cancel (TCl): YesNo
@@ -20226,7 +21057,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_cancel.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_cancel.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_cancel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_cancel, range, value, display)
+  return item, text
 end
 
 -- Trade Id (Ti): String 16
@@ -20244,7 +21076,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_id.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_id, range, value, display)
+  return item, text
 end
 
 -- Trade Lower Percent (TLp): Float 3,2
@@ -20266,7 +21099,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_lower_percent.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_lower_percent.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_lower_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_lower_percent, range, value, display)
+  return item, text
 end
 
 -- Trade Report Max Decimals (TRMd): Integer 1
@@ -20289,7 +21123,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_max_decimals.d
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_max_decimals.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_report_max_decimals, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_report_max_decimals, range, value, display)
+  return item, text
 end
 
 -- Trade Reporting (TRDr): YesNo 1
@@ -20313,7 +21148,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_reporting.dissect = f
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_reporting.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_reporting, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_reporting, range, value, display)
+  return item, text
 end
 
 -- Trade Reports Allowed (TRa): YesNo
@@ -20337,7 +21173,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_reports_allowed.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_reports_allowed.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_reports_allowed, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_reports_allowed, range, value, display)
+  return item, text
 end
 
 -- Trade Seller (Ts): String 8
@@ -20355,7 +21192,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_seller.dissect = func
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_seller.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_seller, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_seller, range, value, display)
+  return item, text
 end
 
 -- Trade Type (Tt): Id
@@ -20378,7 +21216,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_type.dissect = functi
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_type, range, value, display)
+  return item, text
 end
 
 -- Trade Updates Average (Ua): YesNo 1
@@ -20402,7 +21241,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_average.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_average.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_average, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_average, range, value, display)
+  return item, text
 end
 
 -- Trade Updates High Low (Uh): YesNo 1
@@ -20426,7 +21266,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_high_low.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_high_low.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_high_low, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_high_low, range, value, display)
+  return item, text
 end
 
 -- Trade Updates Last Paid (Ul): YesNo 1
@@ -20450,7 +21291,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_last_paid.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_last_paid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_last_paid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_last_paid, range, value, display)
+  return item, text
 end
 
 -- Trade Updates Turnover (Uv): YesNo 1
@@ -20474,7 +21316,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_turnover.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_updates_turnover.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_updates_turnover, range, value, display)
+  return item, text
 end
 
 -- Trade Upper Percent (TUp): Float 3,2
@@ -20496,7 +21339,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_upper_percent.dissect
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_upper_percent.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_upper_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_upper_percent, range, value, display)
+  return item, text
 end
 
 -- Trade Venue (TRv): String 11
@@ -20514,7 +21358,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_venue.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_venue.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_venue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trade_venue, range, value, display)
+  return item, text
 end
 
 -- Traded Electronically (AASt): YesNo
@@ -20538,7 +21383,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.traded_electronically.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.traded_electronically.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.traded_electronically, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.traded_electronically, range, value, display)
+  return item, text
 end
 
 -- Traded Through Date (TTd): Date
@@ -20559,7 +21405,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.traded_through_date.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.traded_through_date.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.traded_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.traded_through_date, range, value, display)
+  return item, text
 end
 
 -- Trading At Close (TAc): YesNo
@@ -20583,7 +21430,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trading_at_close.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trading_at_close.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trading_at_close, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trading_at_close, range, value, display)
+  return item, text
 end
 
 -- Trading Currency (CUt): String 3
@@ -20601,7 +21449,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trading_currency.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trading_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trading_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.trading_currency, range, value, display)
+  return item, text
 end
 
 -- Transaction Type (MTTy): String 4
@@ -20619,7 +21468,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.transaction_type.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.transaction_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.transaction_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.transaction_type, range, value, display)
+  return item, text
 end
 
 -- True Yield (TRUy): Float 5,6
@@ -20641,7 +21491,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.true_yield.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.true_yield.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.true_yield, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.true_yield, range, value, display)
+  return item, text
 end
 
 -- True Yield Price (TYPr): Float 14,6
@@ -20663,7 +21514,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.true_yield_price.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.true_yield_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.true_yield_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.true_yield_price, range, value, display)
+  return item, text
 end
 
 -- Turnover Calculation Enabled (TCe): YesNo
@@ -20687,7 +21539,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_calculation_enable
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_calculation_enabled.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.turnover_calculation_enabled, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.turnover_calculation_enabled, range, value, display)
+  return item, text
 end
 
 -- Turnover Statistics (TUs): YesNo
@@ -20711,7 +21564,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_statistics.dissect
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_statistics.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.turnover_statistics, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.turnover_statistics, range, value, display)
+  return item, text
 end
 
 -- TVOA Ask Value (AAu): Float 12,6
@@ -20733,7 +21587,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_ask_value.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_ask_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_ask_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_ask_value, range, value, display)
+  return item, text
 end
 
 -- TVOA Ask Volume (AAv): Float 12,6
@@ -20755,7 +21610,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_ask_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_ask_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_ask_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_ask_volume, range, value, display)
+  return item, text
 end
 
 -- TVOA Bid Value (ABu): Float 12,6
@@ -20777,7 +21633,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_bid_value.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_bid_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_bid_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_bid_value, range, value, display)
+  return item, text
 end
 
 -- TVOA Bid Volume (ABv): Float 12,6
@@ -20799,7 +21656,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_bid_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_bid_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_bid_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_bid_volume, range, value, display)
+  return item, text
 end
 
 -- TVOA Value (AMu): Float 12,6
@@ -20821,7 +21679,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_value, range, value, display)
+  return item, text
 end
 
 -- TVOA Volume (AMv): Float 12,6
@@ -20843,7 +21702,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_volume.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvoa_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvoa_volume, range, value, display)
+  return item, text
 end
 
 -- TVOB Ask Value (BAu): Float 12,6
@@ -20865,7 +21725,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_ask_value.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_ask_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_ask_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_ask_value, range, value, display)
+  return item, text
 end
 
 -- TVOB Ask Volume (BAv): Float 12,6
@@ -20887,7 +21748,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_ask_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_ask_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_ask_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_ask_volume, range, value, display)
+  return item, text
 end
 
 -- TVOB Bid Value (BBu): Float 12,6
@@ -20909,7 +21771,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_bid_value.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_bid_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_bid_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_bid_value, range, value, display)
+  return item, text
 end
 
 -- TVOB Bid Volume (BBv): Float 12,6
@@ -20931,7 +21794,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_bid_volume.dissect = f
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_bid_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_bid_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_bid_volume, range, value, display)
+  return item, text
 end
 
 -- TVOB Value (BMu): Float 12,6
@@ -20953,7 +21817,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_value.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_value, range, value, display)
+  return item, text
 end
 
 -- TVOB Volume (BMv): Float 12,6
@@ -20975,7 +21840,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_volume.dissect = funct
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvob_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvob_volume, range, value, display)
+  return item, text
 end
 
 -- TVWAQ (WVq): Float 12,6
@@ -20997,7 +21863,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvwaq.dissect = function(bu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tvwaq.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvwaq, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.tvwaq, range, value, display)
+  return item, text
 end
 
 -- TWAB Ask (WBa): Float 12,6
@@ -21019,7 +21886,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twab_ask.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twab_ask.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twab_ask, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twab_ask, range, value, display)
+  return item, text
 end
 
 -- TWAB Bid (WBb): Float 12,6
@@ -21041,7 +21909,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twab_bid.dissect = function
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twab_bid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twab_bid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twab_bid, range, value, display)
+  return item, text
 end
 
 -- TWAS (WAs): Float 12,6
@@ -21063,7 +21932,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twas.dissect = function(buf
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twas.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twas, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twas, range, value, display)
+  return item, text
 end
 
 -- Twelve Months Volume (WMDv): Float 16,2
@@ -21085,7 +21955,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twelve_months_volume.dissec
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twelve_months_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twelve_months_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twelve_months_volume, range, value, display)
+  return item, text
 end
 
 -- Twelve To Twentyfour Months Options Volume (TTMv): Float 16,2
@@ -21107,7 +21978,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twelve_to_twentyfour_months
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twelve_to_twentyfour_months_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twelve_to_twentyfour_months_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twelve_to_twentyfour_months_options_volume, range, value, display)
+  return item, text
 end
 
 -- Twenty Four Months Plus Volume (TWMw): Float 16,2
@@ -21129,7 +22001,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twenty_four_months_plus_vol
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twenty_four_months_plus_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twenty_four_months_plus_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twenty_four_months_plus_volume, range, value, display)
+  return item, text
 end
 
 -- Twenty Four Months Volume (TWMv): Float 16,2
@@ -21151,7 +22024,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twenty_four_months_volume.d
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.twenty_four_months_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twenty_four_months_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.twenty_four_months_volume, range, value, display)
+  return item, text
 end
 
 -- Two To Three Weeks Options Volume (TTWv): Float 16,2
@@ -21173,7 +22047,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.two_to_three_weeks_options_
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.two_to_three_weeks_options_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.two_to_three_weeks_options_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.two_to_three_weeks_options_volume, range, value, display)
+  return item, text
 end
 
 -- Two Weeks Volume (TWDv): Float 16,2
@@ -21195,7 +22070,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.two_weeks_volume.dissect = 
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.two_weeks_volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.two_weeks_volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.two_weeks_volume, range, value, display)
+  return item, text
 end
 
 -- Type Of Fund (ATf): Integer 9
@@ -21218,7 +22094,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.type_of_fund.dissect = func
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.type_of_fund.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.type_of_fund, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.type_of_fund, range, value, display)
+  return item, text
 end
 
 -- Type Of Reporting Obligation (ATRo): Integer 9
@@ -21241,7 +22118,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.type_of_reporting_obligatio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.type_of_reporting_obligation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.type_of_reporting_obligation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.type_of_reporting_obligation, range, value, display)
+  return item, text
 end
 
 -- UCITSIII Compliant (UCp): YesNo
@@ -21265,7 +22143,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ucitsiii_compliant.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ucitsiii_compliant.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ucitsiii_compliant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ucitsiii_compliant, range, value, display)
+  return item, text
 end
 
 -- UN Compact Process (UNCp): YesNo
@@ -21289,7 +22168,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.un_compact_process.dissect 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.un_compact_process.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.un_compact_process, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.un_compact_process, range, value, display)
+  return item, text
 end
 
 -- UN Compact Violation (UNCv): YesNo
@@ -21313,7 +22193,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.un_compact_violation.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.un_compact_violation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.un_compact_violation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.un_compact_violation, range, value, display)
+  return item, text
 end
 
 -- Unchanged Bids (Bu): Integer 4
@@ -21336,7 +22217,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.unchanged_bids.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.unchanged_bids.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.unchanged_bids, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.unchanged_bids, range, value, display)
+  return item, text
 end
 
 -- Unchanged Paid (Pu): Integer 4
@@ -21359,7 +22241,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.unchanged_paid.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.unchanged_paid.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.unchanged_paid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.unchanged_paid, range, value, display)
+  return item, text
 end
 
 -- Underlying External Id (UEi): String 32
@@ -21377,7 +22260,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_external_id.diss
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_external_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_external_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_external_id, range, value, display)
+  return item, text
 end
 
 -- Underlying External Id Type (UEt): UnderlyingExternalIdType 1
@@ -21418,7 +22302,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_external_id_type
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_external_id_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_external_id_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_external_id_type, range, value, display)
+  return item, text
 end
 
 -- Underlying Id (ULi): Id
@@ -21441,7 +22326,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_id.dissect = fun
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_id.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_id, range, value, display)
+  return item, text
 end
 
 -- Underlying Instrument (ULIn): String 32
@@ -21459,7 +22345,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument.disse
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument, range, value, display)
+  return item, text
 end
 
 -- Underlying Instrument Currency (ULc): String 3
@@ -21477,7 +22364,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument_curre
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument_currency, range, value, display)
+  return item, text
 end
 
 -- Underlying Instrument Type (ULt): UnderlyingInstrumentType 2
@@ -21533,7 +22421,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument_type.
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_instrument_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_instrument_type, range, value, display)
+  return item, text
 end
 
 -- Underlying Market (ULm): String 32
@@ -21551,7 +22440,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_market.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_market.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_market, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_market, range, value, display)
+  return item, text
 end
 
 -- Underlying Symbol (Us): String 8
@@ -21569,7 +22459,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_symbol.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_symbol.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_symbol, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_symbol, range, value, display)
+  return item, text
 end
 
 -- Underlying Type Code (MUTy): String 4
@@ -21587,7 +22478,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_type_code.dissec
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.underlying_type_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_type_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.underlying_type_code, range, value, display)
+  return item, text
 end
 
 -- Update Code (u): UpdateCode 1
@@ -21622,7 +22514,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.update_code.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.update_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.update_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.update_code, range, value, display)
+  return item, text
 end
 
 -- Urgency (Ur): Urgency 1
@@ -21651,7 +22544,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.urgency.dissect = function(
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.urgency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.urgency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.urgency, range, value, display)
+  return item, text
 end
 
 -- URL (URl): String 200
@@ -21669,7 +22563,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.url.dissect = function(buff
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.url.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.url, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.url, range, value, display)
+  return item, text
 end
 
 -- Valid From (Vf): Date
@@ -21690,7 +22585,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.valid_from.dissect = functi
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.valid_from.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.valid_from, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.valid_from, range, value, display)
+  return item, text
 end
 
 -- Valid To (Vt): Date
@@ -21711,7 +22607,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.valid_to.dissect = function
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.valid_to.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.valid_to, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.valid_to, range, value, display)
+  return item, text
 end
 
 -- Value (GENv): Float 12,6
@@ -21733,7 +22630,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value.dissect = function(bu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value, range, value, display)
+  return item, text
 end
 
 -- Value Currency (CUv): String 3
@@ -21751,7 +22649,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_currency.dissect = fu
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_currency.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_currency, range, value, display)
+  return item, text
 end
 
 -- Value Ratio (VRa): Integer 12
@@ -21774,7 +22673,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_ratio.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_ratio.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_ratio, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_ratio, range, value, display)
+  return item, text
 end
 
 -- Value Type (VAt): ValueType
@@ -21806,7 +22706,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_type.dissect = functi
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.value_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.value_type, range, value, display)
+  return item, text
 end
 
 -- Version Number (Vn): Integer 3
@@ -21829,7 +22730,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.version_number.dissect = fu
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.version_number.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.version_number, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.version_number, range, value, display)
+  return item, text
 end
 
 -- Vessel Size (MVSz): String 25
@@ -21847,7 +22749,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vessel_size.dissect = funct
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vessel_size.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vessel_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vessel_size, range, value, display)
+  return item, text
 end
 
 -- Volume (v): Float 16,2
@@ -21869,7 +22772,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume.dissect = function(b
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume, range, value, display)
+  return item, text
 end
 
 -- Volume Dimension (VOd): VolumeDimension 1
@@ -21898,7 +22802,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume_dimension.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume_dimension.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume_dimension, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume_dimension, range, value, display)
+  return item, text
 end
 
 -- Volume Type (DVt): VolumeType
@@ -21930,7 +22835,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume_type.dissect = funct
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.volume_type.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.volume_type, range, value, display)
+  return item, text
 end
 
 -- Voting Power (VPo): Float 12,6
@@ -21952,7 +22858,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.voting_power.dissect = func
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.voting_power.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.voting_power, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.voting_power, range, value, display)
+  return item, text
 end
 
 -- VWAP (Wp): Float 10,8
@@ -21974,7 +22881,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vwap.dissect = function(buf
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vwap.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vwap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vwap, range, value, display)
+  return item, text
 end
 
 -- VWAP Intvl (Wi): Float 10,8
@@ -21996,7 +22904,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vwap_intvl.dissect = functi
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.vwap_intvl.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vwap_intvl, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.vwap_intvl, range, value, display)
+  return item, text
 end
 
 -- Water Consumed (WATc): Float 12,6
@@ -22018,7 +22927,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.water_consumed.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.water_consumed.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.water_consumed, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.water_consumed, range, value, display)
+  return item, text
 end
 
 -- Water Management Policy (WMPo): YesNo
@@ -22042,7 +22952,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.water_management_policy.dis
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.water_management_policy.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.water_management_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.water_management_policy, range, value, display)
+  return item, text
 end
 
 -- Weighted Average Life (GAh): Float 6,6
@@ -22064,7 +22975,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.weighted_average_life.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.weighted_average_life.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.weighted_average_life, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.weighted_average_life, range, value, display)
+  return item, text
 end
 
 -- Whistleblower Protection (WBLp): YesNo
@@ -22088,7 +23000,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.whistleblower_protection.di
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.whistleblower_protection.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.whistleblower_protection, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.whistleblower_protection, range, value, display)
+  return item, text
 end
 
 -- Yield Adj Factor After Tax1 (YFAo): Float 6,6
@@ -22110,7 +23023,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_after_tax1
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_after_tax1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_after_tax1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_after_tax1, range, value, display)
+  return item, text
 end
 
 -- Yield Adj Factor After Tax2 (YFAt): Float 6,6
@@ -22132,7 +23046,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_after_tax2
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_after_tax2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_after_tax2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_after_tax2, range, value, display)
+  return item, text
 end
 
 -- Yield Adj Factor Before Tax (YAFt): Float 6,6
@@ -22154,7 +23069,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_before_tax
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_adj_factor_before_tax.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_before_tax, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_adj_factor_before_tax, range, value, display)
+  return item, text
 end
 
 -- Yield Average Group (ACYa): Integer 9
@@ -22177,7 +23093,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_average_group.dissect
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_average_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_average_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_average_group, range, value, display)
+  return item, text
 end
 
 -- Yield Calculated (AYc): YesNo
@@ -22201,7 +23118,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_calculated.dissect = 
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_calculated.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_calculated, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_calculated, range, value, display)
+  return item, text
 end
 
 -- Yield Calculation (YCa): YesNo
@@ -22225,7 +23143,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_calculation.dissect =
   local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_calculation.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_calculation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_calculation, range, value, display)
+  return item, text
 end
 
 -- Yield Group Code (YIGc): Integer 9
@@ -22248,7 +23167,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_group_code.dissect = 
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_group_code.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_group_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_group_code, range, value, display)
+  return item, text
 end
 
 -- Yield To Maturity (FPf): Float 6,6
@@ -22270,7 +23190,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_to_maturity.dissect =
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.yield_to_maturity.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_to_maturity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.yield_to_maturity, range, value, display)
+  return item, text
 end
 
 -- Ytm After Tax1 (YATo): Float 6,6
@@ -22292,7 +23213,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_after_tax1.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_after_tax1.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_after_tax1, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_after_tax1, range, value, display)
+  return item, text
 end
 
 -- Ytm After Tax2 (UATt): Float 6,6
@@ -22314,7 +23236,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_after_tax2.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_after_tax2.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_after_tax2, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_after_tax2, range, value, display)
+  return item, text
 end
 
 -- Ytm Before Tax (YBTx): Float 6,6
@@ -22336,7 +23259,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_before_tax.dissect = fu
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_before_tax.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_before_tax, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_before_tax, range, value, display)
+  return item, text
 end
 
 -- Ytm Group (YTMg): Integer 9
@@ -22359,7 +23283,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_group.dissect = functio
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.ytm_group.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.ytm_group, range, value, display)
+  return item, text
 end
 
 -- Zero Prepayment Price (KCy): Float 6,6
@@ -22381,7 +23306,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.zero_prepayment_price.disse
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.zero_prepayment_price.display(text)
 
-  parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.zero_prepayment_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fields.zero_prepayment_price, range, value, display)
+  return item, text
 end
 
 -- Tag dispatch: wire code to tag
@@ -23319,9 +24245,61 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tags = {
 -- Nasdaq NordicMarkets ConsolidatedFeed 3.10.18.7 Tip Messages
 -----------------------------------------------------------------------
 
--- Dissect the tags of a tip message: a tag the message does not carry, and a mandatory tag it lacks, are flagged; an unknown tag is skipped
+-- Record preferences: one per record, as the binary dissectors name theirs; off, the record is neither kept nor looked up
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_clearing_venue_message = Pref.bool("Lookup Basic Data Clearing Venue Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_exchange_message = Pref.bool("Lookup Basic Data Exchange Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_index_message = Pref.bool("Lookup Basic Data Index Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_issuer_message = Pref.bool("Lookup Basic Data Issuer Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_list_message = Pref.bool("Lookup Basic Data List Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_market_message = Pref.bool("Lookup Basic Data Market Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_non_tradable_message = Pref.bool("Lookup Basic Data Non Tradable Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_participant_message = Pref.bool("Lookup Basic Data Participant Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_sector_message = Pref.bool("Lookup Basic Data Sector Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_source_message = Pref.bool("Lookup Basic Data Source Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_table_entry_message = Pref.bool("Lookup Basic Data Table Entry Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_tick_size_table_message = Pref.bool("Lookup Basic Data Tick Size Table Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs.record_basic_data_tradable_message = Pref.bool("Lookup Basic Data Tradable Message", true, "Cache records and resolve cross-packet lookups")
+
+-- Records: per flow, each record message's instances by key, holding the fields its Record keeps
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_records = {}
+
+-- Flow of a packet: one direction of one connection, which records and the lookups into them share
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_flow = function(packet)
+  return tostring(packet.src)..":"..tostring(packet.src_port)..">"..tostring(packet.dst)..":"..tostring(packet.dst_port)
+end
+
+-- Store a record message's kept fields under its key
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_store = function(packet, record, values)
+  local key = values[record.key]
+  if key == nil or not omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs["record_"..record.name] then
+    return
+  end
+  local flow = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_flow(packet)
+  local flows = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_records
+  flows[flow] = flows[flow] or {}
+  flows[flow][record.name] = flows[flow][record.name] or {}
+  local kept = {}
+  for _, code in ipairs(record.fields) do
+    kept[code] = values[code]
+  end
+  flows[flow][record.name][key] = kept
+end
+
+-- The field a lookup shows of the record its value keys into, or nil
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_lookup = function(packet, lookup, value)
+  if not omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.prefs["record_"..lookup.record] then
+    return nil
+  end
+  local flow = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_records[nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_flow(packet)]
+  local records = flow and flow[lookup.record]
+  local record = records and records[value]
+  return record and record[lookup.field]
+end
+
+-- Dissect the tags of a tip message: a tag the message does not carry, and a mandatory tag it lacks, are flagged; an unknown tag is skipped. A field with a lookup shows what its record keeps; a record message is kept once dissected.
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_fields = function(buffer, packet, parent, tokens, message)
   local seen = {}
+  local values = {}
   for index = 2, #tokens do
     local token = tokens[index]
     local code = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_code(buffer, token)
@@ -23332,7 +24310,17 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_fields = function(buffe
       if not message.codes[code] then
         parent:add_tvb_expert_info(nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.unexpected_tag, buffer(token.offset, token.length), "Tag "..code.." is not a field of "..message.name)
       end
-      tag.dissect(buffer, token.offset + #code, token.length - #code, packet, parent)
+      local item, text = tag.dissect(buffer, token.offset + #code, token.length - #code, packet, parent)
+      if text ~= nil then
+        values[code] = text
+      end
+      local lookup = message.lookups and message.lookups[code]
+      if lookup and item and text then
+        local shown = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_lookup(packet, lookup, text)
+        if shown then
+          item:append_text(" ("..shown..")")
+        end
+      end
       seen[code] = true
     end
   end
@@ -23340,6 +24328,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_fields = function(buffe
     if not seen[code] then
       parent:add_proto_expert_info(nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.experts.missing_tag, "Mandatory tag "..code.." missing from "..message.name)
     end
+  end
+  if message.record and not packet.visited then
+    nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.tip_store(packet, message.record, values)
   end
 end
 
@@ -23371,6 +24362,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bank_days_messag
 -- Codes: Basic Data Bank Days Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bank_days_message.codes = { ["s"] = true, ["CNy"] = true, ["Dt"] = true, ["TDt"] = true }
 
+-- Lookups: Basic Data Bank Days Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bank_days_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["TDt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Bank Days Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bank_days_message.mandatory = {  }
 
@@ -23389,6 +24383,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_cash_flow_m
 
 -- Codes: Basic Data Bond Cash Flow Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_cash_flow_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["CFDd"] = true, ["CFIa"] = true, ["CFIn"] = true, ["YCa"] = true, ["De"] = true, ["Of"] = true, ["APRd"] = true }
+
+-- Lookups: Basic Data Bond Cash Flow Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_cash_flow_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Bond Cash Flow Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_cash_flow_message.mandatory = {  }
@@ -23409,6 +24406,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_message.nam
 -- Codes: Basic Data Bond Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Mr"] = true, ["BTy"] = true, ["DIs"] = true, ["AOs"] = true, ["DMa"] = true, ["RCp"] = true, ["DNc"] = true, ["CVp"] = true, ["RCt"] = true, ["DCm"] = true, ["Ln"] = true, ["Mv"] = true, ["Ha"] = true, ["Rr"] = true, ["RDd"] = true, ["RDt"] = true, ["NRd"] = true, ["IFd"] = true, ["CPFr"] = true, ["LCOd"] = true, ["Fv"] = true, ["ATy"] = true, ["PRe"] = true, ["TOt"] = true, ["CFq"] = true, ["Cc"] = true, ["IFq"] = true, ["FId"] = true, ["SCy"] = true, ["CFd"] = true, ["CTd"] = true, ["RIx"] = true, ["FCd"] = true, ["VBa"] = true, ["DBa"] = true, ["Vm"] = true, ["MDo"] = true, ["SSDa"] = true, ["HOt"] = true, ["LMa"] = true, ["Cs"] = true, ["LIp"] = true, ["FIt"] = true, ["DAd"] = true, ["Sd"] = true }
 
+-- Lookups: Basic Data Bond Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Bond Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_message.mandatory = {  }
 
@@ -23428,6 +24428,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_opening_inf
 -- Codes: Basic Data Bond Opening Info Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_opening_info_message.codes = { ["s"] = true, ["ISn"] = true, ["OPd"] = true, ["ABFi"] = true, ["ABCd"] = true, ["CCd"] = true, ["ADRd"] = true, ["ABPd"] = true, ["CRd"] = true }
 
+-- Lookups: Basic Data Bond Opening Info Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_opening_info_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Bond Opening Info Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_opening_info_message.mandatory = {  }
 
@@ -23446,6 +24449,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_supplementa
 
 -- Codes: Basic Data Bond Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_supplementary_message.codes = { ["i"] = true, ["s"] = true, ["ABFi"] = true, ["ABCd"] = true, ["AASt"] = true, ["ACYa"] = true, ["ACBt"] = true, ["DRAw"] = true, ["ABTc"] = true, ["ACFo"] = true, ["ACFl"] = true, ["ACFs"] = true, ["ACCo"] = true, ["ACDd"] = true, ["ANOo"] = true, ["ACXc"] = true, ["ADXc"] = true, ["ALOt"] = true, ["ALTs"] = true, ["ALTp"] = true, ["ALTe"] = true, ["ABOm"] = true, ["ALDd"] = true, ["ASSp"] = true, ["AGGu"] = true, ["FCd"] = true, ["AARf"] = true, ["ACSt"] = true, ["ABPd"] = true, ["ADRd"] = true, ["ANSd"] = true, ["ABPn"] = true, ["ABLg"] = true, ["AREp"] = true, ["APRo"] = true, ["APIl"] = true, ["AOIn"] = true, ["ABIt"] = true, ["ABTy"] = true, ["AOBt"] = true, ["ARPs"] = true, ["ACt"] = true, ["AYc"] = true, ["AFd"] = true, ["AREa"] = true, ["AFr"] = true, ["AFDn"] = true, ["AFDa"] = true, ["AFDz"] = true, ["AFc"] = true, ["APc"] = true, ["ACs"] = true, ["DSm"] = true, ["NCp"] = true, ["NDr"] = true, ["RPf"] = true, ["CAPc"] = true, ["EOPt"] = true, ["RFr"] = true, ["RFf"] = true, ["INTt"] = true, ["INTl"] = true, ["CAe"] = true, ["NIm"] = true, ["REDt"] = true, ["NFAi"] = true, ["NFAs"] = true, ["IPAd"] = true, ["AINb"] = true, ["AIBr"] = true, ["AIBc"] = true, ["AIBf"] = true }
+
+-- Lookups: Basic Data Bond Supplementary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Bond Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_bond_supplementary_message.mandatory = {  }
@@ -23485,6 +24491,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_clearing_venue_m
 -- Codes: Basic Data Clearing Venue Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_clearing_venue_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CLVt"] = true, ["PId"] = true, ["IAc"] = true, ["SCs"] = true, ["BIc"] = true }
 
+-- Record: Basic Data Clearing Venue Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_clearing_venue_message.record = { name = "basic_data_clearing_venue_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Clearing Venue Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_clearing_venue_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PId"] = { record = "basic_data_participant_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Clearing Venue Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_clearing_venue_message.mandatory = {  }
 
@@ -23503,6 +24515,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_combo_leg_messag
 
 -- Codes: Basic Data Combo Leg Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_combo_leg_message.codes = { ["s"] = true, ["i"] = true, ["Il"] = true, ["Op"] = true, ["Ra"] = true }
+
+-- Lookups: Basic Data Combo Leg Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_combo_leg_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Il"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Combo Leg Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_combo_leg_message.mandatory = {  }
@@ -23523,6 +24538,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_cpi_value_messag
 -- Codes: Basic Data CPI Value Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_cpi_value_message.codes = { ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["Dt"] = true, ["Vc"] = true }
 
+-- Lookups: Basic Data CPI Value Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_cpi_value_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data CPI Value Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_cpi_value_message.mandatory = {  }
 
@@ -23541,6 +24559,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_date_series_mess
 
 -- Codes: Basic Data Date Series Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_date_series_message.codes = { ["s"] = true, ["i"] = true, ["Cd"] = true, ["Ed"] = true, ["DLo"] = true, ["PDt"] = true, ["CFd"] = true, ["CTd"] = true, ["HOt"] = true }
+
+-- Lookups: Basic Data Date Series Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_date_series_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Date Series Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_date_series_message.mandatory = {  }
@@ -23561,6 +24582,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_debtor_compositi
 -- Codes: Basic Data Debtor Composition Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_debtor_composition_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["LOGr"] = true, ["BOOi"] = true, ["OUBl"] = true, ["OBCl"] = true, ["CLOu"] = true, ["CASi"] = true, ["NRBl"] = true, ["NRCl"] = true, ["DADk"] = true, ["DANr"] = true, ["NRRl"] = true, ["REDa"] = true, ["APRd"] = true, ["Of"] = true }
 
+-- Lookups: Basic Data Debtor Composition Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_debtor_composition_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Debtor Composition Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_debtor_composition_message.mandatory = {  }
 
@@ -23579,6 +24603,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_derivative_messa
 
 -- Codes: Basic Data Derivative Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_derivative_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["DTy"] = true, ["TIs"] = true, ["DXt"] = true, ["STp"] = true, ["CSz"] = true, ["SEt"] = true, ["EXb"] = true, ["EXe"] = true, ["Sd"] = true, ["DUf"] = true, ["DUt"] = true, ["SCy"] = true, ["DFy"] = true, ["CSu"] = true, ["BARt"] = true, ["BAFl"] = true, ["BACe"] = true, ["Ct"] = true, ["HOt"] = true, ["Di"] = true, ["LRa"] = true, ["RDa"] = true, ["Ml"] = true, ["LOf"] = true, ["ATSd"] = true, ["ATEd"] = true, ["LIp"] = true, ["FLs"] = true, ["Pi"] = true, ["BOt"] = true, ["Et"] = true, ["Vn"] = true, ["Us"] = true, ["RTy"] = true, ["REFi"] = true, ["TARi"] = true }
+
+-- Lookups: Basic Data Derivative Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_derivative_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["BARt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Derivative Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_derivative_message.mandatory = {  }
@@ -23599,6 +24626,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_exchange_message
 -- Codes: Basic Data Exchange Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_exchange_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CNy"] = true, ["MIc"] = true }
 
+-- Record: Basic Data Exchange Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_exchange_message.record = { name = "basic_data_exchange_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Exchange Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_exchange_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Exchange Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_exchange_message.mandatory = {  }
 
@@ -23617,6 +24650,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_extra_redemption
 
 -- Codes: Basic Data Extra Redemption Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_extra_redemption_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["DDAt"] = true, ["REAm"] = true, ["APRd"] = true, ["Of"] = true }
+
+-- Lookups: Basic Data Extra Redemption Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_extra_redemption_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Extra Redemption Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_extra_redemption_message.mandatory = {  }
@@ -23637,6 +24673,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_fund_message.nam
 -- Codes: Basic Data Fund Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_fund_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["HOt"] = true, ["TEr"] = true, ["FUm"] = true, ["UCp"] = true, ["LIp"] = true }
 
+-- Lookups: Basic Data Fund Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_fund_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Fund Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_fund_message.mandatory = {  }
 
@@ -23655,6 +24694,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_factors_me
 
 -- Codes: Basic Data Index Factors Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_factors_message.codes = { ["s"] = true, ["Dt"] = true, ["CIf"] = true, ["OOd"] = true, ["Sh"] = true, ["STt"] = true, ["SHh"] = true }
+
+-- Lookups: Basic Data Index Factors Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_factors_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Index Factors Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_factors_message.mandatory = {  }
@@ -23675,6 +24717,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_message.na
 -- Codes: Basic Data Index Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["INAm"] = true, ["PARi"] = true, ["NAl"] = true, ["ISn"] = true, ["CUx"] = true, ["POt"] = true, ["TYc"] = true, ["DSt"] = true, ["VSt"] = true, ["ITy"] = true, ["IPt"] = true, ["SId"] = true, ["CNy"] = true, ["MIc"] = true, ["INDr"] = true, ["INDs"] = true, ["INDc"] = true, ["Is"] = true, ["ICs"] = true, ["HOt"] = true }
 
+-- Record: Basic Data Index Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_message.record = { name = "basic_data_index_message", key = "i", fields = { "i", "INAm" } }
+
+-- Lookups: Basic Data Index Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PARi"] = { record = "basic_data_index_message", field = "INAm" }, ["POt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["TYc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ITy"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["IPt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["SId"] = { record = "basic_data_sector_message", field = "NAm" }, ["INDr"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDs"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["Is"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ICs"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Index Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_index_message.mandatory = {  }
 
@@ -23693,6 +24741,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_issuer_message.n
 
 -- Codes: Basic Data Issuer Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_issuer_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["ISs"] = true, ["NAm"] = true, ["SId"] = true, ["CNy"] = true, ["MLEi"] = true }
+
+-- Record: Basic Data Issuer Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_issuer_message.record = { name = "basic_data_issuer_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Issuer Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_issuer_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["SId"] = { record = "basic_data_sector_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Issuer Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_issuer_message.mandatory = {  }
@@ -23713,6 +24767,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_member_mess
 -- Codes: Basic Data List Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_member_message.codes = { ["IDo"] = true, ["CDi"] = true, ["s"] = true, ["OSi"] = true, ["GSi"] = true, ["Po"] = true, ["HOt"] = true }
 
+-- Lookups: Basic Data List Member Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_member_message.lookups = { ["IDo"] = { record = "basic_data_tradable_message", field = "NAm" }, ["CDi"] = { record = "basic_data_list_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data List Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_member_message.mandatory = {  }
 
@@ -23731,6 +24788,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_message.nam
 
 -- Codes: Basic Data List Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["LSt"] = true, ["PAi"] = true, ["SYm"] = true, ["NAm"] = true, ["LCy"] = true, ["TCe"] = true }
+
+-- Record: Basic Data List Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_message.record = { name = "basic_data_list_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data List Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["LSt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["PAi"] = { record = "basic_data_list_message", field = "NAm" } }
 
 -- Mandatory: Basic Data List Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_list_message.mandatory = {  }
@@ -23751,6 +24814,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_market_message.n
 -- Codes: Basic Data Market Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_market_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Ex"] = true, ["NAm"] = true, ["SYm"] = true, ["TOTa"] = true, ["LDa"] = true, ["TTd"] = true, ["OCy"] = true, ["MKt"] = true, ["MIc"] = true, ["FLm"] = true }
 
+-- Record: Basic Data Market Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_market_message.record = { name = "basic_data_market_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Market Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_market_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["MKt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Market Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_market_message.mandatory = {  }
 
@@ -23769,6 +24838,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_non_tradable_mes
 
 -- Codes: Basic Data Non Tradable Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_non_tradable_message.codes = { ["i"] = true, ["Si"] = true, ["Mk"] = true, ["s"] = true, ["It"] = true, ["INt"] = true, ["SYm"] = true, ["NAm"] = true, ["ISn"] = true, ["VBa"] = true, ["DBa"] = true, ["BADi"] = true, ["SLc"] = true }
+
+-- Record: Basic Data Non Tradable Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_non_tradable_message.record = { name = "basic_data_non_tradable_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Non Tradable Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_non_tradable_message.lookups = { ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["It"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Non Tradable Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_non_tradable_message.mandatory = {  }
@@ -23789,6 +24864,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_dra
 -- Codes: Basic Data Notification Drawing Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["DDAt"] = true, ["DRAm"] = true, ["STAd"] = true, ["RPEn"] = true, ["APRd"] = true, ["Of"] = true }
 
+-- Lookups: Basic Data Notification Drawing Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Notification Drawing Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_message.mandatory = {  }
 
@@ -23807,6 +24885,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_dra
 
 -- Codes: Basic Data Notification Drawing Percent Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_percent_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["DDAt"] = true, ["RPNe"] = true, ["APRd"] = true, ["Of"] = true, ["RPCs"] = true }
+
+-- Lookups: Basic Data Notification Drawing Percent Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_percent_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Notification Drawing Percent Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_notification_drawing_percent_message.mandatory = {  }
@@ -23827,6 +24908,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_mess
 -- Codes: Basic Data Participant Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["NAl"] = true, ["PAt"] = true, ["BIc"] = true }
 
+-- Record: Basic Data Participant Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_message.record = { name = "basic_data_participant_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Participant Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PAt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Participant Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_message.mandatory = {  }
 
@@ -23845,6 +24932,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_perm
 
 -- Codes: Basic Data Participant Permissions Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_permissions_message.codes = { ["s"] = true, ["i"] = true, ["Ex"] = true, ["ORDm"] = true, ["TRDr"] = true, ["OTCr"] = true }
+
+-- Lookups: Basic Data Participant Permissions Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_permissions_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_participant_message", field = "NAm" }, ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Participant Permissions Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_participant_permissions_message.mandatory = {  }
@@ -23865,6 +24955,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_rate_message.nam
 -- Codes: Basic Data Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_rate_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["RAt"] = true, ["CUb"] = true, ["CUv"] = true, ["BRa"] = true, ["VRa"] = true, ["HOt"] = true }
 
+-- Lookups: Basic Data Rate Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_rate_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_rate_message.mandatory = {  }
 
@@ -23883,6 +24976,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_right_message.na
 
 -- Codes: Basic Data Right Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_right_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["CSz"] = true, ["EXb"] = true, ["EXe"] = true, ["DFy"] = true, ["CSu"] = true, ["EXc"] = true, ["HOt"] = true }
+
+-- Lookups: Basic Data Right Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_right_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Right Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_right_message.mandatory = {  }
@@ -23903,6 +24999,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_member_me
 -- Codes: Basic Data Sector Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_member_message.codes = { ["IDo"] = true, ["CDi"] = true, ["s"] = true, ["OSi"] = true, ["GSi"] = true }
 
+-- Lookups: Basic Data Sector Member Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_member_message.lookups = { ["IDo"] = { record = "basic_data_tradable_message", field = "NAm" }, ["CDi"] = { record = "basic_data_sector_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Sector Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_member_message.mandatory = {  }
 
@@ -23921,6 +25020,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_message.n
 
 -- Codes: Basic Data Sector Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SGs"] = true, ["NAm"] = true, ["CDLv"] = true, ["PAi"] = true }
+
+-- Record: Basic Data Sector Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_message.record = { name = "basic_data_sector_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Sector Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PAi"] = { record = "basic_data_sector_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Sector Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_sector_message.mandatory = {  }
@@ -23941,6 +25046,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_settlement_arran
 -- Codes: Basic Data Settlement Arrangements Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_settlement_arrangements_message.codes = { ["s"] = true, ["PId"] = true, ["CLId"] = true, ["CLm"] = true }
 
+-- Lookups: Basic Data Settlement Arrangements Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_settlement_arrangements_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PId"] = { record = "basic_data_participant_message", field = "NAm" }, ["CLId"] = { record = "basic_data_clearing_venue_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Settlement Arrangements Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_settlement_arrangements_message.mandatory = {  }
 
@@ -23959,6 +25067,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_share_message.na
 
 -- Codes: Basic Data Share Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_share_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["LNo"] = true, ["TIs"] = true, ["SHc"] = true, ["VPo"] = true, ["SHCl"] = true, ["NMe"] = true, ["MOv"] = true, ["TAc"] = true, ["HOt"] = true, ["SLc"] = true, ["Sd"] = true }
+
+-- Lookups: Basic Data Share Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_share_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Share Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_share_message.mandatory = {  }
@@ -23979,6 +25090,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_source_message.n
 -- Codes: Basic Data Source Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_source_message.codes = { ["i"] = true, ["NAm"] = true }
 
+-- Record: Basic Data Source Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_source_message.record = { name = "basic_data_source_message", key = "i", fields = { "i", "NAm" } }
+
 -- Mandatory: Basic Data Source Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_source_message.mandatory = {  }
 
@@ -23997,6 +25111,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_table_entry_mess
 
 -- Codes: Basic Data Table Entry Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_table_entry_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TEt"] = true, ["SYm"] = true, ["NAm"] = true }
+
+-- Record: Basic Data Table Entry Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_table_entry_message.record = { name = "basic_data_table_entry_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Table Entry Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_table_entry_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Table Entry Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_table_entry_message.mandatory = {  }
@@ -24017,6 +25137,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tax_rate_message
 -- Codes: Basic Data Tax Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tax_rate_message.codes = { ["s"] = true, ["TTx"] = true, ["DSc"] = true, ["TXr"] = true, ["Vf"] = true, ["Vt"] = true }
 
+-- Lookups: Basic Data Tax Rate Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tax_rate_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Tax Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tax_rate_message.mandatory = {  }
 
@@ -24035,6 +25158,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_entry_
 
 -- Codes: Basic Data Tick Size Entry Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_entry_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TSz"] = true, ["PFr"] = true, ["PTo"] = true }
+
+-- Lookups: Basic Data Tick Size Entry Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_entry_message.lookups = { ["i"] = { record = "basic_data_tick_size_table_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Tick Size Entry Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_entry_message.mandatory = {  }
@@ -24055,6 +25181,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_table_
 -- Codes: Basic Data Tick Size Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_table_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["NAm"] = true }
 
+-- Record: Basic Data Tick Size Table Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_table_message.record = { name = "basic_data_tick_size_table_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Tick Size Table Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_table_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Tick Size Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tick_size_table_message.mandatory = {  }
 
@@ -24073,6 +25205,12 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_message
 
 -- Codes: Basic Data Tradable Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Ex"] = true, ["Mk"] = true, ["INi"] = true, ["SYm"] = true, ["NAm"] = true, ["SNm"] = true, ["ISn"] = true, ["ISi"] = true, ["ISs"] = true, ["CUi"] = true, ["CUt"] = true, ["PRt"] = true, ["VOd"] = true, ["LDa"] = true, ["Cf"] = true, ["LPe"] = true, ["NOs"] = true, ["STc"] = true, ["TTd"] = true, ["LQg"] = true, ["CFc"] = true, ["INt"] = true, ["ONm"] = true, ["IEt"] = true, ["OEt"] = true, ["NOUt"] = true, ["NMv"] = true, ["ITSz"] = true, ["NDp"] = true, ["NDc"] = true, ["ADt"] = true, ["MPm"] = true, ["MPa"] = true, ["NDTp"] = true, ["NDTc"] = true, ["CLId"] = true, ["CNy"] = true, ["ITSt"] = true, ["SSc"] = true, ["STy"] = true, ["OIr"] = true, ["AUm"] = true, ["TRa"] = true, ["INr"] = true, ["PTa"] = true, ["PTb"] = true, ["OXCl"] = true, ["RLo"] = true, ["Ia"] = true, ["Fx"] = true, ["Iq"] = true, ["TUs"] = true, ["MSc"] = true, ["PMa"] = true, ["HOt"] = true, ["CCPl"] = true, ["LSz"] = true, ["LPl"] = true, ["DSc"] = true, ["PMIc"] = true, ["Am"] = true, ["EUs"] = true, ["NMm"] = true, ["AOm"] = true, ["PSm"] = true, ["BSSo"] = true }
+
+-- Record: Basic Data Tradable Message, kept by i
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_message.record = { name = "basic_data_tradable_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Tradable Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" }, ["INt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ITSz"] = { record = "basic_data_tick_size_table_message", field = "NAm" }, ["CLId"] = { record = "basic_data_clearing_venue_message", field = "NAm" }, ["MSc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["EUs"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Tradable Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_message.mandatory = {  }
@@ -24093,6 +25231,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplem
 -- Codes: Basic Data Tradable Supplementary2 Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary2_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["MAf"] = true, ["LRa"] = true, ["MAc"] = true, ["CBa"] = true, ["RPm"] = true, ["ACl"] = true, ["ROe"] = true, ["SOs"] = true, ["LEv"] = true, ["STl"] = true, ["SWCp"] = true, ["ITr"] = true, ["LIu"] = true, ["TIs"] = true, ["COd"] = true, ["COz"] = true }
 
+-- Lookups: Basic Data Tradable Supplementary2 Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Tradable Supplementary2 Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary2_message.mandatory = {  }
 
@@ -24111,6 +25252,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplem
 
 -- Codes: Basic Data Tradable Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["IICt"] = true, ["FISn"] = true, ["MIFr"] = true, ["MCTy"] = true, ["MLIq"] = true, ["MTc"] = true, ["MLPr"] = true, ["MLPo"] = true, ["MSPo"] = true, ["MBPc"] = true, ["MSPc"] = true, ["MFPc"] = true, ["MJCj"] = true, ["MVSz"] = true, ["MDCl"] = true, ["MTTy"] = true, ["MFPt"] = true, ["MUTy"] = true, ["MQu"] = true, ["MQn"] = true, ["MACu"] = true, ["MBTy"] = true, ["MBPs"] = true, ["MPRo"] = true, ["MPMu"] = true, ["MCSt"] = true, ["MADd"] = true, ["MROt"] = true, ["MOTr"] = true, ["MOTv"] = true, ["MOTc"] = true, ["MOVa"] = true, ["MOVo"] = true, ["MTPc"] = true, ["MTSr"] = true, ["MTSt"] = true, ["MTRm"] = true, ["MRm"] = true, ["RIb"] = true, ["PAr"] = true, ["AUb"] = true, ["COb"] = true, ["MAm"] = true, ["FTe"] = true, ["EUn"] = true, ["SBGi"] = true, ["PRSg"] = true, ["TRMd"] = true }
+
+-- Lookups: Basic Data Tradable Supplementary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PRSg"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Tradable Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_tradable_supplementary_message.mandatory = {  }
@@ -24131,6 +25275,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trade_type_messa
 -- Codes: Basic Data Trade Type Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trade_type_message.codes = { ["s"] = true, ["i"] = true, ["Si"] = true, ["Tt"] = true }
 
+-- Lookups: Basic Data Trade Type Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trade_type_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_market_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Trade Type Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trade_type_message.mandatory = {  }
 
@@ -24149,6 +25296,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_days_mes
 
 -- Codes: Basic Data Trading Days Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_days_message.codes = { ["s"] = true, ["i"] = true, ["Si"] = true, ["Dt"] = true, ["TDt"] = true }
+
+-- Lookups: Basic Data Trading Days Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_days_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_market_message", field = "NAm" }, ["TDt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Trading Days Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_days_message.mandatory = {  }
@@ -24169,6 +25319,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_scheme_m
 -- Codes: Basic Data Trading Scheme Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_scheme_message.codes = { ["s"] = true, ["i"] = true, ["Si"] = true, ["Dt"] = true, ["Ms"] = true, ["St"] = true }
 
+-- Lookups: Basic Data Trading Scheme Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_scheme_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_market_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Trading Scheme Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_trading_scheme_message.mandatory = {  }
 
@@ -24187,6 +25340,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_translation_tabl
 
 -- Codes: Basic Data Translation Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_translation_table_message.codes = { ["s"] = true, ["AFn"] = true, ["AFv"] = true, ["AFe"] = true }
+
+-- Lookups: Basic Data Translation Table Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_translation_table_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Translation Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_translation_table_message.mandatory = {  }
@@ -24207,6 +25363,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_underlying_info_
 -- Codes: Basic Data Underlying Info Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_underlying_info_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["ULi"] = true, ["UEi"] = true, ["UEt"] = true, ["ULt"] = true, ["BSh"] = true, ["Fd"] = true, ["ISn"] = true, ["MIc"] = true, ["CUt"] = true, ["DSc"] = true, ["HOt"] = true, ["NOUb"] = true, ["OWg"] = true, ["REFc"] = true, ["BBGc"] = true }
 
+-- Lookups: Basic Data Underlying Info Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_underlying_info_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Underlying Info Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_underlying_info_message.mandatory = {  }
 
@@ -24225,6 +25384,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_utc_message.name
 
 -- Codes: Basic Data UTC Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_utc_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TIs"] = true, ["SHc"] = true, ["SHCl"] = true, ["HOt"] = true, ["ACTs"] = true, ["AFTc"] = true, ["ALc"] = true, ["AIFg"] = true, ["AIFi"] = true, ["AAp"] = true, ["ANPy"] = true, ["ATx"] = true, ["ATf"] = true, ["AFDo"] = true, ["AMSa"] = true, ["ATRo"] = true }
+
+-- Lookups: Basic Data UTC Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_utc_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data UTC Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.basic_data_utc_message.mandatory = {  }
@@ -24245,6 +25407,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_analytics_message.name
 -- Codes: Bond Analytics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_analytics_message.codes = { ["i"] = true, ["ISn"] = true, ["t"] = true, ["XPi"] = true, ["JJs"] = true, ["FPf"] = true, ["Du"] = true, ["Cx"] = true, ["DUm"] = true, ["NAc"] = true, ["FBm"] = true, ["KCy"] = true, ["EAc"] = true, ["DYv"] = true, ["REm"] = true, ["CNn"] = true, ["PXh"] = true, ["OLi"] = true, ["LJx"] = true, ["QJc"] = true, ["BEe"] = true, ["HDu"] = true, ["QTv"] = true, ["PDe"] = true, ["GAh"] = true, ["QGt"] = true, ["HBi"] = true, ["ZGp"] = true, ["QSg"] = true, ["DAu"] = true, ["LOa"] = true, ["ZOa"] = true, ["JZf"] = true, ["DBd"] = true, ["FQq"] = true, ["EOd"] = true, ["MFv"] = true, ["MFs"] = true, ["MFr"] = true }
 
+-- Lookups: Bond Analytics Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_analytics_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Bond Analytics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_analytics_message.mandatory = {  }
 
@@ -24264,6 +25429,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_report_external_messag
 -- Codes: Bond Report External Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_report_external_message.codes = { ["i"] = true, ["INi"] = true, ["p"] = true, ["PRt"] = true, ["CUt"] = true, ["v"] = true, ["Tt"] = true, ["Ta"] = true, ["Da"] = true, ["TTe"] = true, ["DTTe"] = true, ["TDi"] = true, ["TRv"] = true, ["TCl"] = true, ["Ti"] = true, ["TCt"] = true, ["NIs"] = true, ["Mt"] = true, ["MNa"] = true, ["MNc"] = true, ["MTc"] = true, ["MQn"] = true, ["MQu"] = true, ["MPv"] = true, ["MEt"] = true, ["PEp"] = true, ["TCTv"] = true }
 
+-- Lookups: Bond Report External Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_report_external_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Bond Report External Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.bond_report_external_message.mandatory = {  }
 
@@ -24282,6 +25450,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_message.name = "C
 
 -- Codes: Cash Flow Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_message.codes = { ["i"] = true, ["Sd"] = true, ["PSd"] = true, ["CPz"] = true, ["CFq"] = true, ["DNCf"] = true, ["DICp"] = true, ["AINt"] = true, ["Cd"] = true, ["PDt"] = true, ["Sy"] = true, ["IDXf"] = true, ["PSz"] = true }
+
+-- Lookups: Cash Flow Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Cash Flow Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.cash_flow_message.mandatory = {  }
@@ -24320,6 +25491,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.company_news_meta_message.n
 
 -- Codes: Company News Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.company_news_meta_message.codes = { ["DSId"] = true, ["Ex"] = true, ["Mk"] = true, ["ISi"] = true, ["ISs"] = true, ["ISt"] = true, ["TIt"] = true, ["LAn"] = true, ["RELd"] = true, ["REt"] = true, ["DIt"] = true, ["PTy"] = true, ["INn"] = true, ["REd"] = true, ["CHc"] = true, ["TXl"] = true, ["TXf"] = true, ["URl"] = true, ["LNk"] = true, ["Li"] = true, ["AISn"] = true, ["CNy"] = true, ["Tf"] = true, ["AWDi"] = true, ["SECn"] = true, ["MKTn"] = true, ["EXCn"] = true, ["SUBg"] = true, ["SUb"] = true, ["ABIs"] = true, ["ABIn"] = true }
+
+-- Lookups: Company News Meta Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.company_news_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" } }
 
 -- Mandatory: Company News Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.company_news_meta_message.mandatory = {  }
@@ -24378,6 +25552,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corporate_action_meta_messa
 -- Codes: Corporate Action Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corporate_action_meta_message.codes = { ["DSId"] = true, ["Ex"] = true, ["Mk"] = true, ["ISi"] = true, ["ISs"] = true, ["ISt"] = true, ["TIt"] = true, ["LAn"] = true, ["RELd"] = true, ["REt"] = true, ["DIt"] = true, ["PTy"] = true, ["INn"] = true, ["REd"] = true, ["CHc"] = true, ["TXl"] = true, ["TXf"] = true, ["URl"] = true, ["LNk"] = true, ["Li"] = true, ["AISn"] = true, ["CNy"] = true, ["Tf"] = true, ["AWDi"] = true, ["SECn"] = true, ["MKTn"] = true, ["EXCn"] = true, ["SUBg"] = true, ["SUb"] = true, ["ABIs"] = true, ["ABIn"] = true }
 
+-- Lookups: Corporate Action Meta Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corporate_action_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" } }
+
 -- Mandatory: Corporate Action Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.corporate_action_meta_message.mandatory = {  }
 
@@ -24415,6 +25592,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_basic_data_message.n
 
 -- Codes: End Of Basic Data Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_basic_data_message.codes = { ["s"] = true }
+
+-- Lookups: End Of Basic Data Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_basic_data_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: End Of Basic Data Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.end_of_basic_data_message.mandatory = {  }
@@ -24454,6 +25634,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_activ
 -- Codes: ESG Green Designation Activities Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_activities_message.codes = { ["i"] = true, ["ACTt"] = true, ["ACTn"] = true, ["ACTu"] = true, ["TAAp"] = true }
 
+-- Lookups: ESG Green Designation Activities Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_activities_message.lookups = { ["i"] = { record = "basic_data_issuer_message", field = "NAm" } }
+
 -- Mandatory: ESG Green Designation Activities Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_activities_message.mandatory = {  }
 
@@ -24473,6 +25656,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_link_
 -- Codes: ESG Green Designation Link Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_link_message.codes = { ["i"] = true, ["GDEi"] = true, ["ECNa"] = true, ["POPu"] = true, ["URl"] = true }
 
+-- Lookups: ESG Green Designation Link Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_link_message.lookups = { ["i"] = { record = "basic_data_issuer_message", field = "NAm" } }
+
 -- Mandatory: ESG Green Designation Link Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_link_message.mandatory = {  }
 
@@ -24491,6 +25677,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_messa
 
 -- Codes: ESG Green Designation Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_message.codes = { ["i"] = true, ["GEDe"] = true, ["GETd"] = true, ["APRr"] = true, ["TPAs"] = true, ["TPAn"] = true, ["FFAc"] = true, ["OATu"] = true, ["OATt"] = true, ["OACa"] = true, ["OATc"] = true, ["OAOp"] = true, ["OATo"] = true, ["TTAt"] = true, ["TGTu"] = true, ["TTAc"] = true, ["TGCa"] = true, ["TTAo"] = true, ["TGOp"] = true, ["TTAi"] = true, ["TGIn"] = true }
+
+-- Lookups: ESG Green Designation Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_message.lookups = { ["i"] = { record = "basic_data_issuer_message", field = "NAm" } }
 
 -- Mandatory: ESG Green Designation Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.esg_green_designation_message.mandatory = {  }
@@ -24587,6 +25776,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_traded_product_mes
 -- Codes: Exchange Traded Product Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_traded_product_message.codes = { ["i"] = true, ["t"] = true, ["LRa"] = true, ["LOf"] = true, ["BAFl"] = true, ["BACe"] = true, ["CSz"] = true, ["KIDu"] = true, ["KIDd"] = true, ["KIDt"] = true, ["TCv"] = true, ["TCVd"] = true, ["RPRu"] = true, ["ULm"] = true, ["ULIn"] = true, ["ULc"] = true, ["EQHr"] = true }
 
+-- Lookups: Exchange Traded Product Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_traded_product_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Exchange Traded Product Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.exchange_traded_product_message.mandatory = {  }
 
@@ -24625,6 +25817,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_data_message.name = "F
 -- Codes: Fund Data Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_data_message.codes = { ["i"] = true, ["t"] = true, ["ISn"] = true, ["ISSp"] = true, ["REDp"] = true, ["NAv"] = true, ["ANc"] = true, ["ARt"] = true, ["ASm"] = true, ["APRd"] = true, ["TDi"] = true }
 
+-- Lookups: Fund Data Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_data_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Fund Data Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.fund_data_message.mandatory = {  }
 
@@ -24643,6 +25838,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value2_message.name
 
 -- Codes: Generic Value2 Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value2_message.codes = { ["i"] = true, ["t"] = true, ["GENv"] = true, ["VAt"] = true }
+
+-- Lookups: Generic Value2 Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value2_message.lookups = { ["i"] = { record = "basic_data_non_tradable_message", field = "NAm" } }
 
 -- Mandatory: Generic Value2 Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value2_message.mandatory = {  }
@@ -24663,6 +25861,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value_message.name 
 -- Codes: Generic Value Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value_message.codes = { ["i"] = true, ["t"] = true, ["GENv"] = true, ["VAt"] = true }
 
+-- Lookups: Generic Value Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Generic Value Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.generic_value_message.mandatory = {  }
 
@@ -24682,6 +25883,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.implicit_cost_message.name 
 -- Codes: Implicit Cost Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.implicit_cost_message.codes = { ["i"] = true, ["Dt"] = true, ["EOd"] = true, ["PSt"] = true, ["PSp"] = true, ["WAs"] = true, ["RWa"] = true }
 
+-- Lookups: Implicit Cost Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.implicit_cost_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Implicit Cost Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.implicit_cost_message.mandatory = {  }
 
@@ -24700,6 +25904,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_analytics_message.nam
 
 -- Codes: Index Analytics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_analytics_message.codes = { ["i"] = true, ["t"] = true, ["Ii"] = true }
+
+-- Lookups: Index Analytics Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_analytics_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INAm" } }
 
 -- Mandatory: Index Analytics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_analytics_message.mandatory = {  }
@@ -24739,6 +25946,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_member_message.name =
 -- Codes: Index Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_member_message.codes = { ["IDo"] = true, ["CDi"] = true, ["OSi"] = true, ["GSi"] = true }
 
+-- Lookups: Index Member Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_member_message.lookups = { ["IDo"] = { record = "basic_data_tradable_message", field = "NAm" }, ["CDi"] = { record = "basic_data_index_message", field = "INAm" } }
+
 -- Mandatory: Index Member Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_member_message.mandatory = {  }
 
@@ -24757,6 +25967,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_summary_message.name 
 
 -- Codes: Index Summary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_summary_message.codes = { ["i"] = true, ["t"] = true, ["CLv"] = true, ["Vh"] = true, ["Ht"] = true, ["Vl"] = true, ["Tl"] = true, ["Dd"] = true, ["Dy"] = true, ["Dm"] = true, ["Dn"] = true, ["Yn"] = true, ["Mn"] = true, ["OVa"] = true, ["ITc"] = true, ["f"] = true, ["o"] = true, ["ODXv"] = true, ["CAp"] = true, ["OCAp"] = true, ["IXDv"] = true, ["DUx"] = true, ["IXd"] = true, ["SEd"] = true }
+
+-- Lookups: Index Summary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_summary_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INAm" } }
 
 -- Mandatory: Index Summary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_summary_message.mandatory = {  }
@@ -24777,6 +25990,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_update_message.name =
 -- Codes: Index Update Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_update_message.codes = { ["i"] = true, ["t"] = true, ["Vc"] = true, ["Vh"] = true, ["Vl"] = true, ["f"] = true, ["Dd"] = true, ["Dy"] = true, ["Dm"] = true, ["Dn"] = true, ["Yn"] = true, ["Mn"] = true, ["Ri"] = true, ["OVa"] = true, ["ITc"] = true, ["o"] = true, ["ODXv"] = true, ["CAp"] = true, ["OCAp"] = true, ["IXDv"] = true, ["DUx"] = true }
 
+-- Lookups: Index Update Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_update_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INAm" } }
+
 -- Mandatory: Index Update Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.index_update_message.mandatory = {  }
 
@@ -24795,6 +26011,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_mess
 
 -- Codes: Indicative Close Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_message.codes = { ["i"] = true, ["t"] = true, ["ICp"] = true, ["ICPd"] = true }
+
+-- Lookups: Indicative Close Price Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Indicative Close Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.indicative_close_price_message.mandatory = {  }
@@ -24815,6 +26034,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_exten
 -- Codes: Instrument Statistics Extended Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_extended_message.codes = { ["i"] = true, ["t"] = true, ["ATAp"] = true, ["ATv"] = true, ["ATt"] = true, ["q"] = true, ["EOd"] = true, ["Of"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true }
 
+-- Lookups: Instrument Statistics Extended Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_extended_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Instrument Statistics Extended Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_extended_message.mandatory = {  }
 
@@ -24833,6 +26055,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_messa
 
 -- Codes: Instrument Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_message.codes = { ["i"] = true, ["t"] = true, ["ATAp"] = true, ["ATv"] = true, ["ATt"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["BPr"] = true, ["APl"] = true, ["EOd"] = true, ["Of"] = true }
+
+-- Lookups: Instrument Statistics Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Instrument Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.instrument_statistics_message.mandatory = {  }
@@ -24853,6 +26078,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_indicator_message.na
 -- Codes: Market Indicator Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_indicator_message.codes = { ["i"] = true, ["t"] = true, ["MKc"] = true }
 
+-- Lookups: Market Indicator Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_indicator_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Market Indicator Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.market_indicator_message.mandatory = {  }
 
@@ -24871,6 +26099,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.median_price_message.name =
 
 -- Codes: Median Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.median_price_message.codes = { ["i"] = true, ["t"] = true, ["MIp"] = true, ["Pb"] = true, ["Pa"] = true }
+
+-- Lookups: Median Price Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.median_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Median Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.median_price_message.mandatory = {  }
@@ -24967,6 +26198,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_order_imbalance_indicat
 -- Codes: Net Order Imbalance Indicator Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_order_imbalance_indicator_message.codes = { ["i"] = true, ["t"] = true, ["Ps"] = true, ["IMs"] = true, ["IMd"] = true, ["APl"] = true, ["BPr"] = true, ["AVl"] = true, ["BVl"] = true, ["EQp"] = true, ["CRt"] = true, ["CRl"] = true }
 
+-- Lookups: Net Order Imbalance Indicator Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_order_imbalance_indicator_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Net Order Imbalance Indicator Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.net_order_imbalance_indicator_message.mandatory = {  }
 
@@ -25005,6 +26239,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notification_message.name =
 -- Codes: Notification Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notification_message.codes = { ["i"] = true, ["t"] = true, ["NOc"] = true, ["u"] = true }
 
+-- Lookups: Notification Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notification_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["NOc"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Notification Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.notification_message.mandatory = {  }
 
@@ -25023,6 +26260,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest_message.name 
 
 -- Codes: Open Interest Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest_message.codes = { ["i"] = true, ["Dx"] = true, ["t"] = true, ["OPi"] = true }
+
+-- Lookups: Open Interest Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Open Interest Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.open_interest_message.mandatory = {  }
@@ -25043,6 +26283,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_mbo_message.name = "O
 -- Codes: Order MBO Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_mbo_message.codes = { ["i"] = true, ["POk"] = true, ["l"] = true, ["t"] = true, ["Bs"] = true, ["Cl"] = true, ["p"] = true, ["Py"] = true, ["Pc"] = true, ["v"] = true, ["Pt"] = true, ["u"] = true, ["Dx"] = true, ["Mp"] = true, ["MAq"] = true, ["Rk"] = true, ["Of"] = true }
 
+-- Lookups: Order MBO Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_mbo_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Order MBO Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_mbo_message.mandatory = {  }
 
@@ -25061,6 +26304,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_statistics_mess
 
 -- Codes: Order Price Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_statistics_message.codes = { ["i"] = true, ["Dt"] = true, ["EOd"] = true, ["PSt"] = true, ["PSp"] = true, ["WBb"] = true, ["WBa"] = true, ["WVq"] = true, ["BAv"] = true, ["BAu"] = true, ["NBa"] = true, ["AAv"] = true, ["AAu"] = true, ["ABa"] = true, ["BBv"] = true, ["BBu"] = true, ["NBb"] = true, ["ABv"] = true, ["ABu"] = true, ["ABb"] = true, ["BMv"] = true, ["BMu"] = true, ["NBm"] = true, ["AMv"] = true, ["AMu"] = true, ["ABm"] = true, ["BAb"] = true, ["BAa"] = true, ["CIb"] = true, ["CIa"] = true }
+
+-- Lookups: Order Price Statistics Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_statistics_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Order Price Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.order_price_statistics_message.mandatory = {  }
@@ -25081,6 +26327,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_coverage_message.
 -- Codes: Orderbook Coverage Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_coverage_message.codes = { ["i"] = true, ["Dt"] = true, ["EOd"] = true, ["PSt"] = true, ["PSp"] = true, ["OCt"] = true, ["OCb"] = true, ["OCa"] = true }
 
+-- Lookups: Orderbook Coverage Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_coverage_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Orderbook Coverage Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_coverage_message.mandatory = {  }
 
@@ -25099,6 +26348,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_message.name = "O
 
 -- Codes: Orderbook Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_message.codes = { ["i"] = true, ["t"] = true, ["Of"] = true, ["c"] = true, ["e"] = true, ["d"] = true, ["b"] = true, ["BYd"] = true, ["Yb"] = true, ["g"] = true, ["h"] = true, ["r"] = true, ["a"] = true, ["Ya"] = true, ["j"] = true, ["k"] = true, ["w"] = true, ["Ma"] = true, ["Mb"] = true, ["ISOc"] = true }
+
+-- Lookups: Orderbook Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Orderbook Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_message.mandatory = {  }
@@ -25119,6 +26371,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_reference_price_m
 -- Codes: Orderbook Reference Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_reference_price_message.codes = { ["i"] = true, ["RPr"] = true, ["RPRy"] = true, ["RPu"] = true, ["RPl"] = true, ["RPd"] = true, ["RPt"] = true, ["PUm"] = true, ["TUp"] = true, ["TLp"] = true, ["CRt"] = true }
 
+-- Lookups: Orderbook Reference Price Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_reference_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Orderbook Reference Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_reference_price_message.mandatory = {  }
 
@@ -25137,6 +26392,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_state_message.nam
 
 -- Codes: Orderbook State Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_state_message.codes = { ["i"] = true, ["t"] = true, ["Ms"] = true, ["STc"] = true, ["Ae"] = true, ["Cb"] = true, ["Ei"] = true, ["SRn"] = true, ["RIs"] = true }
+
+-- Lookups: Orderbook State Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_state_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Orderbook State Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_state_message.mandatory = {  }
@@ -25157,6 +26415,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_summary_message.n
 -- Codes: Orderbook Summary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_summary_message.codes = { ["i"] = true, ["t"] = true, ["Dt"] = true, ["ISOc"] = true, ["ISOt"] = true, ["d"] = true, ["BPr"] = true, ["APl"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["m"] = true, ["Pd"] = true, ["BYd"] = true, ["BYl"] = true, ["AYa"] = true, ["Yf"] = true, ["Yl"] = true, ["Yh"] = true, ["Yo"] = true, ["Yv"] = true, ["Yd"] = true, ["q"] = true, ["o"] = true, ["Rq"] = true, ["f"] = true, ["Rt"] = true, ["SEp"] = true, ["HPm"] = true, ["HYm"] = true, ["HPMd"] = true, ["LPm"] = true, ["LYm"] = true, ["LPMd"] = true, ["HPy"] = true, ["HYy"] = true, ["HPYd"] = true, ["LPy"] = true, ["LYy"] = true, ["LPYd"] = true, ["LTd"] = true, ["LPd"] = true, ["CWp"] = true, ["CLi"] = true, ["OCr"] = true, ["CCCp"] = true, ["CAp"] = true, ["CCMc"] = true, ["ICp"] = true, ["ICPd"] = true, ["CWi"] = true }
 
+-- Lookups: Orderbook Summary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_summary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Orderbook Summary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.orderbook_summary_message.mandatory = {  }
 
@@ -25175,6 +26436,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_message.name = "Quote
 
 -- Codes: Quote Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_message.codes = { ["i"] = true, ["l"] = true, ["Bs"] = true, ["p"] = true, ["v"] = true, ["DOs"] = true, ["t"] = true, ["Dx"] = true }
+
+-- Lookups: Quote Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Quote Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_message.mandatory = {  }
@@ -25195,6 +26459,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_request_message.name 
 -- Codes: Quote Request Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_request_message.codes = { ["i"] = true, ["t"] = true, ["v"] = true, ["Qs"] = true }
 
+-- Lookups: Quote Request Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_request_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Quote Request Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.quote_request_message.mandatory = {  }
 
@@ -25213,6 +26480,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_message.name = "Rate M
 
 -- Codes: Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_message.codes = { ["i"] = true, ["t"] = true, ["Vc"] = true, ["FDt"] = true }
+
+-- Lookups: Rate Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Rate Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.rate_message.mandatory = {  }
@@ -25233,6 +26503,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_trip_cost_message.nam
 -- Codes: Round Trip Cost Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_trip_cost_message.codes = { ["i"] = true, ["Dt"] = true, ["EOd"] = true, ["PSt"] = true, ["PSp"] = true, ["LMc"] = true, ["LMv"] = true, ["LMg"] = true, ["RMc"] = true, ["RMv"] = true, ["RMg"] = true }
 
+-- Lookups: Round Trip Cost Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_trip_cost_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Round Trip Cost Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.round_trip_cost_message.mandatory = {  }
 
@@ -25251,6 +26524,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price_message.na
 
 -- Codes: Settlement Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price_message.codes = { ["i"] = true, ["Si"] = true, ["t"] = true, ["SEp"] = true, ["EOd"] = true, ["MPr"] = true, ["ISOc"] = true, ["Of"] = true }
+
+-- Lookups: Settlement Price Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
 
 -- Mandatory: Settlement Price Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.settlement_price_message.mandatory = {  }
@@ -25271,6 +26547,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_message.name = "Trade
 -- Codes: Trade Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_message.codes = { ["i"] = true, ["TCl"] = true, ["t"] = true, ["Ta"] = true, ["TCt"] = true, ["TDi"] = true, ["Sd"] = true, ["p"] = true, ["Py"] = true, ["v"] = true, ["Tb"] = true, ["Ts"] = true, ["Tt"] = true, ["Ul"] = true, ["Uh"] = true, ["Ua"] = true, ["Uv"] = true, ["Os"] = true, ["Dx"] = true, ["Da"] = true, ["Ti"] = true, ["Ag"] = true, ["TRv"] = true, ["Mt"] = true, ["MNa"] = true, ["MTc"] = true, ["Nf"] = true }
 
+-- Lookups: Trade Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Trade Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_message.mandatory = {  }
 
@@ -25289,6 +26568,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_primary_message.name 
 
 -- Codes: Trade Primary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_primary_message.codes = { ["i"] = true, ["TCl"] = true, ["t"] = true, ["Ta"] = true, ["TCt"] = true, ["TDi"] = true, ["p"] = true, ["Py"] = true, ["v"] = true, ["Tt"] = true, ["Dx"] = true, ["Da"] = true, ["Ti"] = true, ["Mt"] = true }
+
+-- Lookups: Trade Primary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_primary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Trade Primary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_primary_message.mandatory = {  }
@@ -25309,6 +26591,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_external_messa
 -- Codes: Trade Report External Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_external_message.codes = { ["i"] = true, ["INi"] = true, ["p"] = true, ["PRt"] = true, ["CUt"] = true, ["v"] = true, ["Tt"] = true, ["Ta"] = true, ["Da"] = true, ["TTe"] = true, ["DTTe"] = true, ["TDi"] = true, ["TRv"] = true, ["TCl"] = true, ["Ti"] = true, ["TCt"] = true, ["NIs"] = true, ["Mt"] = true, ["MNa"] = true, ["MNc"] = true, ["MTc"] = true, ["MQn"] = true, ["MQu"] = true, ["MPv"] = true, ["MEt"] = true, ["PEp"] = true, ["TCTv"] = true }
 
+-- Lookups: Trade Report External Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_external_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Trade Report External Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_external_message.mandatory = {  }
 
@@ -25327,6 +26612,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_message.name =
 
 -- Codes: Trade Report Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_message.codes = { ["i"] = true, ["TCl"] = true, ["t"] = true, ["Ta"] = true, ["TCt"] = true, ["TDi"] = true, ["Sd"] = true, ["p"] = true, ["Py"] = true, ["v"] = true, ["Tb"] = true, ["Ts"] = true, ["Tt"] = true, ["Ul"] = true, ["Uh"] = true, ["Ua"] = true, ["Uv"] = true, ["Os"] = true, ["Dx"] = true, ["Da"] = true, ["Ti"] = true, ["Ag"] = true, ["TRv"] = true, ["Mt"] = true, ["MNa"] = true, ["MTc"] = true }
+
+-- Lookups: Trade Report Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Trade Report Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_report_message.mandatory = {  }
@@ -25347,6 +26635,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_statistics_message.na
 -- Codes: Trade Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_statistics_message.codes = { ["i"] = true, ["t"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["m"] = true, ["Pd"] = true, ["Yf"] = true, ["Yl"] = true, ["Yh"] = true, ["Yo"] = true, ["Yv"] = true, ["Yd"] = true, ["q"] = true, ["o"] = true, ["Rq"] = true, ["f"] = true, ["Rt"] = true, ["LTRp"] = true, ["LTRq"] = true, ["ATAp"] = true, ["Of"] = true, ["Wp"] = true, ["Wi"] = true, ["CWi"] = true, ["ISOc"] = true, ["ISOt"] = true }
 
+-- Lookups: Trade Statistics Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_statistics_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Trade Statistics Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_statistics_message.mandatory = {  }
 
@@ -25366,6 +26657,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_supplementary_message
 -- Codes: Trade Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_supplementary_message.codes = { ["i"] = true, ["t"] = true, ["ATRp"] = true, ["APLd"] = true, ["BBPl"] = true, ["BBPd"] = true, ["TYPr"] = true, ["YBTx"] = true, ["YATo"] = true, ["UATt"] = true, ["YAFt"] = true, ["YFAo"] = true, ["YFAt"] = true, ["Du"] = true, ["PRIw"] = true, ["Cx"] = true, ["DUm"] = true }
 
+-- Lookups: Trade Supplementary Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+
 -- Mandatory: Trade Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.trade_supplementary_message.mandatory = {  }
 
@@ -25384,6 +26678,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_list_update_messag
 
 -- Codes: Turnover List Update Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_list_update_message.codes = { ["i"] = true, ["t"] = true, ["f"] = true, ["o"] = true, ["Bu"] = true, ["Bp"] = true, ["Bm"] = true, ["Pu"] = true, ["Pp"] = true, ["Pm"] = true }
+
+-- Lookups: Turnover List Update Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_list_update_message.lookups = { ["i"] = { record = "basic_data_list_message", field = "NAm" } }
 
 -- Mandatory: Turnover List Update Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.turnover_list_update_message.mandatory = {  }

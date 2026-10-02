@@ -1345,7 +1345,12 @@ end
 nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.fields.sequence_number, range, value, display)
@@ -1782,7 +1787,7 @@ end
 nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sequence Number: Alphanumeric
+  -- Sequence Number: Numeric
   index, sequence_number = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
   return index

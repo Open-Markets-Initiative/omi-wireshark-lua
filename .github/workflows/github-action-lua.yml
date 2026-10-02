@@ -214,11 +214,11 @@ jobs:
       - name: Run Nasdaq NsmEquities Qbbo Itch 2.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-Qbbo-Itch-v2-1-Test.sh
 
-      - name: Run Nasdaq NsmEquities TotalView Itch 2.0 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v2-0-Test.sh
+      - name: Run Nasdaq NsmEquities TotalView AsciiItch 2.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-AsciiItch-v2-0-Test.sh
 
-      - name: Run Nasdaq NsmEquities TotalView Itch 3.0 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v3-0-Test.sh
+      - name: Run Nasdaq NsmEquities TotalView AsciiItch 3.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-AsciiItch-v3-0-Test.sh
 
       - name: Run Nasdaq NsmEquities TotalView Itch 4.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-TotalView-Itch-v4-0-Test.sh

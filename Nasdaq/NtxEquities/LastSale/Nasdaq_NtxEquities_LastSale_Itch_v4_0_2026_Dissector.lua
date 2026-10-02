@@ -2152,7 +2152,7 @@ nasdaq_ntxequities_lastsale_itch_v4_0_2026.trade_correction_message.fields = fun
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2240,7 +2240,7 @@ nasdaq_ntxequities_lastsale_itch_v4_0_2026.trade_cancel_error_message.fields = f
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2316,7 +2316,7 @@ nasdaq_ntxequities_lastsale_itch_v4_0_2026.trade_report_message.fields = functio
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Integer
+  -- Client Timestamp: Timestamp
   index, client_timestamp = nasdaq_ntxequities_lastsale_itch_v4_0_2026.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
