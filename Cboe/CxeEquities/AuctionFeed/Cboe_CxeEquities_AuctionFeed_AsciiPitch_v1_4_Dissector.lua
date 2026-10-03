@@ -210,10 +210,10 @@ end
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_auctionfeed_asciipitch_v1_4.indicative_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.indicative_price.display(value, buffer, offset, packet, parent)
@@ -241,7 +241,7 @@ cboe_cxeequities_auctionfeed_asciipitch_v1_4.indicative_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.indicative_shares.display(value, buffer, offset, packet, parent)
@@ -381,10 +381,10 @@ end
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_auctionfeed_asciipitch_v1_4.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.price.display(value, buffer, offset, packet, parent)
@@ -427,10 +427,10 @@ end
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_auctionfeed_asciipitch_v1_4.reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.reference_price.display(value, buffer, offset, packet, parent)
@@ -603,7 +603,7 @@ cboe_cxeequities_auctionfeed_asciipitch_v1_4.shares.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.shares.display(value, buffer, offset, packet, parent)
@@ -728,7 +728,7 @@ cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp.display(value, buffer, offset, packet, parent)

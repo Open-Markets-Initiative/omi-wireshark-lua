@@ -479,7 +479,7 @@ cixats_cixaspen_marketdatafeed_aspen_v1_4.market_day_identifier.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cixats_cixaspen_marketdatafeed_aspen_v1_4.market_day_identifier.display(value, buffer, offset, packet, parent)

@@ -165,10 +165,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_extended.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_extended.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_extended.display(value, buffer, offset, packet, parent)
@@ -211,10 +211,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_long.display(value, buffer, offset, packet, parent)
@@ -257,10 +257,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.ask_price_short.display(value, buffer, offset, packet, parent)
@@ -288,7 +288,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.ask_quantity_long.display(value, buffer, offset, packet, parent)
@@ -316,7 +316,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.ask_quantity_short.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.ask_quantity_short.display(value, buffer, offset, packet, parent)
@@ -359,10 +359,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_extended.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_extended.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_extended.display(value, buffer, offset, packet, parent)
@@ -405,10 +405,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_long.display(value, buffer, offset, packet, parent)
@@ -451,10 +451,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.bid_price_short.display(value, buffer, offset, packet, parent)
@@ -482,7 +482,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.bid_quantity_long.display(value, buffer, offset, packet, parent)
@@ -510,7 +510,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.bid_quantity_short.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.bid_quantity_short.display(value, buffer, offset, packet, parent)
@@ -538,7 +538,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.cumulative_volume_long.display(value, buffer, offset, packet, parent)
@@ -566,7 +566,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.cumulative_volume_short.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.cumulative_volume_short.display(value, buffer, offset, packet, parent)
@@ -632,10 +632,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_extended.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_extended.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_extended.display(value, buffer, offset, packet, parent)
@@ -678,10 +678,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_long.display(value, buffer, offset, packet, parent)
@@ -724,10 +724,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.last_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_price_short.display(value, buffer, offset, packet, parent)
@@ -755,7 +755,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_quantity_long.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_quantity_long.display(value, buffer, offset, packet, parent)
@@ -783,7 +783,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_quantity_short.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_quantity_short.display(value, buffer, offset, packet, parent)
@@ -826,10 +826,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/100
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_long.display(value, buffer, offset, packet, parent)
@@ -872,10 +872,10 @@ end
 cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_price_short.display(value, buffer, offset, packet, parent)
@@ -903,7 +903,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_size.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_size.display(value, buffer, offset, packet, parent)
@@ -931,7 +931,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_time.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.last_trade_time.display(value, buffer, offset, packet, parent)
@@ -1064,7 +1064,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.milliseconds.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.milliseconds.display(value, buffer, offset, packet, parent)
@@ -1214,7 +1214,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.seconds.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.seconds.display(value, buffer, offset, packet, parent)
@@ -1334,7 +1334,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.timestamp.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_edgaequities_top_asciipitch_v1_3_9.timestamp.display(value, buffer, offset, packet, parent)

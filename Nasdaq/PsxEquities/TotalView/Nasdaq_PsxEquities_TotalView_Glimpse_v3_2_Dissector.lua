@@ -350,7 +350,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.itch_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.itch_sequence_number.display(value, buffer, offset, packet, parent)
@@ -477,7 +477,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.millisecond.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.millisecond.display(value, buffer, offset, packet, parent)
@@ -505,7 +505,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.order_reference_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -571,10 +571,10 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_totalview_glimpse_v3_2.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.price.display(value, buffer, offset, packet, parent)
@@ -750,7 +750,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.round_lot_size.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -808,7 +808,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.second.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.second.display(value, buffer, offset, packet, parent)
@@ -921,7 +921,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.shares.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.shares.display(value, buffer, offset, packet, parent)

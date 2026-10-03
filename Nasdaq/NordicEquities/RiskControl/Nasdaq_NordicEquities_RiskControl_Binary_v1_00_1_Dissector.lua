@@ -258,7 +258,7 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.accepted_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1082,7 +1082,7 @@ nasdaq_nordicequities_riskcontrol_binary_v1_00_1.requested_sequence_number.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_riskcontrol_binary_v1_00_1.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -398,7 +398,7 @@ cboe_cxeequities_lastsale_apf_v1_7.executed_shares.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_lastsale_apf_v1_7.executed_shares.display(value, buffer, offset, packet, parent)
@@ -587,7 +587,7 @@ cboe_cxeequities_lastsale_apf_v1_7.notional_amount.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_lastsale_apf_v1_7.notional_amount.display(value, buffer, offset, packet, parent)
@@ -804,7 +804,7 @@ cboe_cxeequities_lastsale_apf_v1_7.price.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_lastsale_apf_v1_7.price.display(value, buffer, offset, packet, parent)
@@ -1188,7 +1188,7 @@ cboe_cxeequities_lastsale_apf_v1_7.timestamp.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_cxeequities_lastsale_apf_v1_7.timestamp.display(value, buffer, offset, packet, parent)

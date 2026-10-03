@@ -224,10 +224,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.adjusted_closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.adjusted_closing_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.adjusted_closing_price.display(value, buffer, offset, packet, parent)
@@ -494,10 +494,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.corrected_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.corrected_trade_price.display(value, buffer, offset, packet, parent)
@@ -525,7 +525,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.corrected_trade_
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.corrected_trade_size.display(value, buffer, offset, packet, parent)
@@ -664,7 +664,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.etp_leverage_fac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.etp_leverage_factor.display(value, buffer, offset, packet, parent)
@@ -908,10 +908,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_price.display(value, buffer, offset, packet, parent)
@@ -969,7 +969,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_re
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_release_time.display(value, buffer, offset, packet, parent)
@@ -1000,7 +1000,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.issue_classifica
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"
@@ -1248,7 +1248,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_1.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_1.display(value, buffer, offset, packet, parent)
@@ -1276,7 +1276,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_2.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_2.display(value, buffer, offset, packet, parent)
@@ -1304,7 +1304,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_3.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.level_3.display(value, buffer, offset, packet, parent)
@@ -1342,7 +1342,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.luld_reference_p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
@@ -1727,10 +1727,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.original_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.original_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.original_trade_price.display(value, buffer, offset, packet, parent)
@@ -1758,7 +1758,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.original_trade_s
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.original_trade_size.display(value, buffer, offset, packet, parent)
@@ -1987,7 +1987,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.round_lot_size.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -2309,7 +2309,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.timestamp.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.timestamp.display(value, buffer, offset, packet, parent)
@@ -2375,10 +2375,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.trade_price.display(value, buffer, offset, packet, parent)
@@ -2406,7 +2406,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.trade_size.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.trade_size.display(value, buffer, offset, packet, parent)

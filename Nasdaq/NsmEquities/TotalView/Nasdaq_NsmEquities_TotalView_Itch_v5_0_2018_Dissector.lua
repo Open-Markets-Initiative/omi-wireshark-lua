@@ -314,7 +314,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.accepted_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2627,7 +2627,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.requested_sequence_number.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2018.requested_sequence_number.display(value, buffer, offset, packet, parent)

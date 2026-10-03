@@ -278,7 +278,7 @@ box_boxoptions_solatradereporting_atr_v4_5.additional_firm.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.additional_firm.display(value, buffer, offset, packet, parent)
@@ -375,7 +375,7 @@ box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.display(value, buffer, offset, packet, parent)
@@ -476,7 +476,7 @@ box_boxoptions_solatradereporting_atr_v4_5.error_code.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.error_code.display(value, buffer, offset, packet, parent)
@@ -527,7 +527,7 @@ box_boxoptions_solatradereporting_atr_v4_5.executing_broker.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.executing_broker.display(value, buffer, offset, packet, parent)
@@ -647,7 +647,7 @@ box_boxoptions_solatradereporting_atr_v4_5.initial_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.initial_sequence_number.display(value, buffer, offset, packet, parent)
@@ -675,7 +675,7 @@ box_boxoptions_solatradereporting_atr_v4_5.last_user_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.last_user_sequence_number.display(value, buffer, offset, packet, parent)
@@ -733,7 +733,7 @@ box_boxoptions_solatradereporting_atr_v4_5.member_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.member_number.display(value, buffer, offset, packet, parent)
@@ -965,7 +965,7 @@ box_boxoptions_solatradereporting_atr_v4_5.opposite_executing_broker.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.opposite_executing_broker.display(value, buffer, offset, packet, parent)
@@ -1023,7 +1023,7 @@ box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.parent_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1097,7 +1097,7 @@ box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.display(value, buffer, offset, packet, parent)
@@ -1148,7 +1148,7 @@ box_boxoptions_solatradereporting_atr_v4_5.reference_message_type.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.reference_message_type.display(value, buffer, offset, packet, parent)
@@ -1199,7 +1199,7 @@ box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.reference_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1227,7 +1227,7 @@ box_boxoptions_solatradereporting_atr_v4_5.sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.sequence_number.display(value, buffer, offset, packet, parent)
@@ -1278,7 +1278,7 @@ box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.strike_price.display(value, buffer, offset, packet, parent)
@@ -1375,7 +1375,7 @@ box_boxoptions_solatradereporting_atr_v4_5.time.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.time.display(value, buffer, offset, packet, parent)
@@ -1540,7 +1540,7 @@ box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.unique_transaction_id.display(value, buffer, offset, packet, parent)
@@ -1591,7 +1591,7 @@ box_boxoptions_solatradereporting_atr_v4_5.volume.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solatradereporting_atr_v4_5.volume.display(value, buffer, offset, packet, parent)

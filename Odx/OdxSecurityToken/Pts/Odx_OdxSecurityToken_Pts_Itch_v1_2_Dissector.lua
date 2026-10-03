@@ -256,7 +256,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -976,7 +976,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.requested_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = odx_odxsecuritytoken_pts_itch_v1_2.requested_sequence_number.display(value, buffer, offset, packet, parent)

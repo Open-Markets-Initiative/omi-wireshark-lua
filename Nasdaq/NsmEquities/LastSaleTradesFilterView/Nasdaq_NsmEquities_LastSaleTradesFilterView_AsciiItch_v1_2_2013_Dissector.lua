@@ -203,10 +203,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.adjusted_closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.adjusted_closing_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.adjusted_closing_price.display(value, buffer, offset, packet, parent)
@@ -407,10 +407,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.corrected_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.corrected_trade_price.display(value, buffer, offset, packet, parent)
@@ -438,7 +438,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.corrected_trade_
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.corrected_trade_size.display(value, buffer, offset, packet, parent)
@@ -1047,10 +1047,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.original_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.original_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.original_trade_price.display(value, buffer, offset, packet, parent)
@@ -1078,7 +1078,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.original_trade_s
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.original_trade_size.display(value, buffer, offset, packet, parent)
@@ -1535,7 +1535,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.timestamp.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.timestamp.display(value, buffer, offset, packet, parent)
@@ -1601,10 +1601,10 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.trade_price.display(value, buffer, offset, packet, parent)
@@ -1632,7 +1632,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.trade_size.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v1_2_2013.trade_size.display(value, buffer, offset, packet, parent)

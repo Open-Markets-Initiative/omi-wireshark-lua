@@ -164,10 +164,10 @@ end
 nasdaq_psxequities_matchview_asciiitch_v1_1.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_matchview_asciiitch_v1_1.ask_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_matchview_asciiitch_v1_1.ask_price.display(value, buffer, offset, packet, parent)
@@ -210,10 +210,10 @@ end
 nasdaq_psxequities_matchview_asciiitch_v1_1.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_matchview_asciiitch_v1_1.bid_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_matchview_asciiitch_v1_1.bid_price.display(value, buffer, offset, packet, parent)
@@ -407,7 +407,7 @@ nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_matchview_asciiitch_v1_1.timestamp.display(value, buffer, offset, packet, parent)

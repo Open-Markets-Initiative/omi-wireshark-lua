@@ -389,7 +389,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.market_day_identifier.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.market_day_identifier.display(value, buffer, offset, packet, parent)
@@ -465,7 +465,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.next_sequence.display(value, buffer, offset, packet, parent)
@@ -701,7 +701,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cixats_cixaspen_snapshot_tcpout_v1_1.requested_sequence.display(value, buffer, offset, packet, parent)

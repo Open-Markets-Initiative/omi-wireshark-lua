@@ -23,6 +23,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.appointment_status 
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.auction_id = ProtoField.new("Auction Id", "nyse.amexoptions.binarygateway.pillarstream.v3.27.auctionid", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.bitfield_flow_indicator = ProtoField.new("Bitfield Flow Indicator", "nyse.amexoptions.binarygateway.pillarstream.v3.27.bitfieldflowindicator", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.bitfield_order_instructions = ProtoField.new("Bitfield Order Instructions", "nyse.amexoptions.binarygateway.pillarstream.v3.27.bitfieldorderinstructions", ftypes.BYTES)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.bitfield_quote_inst = ProtoField.new("Bitfield Quote Inst", "nyse.amexoptions.binarygateway.pillarstream.v3.27.bitfieldquoteinst", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.amexoptions.binarygateway.pillarstream.v3.27.blockedbybreachindicator", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.blocked_by_kill_switch_indicator = ProtoField.new("Blocked By Kill Switch Indicator", "nyse.amexoptions.binarygateway.pillarstream.v3.27.blockedbykillswitchindicator", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.bold_designation = ProtoField.new("Bold Designation", "nyse.amexoptions.binarygateway.pillarstream.v3.27.bolddesignation", ftypes.UINT8)
@@ -84,6 +85,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.max_order_price = P
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.max_order_quantity = ProtoField.new("Max Order Quantity", "nyse.amexoptions.binarygateway.pillarstream.v3.27.maxorderquantity", ftypes.UINT32)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mic = ProtoField.new("Mic", "nyse.amexoptions.binarygateway.pillarstream.v3.27.mic", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.min_qty = ProtoField.new("Min Qty", "nyse.amexoptions.binarygateway.pillarstream.v3.27.minqty", ftypes.UINT32)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.amexoptions.binarygateway.pillarstream.v3.27.mmquotetype", ftypes.UINT8, {[0]="Standard", [1]="Repricing"}, base.DEC, 0x1C)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.amexoptions.binarygateway.pillarstream.v3.27.mmsenttime", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mm_type = ProtoField.new("Mm Type", "nyse.amexoptions.binarygateway.pillarstream.v3.27.mmtype", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mode = ProtoField.new("Mode", "nyse.amexoptions.binarygateway.pillarstream.v3.27.mode", ftypes.UINT8)
@@ -117,6 +119,10 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.pre_liquidity_indic
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.price = ProtoField.new("Price", "nyse.amexoptions.binarygateway.pillarstream.v3.27.price", ftypes.DOUBLE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.price_scale = ProtoField.new("Price Scale", "nyse.amexoptions.binarygateway.pillarstream.v3.27.pricescale", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.amexoptions.binarygateway.pillarstream.v3.27.putorcall", ftypes.UINT8)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quantity = ProtoField.new("Quantity", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quantity", ftypes.UINT32)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_group = ProtoField.new("Quote Ack Group", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quoteackgroup", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_group = ProtoField.new("Quote Ack With Id Group", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quoteackwithidgroup", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_request_group = ProtoField.new("Quote Request Group", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quoterequestgroup", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quotingmpv", ftypes.DOUBLE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.reason_code = ProtoField.new("Reason Code", "nyse.amexoptions.binarygateway.pillarstream.v3.27.reasoncode", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.ref_cl_ord_id = ProtoField.new("Ref Cl Ord Id", "nyse.amexoptions.binarygateway.pillarstream.v3.27.refclordid", ftypes.UINT64)
@@ -153,6 +159,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_type = Prot
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.binarygateway.pillarstream.v3.27.seriesindex", ftypes.UINT32)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.series_type = ProtoField.new("Series Type", "nyse.amexoptions.binarygateway.pillarstream.v3.27.seriestype", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.sess = ProtoField.new("Sess", "nyse.amexoptions.binarygateway.pillarstream.v3.27.sess", ftypes.UINT32)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.side_2 = ProtoField.new("Side 2", "nyse.amexoptions.binarygateway.pillarstream.v3.27.side2", ftypes.UINT8, nil, base.DEC, 0x03)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.amexoptions.binarygateway.pillarstream.v3.27.sideu81", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.start_seq = ProtoField.new("Start Seq", "nyse.amexoptions.binarygateway.pillarstream.v3.27.startseq", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.status = ProtoField.new("Status", "nyse.amexoptions.binarygateway.pillarstream.v3.27.status", ftypes.UINT8)
@@ -178,6 +185,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.trading_mpv = Proto
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.transact_time_timestamp_8 = ProtoField.new("Transact Time Timestamp 8", "nyse.amexoptions.binarygateway.pillarstream.v3.27.transacttimetimestamp8", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.transact_time_u_648 = ProtoField.new("Transact Time U 648", "nyse.amexoptions.binarygateway.pillarstream.v3.27.transacttimeu648", ftypes.UINT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.amexoptions.binarygateway.pillarstream.v3.27.underlyingtype", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.unused_3 = ProtoField.new("Unused 3", "nyse.amexoptions.binarygateway.pillarstream.v3.27.unused3", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.unused_7 = ProtoField.new("Unused 7", "nyse.amexoptions.binarygateway.pillarstream.v3.27.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.usd_calculation_1 = ProtoField.new("Usd Calculation 1", "nyse.amexoptions.binarygateway.pillarstream.v3.27.usdcalculation1", ftypes.INT64)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.usd_calculation_2 = ProtoField.new("Usd Calculation 2", "nyse.amexoptions.binarygateway.pillarstream.v3.27.usdcalculation2", ftypes.INT64)
@@ -244,6 +252,8 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.stream_avail = Prot
 
 -- Nyse AmexOptions BinaryGateway PillarStream 3.27 Generated Fields
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.leg_group_index = ProtoField.new("Leg Group Index", "nyse.amexoptions.binarygateway.pillarstream.v3.27.leggroupindex", ftypes.UINT16)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_group_index = ProtoField.new("Quote Ack Group Index", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quoteackgroupindex", ftypes.UINT16)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_group_index = ProtoField.new("Quote Ack With Id Group Index", "nyse.amexoptions.binarygateway.pillarstream.v3.27.quoteackwithidgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -3293,6 +3303,29 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.put_or_call.dissect = function
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.put_or_call, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity = {}
+
+-- Size: Quantity
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.size = 4
+
+-- Display: Quantity
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -7473,6 +7506,80 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.order_single_complex_modify_ca
   end
 end
 
+-- Quote Ack With Id Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group = {}
+
+-- Size: Quote Ack With Id Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.size =
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.side_u_81.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.ack_type.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.price.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.reason_code.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.working_away_from_display.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.order_id.size
+
+-- Display: Quote Ack With Id Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Ack With Id Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.fields = function(buffer, offset, packet, parent, quote_ack_with_id_group_index)
+  local index = offset
+
+  -- Implicit Quote Ack With Id Group Index
+  if quote_ack_with_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_group_index, quote_ack_with_id_group_index)
+    iteration:set_generated()
+  end
+
+  -- Series Index: u32
+  index, series_index = nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.dissect(buffer, index, packet, parent)
+
+  -- Side U 81: u8
+  index, side_u_81 = nyse_amexoptions_binarygateway_pillarstream_v3_27.side_u_81.dissect(buffer, index, packet, parent)
+
+  -- Ack Type: u8
+  index, ack_type = nyse_amexoptions_binarygateway_pillarstream_v3_27.ack_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = nyse_amexoptions_binarygateway_pillarstream_v3_27.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: u32
+  index, quantity = nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.dissect(buffer, index, packet, parent)
+
+  -- Reason Code: u16
+  index, reason_code = nyse_amexoptions_binarygateway_pillarstream_v3_27.reason_code.dissect(buffer, index, packet, parent)
+
+  -- Working Away From Display: u8
+  index, working_away_from_display = nyse_amexoptions_binarygateway_pillarstream_v3_27.working_away_from_display.dissect(buffer, index, packet, parent)
+
+  -- Order Id: u64
+  index, order_id = nyse_amexoptions_binarygateway_pillarstream_v3_27.order_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Ack With Id Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.dissect = function(buffer, offset, packet, parent, quote_ack_with_id_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_group, buffer(offset, 0))
+    local index = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.fields(buffer, offset, packet, parent, quote_ack_with_id_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.fields(buffer, offset, packet, parent, quote_ack_with_id_group_index)
+  end
+end
+
 -- Bulk Quote Acknowledgment Message
 nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_message = {}
 
@@ -7522,8 +7629,10 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_mess
   -- Repeating Groups: u8
   index, repeating_groups = nyse_amexoptions_binarygateway_pillarstream_v3_27.repeating_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Group 308
-  index, quote_ack_group_308 = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group_308.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote Ack With Id Group
+  for quote_ack_with_id_group_index = 1, repeating_groups do
+    index, quote_ack_with_id_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_with_id_group.dissect(buffer, index, packet, parent, quote_ack_with_id_group_index)
+  end
 
   return index
 end
@@ -7547,6 +7656,76 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_mess
     nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_message.fields(buffer, offset, packet, parent, size_of_bulk_quote_acknowledgment_message)
 
     return index
+  end
+end
+
+-- Quote Ack Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group = {}
+
+-- Size: Quote Ack Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.size =
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.side_u_81.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.ack_type.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.price.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.reason_code.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.working_away_from_display.size
+
+-- Display: Quote Ack Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Ack Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.fields = function(buffer, offset, packet, parent, quote_ack_group_index)
+  local index = offset
+
+  -- Implicit Quote Ack Group Index
+  if quote_ack_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_group_index, quote_ack_group_index)
+    iteration:set_generated()
+  end
+
+  -- Series Index: u32
+  index, series_index = nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.dissect(buffer, index, packet, parent)
+
+  -- Side U 81: u8
+  index, side_u_81 = nyse_amexoptions_binarygateway_pillarstream_v3_27.side_u_81.dissect(buffer, index, packet, parent)
+
+  -- Ack Type: u8
+  index, ack_type = nyse_amexoptions_binarygateway_pillarstream_v3_27.ack_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = nyse_amexoptions_binarygateway_pillarstream_v3_27.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: u32
+  index, quantity = nyse_amexoptions_binarygateway_pillarstream_v3_27.quantity.dissect(buffer, index, packet, parent)
+
+  -- Reason Code: u16
+  index, reason_code = nyse_amexoptions_binarygateway_pillarstream_v3_27.reason_code.dissect(buffer, index, packet, parent)
+
+  -- Working Away From Display: u8
+  index, working_away_from_display = nyse_amexoptions_binarygateway_pillarstream_v3_27.working_away_from_display.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Ack Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.dissect = function(buffer, offset, packet, parent, quote_ack_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_group, buffer(offset, 0))
+    local index = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.fields(buffer, offset, packet, parent, quote_ack_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.fields(buffer, offset, packet, parent, quote_ack_group_index)
   end
 end
 
@@ -7599,8 +7778,10 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_type
   -- Repeating Groups: u8
   index, repeating_groups = nyse_amexoptions_binarygateway_pillarstream_v3_27.repeating_groups.dissect(buffer, index, packet, parent)
 
-  -- Quote Ack Group 294
-  index, quote_ack_group_294 = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group_294.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote Ack Group
+  for quote_ack_group_index = 1, repeating_groups do
+    index, quote_ack_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_ack_group.dissect(buffer, index, packet, parent, quote_ack_group_index)
+  end
 
   return index
 end
@@ -9069,6 +9250,100 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.new_order_cross_message.dissec
   end
 end
 
+-- Bitfield Quote Inst
+nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst = {}
+
+-- Size: Bitfield Quote Inst
+nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.size = 1
+
+-- Display: Bitfield Quote Inst
+nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.display = function(range, value, packet, parent)
+  local flags = {}
+
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Bitfield Quote Inst
+nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.bits = function(range, value, packet, parent)
+
+  -- Side 2: 2 Bit Unsigned Fixed Width Integer
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.side_2, range, value)
+
+  -- Mm Quote Type: 3 Bit Unsigned Fixed Width Integer Enum with 2 values
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.mm_quote_type, range, value)
+
+  -- Unused 3: 3 Bit
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.unused_3, range, value)
+end
+
+-- Dissect: Bitfield Quote Inst
+nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.dissect = function(buffer, offset, packet, parent)
+  local size = nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.display(range, value, packet, parent)
+  local element = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.bitfield_quote_inst, range, display)
+
+  if show.structs then
+    nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Quote Request Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group = {}
+
+-- Size: Quote Request Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.size =
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.price.size + 
+  nyse_amexoptions_binarygateway_pillarstream_v3_27.order_qty.size
+
+-- Display: Quote Request Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Series Index: u32
+  index, series_index = nyse_amexoptions_binarygateway_pillarstream_v3_27.series_index.dissect(buffer, index, packet, parent)
+
+  -- Bitfield Quote Inst: Struct of 3 fields
+  index, bitfield_quote_inst = nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = nyse_amexoptions_binarygateway_pillarstream_v3_27.price.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: u32
+  index, order_qty = nyse_amexoptions_binarygateway_pillarstream_v3_27.order_qty.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Group
+nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.dissect = function(buffer, offset, packet, parent)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.quote_request_group, buffer(offset, 0))
+    local index = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- New Bulk Quote Type 259 Message
 nyse_amexoptions_binarygateway_pillarstream_v3_27.new_bulk_quote_type_259_message = {}
 
@@ -9112,8 +9387,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.new_bulk_quote_type_259_messag
   -- Mm Sent Time: Timestamp
   index, mm_sent_time = nyse_amexoptions_binarygateway_pillarstream_v3_27.mm_sent_time.dissect(buffer, index, packet, parent)
 
-  -- Bulk Quote Group
-  index, bulk_quote_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.bulk_quote_group.dissect(buffer, index, packet, parent)
+  -- Dependency for Quote Request Group
+  local end_of_payload = offset + size_of_new_bulk_quote_type_259_message
+
+  -- Quote Request Group: Struct of 4 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, quote_request_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -9183,8 +9465,15 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.new_bulk_quote_type_243_messag
   -- Mm Sent Time: Timestamp
   index, mm_sent_time = nyse_amexoptions_binarygateway_pillarstream_v3_27.mm_sent_time.dissect(buffer, index, packet, parent)
 
-  -- Repeating Group
-  index, repeating_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.repeating_group.dissect(buffer, index, packet, parent)
+  -- Dependency for Quote Request Group
+  local end_of_payload = offset + size_of_new_bulk_quote_type_243_message
+
+  -- Quote Request Group: Struct of 4 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, quote_request_group = nyse_amexoptions_binarygateway_pillarstream_v3_27.quote_request_group.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end

@@ -515,7 +515,7 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.additional_quantity.display(value, buffer, offset, packet, parent)
@@ -566,7 +566,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_id.display(value, buffer, offset, packet, parent)
@@ -599,7 +599,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id_optional.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_id_optional.display(value, buffer, offset, packet, parent)
@@ -650,7 +650,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_quantity.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.auction_quantity.display(value, buffer, offset, packet, parent)
@@ -786,7 +786,7 @@ box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.display(value, buffer, offset, packet, parent)
@@ -1196,7 +1196,7 @@ box_boxoptions_solaorderentry_sail_v2_25.error_code.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_code.display(value, buffer, offset, packet, parent)
@@ -1293,7 +1293,7 @@ box_boxoptions_solaorderentry_sail_v2_25.error_position.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_position.display(value, buffer, offset, packet, parent)
@@ -1367,7 +1367,7 @@ box_boxoptions_solaorderentry_sail_v2_25.expected_last_user_sequence_id.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.expected_last_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1717,7 +1717,7 @@ box_boxoptions_solaorderentry_sail_v2_25.first_user_sequence_id.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.first_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1745,7 +1745,7 @@ box_boxoptions_solaorderentry_sail_v2_25.gap_sequence_id.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.gap_sequence_id.display(value, buffer, offset, packet, parent)
@@ -1967,7 +1967,7 @@ box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.display(value, buffer, offset, packet, parent)
@@ -2069,7 +2069,7 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.display(value, buffer, offset, packet, parent)
@@ -2171,7 +2171,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.leg_number.display(value, buffer, offset, packet, parent)
@@ -2199,7 +2199,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.leg_quantity_ratio.display(value, buffer, offset, packet, parent)
@@ -2292,7 +2292,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.display(value, buffer, offset, packet, parent)
@@ -2325,7 +2325,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.display(value, buffer, offset, packet, parent)
@@ -2358,7 +2358,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.display(value, buffer, offset, packet, parent)
@@ -2391,7 +2391,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.display(value, buffer, offset, packet, parent)
@@ -2465,7 +2465,7 @@ box_boxoptions_solaorderentry_sail_v2_25.message_time_local.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.message_time_local.display(value, buffer, offset, packet, parent)
@@ -2493,7 +2493,7 @@ box_boxoptions_solaorderentry_sail_v2_25.message_timestamp.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.message_timestamp.display(value, buffer, offset, packet, parent)
@@ -2776,7 +2776,7 @@ box_boxoptions_solaorderentry_sail_v2_25.nb_legs.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.nb_legs.display(value, buffer, offset, packet, parent)
@@ -2804,7 +2804,7 @@ box_boxoptions_solaorderentry_sail_v2_25.nb_of_instruments.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.nb_of_instruments.display(value, buffer, offset, packet, parent)
@@ -2855,7 +2855,7 @@ box_boxoptions_solaorderentry_sail_v2_25.new_quantity.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.new_quantity.display(value, buffer, offset, packet, parent)
@@ -2883,7 +2883,7 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_instructions_present_in_the_m
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_instructions_present_in_the_message.display(value, buffer, offset, packet, parent)
@@ -2911,7 +2911,7 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_legs.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -2939,7 +2939,7 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_message_types_to_be_received.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_message_types_to_be_received.display(value, buffer, offset, packet, parent)
@@ -2967,7 +2967,7 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes.display(value, buffer, offset, packet, parent)
@@ -2995,7 +2995,7 @@ box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes_in_error.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.number_of_quotes_in_error.display(value, buffer, offset, packet, parent)
@@ -3315,7 +3315,7 @@ box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.display(value, buffer, offset, packet, parent)
@@ -3493,7 +3493,7 @@ box_boxoptions_solaorderentry_sail_v2_25.preceding_user_sequence_id_received.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.preceding_user_sequence_id_received.display(value, buffer, offset, packet, parent)
@@ -3544,7 +3544,7 @@ box_boxoptions_solaorderentry_sail_v2_25.previous_quantity.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.previous_quantity.display(value, buffer, offset, packet, parent)
@@ -3688,7 +3688,7 @@ box_boxoptions_solaorderentry_sail_v2_25.qualified_quantity.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.qualified_quantity.display(value, buffer, offset, packet, parent)
@@ -3721,7 +3721,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity.display(value, buffer, offset, packet, parent)
@@ -3754,7 +3754,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_1.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity_1.display(value, buffer, offset, packet, parent)
@@ -3851,7 +3851,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.display(value, buffer, offset, packet, parent)
@@ -3974,7 +3974,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quote_number.display(value, buffer, offset, packet, parent)
@@ -4030,7 +4030,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.display(value, buffer, offset, packet, parent)
@@ -4081,7 +4081,7 @@ box_boxoptions_solaorderentry_sail_v2_25.received_user_sequence_id.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.received_user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -4185,7 +4185,7 @@ box_boxoptions_solaorderentry_sail_v2_25.rejection_code.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.rejection_code.display(value, buffer, offset, packet, parent)
@@ -4596,7 +4596,7 @@ box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.display(value, buffer, offset, packet, parent)
@@ -4685,7 +4685,7 @@ box_boxoptions_solaorderentry_sail_v2_25.time.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time.display(value, buffer, offset, packet, parent)
@@ -4713,7 +4713,7 @@ box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4741,7 +4741,7 @@ box_boxoptions_solaorderentry_sail_v2_25.time_local.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_local.display(value, buffer, offset, packet, parent)
@@ -4769,7 +4769,7 @@ box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4797,7 +4797,7 @@ box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.display(value, buffer, offset, packet, parent)
@@ -4871,7 +4871,7 @@ box_boxoptions_solaorderentry_sail_v2_25.trade_number.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.trade_number.display(value, buffer, offset, packet, parent)
@@ -5076,7 +5076,7 @@ box_boxoptions_solaorderentry_sail_v2_25.user_sequence_id.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.user_sequence_id.display(value, buffer, offset, packet, parent)
@@ -5104,7 +5104,7 @@ box_boxoptions_solaorderentry_sail_v2_25.user_time.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solaorderentry_sail_v2_25.user_time.display(value, buffer, offset, packet, parent)

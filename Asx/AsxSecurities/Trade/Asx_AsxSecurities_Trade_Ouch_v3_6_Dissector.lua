@@ -231,7 +231,7 @@ asx_asxsecurities_trade_ouch_v3_6.accepted_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = asx_asxsecurities_trade_ouch_v3_6.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1164,7 +1164,7 @@ asx_asxsecurities_trade_ouch_v3_6.requested_sequence_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = asx_asxsecurities_trade_ouch_v3_6.requested_sequence_number.display(value, buffer, offset, packet, parent)

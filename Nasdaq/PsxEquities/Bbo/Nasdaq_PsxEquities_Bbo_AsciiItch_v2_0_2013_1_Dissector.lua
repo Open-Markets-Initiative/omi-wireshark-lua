@@ -312,7 +312,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.etp_leverage_factor.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.etp_leverage_factor.display(value, buffer, offset, packet, parent)
@@ -730,7 +730,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_1.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_1.display(value, buffer, offset, packet, parent)
@@ -758,7 +758,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_2.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_2.display(value, buffer, offset, packet, parent)
@@ -786,7 +786,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_3.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.level_3.display(value, buffer, offset, packet, parent)
@@ -824,7 +824,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.luld_reference_price_tier.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
@@ -1006,10 +1006,10 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_bid_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_bid_price.display(value, buffer, offset, packet, parent)
@@ -1037,7 +1037,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_bid_size.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_bid_size.display(value, buffer, offset, packet, parent)
@@ -1080,10 +1080,10 @@ end
 nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_offer_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_offer_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_offer_price.display(value, buffer, offset, packet, parent)
@@ -1111,7 +1111,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_offer_size.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.psx_best_offer_size.display(value, buffer, offset, packet, parent)
@@ -1298,7 +1298,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lot_size.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -1521,7 +1521,7 @@ nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.timestamp.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_bbo_asciiitch_v2_0_2013_1.timestamp.display(value, buffer, offset, packet, parent)

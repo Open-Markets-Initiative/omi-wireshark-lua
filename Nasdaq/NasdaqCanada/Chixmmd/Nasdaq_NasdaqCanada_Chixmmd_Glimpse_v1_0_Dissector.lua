@@ -171,7 +171,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.board_lot_size.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.board_lot_size.display(value, buffer, offset, packet, parent)
@@ -199,7 +199,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.broker.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.broker.display(value, buffer, offset, packet, parent)
@@ -455,10 +455,10 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_price.display(value, buffer, offset, packet, parent)
@@ -486,7 +486,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_shares.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.long_shares.display(value, buffer, offset, packet, parent)
@@ -550,7 +550,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.order_reference.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.order_reference.display(value, buffer, offset, packet, parent)
@@ -616,10 +616,10 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.price.display(value, buffer, offset, packet, parent)
@@ -824,7 +824,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.shares.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.shares.display(value, buffer, offset, packet, parent)
@@ -949,7 +949,7 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.timestamp.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.timestamp.display(value, buffer, offset, packet, parent)

@@ -306,7 +306,7 @@ finra_finraorf_tdds_dfi_v2_0.closing_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.closing_price.display(value, buffer, offset, packet, parent)
@@ -464,7 +464,7 @@ finra_finraorf_tdds_dfi_v2_0.daily_high_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -515,7 +515,7 @@ finra_finraorf_tdds_dfi_v2_0.daily_low_price.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -566,7 +566,7 @@ finra_finraorf_tdds_dfi_v2_0.day.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.day.display(value, buffer, offset, packet, parent)
@@ -594,7 +594,7 @@ finra_finraorf_tdds_dfi_v2_0.high_price.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.high_price.display(value, buffer, offset, packet, parent)
@@ -645,7 +645,7 @@ finra_finraorf_tdds_dfi_v2_0.hour.dissect = function(buffer, offset, packet, par
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.hour.display(value, buffer, offset, packet, parent)
@@ -673,7 +673,7 @@ finra_finraorf_tdds_dfi_v2_0.last_sale_price.dissect = function(buffer, offset, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -757,7 +757,7 @@ finra_finraorf_tdds_dfi_v2_0.low_price.dissect = function(buffer, offset, packet
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.low_price.display(value, buffer, offset, packet, parent)
@@ -939,7 +939,7 @@ finra_finraorf_tdds_dfi_v2_0.message_sequence_number.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -967,7 +967,7 @@ finra_finraorf_tdds_dfi_v2_0.millisecond.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.millisecond.display(value, buffer, offset, packet, parent)
@@ -995,7 +995,7 @@ finra_finraorf_tdds_dfi_v2_0.minute.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.minute.display(value, buffer, offset, packet, parent)
@@ -1023,7 +1023,7 @@ finra_finraorf_tdds_dfi_v2_0.month.dissect = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.month.display(value, buffer, offset, packet, parent)
@@ -1051,7 +1051,7 @@ finra_finraorf_tdds_dfi_v2_0.net_change_amount.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.net_change_amount.display(value, buffer, offset, packet, parent)
@@ -1135,7 +1135,7 @@ finra_finraorf_tdds_dfi_v2_0.original_message_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.original_message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1244,7 +1244,7 @@ finra_finraorf_tdds_dfi_v2_0.report_volume.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.report_volume.display(value, buffer, offset, packet, parent)
@@ -1272,7 +1272,7 @@ finra_finraorf_tdds_dfi_v2_0.report_volume_short.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.report_volume_short.display(value, buffer, offset, packet, parent)
@@ -1477,7 +1477,7 @@ finra_finraorf_tdds_dfi_v2_0.second.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.second.display(value, buffer, offset, packet, parent)
@@ -1551,7 +1551,7 @@ finra_finraorf_tdds_dfi_v2_0.sellers_sale_days.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.sellers_sale_days.display(value, buffer, offset, packet, parent)
@@ -1628,7 +1628,7 @@ finra_finraorf_tdds_dfi_v2_0.total_security_volume.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.total_security_volume.display(value, buffer, offset, packet, parent)
@@ -1738,7 +1738,7 @@ finra_finraorf_tdds_dfi_v2_0.trade_price_short.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.trade_price_short.display(value, buffer, offset, packet, parent)
@@ -1811,7 +1811,7 @@ finra_finraorf_tdds_dfi_v2_0.year.dissect = function(buffer, offset, packet, par
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraorf_tdds_dfi_v2_0.year.display(value, buffer, offset, packet, parent)

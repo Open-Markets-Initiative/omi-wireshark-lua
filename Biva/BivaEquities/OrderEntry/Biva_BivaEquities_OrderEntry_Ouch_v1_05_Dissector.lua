@@ -241,7 +241,7 @@ biva_bivaequities_orderentry_ouch_v1_05.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = biva_bivaequities_orderentry_ouch_v1_05.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1084,7 +1084,7 @@ biva_bivaequities_orderentry_ouch_v1_05.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = biva_bivaequities_orderentry_ouch_v1_05.requested_sequence_number.display(value, buffer, offset, packet, parent)

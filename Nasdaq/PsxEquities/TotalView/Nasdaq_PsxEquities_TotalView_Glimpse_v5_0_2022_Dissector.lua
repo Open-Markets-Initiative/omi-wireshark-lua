@@ -246,7 +246,7 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.accepted_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0_2022.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -706,7 +706,7 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0_2022.itch_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1088,7 +1088,7 @@ nasdaq_psxequities_totalview_glimpse_v5_0_2022.requested_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_totalview_glimpse_v5_0_2022.requested_sequence_number.display(value, buffer, offset, packet, parent)

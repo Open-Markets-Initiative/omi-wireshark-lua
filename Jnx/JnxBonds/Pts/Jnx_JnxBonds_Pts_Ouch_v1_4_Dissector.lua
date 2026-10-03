@@ -246,7 +246,7 @@ jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1210,7 +1210,7 @@ jnx_jnxbonds_pts_ouch_v1_4.requested_sequence_number.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = jnx_jnxbonds_pts_ouch_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

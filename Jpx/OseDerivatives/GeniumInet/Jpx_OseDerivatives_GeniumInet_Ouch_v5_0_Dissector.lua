@@ -222,7 +222,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1421,7 +1421,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

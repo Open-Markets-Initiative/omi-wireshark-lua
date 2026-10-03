@@ -29,7 +29,7 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.match_number = ProtoField
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.asciiitch.v1.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.asciiitch.v1.0.orderreferencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.asciiitch.v1.0.password", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.asciiitch.v1.0.price", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.asciiitch.v1.0.price", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.asciiitch.v1.0.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v1.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.asciiitch.v1.0.requestedsession", ftypes.STRING)
@@ -147,7 +147,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.canceled_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.canceled_shares.display(value, buffer, offset, packet, parent)
@@ -294,7 +294,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.executed_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.executed_shares.display(value, buffer, offset, packet, parent)
@@ -322,7 +322,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.match_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.match_number.display(value, buffer, offset, packet, parent)
@@ -392,7 +392,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.order_reference_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -432,15 +432,38 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.price = {}
 nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size = 20
 
 -- Display: Price
-nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display = function(value)
-  return "Price: "..value
+nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display = function(value, buffer, offset, packet, parent)
+  local text = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if text == "" then
+    return "Price: "..tostring(value)
+  end
+
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
+  end
+
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Price: "..sign..text
 end
 
 -- Dissect: Price
 nasdaq_nsmequities_totalview_asciiitch_v1_0.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v1_0.fields.price, range, value, display)
@@ -620,7 +643,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.shares.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.shares.display(value, buffer, offset, packet, parent)
@@ -751,7 +774,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.timestamp.display(value, buffer, offset, packet, parent)

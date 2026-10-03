@@ -245,7 +245,7 @@ odx_odxequities_pts_ouch_v2_0.accepted_sequence_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = odx_odxequities_pts_ouch_v2_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1209,7 +1209,7 @@ odx_odxequities_pts_ouch_v2_0.requested_sequence_number.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = odx_odxequities_pts_ouch_v2_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

@@ -188,7 +188,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.board_lot_size.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.board_lot_size.display(value, buffer, offset, packet, parent)
@@ -216,7 +216,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.broker.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.broker.display(value, buffer, offset, packet, parent)
@@ -274,7 +274,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.canceled_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.canceled_shares.display(value, buffer, offset, packet, parent)
@@ -361,7 +361,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.contra_broker.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.contra_broker.display(value, buffer, offset, packet, parent)
@@ -389,7 +389,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.contra_order_reference.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.contra_order_reference.display(value, buffer, offset, packet, parent)
@@ -540,7 +540,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.executed_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.executed_shares.display(value, buffer, offset, packet, parent)
@@ -634,7 +634,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_canceled_shares.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_canceled_shares.display(value, buffer, offset, packet, parent)
@@ -662,7 +662,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_executed_shares.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_executed_shares.display(value, buffer, offset, packet, parent)
@@ -705,10 +705,10 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_price.display(value, buffer, offset, packet, parent)
@@ -736,7 +736,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_shares.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.long_shares.display(value, buffer, offset, packet, parent)
@@ -844,7 +844,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.order_reference.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.order_reference.display(value, buffer, offset, packet, parent)
@@ -910,10 +910,10 @@ end
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.price.display(value, buffer, offset, packet, parent)
@@ -1155,7 +1155,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.shares.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.shares.display(value, buffer, offset, packet, parent)
@@ -1280,7 +1280,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.timestamp.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.timestamp.display(value, buffer, offset, packet, parent)
@@ -1344,7 +1344,7 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.trade_reference.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.trade_reference.display(value, buffer, offset, packet, parent)

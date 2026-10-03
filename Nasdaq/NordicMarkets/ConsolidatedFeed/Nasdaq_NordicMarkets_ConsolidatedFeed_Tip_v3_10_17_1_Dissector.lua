@@ -58,7 +58,7 @@ omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sequenced_data_p
 -- Declare Tip Fields
 -----------------------------------------------------------------------
 
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Tag Fields
+-- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.17.1 Tag Fields
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.abbreviated_name = ProtoField.new("Abbreviated Name", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.abbreviatedname", ftypes.STRING)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_instrument_name = ProtoField.new("About Instrument Name", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.aboutinstrumentname", ftypes.STRING)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_isin = ProtoField.new("About Isin", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.aboutisin", ftypes.STRING)
@@ -1086,7 +1086,7 @@ omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ytm_group = Prot
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.zero_prepayment_price = ProtoField.new("Zero Prepayment Price", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.zeroprepaymentprice", ftypes.DOUBLE)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level = ProtoField.new("Level", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.tiplevel", ftypes.UINT32)
 
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Messages
+-- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.17.1 Message Fields
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_yield_message = ProtoField.new("Average Yield Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.averageyieldmessage", ftypes.STRING)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.basic_data_bank_days_message = ProtoField.new("Basic Data Bank Days Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.basicdatabankdaysmessage", ftypes.STRING)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.basic_data_bond_cash_flow_message = ProtoField.new("Basic Data Bond Cash Flow Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.basicdatabondcashflowmessage", ftypes.STRING)
@@ -1205,7 +1205,7 @@ omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_statistics
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_supplementary_message = ProtoField.new("Trade Supplementary Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.tradesupplementarymessage", ftypes.STRING)
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.turnover_list_update_message = ProtoField.new("Turnover List Update Message", "nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.turnoverlistupdatemessage", ftypes.STRING)
 
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Expert Info
+-- Nasdaq NordicMarkets ConsolidatedFeed Tip 3.10.17.1 Expert Info
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.experts = {}
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.experts.unknown_message = ProtoExpert.new("nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.unknownmessage", "Unknown tip message type", expert.group.UNDECODED, expert.severity.WARN)
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.experts.unknown_tag = ProtoExpert.new("nasdaq.nordicmarkets.consolidatedfeed.tip.v3.10.17.1.unknowntag", "Unknown tip tag, skipped as the specification requires", expert.group.UNDECODED, expert.severity.NOTE)
@@ -1318,7 +1318,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Functions
+-- Tip Functions
 -----------------------------------------------------------------------
 
 -- Tokens of a tip message: offset and length of each ';' terminated token, a '\' escaping the byte after it
@@ -1359,7 +1359,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Tags
+-- Tip Tags
 -----------------------------------------------------------------------
 
 -- Abbreviated Name (SNm): String 32
@@ -1374,10 +1374,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.abbreviated_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.abbreviated_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.abbreviated_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.abbreviated_name, range, text, display)
   return item, text
 end
 
@@ -1393,10 +1391,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.about_instrument_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.about_instrument_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_instrument_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_instrument_name, range, text, display)
   return item, text
 end
 
@@ -1412,10 +1408,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.about_isin.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.about_isin.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_isin, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.about_isin, range, text, display)
   return item, text
 end
 
@@ -1437,10 +1431,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accident_policies.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accident_policies.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accident_policies, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accident_policies, range, text, display)
   return item, text
 end
 
@@ -1462,7 +1454,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accidents_number.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accidents_number.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accidents_number, range, value, display)
   return item, text
 end
@@ -1485,7 +1476,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accrued_interest.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accrued_interest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accrued_interest, range, value, display)
   return item, text
 end
@@ -1508,7 +1498,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accumulated_turnover.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accumulated_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accumulated_turnover, range, value, display)
   return item, text
 end
@@ -1531,7 +1520,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accumulated_volume.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accumulated_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.accumulated_volume, range, value, display)
   return item, text
 end
@@ -1548,10 +1536,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.activity_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.activity_name, range, text, display)
   return item, text
 end
 
@@ -1573,7 +1559,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_turnover_pct.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_turnover_pct.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.activity_turnover_pct, range, value, display)
   return item, text
 end
@@ -1590,10 +1575,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.activity_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.activity_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.activity_type, range, text, display)
   return item, text
 end
 
@@ -1615,7 +1598,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.adnt.dissect = function(buf
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.adnt.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.adnt, range, value, display)
   return item, text
 end
@@ -1632,10 +1614,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aggressive_party.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aggressive_party.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aggressive_party, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aggressive_party, range, text, display)
   return item, text
 end
 
@@ -1657,7 +1637,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.air_pollution.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.air_pollution.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.air_pollution, range, value, display)
   return item, text
 end
@@ -1680,7 +1659,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_e.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_e.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_cca_revenue_e, range, value, display)
   return item, text
 end
@@ -1703,7 +1681,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_o.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_o.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_cca_revenue_o, range, value, display)
   return item, text
 end
@@ -1726,7 +1703,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_t.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_cca_revenue_t.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_cca_revenue_t, range, value, display)
   return item, text
 end
@@ -1749,7 +1725,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapexe.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapexe.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccacapexe, range, value, display)
   return item, text
 end
@@ -1772,7 +1747,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapexo.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapexo.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccacapexo, range, value, display)
   return item, text
 end
@@ -1795,7 +1769,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapext.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccacapext.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccacapext, range, value, display)
   return item, text
 end
@@ -1818,7 +1791,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopexe.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopexe.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccaopexe, range, value, display)
   return item, text
 end
@@ -1841,7 +1813,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopexo.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopexo.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccaopexo, range, value, display)
   return item, text
 end
@@ -1864,7 +1835,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopext.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccaopext.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccaopext, range, value, display)
   return item, text
 end
@@ -1887,7 +1857,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_e.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_e.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccm_revenue_e, range, value, display)
   return item, text
 end
@@ -1910,7 +1879,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_o.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_o.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccm_revenue_o, range, value, display)
   return item, text
 end
@@ -1933,7 +1901,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_t.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccm_revenue_t.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccm_revenue_t, range, value, display)
   return item, text
 end
@@ -1956,7 +1923,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapexe.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapexe.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmcapexe, range, value, display)
   return item, text
 end
@@ -1979,7 +1945,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapexo.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapexo.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmcapexo, range, value, display)
   return item, text
 end
@@ -2002,7 +1967,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapext.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmcapext.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmcapext, range, value, display)
   return item, text
 end
@@ -2025,7 +1989,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopexe.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopexe.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmopexe, range, value, display)
   return item, text
 end
@@ -2048,7 +2011,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopexo.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopexo.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmopexo, range, value, display)
   return item, text
 end
@@ -2071,7 +2033,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopext.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aligned_ccmopext.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aligned_ccmopext, range, value, display)
   return item, text
 end
@@ -2094,7 +2055,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_average_price.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_average_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.all_trades_average_price, range, value, display)
   return item, text
 end
@@ -2117,7 +2077,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_turnover.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.all_trades_turnover, range, value, display)
   return item, text
 end
@@ -2140,7 +2099,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_volume.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.all_trades_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.all_trades_volume, range, value, display)
   return item, text
 end
@@ -2164,7 +2122,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.allocation_profile.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.allocation_profile.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.allocation_profile, range, value, display)
   return item, text
 end
@@ -2224,7 +2181,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.amortization_type.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.amortization_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.amortization_type, range, value, display)
   return item, text
 end
@@ -2247,10 +2203,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.anti_corruption.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.anti_corruption.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.anti_corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.anti_corruption, range, text, display)
   return item, text
 end
 
@@ -2266,10 +2220,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aod_mic.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aod_mic.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aod_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aod_mic, range, text, display)
   return item, text
 end
 
@@ -2285,10 +2237,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.approved_reviewer.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.approved_reviewer.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.approved_reviewer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.approved_reviewer, range, text, display)
   return item, text
 end
 
@@ -2307,10 +2257,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asian_tail_end_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asian_tail_end_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asian_tail_end_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asian_tail_end_date, range, text, display)
   return item, text
 end
 
@@ -2329,10 +2277,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asian_tail_start_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asian_tail_start_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asian_tail_start_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asian_tail_start_date, range, text, display)
   return item, text
 end
 
@@ -2360,7 +2306,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_corresponding_at_level.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_corresponding_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_corresponding_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -2384,7 +2329,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_corresponding_at_level1
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_corresponding_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_corresponding_at_level1, range, value, display)
   return item, text
 end
@@ -2408,7 +2352,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_level_deleted.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_level_deleted.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_level_deleted, range, value, display)
   return item, text
 end
@@ -2425,10 +2368,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_mmo_at_level.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_mmo_at_level.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_mmo_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_mmo_at_level, range, text, display)
   return item, text
 end
 
@@ -2450,7 +2391,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_order_coverage.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_order_coverage.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_order_coverage, range, value, display)
   return item, text
 end
@@ -2480,7 +2420,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_orders_at_level.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_orders_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_orders_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -2504,7 +2443,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_price, range, value, display)
   return item, text
 end
@@ -2533,7 +2471,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price_at_level.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_price_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -2557,7 +2494,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price_at_level1.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_price_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_price_at_level1, range, value, display)
   return item, text
 end
@@ -2586,7 +2522,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_volume_at_level.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_volume_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_volume_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -2610,7 +2545,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_volume_at_level1.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ask_volume_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ask_volume_at_level1, range, value, display)
   return item, text
 end
@@ -2627,10 +2561,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_class.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_class.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asset_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asset_class, range, text, display)
   return item, text
 end
 
@@ -2646,10 +2578,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_class_of_the_underlying.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_class_of_the_underlying.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asset_class_of_the_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asset_class_of_the_underlying, range, text, display)
   return item, text
 end
 
@@ -2672,7 +2602,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_reference.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.asset_reference.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.asset_reference, range, value, display)
   return item, text
 end
@@ -2689,10 +2618,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.associated_with_disclosure_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.associated_with_disclosure_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.associated_with_disclosure_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.associated_with_disclosure_id, range, text, display)
   return item, text
 end
 
@@ -2709,8 +2636,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.auction_extension.dissect =
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
   local value = true
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.auction_extension.display()
-
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.auction_extension.display(text)
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.auction_extension, range, value, display)
   return item, text
 end
@@ -2734,7 +2660,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aum.dissect = function(buff
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.aum.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.aum, range, value, display)
   return item, text
 end
@@ -2757,7 +2682,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.autocall_barrier.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.autocall_barrier.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.autocall_barrier, range, value, display)
   return item, text
 end
@@ -2780,10 +2704,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.automatch.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.automatch.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.automatch, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.automatch, range, text, display)
   return item, text
 end
 
@@ -2805,7 +2727,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_corresponding.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_corresponding, range, value, display)
   return item, text
 end
@@ -2828,7 +2749,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_daily_turnover.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_daily_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_daily_turnover, range, value, display)
   return item, text
 end
@@ -2851,7 +2771,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_price, range, value, display)
   return item, text
 end
@@ -2874,7 +2793,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price_latest.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price_latest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_price_latest, range, value, display)
   return item, text
 end
@@ -2894,10 +2812,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price_latest_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_price_latest_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_price_latest_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.average_price_latest_date, range, text, display)
   return item, text
 end
 
@@ -2913,10 +2829,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.away_markets.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.away_markets.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.away_markets, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.away_markets, range, text, display)
   return item, text
 end
 
@@ -2939,7 +2853,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.back_off_time.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.back_off_time.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.back_off_time, range, value, display)
   return item, text
 end
@@ -2962,7 +2875,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bai_all.dissect = function(
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bai_all.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bai_all, range, value, display)
   return item, text
 end
@@ -2985,7 +2897,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bai_best.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bai_best.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bai_best, range, value, display)
   return item, text
 end
@@ -3008,7 +2919,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_ceiling.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_ceiling.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.barrier_ceiling, range, value, display)
   return item, text
 end
@@ -3031,7 +2941,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_floor.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_floor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.barrier_floor, range, value, display)
   return item, text
 end
@@ -3055,7 +2964,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_type.dissect = func
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.barrier_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.barrier_type, range, value, display)
   return item, text
 end
@@ -3072,10 +2980,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_currency, range, text, display)
   return item, text
 end
 
@@ -3094,10 +3000,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_date, range, text, display)
   return item, text
 end
 
@@ -3120,7 +3024,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_point_spread.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_point_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_point_spread, range, value, display)
   return item, text
 end
@@ -3137,10 +3040,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_product_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_product_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_product_code, range, text, display)
   return item, text
 end
 
@@ -3163,7 +3064,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_ratio.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_ratio, range, value, display)
   return item, text
 end
@@ -3186,7 +3086,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.base_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.base_value, range, value, display)
   return item, text
 end
@@ -3203,10 +3102,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basket_divisor.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basket_divisor.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.basket_divisor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.basket_divisor, range, text, display)
   return item, text
 end
 
@@ -3228,7 +3125,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basket_share.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basket_share.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.basket_share, range, value, display)
   return item, text
 end
@@ -3251,10 +3147,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.benchmark.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.benchmark.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.benchmark, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.benchmark, range, text, display)
   return item, text
 end
 
@@ -3276,7 +3170,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.best_bid_price_latest.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.best_bid_price_latest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.best_bid_price_latest, range, value, display)
   return item, text
 end
@@ -3296,10 +3189,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.best_bid_price_latest_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.best_bid_price_latest_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.best_bid_price_latest_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.best_bid_price_latest_date, range, text, display)
   return item, text
 end
 
@@ -3315,10 +3206,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bic_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bic_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bic_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bic_code, range, text, display)
   return item, text
 end
 
@@ -3346,7 +3235,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_at_level.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_corresponding_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -3370,7 +3258,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_at_level1
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_corresponding_at_level1, range, value, display)
   return item, text
 end
@@ -3393,7 +3280,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_diff.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_corresponding_diff.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_corresponding_diff, range, value, display)
   return item, text
 end
@@ -3417,7 +3303,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_level_deleted.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_level_deleted.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_level_deleted, range, value, display)
   return item, text
 end
@@ -3434,10 +3319,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_mmo_at_level.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_mmo_at_level.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_mmo_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_mmo_at_level, range, text, display)
   return item, text
 end
 
@@ -3459,7 +3342,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_order_coverage.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_order_coverage.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_order_coverage, range, value, display)
   return item, text
 end
@@ -3489,7 +3371,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_orders_at_level.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_orders_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_orders_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -3513,7 +3394,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_price, range, value, display)
   return item, text
 end
@@ -3542,7 +3422,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_at_level.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_price_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -3566,7 +3445,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_at_level1.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_price_at_level1, range, value, display)
   return item, text
 end
@@ -3589,7 +3467,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_diff.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_price_diff.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_price_diff, range, value, display)
   return item, text
 end
@@ -3618,7 +3495,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_volume_at_level.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_volume_at_level.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_volume_at_level, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -3642,7 +3518,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_volume_at_level1.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bid_volume_at_level1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bid_volume_at_level1, range, value, display)
   return item, text
 end
@@ -3665,10 +3540,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.biodiversity_negative.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.biodiversity_negative.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.biodiversity_negative, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.biodiversity_negative, range, text, display)
   return item, text
 end
 
@@ -3690,10 +3563,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.biodiversity_protection.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.biodiversity_protection.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.biodiversity_protection, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.biodiversity_protection, range, text, display)
   return item, text
 end
 
@@ -3716,7 +3587,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.block_id.dissect = function
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.block_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.block_id, range, value, display)
   return item, text
 end
@@ -3733,10 +3603,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bloomberg_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bloomberg_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bloomberg_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bloomberg_code, range, text, display)
   return item, text
 end
 
@@ -3758,7 +3626,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.board_gender.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.board_gender.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.board_gender, range, value, display)
   return item, text
 end
@@ -3781,7 +3648,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.board_gender_ratio.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.board_gender_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.board_gender_ratio, range, value, display)
   return item, text
 end
@@ -3801,10 +3667,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_closing_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_closing_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_closing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_closing_date, range, text, display)
   return item, text
 end
 
@@ -3823,10 +3687,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_first_issuing_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_first_issuing_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_first_issuing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_first_issuing_date, range, text, display)
   return item, text
 end
 
@@ -3849,7 +3711,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_issuer_type.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_issuer_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_issuer_type, range, value, display)
   return item, text
 end
@@ -3872,7 +3733,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_maturity.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_maturity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_maturity, range, value, display)
   return item, text
 end
@@ -3896,7 +3756,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outst_int.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outst_int.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_outst_int, range, value, display)
   return item, text
 end
@@ -3920,7 +3779,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outstanding_bond_loans
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outstanding_bond_loans.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_outstanding_bond_loans, range, value, display)
   return item, text
 end
@@ -3944,7 +3802,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outstanding_cash_loans
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_outstanding_cash_loans.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_outstanding_cash_loans, range, value, display)
   return item, text
 end
@@ -3964,10 +3821,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_publication_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_publication_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_publication_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_publication_date, range, text, display)
   return item, text
 end
 
@@ -3983,10 +3838,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_publication_note.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_publication_note.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_publication_note, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_publication_note, range, text, display)
   return item, text
 end
 
@@ -4002,10 +3855,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_seniority.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_seniority.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_seniority, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_seniority, range, text, display)
   return item, text
 end
 
@@ -4040,7 +3891,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_type.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_type, range, value, display)
   return item, text
 end
@@ -4064,7 +3914,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_type_group.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bond_type_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bond_type_group, range, value, display)
   return item, text
 end
@@ -4087,10 +3936,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bribery_corruption.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.bribery_corruption.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bribery_corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.bribery_corruption, range, text, display)
   return item, text
 end
 
@@ -4109,10 +3956,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.business_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.business_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.business_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.business_date, range, text, display)
   return item, text
 end
 
@@ -4141,7 +3986,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.buy_or_sell.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.buy_or_sell.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.buy_or_sell, range, value, display)
   return item, text
 end
@@ -4164,10 +4008,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.buyers_at_level.dissect = f
     return
   end
   text = rest
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.buyers_at_level.display(text, level)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.buyers_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.buyers_at_level, range, text, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
 end
@@ -4212,7 +4054,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calc_convention.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calc_convention.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calc_convention, range, value, display)
   return item, text
 end
@@ -4235,10 +4076,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calc_price_from_rate.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calc_price_from_rate.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calc_price_from_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calc_price_from_rate, range, text, display)
   return item, text
 end
 
@@ -4257,10 +4096,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calculation_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calculation_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calculation_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calculation_date, range, text, display)
   return item, text
 end
 
@@ -4283,7 +4120,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calculation_type.dissect = 
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.calculation_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.calculation_type, range, value, display)
   return item, text
 end
@@ -4306,7 +4142,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.call_price.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.call_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.call_price, range, value, display)
   return item, text
 end
@@ -4330,7 +4165,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.callability.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.callability.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.callability, range, value, display)
   return item, text
 end
@@ -4347,10 +4181,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.capital_center.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.capital_center.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.capital_center, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.capital_center, range, text, display)
   return item, text
 end
 
@@ -4372,10 +4204,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_emission_reduction.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_emission_reduction.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.carbon_emission_reduction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.carbon_emission_reduction, range, text, display)
   return item, text
 end
 
@@ -4397,7 +4227,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_footprint.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_footprint.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.carbon_footprint, range, value, display)
   return item, text
 end
@@ -4420,7 +4249,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_footprint1and2.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_footprint1and2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.carbon_footprint1and2, range, value, display)
   return item, text
 end
@@ -4444,7 +4272,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_scope_flag.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.carbon_scope_flag.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.carbon_scope_flag, range, value, display)
   return item, text
 end
@@ -4468,7 +4295,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec1.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cash_flow_spec1, range, value, display)
   return item, text
 end
@@ -4492,7 +4318,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec2.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cash_flow_spec2, range, value, display)
   return item, text
 end
@@ -4516,7 +4341,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec3.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_flow_spec3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cash_flow_spec3, range, value, display)
   return item, text
 end
@@ -4539,7 +4363,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_interest.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_interest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cash_interest, range, value, display)
   return item, text
 end
@@ -4563,7 +4386,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_loans_outstanding.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cash_loans_outstanding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cash_loans_outstanding, range, value, display)
   return item, text
 end
@@ -4583,10 +4405,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_due_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_due_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cashflow_due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cashflow_due_date, range, text, display)
   return item, text
 end
 
@@ -4609,7 +4429,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_installment_amount
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_installment_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cashflow_installment_amount, range, value, display)
   return item, text
 end
@@ -4633,7 +4452,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_interest_amount.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_interest_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cashflow_interest_amount, range, value, display)
   return item, text
 end
@@ -4657,7 +4475,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_status.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cashflow_status.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cashflow_status, range, value, display)
   return item, text
 end
@@ -4674,10 +4491,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ccp_list.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ccp_list.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ccp_list, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ccp_list, range, text, display)
   return item, text
 end
 
@@ -4699,10 +4514,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_chairman.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_chairman.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ceo_chairman, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ceo_chairman, range, text, display)
   return item, text
 end
 
@@ -4724,7 +4537,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_pay_ratio.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_pay_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ceo_pay_ratio, range, value, display)
   return item, text
 end
@@ -4747,10 +4559,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_pay_ratio_filing.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ceo_pay_ratio_filing.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ceo_pay_ratio_filing, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ceo_pay_ratio_filing, range, text, display)
   return item, text
 end
 
@@ -4772,7 +4582,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.certificate_size.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.certificate_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.certificate_size, range, value, display)
   return item, text
 end
@@ -4789,10 +4598,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cfi_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cfi_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cfi_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cfi_code, range, text, display)
   return item, text
 end
 
@@ -4860,7 +4667,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cg_policy_item.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cg_policy_item.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cg_policy_item, range, value, display)
   return item, text
 end
@@ -4890,7 +4696,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.chaining_info_type.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.chaining_info_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.chaining_info_type, range, value, display)
   return item, text
 end
@@ -4907,10 +4712,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.character_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.character_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.character_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.character_code, range, text, display)
   return item, text
 end
 
@@ -4932,10 +4735,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.child_and_forced_labor_policy_supplier.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.child_and_forced_labor_policy_supplier.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.child_and_forced_labor_policy_supplier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.child_and_forced_labor_policy_supplier, range, text, display)
   return item, text
 end
 
@@ -4957,10 +4758,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.child_labor_incident.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.child_labor_incident.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.child_labor_incident, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.child_labor_incident, range, text, display)
   return item, text
 end
 
@@ -4982,7 +4781,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ci_ask.dissect = function(b
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ci_ask.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ci_ask, range, value, display)
   return item, text
 end
@@ -5005,7 +4803,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ci_bid.dissect = function(b
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ci_bid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ci_bid, range, value, display)
   return item, text
 end
@@ -5028,7 +4825,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cibor_strike.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cibor_strike.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cibor_strike, range, value, display)
   return item, text
 end
@@ -5058,7 +4854,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.circuit_breaker.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.circuit_breaker.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.circuit_breaker, range, value, display)
   return item, text
 end
@@ -5081,7 +4876,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clean_price.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clean_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.clean_price, range, value, display)
   return item, text
 end
@@ -5098,10 +4892,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_member.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_member.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.clearing_member, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.clearing_member, range, text, display)
   return item, text
 end
 
@@ -5124,7 +4916,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_venue_id.dissect =
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_venue_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.clearing_venue_id, range, value, display)
   return item, text
 end
@@ -5154,7 +4945,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_venue_type.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.clearing_venue_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.clearing_venue_type, range, value, display)
   return item, text
 end
@@ -5177,7 +4967,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.climate_risk_mitigation.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.climate_risk_mitigation.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.climate_risk_mitigation, range, value, display)
   return item, text
 end
@@ -5200,7 +4989,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_value.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.closing_value, range, value, display)
   return item, text
 end
@@ -5223,7 +5011,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_vwap.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_vwap.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.closing_vwap, range, value, display)
   return item, text
 end
@@ -5246,7 +5033,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_vwap_intvl.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.closing_vwap_intvl.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.closing_vwap_intvl, range, value, display)
   return item, text
 end
@@ -5270,7 +5056,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_level.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_level.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.code_level, range, value, display)
   return item, text
 end
@@ -5294,7 +5079,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_term_to_maturity.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_term_to_maturity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.code_term_to_maturity, range, value, display)
   return item, text
 end
@@ -5318,7 +5102,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_yield_avg_group.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.code_yield_avg_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.code_yield_avg_group, range, value, display)
   return item, text
 end
@@ -5335,10 +5118,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.collateralization_details.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.collateralization_details.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.collateralization_details, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.collateralization_details, range, text, display)
   return item, text
 end
 
@@ -5424,7 +5205,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.combo_type.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.combo_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.combo_type, range, value, display)
   return item, text
 end
@@ -5447,7 +5227,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.committee_gender.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.committee_gender.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.committee_gender, range, value, display)
   return item, text
 end
@@ -5470,10 +5249,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.commodities_or_emission_allowance_derivative_indicator.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.commodities_or_emission_allowance_derivative_indicator.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.commodities_or_emission_allowance_derivative_indicator, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.commodities_or_emission_allowance_derivative_indicator, range, text, display)
   return item, text
 end
 
@@ -5495,7 +5272,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_size.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_size, range, value, display)
   return item, text
 end
@@ -5518,7 +5294,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_size_ul.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_size_ul.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_size_ul, range, value, display)
   return item, text
 end
@@ -5541,10 +5316,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_sub_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_sub_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_sub_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_sub_type, range, text, display)
   return item, text
 end
 
@@ -5560,10 +5333,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contract_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contract_type, range, text, display)
   return item, text
 end
 
@@ -5585,7 +5356,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contractor_turnover_ratio.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.contractor_turnover_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.contractor_turnover_ratio, range, value, display)
   return item, text
 end
@@ -5608,10 +5378,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.controversial_weapon.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.controversial_weapon.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.controversial_weapon, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.controversial_weapon, range, text, display)
   return item, text
 end
 
@@ -5633,7 +5401,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.conversion_price.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.conversion_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.conversion_price, range, value, display)
   return item, text
 end
@@ -5653,10 +5420,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convert_from_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convert_from_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.convert_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.convert_from_date, range, text, display)
   return item, text
 end
 
@@ -5675,10 +5440,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convert_through_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convert_through_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.convert_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.convert_through_date, range, text, display)
   return item, text
 end
 
@@ -5700,7 +5463,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convexity.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.convexity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.convexity, range, value, display)
   return item, text
 end
@@ -5723,7 +5485,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.correction_factor.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.correction_factor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.correction_factor, range, value, display)
   return item, text
 end
@@ -5746,10 +5507,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corruption.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corruption.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.corruption, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.corruption, range, text, display)
   return item, text
 end
 
@@ -5765,10 +5524,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.country.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.country.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.country, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.country, range, text, display)
   return item, text
 end
 
@@ -5784,10 +5541,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.country_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.country_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.country_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.country_name, range, text, display)
   return item, text
 end
 
@@ -5809,7 +5564,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_after_extension.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_after_extension.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_after_extension, range, value, display)
   return item, text
 end
@@ -5829,10 +5583,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_and_repayment_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_and_repayment_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_and_repayment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_and_repayment_date, range, text, display)
   return item, text
 end
 
@@ -5854,7 +5606,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_barrier.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_barrier.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_barrier, range, value, display)
   return item, text
 end
@@ -5874,10 +5625,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_date, range, text, display)
   return item, text
 end
 
@@ -5899,7 +5648,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_frequency.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_frequency.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_frequency, range, value, display)
   return item, text
 end
@@ -5922,7 +5670,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_rate.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_rate, range, value, display)
   return item, text
 end
@@ -5945,7 +5692,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_size.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_size, range, value, display)
   return item, text
 end
@@ -5968,7 +5714,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_spread.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_spread, range, value, display)
   return item, text
 end
@@ -5992,7 +5737,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_type.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.coupon_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.coupon_type, range, value, display)
   return item, text
 end
@@ -6015,7 +5759,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.creditor_index_factor.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.creditor_index_factor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.creditor_index_factor, range, value, display)
   return item, text
 end
@@ -6054,7 +5797,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cross_level.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cross_level.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cross_level, range, value, display)
   return item, text
 end
@@ -6105,7 +5847,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cross_type.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.cross_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.cross_type, range, value, display)
   return item, text
 end
@@ -6122,10 +5863,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_converted_closing_price.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_converted_closing_price.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_converted_closing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_converted_closing_price, range, text, display)
   return item, text
 end
 
@@ -6141,10 +5880,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_converted_market_cap.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_converted_market_cap.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_converted_market_cap, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_converted_market_cap, range, text, display)
   return item, text
 end
 
@@ -6160,10 +5897,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_list.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_list.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_list, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_list, range, text, display)
   return item, text
 end
 
@@ -6179,10 +5914,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_pair.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.currency_pair.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_pair, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.currency_pair, range, text, display)
   return item, text
 end
 
@@ -6204,7 +5937,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.current_value.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.current_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.current_value, range, value, display)
   return item, text
 end
@@ -6221,10 +5953,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.custodian_bank.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.custodian_bank.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.custodian_bank, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.custodian_bank, range, text, display)
   return item, text
 end
 
@@ -6240,10 +5970,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.data_source.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.data_source.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.data_source, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.data_source, range, text, display)
   return item, text
 end
 
@@ -6262,10 +5990,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date, range, text, display)
   return item, text
 end
 
@@ -6284,10 +6010,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_agreement.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_agreement.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_agreement, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_agreement, range, text, display)
   return item, text
 end
 
@@ -6306,10 +6030,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_exec.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_exec.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_exec, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_exec, range, text, display)
   return item, text
 end
 
@@ -6328,10 +6050,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_of_issue.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_of_issue.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_of_issue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_of_issue, range, text, display)
   return item, text
 end
 
@@ -6350,10 +6070,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_of_x_coupon.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_of_x_coupon.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_of_x_coupon, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_of_x_coupon, range, text, display)
   return item, text
 end
 
@@ -6372,10 +6090,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_trade_execution.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.date_trade_execution.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_trade_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.date_trade_execution, range, text, display)
   return item, text
 end
 
@@ -6394,10 +6110,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dated_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dated_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dated_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dated_date, range, text, display)
   return item, text
 end
 
@@ -6444,7 +6158,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.day_count_method.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.day_count_method.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.day_count_method, range, value, display)
   return item, text
 end
@@ -6468,7 +6181,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.day_type.dissect = function
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.day_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.day_type, range, value, display)
   return item, text
 end
@@ -6492,7 +6204,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_in_current_period.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_in_current_period.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.days_in_current_period, range, value, display)
   return item, text
 end
@@ -6516,7 +6227,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_to_next_cash_flow.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_to_next_cash_flow.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.days_to_next_cash_flow, range, value, display)
   return item, text
 end
@@ -6540,7 +6250,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_x_coupon.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.days_x_coupon.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.days_x_coupon, range, value, display)
   return item, text
 end
@@ -6563,10 +6272,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debt_same_maturity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debt_same_maturity.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.debt_same_maturity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.debt_same_maturity, range, text, display)
   return item, text
 end
 
@@ -6589,7 +6296,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deductible_amount_dkk.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deductible_amount_dkk.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.deductible_amount_dkk, range, value, display)
   return item, text
 end
@@ -6613,7 +6319,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deductible_amount_number.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deductible_amount_number.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.deductible_amount_number, range, value, display)
   return item, text
 end
@@ -6636,10 +6341,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deforestation_policy.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.deforestation_policy.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.deforestation_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.deforestation_policy, range, text, display)
   return item, text
 end
 
@@ -6661,10 +6364,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.delivered.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.delivered.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.delivered, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.delivered, range, text, display)
   return item, text
 end
 
@@ -6680,10 +6381,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.delivery_cash_settlement_location.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.delivery_cash_settlement_location.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.delivery_cash_settlement_location, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.delivery_cash_settlement_location, range, text, display)
   return item, text
 end
 
@@ -6754,7 +6453,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.derivative_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.derivative_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.derivative_type, range, value, display)
   return item, text
 end
@@ -6771,10 +6469,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.description.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.description.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.description, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.description, range, text, display)
   return item, text
 end
 
@@ -6796,7 +6492,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff12_mon_nom.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff12_mon_nom.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff12_mon_nom, range, value, display)
   return item, text
 end
@@ -6819,7 +6514,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff12_mon_per.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff12_mon_per.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff12_mon_per, range, value, display)
   return item, text
 end
@@ -6842,7 +6536,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_day_nom.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_day_nom.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_day_nom, range, value, display)
   return item, text
 end
@@ -6865,7 +6558,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_day_per.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_day_per.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_day_per, range, value, display)
   return item, text
 end
@@ -6888,7 +6580,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_last_corresponding.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_last_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_last_corresponding, range, value, display)
   return item, text
 end
@@ -6911,7 +6602,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_last_price.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_last_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_last_price, range, value, display)
   return item, text
 end
@@ -6934,7 +6624,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_year_nom.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_year_nom.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_year_nom, range, value, display)
   return item, text
 end
@@ -6957,7 +6646,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_year_per.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.diff_year_per.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.diff_year_per, range, value, display)
   return item, text
 end
@@ -6980,7 +6668,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direct_energy_consumption.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direct_energy_consumption.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.direct_energy_consumption, range, value, display)
   return item, text
 end
@@ -7003,7 +6690,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direct_ghg_emissions.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direct_ghg_emissions.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.direct_ghg_emissions, range, value, display)
   return item, text
 end
@@ -7039,7 +6725,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.directed_order_state.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.directed_order_state.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.directed_order_state, range, value, display)
   return item, text
 end
@@ -7056,10 +6741,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direction.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.direction.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.direction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.direction, range, text, display)
   return item, text
 end
 
@@ -7081,7 +6764,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dirty_price.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dirty_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dirty_price, range, value, display)
   return item, text
 end
@@ -7098,10 +6780,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.disclosure_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.disclosure_id, range, text, display)
   return item, text
 end
 
@@ -7117,10 +6797,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_text.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.disclosure_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.disclosure_text, range, text, display)
   return item, text
 end
 
@@ -7143,7 +6821,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.disclosure_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.disclosure_type, range, value, display)
   return item, text
 end
@@ -7167,7 +6844,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dividend_from_year.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dividend_from_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dividend_from_year, range, value, display)
   return item, text
 end
@@ -7190,7 +6866,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.divisor.dissect = function(
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.divisor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.divisor, range, value, display)
   return item, text
 end
@@ -7214,7 +6889,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dk_bond_type.dissect = func
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dk_bond_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dk_bond_type, range, value, display)
   return item, text
 end
@@ -7237,7 +6911,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dollar_duration.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.dollar_duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.dollar_duration, range, value, display)
   return item, text
 end
@@ -7257,10 +6930,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.draw_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.draw_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.draw_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.draw_date, range, text, display)
   return item, text
 end
 
@@ -7282,7 +6953,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.drawing_price.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.drawing_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.drawing_price, range, value, display)
   return item, text
 end
@@ -7306,7 +6976,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.drawn_amount.dissect = func
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.drawn_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.drawn_amount, range, value, display)
   return item, text
 end
@@ -7326,10 +6995,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.due_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.due_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.due_date, range, text, display)
   return item, text
 end
 
@@ -7351,7 +7018,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.duration, range, value, display)
   return item, text
 end
@@ -7371,10 +7037,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration_from_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration_from_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.duration_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.duration_from_date, range, text, display)
   return item, text
 end
 
@@ -7393,10 +7057,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration_through_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.duration_through_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.duration_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.duration_through_date, range, text, display)
   return item, text
 end
 
@@ -7418,7 +7080,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.electricity_indirect_ghg_em
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.electricity_indirect_ghg_emissions.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.electricity_indirect_ghg_emissions, range, value, display)
   return item, text
 end
@@ -7441,10 +7102,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction, range, text, display)
   return item, text
 end
 
@@ -7467,7 +7126,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_yea
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_year1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_base_year1, range, value, display)
   return item, text
 end
@@ -7491,7 +7149,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_yea
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_year2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_base_year2, range, value, display)
   return item, text
 end
@@ -7515,7 +7172,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_yea
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_base_year3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_base_year3, range, value, display)
   return item, text
 end
@@ -7538,7 +7194,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage_goal1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_coverage_goal1, range, value, display)
   return item, text
 end
@@ -7561,7 +7216,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage_goal2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_coverage_goal2, range, value, display)
   return item, text
 end
@@ -7584,7 +7238,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_coverage_goal3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_coverage_goal3, range, value, display)
   return item, text
 end
@@ -7607,7 +7260,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal1.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_goal1, range, value, display)
   return item, text
 end
@@ -7630,7 +7282,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal2.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_goal2, range, value, display)
   return item, text
 end
@@ -7653,7 +7304,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal3.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_goal3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_goal3, range, value, display)
   return item, text
 end
@@ -7677,7 +7327,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year1.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_year1, range, value, display)
   return item, text
 end
@@ -7701,7 +7350,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year2.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_year2, range, value, display)
   return item, text
 end
@@ -7725,7 +7373,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year3.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_reduction_year3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_reduction_year3, range, value, display)
   return item, text
 end
@@ -7742,10 +7389,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_type, range, text, display)
   return item, text
 end
 
@@ -7767,7 +7412,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_water.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.emission_water.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.emission_water, range, value, display)
   return item, text
 end
@@ -7790,7 +7434,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employee_gender_diversity.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employee_gender_diversity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.employee_gender_diversity, range, value, display)
   return item, text
 end
@@ -7813,7 +7456,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employee_turnover_ratio.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employee_turnover_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.employee_turnover_ratio, range, value, display)
   return item, text
 end
@@ -7836,10 +7478,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employees_training.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.employees_training.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.employees_training, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.employees_training, range, text, display)
   return item, text
 end
 
@@ -7861,10 +7501,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.end_of_day.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.end_of_day.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.end_of_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.end_of_day, range, text, display)
   return item, text
 end
 
@@ -7893,7 +7531,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.end_of_event_type.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.end_of_event_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.end_of_event_type, range, value, display)
   return item, text
 end
@@ -7916,7 +7553,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumed_per_employe
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumed_per_employee.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumed_per_employee, range, value, display)
   return item, text
 end
@@ -7939,7 +7575,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumed_per_square_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumed_per_square_meter.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumed_per_square_meter, range, value, display)
   return item, text
 end
@@ -7962,7 +7597,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_a.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_a, range, value, display)
   return item, text
 end
@@ -7985,7 +7619,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_b.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_b, range, value, display)
   return item, text
 end
@@ -8008,7 +7641,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_c.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_c, range, value, display)
   return item, text
 end
@@ -8031,7 +7663,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_d.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_d, range, value, display)
   return item, text
 end
@@ -8054,7 +7685,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_e.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_e, range, value, display)
   return item, text
 end
@@ -8077,7 +7707,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_f.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_f, range, value, display)
   return item, text
 end
@@ -8100,7 +7729,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_g.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_g, range, value, display)
   return item, text
 end
@@ -8123,7 +7751,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_h.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_h, range, value, display)
   return item, text
 end
@@ -8146,7 +7773,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_consumption_climate_sector_l.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_consumption_climate_sector_l, range, value, display)
   return item, text
 end
@@ -8169,10 +7795,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_management_system.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.energy_management_system.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_management_system, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.energy_management_system, range, text, display)
   return item, text
 end
 
@@ -8194,7 +7818,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.entry_mid_gender_diversity.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.entry_mid_gender_diversity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.entry_mid_gender_diversity, range, value, display)
   return item, text
 end
@@ -8211,10 +7834,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_certification_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_certification_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.environmental_certification_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.environmental_certification_name, range, text, display)
   return item, text
 end
 
@@ -8236,10 +7857,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_oversight.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_oversight.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.environmental_oversight, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.environmental_oversight, range, text, display)
   return item, text
 end
 
@@ -8271,7 +7890,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_policy_item.d
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.environmental_policy_item.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.environmental_policy_item, range, value, display)
   return item, text
 end
@@ -8294,7 +7912,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.equilibrium_price.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.equilibrium_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.equilibrium_price, range, value, display)
   return item, text
 end
@@ -8311,10 +7928,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.esg_instrument_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.esg_instrument_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.esg_instrument_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.esg_instrument_type, range, text, display)
   return item, text
 end
 
@@ -8336,7 +7951,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_and_anti_corruption_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_and_anti_corruption_code_certified.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ethics_and_anti_corruption_code_certified, range, value, display)
   return item, text
 end
@@ -8359,10 +7973,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ethics_anti_corruption_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ethics_anti_corruption_code, range, text, display)
   return item, text
 end
 
@@ -8384,7 +7996,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code_goal.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ethics_anti_corruption_code_goal, range, value, display)
   return item, text
 end
@@ -8408,7 +8019,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ethics_anti_corruption_code_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ethics_anti_corruption_code_year, range, value, display)
   return item, text
 end
@@ -8432,7 +8042,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.eusipa.dissect = function(b
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.eusipa.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.eusipa, range, value, display)
   return item, text
 end
@@ -8449,10 +8058,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.eusipa_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.eusipa_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.eusipa_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.eusipa_name, range, text, display)
   return item, text
 end
 
@@ -8475,7 +8082,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.event_id.dissect = function
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.event_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.event_id, range, value, display)
   return item, text
 end
@@ -8492,10 +8098,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.event_message_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.event_message_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.event_message_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.event_message_type, range, text, display)
   return item, text
 end
 
@@ -8514,10 +8118,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ex_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ex_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ex_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ex_date, range, text, display)
   return item, text
 end
 
@@ -8539,7 +8141,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.excessive_ceo_pay_ratio.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.excessive_ceo_pay_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.excessive_ceo_pay_ratio, range, value, display)
   return item, text
 end
@@ -8563,7 +8164,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_id.dissect = funct
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exchange_id, range, value, display)
   return item, text
 end
@@ -8580,10 +8180,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exchange_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exchange_name, range, text, display)
   return item, text
 end
 
@@ -8605,7 +8203,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_rate.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exchange_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exchange_rate, range, value, display)
   return item, text
 end
@@ -8622,10 +8219,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_currency, range, text, display)
   return item, text
 end
 
@@ -8644,10 +8239,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_from_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_from_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_from_date, range, text, display)
   return item, text
 end
 
@@ -8666,10 +8259,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_to_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_to_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_to_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_to_date, range, text, display)
   return item, text
 end
 
@@ -8719,7 +8310,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_type.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exercise_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exercise_type, range, value, display)
   return item, text
 end
@@ -8736,10 +8326,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.expected_quoting_hours_based_on_underlying.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.expected_quoting_hours_based_on_underlying.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.expected_quoting_hours_based_on_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.expected_quoting_hours_based_on_underlying, range, text, display)
   return item, text
 end
 
@@ -8777,7 +8365,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.expiration_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.expiration_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.expiration_type, range, value, display)
   return item, text
 end
@@ -8800,10 +8387,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exposure_fossil_fuel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.exposure_fossil_fuel.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exposure_fossil_fuel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.exposure_fossil_fuel, range, text, display)
   return item, text
 end
 
@@ -8826,7 +8411,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.extraordinary_payment_terms
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.extraordinary_payment_terms.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.extraordinary_payment_terms, range, value, display)
   return item, text
 end
@@ -8849,7 +8433,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.face_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.face_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.face_value, range, value, display)
   return item, text
 end
@@ -8894,7 +8477,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor.dissect = function(b
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.factor, range, value, display)
   return item, text
 end
@@ -8914,10 +8496,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.factor_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.factor_date, range, text, display)
   return item, text
 end
 
@@ -8939,7 +8519,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor_value.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.factor_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.factor_value, range, value, display)
   return item, text
 end
@@ -8962,7 +8541,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fair_value, range, value, display)
   return item, text
 end
@@ -8985,7 +8563,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value_ranking.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value_ranking.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fair_value_ranking, range, value, display)
   return item, text
 end
@@ -9008,7 +8585,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value_spread.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fair_value_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fair_value_spread, range, value, display)
   return item, text
 end
@@ -9025,10 +8601,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_description.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_description.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.field_description, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.field_description, range, text, display)
   return item, text
 end
 
@@ -9044,10 +8618,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.field_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.field_name, range, text, display)
   return item, text
 end
 
@@ -9070,7 +8642,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_value.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.field_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.field_value, range, value, display)
   return item, text
 end
@@ -9094,7 +8665,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.filtering_class.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.filtering_class.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.filtering_class, range, value, display)
   return item, text
 end
@@ -9111,10 +8681,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.final_price_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.final_price_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.final_price_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.final_price_type, range, text, display)
   return item, text
 end
 
@@ -9130,10 +8698,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.final_terms.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.final_terms.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.final_terms, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.final_terms, range, text, display)
   return item, text
 end
 
@@ -9155,7 +8721,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_corresponding.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_corresponding, range, value, display)
   return item, text
 end
@@ -9172,10 +8737,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_fixing_dates.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_fixing_dates.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_fixing_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_fixing_dates, range, text, display)
   return item, text
 end
 
@@ -9194,10 +8757,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_installment_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_installment_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_installment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_installment_date, range, text, display)
   return item, text
 end
 
@@ -9216,10 +8777,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_ordinary_coupon_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_ordinary_coupon_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_ordinary_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_ordinary_coupon_date, range, text, display)
   return item, text
 end
 
@@ -9241,7 +8800,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_price.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_price, range, value, display)
   return item, text
 end
@@ -9261,10 +8819,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_reset_day.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.first_reset_day.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_reset_day, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.first_reset_day, range, text, display)
   return item, text
 end
 
@@ -9280,10 +8836,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fisn.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fisn.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fisn, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fisn, range, text, display)
   return item, text
 end
 
@@ -9305,7 +8859,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.five_weeks_and_more_options
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.five_weeks_and_more_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.five_weeks_and_more_options_volume, range, value, display)
   return item, text
 end
@@ -9325,10 +8878,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixation_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixation_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixation_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixation_date, range, text, display)
   return item, text
 end
 
@@ -9387,7 +8938,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixed_income_type.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixed_income_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixed_income_type, range, value, display)
   return item, text
 end
@@ -9411,7 +8961,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixing_calendar.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixing_calendar.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixing_calendar, range, value, display)
   return item, text
 end
@@ -9431,10 +8980,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixing_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixing_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixing_date, range, text, display)
   return item, text
 end
 
@@ -9456,10 +9003,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixings.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fixings.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixings, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fixings, range, text, display)
   return item, text
 end
 
@@ -9488,7 +9033,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.flexible_market_type.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.flexible_market_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.flexible_market_type, range, value, display)
   return item, text
 end
@@ -9511,10 +9055,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.flexible_series.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.flexible_series.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.flexible_series, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.flexible_series, range, text, display)
   return item, text
 end
 
@@ -9536,10 +9078,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.forced_compulsory_labor.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.forced_compulsory_labor.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.forced_compulsory_labor, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.forced_compulsory_labor, range, text, display)
   return item, text
 end
 
@@ -9561,7 +9101,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fossil_fuel_activities.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fossil_fuel_activities.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fossil_fuel_activities, range, value, display)
   return item, text
 end
@@ -9584,7 +9123,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.four_to_five_weeks_options_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.four_to_five_weeks_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.four_to_five_weeks_options_volume, range, value, display)
   return item, text
 end
@@ -9607,7 +9145,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.freedom_expression_score.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.freedom_expression_score.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.freedom_expression_score, range, value, display)
   return item, text
 end
@@ -9631,7 +9168,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_domicile.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_domicile.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fund_domicile, range, value, display)
   return item, text
 end
@@ -9648,10 +9184,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_manager.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_manager.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fund_manager, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.fund_manager, range, text, display)
   return item, text
 end
 
@@ -9667,10 +9201,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.further_sub_product_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.further_sub_product_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.further_sub_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.further_sub_product_code, range, text, display)
   return item, text
 end
 
@@ -9699,7 +9231,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.future_sustainability_item.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.future_sustainability_item.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.future_sustainability_item, range, value, display)
   return item, text
 end
@@ -9722,10 +9253,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gdpr.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gdpr.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gdpr, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gdpr, range, text, display)
   return item, text
 end
 
@@ -9747,10 +9276,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_board_diversity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_board_diversity, range, text, display)
   return item, text
 end
 
@@ -9772,7 +9299,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity_goal
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity_goal.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_board_diversity_goal, range, value, display)
   return item, text
 end
@@ -9796,7 +9322,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity_year
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_board_diversity_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_board_diversity_year, range, value, display)
   return item, text
 end
@@ -9819,7 +9344,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_pay_ratio.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_pay_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_pay_ratio, range, value, display)
   return item, text
 end
@@ -9842,10 +9366,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_diversity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_diversity.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_senior_executive_diversity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_senior_executive_diversity, range, text, display)
   return item, text
 end
 
@@ -9867,7 +9389,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_div
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_diversity_goal.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_senior_executive_diversity_goal, range, value, display)
   return item, text
 end
@@ -9891,7 +9412,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_div
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.gender_senior_executive_diversity_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.gender_senior_executive_diversity_year, range, value, display)
   return item, text
 end
@@ -9914,10 +9434,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.general_gender_diversity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.general_gender_diversity, range, text, display)
   return item, text
 end
 
@@ -9939,7 +9457,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity_go
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity_goal.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.general_gender_diversity_goal, range, value, display)
   return item, text
 end
@@ -9963,7 +9480,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity_ye
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.general_gender_diversity_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.general_gender_diversity_year, range, value, display)
   return item, text
 end
@@ -9986,7 +9502,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emission_intensity.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emission_intensity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_emission_intensity, range, value, display)
   return item, text
 end
@@ -10009,7 +9524,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope1.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_emissions_scope1, range, value, display)
   return item, text
 end
@@ -10032,7 +9546,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope2.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_emissions_scope2, range, value, display)
   return item, text
 end
@@ -10055,7 +9568,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope3.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_emissions_scope3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_emissions_scope3, range, value, display)
   return item, text
 end
@@ -10078,7 +9590,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_intensity_company.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_intensity_company.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_intensity_company, range, value, display)
   return item, text
 end
@@ -10101,7 +9612,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_intensity_country.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_intensity_country.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_intensity_country, range, value, display)
   return item, text
 end
@@ -10124,10 +9634,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_protocol.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ghg_protocol.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_protocol, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ghg_protocol, range, text, display)
   return item, text
 end
 
@@ -10150,7 +9658,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.government_guarantee.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.government_guarantee.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.government_guarantee, range, value, display)
   return item, text
 end
@@ -10173,10 +9680,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_bond.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_bond.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_bond, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_bond, range, text, display)
   return item, text
 end
 
@@ -10208,7 +9713,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_designation_item.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_designation_item.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_designation_item, range, value, display)
   return item, text
 end
@@ -10231,10 +9735,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_equity_designation.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_equity_designation.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_equity_designation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_equity_designation, range, text, display)
   return item, text
 end
 
@@ -10256,10 +9758,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_equity_transition_designation.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.green_equity_transition_designation.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_equity_transition_designation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.green_equity_transition_designation, range, text, display)
   return item, text
 end
 
@@ -10281,10 +9781,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.grievance_handling.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.grievance_handling.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.grievance_handling, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.grievance_handling, range, text, display)
   return item, text
 end
 
@@ -10300,10 +9798,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.group_source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.group_source_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.group_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.group_source_id, range, text, display)
   return item, text
 end
 
@@ -10325,10 +9821,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.has_amortization.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.has_amortization.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.has_amortization, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.has_amortization, range, text, display)
   return item, text
 end
 
@@ -10350,7 +9844,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hazardous_waste.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hazardous_waste.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.hazardous_waste, range, value, display)
   return item, text
 end
@@ -10373,7 +9866,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hazardous_waste_produced.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hazardous_waste_produced.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.hazardous_waste_produced, range, value, display)
   return item, text
 end
@@ -10390,10 +9882,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.head_line.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.head_line.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.head_line, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.head_line, range, text, display)
   return item, text
 end
 
@@ -10415,7 +9905,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_corresponding, range, value, display)
   return item, text
 end
@@ -10438,7 +9927,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding_month.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding_month.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_corresponding_month, range, value, display)
   return item, text
 end
@@ -10461,7 +9949,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding_year.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_corresponding_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_corresponding_year, range, value, display)
   return item, text
 end
@@ -10484,7 +9971,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price, range, value, display)
   return item, text
 end
@@ -10507,7 +9993,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_month.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_month.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_month, range, value, display)
   return item, text
 end
@@ -10527,10 +10012,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_month_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_month_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_month_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_month_date, range, text, display)
   return item, text
 end
 
@@ -10552,7 +10035,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_year.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_year, range, value, display)
   return item, text
 end
@@ -10572,10 +10054,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_year_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_price_year_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_year_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_price_year_date, range, text, display)
   return item, text
 end
 
@@ -10594,10 +10074,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_tsp.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_tsp.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_tsp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_tsp, range, text, display)
   return item, text
 end
 
@@ -10619,7 +10097,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.high_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.high_value, range, value, display)
   return item, text
 end
@@ -10642,10 +10119,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hr_due_diligence.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.hr_due_diligence.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.hr_due_diligence, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.hr_due_diligence, range, text, display)
   return item, text
 end
 
@@ -10667,10 +10142,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_right_issues.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_right_issues.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_right_issues, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_right_issues, range, text, display)
   return item, text
 end
 
@@ -10692,10 +10165,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_performance.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_performance.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_performance, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_performance, range, text, display)
   return item, text
 end
 
@@ -10717,10 +10188,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_policy.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_policy.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_policy, range, text, display)
   return item, text
 end
 
@@ -10742,10 +10211,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_policy_supplier.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_rights_policy_supplier.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_policy_supplier, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_rights_policy_supplier, range, text, display)
   return item, text
 end
 
@@ -10767,10 +10234,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_trafficking.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.human_trafficking.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_trafficking, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.human_trafficking, range, text, display)
   return item, text
 end
 
@@ -10793,7 +10258,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_code.dissect = function(
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_code.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.id_code, range, value, display)
   return item, text
 end
@@ -10817,7 +10281,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_leg.dissect = function(b
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_leg.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.id_leg, range, value, display)
   return item, text
 end
@@ -10841,7 +10304,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_orderbook.dissect = func
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.id_orderbook.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.id_orderbook, range, value, display)
   return item, text
 end
@@ -10877,7 +10339,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.imbalance_direction.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.imbalance_direction.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.imbalance_direction, range, value, display)
   return item, text
 end
@@ -10901,7 +10362,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.imbalance_shares.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.imbalance_shares.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.imbalance_shares, range, value, display)
   return item, text
 end
@@ -10924,7 +10384,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.income_equality_score.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.income_equality_score.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.income_equality_score, range, value, display)
   return item, text
 end
@@ -10941,10 +10400,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.income_treatment.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.income_treatment.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.income_treatment, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.income_treatment, range, text, display)
   return item, text
 end
 
@@ -10966,7 +10423,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.independent_board.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.independent_board.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.independent_board, range, value, display)
   return item, text
 end
@@ -10990,7 +10446,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_cap_size_type.dissect
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_cap_size_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_cap_size_type, range, value, display)
   return item, text
 end
@@ -11014,7 +10469,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_category_type.dissect
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_category_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_category_type, range, value, display)
   return item, text
 end
@@ -11031,10 +10485,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_currency, range, text, display)
   return item, text
 end
 
@@ -11053,10 +10505,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_date, range, text, display)
   return item, text
 end
 
@@ -11078,7 +10528,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_duration.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_duration, range, value, display)
   return item, text
 end
@@ -11101,7 +10550,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_factor.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_factor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_factor, range, value, display)
   return item, text
 end
@@ -11124,7 +10572,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_indicator.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_indicator.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_indicator, range, value, display)
   return item, text
 end
@@ -11141,10 +10588,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_name, range, text, display)
   return item, text
 end
 
@@ -11167,7 +10612,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_price_type.dissect = 
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_price_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_price_type, range, value, display)
   return item, text
 end
@@ -11191,7 +10635,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_ranking.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_ranking.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_ranking, range, value, display)
   return item, text
 end
@@ -11215,7 +10658,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_region.dissect = func
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_region.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_region, range, value, display)
   return item, text
 end
@@ -11239,7 +10681,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_status.dissect = func
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_status.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_status, range, value, display)
   return item, text
 end
@@ -11263,7 +10704,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_sub_type.dissect = fu
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_sub_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_sub_type, range, value, display)
   return item, text
 end
@@ -11280,10 +10720,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_turnover_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_turnover_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_turnover_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_turnover_currency, range, text, display)
   return item, text
 end
 
@@ -11306,7 +10744,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_type.dissect = functi
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.index_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.index_type, range, value, display)
   return item, text
 end
@@ -11329,7 +10766,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_close_price.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_close_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indicative_close_price, range, value, display)
   return item, text
 end
@@ -11349,10 +10785,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_close_price_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_close_price_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indicative_close_price_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indicative_close_price_date, range, text, display)
   return item, text
 end
 
@@ -11374,10 +10808,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_quotes.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indicative_quotes.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indicative_quotes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indicative_quotes, range, text, display)
   return item, text
 end
 
@@ -11399,7 +10831,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indirect_energy_consumption
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.indirect_energy_consumption.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.indirect_energy_consumption, range, value, display)
   return item, text
 end
@@ -11416,10 +10847,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.industry.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.industry.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.industry, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.industry, range, text, display)
   return item, text
 end
 
@@ -11435,10 +10864,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.industry_sector.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.industry_sector.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.industry_sector, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.industry_sector, range, text, display)
   return item, text
 end
 
@@ -11460,7 +10887,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.injury_rate.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.injury_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.injury_rate, range, value, display)
   return item, text
 end
@@ -11483,7 +10909,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.installment_frequency.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.installment_frequency.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.installment_frequency, range, value, display)
   return item, text
 end
@@ -11500,10 +10925,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_external_text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_external_text.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_external_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_external_text, range, text, display)
   return item, text
 end
 
@@ -11519,10 +10942,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_identification_code_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_identification_code_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_identification_code_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_identification_code_type, range, text, display)
   return item, text
 end
 
@@ -11538,10 +10959,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_name, range, text, display)
   return item, text
 end
 
@@ -11557,10 +10976,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_source_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_source_id, range, text, display)
   return item, text
 end
 
@@ -11576,10 +10993,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_source_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_source_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_source_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_source_type, range, text, display)
   return item, text
 end
 
@@ -11602,7 +11017,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_sub_type.dissect
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_sub_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_sub_type, range, value, display)
   return item, text
 end
@@ -11626,7 +11040,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_type.dissect = f
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.instrument_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.instrument_type, range, value, display)
   return item, text
 end
@@ -11650,7 +11063,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_base, range, value, display)
   return item, text
 end
@@ -11673,7 +11085,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_cap.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_cap.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_base_cap, range, value, display)
   return item, text
 end
@@ -11696,7 +11107,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_floor.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_floor.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_base_floor, range, value, display)
   return item, text
 end
@@ -11719,7 +11129,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_spread.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_base_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_base_spread, range, value, display)
   return item, text
 end
@@ -11739,10 +11148,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_from_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_from_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_from_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_from_date, range, text, display)
   return item, text
 end
 
@@ -11764,10 +11171,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_limit.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_limit.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_limit, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_limit, range, text, display)
   return item, text
 end
 
@@ -11783,10 +11188,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_payment_dates.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_payment_dates.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_payment_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_payment_dates, range, text, display)
   return item, text
 end
 
@@ -11808,7 +11211,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_rate.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_rate, range, value, display)
   return item, text
 end
@@ -11832,7 +11234,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_trigger.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.interest_trigger.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.interest_trigger, range, value, display)
   return item, text
 end
@@ -11855,10 +11256,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.internal_ranking.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.internal_ranking.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.internal_ranking, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.internal_ranking, range, text, display)
   return item, text
 end
 
@@ -11881,7 +11280,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.investment_focus_geographic
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.investment_focus_geographic.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.investment_focus_geographic, range, value, display)
   return item, text
 end
@@ -11905,7 +11303,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.investment_focus_instrument
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.investment_focus_instruments.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.investment_focus_instruments, range, value, display)
   return item, text
 end
@@ -11928,10 +11325,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_global_ccp.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_global_ccp.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_global_ccp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_global_ccp, range, text, display)
   return item, text
 end
 
@@ -11948,8 +11343,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_hot_inserted.dissect = f
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
   local value = true
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_hot_inserted.display()
-
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_hot_inserted.display(text)
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_hot_inserted, range, value, display)
   return item, text
 end
@@ -11972,10 +11366,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_official_closing_price.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_official_closing_price.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_official_closing_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_official_closing_price, range, text, display)
   return item, text
 end
 
@@ -11997,10 +11389,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_official_closing_turnover.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_official_closing_turnover.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_official_closing_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_official_closing_turnover, range, text, display)
   return item, text
 end
 
@@ -12022,10 +11412,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_test.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.is_test.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_test, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.is_test, range, text, display)
   return item, text
 end
 
@@ -12041,10 +11429,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.isin.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.isin.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.isin, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.isin, range, text, display)
   return item, text
 end
 
@@ -12060,10 +11446,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issue_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issue_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issue_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issue_currency, range, text, display)
   return item, text
 end
 
@@ -12086,7 +11470,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_id.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_id, range, value, display)
   return item, text
 end
@@ -12103,10 +11486,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_name, range, text, display)
   return item, text
 end
 
@@ -12122,10 +11503,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_sign.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_sign.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_sign, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_sign, range, text, display)
   return item, text
 end
 
@@ -12148,7 +11527,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_type.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuer_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuer_type, range, value, display)
   return item, text
 end
@@ -12171,10 +11549,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuing_auctions.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuing_auctions.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuing_auctions, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuing_auctions, range, text, display)
   return item, text
 end
 
@@ -12196,7 +11572,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuing_price.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.issuing_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.issuing_price, range, value, display)
   return item, text
 end
@@ -12219,10 +11594,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update, range, text, display)
   return item, text
 end
 
@@ -12241,10 +11614,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update_date, range, text, display)
   return item, text
 end
 
@@ -12263,10 +11634,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.kid_update_time.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.kid_update_time, range, text, display)
   return item, text
 end
 
@@ -12282,10 +11651,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.language.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.language.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.language, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.language, range, text, display)
   return item, text
 end
 
@@ -12301,10 +11668,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.language_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.language_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.language_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.language_code, range, text, display)
   return item, text
 end
 
@@ -12326,10 +11691,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_block.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_block.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_block, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_block, range, text, display)
   return item, text
 end
 
@@ -12351,7 +11714,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_corresponding.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_corresponding, range, value, display)
   return item, text
 end
@@ -12371,10 +11733,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_coupon_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_coupon_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_coupon_date, range, text, display)
   return item, text
 end
 
@@ -12393,10 +11753,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_due_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_due_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_due_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_due_date, range, text, display)
   return item, text
 end
 
@@ -12419,7 +11777,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_fixing_day.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_fixing_day.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_fixing_day, range, value, display)
   return item, text
 end
@@ -12439,10 +11796,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_paid_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_paid_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_paid_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_paid_date, range, text, display)
   return item, text
 end
 
@@ -12464,7 +11819,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_price.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_price, range, value, display)
   return item, text
 end
@@ -12487,7 +11841,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_trade_report_price.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_trade_report_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_trade_report_price, range, value, display)
   return item, text
 end
@@ -12511,7 +11864,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_trade_report_quantity.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_trade_report_quantity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_trade_report_quantity, range, value, display)
   return item, text
 end
@@ -12531,10 +11883,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_traded_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.last_traded_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_traded_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.last_traded_date, range, text, display)
   return item, text
 end
 
@@ -12550,10 +11900,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lead_manager.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lead_manager.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lead_manager, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lead_manager, range, text, display)
   return item, text
 end
 
@@ -12576,7 +11924,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.legal_construction.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.legal_construction.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.legal_construction, range, value, display)
   return item, text
 end
@@ -12593,10 +11940,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lei.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lei.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lei, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lei, range, text, display)
   return item, text
 end
 
@@ -12618,7 +11963,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.level_of_funding.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.level_of_funding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.level_of_funding, range, value, display)
   return item, text
 end
@@ -12635,10 +11979,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.leverage.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.leverage.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.leverage, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.leverage, range, text, display)
   return item, text
 end
 
@@ -12660,7 +12002,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.leverage_ratio.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.leverage_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.leverage_ratio, range, value, display)
   return item, text
 end
@@ -12677,10 +12018,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.link_prospect.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.link_prospect.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.link_prospect, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.link_prospect, range, text, display)
   return item, text
 end
 
@@ -12696,10 +12035,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.link_underlying.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.link_underlying.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.link_underlying, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.link_underlying, range, text, display)
   return item, text
 end
 
@@ -12722,7 +12059,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.links.dissect = function(bu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.links.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.links, range, value, display)
   return item, text
 end
@@ -12745,10 +12081,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquid.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquid.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquid, range, text, display)
   return item, text
 end
 
@@ -12764,10 +12098,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_group.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_group.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_group, range, text, display)
   return item, text
 end
 
@@ -12789,10 +12121,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_provider.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_provider.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_provider, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_provider, range, text, display)
   return item, text
 end
 
@@ -12808,10 +12138,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_provider_level.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.liquidity_provider_level.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_provider_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.liquidity_provider_level, range, text, display)
   return item, text
 end
 
@@ -12833,7 +12161,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lis_post_trade.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lis_post_trade.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lis_post_trade, range, value, display)
   return item, text
 end
@@ -12856,7 +12183,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lis_pre_trade.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lis_pre_trade.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lis_pre_trade, range, value, display)
   return item, text
 end
@@ -12873,10 +12199,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.list_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.list_currency, range, text, display)
   return item, text
 end
 
@@ -12899,7 +12223,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_position.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_position.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.list_position, range, value, display)
   return item, text
 end
@@ -12923,7 +12246,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_type.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.list_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.list_type, range, value, display)
   return item, text
 end
@@ -12946,10 +12268,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.listed_issuer.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.listed_issuer.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.listed_issuer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.listed_issuer, range, text, display)
   return item, text
 end
 
@@ -12968,10 +12288,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.listing_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.listing_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.listing_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.listing_date, range, text, display)
   return item, text
 end
 
@@ -13003,7 +12321,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lld_volume_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lld_volume_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lld_volume_type, range, value, display)
   return item, text
 end
@@ -13027,7 +12344,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_group.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_group, range, value, display)
   return item, text
 end
@@ -13044,10 +12360,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_number.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_number.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_number, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_number, range, text, display)
   return item, text
 end
 
@@ -13070,7 +12384,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_type, range, value, display)
   return item, text
 end
@@ -13093,7 +12406,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec1.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_type_spec1, range, value, display)
   return item, text
 end
@@ -13116,7 +12428,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec2.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_type_spec2, range, value, display)
   return item, text
 end
@@ -13139,7 +12450,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec3.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.loan_type_spec3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.loan_type_spec3, range, value, display)
   return item, text
 end
@@ -13169,7 +12479,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_classes.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_classes.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.local_round_trip_classes, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -13200,7 +12509,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_costs.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_costs.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.local_round_trip_costs, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -13230,7 +12538,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_coverages.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.local_round_trip_coverages.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.local_round_trip_coverages, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -13255,7 +12562,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lot_size.dissect = function
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lot_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lot_size, range, value, display)
   return item, text
 end
@@ -13275,10 +12581,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lottery_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.lottery_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lottery_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.lottery_date, range, text, display)
   return item, text
 end
 
@@ -13300,7 +12604,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_corresponding, range, value, display)
   return item, text
 end
@@ -13323,7 +12626,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding_month.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding_month.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_corresponding_month, range, value, display)
   return item, text
 end
@@ -13346,7 +12648,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding_year.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_corresponding_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_corresponding_year, range, value, display)
   return item, text
 end
@@ -13369,7 +12670,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price, range, value, display)
   return item, text
 end
@@ -13392,7 +12692,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_month.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_month.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_month, range, value, display)
   return item, text
 end
@@ -13412,10 +12711,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_month_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_month_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_month_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_month_date, range, text, display)
   return item, text
 end
 
@@ -13437,7 +12734,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_year.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_year, range, value, display)
   return item, text
 end
@@ -13457,10 +12753,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_year_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_price_year_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_year_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_price_year_date, range, text, display)
   return item, text
 end
 
@@ -13479,10 +12773,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_tsp.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_tsp.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_tsp, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_tsp, range, text, display)
   return item, text
 end
 
@@ -13504,7 +12796,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_value.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.low_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.low_value, range, value, display)
   return item, text
 end
@@ -13521,10 +12812,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.management_company.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.management_company.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.management_company, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.management_company, range, text, display)
   return item, text
 end
 
@@ -13546,7 +12835,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.management_fee.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.management_fee.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.management_fee, range, value, display)
   return item, text
 end
@@ -13569,7 +12857,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.manual_trade_price_collar.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.manual_trade_price_collar.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.manual_trade_price_collar, range, value, display)
   return item, text
 end
@@ -13592,7 +12879,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.margin_price.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.margin_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.margin_price, range, value, display)
   return item, text
 end
@@ -13615,7 +12901,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.margin_rate.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.margin_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.margin_rate, range, value, display)
   return item, text
 end
@@ -13638,7 +12923,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_cap.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_cap.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_cap, range, value, display)
   return item, text
 end
@@ -13671,7 +12955,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_condition.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_condition.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_condition, range, value, display)
   return item, text
 end
@@ -13695,7 +12978,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_id.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_id, range, value, display)
   return item, text
 end
@@ -13712,10 +12994,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_name, range, text, display)
   return item, text
 end
 
@@ -13738,7 +13018,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_sector.dissect = fun
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_sector.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_sector, range, value, display)
   return item, text
 end
@@ -13762,7 +13041,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_type.dissect = funct
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.market_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.market_type, range, value, display)
   return item, text
 end
@@ -13779,10 +13057,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.marketing_material.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.marketing_material.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.marketing_material, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.marketing_material, range, text, display)
   return item, text
 end
 
@@ -13801,10 +13077,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.maturity_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.maturity_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.maturity_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.maturity_date, range, text, display)
   return item, text
 end
 
@@ -13826,7 +13100,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.maturity_value.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.maturity_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.maturity_value, range, value, display)
   return item, text
 end
@@ -13850,7 +13123,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_days_order.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_days_order.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_days_order, range, value, display)
   return item, text
 end
@@ -13873,7 +13145,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_level.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_level.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_level, range, value, display)
   return item, text
 end
@@ -13896,7 +13167,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_order_value.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_order_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_order_value, range, value, display)
   return item, text
 end
@@ -13919,7 +13189,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_order_volume.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_order_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_order_volume, range, value, display)
   return item, text
 end
@@ -13942,7 +13211,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_ot_ratio.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_ot_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_ot_ratio, range, value, display)
   return item, text
 end
@@ -13965,7 +13233,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_ot_volume.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.max_ot_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.max_ot_volume, range, value, display)
   return item, text
 end
@@ -13982,10 +13249,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.metal_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.metal_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.metal_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.metal_type, range, text, display)
   return item, text
 end
 
@@ -14001,10 +13266,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fid_bond_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fid_bond_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fid_bond_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fid_bond_type, range, text, display)
   return item, text
 end
 
@@ -14026,10 +13289,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fid_tick_size.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fid_tick_size.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fid_tick_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fid_tick_size, range, text, display)
   return item, text
 end
 
@@ -14045,10 +13306,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fir_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mi_fir_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fir_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mi_fir_id, range, text, display)
   return item, text
 end
 
@@ -14064,10 +13323,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mic_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mic_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mic_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mic_code, range, text, display)
   return item, text
 end
 
@@ -14089,7 +13346,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mid_price, range, value, display)
   return item, text
 end
@@ -14112,10 +13368,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price_auction.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price_auction.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mid_price_auction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mid_price_auction, range, text, display)
   return item, text
 end
 
@@ -14137,10 +13391,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price_matching.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mid_price_matching.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mid_price_matching, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mid_price_matching, range, text, display)
   return item, text
 end
 
@@ -14163,7 +13415,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.min_order_value.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.min_order_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.min_order_value, range, value, display)
   return item, text
 end
@@ -14187,7 +13438,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.min_volume.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.min_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.min_volume, range, value, display)
   return item, text
 end
@@ -14210,7 +13460,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minimum_acceptable_quantity
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minimum_acceptable_quantity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.minimum_acceptable_quantity, range, value, display)
   return item, text
 end
@@ -14234,7 +13483,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minus_bids.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minus_bids.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.minus_bids, range, value, display)
   return item, text
 end
@@ -14258,7 +13506,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minus_paid.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.minus_paid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.minus_paid, range, value, display)
   return item, text
 end
@@ -14282,7 +13529,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mkt_and_sub_mkt_affiliation
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mkt_and_sub_mkt_affiliation.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mkt_and_sub_mkt_affiliation, range, value, display)
   return item, text
 end
@@ -14299,10 +13545,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mmt.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.mmt.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mmt, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.mmt, range, text, display)
   return item, text
 end
 
@@ -14324,7 +13568,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.model_prepayment_rate.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.model_prepayment_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.model_prepayment_rate, range, value, display)
   return item, text
 end
@@ -14347,7 +13590,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_convexity.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_convexity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.modified_convexity, range, value, display)
   return item, text
 end
@@ -14370,7 +13612,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_duration.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.modified_duration, range, value, display)
   return item, text
 end
@@ -14393,7 +13634,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_oa_convexity.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_oa_convexity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.modified_oa_convexity, range, value, display)
   return item, text
 end
@@ -14416,7 +13656,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_oa_duration.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.modified_oa_duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.modified_oa_duration, range, value, display)
   return item, text
 end
@@ -14433,10 +13672,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.most_relevant_market.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.most_relevant_market.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.most_relevant_market, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.most_relevant_market, range, text, display)
   return item, text
 end
 
@@ -14452,10 +13689,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.name, range, text, display)
   return item, text
 end
 
@@ -14471,10 +13706,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.name_local.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.name_local.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.name_local, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.name_local, range, text, display)
   return item, text
 end
 
@@ -14497,7 +13730,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nano_second_fraction.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nano_second_fraction.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nano_second_fraction, range, value, display)
   return item, text
 end
@@ -14521,7 +13753,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.negative_interest_model.dis
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.negative_interest_model.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.negative_interest_model, range, value, display)
   return item, text
 end
@@ -14544,7 +13775,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.net_asset_value.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.net_asset_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.net_asset_value, range, value, display)
   return item, text
 end
@@ -14568,7 +13798,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_id.dissect = function(
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.news_id, range, value, display)
   return item, text
 end
@@ -14610,7 +13839,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_object_type.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_object_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.news_object_type, range, value, display)
   return item, text
 end
@@ -14652,7 +13880,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_type.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.news_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.news_type, range, value, display)
   return item, text
 end
@@ -14672,10 +13899,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_coupon_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_coupon_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_coupon_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_coupon_date, range, text, display)
   return item, text
 end
 
@@ -14697,7 +13922,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_coupon_rate.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_coupon_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_coupon_rate, range, value, display)
   return item, text
 end
@@ -14717,10 +13941,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_draw_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_draw_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_draw_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_draw_date, range, text, display)
   return item, text
 end
 
@@ -14739,10 +13961,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_prepayment_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_prepayment_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_prepayment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_prepayment_date, range, text, display)
   return item, text
 end
 
@@ -14761,10 +13981,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_settlement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.next_settlement_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.next_settlement_date, range, text, display)
   return item, text
 end
 
@@ -14786,7 +14004,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nine_months_volume.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nine_months_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nine_months_volume, range, value, display)
   return item, text
 end
@@ -14810,7 +14027,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_price.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_dec_price, range, value, display)
   return item, text
 end
@@ -14834,7 +14050,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_price_corr.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_price_corr.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_dec_price_corr, range, value, display)
   return item, text
 end
@@ -14858,7 +14073,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_trade_price.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_trade_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_dec_trade_price, range, value, display)
   return item, text
 end
@@ -14882,7 +14096,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_trade_price_corr.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_dec_trade_price_corr.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_dec_trade_price_corr, range, value, display)
   return item, text
 end
@@ -14906,7 +14119,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_settlement_days.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_settlement_days.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_settlement_days, range, value, display)
   return item, text
 end
@@ -14929,7 +14141,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_units.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_of_units.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_of_units, range, value, display)
   return item, text
 end
@@ -14953,7 +14164,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_record_days.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_record_days.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_record_days, range, value, display)
   return item, text
 end
@@ -14977,7 +14187,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_units_traded.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.no_units_traded.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.no_units_traded, range, value, display)
   return item, text
 end
@@ -15000,7 +14209,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nominal_value.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nominal_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nominal_value, range, value, display)
   return item, text
 end
@@ -15023,10 +14231,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_cooperative_tax.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_cooperative_tax.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.non_cooperative_tax, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.non_cooperative_tax, range, text, display)
   return item, text
 end
 
@@ -15048,7 +14254,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_ghg_emission_intensity.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_ghg_emission_intensity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.non_ghg_emission_intensity, range, value, display)
   return item, text
 end
@@ -15071,7 +14276,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_renewable_consumption.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_renewable_consumption.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.non_renewable_consumption, range, value, display)
   return item, text
 end
@@ -15094,7 +14298,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_renewable_production.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.non_renewable_production.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.non_renewable_production, range, value, display)
   return item, text
 end
@@ -15117,10 +14320,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nordic_mid_eligible.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nordic_mid_eligible.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nordic_mid_eligible, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nordic_mid_eligible, range, text, display)
   return item, text
 end
 
@@ -15136,10 +14337,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nordic_mid_mic.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.nordic_mid_mic.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nordic_mid_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.nordic_mid_mic, range, text, display)
   return item, text
 end
 
@@ -15162,7 +14361,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.normalization_factor_intere
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.normalization_factor_interest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.normalization_factor_interest, range, value, display)
   return item, text
 end
@@ -15186,7 +14384,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.normalization_factor_spread
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.normalization_factor_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.normalization_factor_spread, range, value, display)
   return item, text
 end
@@ -15210,7 +14407,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.note_code.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.note_code.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.note_code, range, value, display)
   return item, text
 end
@@ -15227,10 +14423,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.note_codes.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.note_codes.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.note_codes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.note_codes, range, text, display)
   return item, text
 end
 
@@ -15252,7 +14446,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.notional_amount.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.notional_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.notional_amount, range, value, display)
   return item, text
 end
@@ -15269,10 +14462,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.notional_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.notional_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.notional_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.notional_currency, range, text, display)
   return item, text
 end
 
@@ -15295,7 +14486,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_bond_loans.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_bond_loans.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_bond_loans, range, value, display)
   return item, text
 end
@@ -15319,7 +14509,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_cash_loans.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_cash_loans.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_cash_loans, range, value, display)
   return item, text
 end
@@ -15343,7 +14532,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_certificates.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_certificates.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_of_certificates, range, value, display)
   return item, text
 end
@@ -15367,7 +14555,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_debtor_repayments
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_debtor_repayments.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_of_debtor_repayments, range, value, display)
   return item, text
 end
@@ -15391,7 +14578,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_fixing_days.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_fixing_days.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_of_fixing_days, range, value, display)
   return item, text
 end
@@ -15415,7 +14601,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_payouts_pr_year.d
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_payouts_pr_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_of_payouts_pr_year, range, value, display)
   return item, text
 end
@@ -15439,7 +14624,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_trades.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_of_trades.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_of_trades, range, value, display)
   return item, text
 end
@@ -15463,7 +14647,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_outst_open_termins.d
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_outst_open_termins.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_outst_open_termins, range, value, display)
   return item, text
 end
@@ -15487,7 +14670,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_redeemed_loans.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_redeemed_loans.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_redeemed_loans, range, value, display)
   return item, text
 end
@@ -15511,7 +14693,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_sec_interest_group.d
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.number_sec_interest_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.number_sec_interest_group, range, value, display)
   return item, text
 end
@@ -15534,7 +14715,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_convexity.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_convexity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oa_convexity, range, value, display)
   return item, text
 end
@@ -15557,7 +14737,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_duration.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_duration.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oa_duration, range, value, display)
   return item, text
 end
@@ -15580,7 +14759,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_price.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oa_price, range, value, display)
   return item, text
 end
@@ -15603,7 +14781,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_spread.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oa_spread, range, value, display)
   return item, text
 end
@@ -15626,7 +14803,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_spread_change.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oa_spread_change.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oa_spread_change, range, value, display)
   return item, text
 end
@@ -15649,7 +14825,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp.dissect = function(b
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oapvbp, range, value, display)
   return item, text
 end
@@ -15672,7 +14847,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_convexity.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_convexity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oapvbp_convexity, range, value, display)
   return item, text
 end
@@ -15695,7 +14869,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_down.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_down.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oapvbp_down, range, value, display)
   return item, text
 end
@@ -15718,7 +14891,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_up.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.oapvbp_up.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.oapvbp_up, range, value, display)
   return item, text
 end
@@ -15735,10 +14907,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.obs_list_text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.obs_list_text.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.obs_list_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.obs_list_text, range, text, display)
   return item, text
 end
 
@@ -15761,7 +14931,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.off_exch_trade_cancel_limit
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.off_exch_trade_cancel_limit.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.off_exch_trade_cancel_limit, range, value, display)
   return item, text
 end
@@ -15784,10 +14953,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.official_currency_rates.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.official_currency_rates.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.official_currency_rates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.official_currency_rates, range, text, display)
   return item, text
 end
 
@@ -15809,7 +14976,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.old_index_value.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.old_index_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.old_index_value, range, value, display)
   return item, text
 end
@@ -15832,7 +14998,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.old_market_cap.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.old_market_cap.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.old_market_cap, range, value, display)
   return item, text
 end
@@ -15855,7 +15020,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_month_options_volume.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_month_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_month_options_volume, range, value, display)
   return item, text
 end
@@ -15878,7 +15042,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_month_volume.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_month_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_month_volume, range, value, display)
   return item, text
 end
@@ -15901,7 +15064,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_to_three_months_options
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_to_three_months_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_to_three_months_options_volume, range, value, display)
   return item, text
 end
@@ -15924,7 +15086,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_to_two_weeks_options_vo
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_to_two_weeks_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_to_two_weeks_options_volume, range, value, display)
   return item, text
 end
@@ -15947,7 +15108,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_week_options_volume.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_week_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_week_options_volume, range, value, display)
   return item, text
 end
@@ -15970,7 +15130,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_week_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_week_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_week_volume, range, value, display)
   return item, text
 end
@@ -15993,7 +15152,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_year_plus_volume.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.one_year_plus_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.one_year_plus_volume, range, value, display)
   return item, text
 end
@@ -16016,7 +15174,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_interest.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_interest.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.open_interest, range, value, display)
   return item, text
 end
@@ -16039,7 +15196,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.open_value, range, value, display)
   return item, text
 end
@@ -16062,7 +15218,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_weighting.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.open_weighting.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.open_weighting, range, value, display)
   return item, text
 end
@@ -16086,7 +15241,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.opening_period.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.opening_period.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.opening_period, range, value, display)
   return item, text
 end
@@ -16116,7 +15270,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.operational.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.operational.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.operational, range, value, display)
   return item, text
 end
@@ -16139,7 +15292,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.option_free_yield.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.option_free_yield.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.option_free_yield, range, value, display)
   return item, text
 end
@@ -16169,7 +15321,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.options_volume_type.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.options_volume_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.options_volume_type, range, value, display)
   return item, text
 end
@@ -16192,10 +15343,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_capacity_required.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_capacity_required.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_capacity_required, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_capacity_required, range, text, display)
   return item, text
 end
 
@@ -16233,7 +15382,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_class.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_class.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_class, range, value, display)
   return item, text
 end
@@ -16257,7 +15405,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_key.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_key.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_key, range, value, display)
   return item, text
 end
@@ -16281,7 +15428,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_key_prev.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_key_prev.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_key_prev, range, value, display)
   return item, text
 end
@@ -16304,10 +15450,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_management.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_management.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_management, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_management, range, text, display)
   return item, text
 end
 
@@ -16329,7 +15473,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_price_collar.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.order_price_collar.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.order_price_collar, range, value, display)
   return item, text
 end
@@ -16346,10 +15489,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_external_text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_external_text.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_external_text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_external_text, range, text, display)
   return item, text
 end
 
@@ -16366,8 +15507,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_flush.dissect = f
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
   local value = true
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_flush.display()
-
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_flush.display(text)
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_flush, range, value, display)
   return item, text
 end
@@ -16390,10 +15530,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_is_routable.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_is_routable.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_is_routable, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_is_routable, range, text, display)
   return item, text
 end
 
@@ -16409,10 +15547,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.orderbook_source_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.orderbook_source_id, range, text, display)
   return item, text
 end
 
@@ -16428,10 +15564,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.original_issuer_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.original_issuer_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.original_issuer_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.original_issuer_name, range, text, display)
   return item, text
 end
 
@@ -16447,10 +15581,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.original_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.original_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.original_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.original_name, range, text, display)
   return item, text
 end
 
@@ -16472,10 +15604,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.otc_reporting.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.otc_reporting.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.otc_reporting, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.otc_reporting, range, text, display)
   return item, text
 end
 
@@ -16497,7 +15627,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_capex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_capex, range, value, display)
   return item, text
 end
@@ -16520,7 +15649,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_opex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_opex, range, value, display)
   return item, text
 end
@@ -16543,7 +15671,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_cape
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_total_capex, range, value, display)
   return item, text
 end
@@ -16566,7 +15693,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_opex
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_total_opex, range, value, display)
   return item, text
 end
@@ -16589,7 +15715,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_turn
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_total_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_total_turnover, range, value, display)
   return item, text
 end
@@ -16612,7 +15737,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_turnover.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_activities_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_activities_turnover, range, value, display)
   return item, text
 end
@@ -16635,7 +15759,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_indirect_ghg_emission
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_indirect_ghg_emissions.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_indirect_ghg_emissions, range, value, display)
   return item, text
 end
@@ -16658,10 +15781,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_tick_size_table.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.other_tick_size_table.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_tick_size_table, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.other_tick_size_table, range, text, display)
   return item, text
 end
 
@@ -16683,10 +15804,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.outside_spread.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.outside_spread.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.outside_spread, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.outside_spread, range, text, display)
   return item, text
 end
 
@@ -16708,7 +15827,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.outstanding_amount.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.outstanding_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.outstanding_amount, range, value, display)
   return item, text
 end
@@ -16731,7 +15849,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.owner_occupied_dwellings.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.owner_occupied_dwellings.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.owner_occupied_dwellings, range, value, display)
   return item, text
 end
@@ -16755,7 +15872,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.paired_shares.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.paired_shares.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.paired_shares, range, value, display)
   return item, text
 end
@@ -16779,7 +15895,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.parent_id.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.parent_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.parent_id, range, value, display)
   return item, text
 end
@@ -16803,7 +15918,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.parent_index.dissect = func
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.parent_index.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.parent_index, range, value, display)
   return item, text
 end
@@ -16826,7 +15940,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.part_time_turnover_ratio.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.part_time_turnover_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.part_time_turnover_ratio, range, value, display)
   return item, text
 end
@@ -16849,7 +15962,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.part_time_worker_ratio.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.part_time_worker_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.part_time_worker_ratio, range, value, display)
   return item, text
 end
@@ -16866,10 +15978,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.participant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.participant, range, text, display)
   return item, text
 end
 
@@ -16892,7 +16002,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant_id.dissect = fu
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.participant_id, range, value, display)
   return item, text
 end
@@ -16916,7 +16025,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant_type.dissect = 
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participant_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.participant_type, range, value, display)
   return item, text
 end
@@ -16939,7 +16047,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participation_rate.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.participation_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.participation_rate, range, value, display)
   return item, text
 end
@@ -16959,10 +16066,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.payment_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.payment_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.payment_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.payment_date, range, text, display)
   return item, text
 end
 
@@ -16984,7 +16089,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.payment_size.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.payment_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.payment_size, range, value, display)
   return item, text
 end
@@ -17007,7 +16111,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pct_weight_avg_interest_gro
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pct_weight_avg_interest_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pct_weight_avg_interest_group, range, value, display)
   return item, text
 end
@@ -17030,10 +16133,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pending_price.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pending_price.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pending_price, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pending_price, range, text, display)
   return item, text
 end
 
@@ -17052,10 +16153,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.period_start.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.period_start.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.period_start, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.period_start, range, text, display)
   return item, text
 end
 
@@ -17074,10 +16173,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.period_stop.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.period_stop.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.period_stop, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.period_stop, range, text, display)
   return item, text
 end
 
@@ -17099,10 +16196,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.physically_collateralized.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.physically_collateralized.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.physically_collateralized, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.physically_collateralized, range, text, display)
   return item, text
 end
 
@@ -17125,7 +16220,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.plus_bids.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.plus_bids.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.plus_bids, range, value, display)
   return item, text
 end
@@ -17149,7 +16243,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.plus_paid.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.plus_paid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.plus_paid, range, value, display)
   return item, text
 end
@@ -17172,10 +16265,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.policy_published.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.policy_published.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.policy_published, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.policy_published, range, text, display)
   return item, text
 end
 
@@ -17197,7 +16288,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.political_stability_score.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.political_stability_score.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.political_stability_score, range, value, display)
   return item, text
 end
@@ -17221,7 +16311,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.population_type.dissect = f
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.population_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.population_type, range, value, display)
   return item, text
 end
@@ -17257,7 +16346,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.posttrade_anonymity.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.posttrade_anonymity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.posttrade_anonymity, range, value, display)
   return item, text
 end
@@ -17277,10 +16365,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.preliminary_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.preliminary_date, range, text, display)
   return item, text
 end
 
@@ -17302,7 +16388,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_prepayment_rate
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_prepayment_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.preliminary_prepayment_rate, range, value, display)
   return item, text
 end
@@ -17325,7 +16410,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_prepayment_rate
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.preliminary_prepayment_rate_change.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.preliminary_prepayment_rate_change, range, value, display)
   return item, text
 end
@@ -17348,7 +16432,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.premium.dissect = function(
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.premium.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.premium, range, value, display)
   return item, text
 end
@@ -17371,10 +16454,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pretrade_anonymity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pretrade_anonymity.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pretrade_anonymity, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pretrade_anonymity, range, text, display)
   return item, text
 end
 
@@ -17396,7 +16477,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.previous_prepayment_rate.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.previous_prepayment_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.previous_prepayment_rate, range, value, display)
   return item, text
 end
@@ -17416,10 +16496,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.previous_settlement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.previous_settlement_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.previous_settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.previous_settlement_date, range, text, display)
   return item, text
 end
 
@@ -17441,7 +16519,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price.dissect = function(bu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price, range, value, display)
   return item, text
 end
@@ -17483,7 +16560,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_condition.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_condition.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_condition, range, value, display)
   return item, text
 end
@@ -17506,7 +16582,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_corresponding.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_corresponding.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_corresponding, range, value, display)
   return item, text
 end
@@ -17529,7 +16604,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_from.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_from.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_from, range, value, display)
   return item, text
 end
@@ -17552,7 +16626,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_multiplier.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_multiplier.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_multiplier, range, value, display)
   return item, text
 end
@@ -17575,7 +16648,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_to.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_to.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_to, range, value, display)
   return item, text
 end
@@ -17598,7 +16670,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranch_volume.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranch_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_tranch_volume, range, value, display)
   return item, text
 end
@@ -17615,10 +16686,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranches_in_percent.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranches_in_percent.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_tranches_in_percent, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_tranches_in_percent, range, text, display)
   return item, text
 end
 
@@ -17634,10 +16703,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranches_in_usd.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_tranches_in_usd.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_tranches_in_usd, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_tranches_in_usd, range, text, display)
   return item, text
 end
 
@@ -17678,7 +16745,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_type.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_type, range, value, display)
   return item, text
 end
@@ -17708,7 +16774,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_update_method.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_update_method.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_update_method, range, value, display)
   return item, text
 end
@@ -17731,7 +16796,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_write_up.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.price_write_up.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.price_write_up, range, value, display)
   return item, text
 end
@@ -17748,10 +16812,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_energy_source.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_energy_source.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.primary_energy_source, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.primary_energy_source, range, text, display)
   return item, text
 end
 
@@ -17773,7 +16835,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_energy_source_pct.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_energy_source_pct.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.primary_energy_source_pct, range, value, display)
   return item, text
 end
@@ -17790,10 +16851,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_mic.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.primary_mic.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.primary_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.primary_mic, range, text, display)
   return item, text
 end
 
@@ -17816,7 +16875,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.principal_index_link.dissec
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.principal_index_link.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.principal_index_link, range, value, display)
   return item, text
 end
@@ -17833,10 +16891,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.product, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.product, range, text, display)
   return item, text
 end
 
@@ -17852,10 +16908,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.product_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.product_id, range, text, display)
   return item, text
 end
 
@@ -17878,7 +16932,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product_segment.dissect = f
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.product_segment.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.product_segment, range, value, display)
   return item, text
 end
@@ -17896,8 +16949,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo.dissect = fun
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
   local value = true
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo.display()
-
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo.display(text)
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.protected_mmo, range, value, display)
   return item, text
 end
@@ -17915,8 +16967,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo_allowed.disse
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
   local value = true
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo_allowed.display()
-
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.protected_mmo_allowed.display(text)
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.protected_mmo_allowed, range, value, display)
   return item, text
 end
@@ -17936,10 +16987,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.publication_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.publication_date, range, text, display)
   return item, text
 end
 
@@ -17962,7 +17011,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_type.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.publication_type, range, value, display)
   return item, text
 end
@@ -17979,10 +17027,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_venue.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.publication_venue.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.publication_venue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.publication_venue, range, text, display)
   return item, text
 end
 
@@ -17998,10 +17044,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pure_stream_mic.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.pure_stream_mic.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pure_stream_mic, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.pure_stream_mic, range, text, display)
   return item, text
 end
 
@@ -18017,10 +17061,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quantity_notation.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quantity_notation.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.quantity_notation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.quantity_notation, range, text, display)
   return item, text
 end
 
@@ -18042,7 +17084,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quantity_unit.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quantity_unit.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.quantity_unit, range, value, display)
   return item, text
 end
@@ -18078,7 +17119,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quote_side.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.quote_side.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.quote_side, range, value, display)
   return item, text
 end
@@ -18102,7 +17142,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rank.dissect = function(buf
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rank.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rank, range, value, display)
   return item, text
 end
@@ -18141,7 +17180,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_calc_type.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_calc_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rate_calc_type, range, value, display)
   return item, text
 end
@@ -18165,7 +17203,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_determination_day.diss
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_determination_day.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rate_determination_day, range, value, display)
   return item, text
 end
@@ -18204,7 +17241,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_type.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rate_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rate_type, range, value, display)
   return item, text
 end
@@ -18228,7 +17264,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ratio.dissect = function(bu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ratio, range, value, display)
   return item, text
 end
@@ -18261,7 +17296,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.record_day_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.record_day_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.record_day_type, range, value, display)
   return item, text
 end
@@ -18284,7 +17318,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.recycled_waste.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.recycled_waste.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.recycled_waste, range, value, display)
   return item, text
 end
@@ -18308,7 +17341,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redeemed_amount.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redeemed_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redeemed_amount, range, value, display)
   return item, text
 end
@@ -18332,7 +17364,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_amount.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_amount.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_amount, range, value, display)
   return item, text
 end
@@ -18355,7 +17386,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_extra_new.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_extra_new.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_pct_extra_new, range, value, display)
   return item, text
 end
@@ -18378,7 +17408,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_new.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_new.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_pct_new, range, value, display)
   return item, text
 end
@@ -18408,7 +17437,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_status.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_pct_status.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_pct_status, range, value, display)
   return item, text
 end
@@ -18431,7 +17459,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_price.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_price, range, value, display)
   return item, text
 end
@@ -18455,7 +17482,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.redemption_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.redemption_type, range, value, display)
   return item, text
 end
@@ -18472,10 +17498,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_instrument.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_instrument.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ref_instrument, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ref_instrument, range, text, display)
   return item, text
 end
 
@@ -18497,7 +17521,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oa_spread.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oa_spread.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ref_oa_spread, range, value, display)
   return item, text
 end
@@ -18520,7 +17543,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oas_price.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oas_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ref_oas_price, range, value, display)
   return item, text
 end
@@ -18543,7 +17565,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oas_price_change.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ref_oas_price_change.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ref_oas_price_change, range, value, display)
   return item, text
 end
@@ -18560,10 +17581,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_index.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_index.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_index, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_index, range, text, display)
   return item, text
 end
 
@@ -18585,7 +17604,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price, range, value, display)
   return item, text
 end
@@ -18605,10 +17623,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_date, range, text, display)
   return item, text
 end
 
@@ -18631,7 +17647,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_lower_limit
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_lower_limit.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_lower_limit, range, value, display)
   return item, text
 end
@@ -18654,7 +17669,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_of_underlyi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_of_underlying.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_of_underlying, range, value, display)
   return item, text
 end
@@ -18674,10 +17688,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_time.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_time, range, text, display)
   return item, text
 end
 
@@ -18700,7 +17712,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_upper_limit
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_upper_limit.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_upper_limit, range, value, display)
   return item, text
 end
@@ -18723,7 +17734,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_yield.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_price_yield.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_price_yield, range, value, display)
   return item, text
 end
@@ -18740,10 +17750,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_rate.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_rate.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_rate, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_rate, range, text, display)
   return item, text
 end
 
@@ -18772,7 +17780,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_classe
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_classes.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_round_trip_classes, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -18803,7 +17810,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_costs.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_costs.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_round_trip_costs, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -18833,7 +17839,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_covera
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reference_round_trip_coverages.display(text, level)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reference_round_trip_coverages, range, value, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
@@ -18857,10 +17862,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinance_failure.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinance_failure.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinance_failure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinance_failure, range, text, display)
   return item, text
 end
 
@@ -18882,10 +17885,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinance_risk.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinance_risk.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinance_risk, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinance_risk, range, text, display)
   return item, text
 end
 
@@ -18901,10 +17902,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinitiv_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.refinitiv_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinitiv_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.refinitiv_code, range, text, display)
   return item, text
 end
 
@@ -18920,10 +17919,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.region.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.region.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.region, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.region, range, text, display)
   return item, text
 end
 
@@ -18939,10 +17936,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.region_or_exposure.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.region_or_exposure.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.region_or_exposure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.region_or_exposure, range, text, display)
   return item, text
 end
 
@@ -18961,10 +17956,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reimbursement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reimbursement_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reimbursement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reimbursement_date, range, text, display)
   return item, text
 end
 
@@ -18986,10 +17979,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.related_instruments.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.related_instruments.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.related_instruments, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.related_instruments, range, text, display)
   return item, text
 end
 
@@ -19008,10 +17999,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.release_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.release_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.release_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.release_date, range, text, display)
   return item, text
 end
 
@@ -19030,10 +18019,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.release_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.release_time.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.release_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.release_time, range, text, display)
   return item, text
 end
 
@@ -19049,10 +18036,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_dates.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_dates.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.repayment_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.repayment_dates, range, text, display)
   return item, text
 end
 
@@ -19074,7 +18059,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_fraction.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_fraction.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.repayment_fraction, range, value, display)
   return item, text
 end
@@ -19098,7 +18082,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_profile.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_profile.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.repayment_profile, range, value, display)
   return item, text
 end
@@ -19122,7 +18105,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_profile_specifica
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.repayment_profile_specification.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.repayment_profile_specification, range, value, display)
   return item, text
 end
@@ -19139,10 +18121,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.replaced_disclosure.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.replaced_disclosure.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.replaced_disclosure, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.replaced_disclosure, range, text, display)
   return item, text
 end
 
@@ -19174,7 +18154,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.replication_method.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.replication_method.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.replication_method, range, value, display)
   return item, text
 end
@@ -19198,7 +18177,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.report_type.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.report_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.report_type, range, value, display)
   return item, text
 end
@@ -19222,7 +18200,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_data.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_data.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reported_data, range, value, display)
   return item, text
 end
@@ -19245,7 +18222,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_turnover.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reported_turnover, range, value, display)
   return item, text
 end
@@ -19268,7 +18244,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reported_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reported_volume, range, value, display)
   return item, text
 end
@@ -19292,7 +18267,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reserve_order_threshold.dis
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reserve_order_threshold.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reserve_order_threshold, range, value, display)
   return item, text
 end
@@ -19309,10 +18283,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reset_dates.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.reset_dates.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reset_dates, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.reset_dates, range, text, display)
   return item, text
 end
 
@@ -19344,7 +18316,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.return_type.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.return_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.return_type, range, value, display)
   return item, text
 end
@@ -19367,7 +18338,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.risk_barrier.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.risk_barrier.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.risk_barrier, range, value, display)
   return item, text
 end
@@ -19390,10 +18360,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.round_lot_only.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.round_lot_only.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.round_lot_only, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.round_lot_only, range, text, display)
   return item, text
 end
 
@@ -19415,7 +18383,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rtwas.dissect = function(bu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rtwas.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rtwas, range, value, display)
   return item, text
 end
@@ -19438,7 +18405,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rule_of_law_score.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.rule_of_law_score.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.rule_of_law_score, range, value, display)
   return item, text
 end
@@ -19455,10 +18421,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.scope3_emission.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.scope3_emission.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.scope3_emission, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.scope3_emission, range, text, display)
   return item, text
 end
 
@@ -19474,10 +18438,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sdg.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sdg.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sdg, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sdg, range, text, display)
   return item, text
 end
 
@@ -19493,10 +18455,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.secondary_energy_source.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.secondary_energy_source.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.secondary_energy_source, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.secondary_energy_source, range, text, display)
   return item, text
 end
 
@@ -19518,7 +18478,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.secondary_energy_source_pct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.secondary_energy_source_pct.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.secondary_energy_source_pct, range, value, display)
   return item, text
 end
@@ -19542,7 +18501,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.section_placement.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.section_placement.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.section_placement, range, value, display)
   return item, text
 end
@@ -19559,10 +18517,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_code, range, text, display)
   return item, text
 end
 
@@ -19585,7 +18541,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_id.dissect = functio
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_id, range, value, display)
   return item, text
 end
@@ -19602,10 +18557,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_name, range, text, display)
   return item, text
 end
 
@@ -19628,7 +18581,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_ranking.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sector_ranking.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sector_ranking, range, value, display)
   return item, text
 end
@@ -19652,7 +18604,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.security_group_id.dissect =
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.security_group_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.security_group_id, range, value, display)
   return item, text
 end
@@ -19712,7 +18663,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.security_type.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.security_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.security_type, range, value, display)
   return item, text
 end
@@ -19735,10 +18685,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.self_clearing_supported.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.self_clearing_supported.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.self_clearing_supported, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.self_clearing_supported, range, text, display)
   return item, text
 end
 
@@ -19760,10 +18708,8 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sellers_at_level.dissect = 
     return
   end
   text = rest
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sellers_at_level.display(text, level)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sellers_at_level, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sellers_at_level, range, text, display)
   item:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tip_level, range, tonumber(level))
   return item, text
 end
@@ -19786,7 +18732,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.senior_executive_diversity.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.senior_executive_diversity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.senior_executive_diversity, range, value, display)
   return item, text
 end
@@ -19806,10 +18751,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.settlement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.settlement_date, range, text, display)
   return item, text
 end
 
@@ -19831,7 +18774,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_price.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.settlement_price, range, value, display)
   return item, text
 end
@@ -19864,7 +18806,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_type.dissect = f
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.settlement_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.settlement_type, range, value, display)
   return item, text
 end
@@ -19887,7 +18828,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.share_capital.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.share_capital.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.share_capital, range, value, display)
   return item, text
 end
@@ -19904,10 +18844,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.share_class.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.share_class.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.share_class, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.share_class, range, text, display)
   return item, text
 end
 
@@ -19929,7 +18867,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shares_listed.dissect = fun
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shares_listed.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.shares_listed, range, value, display)
   return item, text
 end
@@ -19952,7 +18889,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shipping115_percent.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shipping115_percent.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.shipping115_percent, range, value, display)
   return item, text
 end
@@ -19975,7 +18911,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shipping3_percent.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.shipping3_percent.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.shipping3_percent, range, value, display)
   return item, text
 end
@@ -19998,7 +18933,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sick_leave_days.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sick_leave_days.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sick_leave_days, range, value, display)
   return item, text
 end
@@ -20021,10 +18955,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.simple_yield.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.simple_yield.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.simple_yield, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.simple_yield, range, text, display)
   return item, text
 end
 
@@ -20046,7 +18978,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.six_months_volume.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.six_months_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.six_months_volume, range, value, display)
   return item, text
 end
@@ -20069,7 +19000,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.six_to_twelve_months_option
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.six_to_twelve_months_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.six_to_twelve_months_options_volume, range, value, display)
   return item, text
 end
@@ -20086,10 +19016,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.size_or_sector.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.size_or_sector.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.size_or_sector, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.size_or_sector, range, text, display)
   return item, text
 end
 
@@ -20124,7 +19052,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.social_policy_item.dissect 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.social_policy_item.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.social_policy_item, range, value, display)
   return item, text
 end
@@ -20147,10 +19074,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.social_violations.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.social_violations.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.social_violations, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.social_violations, range, text, display)
   return item, text
 end
 
@@ -20179,7 +19104,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sod_eod.dissect = function(
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sod_eod.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sod_eod, range, value, display)
   return item, text
 end
@@ -20196,10 +19120,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.source_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.source_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.source_id, range, text, display)
   return item, text
 end
 
@@ -20222,7 +19144,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.source_system.dissect = fun
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.source_system.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.source_system, range, value, display)
   return item, text
 end
@@ -20245,7 +19166,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.spot_volume.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.spot_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.spot_volume, range, value, display)
   return item, text
 end
@@ -20268,10 +19188,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ssda_compliant.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ssda_compliant.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ssda_compliant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ssda_compliant, range, text, display)
   return item, text
 end
 
@@ -20293,7 +19211,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ssti_post_trade.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ssti_post_trade.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ssti_post_trade, range, value, display)
   return item, text
 end
@@ -20313,10 +19230,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.start_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.start_date, range, text, display)
   return item, text
 end
 
@@ -20335,10 +19250,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_time.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.start_time, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.start_time, range, text, display)
   return item, text
 end
 
@@ -20360,7 +19273,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_value.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.start_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.start_value, range, value, display)
   return item, text
 end
@@ -20465,7 +19377,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.state_code.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.state_code.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.state_code, range, value, display)
   return item, text
 end
@@ -20485,10 +19396,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.statement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.statement_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.statement_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.statement_date, range, text, display)
   return item, text
 end
 
@@ -20504,10 +19413,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.stop_codes.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.stop_codes.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.stop_codes, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.stop_codes, range, text, display)
   return item, text
 end
 
@@ -20523,10 +19430,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.strike_bucket.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.strike_bucket.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.strike_bucket, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.strike_bucket, range, text, display)
   return item, text
 end
 
@@ -20548,7 +19453,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.strike_price.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.strike_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.strike_price, range, value, display)
   return item, text
 end
@@ -20565,10 +19469,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.style.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.style.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.style, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.style, range, text, display)
   return item, text
 end
 
@@ -20584,10 +19486,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sub_product_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sub_product_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sub_product_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sub_product_code, range, text, display)
   return item, text
 end
 
@@ -20603,10 +19503,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subject.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subject.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subject, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subject, range, text, display)
   return item, text
 end
 
@@ -20622,10 +19520,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subject_group.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subject_group.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subject_group, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subject_group, range, text, display)
   return item, text
 end
 
@@ -20648,7 +19544,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subordinate_loan_capital.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subordinate_loan_capital.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subordinate_loan_capital, range, value, display)
   return item, text
 end
@@ -20665,10 +19560,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subscription_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subscription_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subscription_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subscription_currency, range, text, display)
   return item, text
 end
 
@@ -20690,7 +19583,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subsidized_housing.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.subsidized_housing.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.subsidized_housing, range, value, display)
   return item, text
 end
@@ -20713,10 +19605,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.supplier_code_of_conduct, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.supplier_code_of_conduct, range, text, display)
   return item, text
 end
 
@@ -20738,7 +19628,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_ce
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_certifed.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.supplier_code_of_conduct_certifed, range, value, display)
   return item, text
 end
@@ -20761,7 +19650,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_go
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_goal.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.supplier_code_of_conduct_goal, range, value, display)
   return item, text
 end
@@ -20785,7 +19673,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_ye
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.supplier_code_of_conduct_year.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.supplier_code_of_conduct_year, range, value, display)
   return item, text
 end
@@ -20827,7 +19714,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.suspension_reason.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.suspension_reason.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.suspension_reason, range, value, display)
   return item, text
 end
@@ -20844,10 +19730,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_listing_category.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_listing_category.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_listing_category, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_listing_category, range, text, display)
   return item, text
 end
 
@@ -20869,10 +19753,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_oversight.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_oversight.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_oversight, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_oversight, range, text, display)
   return item, text
 end
 
@@ -20894,10 +19776,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_report_filing.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainability_report_filing.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_report_filing, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainability_report_filing, range, text, display)
   return item, text
 end
 
@@ -20944,7 +19824,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_bond_group_id.d
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_bond_group_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainable_bond_group_id, range, value, display)
   return item, text
 end
@@ -20967,10 +19846,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_land_forestry_agriculture.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_land_forestry_agriculture.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainable_land_forestry_agriculture, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainable_land_forestry_agriculture, range, text, display)
   return item, text
 end
 
@@ -20992,10 +19869,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_ocean_seas.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sustainable_ocean_seas.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainable_ocean_seas, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.sustainable_ocean_seas, range, text, display)
   return item, text
 end
 
@@ -21011,10 +19886,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.swap_counter_party.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.swap_counter_party.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.swap_counter_party, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.swap_counter_party, range, text, display)
   return item, text
 end
 
@@ -21030,10 +19903,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.symbol.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.symbol.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.symbol, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.symbol, range, text, display)
   return item, text
 end
 
@@ -21131,7 +20002,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.table_entry_type.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.table_entry_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.table_entry_type, range, value, display)
   return item, text
 end
@@ -21161,7 +20031,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tar_indicator.dissect = fun
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tar_indicator.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tar_indicator, range, value, display)
   return item, text
 end
@@ -21185,7 +20054,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_colour.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_colour.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tax_colour, range, value, display)
   return item, text
 end
@@ -21208,7 +20076,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_rate.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_rate.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tax_rate, range, value, display)
   return item, text
 end
@@ -21225,10 +20092,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tax_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tax_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tax_type, range, text, display)
   return item, text
 end
 
@@ -21251,7 +20116,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.taxation.dissect = function
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.taxation.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.taxation, range, value, display)
   return item, text
 end
@@ -21274,7 +20138,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.taxonomy_aligned_activity_p
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.taxonomy_aligned_activity_pct.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.taxonomy_aligned_activity_pct, range, value, display)
   return item, text
 end
@@ -21297,7 +20160,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.temporary_worker_ratio.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.temporary_worker_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.temporary_worker_ratio, range, value, display)
   return item, text
 end
@@ -21333,7 +20195,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tenor_option_type.dissect =
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tenor_option_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tenor_option_type, range, value, display)
   return item, text
 end
@@ -21356,7 +20217,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ter.dissect = function(buff
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ter.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ter, range, value, display)
   return item, text
 end
@@ -21373,10 +20233,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.term.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.term.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.term, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.term, range, text, display)
   return item, text
 end
 
@@ -21392,10 +20250,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.text, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.text, range, text, display)
   return item, text
 end
 
@@ -21418,7 +20274,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_format.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_format.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.text_format, range, value, display)
   return item, text
 end
@@ -21442,7 +20297,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_fragments.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_fragments.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.text_fragments, range, value, display)
   return item, text
 end
@@ -21466,7 +20320,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_length.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.text_length.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.text_length, range, value, display)
   return item, text
 end
@@ -21489,7 +20342,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.theoretical_closing_value.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.theoretical_closing_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.theoretical_closing_value, range, value, display)
   return item, text
 end
@@ -21509,10 +20361,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.theoretical_closing_value_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.theoretical_closing_value_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.theoretical_closing_value_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.theoretical_closing_value_date, range, text, display)
   return item, text
 end
 
@@ -21528,10 +20378,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_country_trading_venue_of_execution.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_country_trading_venue_of_execution.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_country_trading_venue_of_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_country_trading_venue_of_execution, range, text, display)
   return item, text
 end
 
@@ -21547,10 +20395,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_energy_source.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_energy_source.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_energy_source, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_energy_source, range, text, display)
   return item, text
 end
 
@@ -21572,7 +20418,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_energy_source_pct.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_energy_source_pct.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_energy_source_pct, range, value, display)
   return item, text
 end
@@ -21595,10 +20440,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_party_assured.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_party_assured.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_party_assured, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_party_assured, range, text, display)
   return item, text
 end
 
@@ -21614,10 +20457,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_party_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.third_party_name.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_party_name, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.third_party_name, range, text, display)
   return item, text
 end
 
@@ -21639,7 +20480,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_months_volume.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_months_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.three_months_volume, range, value, display)
   return item, text
 end
@@ -21662,7 +20502,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_to_four_weeks_options
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_to_four_weeks_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.three_to_four_weeks_options_volume, range, value, display)
   return item, text
 end
@@ -21685,7 +20524,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_to_six_months_options
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.three_to_six_months_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.three_to_six_months_options_volume, range, value, display)
   return item, text
 end
@@ -21708,7 +20546,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tick_size.dissect = functio
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tick_size.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tick_size, range, value, display)
   return item, text
 end
@@ -21732,7 +20569,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tick_size_table_id.dissect 
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tick_size_table_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tick_size_table_id, range, value, display)
   return item, text
 end
@@ -21752,10 +20588,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.time_exec.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.time_exec.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.time_exec, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.time_exec, range, text, display)
   return item, text
 end
 
@@ -21771,10 +20605,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.time_offset_utc.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.time_offset_utc.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.time_offset_utc, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.time_offset_utc, range, text, display)
   return item, text
 end
 
@@ -21793,10 +20625,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_agreement.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_agreement.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_agreement, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_agreement, range, text, display)
   return item, text
 end
 
@@ -21815,10 +20645,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_dissemination.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_dissemination.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_dissemination, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_dissemination, range, text, display)
   return item, text
 end
 
@@ -21837,10 +20665,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_trade_cancel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_trade_cancel.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_trade_cancel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_trade_cancel, range, text, display)
   return item, text
 end
 
@@ -21859,10 +20685,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_trade_execution.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.timestamp_trade_execution.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_trade_execution, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.timestamp_trade_execution, range, text, display)
   return item, text
 end
 
@@ -21878,10 +20702,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.title.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.title.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.title, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.title, range, text, display)
   return item, text
 end
 
@@ -21903,7 +20725,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa.dissect = function(buf
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnoa, range, value, display)
   return item, text
 end
@@ -21926,7 +20747,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa_ask.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa_ask.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnoa_ask, range, value, display)
   return item, text
 end
@@ -21949,7 +20769,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa_bid.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnoa_bid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnoa_bid, range, value, display)
   return item, text
 end
@@ -21972,7 +20791,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob.dissect = function(buf
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnob, range, value, display)
   return item, text
 end
@@ -21995,7 +20813,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob_ask.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob_ask.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnob_ask, range, value, display)
   return item, text
 end
@@ -22018,7 +20835,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob_bid.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tnob_bid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tnob_bid, range, value, display)
   return item, text
 end
@@ -22041,10 +20857,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.to_be_cleared.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.to_be_cleared.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.to_be_cleared, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.to_be_cleared, range, text, display)
   return item, text
 end
 
@@ -22063,10 +20877,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.to_float_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.to_float_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.to_float_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.to_float_date, range, text, display)
   return item, text
 end
 
@@ -22088,7 +20900,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bio_capex.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bio_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_bio_capex, range, value, display)
   return item, text
 end
@@ -22111,7 +20922,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bio_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bio_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_bio_revenue, range, value, display)
   return item, text
 end
@@ -22134,7 +20944,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bioopex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_bioopex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_bioopex, range, value, display)
   return item, text
 end
@@ -22157,7 +20966,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_capex.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_capex, range, value, display)
   return item, text
 end
@@ -22180,7 +20988,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_cca_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_cca_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_cca_revenue, range, value, display)
   return item, text
 end
@@ -22203,7 +21010,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccacapex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccacapex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ccacapex, range, value, display)
   return item, text
 end
@@ -22226,7 +21032,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccaopex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccaopex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ccaopex, range, value, display)
   return item, text
 end
@@ -22249,7 +21054,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccm_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccm_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ccm_revenue, range, value, display)
   return item, text
 end
@@ -22272,7 +21076,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccmcapex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccmcapex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ccmcapex, range, value, display)
   return item, text
 end
@@ -22295,7 +21098,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccmopex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ccmopex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ccmopex, range, value, display)
   return item, text
 end
@@ -22318,7 +21120,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ce_revenue.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ce_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ce_revenue, range, value, display)
   return item, text
 end
@@ -22341,7 +21142,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_cecapex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_cecapex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_cecapex, range, value, display)
   return item, text
 end
@@ -22364,7 +21164,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ceopex.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ceopex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ceopex, range, value, display)
   return item, text
 end
@@ -22387,7 +21186,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_opex.dissect 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_opex, range, value, display)
   return item, text
 end
@@ -22410,7 +21208,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppc_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppc_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ppc_revenue, range, value, display)
   return item, text
 end
@@ -22433,7 +21230,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppccapex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppccapex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ppccapex, range, value, display)
   return item, text
 end
@@ -22456,7 +21252,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppcopex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_ppcopex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_ppcopex, range, value, display)
   return item, text
 end
@@ -22479,7 +21274,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_revenue.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_revenue, range, value, display)
   return item, text
 end
@@ -22502,7 +21296,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtr_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtr_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_wtr_revenue, range, value, display)
   return item, text
 end
@@ -22525,7 +21318,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtrcapex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtrcapex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_wtrcapex, range, value, display)
   return item, text
 end
@@ -22548,7 +21340,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtropex.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_aligned_wtropex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_aligned_wtropex, range, value, display)
   return item, text
 end
@@ -22571,7 +21362,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_capex.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_eligible_capex, range, value, display)
   return item, text
 end
@@ -22594,7 +21384,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_opex.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_eligible_opex, range, value, display)
   return item, text
 end
@@ -22617,7 +21406,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_revenue.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_eligible_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_eligible_revenue, range, value, display)
   return item, text
 end
@@ -22640,7 +21428,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_ghg_emissions.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_ghg_emissions.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_ghg_emissions, range, value, display)
   return item, text
 end
@@ -22663,7 +21450,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_capex.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_green_capex, range, value, display)
   return item, text
 end
@@ -22686,7 +21472,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_investments.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_investments.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_green_investments, range, value, display)
   return item, text
 end
@@ -22709,7 +21494,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_opex.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_green_opex, range, value, display)
   return item, text
 end
@@ -22732,7 +21516,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_turnover.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_green_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_green_turnover, range, value, display)
   return item, text
 end
@@ -22755,7 +21538,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_issue.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_issue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_issue, range, value, display)
   return item, text
 end
@@ -22778,7 +21560,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_capex.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_non_aligned_capex, range, value, display)
   return item, text
 end
@@ -22801,7 +21582,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_opex.diss
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_non_aligned_opex, range, value, display)
   return item, text
 end
@@ -22824,7 +21604,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_revenue.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_non_aligned_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_non_aligned_revenue, range, value, display)
   return item, text
 end
@@ -22847,7 +21626,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_capex.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_not_eligible_capex, range, value, display)
   return item, text
 end
@@ -22870,7 +21648,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_opex.dis
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_not_eligible_opex, range, value, display)
   return item, text
 end
@@ -22893,7 +21670,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_revenue.
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_not_eligible_revenue.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_not_eligible_revenue, range, value, display)
   return item, text
 end
@@ -22916,7 +21692,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_order_coverage.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_order_coverage.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_order_coverage, range, value, display)
   return item, text
 end
@@ -22939,7 +21714,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_cape
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_capex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_taxonomy_aligned_capex, range, value, display)
   return item, text
 end
@@ -22962,7 +21736,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_inve
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_investments.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_taxonomy_aligned_investments, range, value, display)
   return item, text
 end
@@ -22985,7 +21758,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_opex
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_opex.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_taxonomy_aligned_opex, range, value, display)
   return item, text
 end
@@ -23008,7 +21780,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_turn
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_taxonomy_aligned_turnover.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_taxonomy_aligned_turnover, range, value, display)
   return item, text
 end
@@ -23031,7 +21802,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_volume.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.total_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.total_volume, range, value, display)
   return item, text
 end
@@ -23048,10 +21818,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_buyer.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_buyer.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_buyer, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_buyer, range, text, display)
   return item, text
 end
 
@@ -23073,10 +21841,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_cancel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_cancel.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_cancel, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_cancel, range, text, display)
   return item, text
 end
 
@@ -23092,10 +21858,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_id, range, text, display)
   return item, text
 end
 
@@ -23117,7 +21881,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_lower_percent.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_lower_percent.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_lower_percent, range, value, display)
   return item, text
 end
@@ -23140,10 +21903,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_reporting.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_reporting.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_reporting, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_reporting, range, text, display)
   return item, text
 end
 
@@ -23165,10 +21926,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_reports_allowed.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_reports_allowed.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_reports_allowed, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_reports_allowed, range, text, display)
   return item, text
 end
 
@@ -23184,10 +21943,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_seller.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_seller.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_seller, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_seller, range, text, display)
   return item, text
 end
 
@@ -23210,7 +21967,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_type.dissect = functi
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_type, range, value, display)
   return item, text
 end
@@ -23233,10 +21989,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_average.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_average.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_average, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_average, range, text, display)
   return item, text
 end
 
@@ -23258,10 +22012,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_high_low.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_high_low.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_high_low, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_high_low, range, text, display)
   return item, text
 end
 
@@ -23283,10 +22035,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_last_paid.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_last_paid.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_last_paid, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_last_paid, range, text, display)
   return item, text
 end
 
@@ -23308,10 +22058,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_turnover.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_updates_turnover.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_turnover, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_updates_turnover, range, text, display)
   return item, text
 end
 
@@ -23333,7 +22081,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_upper_percent.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_upper_percent.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_upper_percent, range, value, display)
   return item, text
 end
@@ -23350,10 +22097,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_venue.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trade_venue.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_venue, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trade_venue, range, text, display)
   return item, text
 end
 
@@ -23375,10 +22120,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.traded_electronically.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.traded_electronically.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.traded_electronically, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.traded_electronically, range, text, display)
   return item, text
 end
 
@@ -23397,10 +22140,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.traded_through_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.traded_through_date.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.traded_through_date, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.traded_through_date, range, text, display)
   return item, text
 end
 
@@ -23422,10 +22163,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trading_at_close.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trading_at_close.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trading_at_close, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trading_at_close, range, text, display)
   return item, text
 end
 
@@ -23441,10 +22180,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trading_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.trading_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trading_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.trading_currency, range, text, display)
   return item, text
 end
 
@@ -23460,10 +22197,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.transaction_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.transaction_type.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.transaction_type, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.transaction_type, range, text, display)
   return item, text
 end
 
@@ -23485,7 +22220,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.true_yield.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.true_yield.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.true_yield, range, value, display)
   return item, text
 end
@@ -23508,7 +22242,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.true_yield_price.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.true_yield_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.true_yield_price, range, value, display)
   return item, text
 end
@@ -23531,10 +22264,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.turnover_calculation_enabled.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.turnover_calculation_enabled.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.turnover_calculation_enabled, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.turnover_calculation_enabled, range, text, display)
   return item, text
 end
 
@@ -23556,10 +22287,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.turnover_statistics.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.turnover_statistics.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.turnover_statistics, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.turnover_statistics, range, text, display)
   return item, text
 end
 
@@ -23581,7 +22310,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_ask_value.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_ask_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_ask_value, range, value, display)
   return item, text
 end
@@ -23604,7 +22332,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_ask_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_ask_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_ask_volume, range, value, display)
   return item, text
 end
@@ -23627,7 +22354,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_bid_value.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_bid_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_bid_value, range, value, display)
   return item, text
 end
@@ -23650,7 +22376,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_bid_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_bid_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_bid_volume, range, value, display)
   return item, text
 end
@@ -23673,7 +22398,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_value, range, value, display)
   return item, text
 end
@@ -23696,7 +22420,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_volume.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvoa_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvoa_volume, range, value, display)
   return item, text
 end
@@ -23719,7 +22442,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_ask_value.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_ask_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_ask_value, range, value, display)
   return item, text
 end
@@ -23742,7 +22464,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_ask_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_ask_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_ask_volume, range, value, display)
   return item, text
 end
@@ -23765,7 +22486,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_bid_value.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_bid_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_bid_value, range, value, display)
   return item, text
 end
@@ -23788,7 +22508,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_bid_volume.dissect = f
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_bid_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_bid_volume, range, value, display)
   return item, text
 end
@@ -23811,7 +22530,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_value.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_value, range, value, display)
   return item, text
 end
@@ -23834,7 +22552,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_volume.dissect = funct
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvob_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvob_volume, range, value, display)
   return item, text
 end
@@ -23857,7 +22574,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvwaq.dissect = function(bu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tvwaq.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.tvwaq, range, value, display)
   return item, text
 end
@@ -23880,7 +22596,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twab_ask.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twab_ask.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twab_ask, range, value, display)
   return item, text
 end
@@ -23903,7 +22618,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twab_bid.dissect = function
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twab_bid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twab_bid, range, value, display)
   return item, text
 end
@@ -23926,7 +22640,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twas.dissect = function(buf
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twas.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twas, range, value, display)
   return item, text
 end
@@ -23949,7 +22662,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twelve_months_volume.dissec
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twelve_months_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twelve_months_volume, range, value, display)
   return item, text
 end
@@ -23972,7 +22684,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twelve_to_twentyfour_months
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twelve_to_twentyfour_months_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twelve_to_twentyfour_months_options_volume, range, value, display)
   return item, text
 end
@@ -23995,7 +22706,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twenty_four_months_plus_vol
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twenty_four_months_plus_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twenty_four_months_plus_volume, range, value, display)
   return item, text
 end
@@ -24018,7 +22728,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twenty_four_months_volume.d
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.twenty_four_months_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.twenty_four_months_volume, range, value, display)
   return item, text
 end
@@ -24041,7 +22750,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.two_to_three_weeks_options_
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.two_to_three_weeks_options_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.two_to_three_weeks_options_volume, range, value, display)
   return item, text
 end
@@ -24064,7 +22772,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.two_weeks_volume.dissect = 
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.two_weeks_volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.two_weeks_volume, range, value, display)
   return item, text
 end
@@ -24088,7 +22795,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.type_of_fund.dissect = func
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.type_of_fund.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.type_of_fund, range, value, display)
   return item, text
 end
@@ -24112,7 +22818,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.type_of_reporting_obligatio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.type_of_reporting_obligation.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.type_of_reporting_obligation, range, value, display)
   return item, text
 end
@@ -24135,10 +22840,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ucitsiii_compliant.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ucitsiii_compliant.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ucitsiii_compliant, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ucitsiii_compliant, range, text, display)
   return item, text
 end
 
@@ -24160,10 +22863,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.un_compact_process.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.un_compact_process.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.un_compact_process, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.un_compact_process, range, text, display)
   return item, text
 end
 
@@ -24185,10 +22886,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.un_compact_violation.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.un_compact_violation.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.un_compact_violation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.un_compact_violation, range, text, display)
   return item, text
 end
 
@@ -24211,7 +22910,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.unchanged_bids.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.unchanged_bids.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.unchanged_bids, range, value, display)
   return item, text
 end
@@ -24235,7 +22933,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.unchanged_paid.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.unchanged_paid.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.unchanged_paid, range, value, display)
   return item, text
 end
@@ -24252,10 +22949,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_external_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_external_id.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_external_id, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_external_id, range, text, display)
   return item, text
 end
 
@@ -24296,7 +22991,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_external_id_type
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_external_id_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_external_id_type, range, value, display)
   return item, text
 end
@@ -24320,7 +23014,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_id.dissect = fun
   end
   value = UInt64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_id.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_id, range, value, display)
   return item, text
 end
@@ -24337,10 +23030,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_instrument, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_instrument, range, text, display)
   return item, text
 end
 
@@ -24356,10 +23047,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_instrument_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_instrument_currency, range, text, display)
   return item, text
 end
 
@@ -24415,7 +23104,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument_type.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_instrument_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_instrument_type, range, value, display)
   return item, text
 end
@@ -24432,10 +23120,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_market.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_market.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_market, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_market, range, text, display)
   return item, text
 end
 
@@ -24451,10 +23137,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_symbol.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_symbol.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_symbol, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_symbol, range, text, display)
   return item, text
 end
 
@@ -24470,10 +23154,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_type_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.underlying_type_code.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_type_code, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.underlying_type_code, range, text, display)
   return item, text
 end
 
@@ -24508,7 +23190,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.update_code.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.update_code.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.update_code, range, value, display)
   return item, text
 end
@@ -24538,7 +23219,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.urgency.dissect = function(
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.urgency.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.urgency, range, value, display)
   return item, text
 end
@@ -24555,10 +23235,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.url.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.url.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.url, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.url, range, text, display)
   return item, text
 end
 
@@ -24577,10 +23255,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.valid_from.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.valid_from.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.valid_from, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.valid_from, range, text, display)
   return item, text
 end
 
@@ -24599,10 +23275,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.valid_to.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.valid_to.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.valid_to, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.valid_to, range, text, display)
   return item, text
 end
 
@@ -24624,7 +23298,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value.dissect = function(bu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.value, range, value, display)
   return item, text
 end
@@ -24641,10 +23314,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_currency.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.value_currency, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.value_currency, range, text, display)
   return item, text
 end
 
@@ -24667,7 +23338,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_ratio.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_ratio.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.value_ratio, range, value, display)
   return item, text
 end
@@ -24700,7 +23370,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_type.dissect = functi
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.value_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.value_type, range, value, display)
   return item, text
 end
@@ -24724,7 +23393,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.version_number.dissect = fu
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.version_number.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.version_number, range, value, display)
   return item, text
 end
@@ -24741,10 +23409,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vessel_size.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vessel_size.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.vessel_size, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.vessel_size, range, text, display)
   return item, text
 end
 
@@ -24766,7 +23432,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume.dissect = function(b
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.volume, range, value, display)
   return item, text
 end
@@ -24796,7 +23461,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume_dimension.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume_dimension.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.volume_dimension, range, value, display)
   return item, text
 end
@@ -24829,7 +23493,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume_type.dissect = funct
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.volume_type.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.volume_type, range, value, display)
   return item, text
 end
@@ -24852,7 +23515,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.voting_power.dissect = func
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.voting_power.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.voting_power, range, value, display)
   return item, text
 end
@@ -24875,7 +23537,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vwap.dissect = function(buf
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vwap.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.vwap, range, value, display)
   return item, text
 end
@@ -24898,7 +23559,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vwap_intvl.dissect = functi
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.vwap_intvl.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.vwap_intvl, range, value, display)
   return item, text
 end
@@ -24921,7 +23581,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.waste_produced.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.waste_produced.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.waste_produced, range, value, display)
   return item, text
 end
@@ -24944,7 +23603,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_consumed.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_consumed.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_consumed, range, value, display)
   return item, text
 end
@@ -24967,10 +23625,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_management_policy.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_management_policy.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_management_policy, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_management_policy, range, text, display)
   return item, text
 end
 
@@ -24992,10 +23648,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle, range, text, display)
   return item, text
 end
 
@@ -25017,7 +23671,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal1.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_goal1, range, value, display)
   return item, text
 end
@@ -25040,7 +23693,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal2.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_goal2, range, value, display)
   return item, text
 end
@@ -25063,7 +23715,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal3.dissect
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_goal3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_goal3, range, value, display)
   return item, text
 end
@@ -25087,7 +23738,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year1.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_year1, range, value, display)
   return item, text
 end
@@ -25111,7 +23761,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year2.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_year2, range, value, display)
   return item, text
 end
@@ -25135,7 +23784,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year3.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycle_year3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycle_year3, range, value, display)
   return item, text
 end
@@ -25158,7 +23806,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycled_reclaimed.di
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_recycled_reclaimed.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_recycled_reclaimed, range, value, display)
   return item, text
 end
@@ -25181,10 +23828,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction, range, text, display)
   return item, text
 end
 
@@ -25207,7 +23852,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year1.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_base_year1, range, value, display)
   return item, text
 end
@@ -25231,7 +23875,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year2.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_base_year2, range, value, display)
   return item, text
 end
@@ -25255,7 +23898,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year3.
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_base_year3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_base_year3, range, value, display)
   return item, text
 end
@@ -25278,7 +23920,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal1.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_goal1, range, value, display)
   return item, text
 end
@@ -25301,7 +23942,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal2.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_goal2, range, value, display)
   return item, text
 end
@@ -25324,7 +23964,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal3.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_goal3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_goal3, range, value, display)
   return item, text
 end
@@ -25348,7 +23987,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year1.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_year1, range, value, display)
   return item, text
 end
@@ -25372,7 +24010,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year2.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_year2, range, value, display)
   return item, text
 end
@@ -25396,7 +24033,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year3.disse
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.water_reduction_year3.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.water_reduction_year3, range, value, display)
   return item, text
 end
@@ -25419,7 +24055,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.weighted_average_life.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.weighted_average_life.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.weighted_average_life, range, value, display)
   return item, text
 end
@@ -25443,7 +24078,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistle_blower_incidents.di
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistle_blower_incidents.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.whistle_blower_incidents, range, value, display)
   return item, text
 end
@@ -25466,10 +24100,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistle_blower_program.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistle_blower_program.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.whistle_blower_program, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.whistle_blower_program, range, text, display)
   return item, text
 end
 
@@ -25491,10 +24123,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistleblower_protection.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.whistleblower_protection.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.whistleblower_protection, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.whistleblower_protection, range, text, display)
   return item, text
 end
 
@@ -25516,7 +24146,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_after_tax1
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_after_tax1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_adj_factor_after_tax1, range, value, display)
   return item, text
 end
@@ -25539,7 +24168,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_after_tax2
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_after_tax2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_adj_factor_after_tax2, range, value, display)
   return item, text
 end
@@ -25562,7 +24190,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_before_tax
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_adj_factor_before_tax.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_adj_factor_before_tax, range, value, display)
   return item, text
 end
@@ -25586,7 +24213,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_average_group.dissect
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_average_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_average_group, range, value, display)
   return item, text
 end
@@ -25609,10 +24235,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_calculated.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_calculated.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_calculated, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_calculated, range, text, display)
   return item, text
 end
 
@@ -25634,10 +24258,8 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_calculation.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_text(range)
-  local value = text
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_calculation.display(text)
-
-  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_calculation, range, value, display)
+  local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_calculation, range, text, display)
   return item, text
 end
 
@@ -25660,7 +24282,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_group_code.dissect = 
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_group_code.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_group_code, range, value, display)
   return item, text
 end
@@ -25683,7 +24304,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_to_maturity.dissect =
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.yield_to_maturity.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.yield_to_maturity, range, value, display)
   return item, text
 end
@@ -25706,7 +24326,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_after_tax1.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_after_tax1.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ytm_after_tax1, range, value, display)
   return item, text
 end
@@ -25729,7 +24348,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_after_tax2.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_after_tax2.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ytm_after_tax2, range, value, display)
   return item, text
 end
@@ -25752,7 +24370,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_before_tax.dissect = fu
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_before_tax.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ytm_before_tax, range, value, display)
   return item, text
 end
@@ -25776,7 +24393,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_group.dissect = functio
   end
   value = Int64.new(value)
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.ytm_group.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.ytm_group, range, value, display)
   return item, text
 end
@@ -25799,7 +24415,6 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.zero_prepayment_price.disse
     return
   end
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.zero_prepayment_price.display(text)
-
   local item = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.zero_prepayment_price, range, value, display)
   return item, text
 end
@@ -26835,7 +25450,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tags = {
 
 
 -----------------------------------------------------------------------
--- Nasdaq NordicMarkets ConsolidatedFeed 3.10.17.1 Tip Messages
+-- Tip Records
 -----------------------------------------------------------------------
 
 -- Record preferences: one per record, as the binary dissectors name theirs; off, the record is neither kept nor looked up
@@ -26852,6 +25467,7 @@ omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs.record_basic_data
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs.record_basic_data_table_entry_message = Pref.bool("Lookup Basic Data Table Entry Message", true, "Cache records and resolve cross-packet lookups")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs.record_basic_data_tick_size_table_message = Pref.bool("Lookup Basic Data Tick Size Table Message", true, "Cache records and resolve cross-packet lookups")
 omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs.record_basic_data_tradable_message = Pref.bool("Lookup Basic Data Tradable Message", true, "Cache records and resolve cross-packet lookups")
+omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs.record_basic_data_translation_table_message = Pref.bool("Lookup Basic Data Translation Table Message", true, "Cache records and resolve cross-packet lookups")
 
 -- Records: per flow, each record message's instances by key, holding the fields its Record keeps
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_records = {}
@@ -26861,9 +25477,32 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_flow = function(packet)
   return tostring(packet.src)..":"..tostring(packet.src_port)..">"..tostring(packet.dst)..":"..tostring(packet.dst_port)
 end
 
+-- A key from its parts: one field's value, or each part's text - a field's value, a literal, or the looked-up value - joined by "|"; nil when a part has no value
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_key = function(key, values, value)
+  if type(key) ~= "table" then
+    return values[key]
+  end
+  local composed = nil
+  for _, part in ipairs(key) do
+    local text = nil
+    if part.data ~= nil then
+      text = part.data
+    elseif part.code ~= nil then
+      text = values[part.code]
+    else
+      text = value
+    end
+    if text == nil then
+      return nil
+    end
+    composed = composed and (composed.."|"..tostring(text)) or tostring(text)
+  end
+  return composed
+end
+
 -- Store a record message's kept fields under its key
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_store = function(packet, record, values)
-  local key = values[record.key]
+  local key = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_key(record.key, values)
   if key == nil or not omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.prefs["record_"..record.name] then
     return
   end
@@ -26885,9 +25524,18 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_lookup = function(packe
   end
   local flow = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_records[nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_flow(packet)]
   local records = flow and flow[lookup.record]
-  local record = records and records[value]
+  local key = value
+  if lookup.key then
+    key = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_key(lookup.key, {}, value)
+  end
+  local record = records and key ~= nil and records[key]
   return record and record[lookup.field]
 end
+
+
+-----------------------------------------------------------------------
+-- Tip Messages
+-----------------------------------------------------------------------
 
 -- Dissect the tags of a tip message: a tag the message does not carry, and a mandatory tag it lacks, are flagged; an unknown tag is skipped. A field with a lookup shows what its record keeps; a record message is kept once dissected.
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.tip_fields = function(buffer, packet, parent, tokens, message)
@@ -26935,6 +25583,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_yield_message.name 
 
 -- Codes: Average Yield Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_yield_message.codes = { ["t"] = true, ["YIGc"] = true, ["CTAg"] = true, ["YTMg"] = true, ["CTMa"] = true, ["TRUy"] = true, ["NSIg"] = true, ["PWAi"] = true, ["APRd"] = true }
+
+-- Lookups: Average Yield Message
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_yield_message.lookups = { ["YIGc"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "YieldGroupCode" }, { value = true } } }, ["CTAg"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "CodeYieldAvgGroup" }, { value = true } } }, ["YTMg"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "YtmGroup" }, { value = true } } }, ["CTMa"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "CodeTermToMaturity" }, { value = true } } } }
 
 -- Mandatory: Average Yield Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.average_yield_message.mandatory = {  }
@@ -27044,7 +25695,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_bond_supplementa
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_bond_supplementary_message.codes = { ["i"] = true, ["s"] = true, ["ABFi"] = true, ["ABCd"] = true, ["AASt"] = true, ["ACYa"] = true, ["ACBt"] = true, ["DRAw"] = true, ["ABTc"] = true, ["ACFo"] = true, ["ACFl"] = true, ["ACFs"] = true, ["ACCo"] = true, ["ACDd"] = true, ["ANOo"] = true, ["ACXc"] = true, ["ADXc"] = true, ["ALOt"] = true, ["ALTs"] = true, ["ALTp"] = true, ["ALTe"] = true, ["ABOm"] = true, ["ALDd"] = true, ["ASSp"] = true, ["AGGu"] = true, ["FCd"] = true, ["AARf"] = true, ["ACSt"] = true, ["ABPd"] = true, ["ADRd"] = true, ["ANSd"] = true, ["ABPn"] = true, ["ABLg"] = true, ["AREp"] = true, ["APRo"] = true, ["APIl"] = true, ["AOIn"] = true, ["ABIt"] = true, ["ABTy"] = true, ["AOBt"] = true, ["ARPs"] = true, ["ACt"] = true, ["AYc"] = true, ["AFd"] = true, ["AREa"] = true, ["AFr"] = true, ["AFDn"] = true, ["AFDa"] = true, ["AFDz"] = true, ["AFc"] = true, ["APc"] = true, ["ACs"] = true, ["DSm"] = true, ["NCp"] = true, ["NDr"] = true, ["RPf"] = true, ["CAPc"] = true, ["EOPt"] = true, ["RFr"] = true, ["RFf"] = true, ["INTt"] = true, ["INTl"] = true, ["CAe"] = true, ["NIm"] = true, ["REDt"] = true, ["NFAi"] = true, ["NFAs"] = true, ["IPAd"] = true, ["AINb"] = true, ["AIBr"] = true, ["AIBc"] = true, ["AIBf"] = true }
 
 -- Lookups: Basic Data Bond Supplementary Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_bond_supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_bond_supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["ACYa"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "YieldAverageGroup" }, { value = true } } }, ["ACBt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "BondTypeGroup" }, { value = true } } }, ["ABTc"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "TaxColour" }, { value = true } } }, ["ACCo"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "Callability" }, { value = true } } }, ["ALOt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "LoanType" }, { value = true } } }, ["ASSp"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "SectionPlacement" }, { value = true } } }, ["AGGu"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "GovernmentGuarantee" }, { value = true } } }, ["AARf"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "AssetReference" }, { value = true } } }, ["ACSt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "CashflowStatus" }, { value = true } } }, ["AREp"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "RepaymentProfile" }, { value = true } } }, ["APRo"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "SubordinateLoanCapital" }, { value = true } } }, ["APIl"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "PrincipalIndexLink" }, { value = true } } }, ["ABIt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "BondIssuerType" }, { value = true } } }, ["ABTy"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "DKBondType" }, { value = true } } }, ["ARPs"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "RepaymentProfileSpecification" }, { value = true } } }, ["ACt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "CouponType" }, { value = true } } }, ["AFc"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "FixingCalendar" }, { value = true } } }, ["EOPt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "ExtraordinaryPaymentTerms" }, { value = true } } }, ["INTt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "InterestTrigger" }, { value = true } } }, ["NIm"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "NegativeInterestModel" }, { value = true } } }, ["REDt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "RedemptionType" }, { value = true } } }, ["NFAi"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "NormalizationFactorInterest" }, { value = true } } }, ["NFAs"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "NormalizationFactorSpread" }, { value = true } } }, ["AINb"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "InterestBase" }, { value = true } } } }
 
 -- Mandatory: Basic Data Bond Supplementary Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_bond_supplementary_message.mandatory = {  }
@@ -27176,7 +25827,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_debtor_compositi
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_debtor_composition_message.codes = { ["s"] = true, ["i"] = true, ["ISn"] = true, ["LOGr"] = true, ["BOOi"] = true, ["OUBl"] = true, ["OBCl"] = true, ["CLOu"] = true, ["CASi"] = true, ["NRBl"] = true, ["NRCl"] = true, ["DADk"] = true, ["DANr"] = true, ["NRRl"] = true, ["REDa"] = true, ["APRd"] = true, ["Of"] = true }
 
 -- Lookups: Basic Data Debtor Composition Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_debtor_composition_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_debtor_composition_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["LOGr"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "LoanGroup" }, { value = true } } }, ["BOOi"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "BondOutstInt" }, { value = true } } } }
 
 -- Mandatory: Basic Data Debtor Composition Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_debtor_composition_message.mandatory = {  }
@@ -27314,7 +25965,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_index_message.co
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_index_message.record = { name = "basic_data_index_message", key = "i", fields = { "i", "INAm" } }
 
 -- Lookups: Basic Data Index Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_index_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PARi"] = { record = "basic_data_index_message", field = "INAm" }, ["POt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["TYc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ITy"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["IPt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["SId"] = { record = "basic_data_sector_message", field = "NAm" }, ["INDr"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDs"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["Is"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ICs"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_index_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["POt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["TYc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ITy"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["IPt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["SId"] = { record = "basic_data_sector_message", field = "NAm" }, ["INDr"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDs"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["INDc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["Is"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ICs"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Index Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_index_message.mandatory = {  }
@@ -27386,7 +26037,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_list_message.cod
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_list_message.record = { name = "basic_data_list_message", key = "i", fields = { "i", "NAm" } }
 
 -- Lookups: Basic Data List Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_list_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["LSt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["PAi"] = { record = "basic_data_list_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_list_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["LSt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data List Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_list_message.mandatory = {  }
@@ -27618,7 +26269,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_sector_message.c
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_sector_message.record = { name = "basic_data_sector_message", key = "i", fields = { "i", "NAm" } }
 
 -- Lookups: Basic Data Sector Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_sector_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PAi"] = { record = "basic_data_sector_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_sector_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Sector Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_sector_message.mandatory = {  }
@@ -27934,6 +26585,9 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_translation_tabl
 -- Codes: Basic Data Translation Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_translation_table_message.codes = { ["s"] = true, ["AFn"] = true, ["AFv"] = true, ["AFe"] = true }
 
+-- Record: Basic Data Translation Table Message, kept by AFn and AFv
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_translation_table_message.record = { name = "basic_data_translation_table_message", key = { { code = "AFn" }, { code = "AFv" } }, fields = { "AFn", "AFv", "AFe" } }
+
 -- Lookups: Basic Data Translation Table Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_translation_table_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
@@ -27979,7 +26633,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_utc_message.name
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_utc_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TIs"] = true, ["SHc"] = true, ["SHCl"] = true, ["HOt"] = true, ["ACTs"] = true, ["AFTc"] = true, ["ALc"] = true, ["AIFg"] = true, ["AIFi"] = true, ["AAp"] = true, ["ANPy"] = true, ["ATx"] = true, ["ATf"] = true, ["AFDo"] = true, ["AMSa"] = true, ["ATRo"] = true }
 
 -- Lookups: Basic Data UTC Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_utc_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_utc_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["AFTc"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "FilteringClass" }, { value = true } } }, ["ALc"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "LegalConstruction" }, { value = true } } }, ["AIFg"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "InvestmentFocusGeographic" }, { value = true } } }, ["AIFi"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "InvestmentFocusInstruments" }, { value = true } } }, ["AAp"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "AllocationProfile" }, { value = true } } }, ["ATx"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "Taxation" }, { value = true } } }, ["ATf"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "TypeOfFund" }, { value = true } } }, ["AFDo"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "FundDomicile" }, { value = true } } }, ["AMSa"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "MktAndSubMktAffiliation" }, { value = true } } }, ["ATRo"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "TypeOfReportingObligation" }, { value = true } } } }
 
 -- Mandatory: Basic Data UTC Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.basic_data_utc_message.mandatory = {  }
@@ -28086,7 +26740,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.company_news_meta_message.n
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.company_news_meta_message.codes = { ["DSId"] = true, ["Ex"] = true, ["Mk"] = true, ["ISi"] = true, ["ISs"] = true, ["ISt"] = true, ["TIt"] = true, ["LAn"] = true, ["RELd"] = true, ["REt"] = true, ["DIt"] = true, ["PTy"] = true, ["INn"] = true, ["REd"] = true, ["CHc"] = true, ["TXl"] = true, ["TXf"] = true, ["URl"] = true, ["LNk"] = true, ["Li"] = true, ["AISn"] = true, ["CNy"] = true, ["Tf"] = true, ["AWDi"] = true, ["SECn"] = true, ["MKTn"] = true, ["EXCn"] = true, ["SUBg"] = true, ["SUb"] = true, ["ABIs"] = true, ["ABIn"] = true }
 
 -- Lookups: Company News Meta Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.company_news_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.company_news_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" }, ["ISt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "IssuerType" }, { value = true } } }, ["DIt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "DisclosureType" }, { value = true } } }, ["PTy"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "PublicationType" }, { value = true } } }, ["Tf"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "TextFormat" }, { value = true } } } }
 
 -- Mandatory: Company News Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.company_news_meta_message.mandatory = {  }
@@ -28146,7 +26800,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corporate_action_meta_messa
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corporate_action_meta_message.codes = { ["DSId"] = true, ["Ex"] = true, ["Mk"] = true, ["ISi"] = true, ["ISs"] = true, ["ISt"] = true, ["TIt"] = true, ["LAn"] = true, ["RELd"] = true, ["REt"] = true, ["DIt"] = true, ["PTy"] = true, ["INn"] = true, ["REd"] = true, ["CHc"] = true, ["TXl"] = true, ["TXf"] = true, ["URl"] = true, ["LNk"] = true, ["Li"] = true, ["AISn"] = true, ["CNy"] = true, ["Tf"] = true, ["AWDi"] = true, ["SECn"] = true, ["MKTn"] = true, ["EXCn"] = true, ["SUBg"] = true, ["SUb"] = true, ["ABIs"] = true, ["ABIn"] = true }
 
 -- Lookups: Corporate Action Meta Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corporate_action_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corporate_action_meta_message.lookups = { ["Ex"] = { record = "basic_data_exchange_message", field = "NAm" }, ["Mk"] = { record = "basic_data_market_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" }, ["ISt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "IssuerType" }, { value = true } } }, ["DIt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "DisclosureType" }, { value = true } } }, ["PTy"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "PublicationType" }, { value = true } } }, ["Tf"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "TextFormat" }, { value = true } } } }
 
 -- Mandatory: Corporate Action Meta Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.corporate_action_meta_message.mandatory = {  }
@@ -28609,7 +27263,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_data_message.name = "F
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_data_message.codes = { ["i"] = true, ["t"] = true, ["ISn"] = true, ["ISSp"] = true, ["REDp"] = true, ["NAv"] = true, ["ANc"] = true, ["ARt"] = true, ["ASm"] = true, ["APRd"] = true, ["TDi"] = true }
 
 -- Lookups: Fund Data Message
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_data_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" } }
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_data_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["ARt"] = { record = "basic_data_translation_table_message", field = "AFe", key = { { data = "ReportType" }, { value = true } } } }
 
 -- Mandatory: Fund Data Message
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fund_data_message.mandatory = {  }
@@ -29627,7 +28281,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accepted_sequence_number.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -29816,7 +28470,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.requested_sequence_number.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -30037,7 +28691,7 @@ nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.server_heartbeat.dissect = 
   return offset
 end
 
--- Sequenced Data Packet: tip message
+-- Sequenced Data Packet: a tip message, dispatched on its type token
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.sequenced_data_packet = {}
 
 -- Read runtime size of: Sequenced Data Packet

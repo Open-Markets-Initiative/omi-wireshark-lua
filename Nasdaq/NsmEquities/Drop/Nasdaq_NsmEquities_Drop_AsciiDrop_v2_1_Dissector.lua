@@ -518,7 +518,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_1.match_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v2_1.match_number.display(value, buffer, offset, packet, parent)
@@ -634,7 +634,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_1.reference.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v2_1.reference.display(value, buffer, offset, packet, parent)
@@ -685,7 +685,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_1.shares.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v2_1.shares.display(value, buffer, offset, packet, parent)
@@ -759,7 +759,7 @@ nasdaq_nsmequities_drop_asciidrop_v2_1.time_in_force.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_drop_asciidrop_v2_1.time_in_force.display(value, buffer, offset, packet, parent)

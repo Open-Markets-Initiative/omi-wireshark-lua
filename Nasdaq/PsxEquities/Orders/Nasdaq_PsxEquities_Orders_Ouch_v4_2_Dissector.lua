@@ -231,7 +231,7 @@ nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1311,7 +1311,7 @@ nasdaq_psxequities_orders_ouch_v4_2.requested_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_psxequities_orders_ouch_v4_2.requested_sequence_number.display(value, buffer, offset, packet, parent)

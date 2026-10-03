@@ -332,7 +332,7 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.market_day_identifier.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = imperative_intelligentcross_depthofbook_aspen_v1_11.market_day_identifier.display(value, buffer, offset, packet, parent)

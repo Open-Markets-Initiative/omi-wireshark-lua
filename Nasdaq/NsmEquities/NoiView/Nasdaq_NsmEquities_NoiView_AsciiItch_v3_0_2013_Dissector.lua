@@ -231,10 +231,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_price.display(value, buffer, offset, packet, parent)
@@ -310,10 +310,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_reference_price.display(value, buffer, offset, packet, parent)
@@ -410,7 +410,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.etp_leverage_factor.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.etp_leverage_factor.display(value, buffer, offset, packet, parent)
@@ -498,10 +498,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.far_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.far_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.far_price.display(value, buffer, offset, packet, parent)
@@ -622,7 +622,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.imbalance_shares.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.imbalance_shares.display(value, buffer, offset, packet, parent)
@@ -728,10 +728,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_price.display(value, buffer, offset, packet, parent)
@@ -789,7 +789,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quotation_release_time.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quotation_release_time.display(value, buffer, offset, packet, parent)
@@ -873,7 +873,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.luld_reference_price_tier.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.luld_reference_price_tier.display(value, buffer, offset, packet, parent)
@@ -949,7 +949,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.match_number.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.match_number.display(value, buffer, offset, packet, parent)
@@ -1083,10 +1083,10 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.near_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.near_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.near_price.display(value, buffer, offset, packet, parent)
@@ -1114,7 +1114,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.paired_shares.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.paired_shares.display(value, buffer, offset, packet, parent)
@@ -1367,7 +1367,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.round_lot_size.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.round_lot_size.display(value, buffer, offset, packet, parent)
@@ -1471,7 +1471,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.shares.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.shares.display(value, buffer, offset, packet, parent)
@@ -1602,7 +1602,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.timestamp.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.timestamp.display(value, buffer, offset, packet, parent)

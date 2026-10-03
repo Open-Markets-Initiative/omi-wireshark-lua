@@ -251,7 +251,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.accepted_sequence_number.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1235,7 +1235,7 @@ nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.requested_sequence_number.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

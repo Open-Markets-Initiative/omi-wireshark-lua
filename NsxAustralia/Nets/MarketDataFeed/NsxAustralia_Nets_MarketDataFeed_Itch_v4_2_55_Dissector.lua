@@ -276,7 +276,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1775,7 +1775,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.requested_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.requested_sequence_number.display(value, buffer, offset, packet, parent)

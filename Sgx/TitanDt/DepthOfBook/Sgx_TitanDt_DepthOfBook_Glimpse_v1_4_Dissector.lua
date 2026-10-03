@@ -241,7 +241,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1144,7 +1144,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.requested_sequence_number.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = sgx_titandt_depthofbook_glimpse_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)

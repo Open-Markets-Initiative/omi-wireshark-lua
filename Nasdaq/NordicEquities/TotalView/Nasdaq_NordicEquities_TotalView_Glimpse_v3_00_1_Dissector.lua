@@ -285,7 +285,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1039,7 +1039,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.requested_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1113,7 +1113,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.display(value, buffer, offset, packet, parent)

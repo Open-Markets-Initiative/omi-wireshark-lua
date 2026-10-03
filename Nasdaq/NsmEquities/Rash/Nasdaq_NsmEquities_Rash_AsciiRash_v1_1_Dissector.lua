@@ -257,7 +257,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.accepted_sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -617,10 +617,10 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1.discretion_peg_difference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_1.discretion_peg_difference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.discretion_peg_difference.display(value, buffer, offset, packet, parent)
@@ -732,10 +732,10 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1.discretion_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_1.discretion_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.discretion_price.display(value, buffer, offset, packet, parent)
@@ -1080,7 +1080,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.match_number.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.match_number.display(value, buffer, offset, packet, parent)
@@ -1108,7 +1108,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.max_floor.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.max_floor.display(value, buffer, offset, packet, parent)
@@ -1136,7 +1136,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.min_qty.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.min_qty.display(value, buffer, offset, packet, parent)
@@ -1164,7 +1164,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.order_reference_number.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -1299,10 +1299,10 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1.peg_difference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_1.peg_difference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.peg_difference.display(value, buffer, offset, packet, parent)
@@ -1417,10 +1417,10 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_1.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.price.display(value, buffer, offset, packet, parent)
@@ -1448,7 +1448,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.random_reserve.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.random_reserve.display(value, buffer, offset, packet, parent)
@@ -1491,10 +1491,10 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_rash_asciirash_v1_1.reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.reference_price.display(value, buffer, offset, packet, parent)
@@ -1729,7 +1729,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.requested_sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2035,7 +2035,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.shares.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.shares.display(value, buffer, offset, packet, parent)
@@ -2063,7 +2063,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.shares_order_qty.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.shares_order_qty.display(value, buffer, offset, packet, parent)
@@ -2150,7 +2150,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.time_in_force.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.time_in_force.display(value, buffer, offset, packet, parent)
@@ -2202,7 +2202,7 @@ nasdaq_nsmequities_rash_asciirash_v1_1.timestamp.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_rash_asciirash_v1_1.timestamp.display(value, buffer, offset, packet, parent)

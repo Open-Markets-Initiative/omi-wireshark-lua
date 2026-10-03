@@ -265,7 +265,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price.display(value, buffer, offset, packet, parent)
@@ -293,7 +293,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_price_fraction_indicator.display(value, buffer, offset, packet, parent)
@@ -351,7 +351,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.ask_size.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.ask_size.display(value, buffer, offset, packet, parent)
@@ -415,7 +415,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.bid_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_price.display(value, buffer, offset, packet, parent)
@@ -489,7 +489,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.bid_size.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.bid_size.display(value, buffer, offset, packet, parent)
@@ -656,7 +656,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.continue_marker.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.continue_marker.display(value, buffer, offset, packet, parent)
@@ -694,7 +694,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.deletion_type.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.deletion_type.display(value, buffer, offset, packet, parent)
@@ -779,7 +779,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.end_of_the_exposition.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.end_of_the_exposition.display(value, buffer, offset, packet, parent)
@@ -830,7 +830,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.expiry_day.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.expiry_day.display(value, buffer, offset, packet, parent)
@@ -915,7 +915,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.expiry_year.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.expiry_year.display(value, buffer, offset, packet, parent)
@@ -1152,7 +1152,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.high_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.high_price.display(value, buffer, offset, packet, parent)
@@ -1339,7 +1339,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.improvement_phase_sequential_number.display(value, buffer, offset, packet, parent)
@@ -1367,7 +1367,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.improvement_process_expiry_duration.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.improvement_process_expiry_duration.display(value, buffer, offset, packet, parent)
@@ -1395,7 +1395,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.initial_order_price.display(value, buffer, offset, packet, parent)
@@ -1632,7 +1632,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.last_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.last_price.display(value, buffer, offset, packet, parent)
@@ -1706,7 +1706,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.leg_ratio.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.leg_ratio.display(value, buffer, offset, packet, parent)
@@ -1888,7 +1888,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.low_price.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.low_price.display(value, buffer, offset, packet, parent)
@@ -1969,7 +1969,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.max_number_of_contracts_per_order.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.max_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -1997,7 +1997,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.max_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2078,7 +2078,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.maximum_number_of_contracts_per_order.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2106,7 +2106,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.maximum_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2268,7 +2268,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.min_number_of_contracts_per_order.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.min_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2296,7 +2296,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.min_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2377,7 +2377,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.minimum_number_of_contracts_per_order.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
@@ -2405,7 +2405,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.minimum_quantity_for_improvement_order.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_quantity_for_improvement_order.display(value, buffer, offset, packet, parent)
@@ -2433,7 +2433,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.minimum_threshold_price.display(value, buffer, offset, packet, parent)
@@ -2484,7 +2484,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.net_change.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.net_change.display(value, buffer, offset, packet, parent)
@@ -2611,7 +2611,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.number_of_legs.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.number_of_legs.display(value, buffer, offset, packet, parent)
@@ -2639,7 +2639,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.number_of_levels.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.number_of_levels.display(value, buffer, offset, packet, parent)
@@ -2667,7 +2667,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.open_interest.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.open_interest.display(value, buffer, offset, packet, parent)
@@ -2695,7 +2695,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.open_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.open_price.display(value, buffer, offset, packet, parent)
@@ -2806,7 +2806,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.order_quantity.display(value, buffer, offset, packet, parent)
@@ -2834,7 +2834,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.order_sequence_number.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.order_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2972,7 +2972,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.public_customer_ask_size.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.public_customer_ask_size.display(value, buffer, offset, packet, parent)
@@ -3000,7 +3000,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.public_customer_bid_size.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.public_customer_bid_size.display(value, buffer, offset, packet, parent)
@@ -3028,7 +3028,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.reference_price.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.reference_price.display(value, buffer, offset, packet, parent)
@@ -3079,7 +3079,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.requested_size.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.requested_size.display(value, buffer, offset, packet, parent)
@@ -3153,7 +3153,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.scheduled_time.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.scheduled_time.display(value, buffer, offset, packet, parent)
@@ -3204,7 +3204,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.sequence_number.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.sequence_number.display(value, buffer, offset, packet, parent)
@@ -3232,7 +3232,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.strike_price.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.strike_price.display(value, buffer, offset, packet, parent)
@@ -3366,7 +3366,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.tick_increment_fraction_indicator.display(value, buffer, offset, packet, parent)
@@ -3394,7 +3394,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.time.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.time.display(value, buffer, offset, packet, parent)
@@ -3422,7 +3422,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.timestamp.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.timestamp.display(value, buffer, offset, packet, parent)
@@ -3450,7 +3450,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.trade_price.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.trade_price.display(value, buffer, offset, packet, parent)
@@ -3524,7 +3524,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.trading_engine_timestamp.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.trading_engine_timestamp.display(value, buffer, offset, packet, parent)
@@ -3780,7 +3780,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.volume.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = box_boxoptions_solamulticast_hsvf_v1_8.volume.display(value, buffer, offset, packet, parent)

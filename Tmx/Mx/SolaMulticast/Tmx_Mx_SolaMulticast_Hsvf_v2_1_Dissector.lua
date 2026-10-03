@@ -92,7 +92,7 @@ tmx_mx_solamulticast_hsvf_v2_1.end_.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.end_.display(value, buffer, offset, packet, parent)
@@ -120,7 +120,7 @@ tmx_mx_solamulticast_hsvf_v2_1.error_code.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.error_code.display(value, buffer, offset, packet, parent)
@@ -327,7 +327,7 @@ tmx_mx_solamulticast_hsvf_v2_1.sequence_number.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
@@ -355,7 +355,7 @@ tmx_mx_solamulticast_hsvf_v2_1.start.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.start.display(value, buffer, offset, packet, parent)
@@ -383,7 +383,7 @@ tmx_mx_solamulticast_hsvf_v2_1.timestamp.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = tmx_mx_solamulticast_hsvf_v2_1.timestamp.display(value, buffer, offset, packet, parent)

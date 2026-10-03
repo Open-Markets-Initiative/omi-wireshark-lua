@@ -258,7 +258,7 @@ nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.accepted_sequence_number.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1270,7 +1270,7 @@ nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.requested_sequence_number.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)

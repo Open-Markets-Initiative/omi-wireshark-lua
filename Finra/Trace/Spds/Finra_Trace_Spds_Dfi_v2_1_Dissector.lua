@@ -508,7 +508,7 @@ finra_trace_spds_dfi_v2_1.daily_close_price.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -536,7 +536,7 @@ finra_trace_spds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -564,7 +564,7 @@ finra_trace_spds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -592,7 +592,7 @@ finra_trace_spds_dfi_v2_1.day.dissect = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.day.display(value, buffer, offset, packet, parent)
@@ -620,7 +620,7 @@ finra_trace_spds_dfi_v2_1.factor.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.factor.display(value, buffer, offset, packet, parent)
@@ -713,7 +713,7 @@ finra_trace_spds_dfi_v2_1.high_price.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -741,7 +741,7 @@ finra_trace_spds_dfi_v2_1.hour.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.hour.display(value, buffer, offset, packet, parent)
@@ -792,7 +792,7 @@ finra_trace_spds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -843,7 +843,7 @@ finra_trace_spds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -931,7 +931,7 @@ finra_trace_spds_dfi_v2_1.minute.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.minute.display(value, buffer, offset, packet, parent)
@@ -959,7 +959,7 @@ finra_trace_spds_dfi_v2_1.month.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.month.display(value, buffer, offset, packet, parent)
@@ -987,7 +987,7 @@ finra_trace_spds_dfi_v2_1.original_trade_identifier.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.original_trade_identifier.display(value, buffer, offset, packet, parent)
@@ -1015,7 +1015,7 @@ finra_trace_spds_dfi_v2_1.price.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.price.display(value, buffer, offset, packet, parent)
@@ -1296,7 +1296,7 @@ finra_trace_spds_dfi_v2_1.second.dissect = function(buffer, offset, packet, pare
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.second.display(value, buffer, offset, packet, parent)
@@ -1508,7 +1508,7 @@ finra_trace_spds_dfi_v2_1.trade_identifier.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.trade_identifier.display(value, buffer, offset, packet, parent)
@@ -1578,7 +1578,7 @@ finra_trace_spds_dfi_v2_1.year.dissect = function(buffer, offset, packet, parent
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_trace_spds_dfi_v2_1.year.display(value, buffer, offset, packet, parent)

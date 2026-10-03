@@ -319,7 +319,7 @@ nasdaq_phlxoptions_cti_itch_v3_0.accepted_sequence_number.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_phlxoptions_cti_itch_v3_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2552,7 +2552,7 @@ nasdaq_phlxoptions_cti_itch_v3_0.requested_sequence_number.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_phlxoptions_cti_itch_v3_0.requested_sequence_number.display(value, buffer, offset, packet, parent)

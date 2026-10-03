@@ -218,7 +218,7 @@ finra_finraotc_bbds_dfi_v2018_1a.ask_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.ask_price.display(value, buffer, offset, packet, parent)
@@ -269,7 +269,7 @@ finra_finraotc_bbds_dfi_v2018_1a.ask_size.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.ask_size.display(value, buffer, offset, packet, parent)
@@ -297,7 +297,7 @@ finra_finraotc_bbds_dfi_v2018_1a.bid_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.bid_price.display(value, buffer, offset, packet, parent)
@@ -348,7 +348,7 @@ finra_finraotc_bbds_dfi_v2018_1a.bid_size.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.bid_size.display(value, buffer, offset, packet, parent)
@@ -529,7 +529,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.display(value, buffer, offset, packet, parent)
@@ -557,7 +557,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.display(value, buffer, offset, packet, parent)
@@ -608,7 +608,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.display(value, buffer, offset, packet, parent)
@@ -636,7 +636,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.display(value, buffer, offset, packet, parent)
@@ -687,7 +687,7 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.display(value, buffer, offset, packet, parent)
@@ -961,7 +961,7 @@ finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.display(value, buffer, offset, packet, parent)

@@ -354,7 +354,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.accepted_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_orderentry_ouch_v5_02_11.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -2247,7 +2247,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_11.requested_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nordicequities_orderentry_ouch_v5_02_11.requested_sequence_number.display(value, buffer, offset, packet, parent)

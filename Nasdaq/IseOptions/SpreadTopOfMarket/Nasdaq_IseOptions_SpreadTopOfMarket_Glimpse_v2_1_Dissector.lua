@@ -267,7 +267,7 @@ nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.accepted_sequence_number.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1251,7 +1251,7 @@ nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.requested_sequence_number.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1348,7 +1348,7 @@ nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_1.sequence_number.display(value, buffer, offset, packet, parent)

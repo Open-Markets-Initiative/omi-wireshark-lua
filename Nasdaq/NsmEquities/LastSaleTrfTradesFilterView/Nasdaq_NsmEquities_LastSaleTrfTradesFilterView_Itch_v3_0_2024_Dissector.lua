@@ -1072,7 +1072,7 @@ nasdaq_nsmequities_lastsaletrftradesfilterview_itch_v3_0_2024.issue_classificati
     return "Issue Classification: Depository (F)"
   end
   if value == "I" then
-    return "Issue Classification: 144 A (I)"
+    return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
     return "Issue Classification: Limited (L)"

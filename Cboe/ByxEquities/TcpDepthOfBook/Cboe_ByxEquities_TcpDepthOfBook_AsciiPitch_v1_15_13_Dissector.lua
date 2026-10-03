@@ -166,10 +166,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_long.display(value, buffer, offset, packet, parent)
@@ -212,10 +212,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.auction_only_price_short.display(value, buffer, offset, packet, parent)
@@ -285,7 +285,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.buy_shares.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.buy_shares.display(value, buffer, offset, packet, parent)
@@ -313,7 +313,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.canceled_shares.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.canceled_shares.display(value, buffer, offset, packet, parent)
@@ -391,7 +391,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.executed_shares.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.executed_shares.display(value, buffer, offset, packet, parent)
@@ -496,10 +496,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_long.display(value, buffer, offset, packet, parent)
@@ -542,10 +542,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.indicative_price_short.display(value, buffer, offset, packet, parent)
@@ -708,10 +708,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_long.display(value, buffer, offset, packet, parent)
@@ -754,10 +754,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.price_short.display(value, buffer, offset, packet, parent)
@@ -800,10 +800,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_long.display(value, buffer, offset, packet, parent)
@@ -846,10 +846,10 @@ end
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reference_price_short.display(value, buffer, offset, packet, parent)
@@ -884,7 +884,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.display(value, buffer, offset, packet, parent)
@@ -1086,7 +1086,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sell_shares.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.sell_shares.display(value, buffer, offset, packet, parent)
@@ -1232,7 +1232,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.shares_long.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.shares_long.display(value, buffer, offset, packet, parent)
@@ -1260,7 +1260,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.shares_short.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.shares_short.display(value, buffer, offset, packet, parent)
@@ -1414,7 +1414,7 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.timestamp.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.timestamp.display(value, buffer, offset, packet, parent)

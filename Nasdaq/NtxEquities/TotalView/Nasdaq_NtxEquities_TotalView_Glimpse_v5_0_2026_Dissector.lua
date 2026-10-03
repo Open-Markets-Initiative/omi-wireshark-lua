@@ -248,7 +248,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0_2026.accepted_sequence_number.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_ntxequities_totalview_glimpse_v5_0_2026.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1074,7 +1074,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0_2026.requested_sequence_number.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_ntxequities_totalview_glimpse_v5_0_2026.requested_sequence_number.display(value, buffer, offset, packet, parent)

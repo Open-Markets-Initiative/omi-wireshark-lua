@@ -212,7 +212,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.display(value, buffer, offset, packet, parent)
@@ -240,7 +240,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.display(value, buffer, offset, packet, parent)
@@ -337,7 +337,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.display(value, buffer, offset, packet, parent)
@@ -365,7 +365,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.display(value, buffer, offset, packet, parent)
@@ -546,10 +546,10 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.display(value, buffer, offset, packet, parent)
@@ -577,7 +577,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_shares.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_shares.display(value, buffer, offset, packet, parent)
@@ -763,10 +763,10 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.display(value, buffer, offset, packet, parent)
@@ -809,10 +809,10 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.display(value, buffer, offset, packet, parent)
@@ -855,10 +855,10 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.display(value, buffer, offset, packet, parent)
@@ -1093,7 +1093,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.display(value, buffer, offset, packet, parent)
@@ -1121,7 +1121,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.display(value, buffer, offset, packet, parent)
@@ -1149,7 +1149,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.display(value, buffer, offset, packet, parent)
@@ -1389,7 +1389,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.timestamp.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.timestamp.display(value, buffer, offset, packet, parent)
@@ -1486,7 +1486,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_time.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_time.display(value, buffer, offset, packet, parent)

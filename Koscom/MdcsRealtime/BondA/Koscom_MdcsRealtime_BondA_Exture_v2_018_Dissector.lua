@@ -543,7 +543,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.a_designated_number_for_an_issue.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.a_designated_number_for_an_issue.display(value, buffer, offset, packet, parent)
@@ -630,25 +630,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_t
 
 -- Display: Accrued Interest Rate On Bank Holidays Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Accrued Interest Rate On Bank Holidays Type Code: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Accrued Interest Rate On Bank Holidays Type Code: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Accrued Interest Rate On Bank Holidays Type Code: "..sign..text
 end
 
 -- Dissect: Accrued Interest Rate On Bank Holidays Type Code
@@ -658,7 +658,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_t
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.display(value, buffer, offset, packet, parent)
@@ -676,25 +676,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size = 22
 
 -- Display: Accumulated Ask Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Accumulated Ask Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Accumulated Ask Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Accumulated Ask Trading Value: "..sign..text
 end
 
 -- Dissect: Accumulated Ask Trading Value
@@ -704,7 +704,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.display(value, buffer, offset, packet, parent)
@@ -732,7 +732,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_volume.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_volume.display(value, buffer, offset, packet, parent)
@@ -750,25 +750,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size = 22
 
 -- Display: Accumulated Bid Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Accumulated Bid Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Accumulated Bid Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Accumulated Bid Trading Value: "..sign..text
 end
 
 -- Dissect: Accumulated Bid Trading Value
@@ -778,7 +778,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.display(value, buffer, offset, packet, parent)
@@ -806,7 +806,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_volume.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_volume.display(value, buffer, offset, packet, parent)
@@ -824,25 +824,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size = 26
 
 -- Display: Accumulated Cash
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Accumulated Cash: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Accumulated Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Accumulated Cash: "..sign..text
 end
 
 -- Dissect: Accumulated Cash
@@ -852,7 +852,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.display(value, buffer, offset, packet, parent)
@@ -870,25 +870,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size = 22
 
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Accumulated Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Accumulated Trading Value: "..sign..text
 end
 
 -- Dissect: Accumulated Trading Value
@@ -898,7 +898,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -926,7 +926,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -944,25 +944,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size = 13
 
 -- Display: Additional Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Additional Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Additional Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Additional Yield: "..sign..text
 end
 
 -- Dissect: Additional Yield
@@ -972,7 +972,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.display(value, buffer, offset, packet, parent)
@@ -1036,25 +1036,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size = 13
 
 -- Display: Applied Exchange Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Applied Exchange Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Applied Exchange Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Applied Exchange Rate: "..sign..text
 end
 
 -- Dissect: Applied Exchange Rate
@@ -1064,7 +1064,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.display(value, buffer, offset, packet, parent)
@@ -1092,7 +1092,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_duration_of_term_repo.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_duration_of_term_repo.display(value, buffer, offset, packet, parent)
@@ -1120,7 +1120,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.display(value, buffer, offset, packet, parent)
@@ -1148,7 +1148,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1166,25 +1166,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size = 22
 
 -- Display: Ask Level 1 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 1 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 1 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 1 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Level 1 Trading Amount
@@ -1194,7 +1194,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1212,25 +1212,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size = 13
 
 -- Display: Ask Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 1 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 1 Yield: "..sign..text
 end
 
 -- Dissect: Ask Level 1 Yield
@@ -1240,7 +1240,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.display(value, buffer, offset, packet, parent)
@@ -1268,7 +1268,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_price.display(value, buffer, offset, packet, parent)
@@ -1296,7 +1296,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1314,25 +1314,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size = 22
 
 -- Display: Ask Level 2 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 2 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 2 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 2 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Level 2 Trading Amount
@@ -1342,7 +1342,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1360,25 +1360,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size = 13
 
 -- Display: Ask Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 2 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 2 Yield: "..sign..text
 end
 
 -- Dissect: Ask Level 2 Yield
@@ -1388,7 +1388,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.display(value, buffer, offset, packet, parent)
@@ -1416,7 +1416,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_price.display(value, buffer, offset, packet, parent)
@@ -1444,7 +1444,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1462,25 +1462,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size = 22
 
 -- Display: Ask Level 3 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 3 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 3 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 3 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Level 3 Trading Amount
@@ -1490,7 +1490,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1508,25 +1508,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size = 13
 
 -- Display: Ask Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 3 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 3 Yield: "..sign..text
 end
 
 -- Dissect: Ask Level 3 Yield
@@ -1536,7 +1536,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.display(value, buffer, offset, packet, parent)
@@ -1564,7 +1564,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_price.display(value, buffer, offset, packet, parent)
@@ -1592,7 +1592,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1610,25 +1610,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size = 22
 
 -- Display: Ask Level 4 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 4 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 4 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 4 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Level 4 Trading Amount
@@ -1638,7 +1638,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1656,25 +1656,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size = 13
 
 -- Display: Ask Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 4 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 4 Yield: "..sign..text
 end
 
 -- Dissect: Ask Level 4 Yield
@@ -1684,7 +1684,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.display(value, buffer, offset, packet, parent)
@@ -1712,7 +1712,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_price.display(value, buffer, offset, packet, parent)
@@ -1740,7 +1740,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1758,25 +1758,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size = 22
 
 -- Display: Ask Level 5 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 5 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 5 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 5 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Level 5 Trading Amount
@@ -1786,7 +1786,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1804,25 +1804,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size = 13
 
 -- Display: Ask Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Level 5 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Level 5 Yield: "..sign..text
 end
 
 -- Dissect: Ask Level 5 Yield
@@ -1832,7 +1832,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.display(value, buffer, offset, packet, parent)
@@ -1860,7 +1860,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_price.display(value, buffer, offset, packet, parent)
@@ -1888,7 +1888,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -1906,25 +1906,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size
 
 -- Display: Ask Per Type Level 1 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 1 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 1 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 1 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 1 Trading Amount
@@ -1934,7 +1934,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.display(value, buffer, offset, packet, parent)
@@ -1952,25 +1952,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size = 13
 
 -- Display: Ask Per Type Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 1 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 1 Yield: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 1 Yield
@@ -1980,7 +1980,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.display(value, buffer, offset, packet, parent)
@@ -2008,7 +2008,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_price.display(value, buffer, offset, packet, parent)
@@ -2036,7 +2036,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2054,25 +2054,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size
 
 -- Display: Ask Per Type Level 2 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 2 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 2 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 2 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 2 Trading Amount
@@ -2082,7 +2082,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.display(value, buffer, offset, packet, parent)
@@ -2100,25 +2100,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size = 13
 
 -- Display: Ask Per Type Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 2 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 2 Yield: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 2 Yield
@@ -2128,7 +2128,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.display(value, buffer, offset, packet, parent)
@@ -2156,7 +2156,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_price.display(value, buffer, offset, packet, parent)
@@ -2184,7 +2184,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2202,25 +2202,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size
 
 -- Display: Ask Per Type Level 3 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 3 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 3 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 3 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 3 Trading Amount
@@ -2230,7 +2230,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.display(value, buffer, offset, packet, parent)
@@ -2248,25 +2248,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size = 13
 
 -- Display: Ask Per Type Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 3 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 3 Yield: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 3 Yield
@@ -2276,7 +2276,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.display(value, buffer, offset, packet, parent)
@@ -2304,7 +2304,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_price.display(value, buffer, offset, packet, parent)
@@ -2332,7 +2332,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2350,25 +2350,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size
 
 -- Display: Ask Per Type Level 4 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 4 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 4 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 4 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 4 Trading Amount
@@ -2378,7 +2378,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.display(value, buffer, offset, packet, parent)
@@ -2396,25 +2396,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size = 13
 
 -- Display: Ask Per Type Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 4 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 4 Yield: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 4 Yield
@@ -2424,7 +2424,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.display(value, buffer, offset, packet, parent)
@@ -2452,7 +2452,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_price.display(value, buffer, offset, packet, parent)
@@ -2480,7 +2480,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2498,25 +2498,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size
 
 -- Display: Ask Per Type Level 5 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 5 Trading Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 5 Trading Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 5 Trading Amount: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 5 Trading Amount
@@ -2526,7 +2526,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.display(value, buffer, offset, packet, parent)
@@ -2544,25 +2544,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size = 13
 
 -- Display: Ask Per Type Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Ask Per Type Level 5 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Ask Per Type Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Ask Per Type Level 5 Yield: "..sign..text
 end
 
 -- Dissect: Ask Per Type Level 5 Yield
@@ -2572,7 +2572,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.display(value, buffer, offset, packet, parent)
@@ -2600,7 +2600,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_total_remaining_quantity.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_total_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2651,7 +2651,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_total_remaining_quantity.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_total_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -2669,25 +2669,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size = 16
 
 -- Display: Average Convexity
 koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Convexity: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Convexity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Convexity: "..sign..text
 end
 
 -- Dissect: Average Convexity
@@ -2697,7 +2697,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.display(value, buffer, offset, packet, parent)
@@ -2715,25 +2715,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size = 16
 
 -- Display: Average Coupon Price
 koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Coupon Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Coupon Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Coupon Price: "..sign..text
 end
 
 -- Dissect: Average Coupon Price
@@ -2743,7 +2743,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.display(value, buffer, offset, packet, parent)
@@ -2761,25 +2761,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size = 16
 
 -- Display: Average Current Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Current Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Current Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Current Yield: "..sign..text
 end
 
 -- Dissect: Average Current Yield
@@ -2789,7 +2789,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.display(value, buffer, offset, packet, parent)
@@ -2807,25 +2807,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size = 16
 
 -- Display: Average Duration
 koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Duration: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Duration: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Duration: "..sign..text
 end
 
 -- Dissect: Average Duration
@@ -2835,7 +2835,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.display(value, buffer, offset, packet, parent)
@@ -2853,25 +2853,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size = 7
 
 -- Display: Average Forward Ytm
 koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Forward Ytm: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Forward Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Forward Ytm: "..sign..text
 end
 
 -- Dissect: Average Forward Ytm
@@ -2881,7 +2881,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.display(value, buffer, offset, packet, parent)
@@ -2899,25 +2899,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size = 
 
 -- Display: Average Remaining Maturity Price
 koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Remaining Maturity Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Remaining Maturity Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Remaining Maturity Price: "..sign..text
 end
 
 -- Dissect: Average Remaining Maturity Price
@@ -2927,7 +2927,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.display(value, buffer, offset, packet, parent)
@@ -2945,25 +2945,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size = 16
 
 -- Display: Average Spread
 koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Spread: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Spread: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Spread: "..sign..text
 end
 
 -- Dissect: Average Spread
@@ -2973,7 +2973,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.display(value, buffer, offset, packet, parent)
@@ -3024,25 +3024,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size = 13
 
 -- Display: Average Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Yield: "..sign..text
 end
 
 -- Dissect: Average Yield
@@ -3052,7 +3052,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.display(value, buffer, offset, packet, parent)
@@ -3070,25 +3070,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size = 16
 
 -- Display: Average Yld
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Yld: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Yld: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Yld: "..sign..text
 end
 
 -- Dissect: Average Yld
@@ -3098,7 +3098,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.display(value, buffer, offset, packet, parent)
@@ -3116,25 +3116,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size = 7
 
 -- Display: Average Ytm
 koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Average Ytm: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Average Ytm: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Average Ytm: "..sign..text
 end
 
 -- Dissect: Average Ytm
@@ -3144,7 +3144,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.display(value, buffer, offset, packet, parent)
@@ -3245,7 +3245,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.base_price.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.base_price.display(value, buffer, offset, packet, parent)
@@ -3290,25 +3290,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size = 10
 
 -- Display: Basis Price
 koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Basis Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Basis Price: "..sign..text
 end
 
 -- Dissect: Basis Price
@@ -3318,7 +3318,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.display(value, buffer, offset, packet, parent)
@@ -3369,7 +3369,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_duration_of_term_repo.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_duration_of_term_repo.display(value, buffer, offset, packet, parent)
@@ -3420,7 +3420,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -3448,7 +3448,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -3466,25 +3466,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size = 13
 
 -- Display: Bid Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Level 1 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Level 1 Yield: "..sign..text
 end
 
 -- Dissect: Bid Level 1 Yield
@@ -3494,7 +3494,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.display(value, buffer, offset, packet, parent)
@@ -3545,7 +3545,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -3573,7 +3573,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -3591,25 +3591,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size = 13
 
 -- Display: Bid Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Level 2 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Level 2 Yield: "..sign..text
 end
 
 -- Dissect: Bid Level 2 Yield
@@ -3619,7 +3619,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.display(value, buffer, offset, packet, parent)
@@ -3670,7 +3670,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -3698,7 +3698,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -3716,25 +3716,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size = 13
 
 -- Display: Bid Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Level 3 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Level 3 Yield: "..sign..text
 end
 
 -- Dissect: Bid Level 3 Yield
@@ -3744,7 +3744,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.display(value, buffer, offset, packet, parent)
@@ -3795,7 +3795,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -3823,7 +3823,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -3841,25 +3841,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size = 13
 
 -- Display: Bid Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Level 4 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Level 4 Yield: "..sign..text
 end
 
 -- Dissect: Bid Level 4 Yield
@@ -3869,7 +3869,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.display(value, buffer, offset, packet, parent)
@@ -3920,7 +3920,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_price.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -3948,7 +3948,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_remaining_quantity.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -3966,25 +3966,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size = 13
 
 -- Display: Bid Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Level 5 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Level 5 Yield: "..sign..text
 end
 
 -- Dissect: Bid Level 5 Yield
@@ -3994,7 +3994,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.display(value, buffer, offset, packet, parent)
@@ -4022,7 +4022,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_price.display(value, buffer, offset, packet, parent)
@@ -4050,7 +4050,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4068,25 +4068,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size = 13
 
 -- Display: Bid Per Type Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Per Type Level 1 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Per Type Level 1 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Per Type Level 1 Yield: "..sign..text
 end
 
 -- Dissect: Bid Per Type Level 1 Yield
@@ -4096,7 +4096,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.display(value, buffer, offset, packet, parent)
@@ -4124,7 +4124,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_price.display(value, buffer, offset, packet, parent)
@@ -4152,7 +4152,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4170,25 +4170,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size = 13
 
 -- Display: Bid Per Type Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Per Type Level 2 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Per Type Level 2 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Per Type Level 2 Yield: "..sign..text
 end
 
 -- Dissect: Bid Per Type Level 2 Yield
@@ -4198,7 +4198,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.display(value, buffer, offset, packet, parent)
@@ -4226,7 +4226,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_price.display(value, buffer, offset, packet, parent)
@@ -4254,7 +4254,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4272,25 +4272,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size = 13
 
 -- Display: Bid Per Type Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Per Type Level 3 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Per Type Level 3 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Per Type Level 3 Yield: "..sign..text
 end
 
 -- Dissect: Bid Per Type Level 3 Yield
@@ -4300,7 +4300,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.display(value, buffer, offset, packet, parent)
@@ -4328,7 +4328,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_price.display(value, buffer, offset, packet, parent)
@@ -4356,7 +4356,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4374,25 +4374,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size = 13
 
 -- Display: Bid Per Type Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Per Type Level 4 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Per Type Level 4 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Per Type Level 4 Yield: "..sign..text
 end
 
 -- Dissect: Bid Per Type Level 4 Yield
@@ -4402,7 +4402,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.display(value, buffer, offset, packet, parent)
@@ -4430,7 +4430,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_price.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_price.display(value, buffer, offset, packet, parent)
@@ -4458,7 +4458,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_remaining_quantity.
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4476,25 +4476,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size = 13
 
 -- Display: Bid Per Type Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bid Per Type Level 5 Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bid Per Type Level 5 Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bid Per Type Level 5 Yield: "..sign..text
 end
 
 -- Dissect: Bid Per Type Level 5 Yield
@@ -4504,7 +4504,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.display(value, buffer, offset, packet, parent)
@@ -4532,7 +4532,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_total_remaining_quantity.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_total_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4583,7 +4583,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_total_remaining_quantity.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_total_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -4611,7 +4611,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.board_event_group_code.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.board_event_group_code.display(value, buffer, offset, packet, parent)
@@ -4790,25 +4790,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size = 13
 
 -- Display: Bond Issuance Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bond Issuance Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bond Issuance Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bond Issuance Rate: "..sign..text
 end
 
 -- Dissect: Bond Issuance Rate
@@ -4818,7 +4818,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.display(value, buffer, offset, packet, parent)
@@ -4974,25 +4974,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size = 13
 
 -- Display: Bond Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Bond Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Bond Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Bond Yield: "..sign..text
 end
 
 -- Dissect: Bond Yield
@@ -5002,7 +5002,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.display(value, buffer, offset, packet, parent)
@@ -5120,25 +5120,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size = 1
 
 -- Display: Call Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Call Re Investment Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Call Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Call Re Investment Index Weight: "..sign..text
 end
 
 -- Dissect: Call Re Investment Index Weight
@@ -5148,7 +5148,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -5166,25 +5166,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size = 16
 
 -- Display: Call Re-Investment Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Call Re-Investment Index Krx: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Call Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Call Re-Investment Index Krx: "..sign..text
 end
 
 -- Dissect: Call Re-Investment Index Krx
@@ -5194,7 +5194,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -5212,25 +5212,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size = 11
 
 -- Display: Call Re-Investment Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Call Re-Investment Index Ktb: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Call Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Call Re-Investment Index Ktb: "..sign..text
 end
 
 -- Dissect: Call Re-Investment Index Ktb
@@ -5240,7 +5240,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
@@ -5281,25 +5281,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size = 26
 
 -- Display: Cash Inflow
 koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Cash Inflow: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Cash Inflow: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Cash Inflow: "..sign..text
 end
 
 -- Dissect: Cash Inflow
@@ -5309,7 +5309,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.display(value, buffer, offset, packet, parent)
@@ -5327,25 +5327,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size 
 
 -- Display: Category Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Category Accumulated Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Category Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Category Accumulated Trading Value: "..sign..text
 end
 
 -- Dissect: Category Accumulated Trading Value
@@ -5355,7 +5355,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -5383,7 +5383,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.display(value, buffer, offset, packet, parent)
@@ -5411,7 +5411,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.display(value, buffer, offset, packet, parent)
@@ -5439,7 +5439,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.display(value, buffer, offset, packet, parent)
@@ -5467,7 +5467,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.display(value, buffer, offset, packet, parent)
@@ -5485,25 +5485,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size = 10
 
 -- Display: Clean Price
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Clean Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Clean Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Clean Price: "..sign..text
 end
 
 -- Dissect: Clean Price
@@ -5513,7 +5513,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.display(value, buffer, offset, packet, parent)
@@ -5531,25 +5531,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size = 16
 
 -- Display: Clean Price Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Clean Price Index Krx: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Clean Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Clean Price Index Krx: "..sign..text
 end
 
 -- Dissect: Clean Price Index Krx
@@ -5559,7 +5559,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -5577,25 +5577,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size = 11
 
 -- Display: Clean Price Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Clean Price Index Ktb: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Clean Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Clean Price Index Ktb: "..sign..text
 end
 
 -- Dissect: Clean Price Index Ktb
@@ -5605,7 +5605,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -5623,25 +5623,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size = 16
 
 -- Display: Clean Price Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Clean Price Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Clean Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Clean Price Index Weight: "..sign..text
 end
 
 -- Dissect: Clean Price Index Weight
@@ -5651,7 +5651,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -5679,7 +5679,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price.display(value, buffer, offset, packet, parent)
@@ -5720,25 +5720,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size = 11
 
 -- Display: Closing Price With Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Closing Price With Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Closing Price With Yield: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Closing Price With Yield: "..sign..text
 end
 
 -- Dissect: Closing Price With Yield
@@ -5748,7 +5748,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.display(value, buffer, offset, packet, parent)
@@ -5766,25 +5766,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size = 13
 
 -- Display: Closing Price Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Closing Price Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Closing Price Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Closing Price Yield: "..sign..text
 end
 
 -- Dissect: Closing Price Yield
@@ -5794,7 +5794,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.display(value, buffer, offset, packet, parent)
@@ -5812,25 +5812,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size = 13
 
 -- Display: Closing Price Yield Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Closing Price Yield Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Closing Price Yield Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Closing Price Yield Rate: "..sign..text
 end
 
 -- Dissect: Closing Price Yield Rate
@@ -5840,7 +5840,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.display(value, buffer, offset, packet, parent)
@@ -5927,25 +5927,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size = 7
 
 -- Display: Convexity
 koscom_mdcsrealtime_bonda_exture_v2_018.convexity.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Convexity: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Convexity: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Convexity: "..sign..text
 end
 
 -- Dissect: Convexity
@@ -5955,7 +5955,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.convexity.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.convexity.display(value, buffer, offset, packet, parent)
@@ -5983,7 +5983,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_related_to_securities_ex
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.display(value, buffer, offset, packet, parent)
@@ -6093,25 +6093,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size = 14
 
 -- Display: Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Coupon Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Coupon Rate: "..sign..text
 end
 
 -- Dissect: Coupon Rate
@@ -6121,7 +6121,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.display(value, buffer, offset, packet, parent)
@@ -6576,7 +6576,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_best_bid_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_best_bid_price.display(value, buffer, offset, packet, parent)
@@ -6627,7 +6627,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -6655,7 +6655,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -6706,7 +6706,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_price.display(value, buffer, offset, packet, parent)
@@ -6734,7 +6734,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_repo_remaining_q
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -6785,7 +6785,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -6813,7 +6813,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -6864,7 +6864,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -6892,7 +6892,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -6943,7 +6943,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -6971,7 +6971,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7022,7 +7022,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -7050,7 +7050,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7101,7 +7101,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_price.display(value, buffer, offset, packet, parent)
@@ -7129,7 +7129,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7180,7 +7180,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_price.display(value, buffer, offset, packet, parent)
@@ -7208,7 +7208,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7259,7 +7259,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_price.display(value, buffer, offset, packet, parent)
@@ -7287,7 +7287,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7338,7 +7338,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_price.display(value, buffer, offset, packet, parent)
@@ -7366,7 +7366,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_repo_remaining_qu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_repo_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -7430,25 +7430,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.duration.size = 7
 
 -- Display: Duration
 koscom_mdcsrealtime_bonda_exture_v2_018.duration.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.duration.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.duration.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Duration: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Duration: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Duration: "..sign..text
 end
 
 -- Dissect: Duration
@@ -7458,7 +7458,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.duration.dissect = function(buffer, offs
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.duration.display(value, buffer, offset, packet, parent)
@@ -7486,7 +7486,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.duration_of_term_repo.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.duration_of_term_repo.display(value, buffer, offset, packet, parent)
@@ -7596,25 +7596,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size = 
 
 -- Display: Equitylinked Bond Exercise Price
 koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Equitylinked Bond Exercise Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Equitylinked Bond Exercise Price: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Equitylinked Bond Exercise Price: "..sign..text
 end
 
 -- Dissect: Equitylinked Bond Exercise Price
@@ -7624,7 +7624,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display(value, buffer, offset, packet, parent)
@@ -7757,25 +7757,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size = 7
 
 -- Display: Exercise Ratio
 koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Exercise Ratio: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Exercise Ratio: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Exercise Ratio: "..sign..text
 end
 
 -- Dissect: Exercise Ratio
@@ -7785,7 +7785,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.display(value, buffer, offset, packet, parent)
@@ -7826,25 +7826,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size = 22
 
 -- Display: Facility Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Facility Fund: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Facility Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Facility Fund: "..sign..text
 end
 
 -- Dissect: Facility Fund
@@ -7854,7 +7854,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.display(value, buffer, offset, packet, parent)
@@ -7987,25 +7987,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size = 10
 
 -- Display: Futures Basis Price
 koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Futures Basis Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Futures Basis Price: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Futures Basis Price: "..sign..text
 end
 
 -- Dissect: Futures Basis Price
@@ -8015,7 +8015,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.display(value, buffer, offset, packet, parent)
@@ -8056,25 +8056,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size = 13
 
 -- Display: Guaranteed Rate For Payment
 koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Guaranteed Rate For Payment: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Guaranteed Rate For Payment: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Guaranteed Rate For Payment: "..sign..text
 end
 
 -- Dissect: Guaranteed Rate For Payment
@@ -8084,7 +8084,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.display(value, buffer, offset, packet, parent)
@@ -8148,25 +8148,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index.size = 9
 
 -- Display: Index
 koscom_mdcsrealtime_bonda_exture_v2_018.index.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Index: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Index: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Index: "..sign..text
 end
 
 -- Dissect: Index
@@ -8176,7 +8176,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.index.display(value, buffer, offset, packet, parent)
@@ -8194,25 +8194,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.si
 
 -- Display: Index Change Against The Previous Day
 koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Index Change Against The Previous Day: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Index Change Against The Previous Day: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Index Change Against The Previous Day: "..sign..text
 end
 
 -- Dissect: Index Change Against The Previous Day
@@ -8222,7 +8222,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -8336,7 +8336,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_market_capitalization.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.index_market_capitalization.display(value, buffer, offset, packet, parent)
@@ -8364,7 +8364,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_number_of_securities.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.index_number_of_securities.display(value, buffer, offset, packet, parent)
@@ -8737,7 +8737,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount.display(value, buffer, offset, packet, parent)
@@ -8755,25 +8755,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size = 16
 
 -- Display: Issued Amount Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Issued Amount Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Issued Amount Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Issued Amount Weight: "..sign..text
 end
 
 -- Dissect: Issued Amount Weight
@@ -8783,7 +8783,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.display(value, buffer, offset, packet, parent)
@@ -8824,25 +8824,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size = 22
 
 -- Display: Issuing Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Issuing Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Issuing Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Issuing Amount: "..sign..text
 end
 
 -- Dissect: Issuing Amount
@@ -8852,7 +8852,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.display(value, buffer, offset, packet, parent)
@@ -8870,25 +8870,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size = 22
 
 -- Display: Level Payment Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Level Payment Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Level Payment Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Level Payment Amount: "..sign..text
 end
 
 -- Dissect: Level Payment Amount
@@ -8898,7 +8898,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.display(value, buffer, offset, packet, parent)
@@ -8939,25 +8939,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size = 22
 
 -- Display: Listed Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Listed Amount: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Listed Amount: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Listed Amount: "..sign..text
 end
 
 -- Dissect: Listed Amount
@@ -8967,7 +8967,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.display(value, buffer, offset, packet, parent)
@@ -9008,25 +9008,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size = 22
 
 -- Display: Loan Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Loan Fund: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Loan Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Loan Fund: "..sign..text
 end
 
 -- Dissect: Loan Fund
@@ -9036,7 +9036,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.display(value, buffer, offset, packet, parent)
@@ -9054,25 +9054,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size = 14
 
 -- Display: Lower Limit Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Lower Limit Coupon Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Lower Limit Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Lower Limit Coupon Rate: "..sign..text
 end
 
 -- Dissect: Lower Limit Coupon Rate
@@ -9082,7 +9082,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.display(value, buffer, offset, packet, parent)
@@ -9100,25 +9100,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size = 22
 
 -- Display: Maintenance Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Maintenance Fund: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Maintenance Fund: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Maintenance Fund: "..sign..text
 end
 
 -- Dissect: Maintenance Fund
@@ -9128,7 +9128,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.display(value, buffer, offset, packet, parent)
@@ -9146,25 +9146,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size = 16
 
 -- Display: Market Capitalization Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Market Capitalization Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Market Capitalization Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Market Capitalization Weight: "..sign..text
 end
 
 -- Dissect: Market Capitalization Weight
@@ -9174,7 +9174,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.display(value, buffer, offset, packet, parent)
@@ -9215,25 +9215,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size = 16
 
 -- Display: Market Price Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Market Price Index Krx: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Market Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Market Price Index Krx: "..sign..text
 end
 
 -- Dissect: Market Price Index Krx
@@ -9243,7 +9243,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.display(value, buffer, offset, packet, parent)
@@ -9261,25 +9261,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size = 11
 
 -- Display: Market Price Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Market Price Index Ktb: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Market Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Market Price Index Ktb: "..sign..text
 end
 
 -- Dissect: Market Price Index Ktb
@@ -9289,7 +9289,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.display(value, buffer, offset, packet, parent)
@@ -9307,25 +9307,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size = 16
 
 -- Display: Market Price Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Market Price Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Market Price Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Market Price Index Weight: "..sign..text
 end
 
 -- Dissect: Market Price Index Weight
@@ -9335,7 +9335,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.display(value, buffer, offset, packet, parent)
@@ -9363,7 +9363,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_value.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_value.display(value, buffer, offset, packet, parent)
@@ -9404,25 +9404,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size = 11
 
 -- Display: Maximum Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Maximum Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Maximum Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Maximum Yield: "..sign..text
 end
 
 -- Dissect: Maximum Yield
@@ -9432,7 +9432,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.display(value, buffer, offset, packet, parent)
@@ -9483,7 +9483,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.member_firm_trust_principal_type_code.di
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.member_firm_trust_principal_type_code.display(value, buffer, offset, packet, parent)
@@ -9945,7 +9945,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.message_sequence_number.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.message_sequence_number.display(value, buffer, offset, packet, parent)
@@ -9973,7 +9973,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.display(value, buffer, offset, packet, parent)
@@ -10001,7 +10001,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.net_bid_per_type_total_remaining_quantit
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.net_bid_per_type_total_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -10052,7 +10052,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.number_of_amortization.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.number_of_amortization.display(value, buffer, offset, packet, parent)
@@ -10080,7 +10080,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_for_grace.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_for_grace.display(value, buffer, offset, packet, parent)
@@ -10108,7 +10108,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_to_pay_interest.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_to_pay_interest.display(value, buffer, offset, packet, parent)
@@ -10136,7 +10136,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.number_of_repo_trade_periods.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.number_of_repo_trade_periods.display(value, buffer, offset, packet, parent)
@@ -10164,7 +10164,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.display(value, buffer, offset, packet, parent)
@@ -10228,25 +10228,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size = 22
 
 -- Display: Other Funds
 koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Other Funds: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Other Funds: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Other Funds: "..sign..text
 end
 
 -- Dissect: Other Funds
@@ -10256,7 +10256,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.display(value, buffer, offset, packet, parent)
@@ -10297,25 +10297,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size = 11
 
 -- Display: Participating Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Participating Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Participating Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Participating Rate: "..sign..text
 end
 
 -- Dissect: Participating Rate
@@ -10325,7 +10325,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.display(value, buffer, offset, packet, parent)
@@ -10458,25 +10458,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_
 
 -- Display: Principal Accrued Interest Rate On Bank Holidays Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Principal Accrued Interest Rate On Bank Holidays Type Code: "..sign..text
 end
 
 -- Dissect: Principal Accrued Interest Rate On Bank Holidays Type Code
@@ -10486,7 +10486,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.display(value, buffer, offset, packet, parent)
@@ -10527,25 +10527,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size = 13
 
 -- Display: Principal Guranteed Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Principal Guranteed Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Principal Guranteed Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Principal Guranteed Rate: "..sign..text
 end
 
 -- Dissect: Principal Guranteed Rate
@@ -10555,7 +10555,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.display(value, buffer, offset, packet, parent)
@@ -10830,25 +10830,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size = 13
 
 -- Display: Redemption Ratio At Maturity
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Redemption Ratio At Maturity: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Redemption Ratio At Maturity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Redemption Ratio At Maturity: "..sign..text
 end
 
 -- Dissect: Redemption Ratio At Maturity
@@ -10858,7 +10858,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.display(value, buffer, offset, packet, parent)
@@ -10876,25 +10876,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size = 11
 
 -- Display: Reference Index For Issue Date
 koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Reference Index For Issue Date: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Reference Index For Issue Date: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Reference Index For Issue Date: "..sign..text
 end
 
 -- Dissect: Reference Index For Issue Date
@@ -10904,7 +10904,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.display(value, buffer, offset, packet, parent)
@@ -10945,25 +10945,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size = 26
 
 -- Display: Reinvest Call Cash
 koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Reinvest Call Cash: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Reinvest Call Cash: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Reinvest Call Cash: "..sign..text
 end
 
 -- Dissect: Reinvest Call Cash
@@ -10973,7 +10973,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.display(value, buffer, offset, packet, parent)
@@ -11047,7 +11047,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_1.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_1.display(value, buffer, offset, packet, parent)
@@ -11075,7 +11075,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_10.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_10.display(value, buffer, offset, packet, parent)
@@ -11103,7 +11103,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_2.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_2.display(value, buffer, offset, packet, parent)
@@ -11131,7 +11131,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_3.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_3.display(value, buffer, offset, packet, parent)
@@ -11159,7 +11159,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_4.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_4.display(value, buffer, offset, packet, parent)
@@ -11187,7 +11187,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_5.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_5.display(value, buffer, offset, packet, parent)
@@ -11215,7 +11215,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_6.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_6.display(value, buffer, offset, packet, parent)
@@ -11243,7 +11243,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_7.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_7.display(value, buffer, offset, packet, parent)
@@ -11271,7 +11271,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_8.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_8.display(value, buffer, offset, packet, parent)
@@ -11299,7 +11299,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_9.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_trade_period_9.display(value, buffer, offset, packet, parent)
@@ -11317,25 +11317,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size = 
 
 -- Display: Report Market A Price With Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Report Market A Price With Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Report Market A Price With Yield: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Report Market A Price With Yield: "..sign..text
 end
 
 -- Dissect: Report Market A Price With Yield
@@ -11345,7 +11345,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.dissect
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.display(value, buffer, offset, packet, parent)
@@ -11363,25 +11363,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size = 13
 
 -- Display: Report Market Yield Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Report Market Yield Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Report Market Yield Rate: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Report Market Yield Rate: "..sign..text
 end
 
 -- Dissect: Report Market Yield Rate
@@ -11391,7 +11391,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.display(value, buffer, offset, packet, parent)
@@ -11419,7 +11419,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_trading_total_trading_volume.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.report_trading_total_trading_volume.display(value, buffer, offset, packet, parent)
@@ -11529,25 +11529,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size = 22
 
 -- Display: Rfq Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Rfq Accumulated Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Rfq Accumulated Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Rfq Accumulated Trading Value: "..sign..text
 end
 
 -- Dissect: Rfq Accumulated Trading Value
@@ -11557,7 +11557,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.display(value, buffer, offset, packet, parent)
@@ -11920,25 +11920,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size = 13
 
 -- Display: Shortterm Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Shortterm Yield: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Shortterm Yield: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Shortterm Yield: "..sign..text
 end
 
 -- Dissect: Shortterm Yield
@@ -11948,7 +11948,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display(value, buffer, offset, packet, parent)
@@ -11989,25 +11989,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.spread.size = 10
 
 -- Display: Spread
 koscom_mdcsrealtime_bonda_exture_v2_018.spread.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.spread.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.spread.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Spread: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Spread: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Spread: "..sign..text
 end
 
 -- Dissect: Spread
@@ -12017,7 +12017,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.spread.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.spread.display(value, buffer, offset, packet, parent)
@@ -12068,7 +12068,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.step_applied.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.step_applied.display(value, buffer, offset, packet, parent)
@@ -12086,25 +12086,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size = 14
 
 -- Display: Stopout Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Stopout Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Stopout Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Stopout Rate: "..sign..text
 end
 
 -- Dissect: Stopout Rate
@@ -12114,7 +12114,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.dissect = function(buffer, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display(value, buffer, offset, packet, parent)
@@ -12165,7 +12165,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.substitute_price_of_securities.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.substitute_price_of_securities.display(value, buffer, offset, packet, parent)
@@ -12285,7 +12285,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.todays_high.dissect = function(buffer, o
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.todays_high.display(value, buffer, offset, packet, parent)
@@ -12313,7 +12313,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.todays_low.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.todays_low.display(value, buffer, offset, packet, parent)
@@ -12341,7 +12341,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -12369,7 +12369,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_remaining_quantity.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -12397,7 +12397,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -12425,7 +12425,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_remaining_quantity.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -12453,7 +12453,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -12481,7 +12481,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_remaining_quantity.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -12509,7 +12509,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -12537,7 +12537,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_remaining_quantity.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -12565,7 +12565,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -12593,7 +12593,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_remaining_quantity.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_remaining_quantity.display(value, buffer, offset, packet, parent)
@@ -12611,25 +12611,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size = 16
 
 -- Display: Total Earnings Index
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Total Earnings Index: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Total Earnings Index: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Total Earnings Index: "..sign..text
 end
 
 -- Dissect: Total Earnings Index
@@ -12639,7 +12639,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.dissect = function(
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.display(value, buffer, offset, packet, parent)
@@ -12657,25 +12657,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size = 16
 
 -- Display: Total Earnings Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Total Earnings Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Total Earnings Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Total Earnings Index Weight: "..sign..text
 end
 
 -- Dissect: Total Earnings Index Weight
@@ -12685,7 +12685,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.display(value, buffer, offset, packet, parent)
@@ -12713,7 +12713,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_number_of_instruments_of_the_contr
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_number_of_instruments_of_the_contract.display(value, buffer, offset, packet, parent)
@@ -12731,25 +12731,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size = 11
 
 -- Display: Total Profit Index
 koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Total Profit Index: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Total Profit Index: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Total Profit Index: "..sign..text
 end
 
 -- Dissect: Total Profit Index
@@ -12759,7 +12759,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.display(value, buffer, offset, packet, parent)
@@ -12879,7 +12879,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_price.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trading_price.display(value, buffer, offset, packet, parent)
@@ -12897,25 +12897,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size = 22
 
 -- Display: Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Trading Value: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Trading Value: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Trading Value: "..sign..text
 end
 
 -- Dissect: Trading Value
@@ -12925,7 +12925,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.display(value, buffer, offset, packet, parent)
@@ -12953,7 +12953,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_volume.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trading_volume.display(value, buffer, offset, packet, parent)
@@ -13040,25 +13040,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size = 22
 
 -- Display: Unstripped Balance
 koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Unstripped Balance: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 3 then
-    digits = string.rep("0", 3 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Unstripped Balance: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Unstripped Balance: "..sign..text
 end
 
 -- Dissect: Unstripped Balance
@@ -13068,7 +13068,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.display(value, buffer, offset, packet, parent)
@@ -13109,25 +13109,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size = 14
 
 -- Display: Upper Limit Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Upper Limit Coupon Rate: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Upper Limit Coupon Rate: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Upper Limit Coupon Rate: "..sign..text
 end
 
 -- Dissect: Upper Limit Coupon Rate
@@ -13137,7 +13137,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.display(value, buffer, offset, packet, parent)
@@ -13155,25 +13155,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value
 
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..sign..text
 end
 
 -- Dissect: Weight Of Call Re Investment Index Value For Integrity Index Weight
@@ -13183,7 +13183,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -13201,25 +13201,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrit
 
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Weight Of Clean Index Value For Integrity Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Weight Of Clean Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Weight Of Clean Index Value For Integrity Index Weight: "..sign..text
 end
 
 -- Dissect: Weight Of Clean Index Value For Integrity Index Weight
@@ -13229,7 +13229,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrit
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -13247,25 +13247,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_
 
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Weight Of Sum Index Value For Integrity Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Weight Of Sum Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Weight Of Sum Index Value For Integrity Index Weight: "..sign..text
 end
 
 -- Dissect: Weight Of Sum Index Value For Integrity Index Weight
@@ -13275,7 +13275,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -13293,25 +13293,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value
 
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..sign..text
 end
 
 -- Dissect: Weight Of Zero Re Investment Index Value For Integrity Index Weight
@@ -13321,7 +13321,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display(value, buffer, offset, packet, parent)
@@ -13339,25 +13339,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size = 13
 
 -- Display: Yield Opening Price
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Yield Opening Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Yield Opening Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Yield Opening Price: "..sign..text
 end
 
 -- Dissect: Yield Opening Price
@@ -13367,7 +13367,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.display(value, buffer, offset, packet, parent)
@@ -13385,25 +13385,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size = 13
 
 -- Display: Yield To Maturity
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Yield To Maturity: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Yield To Maturity: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Yield To Maturity: "..sign..text
 end
 
 -- Dissect: Yield To Maturity
@@ -13413,7 +13413,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.display(value, buffer, offset, packet, parent)
@@ -13431,25 +13431,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size = 13
 
 -- Display: Yield Todays High
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Yield Todays High: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Yield Todays High: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Yield Todays High: "..sign..text
 end
 
 -- Dissect: Yield Todays High
@@ -13459,7 +13459,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.dissect = function(buf
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.display(value, buffer, offset, packet, parent)
@@ -13477,25 +13477,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size = 13
 
 -- Display: Yield Todays Low
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Yield Todays Low: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Yield Todays Low: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Yield Todays Low: "..sign..text
 end
 
 -- Dissect: Yield Todays Low
@@ -13505,7 +13505,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.display(value, buffer, offset, packet, parent)
@@ -13523,25 +13523,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size = 1
 
 -- Display: Zero Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Zero Re Investment Index Weight: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Zero Re Investment Index Weight: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Zero Re Investment Index Weight: "..sign..text
 end
 
 -- Dissect: Zero Re Investment Index Weight
@@ -13551,7 +13551,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display(value, buffer, offset, packet, parent)
@@ -13569,25 +13569,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size = 16
 
 -- Display: Zero Re-Investment Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Zero Re-Investment Index Krx: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Zero Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Zero Re-Investment Index Krx: "..sign..text
 end
 
 -- Dissect: Zero Re-Investment Index Krx
@@ -13597,7 +13597,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
@@ -13615,25 +13615,25 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size = 11
 
 -- Display: Zero Re-Investment Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local text = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == "" then
     return "Zero Re-Investment Index Ktb: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
+  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
+    sign = text:sub(1, 1)
+    text = text:sub(2)
   end
 
-  return "Zero Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  text = text:gsub("^0+", "")
+
+  if text == "" or text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return "Zero Re-Investment Index Ktb: "..sign..text
 end
 
 -- Dissect: Zero Re-Investment Index Ktb
@@ -13643,7 +13643,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)

@@ -114,7 +114,7 @@ cboe_byxequities_lastsale_asciipitch_v1_2_4.executed_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_lastsale_asciipitch_v1_2_4.executed_shares.display(value, buffer, offset, packet, parent)
@@ -254,10 +254,10 @@ end
 cboe_byxequities_lastsale_asciipitch_v1_2_4.price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_lastsale_asciipitch_v1_2_4.price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/1000000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_lastsale_asciipitch_v1_2_4.price_long.display(value, buffer, offset, packet, parent)
@@ -285,7 +285,7 @@ cboe_byxequities_lastsale_asciipitch_v1_2_4.price_short.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_lastsale_asciipitch_v1_2_4.price_short.display(value, buffer, offset, packet, parent)
@@ -534,7 +534,7 @@ cboe_byxequities_lastsale_asciipitch_v1_2_4.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = cboe_byxequities_lastsale_asciipitch_v1_2_4.timestamp.display(value, buffer, offset, packet, parent)

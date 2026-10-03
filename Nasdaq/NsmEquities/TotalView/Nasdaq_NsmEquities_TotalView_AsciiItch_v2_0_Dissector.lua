@@ -192,7 +192,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.canceled_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.canceled_shares.display(value, buffer, offset, packet, parent)
@@ -316,7 +316,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.executed_shares.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.executed_shares.display(value, buffer, offset, packet, parent)
@@ -344,7 +344,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.match_number.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.match_number.display(value, buffer, offset, packet, parent)
@@ -460,7 +460,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.order_reference_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.order_reference_number.display(value, buffer, offset, packet, parent)
@@ -526,10 +526,10 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v2_0.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = tonumber(range:string())/10000
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.price.display(value, buffer, offset, packet, parent)
@@ -711,7 +711,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.shares.dissect = function(buffer, of
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.shares.display(value, buffer, offset, packet, parent)
@@ -866,7 +866,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.timestamp.dissect = function(buffer,
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.timestamp.display(value, buffer, offset, packet, parent)
