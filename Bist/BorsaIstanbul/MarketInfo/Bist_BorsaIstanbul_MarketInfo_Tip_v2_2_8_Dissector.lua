@@ -58,7 +58,7 @@ omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sequenced_data_packet_sequen
 -- Declare Tip Fields
 -----------------------------------------------------------------------
 
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Tag Fields
+-- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Tag Fields
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.abbreviated_name = ProtoField.new("Abbreviated Name", "bist.borsaistanbul.marketinfo.tip.v2.2.8.abbreviatedname", ftypes.STRING)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_interest = ProtoField.new("Accrued Interest", "bist.borsaistanbul.marketinfo.tip.v2.2.8.accruedinterest", ftypes.DOUBLE)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_value = ProtoField.new("Accrued Value", "bist.borsaistanbul.marketinfo.tip.v2.2.8.accruedvalue", ftypes.DOUBLE)
@@ -401,7 +401,7 @@ omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield = ProtoField.new("Yiel
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield_vwap = ProtoField.new("Yield VWAP", "bist.borsaistanbul.marketinfo.tip.v2.2.8.yieldvwap", ftypes.DOUBLE)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level = ProtoField.new("Level", "bist.borsaistanbul.marketinfo.tip.v2.2.8.tiplevel", ftypes.UINT32)
 
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Messages
+-- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Message Fields
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.allocation_price_message = ProtoField.new("Allocation Price Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.allocationpricemessage", ftypes.STRING)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.basic_data_business_date_message = ProtoField.new("Basic Data Business Date Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.basicdatabusinessdatemessage", ftypes.STRING)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.basic_data_clearing_venue_message = ProtoField.new("Basic Data Clearing Venue Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.basicdataclearingvenuemessage", ftypes.STRING)
@@ -467,7 +467,7 @@ omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_statistics2_message = 
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_statistics3_message = ProtoField.new("Trade Statistics3 Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.tradestatistics3message", ftypes.STRING)
 omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover_list_update_message = ProtoField.new("Turnover List Update Message", "bist.borsaistanbul.marketinfo.tip.v2.2.8.turnoverlistupdatemessage", ftypes.STRING)
 
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Expert Info
+-- Bist BorsaIstanbul MarketInfo Tip 2.2.8 Expert Info
 bist_borsaistanbul_marketinfo_tip_v2_2_8.experts = {}
 bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.unknown_message = ProtoExpert.new("bist.borsaistanbul.marketinfo.tip.v2.2.8.unknownmessage", "Unknown tip message type", expert.group.UNDECODED, expert.severity.WARN)
 bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.unknown_tag = ProtoExpert.new("bist.borsaistanbul.marketinfo.tip.v2.2.8.unknowntag", "Unknown tip tag, skipped as the specification requires", expert.group.UNDECODED, expert.severity.NOTE)
@@ -580,7 +580,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Functions
+-- Tip Functions
 -----------------------------------------------------------------------
 
 -- Tokens of a tip message: offset and length of each ';' terminated token, a '\' escaping the byte after it
@@ -621,7 +621,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Tags
+-- Tip Tags
 -----------------------------------------------------------------------
 
 -- Abbreviated Name (SNm): String 32
@@ -636,10 +636,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.abbreviated_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.abbreviated_name.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.abbreviated_name, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.abbreviated_name, range, text, display)
+  return item, text
 end
 
 -- Accrued Interest (Ai): Float 13,9
@@ -660,8 +659,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accrued_interest.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accrued_interest.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_interest, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_interest, range, value, display)
+  return item, text
 end
 
 -- Accrued Value (Av): Float 13,6
@@ -682,8 +681,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accrued_value.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accrued_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accrued_value, range, value, display)
+  return item, text
 end
 
 -- Accumulated Notional Value (An): Float 16,6
@@ -704,8 +703,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_notional_value.dissect = fu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_notional_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_notional_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_notional_value, range, value, display)
+  return item, text
 end
 
 -- Accumulated Notional Value In Value Currency (ANc): Float 16,6
@@ -726,8 +725,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_notional_value_in_value_cur
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_notional_value_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_notional_value_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_notional_value_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Accumulated Trade Report Notional Value (RAn): Float 16,6
@@ -748,8 +747,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_notional_value
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_notional_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_notional_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_notional_value, range, value, display)
+  return item, text
 end
 
 -- Accumulated Trade Report Notional Value In Value Currency (RAc): Float 16,6
@@ -770,8 +769,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_notional_value
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_notional_value_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_notional_value_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_notional_value_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Accumulated Trade Report Turnover (Ar): Float 16,6
@@ -792,8 +791,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_turnover.disse
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_turnover, range, value, display)
+  return item, text
 end
 
 -- Accumulated Trade Report Turnover In Value Currency (ARc): Float 16,6
@@ -814,8 +813,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_turnover_in_va
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_turnover_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_turnover_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_turnover_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Accumulated Trade Report Volume (Rq): Float 16,6
@@ -836,8 +835,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_volume.dissect
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_trade_report_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_trade_report_volume, range, value, display)
+  return item, text
 end
 
 -- Accumulated Turnover (f): Float 16,6
@@ -858,8 +857,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_turnover.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_turnover, range, value, display)
+  return item, text
 end
 
 -- Accumulated Turnover In Value Currency (ATc): Float 16,6
@@ -880,8 +879,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_turnover_in_value_currency.
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_turnover_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_turnover_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_turnover_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Accumulated Volume (o): Float 16,6
@@ -902,8 +901,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_volume.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accumulated_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.accumulated_volume, range, value, display)
+  return item, text
 end
 
 -- Action Status (SRe): ActionStatus 2
@@ -931,8 +930,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.action_status.dissect = function(buffer
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.action_status.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.action_status, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.action_status, range, value, display)
+  return item, text
 end
 
 -- Additional Reference Price (ARp): Float 13,6
@@ -953,8 +952,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.additional_reference_price.dissect = fu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.additional_reference_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.additional_reference_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.additional_reference_price, range, value, display)
+  return item, text
 end
 
 -- Aggressive Party (Ag): Char
@@ -969,10 +968,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.aggressive_party.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.aggressive_party.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.aggressive_party, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.aggressive_party, range, text, display)
+  return item, text
 end
 
 -- Allocation Price (APr): Double 14,7
@@ -993,8 +991,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.allocation_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.allocation_price, range, value, display)
+  return item, text
 end
 
 -- Amount Of Collateral (Ac): Float 13,6
@@ -1015,8 +1013,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.amount_of_collateral.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.amount_of_collateral.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.amount_of_collateral, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.amount_of_collateral, range, value, display)
+  return item, text
 end
 
 -- Ask Collateral Price At Level (Ca): Ifloat 13,6
@@ -1043,9 +1041,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_collateral_price_at_level.dissect =
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_collateral_price_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_collateral_price_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Collateral Price At Level1 (ACPl): Float 13,6
@@ -1066,8 +1064,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_collateral_price_at_level1.dissect 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_collateral_price_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_collateral_price_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_collateral_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Ask Level Deleted (e): Integer 3
@@ -1089,8 +1087,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_level_deleted.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_level_deleted.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_level_deleted, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_level_deleted, range, value, display)
+  return item, text
 end
 
 -- Ask Orders At Level (k): Iinteger 10
@@ -1118,9 +1116,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_orders_at_level.dissect = function(
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_orders_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_orders_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Price (Pa): Float 13,6
@@ -1141,8 +1139,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_price, range, value, display)
+  return item, text
 end
 
 -- Ask Price At Level (a): Ifloat 13,6
@@ -1169,9 +1167,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price_at_level.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_price_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Price At Level1 (APl): Float 13,6
@@ -1192,8 +1190,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price_at_level1.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_price_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_price_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Ask Settlement Price (ASp): Float 13,6
@@ -1214,8 +1212,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_settlement_price.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_settlement_price, range, value, display)
+  return item, text
 end
 
 -- Ask Volume (Va): Float 13,6
@@ -1236,8 +1234,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_volume.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_volume, range, value, display)
+  return item, text
 end
 
 -- Ask Volume At Level (j): Ifloat 13,6
@@ -1264,9 +1262,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_volume_at_level.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_volume_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_volume_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Yield At Level (Ya): Ifloat 13,6
@@ -1293,9 +1291,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_yield_at_level.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_yield_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_yield_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ask Yield At Level1 (AYl): Float 13,6
@@ -1316,8 +1314,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_yield_at_level1.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ask_yield_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_yield_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ask_yield_at_level1, range, value, display)
+  return item, text
 end
 
 -- Automatch (AUm): YesNo
@@ -1338,10 +1336,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.automatch.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.automatch.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.automatch, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.automatch, range, text, display)
+  return item, text
 end
 
 -- Available Qty End Date (Ae): Date
@@ -1359,10 +1356,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.available_qty_end_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.available_qty_end_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_qty_end_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_qty_end_date, range, text, display)
+  return item, text
 end
 
 -- Available Qty Start Date (As): Date
@@ -1380,10 +1376,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.available_qty_start_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.available_qty_start_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_qty_start_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_qty_start_date, range, text, display)
+  return item, text
 end
 
 -- Available Quantity At Start (AVq): Float 13,6
@@ -1404,8 +1399,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.available_quantity_at_start.dissect = f
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.available_quantity_at_start.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_quantity_at_start, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.available_quantity_at_start, range, value, display)
+  return item, text
 end
 
 -- Bar Type (BAt): BarType 1
@@ -1445,8 +1440,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bar_type.dissect = function(buffer, off
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bar_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bar_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bar_type, range, value, display)
+  return item, text
 end
 
 -- Base Date (IBd): Date
@@ -1464,10 +1459,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.base_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.base_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_date, range, text, display)
+  return item, text
 end
 
 -- Base Price (RPr): Float 13,6
@@ -1488,8 +1482,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.base_price.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.base_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_price, range, value, display)
+  return item, text
 end
 
 -- Base Value (IBv): Double 18,6
@@ -1510,8 +1504,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.base_value.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.base_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.base_value, range, value, display)
+  return item, text
 end
 
 -- Bic Code (BIc): String 11
@@ -1526,10 +1520,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.bic_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bic_code.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bic_code, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bic_code, range, text, display)
+  return item, text
 end
 
 -- Bid Collateral Price At Level (Cb): Ifloat 13,6
@@ -1556,9 +1549,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_collateral_price_at_level.dissect =
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_collateral_price_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_collateral_price_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Collateral Price At Level1 (BCPl): Float 13,6
@@ -1579,8 +1572,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_collateral_price_at_level1.dissect 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_collateral_price_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_collateral_price_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_collateral_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Bid Level Deleted (c): Integer 3
@@ -1602,8 +1595,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_level_deleted.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_level_deleted.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_level_deleted, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_level_deleted, range, value, display)
+  return item, text
 end
 
 -- Bid Orders At Level (h): Iinteger 10
@@ -1631,9 +1624,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_orders_at_level.dissect = function(
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_orders_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_orders_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Price (Pb): Float 13,6
@@ -1654,8 +1647,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price, range, value, display)
+  return item, text
 end
 
 -- Bid Price At Level (b): Ifloat 13,6
@@ -1682,9 +1675,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_at_level.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Price At Level1 (BPr): Float 13,6
@@ -1705,8 +1698,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_at_level1.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price_at_level1, range, value, display)
+  return item, text
 end
 
 -- Bid Price Diff (d): Float 13,6
@@ -1727,8 +1720,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_diff.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_price_diff.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price_diff, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_price_diff, range, value, display)
+  return item, text
 end
 
 -- Bid Settlement Price (BSp): Float 13,6
@@ -1749,8 +1742,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_settlement_price.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_settlement_price, range, value, display)
+  return item, text
 end
 
 -- Bid Volume (Vb): Float 13,6
@@ -1771,8 +1764,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_volume.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_volume, range, value, display)
+  return item, text
 end
 
 -- Bid Volume At Level (g): Ifloat 13,6
@@ -1799,9 +1792,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_volume_at_level.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_volume_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_volume_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Yield At Level (Yb): Ifloat 13,6
@@ -1828,9 +1821,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_yield_at_level.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_yield_at_level.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_yield_at_level, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Bid Yield At Level1 (BYl): Float 13,6
@@ -1851,8 +1844,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_yield_at_level1.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.bid_yield_at_level1.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_yield_at_level1, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.bid_yield_at_level1, range, value, display)
+  return item, text
 end
 
 -- Block Id (BLi): Integer 3
@@ -1874,8 +1867,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.block_id.dissect = function(buffer, off
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.block_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.block_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.block_id, range, value, display)
+  return item, text
 end
 
 -- Buy Or Sell (Bs): Char
@@ -1890,10 +1883,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.buy_or_sell.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.buy_or_sell.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.buy_or_sell, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.buy_or_sell, range, text, display)
+  return item, text
 end
 
 -- Calculation Type (TYc): Integer 10
@@ -1915,8 +1907,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.calculation_type.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.calculation_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.calculation_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.calculation_type, range, value, display)
+  return item, text
 end
 
 -- Clearing Info (Ci): ClearingInfo 1
@@ -1944,8 +1936,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.clearing_info.dissect = function(buffer
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.clearing_info.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.clearing_info, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.clearing_info, range, value, display)
+  return item, text
 end
 
 -- Clearing Venue Id (CLId): Id
@@ -1967,8 +1959,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.clearing_venue_id.dissect = function(bu
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.clearing_venue_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.clearing_venue_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.clearing_venue_id, range, value, display)
+  return item, text
 end
 
 -- Closing Auction Price (CLp): Float 13,6
@@ -1989,8 +1981,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_auction_price.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_auction_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_auction_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_auction_price, range, value, display)
+  return item, text
 end
 
 -- Closing Value (CLv): Double 18,6
@@ -2011,8 +2003,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_value.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_value, range, value, display)
+  return item, text
 end
 
 -- Closing VWAP (CWp): Float 13,8
@@ -2033,8 +2025,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_vwap.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.closing_vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.closing_vwap, range, value, display)
+  return item, text
 end
 
 -- Code Level (CDLv): Integer 1
@@ -2056,8 +2048,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.code_level.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.code_level.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.code_level, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.code_level, range, value, display)
+  return item, text
 end
 
 -- Coin Group (RCg): CoinGroup 1
@@ -2088,8 +2080,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_group.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_group.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_group, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_group, range, value, display)
+  return item, text
 end
 
 -- Coin Type (RCt): CoinType 1
@@ -2132,8 +2124,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_type.dissect = function(buffer, of
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_type, range, value, display)
+  return item, text
 end
 
 -- Coin Year (RCy): Integer 4
@@ -2155,8 +2147,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_year.dissect = function(buffer, of
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.coin_year.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_year, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coin_year, range, value, display)
+  return item, text
 end
 
 -- Collateral Price (Cp): Float 13,6
@@ -2177,8 +2169,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.collateral_price.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.collateral_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.collateral_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.collateral_price, range, value, display)
+  return item, text
 end
 
 -- Combo Type (Ct): ComboType 1
@@ -2206,8 +2198,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.combo_type.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.combo_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.combo_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.combo_type, range, value, display)
+  return item, text
 end
 
 -- Compound Yield (COy): Float 13,6
@@ -2228,8 +2220,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.compound_yield.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.compound_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.compound_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.compound_yield, range, value, display)
+  return item, text
 end
 
 -- Compound Yield VWAP (CYWp): Float 13,8
@@ -2250,8 +2242,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.compound_yield_vwap.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.compound_yield_vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.compound_yield_vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.compound_yield_vwap, range, value, display)
+  return item, text
 end
 
 -- Contract Size (CSz): Double 20,9
@@ -2272,8 +2264,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.contract_size.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.contract_size.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.contract_size, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.contract_size, range, value, display)
+  return item, text
 end
 
 -- Corporate Action (CRa): YesNo
@@ -2294,10 +2286,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.corporate_action, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.corporate_action, range, text, display)
+  return item, text
 end
 
 -- Country (CNy): String 2
@@ -2312,10 +2303,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.country.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.country.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.country, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.country, range, text, display)
+  return item, text
 end
 
 -- Coupon Frequency (CFq): Double 19,10
@@ -2336,8 +2326,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.coupon_frequency.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.coupon_frequency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coupon_frequency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coupon_frequency, range, value, display)
+  return item, text
 end
 
 -- Coupon Rate (RCp): Double 19,10
@@ -2358,8 +2348,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.coupon_rate.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.coupon_rate.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coupon_rate, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.coupon_rate, range, value, display)
+  return item, text
 end
 
 -- Cross Trade (CTr): YesNo
@@ -2380,10 +2370,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.cross_trade.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.cross_trade.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.cross_trade, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.cross_trade, range, text, display)
+  return item, text
 end
 
 -- Currency (LCy): String 3
@@ -2398,10 +2387,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.currency, range, text, display)
+  return item, text
 end
 
 -- Current Value (Vc): Double 18,6
@@ -2422,8 +2410,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.current_value.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.current_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.current_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.current_value, range, value, display)
+  return item, text
 end
 
 -- Cycle Class (CYc): Integer 10
@@ -2445,8 +2433,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.cycle_class.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.cycle_class.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.cycle_class, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.cycle_class, range, value, display)
+  return item, text
 end
 
 -- Date (Dt): Date
@@ -2464,10 +2452,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date, range, text, display)
+  return item, text
 end
 
 -- Date Agreement (Da): Date
@@ -2485,10 +2472,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_agreement.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_agreement.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_agreement, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_agreement, range, text, display)
+  return item, text
 end
 
 -- Date Dissemination (DDi): Date
@@ -2506,10 +2492,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_dissemination.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_dissemination.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_dissemination, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_dissemination, range, text, display)
+  return item, text
 end
 
 -- Date Exec (Dx): Date
@@ -2527,10 +2512,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_exec.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_exec.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_exec, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_exec, range, text, display)
+  return item, text
 end
 
 -- Date Settlement Price (SPd): Date
@@ -2548,10 +2532,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_settlement_price.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_settlement_price, range, text, display)
+  return item, text
 end
 
 -- Date Trade Cancel (DCt): Date
@@ -2569,10 +2552,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_trade_cancel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_trade_cancel.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_trade_cancel, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_trade_cancel, range, text, display)
+  return item, text
 end
 
 -- Date Trade Rectify (DRe): Date
@@ -2590,10 +2572,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.date_trade_rectify.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.date_trade_rectify.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_trade_rectify, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.date_trade_rectify, range, text, display)
+  return item, text
 end
 
 -- Day Count Method (DCm): DayCountMethod
@@ -2645,8 +2626,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.day_count_method.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.day_count_method.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.day_count_method, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.day_count_method, range, value, display)
+  return item, text
 end
 
 -- Day Type (TDt): Id
@@ -2668,8 +2649,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.day_type.dissect = function(buffer, off
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.day_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.day_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.day_type, range, value, display)
+  return item, text
 end
 
 -- Days To Coupon (Dc): Integer 3
@@ -2691,8 +2672,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.days_to_coupon.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.days_to_coupon.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.days_to_coupon, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.days_to_coupon, range, value, display)
+  return item, text
 end
 
 -- Days To Maturity (Dm): Integer 5
@@ -2714,8 +2695,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.days_to_maturity.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.days_to_maturity.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.days_to_maturity, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.days_to_maturity, range, value, display)
+  return item, text
 end
 
 -- Deliverable Series Id (DSi): Id
@@ -2737,8 +2718,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.deliverable_series_id.dissect = functio
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.deliverable_series_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.deliverable_series_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.deliverable_series_id, range, value, display)
+  return item, text
 end
 
 -- Delivery Date (DDt): Date
@@ -2756,10 +2737,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.delivery_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.delivery_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.delivery_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.delivery_date, range, text, display)
+  return item, text
 end
 
 -- Derivative Type (DTy): DerivativeType 2
@@ -2808,8 +2788,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.derivative_type.dissect = function(buff
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.derivative_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.derivative_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.derivative_type, range, value, display)
+  return item, text
 end
 
 -- Description (DSc): String 200
@@ -2824,10 +2804,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.description.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.description.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.description, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.description, range, text, display)
+  return item, text
 end
 
 -- Diff Day Nom (Dn): Double 18,6
@@ -2848,8 +2827,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_day_nom.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_day_nom.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_day_nom, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_day_nom, range, value, display)
+  return item, text
 end
 
 -- Diff Day Per (Dd): Float 13,6
@@ -2870,8 +2849,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_day_per.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_day_per.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_day_per, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_day_per, range, value, display)
+  return item, text
 end
 
 -- Diff Last Price (Pd): Float 13,6
@@ -2892,8 +2871,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_price.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_price, range, value, display)
+  return item, text
 end
 
 -- Diff Last Settlement Price (DSEp): Float 13,6
@@ -2914,8 +2893,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_settlement_price.dissect = fu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_settlement_price, range, value, display)
+  return item, text
 end
 
 -- Diff Last Yield (Yd): Float 13,6
@@ -2936,8 +2915,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_yield.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_last_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_last_yield, range, value, display)
+  return item, text
 end
 
 -- Diff Open Interest (Do): Float 13,6
@@ -2958,8 +2937,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_open_interest.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.diff_open_interest.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_open_interest, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.diff_open_interest, range, value, display)
+  return item, text
 end
 
 -- Dissemination Interval (Di): Integer 4
@@ -2981,8 +2960,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.dissemination_interval.dissect = functi
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.dissemination_interval.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.dissemination_interval, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.dissemination_interval, range, value, display)
+  return item, text
 end
 
 -- Divisor (IXDv): Double 23,8
@@ -3003,8 +2982,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.divisor.dissect = function(buffer, offs
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.divisor.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.divisor, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.divisor, range, value, display)
+  return item, text
 end
 
 -- End Date (Ed): Date
@@ -3022,10 +3001,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.end_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.end_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.end_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.end_date, range, text, display)
+  return item, text
 end
 
 -- English Name (ENn): String 100
@@ -3040,10 +3018,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.english_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.english_name.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.english_name, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.english_name, range, text, display)
+  return item, text
 end
 
 -- Equilibrium Price (EQp): Float 13,6
@@ -3064,8 +3041,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.equilibrium_price.dissect = function(bu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.equilibrium_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.equilibrium_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.equilibrium_price, range, value, display)
+  return item, text
 end
 
 -- Equilibrium Volume (EQv): Float 13,6
@@ -3086,8 +3063,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.equilibrium_volume.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.equilibrium_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.equilibrium_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.equilibrium_volume, range, value, display)
+  return item, text
 end
 
 -- Exchange Id (Ex): Id
@@ -3109,8 +3086,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.exchange_id.dissect = function(buffer, 
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exchange_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exchange_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exchange_id, range, value, display)
+  return item, text
 end
 
 -- Exclude Cross Trade From Stats (ECTr): YesNo
@@ -3131,10 +3108,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.exclude_cross_trade_from_stats.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exclude_cross_trade_from_stats.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exclude_cross_trade_from_stats, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exclude_cross_trade_from_stats, range, text, display)
+  return item, text
 end
 
 -- Exercise Currency (EXc): String 3
@@ -3149,10 +3125,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_currency, range, text, display)
+  return item, text
 end
 
 -- Exercise From Date (EXb): Date
@@ -3170,10 +3145,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_from_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_from_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_from_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_from_date, range, text, display)
+  return item, text
 end
 
 -- Exercise To Date (EXe): Date
@@ -3191,10 +3165,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_to_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_to_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_to_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_to_date, range, text, display)
+  return item, text
 end
 
 -- Exercise Type (DXt): ExerciseType 1
@@ -3234,8 +3207,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_type.dissect = function(buffer
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.exercise_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.exercise_type, range, value, display)
+  return item, text
 end
 
 -- Factor (PQf): Double 20,9
@@ -3256,8 +3229,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.factor.dissect = function(buffer, offse
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.factor.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.factor, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.factor, range, value, display)
+  return item, text
 end
 
 -- Fineness (Fn): Float 13,6
@@ -3278,8 +3251,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.fineness.dissect = function(buffer, off
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.fineness.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fineness, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fineness, range, value, display)
+  return item, text
 end
 
 -- Fineness Notation (FNn): Integer 10
@@ -3301,8 +3274,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.fineness_notation.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.fineness_notation.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fineness_notation, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fineness_notation, range, value, display)
+  return item, text
 end
 
 -- First Price (Pf): Float 13,6
@@ -3323,8 +3296,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.first_price.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.first_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_price, range, value, display)
+  return item, text
 end
 
 -- First Trading Date (FTRd): Date
@@ -3342,10 +3315,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.first_trading_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.first_trading_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_trading_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_trading_date, range, text, display)
+  return item, text
 end
 
 -- First Trading Time (FTRt): Time
@@ -3363,10 +3335,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.first_trading_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.first_trading_time.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_trading_time, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_trading_time, range, text, display)
+  return item, text
 end
 
 -- First Yield (Yf): Float 13,6
@@ -3387,8 +3358,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.first_yield.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.first_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.first_yield, range, value, display)
+  return item, text
 end
 
 -- Fixed Income Classification (FIc): String 80
@@ -3403,10 +3374,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.fixed_income_classification.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.fixed_income_classification.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fixed_income_classification, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fixed_income_classification, range, text, display)
+  return item, text
 end
 
 -- Fixed Income Type (BTy): FixedIncomeType
@@ -3467,8 +3437,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.fixed_income_type.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.fixed_income_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fixed_income_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.fixed_income_type, range, value, display)
+  return item, text
 end
 
 -- Flush (Of): Boolean
@@ -3484,9 +3454,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.flush.dissect = function(buffer, offset
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
   local value = true
-  local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.flush.display()
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.flush, range, value, display)
+  local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.flush.display(text)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.flush, range, value, display)
+  return item, text
 end
 
 -- Free Float Ratio (FFr): Double 18,6
@@ -3507,8 +3477,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.free_float_ratio.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.free_float_ratio.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.free_float_ratio, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.free_float_ratio, range, value, display)
+  return item, text
 end
 
 -- Gross Settlement (GRs): YesNo
@@ -3529,10 +3499,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.gross_settlement.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.gross_settlement.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.gross_settlement, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.gross_settlement, range, text, display)
+  return item, text
 end
 
 -- Handled CCP (CCp): HandledCCP 1
@@ -3560,8 +3529,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.handled_ccp.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.handled_ccp.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.handled_ccp, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.handled_ccp, range, value, display)
+  return item, text
 end
 
 -- Head Line (NHl): String 80
@@ -3576,10 +3545,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.head_line.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.head_line.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.head_line, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.head_line, range, text, display)
+  return item, text
 end
 
 -- High Price (Ph): Float 13,6
@@ -3600,8 +3568,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price, range, value, display)
+  return item, text
 end
 
 -- High Price Month (HPm): Float 13,6
@@ -3622,8 +3590,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_month.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_month.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_month, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_month, range, value, display)
+  return item, text
 end
 
 -- High Price Month Date (HPMd): Date
@@ -3641,10 +3609,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_month_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_month_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_month_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_month_date, range, text, display)
+  return item, text
 end
 
 -- High Price Year (HPy): Float 13,6
@@ -3665,8 +3632,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_year.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_year.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_year, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_year, range, value, display)
+  return item, text
 end
 
 -- High Price Year Date (HPYd): Date
@@ -3684,10 +3651,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_year_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_price_year_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_year_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_price_year_date, range, text, display)
+  return item, text
 end
 
 -- High Settlement Price (HSEp): Float 13,6
@@ -3708,8 +3674,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_settlement_price.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_settlement_price, range, value, display)
+  return item, text
 end
 
 -- High Value (Vh): Double 18,6
@@ -3730,8 +3696,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_value.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_value, range, value, display)
+  return item, text
 end
 
 -- High Yield (Yh): Float 13,6
@@ -3752,8 +3718,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield, range, value, display)
+  return item, text
 end
 
 -- High Yield Month (HYm): Float 13,6
@@ -3774,8 +3740,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield_month.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield_month.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield_month, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield_month, range, value, display)
+  return item, text
 end
 
 -- High Yield Year (HYy): Float 13,6
@@ -3796,8 +3762,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield_year.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.high_yield_year.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield_year, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.high_yield_year, range, value, display)
+  return item, text
 end
 
 -- Hot Inserted (HOt): Boolean
@@ -3813,9 +3779,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.hot_inserted.dissect = function(buffer,
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
   local value = true
-  local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.hot_inserted.display()
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.hot_inserted, range, value, display)
+  local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.hot_inserted.display(text)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.hot_inserted, range, value, display)
+  return item, text
 end
 
 -- Id (i): Id
@@ -3837,8 +3803,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.id.dissect = function(buffer, offset, s
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.id, range, value, display)
+  return item, text
 end
 
 -- Id Leg (Il): Id
@@ -3860,8 +3826,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.id_leg.dissect = function(buffer, offse
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.id_leg.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.id_leg, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.id_leg, range, value, display)
+  return item, text
 end
 
 -- Index Classification (INc): Id
@@ -3883,8 +3849,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_classification.dissect = function
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_classification.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_classification, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_classification, range, value, display)
+  return item, text
 end
 
 -- Index Id (IXi): Id
@@ -3906,8 +3872,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_id.dissect = function(buffer, off
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_id, range, value, display)
+  return item, text
 end
 
 -- Index Member (Ni): String 32
@@ -3922,10 +3888,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_member.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_member.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_member, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_member, range, text, display)
+  return item, text
 end
 
 -- Index Name (INn): String 100
@@ -3940,10 +3905,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_name.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_name, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_name, range, text, display)
+  return item, text
 end
 
 -- Index Owner (Io): Id 10
@@ -3965,8 +3929,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_owner.dissect = function(buffer, 
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_owner.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_owner, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_owner, range, value, display)
+  return item, text
 end
 
 -- Index Price Type (IPt): Integer 10
@@ -3988,8 +3952,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_price_type.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_price_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_price_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_price_type, range, value, display)
+  return item, text
 end
 
 -- Index Status (Is): Integer 10
@@ -4011,8 +3975,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_status.dissect = function(buffer,
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_status.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_status, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_status, range, value, display)
+  return item, text
 end
 
 -- Index Type (ITy): Integer 10
@@ -4034,8 +3998,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_type.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.index_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.index_type, range, value, display)
+  return item, text
 end
 
 -- Inflation Coefficient (Ic): Float 13,6
@@ -4056,8 +4020,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.inflation_coefficient.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.inflation_coefficient.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.inflation_coefficient, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.inflation_coefficient, range, value, display)
+  return item, text
 end
 
 -- Instrument Classification (ICl): Id
@@ -4079,8 +4043,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.instrument_classification.dissect = fun
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.instrument_classification.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.instrument_classification, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.instrument_classification, range, value, display)
+  return item, text
 end
 
 -- Instrument Source Id (INi): String 32
@@ -4095,10 +4059,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.instrument_source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.instrument_source_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.instrument_source_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.instrument_source_id, range, text, display)
+  return item, text
 end
 
 -- Isin (ISn): String 12
@@ -4113,10 +4076,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.isin.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.isin.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.isin, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.isin, range, text, display)
+  return item, text
 end
 
 -- Issue Currency (CUi): String 3
@@ -4131,10 +4093,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.issue_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.issue_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issue_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issue_currency, range, text, display)
+  return item, text
 end
 
 -- Issue Date (DIs): Date
@@ -4152,10 +4113,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.issue_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.issue_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issue_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issue_date, range, text, display)
+  return item, text
 end
 
 -- Issuer Id (ISi): Id
@@ -4177,8 +4137,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.issuer_id.dissect = function(buffer, of
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.issuer_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issuer_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.issuer_id, range, value, display)
+  return item, text
 end
 
 -- Last Block (BLl): YesNo
@@ -4199,10 +4159,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.last_block.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_block.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_block, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_block, range, text, display)
+  return item, text
 end
 
 -- Last Compound Yield (CYl): Float 13,6
@@ -4223,8 +4182,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_compound_yield.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_compound_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_compound_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_compound_yield, range, value, display)
+  return item, text
 end
 
 -- Last Paid Date (LPd): Date
@@ -4242,10 +4201,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.last_paid_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_paid_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_paid_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_paid_date, range, text, display)
+  return item, text
 end
 
 -- Last Price (Pl): Float 13,6
@@ -4266,8 +4224,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_price.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_price, range, value, display)
+  return item, text
 end
 
 -- Last Settlement Price (SEPl): Float 13,6
@@ -4288,8 +4246,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_settlement_price.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_settlement_price, range, value, display)
+  return item, text
 end
 
 -- Last Trade Report Price (LTRp): Float 13,6
@@ -4310,8 +4268,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_price.dissect = funct
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_price, range, value, display)
+  return item, text
 end
 
 -- Last Trade Report Quantity (LTRq): Integer 10
@@ -4333,8 +4291,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_quantity.dissect = fu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_quantity.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_quantity, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_quantity, range, value, display)
+  return item, text
 end
 
 -- Last Trade Report Yield (LTRy): Float 13,6
@@ -4355,8 +4313,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_yield.dissect = funct
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trade_report_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trade_report_yield, range, value, display)
+  return item, text
 end
 
 -- Last Traded Date (LTd): Date
@@ -4374,10 +4332,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.last_traded_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_traded_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_traded_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_traded_date, range, text, display)
+  return item, text
 end
 
 -- Last Trading Date (LTRd): Date
@@ -4395,10 +4352,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trading_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trading_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trading_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trading_date, range, text, display)
+  return item, text
 end
 
 -- Last Trading Time (LTRt): Time
@@ -4416,10 +4372,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trading_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_trading_time.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trading_time, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_trading_time, range, text, display)
+  return item, text
 end
 
 -- Last Volume (Lv): Float 13,6
@@ -4440,8 +4395,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_volume.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_volume, range, value, display)
+  return item, text
 end
 
 -- Last Yield (Yl): Float 13,6
@@ -4462,8 +4417,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.last_yield.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.last_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.last_yield, range, value, display)
+  return item, text
 end
 
 -- Latest Trade (Lt): YesNo 1
@@ -4484,10 +4439,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.latest_trade.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.latest_trade.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.latest_trade, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.latest_trade, range, text, display)
+  return item, text
 end
 
 -- List Id (LSi): Id
@@ -4509,8 +4463,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.list_id.dissect = function(buffer, offs
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.list_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.list_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.list_id, range, value, display)
+  return item, text
 end
 
 -- Listing Date (LDa): Date
@@ -4528,10 +4482,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.listing_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.listing_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.listing_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.listing_date, range, text, display)
+  return item, text
 end
 
 -- Lot Size (LSz): Float 6,3
@@ -4552,8 +4505,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.lot_size.dissect = function(buffer, off
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.lot_size.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.lot_size, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.lot_size, range, value, display)
+  return item, text
 end
 
 -- Low Price (LOp): Float 13,6
@@ -4574,8 +4527,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price, range, value, display)
+  return item, text
 end
 
 -- Low Price Month (LPm): Float 13,6
@@ -4596,8 +4549,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_month.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_month.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_month, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_month, range, value, display)
+  return item, text
 end
 
 -- Low Price Month Date (LPMd): Date
@@ -4615,10 +4568,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_month_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_month_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_month_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_month_date, range, text, display)
+  return item, text
 end
 
 -- Low Price Year (LPy): Float 13,6
@@ -4639,8 +4591,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_year.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_year.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_year, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_year, range, value, display)
+  return item, text
 end
 
 -- Low Price Year Date (LPYd): Date
@@ -4658,10 +4610,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_year_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_price_year_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_year_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_price_year_date, range, text, display)
+  return item, text
 end
 
 -- Low Settlement Price (LSEp): Float 13,6
@@ -4682,8 +4633,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_settlement_price.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_settlement_price, range, value, display)
+  return item, text
 end
 
 -- Low Value (Vl): Double 18,6
@@ -4704,8 +4655,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_value.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_value, range, value, display)
+  return item, text
 end
 
 -- Low Yield (Yo): Float 13,6
@@ -4726,8 +4677,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield, range, value, display)
+  return item, text
 end
 
 -- Low Yield Month (LYm): Float 13,6
@@ -4748,8 +4699,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield_month.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield_month.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield_month, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield_month, range, value, display)
+  return item, text
 end
 
 -- Low Yield Year (LYy): Float 13,6
@@ -4770,8 +4721,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield_year.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.low_yield_year.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield_year, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.low_yield_year, range, value, display)
+  return item, text
 end
 
 -- Lower Price Limit (LPl): Float 13,6
@@ -4792,8 +4743,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.lower_price_limit.dissect = function(bu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.lower_price_limit.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.lower_price_limit, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.lower_price_limit, range, value, display)
+  return item, text
 end
 
 -- Margin Price (MPr): Float 13,6
@@ -4814,8 +4765,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.margin_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.margin_price, range, value, display)
+  return item, text
 end
 
 -- Market Cap (CAp): Double 23,6
@@ -4836,8 +4787,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.market_cap.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.market_cap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_cap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_cap, range, value, display)
+  return item, text
 end
 
 -- Market Id (Mk): Id
@@ -4859,8 +4810,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.market_id.dissect = function(buffer, of
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.market_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_id, range, value, display)
+  return item, text
 end
 
 -- Market Maker (MMk): Idlist 200
@@ -4875,10 +4826,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_maker, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_maker, range, text, display)
+  return item, text
 end
 
 -- Market Segment (MSe): Id
@@ -4900,8 +4850,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.market_segment.dissect = function(buffe
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.market_segment.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_segment, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.market_segment, range, value, display)
+  return item, text
 end
 
 -- Maturity Date (DMa): Date
@@ -4919,10 +4869,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.maturity_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.maturity_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.maturity_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.maturity_date, range, text, display)
+  return item, text
 end
 
 -- Max Days Order (MDo): Integer 4
@@ -4944,8 +4893,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.max_days_order.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.max_days_order.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.max_days_order, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.max_days_order, range, value, display)
+  return item, text
 end
 
 -- Max Order Value (MOv): Float 13,6
@@ -4966,8 +4915,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.max_order_value.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.max_order_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.max_order_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.max_order_value, range, value, display)
+  return item, text
 end
 
 -- Maximum Lot (MLt): Float 13,6
@@ -4988,8 +4937,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.maximum_lot.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.maximum_lot.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.maximum_lot, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.maximum_lot, range, value, display)
+  return item, text
 end
 
 -- Message Source (NMs): String 80
@@ -5004,10 +4953,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.message_source.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.message_source.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.message_source, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.message_source, range, text, display)
+  return item, text
 end
 
 -- Metal Type (Mt): MetalType 1
@@ -5041,8 +4989,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_type.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_type, range, value, display)
+  return item, text
 end
 
 -- Metal Weight (Mw): Float 13,6
@@ -5063,8 +5011,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight, range, value, display)
+  return item, text
 end
 
 -- Metal Weight Conversion Factor (MWc): String 22
@@ -5079,10 +5027,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight_conversion_factor.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight_conversion_factor.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight_conversion_factor, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight_conversion_factor, range, text, display)
+  return item, text
 end
 
 -- Metal Weight Unit (MWu): MetalWeightUnit 1
@@ -5113,8 +5060,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight_unit.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.metal_weight_unit.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight_unit, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.metal_weight_unit, range, value, display)
+  return item, text
 end
 
 -- Mic Code (MIc): String 4
@@ -5129,10 +5076,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.mic_code.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.mic_code.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.mic_code, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.mic_code, range, text, display)
+  return item, text
 end
 
 -- Min Volume (Vm): Integer 10
@@ -5154,8 +5100,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.min_volume.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.min_volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.min_volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.min_volume, range, value, display)
+  return item, text
 end
 
 -- Minimum Lot (MLm): Float 13,6
@@ -5176,8 +5122,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.minimum_lot.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.minimum_lot.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minimum_lot, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minimum_lot, range, value, display)
+  return item, text
 end
 
 -- Minus Bids (Bm): Integer 5
@@ -5199,8 +5145,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.minus_bids.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.minus_bids.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minus_bids, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minus_bids, range, value, display)
+  return item, text
 end
 
 -- Minus Paid (Pm): Integer 5
@@ -5222,8 +5168,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.minus_paid.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.minus_paid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minus_paid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.minus_paid, range, value, display)
+  return item, text
 end
 
 -- Name (NAm): String 80
@@ -5238,10 +5184,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.name.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.name.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.name, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.name, range, text, display)
+  return item, text
 end
 
 -- News Id (NWi): Integer 10
@@ -5263,8 +5208,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.news_id.dissect = function(buffer, offs
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.news_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.news_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.news_id, range, value, display)
+  return item, text
 end
 
 -- News Object Type (NOt): NewsObjectType 1
@@ -5304,8 +5249,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.news_object_type.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.news_object_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.news_object_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.news_object_type, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Price (NDp): Integer 1
@@ -5327,8 +5272,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.no_of_dec_price.dissect = function(buff
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.no_of_dec_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.no_of_dec_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.no_of_dec_price, range, value, display)
+  return item, text
 end
 
 -- No Of Dec Yield (NDTp): Integer 1
@@ -5350,8 +5295,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.no_of_dec_yield.dissect = function(buff
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.no_of_dec_yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.no_of_dec_yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.no_of_dec_yield, range, value, display)
+  return item, text
 end
 
 -- Nominal Value (NMv): Double 20,15
@@ -5372,8 +5317,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.nominal_value.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.nominal_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.nominal_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.nominal_value, range, value, display)
+  return item, text
 end
 
 -- Note Code (NOc): Integer 10
@@ -5395,8 +5340,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.note_code.dissect = function(buffer, of
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.note_code.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.note_code, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.note_code, range, value, display)
+  return item, text
 end
 
 -- Notional Value (Nv): Float 16,6
@@ -5417,8 +5362,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.notional_value.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.notional_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.notional_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.notional_value, range, value, display)
+  return item, text
 end
 
 -- Notional Value In Value Currency (NVc): Float 16,6
@@ -5439,8 +5384,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.notional_value_in_value_currency.dissec
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.notional_value_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.notional_value_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.notional_value_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Number Of Trade Reports (Qr): Integer 8
@@ -5462,8 +5407,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.number_of_trade_reports.dissect = funct
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.number_of_trade_reports.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.number_of_trade_reports, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.number_of_trade_reports, range, value, display)
+  return item, text
 end
 
 -- Number Of Trades (q): Integer 8
@@ -5485,8 +5430,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.number_of_trades.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.number_of_trades.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.number_of_trades, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.number_of_trades, range, value, display)
+  return item, text
 end
 
 -- Odd First (ODf): YesNo
@@ -5507,10 +5452,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.odd_first.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.odd_first.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.odd_first, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.odd_first, range, text, display)
+  return item, text
 end
 
 -- Odd Last (ODl): YesNo
@@ -5531,10 +5475,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.odd_last.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.odd_last.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.odd_last, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.odd_last, range, text, display)
+  return item, text
 end
 
 -- Official Closing Price (ISOc): YesNo
@@ -5555,10 +5498,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.official_closing_price.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.official_closing_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.official_closing_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.official_closing_price, range, text, display)
+  return item, text
 end
 
 -- Official Closing Turnover (ISOt): YesNo
@@ -5579,10 +5521,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.official_closing_turnover.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.official_closing_turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.official_closing_turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.official_closing_turnover, range, text, display)
+  return item, text
 end
 
 -- Old Index Value (ODXv): Double 18,6
@@ -5603,8 +5544,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.old_index_value.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.old_index_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.old_index_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.old_index_value, range, value, display)
+  return item, text
 end
 
 -- Old Series (Or): String 32
@@ -5619,10 +5560,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.old_series.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.old_series.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.old_series, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.old_series, range, text, display)
+  return item, text
 end
 
 -- Open Interest (OPi): Float 13,6
@@ -5643,8 +5583,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.open_interest, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.open_interest, range, value, display)
+  return item, text
 end
 
 -- Open Value (OVa): Double 18,6
@@ -5665,8 +5605,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.open_value.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.open_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.open_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.open_value, range, value, display)
+  return item, text
 end
 
 -- Operational (Op): Operational
@@ -5694,8 +5634,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.operational.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.operational.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.operational, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.operational, range, value, display)
+  return item, text
 end
 
 -- Order Class (Cl): OrderClass
@@ -5732,8 +5672,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.order_class.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.order_class.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.order_class, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.order_class, range, value, display)
+  return item, text
 end
 
 -- Order Key (l): String 20
@@ -5748,10 +5688,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.order_key.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.order_key.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.order_key, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.order_key, range, text, display)
+  return item, text
 end
 
 -- Orderbook Id (IDo): Id
@@ -5773,8 +5712,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_id.dissect = function(buffer,
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.orderbook_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.orderbook_id, range, value, display)
+  return item, text
 end
 
 -- Outside Spread (Os): YesNo
@@ -5795,10 +5734,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.outside_spread.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.outside_spread.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.outside_spread, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.outside_spread, range, text, display)
+  return item, text
 end
 
 -- Outstanding Amount (AOs): Float 15,0
@@ -5819,8 +5757,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.outstanding_amount.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.outstanding_amount.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.outstanding_amount, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.outstanding_amount, range, value, display)
+  return item, text
 end
 
 -- Parent Id (PAi): Id
@@ -5842,8 +5780,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.parent_id.dissect = function(buffer, of
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.parent_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.parent_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.parent_id, range, value, display)
+  return item, text
 end
 
 -- Participant (Pt): String 6
@@ -5858,10 +5796,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.participant.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.participant.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.participant, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.participant, range, text, display)
+  return item, text
 end
 
 -- Participant Type (PAt): Id
@@ -5883,8 +5820,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.participant_type.dissect = function(buf
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.participant_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.participant_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.participant_type, range, value, display)
+  return item, text
 end
 
 -- Plus Bids (Bp): Integer 5
@@ -5906,8 +5843,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.plus_bids.dissect = function(buffer, of
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.plus_bids.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.plus_bids, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.plus_bids, range, value, display)
+  return item, text
 end
 
 -- Plus Paid (Pp): Integer 5
@@ -5929,8 +5866,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.plus_paid.dissect = function(buffer, of
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.plus_paid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.plus_paid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.plus_paid, range, value, display)
+  return item, text
 end
 
 -- Population Type (POt): Integer 10
@@ -5952,8 +5889,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.population_type.dissect = function(buff
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.population_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.population_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.population_type, range, value, display)
+  return item, text
 end
 
 -- Position Increasing Orders (PIo): PositionIncreasingOrdersInfo 1
@@ -5987,8 +5924,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.position_increasing_orders.dissect = fu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.position_increasing_orders.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.position_increasing_orders, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.position_increasing_orders, range, value, display)
+  return item, text
 end
 
 -- Posttrade Anonymity (PTb): PosttradeAnonymityType 1
@@ -6016,8 +5953,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.posttrade_anonymity.dissect = function(
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.posttrade_anonymity.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.posttrade_anonymity, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.posttrade_anonymity, range, value, display)
+  return item, text
 end
 
 -- Pretrade Anonymity (PTa): YesNo
@@ -6038,10 +5975,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.pretrade_anonymity.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.pretrade_anonymity.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.pretrade_anonymity, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.pretrade_anonymity, range, text, display)
+  return item, text
 end
 
 -- Price (p): Float 13,6
@@ -6062,8 +5998,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.price.dissect = function(buffer, offset
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price, range, value, display)
+  return item, text
 end
 
 -- Price From (PFr): Float 13,6
@@ -6084,8 +6020,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.price_from.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price_from.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_from, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_from, range, value, display)
+  return item, text
 end
 
 -- Price To (PTo): Float 13,6
@@ -6106,8 +6042,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.price_to.dissect = function(buffer, off
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price_to.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_to, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_to, range, value, display)
+  return item, text
 end
 
 -- Price Type (PRt): PriceType 1
@@ -6153,8 +6089,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.price_type.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_type, range, value, display)
+  return item, text
 end
 
 -- Price Unit (PUn): String 32
@@ -6169,10 +6105,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.price_unit.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price_unit.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_unit, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_unit, range, text, display)
+  return item, text
 end
 
 -- Price Weight Unit (PWu): PriceWeightUnit 1
@@ -6203,8 +6138,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.price_weight_unit.dissect = function(bu
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.price_weight_unit.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_weight_unit, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.price_weight_unit, range, value, display)
+  return item, text
 end
 
 -- Principal Value (Pv): Float 13,6
@@ -6225,8 +6160,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.principal_value.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.principal_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.principal_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.principal_value, range, value, display)
+  return item, text
 end
 
 -- Ranked Ask Collateral Price (Ad): Ifloat 13,6
@@ -6253,9 +6188,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_collateral_price.dissect = f
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_collateral_price.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_ask_collateral_price, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Ask Order Key (Ao): Iinteger 19
@@ -6283,9 +6218,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_order_key.dissect = function
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_order_key.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_ask_order_key, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Ask Price (Af): Ifloat 13,6
@@ -6312,9 +6247,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_price.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_price.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_ask_price, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Ask Volume (Ah): Ifloat 13,6
@@ -6341,9 +6276,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_volume.dissect = function(bu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_volume.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_ask_volume, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Ask Yield (Ay): Ifloat 13,6
@@ -6370,9 +6305,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_yield.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_ask_yield.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_ask_yield, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Bid Collateral Price (Bd): Ifloat 13,6
@@ -6399,9 +6334,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_collateral_price.dissect = f
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_collateral_price.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_bid_collateral_price, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Bid Order Key (Bo): Iinteger 19
@@ -6429,9 +6364,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_order_key.dissect = function
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_order_key.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_bid_order_key, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Bid Price (Bf): Ifloat 13,6
@@ -6458,9 +6393,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_price.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_price.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_bid_price, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Bid Volume (Bh): Ifloat 13,6
@@ -6487,9 +6422,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_volume.dissect = function(bu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_volume.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_bid_volume, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranked Bid Yield (By): Ifloat 13,6
@@ -6516,9 +6451,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_yield.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranked_bid_yield.display(text, level)
-
   local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranked_bid_yield, range, value, display)
   item:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tip_level, range, tonumber(level))
+  return item, text
 end
 
 -- Ranking Type (RTy): String 20
@@ -6533,10 +6468,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.ranking_type.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ranking_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranking_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ranking_type, range, text, display)
+  return item, text
 end
 
 -- Ratio (Ra): Float 13,6
@@ -6557,8 +6491,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.ratio.dissect = function(buffer, offset
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.ratio.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ratio, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.ratio, range, value, display)
+  return item, text
 end
 
 -- Refinery Class (Rc): RefineryClass 1
@@ -6586,8 +6520,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.refinery_class.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.refinery_class.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.refinery_class, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.refinery_class, range, value, display)
+  return item, text
 end
 
 -- Remaining Ask Volume At EP Level (EAv): Float 13,6
@@ -6608,8 +6542,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_ask_volume_at_ep_level.dissec
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_ask_volume_at_ep_level.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_ask_volume_at_ep_level, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_ask_volume_at_ep_level, range, value, display)
+  return item, text
 end
 
 -- Remaining Bid Volume At EP Level (EBv): Float 13,6
@@ -6630,8 +6564,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_bid_volume_at_ep_level.dissec
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_bid_volume_at_ep_level.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_bid_volume_at_ep_level, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_bid_volume_at_ep_level, range, value, display)
+  return item, text
 end
 
 -- Remaining Quantity (AQs): Float 13,6
@@ -6652,8 +6586,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_quantity.dissect = function(b
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.remaining_quantity.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_quantity, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.remaining_quantity, range, value, display)
+  return item, text
 end
 
 -- Repo Interest Amount (RIa): Float 13,6
@@ -6674,8 +6608,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.repo_interest_amount.dissect = function
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.repo_interest_amount.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.repo_interest_amount, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.repo_interest_amount, range, value, display)
+  return item, text
 end
 
 -- Reset Date (Rd): Date
@@ -6693,10 +6627,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.reset_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.reset_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.reset_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.reset_date, range, text, display)
+  return item, text
 end
 
 -- Return Type (RTt): Integer 10
@@ -6718,8 +6651,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.return_type.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.return_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.return_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.return_type, range, value, display)
+  return item, text
 end
 
 -- Sector Id (SId): Id
@@ -6741,8 +6674,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.sector_id.dissect = function(buffer, of
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.sector_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sector_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sector_id, range, value, display)
+  return item, text
 end
 
 -- Security Type (STy): SecurityType 2
@@ -6782,8 +6715,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.security_type.dissect = function(buffer
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.security_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.security_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.security_type, range, value, display)
+  return item, text
 end
 
 -- Settlement Date (Sd): Date
@@ -6801,10 +6734,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_date, range, text, display)
+  return item, text
 end
 
 -- Settlement Price (SEp): Float 13,6
@@ -6825,8 +6757,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price, range, value, display)
+  return item, text
 end
 
 -- Settlement Price At End Date (SPEd): Float 13,6
@@ -6847,8 +6779,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_at_end_date.dissect = 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_at_end_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_at_end_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_at_end_date, range, value, display)
+  return item, text
 end
 
 -- Settlement Price At Start Date (SPSd): Float 13,6
@@ -6869,8 +6801,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_at_start_date.dissect 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_at_start_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_at_start_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_at_start_date, range, value, display)
+  return item, text
 end
 
 -- Settlement Price VWAP (SWp): Float 13,8
@@ -6891,8 +6823,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_vwap.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_price_vwap, range, value, display)
+  return item, text
 end
 
 -- Settlement Type (SEt): SettlementType 1
@@ -6920,8 +6852,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_type.dissect = function(buff
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.settlement_type, range, value, display)
+  return item, text
 end
 
 -- Short Sale Restriction (SSr): ShortSaleRestrictionType 1
@@ -6952,8 +6884,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.short_sale_restriction.dissect = functi
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.short_sale_restriction.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.short_sale_restriction, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.short_sale_restriction, range, value, display)
+  return item, text
 end
 
 -- Sod Eod (SEd): SodEod 1
@@ -6981,8 +6913,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.sod_eod.dissect = function(buffer, offs
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.sod_eod.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sod_eod, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.sod_eod, range, value, display)
+  return item, text
 end
 
 -- Source Id (Si): String 32
@@ -6997,10 +6929,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.source_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.source_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.source_id, range, text, display)
+  return item, text
 end
 
 -- Source System (s): Integer 2
@@ -7022,8 +6953,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.source_system.dissect = function(buffer
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.source_system.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.source_system, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.source_system, range, value, display)
+  return item, text
 end
 
 -- Start Date (STd): Date
@@ -7041,10 +6972,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.start_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.start_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.start_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.start_date, range, text, display)
+  return item, text
 end
 
 -- Start Time (St): Time
@@ -7062,10 +6992,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.start_time.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.start_time.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.start_time, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.start_time, range, text, display)
+  return item, text
 end
 
 -- State Code (Ms): StateCode 2
@@ -7276,8 +7205,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.state_code.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.state_code.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.state_code, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.state_code, range, value, display)
+  return item, text
 end
 
 -- State Level (Sl): StateLevel 2
@@ -7305,8 +7234,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.state_level.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.state_level.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.state_level, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.state_level, range, value, display)
+  return item, text
 end
 
 -- Status (STa): Status 2
@@ -7346,8 +7275,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.status.dissect = function(buffer, offse
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.status.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.status, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.status, range, value, display)
+  return item, text
 end
 
 -- Strike Price (STp): Float 13,6
@@ -7368,8 +7297,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.strike_price.dissect = function(buffer,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.strike_price.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.strike_price, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.strike_price, range, value, display)
+  return item, text
 end
 
 -- Symbol (SYm): String 32
@@ -7384,10 +7313,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.symbol.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.symbol.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.symbol, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.symbol, range, text, display)
+  return item, text
 end
 
 -- Table Entry Type (TEt): TableEntryType 2
@@ -7463,8 +7391,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.table_entry_type.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.table_entry_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.table_entry_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.table_entry_type, range, value, display)
+  return item, text
 end
 
 -- Tailor Made (TAm): YesNo
@@ -7485,10 +7413,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tailor_made.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.tailor_made.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tailor_made, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tailor_made, range, text, display)
+  return item, text
 end
 
 -- Text (TEx): String 810
@@ -7503,10 +7430,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.text.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.text.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.text, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.text, range, text, display)
+  return item, text
 end
 
 -- Tick Size (TSz): Float 13,6
@@ -7527,8 +7453,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tick_size.dissect = function(buffer, of
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.tick_size.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tick_size, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tick_size, range, value, display)
+  return item, text
 end
 
 -- Tick Size Table Id (ITSz): Id
@@ -7550,8 +7476,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tick_size_table_id.dissect = function(b
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.tick_size_table_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tick_size_table_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tick_size_table_id, range, value, display)
+  return item, text
 end
 
 -- Time Exec (t): Time
@@ -7569,10 +7495,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.time_exec.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.time_exec.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.time_exec, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.time_exec, range, text, display)
+  return item, text
 end
 
 -- Time Offset UTC (TOTa): String 5
@@ -7587,10 +7512,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.time_offset_utc.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.time_offset_utc.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.time_offset_utc, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.time_offset_utc, range, text, display)
+  return item, text
 end
 
 -- Timestamp Agreement (Ta): Time
@@ -7608,10 +7532,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_agreement.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_agreement.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_agreement, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_agreement, range, text, display)
+  return item, text
 end
 
 -- Timestamp Dissemination (TDi): Time
@@ -7629,10 +7552,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_dissemination.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_dissemination.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_dissemination, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_dissemination, range, text, display)
+  return item, text
 end
 
 -- Timestamp Trade Cancel (TCt): Time
@@ -7650,10 +7572,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_trade_cancel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_trade_cancel.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_trade_cancel, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_trade_cancel, range, text, display)
+  return item, text
 end
 
 -- Timestamp Trade Rectify (TRe): Time
@@ -7671,10 +7592,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_trade_rectify.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.timestamp_trade_rectify.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_trade_rectify, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.timestamp_trade_rectify, range, text, display)
+  return item, text
 end
 
 -- Tot Vol All Ask (At): Float 13,6
@@ -7695,8 +7615,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tot_vol_all_ask.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.tot_vol_all_ask.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tot_vol_all_ask, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tot_vol_all_ask, range, value, display)
+  return item, text
 end
 
 -- Tot Vol All Bid (Bt): Float 13,6
@@ -7717,8 +7637,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tot_vol_all_bid.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.tot_vol_all_bid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tot_vol_all_bid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.tot_vol_all_bid, range, value, display)
+  return item, text
 end
 
 -- Total Issue (TIs): Float 13,6
@@ -7739,8 +7659,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.total_issue.dissect = function(buffer, 
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.total_issue.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.total_issue, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.total_issue, range, value, display)
+  return item, text
 end
 
 -- Total Number Of Trades (TNt): Integer 10
@@ -7762,8 +7682,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.total_number_of_trades.dissect = functi
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.total_number_of_trades.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.total_number_of_trades, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.total_number_of_trades, range, value, display)
+  return item, text
 end
 
 -- Trade Buyer (Tb): String 6
@@ -7778,10 +7698,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_buyer.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_buyer.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_buyer, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_buyer, range, text, display)
+  return item, text
 end
 
 -- Trade Cancel (TCl): YesNo
@@ -7802,10 +7721,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_cancel.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_cancel.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_cancel, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_cancel, range, text, display)
+  return item, text
 end
 
 -- Trade Class (Tc): TradeClass 1
@@ -7833,8 +7751,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_class.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_class.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_class, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_class, range, value, display)
+  return item, text
 end
 
 -- Trade Id (Ti): String 16
@@ -7849,10 +7767,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_id, range, text, display)
+  return item, text
 end
 
 -- Trade Info (TIn): TradeInfo 1
@@ -7889,8 +7806,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_info.dissect = function(buffer, o
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_info.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_info, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_info, range, value, display)
+  return item, text
 end
 
 -- Trade Number (Tn): Integer 10
@@ -7912,8 +7829,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_number.dissect = function(buffer,
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_number.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_number, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_number, range, value, display)
+  return item, text
 end
 
 -- Trade Rectify (Re): YesNo
@@ -7934,10 +7851,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_rectify.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_rectify.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_rectify, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_rectify, range, text, display)
+  return item, text
 end
 
 -- Trade Report Notional Value (RNv): Float 16,6
@@ -7958,8 +7874,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_notional_value.dissect = f
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_notional_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_notional_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_notional_value, range, value, display)
+  return item, text
 end
 
 -- Trade Report Notional Value In Value Currency (RNc): Float 16,6
@@ -7980,8 +7896,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_notional_value_in_value_cu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_notional_value_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_notional_value_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_notional_value_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Trade Report Turnover (Rt): Float 16,6
@@ -8002,8 +7918,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_turnover.dissect = functio
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_turnover, range, value, display)
+  return item, text
 end
 
 -- Trade Report Turnover In Value Currency (RTc): Float 16,6
@@ -8024,8 +7940,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_turnover_in_value_currency
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_turnover_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_turnover_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_turnover_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- Trade Report Updates High Low (Uh): YesNo 1
@@ -8046,10 +7962,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_high_low.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_high_low.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_high_low, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_high_low, range, text, display)
+  return item, text
 end
 
 -- Trade Report Updates Last Paid (Ul): YesNo 1
@@ -8070,10 +7985,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_last_paid.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_last_paid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_last_paid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_last_paid, range, text, display)
+  return item, text
 end
 
 -- Trade Report Updates Turnover (Uv): YesNo 1
@@ -8094,10 +8008,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_turnover.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_report_updates_turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_report_updates_turnover, range, text, display)
+  return item, text
 end
 
 -- Trade Reports Allowed (TRa): YesNo
@@ -8118,10 +8031,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_reports_allowed.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_reports_allowed.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_reports_allowed, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_reports_allowed, range, text, display)
+  return item, text
 end
 
 -- Trade Seller (Ts): String 6
@@ -8136,10 +8048,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_seller.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_seller.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_seller, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_seller, range, text, display)
+  return item, text
 end
 
 -- Trade Type (Tt): Id
@@ -8161,8 +8072,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_type.dissect = function(buffer, o
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_type.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_type, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trade_type, range, value, display)
+  return item, text
 end
 
 -- Trading Currency (CUt): String 3
@@ -8177,10 +8088,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_currency, range, text, display)
+  return item, text
 end
 
 -- Trading Method (TRm): String 16
@@ -8195,10 +8105,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_method.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_method.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_method, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_method, range, text, display)
+  return item, text
 end
 
 -- Trading Session (TRId): Id
@@ -8220,8 +8129,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_session.dissect = function(buff
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.trading_session.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_session, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.trading_session, range, value, display)
+  return item, text
 end
 
 -- Turnover (Tr): Float 16,6
@@ -8242,8 +8151,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover.dissect = function(buffer, off
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover, range, value, display)
+  return item, text
 end
 
 -- Turnover Calculation Enabled (TCe): YesNo
@@ -8264,10 +8173,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_calculation_enabled.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_calculation_enabled.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover_calculation_enabled, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover_calculation_enabled, range, text, display)
+  return item, text
 end
 
 -- Turnover In Value Currency (TRc): Float 16,6
@@ -8288,8 +8196,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_in_value_currency.dissect = fu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_in_value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover_in_value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.turnover_in_value_currency, range, value, display)
+  return item, text
 end
 
 -- TWAP (Tp): Float 13,6
@@ -8310,8 +8218,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.twap.dissect = function(buffer, offset,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.twap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.twap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.twap, range, value, display)
+  return item, text
 end
 
 -- Unchanged Bids (Bu): Integer 5
@@ -8333,8 +8241,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.unchanged_bids.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.unchanged_bids.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.unchanged_bids, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.unchanged_bids, range, value, display)
+  return item, text
 end
 
 -- Unchanged Paid (Pu): Integer 5
@@ -8356,8 +8264,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.unchanged_paid.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.unchanged_paid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.unchanged_paid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.unchanged_paid, range, value, display)
+  return item, text
 end
 
 -- Underlying Id (ULi): Id
@@ -8379,8 +8287,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.underlying_id.dissect = function(buffer
   end
   value = UInt64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.underlying_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.underlying_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.underlying_id, range, value, display)
+  return item, text
 end
 
 -- Underlying Source Id (USi): String 32
@@ -8395,10 +8303,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.underlying_source_id.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.underlying_source_id.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.underlying_source_id, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.underlying_source_id, range, text, display)
+  return item, text
 end
 
 -- Units Of Trading (UNt): Integer 10
@@ -8420,8 +8327,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.units_of_trading.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.units_of_trading.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.units_of_trading, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.units_of_trading, range, value, display)
+  return item, text
 end
 
 -- Update Code (u): UpdateCode 1
@@ -8455,8 +8362,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.update_code.dissect = function(buffer, 
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.update_code.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.update_code, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.update_code, range, value, display)
+  return item, text
 end
 
 -- Upper Price Limit (UPl): Float 13,6
@@ -8477,8 +8384,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.upper_price_limit.dissect = function(bu
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.upper_price_limit.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.upper_price_limit, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.upper_price_limit, range, value, display)
+  return item, text
 end
 
 -- URL (URl): String 200
@@ -8493,10 +8400,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.url.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.url.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.url, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.url, range, text, display)
+  return item, text
 end
 
 -- Validation VWAP (VWp): Float 13,8
@@ -8517,8 +8423,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.validation_vwap.dissect = function(buff
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.validation_vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.validation_vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.validation_vwap, range, value, display)
+  return item, text
 end
 
 -- Value Currency (CUv): String 3
@@ -8533,10 +8439,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.value_currency.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.value_currency.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.value_currency, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.value_currency, range, text, display)
+  return item, text
 end
 
 -- Value Date (Vd): Date
@@ -8554,10 +8459,9 @@ end
 bist_borsaistanbul_marketinfo_tip_v2_2_8.value_date.dissect = function(buffer, offset, size, packet, parent)
   local range = buffer(offset, size)
   local text = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_text(range)
-  local value = text
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.value_date.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.value_date, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.value_date, range, text, display)
+  return item, text
 end
 
 -- Vault Location (VLo): VaultLocation 1
@@ -8585,8 +8489,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.vault_location.dissect = function(buffe
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.vault_location.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vault_location, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vault_location, range, value, display)
+  return item, text
 end
 
 -- Volume (v): Float 13,6
@@ -8607,8 +8511,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.volume.dissect = function(buffer, offse
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.volume.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.volume, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.volume, range, value, display)
+  return item, text
 end
 
 -- Volume Dimension (VOd): VolumeDimension 1
@@ -8636,8 +8540,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.volume_dimension.dissect = function(buf
   end
   value = Int64.new(value)
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.volume_dimension.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.volume_dimension, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.volume_dimension, range, value, display)
+  return item, text
 end
 
 -- VWAP (Wp): Float 13,8
@@ -8658,8 +8562,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.vwap.dissect = function(buffer, offset,
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vwap, range, value, display)
+  return item, text
 end
 
 -- VWAP Diff Per (Wd): Float 13,8
@@ -8680,8 +8584,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.vwap_diff_per.dissect = function(buffer
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.vwap_diff_per.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vwap_diff_per, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.vwap_diff_per, range, value, display)
+  return item, text
 end
 
 -- W Avg Price All Ask (Aw): Float 13,6
@@ -8702,8 +8606,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.w_avg_price_all_ask.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.w_avg_price_all_ask.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.w_avg_price_all_ask, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.w_avg_price_all_ask, range, value, display)
+  return item, text
 end
 
 -- W Avg Price All Bid (Bw): Float 13,6
@@ -8724,8 +8628,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.w_avg_price_all_bid.dissect = function(
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.w_avg_price_all_bid.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.w_avg_price_all_bid, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.w_avg_price_all_bid, range, value, display)
+  return item, text
 end
 
 -- Weight Percent (WPe): Double 16,12
@@ -8746,8 +8650,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.weight_percent.dissect = function(buffe
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.weight_percent.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weight_percent, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weight_percent, range, value, display)
+  return item, text
 end
 
 -- Weighted Free Float Mkt Value (WFv): Double 23,6
@@ -8768,8 +8672,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.weighted_free_float_mkt_value.dissect =
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.weighted_free_float_mkt_value.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weighted_free_float_mkt_value, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weighted_free_float_mkt_value, range, value, display)
+  return item, text
 end
 
 -- Weighting Factor (Wf): Double 16,12
@@ -8790,8 +8694,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.weighting_factor.dissect = function(buf
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.weighting_factor.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weighting_factor, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.weighting_factor, range, value, display)
+  return item, text
 end
 
 -- Yield (Py): Float 13,6
@@ -8812,8 +8716,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.yield.dissect = function(buffer, offset
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.yield.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield, range, value, display)
+  return item, text
 end
 
 -- Yield VWAP (YWp): Float 13,8
@@ -8834,8 +8738,8 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.yield_vwap.dissect = function(buffer, o
     return
   end
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.yield_vwap.display(text)
-
-  parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield_vwap, range, value, display)
+  local item = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.fields.yield_vwap, range, value, display)
+  return item, text
 end
 
 -- Tag dispatch: wire code to tag
@@ -9184,12 +9088,94 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tags = {
 
 
 -----------------------------------------------------------------------
--- Bist BorsaIstanbul MarketInfo 2.2.8 Tip Messages
+-- Tip Records
 -----------------------------------------------------------------------
 
--- Dissect the tags of a tip message: a tag the message does not carry, and a mandatory tag it lacks, are flagged; an unknown tag is skipped
+-- Record preferences: one per record, as the binary dissectors name theirs; off, the record is neither kept nor looked up
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_clearing_venue_message = Pref.bool("Lookup Basic Data Clearing Venue Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_deliverable_serie_message = Pref.bool("Lookup Basic Data Deliverable Serie Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_index_message = Pref.bool("Lookup Basic Data Index Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_issuer_message = Pref.bool("Lookup Basic Data Issuer Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_list_message = Pref.bool("Lookup Basic Data List Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_market_message = Pref.bool("Lookup Basic Data Market Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_sector_message = Pref.bool("Lookup Basic Data Sector Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_source_message = Pref.bool("Lookup Basic Data Source Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_table_entry_message = Pref.bool("Lookup Basic Data Table Entry Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_tick_size_table_message = Pref.bool("Lookup Basic Data Tick Size Table Message", true, "Cache records and resolve cross-packet lookups")
+omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs.record_basic_data_tradable_message = Pref.bool("Lookup Basic Data Tradable Message", true, "Cache records and resolve cross-packet lookups")
+
+-- Records: per flow, each record message's instances by key, holding the fields its Record keeps
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_records = {}
+
+-- Flow of a packet: one direction of one connection, which records and the lookups into them share
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_flow = function(packet)
+  return tostring(packet.src)..":"..tostring(packet.src_port)..">"..tostring(packet.dst)..":"..tostring(packet.dst_port)
+end
+
+-- A key from its parts: one field's value, or each part's text - a field's value, a literal, or the looked-up value - joined by "|"; nil when a part has no value
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_key = function(key, values, value)
+  if type(key) ~= "table" then
+    return values[key]
+  end
+  local composed = nil
+  for _, part in ipairs(key) do
+    local text = nil
+    if part.data ~= nil then
+      text = part.data
+    elseif part.code ~= nil then
+      text = values[part.code]
+    else
+      text = value
+    end
+    if text == nil then
+      return nil
+    end
+    composed = composed and (composed.."|"..tostring(text)) or tostring(text)
+  end
+  return composed
+end
+
+-- Store a record message's kept fields under its key
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_store = function(packet, record, values)
+  local key = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_key(record.key, values)
+  if key == nil or not omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs["record_"..record.name] then
+    return
+  end
+  local flow = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_flow(packet)
+  local flows = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_records
+  flows[flow] = flows[flow] or {}
+  flows[flow][record.name] = flows[flow][record.name] or {}
+  local kept = {}
+  for _, code in ipairs(record.fields) do
+    kept[code] = values[code]
+  end
+  flows[flow][record.name][key] = kept
+end
+
+-- The field a lookup shows of the record its value keys into, or nil
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_lookup = function(packet, lookup, value)
+  if not omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.prefs["record_"..lookup.record] then
+    return nil
+  end
+  local flow = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_records[bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_flow(packet)]
+  local records = flow and flow[lookup.record]
+  local key = value
+  if lookup.key then
+    key = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_key(lookup.key, {}, value)
+  end
+  local record = records and key ~= nil and records[key]
+  return record and record[lookup.field]
+end
+
+
+-----------------------------------------------------------------------
+-- Tip Messages
+-----------------------------------------------------------------------
+
+-- Dissect the tags of a tip message: a tag the message does not carry, and a mandatory tag it lacks, are flagged; an unknown tag is skipped. A field with a lookup shows what its record keeps; a record message is kept once dissected.
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_fields = function(buffer, packet, parent, tokens, message)
   local seen = {}
+  local values = {}
   for index = 2, #tokens do
     local token = tokens[index]
     local code = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_code(buffer, token)
@@ -9200,7 +9186,17 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_fields = function(buffer, packet, p
       if not message.codes[code] then
         parent:add_tvb_expert_info(bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.unexpected_tag, buffer(token.offset, token.length), "Tag "..code.." is not a field of "..message.name)
       end
-      tag.dissect(buffer, token.offset + #code, token.length - #code, packet, parent)
+      local item, text = tag.dissect(buffer, token.offset + #code, token.length - #code, packet, parent)
+      if text ~= nil then
+        values[code] = text
+      end
+      local lookup = message.lookups and message.lookups[code]
+      if lookup and item and text then
+        local shown = bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_lookup(packet, lookup, text)
+        if shown then
+          item:append_text(" ("..shown..")")
+        end
+      end
       seen[code] = true
     end
   end
@@ -9208,6 +9204,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_fields = function(buffer, packet, p
     if not seen[code] then
       parent:add_proto_expert_info(bist_borsaistanbul_marketinfo_tip_v2_2_8.experts.missing_tag, "Mandatory tag "..code.." missing from "..message.name)
     end
+  end
+  if message.record and not packet.visited then
+    bist_borsaistanbul_marketinfo_tip_v2_2_8.tip_store(packet, message.record, values)
   end
 end
 
@@ -9219,6 +9218,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price_message.name = "Alloca
 
 -- Codes: Allocation Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["APr"] = true }
+
+-- Lookups: Allocation Price Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Allocation Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.allocation_price_message.mandatory = {  }
@@ -9258,6 +9260,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_clearing_venue_message.name 
 -- Codes: Basic Data Clearing Venue Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_clearing_venue_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true }
 
+-- Record: Basic Data Clearing Venue Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_clearing_venue_message.record = { name = "basic_data_clearing_venue_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Clearing Venue Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_clearing_venue_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Clearing Venue Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_clearing_venue_message.mandatory = {  }
 
@@ -9276,6 +9284,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_combo_leg_message.name = "Ba
 
 -- Codes: Basic Data Combo Leg Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_combo_leg_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Il"] = true, ["Op"] = true, ["Ra"] = true }
+
+-- Lookups: Basic Data Combo Leg Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_combo_leg_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Combo Leg Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_combo_leg_message.mandatory = {  }
@@ -9296,6 +9307,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_deliverable_serie_message.na
 -- Codes: Basic Data Deliverable Serie Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_deliverable_serie_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CCp"] = true }
 
+-- Record: Basic Data Deliverable Serie Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_deliverable_serie_message.record = { name = "basic_data_deliverable_serie_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Deliverable Serie Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_deliverable_serie_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Deliverable Serie Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_deliverable_serie_message.mandatory = {  }
 
@@ -9314,6 +9331,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_derivative_message.name = "B
 
 -- Codes: Basic Data Derivative Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_derivative_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["DTy"] = true, ["TIs"] = true, ["DXt"] = true, ["STp"] = true, ["CSz"] = true, ["PQf"] = true, ["SEt"] = true, ["EXb"] = true, ["EXe"] = true, ["Sd"] = true, ["HOt"] = true, ["Ct"] = true, ["TAm"] = true, ["Or"] = true, ["Vd"] = true, ["Rd"] = true, ["DDt"] = true }
+
+-- Lookups: Basic Data Derivative Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_derivative_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Derivative Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_derivative_message.mandatory = {  }
@@ -9334,6 +9354,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_exchange_message.name = "Bas
 -- Codes: Basic Data Exchange Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_exchange_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CNy"] = true, ["MIc"] = true }
 
+-- Lookups: Basic Data Exchange Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_exchange_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Exchange Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_exchange_message.mandatory = {  }
 
@@ -9352,6 +9375,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fixed_income_message.name = 
 
 -- Codes: Basic Data Fixed Income Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fixed_income_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["BTy"] = true, ["DIs"] = true, ["AOs"] = true, ["DMa"] = true, ["RCp"] = true, ["DCm"] = true, ["CFq"] = true, ["Vm"] = true, ["MDo"] = true, ["HOt"] = true, ["STd"] = true, ["Ed"] = true, ["ODf"] = true, ["ODl"] = true, ["ICl"] = true, ["DSi"] = true, ["INc"] = true, ["FIc"] = true }
+
+-- Lookups: Basic Data Fixed Income Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fixed_income_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["ICl"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["DSi"] = { record = "basic_data_deliverable_serie_message", field = "NAm" }, ["INc"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Fixed Income Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fixed_income_message.mandatory = {  }
@@ -9372,6 +9398,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fund_message.name = "Basic D
 -- Codes: Basic Data Fund Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fund_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["HOt"] = true }
 
+-- Lookups: Basic Data Fund Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fund_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Fund Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_fund_message.mandatory = {  }
 
@@ -9390,6 +9419,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_member_message.name = 
 
 -- Codes: Basic Data Index Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_member_message.codes = { ["SYm"] = true, ["ISn"] = true, ["IDo"] = true, ["IXi"] = true, ["s"] = true }
+
+-- Lookups: Basic Data Index Member Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_member_message.lookups = { ["IXi"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Index Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_member_message.mandatory = {  }
@@ -9410,6 +9442,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_message.name = "Basic 
 -- Codes: Basic Data Index Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["INn"] = true, ["LCy"] = true, ["POt"] = true, ["TYc"] = true, ["ITy"] = true, ["IPt"] = true, ["Is"] = true, ["Io"] = true, ["Di"] = true, ["HOt"] = true, ["SId"] = true, ["UNt"] = true, ["CYc"] = true, ["RTt"] = true, ["ENn"] = true, ["IBv"] = true, ["IBd"] = true }
 
+-- Record: Basic Data Index Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_message.record = { name = "basic_data_index_message", key = "i", fields = { "i", "INn" } }
+
+-- Lookups: Basic Data Index Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["POt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["TYc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["ITy"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["IPt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["Is"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["UNt"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["CYc"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["RTt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Index Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_message.mandatory = {  }
 
@@ -9428,6 +9466,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_supplementary_message.
 
 -- Codes: Basic Data Index Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_supplementary_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["ISn"] = true }
+
+-- Lookups: Basic Data Index Supplementary Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_supplementary_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Index Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_index_supplementary_message.mandatory = {  }
@@ -9448,6 +9489,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_issuer_message.name = "Basic
 -- Codes: Basic Data Issuer Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_issuer_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CNy"] = true }
 
+-- Record: Basic Data Issuer Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_issuer_message.record = { name = "basic_data_issuer_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Issuer Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_issuer_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Issuer Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_issuer_message.mandatory = {  }
 
@@ -9466,6 +9513,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_member_message.name = "
 
 -- Codes: Basic Data List Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_member_message.codes = { ["IDo"] = true, ["LSi"] = true, ["s"] = true, ["HOt"] = true }
+
+-- Lookups: Basic Data List Member Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_member_message.lookups = { ["IDo"] = { record = "basic_data_tradable_message", field = "NAm" }, ["LSi"] = { record = "basic_data_list_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data List Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_member_message.mandatory = {  }
@@ -9486,6 +9536,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_message.name = "Basic D
 -- Codes: Basic Data List Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["PAi"] = true, ["SYm"] = true, ["NAm"] = true, ["LCy"] = true, ["TCe"] = true }
 
+-- Record: Basic Data List Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_message.record = { name = "basic_data_list_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data List Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data List Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_list_message.mandatory = {  }
 
@@ -9504,6 +9560,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_market_message.name = "Basic
 
 -- Codes: Basic Data Market Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_market_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Ex"] = true, ["NAm"] = true, ["SYm"] = true, ["TOTa"] = true, ["MIc"] = true }
+
+-- Record: Basic Data Market Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_market_message.record = { name = "basic_data_market_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Market Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_market_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Market Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_market_message.mandatory = {  }
@@ -9524,6 +9586,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_non_trading_days_message.nam
 -- Codes: Basic Data Non Trading Days Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_non_trading_days_message.codes = { ["i"] = true, ["s"] = true, ["Si"] = true, ["Dt"] = true, ["TDt"] = true }
 
+-- Lookups: Basic Data Non Trading Days Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_non_trading_days_message.lookups = { ["i"] = { record = "basic_data_market_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["TDt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Non Trading Days Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_non_trading_days_message.mandatory = {  }
 
@@ -9542,6 +9607,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_participant_message.name = "
 
 -- Codes: Basic Data Participant Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_participant_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["PAt"] = true, ["BIc"] = true, ["GRs"] = true }
+
+-- Lookups: Basic Data Participant Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_participant_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["PAt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Participant Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_participant_message.mandatory = {  }
@@ -9562,6 +9630,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_precious_metals_and_diamonds
 -- Codes: Basic Data Precious Metals And Diamonds Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_precious_metals_and_diamonds_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Mt"] = true, ["Rc"] = true, ["BAt"] = true, ["MWu"] = true, ["FNn"] = true, ["Mw"] = true, ["Fn"] = true, ["MWc"] = true, ["Sd"] = true, ["PWu"] = true, ["DMa"] = true, ["PUn"] = true, ["VLo"] = true, ["RCg"] = true, ["RCt"] = true, ["RCy"] = true, ["HOt"] = true }
 
+-- Lookups: Basic Data Precious Metals And Diamonds Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_precious_metals_and_diamonds_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Precious Metals And Diamonds Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_precious_metals_and_diamonds_message.mandatory = {  }
 
@@ -9580,6 +9651,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_right_message.name = "Basic 
 
 -- Codes: Basic Data Right Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_right_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["CSz"] = true, ["EXb"] = true, ["EXe"] = true, ["TIs"] = true, ["EXc"] = true, ["HOt"] = true }
+
+-- Lookups: Basic Data Right Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_right_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Right Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_right_message.mandatory = {  }
@@ -9600,6 +9674,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_member_message.name =
 -- Codes: Basic Data Sector Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_member_message.codes = { ["IDo"] = true, ["SId"] = true, ["s"] = true, ["HOt"] = true }
 
+-- Lookups: Basic Data Sector Member Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_member_message.lookups = { ["IDo"] = { record = "basic_data_tradable_message", field = "NAm" }, ["SId"] = { record = "basic_data_sector_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Sector Member Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_member_message.mandatory = {  }
 
@@ -9618,6 +9695,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_message.name = "Basic
 
 -- Codes: Basic Data Sector Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["SYm"] = true, ["NAm"] = true, ["CDLv"] = true, ["PAi"] = true }
+
+-- Record: Basic Data Sector Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_message.record = { name = "basic_data_sector_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Sector Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Sector Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_sector_message.mandatory = {  }
@@ -9638,6 +9721,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_share_message.name = "Basic 
 -- Codes: Basic Data Share Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_share_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["HOt"] = true, ["AVq"] = true, ["As"] = true, ["Ae"] = true, ["ICl"] = true, ["TIs"] = true }
 
+-- Lookups: Basic Data Share Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_share_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["ICl"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Share Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_share_message.mandatory = {  }
 
@@ -9656,6 +9742,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_source_message.name = "Basic
 
 -- Codes: Basic Data Source Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_source_message.codes = { ["i"] = true, ["NAm"] = true }
+
+-- Record: Basic Data Source Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_source_message.record = { name = "basic_data_source_message", key = "i", fields = { "i", "NAm" } }
 
 -- Mandatory: Basic Data Source Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_source_message.mandatory = {  }
@@ -9676,6 +9765,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_table_entry_message.name = "
 -- Codes: Basic Data Table Entry Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_table_entry_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TEt"] = true, ["SYm"] = true, ["NAm"] = true }
 
+-- Record: Basic Data Table Entry Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_table_entry_message.record = { name = "basic_data_table_entry_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Table Entry Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_table_entry_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Table Entry Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_table_entry_message.mandatory = {  }
 
@@ -9694,6 +9789,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_entry_message.name
 
 -- Codes: Basic Data Tick Size Entry Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_entry_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["TSz"] = true, ["PFr"] = true, ["PTo"] = true }
+
+-- Lookups: Basic Data Tick Size Entry Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_entry_message.lookups = { ["i"] = { record = "basic_data_tick_size_table_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Tick Size Entry Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_entry_message.mandatory = {  }
@@ -9714,6 +9812,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_table_message.name
 -- Codes: Basic Data Tick Size Table Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_table_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["NAm"] = true }
 
+-- Record: Basic Data Tick Size Table Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_table_message.record = { name = "basic_data_tick_size_table_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Tick Size Table Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_table_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Tick Size Table Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tick_size_table_message.mandatory = {  }
 
@@ -9732,6 +9836,12 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_message.name = "Bas
 
 -- Codes: Basic Data Tradable Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["Mk"] = true, ["INi"] = true, ["SYm"] = true, ["NAm"] = true, ["SNm"] = true, ["ISi"] = true, ["CUi"] = true, ["CUt"] = true, ["PRt"] = true, ["VOd"] = true, ["LDa"] = true, ["NMv"] = true, ["ITSz"] = true, ["NDp"] = true, ["NDTp"] = true, ["CLId"] = true, ["CNy"] = true, ["STy"] = true, ["AUm"] = true, ["TRa"] = true, ["PTa"] = true, ["PTb"] = true, ["MSe"] = true, ["HOt"] = true, ["LSz"] = true, ["SSr"] = true, ["MLm"] = true, ["MLt"] = true, ["TRId"] = true, ["MMk"] = true, ["TRm"] = true, ["GRs"] = true, ["RTy"] = true, ["CRa"] = true, ["CUv"] = true, ["ECTr"] = true, ["MOv"] = true, ["FTRd"] = true, ["FTRt"] = true, ["LTRd"] = true, ["LTRt"] = true }
+
+-- Record: Basic Data Tradable Message, kept by i
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_message.record = { name = "basic_data_tradable_message", key = "i", fields = { "i", "NAm" } }
+
+-- Lookups: Basic Data Tradable Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["ISi"] = { record = "basic_data_issuer_message", field = "NAm" }, ["ITSz"] = { record = "basic_data_tick_size_table_message", field = "NAm" }, ["CLId"] = { record = "basic_data_clearing_venue_message", field = "NAm" }, ["MSe"] = { record = "basic_data_table_entry_message", field = "NAm" }, ["TRId"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Tradable Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_message.mandatory = {  }
@@ -9752,6 +9862,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_supplementary_messa
 -- Codes: Basic Data Tradable Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_supplementary_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["ISn"] = true }
 
+-- Lookups: Basic Data Tradable Supplementary Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_supplementary_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Tradable Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_tradable_supplementary_message.mandatory = {  }
 
@@ -9770,6 +9883,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_trading_scheme_message.name 
 
 -- Codes: Basic Data Trading Scheme Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_trading_scheme_message.codes = { ["s"] = true, ["TRId"] = true, ["Si"] = true, ["Dt"] = true, ["Ms"] = true, ["St"] = true }
+
+-- Lookups: Basic Data Trading Scheme Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_trading_scheme_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["TRId"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Basic Data Trading Scheme Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_trading_scheme_message.mandatory = {  }
@@ -9790,6 +9906,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_underlying_info_message.name
 -- Codes: Basic Data Underlying Info Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_underlying_info_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["ULi"] = true, ["DSc"] = true, ["HOt"] = true, ["USi"] = true }
 
+-- Lookups: Basic Data Underlying Info Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_underlying_info_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Basic Data Underlying Info Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.basic_data_underlying_info_message.mandatory = {  }
 
@@ -9808,6 +9927,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information1_message.name = "Call 
 
 -- Codes: Call Information1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information1_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["EQp"] = true, ["EQv"] = true, ["Of"] = true }
+
+-- Lookups: Call Information1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Call Information1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information1_message.mandatory = {  }
@@ -9828,6 +9950,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information2_message.name = "Call 
 -- Codes: Call Information2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information2_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["EQp"] = true, ["EQv"] = true, ["EBv"] = true, ["EAv"] = true, ["Of"] = true }
 
+-- Lookups: Call Information2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Call Information2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.call_information2_message.mandatory = {  }
 
@@ -9846,6 +9971,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action_message.name = "Corpor
 
 -- Codes: Corporate Action Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action_message.codes = { ["i"] = true, ["s"] = true, ["SRe"] = true, ["NOc"] = true, ["t"] = true }
+
+-- Lookups: Corporate Action Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Corporate Action Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.corporate_action_message.mandatory = {  }
@@ -9866,6 +9994,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_basic_data_message.name = "End O
 -- Codes: End Of Basic Data Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_basic_data_message.codes = { ["s"] = true }
 
+-- Lookups: End Of Basic Data Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_basic_data_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: End Of Basic Data Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.end_of_basic_data_message.mandatory = {  }
 
@@ -9884,6 +10015,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_divisor_message.name = "Index Div
 
 -- Codes: Index Divisor Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_divisor_message.codes = { ["i"] = true, ["Si"] = true, ["s"] = true, ["IXDv"] = true }
+
+-- Lookups: Index Divisor Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.index_divisor_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Index Divisor Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_divisor_message.mandatory = {  }
@@ -9904,6 +10038,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_summary_message.name = "Index Sum
 -- Codes: Index Summary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_summary_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["CLv"] = true, ["Vh"] = true, ["Vl"] = true, ["o"] = true, ["f"] = true, ["OVa"] = true, ["ODXv"] = true, ["Dn"] = true, ["Dd"] = true, ["CAp"] = true, ["SEd"] = true }
 
+-- Lookups: Index Summary Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.index_summary_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Index Summary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_summary_message.mandatory = {  }
 
@@ -9922,6 +10059,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_update_message.name = "Index Upda
 
 -- Codes: Index Update Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_update_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Vc"] = true, ["Vh"] = true, ["Vl"] = true, ["o"] = true, ["f"] = true, ["OVa"] = true, ["Dn"] = true, ["Dd"] = true }
+
+-- Lookups: Index Update Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.index_update_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Index Update Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_update_message.mandatory = {  }
@@ -9942,6 +10082,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.index_weight_message.name = "Index Weig
 -- Codes: Index Weight Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_weight_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["SYm"] = true, ["ISn"] = true, ["IDo"] = true, ["WPe"] = true, ["FFr"] = true, ["Wf"] = true, ["WFv"] = true, ["CAp"] = true, ["SEd"] = true }
 
+-- Lookups: Index Weight Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.index_weight_message.lookups = { ["i"] = { record = "basic_data_index_message", field = "INn" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Index Weight Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.index_weight_message.mandatory = {  }
 
@@ -9960,6 +10103,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price_message.name = "Margin Pri
 
 -- Codes: Margin Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["MPr"] = true }
+
+-- Lookups: Margin Price Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Margin Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.margin_price_message.mandatory = {  }
@@ -9980,6 +10126,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote1_message.name = "Mar
 -- Codes: Market Maker Quote1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote1_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Pa"] = true, ["Pb"] = true, ["Of"] = true }
 
+-- Lookups: Market Maker Quote1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Market Maker Quote1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote1_message.mandatory = {  }
 
@@ -9998,6 +10147,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote2_message.name = "Mar
 
 -- Codes: Market Maker Quote2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote2_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Pa"] = true, ["Pb"] = true, ["Vb"] = true, ["Va"] = true, ["Of"] = true }
+
+-- Lookups: Market Maker Quote2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Market Maker Quote2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.market_maker_quote2_message.mandatory = {  }
@@ -10018,6 +10170,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.mbp_order_snapshot_message.name = "MBP 
 -- Codes: MBP Order Snapshot Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.mbp_order_snapshot_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Of"] = true, ["Bf"] = true, ["Bh"] = true, ["Af"] = true, ["Ah"] = true, ["By"] = true, ["Bd"] = true, ["Ay"] = true, ["Ad"] = true, ["Bo"] = true, ["Ao"] = true }
 
+-- Lookups: MBP Order Snapshot Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.mbp_order_snapshot_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: MBP Order Snapshot Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.mbp_order_snapshot_message.mandatory = {  }
 
@@ -10036,6 +10191,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.news_message.name = "News Message"
 
 -- Codes: News Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.news_message.codes = { ["i"] = true, ["s"] = true, ["NWi"] = true, ["t"] = true, ["NOt"] = true, ["NMs"] = true, ["URl"] = true, ["NHl"] = true, ["TEx"] = true, ["BLi"] = true, ["BLl"] = true }
+
+-- Lookups: News Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.news_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: News Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.news_message.mandatory = {  }
@@ -10056,6 +10214,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest_message.name = "Open Inte
 -- Codes: Open Interest Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["OPi"] = true, ["Do"] = true }
 
+-- Lookups: Open Interest Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Open Interest Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.open_interest_message.mandatory = {  }
 
@@ -10074,6 +10235,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.order_mbo_message.name = "Order MBO Mes
 
 -- Codes: Order MBO Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.order_mbo_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["l"] = true, ["Bs"] = true, ["Cl"] = true, ["p"] = true, ["Py"] = true, ["v"] = true, ["Pt"] = true, ["u"] = true, ["Cp"] = true }
+
+-- Lookups: Order MBO Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.order_mbo_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Order MBO Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.order_mbo_message.mandatory = {  }
@@ -10094,6 +10258,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook1_message.name = "Orderbook1 M
 -- Codes: Orderbook1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook1_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Of"] = true, ["c"] = true, ["e"] = true, ["d"] = true, ["b"] = true, ["a"] = true, ["Cb"] = true, ["Ca"] = true, ["Yb"] = true, ["Ya"] = true, ["BSp"] = true, ["ASp"] = true }
 
+-- Lookups: Orderbook1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Orderbook1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook1_message.mandatory = {  }
 
@@ -10112,6 +10279,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook2_message.name = "Orderbook2 M
 
 -- Codes: Orderbook2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook2_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Of"] = true, ["c"] = true, ["e"] = true, ["d"] = true, ["b"] = true, ["g"] = true, ["h"] = true, ["a"] = true, ["j"] = true, ["k"] = true, ["Cb"] = true, ["Ca"] = true, ["Yb"] = true, ["Ya"] = true, ["BSp"] = true, ["ASp"] = true }
+
+-- Lookups: Orderbook2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Orderbook2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook2_message.mandatory = {  }
@@ -10132,6 +10302,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook3_message.name = "Orderbook3 M
 -- Codes: Orderbook3 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook3_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Of"] = true, ["c"] = true, ["e"] = true, ["d"] = true, ["b"] = true, ["g"] = true, ["h"] = true, ["a"] = true, ["j"] = true, ["k"] = true, ["Bw"] = true, ["Bt"] = true, ["Aw"] = true, ["At"] = true, ["Cb"] = true, ["Ca"] = true, ["Yb"] = true, ["Ya"] = true, ["BSp"] = true, ["ASp"] = true }
 
+-- Lookups: Orderbook3 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook3_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Orderbook3 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook3_message.mandatory = {  }
 
@@ -10150,6 +10323,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_reference_price_message.name 
 
 -- Codes: Orderbook Reference Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_reference_price_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["RPr"] = true, ["ARp"] = true, ["LPl"] = true, ["UPl"] = true, ["Of"] = true }
+
+-- Lookups: Orderbook Reference Price Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_reference_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Orderbook Reference Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_reference_price_message.mandatory = {  }
@@ -10170,6 +10346,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_summary_message.name = "Order
 -- Codes: Orderbook Summary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_summary_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Dt"] = true, ["ISOc"] = true, ["ISOt"] = true, ["d"] = true, ["BPr"] = true, ["APl"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["Pd"] = true, ["q"] = true, ["o"] = true, ["Rq"] = true, ["f"] = true, ["Ar"] = true, ["SEp"] = true, ["HPm"] = true, ["HPMd"] = true, ["LPm"] = true, ["LPMd"] = true, ["HPy"] = true, ["HPYd"] = true, ["LPy"] = true, ["LPYd"] = true, ["LTd"] = true, ["LPd"] = true, ["CWp"] = true, ["Yf"] = true, ["Yl"] = true, ["Yh"] = true, ["Yo"] = true, ["Yd"] = true, ["HYm"] = true, ["LYm"] = true, ["HYy"] = true, ["LYy"] = true, ["BYl"] = true, ["AYl"] = true, ["HSEp"] = true, ["LSEp"] = true, ["SEPl"] = true, ["DSEp"] = true, ["SWp"] = true, ["BCPl"] = true, ["ACPl"] = true, ["An"] = true, ["RAn"] = true, ["ANc"] = true, ["RAc"] = true, ["ATc"] = true, ["ARc"] = true }
 
+-- Lookups: Orderbook Summary Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_summary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Orderbook Summary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.orderbook_summary_message.mandatory = {  }
 
@@ -10188,6 +10367,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.quote1_message.name = "Quote1 Message"
 
 -- Codes: Quote1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.quote1_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Bs"] = true, ["p"] = true, ["Py"] = true, ["Pt"] = true, ["u"] = true }
+
+-- Lookups: Quote1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.quote1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Quote1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.quote1_message.mandatory = {  }
@@ -10208,6 +10390,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.quote2_message.name = "Quote2 Message"
 -- Codes: Quote2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.quote2_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Bs"] = true, ["p"] = true, ["Py"] = true, ["v"] = true, ["Pt"] = true, ["u"] = true }
 
+-- Lookups: Quote2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.quote2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Quote2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.quote2_message.mandatory = {  }
 
@@ -10226,6 +10411,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_message.name = "Settle
 
 -- Codes: Settlement Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["SEp"] = true, ["SPd"] = true }
+
+-- Lookups: Settlement Price Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Settlement Price Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.settlement_price_message.mandatory = {  }
@@ -10246,6 +10434,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.state_change_message.name = "State Chan
 -- Codes: State Change Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.state_change_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Ms"] = true, ["Sl"] = true, ["Of"] = true }
 
+-- Lookups: State Change Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.state_change_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: State Change Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.state_change_message.mandatory = {  }
 
@@ -10264,6 +10455,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.supplementary_message.name = "Supplemen
 
 -- Codes: Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.supplementary_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Ai"] = true, ["Dm"] = true, ["Dc"] = true, ["Ic"] = true }
+
+-- Lookups: Supplementary Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.supplementary_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Supplementary Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.supplementary_message.mandatory = {  }
@@ -10284,6 +10478,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_info_message.name = "Tradable 
 -- Codes: Tradable Info Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_info_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["PIo"] = true, ["SSr"] = true, ["LTRd"] = true, ["LTRt"] = true }
 
+-- Lookups: Tradable Info Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_info_message.lookups = { ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Tradable Info Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_info_message.mandatory = {  }
 
@@ -10302,6 +10499,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_status_message.name = "Tradabl
 
 -- Codes: Tradable Status Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_status_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["STa"] = true }
+
+-- Lookups: Tradable Status Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_status_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Tradable Status Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.tradable_status_message.mandatory = {  }
@@ -10322,6 +10522,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade1_message.name = "Trade1 Message"
 -- Codes: Trade1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade1_message.codes = { ["i"] = true, ["s"] = true, ["Tn"] = true, ["TCl"] = true, ["t"] = true, ["Ta"] = true, ["TCt"] = true, ["TDi"] = true, ["Sd"] = true, ["p"] = true, ["v"] = true, ["Tt"] = true, ["Tc"] = true, ["Ul"] = true, ["Uh"] = true, ["Uv"] = true, ["Lt"] = true, ["Dx"] = true, ["Da"] = true, ["DDi"] = true, ["DCt"] = true, ["Ti"] = true, ["Ag"] = true, ["Py"] = true, ["Os"] = true, ["RIa"] = true, ["COy"] = true, ["Av"] = true, ["Ac"] = true, ["Cp"] = true, ["SPSd"] = true, ["SPEd"] = true, ["Pv"] = true, ["Nv"] = true, ["RNv"] = true, ["Tr"] = true, ["Rt"] = true, ["NVc"] = true, ["RNc"] = true, ["TRc"] = true, ["RTc"] = true, ["CTr"] = true, ["TIn"] = true, ["Ci"] = true, ["Re"] = true, ["TRe"] = true, ["DRe"] = true }
 
+-- Lookups: Trade1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.trade1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
+
 -- Mandatory: Trade1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade1_message.mandatory = {  }
 
@@ -10340,6 +10543,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade2_message.name = "Trade2 Message"
 
 -- Codes: Trade2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade2_message.codes = { ["i"] = true, ["s"] = true, ["Tn"] = true, ["TCl"] = true, ["t"] = true, ["Ta"] = true, ["TCt"] = true, ["TDi"] = true, ["Sd"] = true, ["p"] = true, ["v"] = true, ["Tb"] = true, ["Ts"] = true, ["Tt"] = true, ["Tc"] = true, ["Ul"] = true, ["Uh"] = true, ["Uv"] = true, ["Lt"] = true, ["Dx"] = true, ["Da"] = true, ["DDi"] = true, ["DCt"] = true, ["Ti"] = true, ["Ag"] = true, ["Py"] = true, ["Os"] = true, ["RIa"] = true, ["COy"] = true, ["Av"] = true, ["Ac"] = true, ["Cp"] = true, ["SPSd"] = true, ["SPEd"] = true, ["Pv"] = true, ["Nv"] = true, ["RNv"] = true, ["Tr"] = true, ["Rt"] = true, ["NVc"] = true, ["RNc"] = true, ["TRc"] = true, ["RTc"] = true, ["CTr"] = true, ["TIn"] = true, ["Ci"] = true, ["Re"] = true, ["TRe"] = true, ["DRe"] = true }
+
+-- Lookups: Trade2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.trade2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" }, ["Tt"] = { record = "basic_data_table_entry_message", field = "NAm" } }
 
 -- Mandatory: Trade2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade2_message.mandatory = {  }
@@ -10360,6 +10566,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics1_message.name = "Trade
 -- Codes: Trade Statistics1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics1_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Pl"] = true, ["Pd"] = true, ["Of"] = true, ["Dd"] = true, ["Yl"] = true, ["Yd"] = true, ["CYl"] = true }
 
+-- Lookups: Trade Statistics1 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics1_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Trade Statistics1 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics1_message.mandatory = {  }
 
@@ -10378,6 +10587,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics2_message.name = "Trade
 
 -- Codes: Trade Statistics2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics2_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["Pd"] = true, ["LTRp"] = true, ["Of"] = true, ["Dd"] = true, ["CLp"] = true, ["Yf"] = true, ["Yl"] = true, ["Yh"] = true, ["Yo"] = true, ["Yd"] = true, ["LTRy"] = true, ["HSEp"] = true, ["LSEp"] = true, ["SEPl"] = true, ["CYl"] = true }
+
+-- Lookups: Trade Statistics2 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics2_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Trade Statistics2 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics2_message.mandatory = {  }
@@ -10398,6 +10610,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics3_message.name = "Trade
 -- Codes: Trade Statistics3 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics3_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["Pf"] = true, ["Pl"] = true, ["Ph"] = true, ["LOp"] = true, ["Pd"] = true, ["q"] = true, ["o"] = true, ["Rq"] = true, ["f"] = true, ["Ar"] = true, ["LTRp"] = true, ["LTRq"] = true, ["Of"] = true, ["Wp"] = true, ["Wd"] = true, ["Qr"] = true, ["Dd"] = true, ["Tp"] = true, ["CLp"] = true, ["Lv"] = true, ["AQs"] = true, ["Yf"] = true, ["Yl"] = true, ["Yh"] = true, ["Yo"] = true, ["LTRy"] = true, ["YWp"] = true, ["SWp"] = true, ["CYWp"] = true, ["VWp"] = true, ["HSEp"] = true, ["LSEp"] = true, ["SEPl"] = true, ["CYl"] = true, ["Yd"] = true, ["An"] = true, ["RAn"] = true, ["ANc"] = true, ["RAc"] = true, ["ATc"] = true, ["ARc"] = true }
 
+-- Lookups: Trade Statistics3 Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics3_message.lookups = { ["i"] = { record = "basic_data_tradable_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
+
 -- Mandatory: Trade Statistics3 Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.trade_statistics3_message.mandatory = {  }
 
@@ -10416,6 +10631,9 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_list_update_message.name = "Tu
 
 -- Codes: Turnover List Update Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_list_update_message.codes = { ["i"] = true, ["s"] = true, ["t"] = true, ["f"] = true, ["o"] = true, ["Bu"] = true, ["Bp"] = true, ["Bm"] = true, ["Pu"] = true, ["Pp"] = true, ["Pm"] = true, ["TNt"] = true, ["An"] = true, ["RAn"] = true, ["Ar"] = true, ["ANc"] = true, ["RAc"] = true, ["ATc"] = true, ["ARc"] = true }
+
+-- Lookups: Turnover List Update Message
+bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_list_update_message.lookups = { ["i"] = { record = "basic_data_list_message", field = "NAm" }, ["s"] = { record = "basic_data_source_message", field = "NAm" } }
 
 -- Mandatory: Turnover List Update Message
 bist_borsaistanbul_marketinfo_tip_v2_2_8.turnover_list_update_message.mandatory = {  }
@@ -10518,7 +10736,7 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.accepted_sequence_number.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -10707,7 +10925,7 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.requested_sequence_number.dissect = fun
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = bist_borsaistanbul_marketinfo_tip_v2_2_8.requested_sequence_number.display(value, buffer, offset, packet, parent)
@@ -10928,7 +11146,7 @@ bist_borsaistanbul_marketinfo_tip_v2_2_8.server_heartbeat.dissect = function(buf
   return offset
 end
 
--- Sequenced Data Packet: tip message
+-- Sequenced Data Packet: a tip message, dispatched on its type token
 bist_borsaistanbul_marketinfo_tip_v2_2_8.sequenced_data_packet = {}
 
 -- Read runtime size of: Sequenced Data Packet

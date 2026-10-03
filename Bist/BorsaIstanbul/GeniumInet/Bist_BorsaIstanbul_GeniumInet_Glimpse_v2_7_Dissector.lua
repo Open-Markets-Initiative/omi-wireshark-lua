@@ -246,7 +246,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
@@ -1157,7 +1157,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.requested_sequence_number.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value =  "Not Applicable"
+    value = "Not Applicable"
   end
 
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.requested_sequence_number.display(value, buffer, offset, packet, parent)
