@@ -418,12 +418,22 @@ odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price = {}
 odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.size = 4
 
 -- Display: Equilibrium Price
-odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.display = function(value)
+odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Equilibrium Price: No Value"
+  end
+
   return "Equilibrium Price: "..value
 end
 
 -- Translate: Equilibrium Price
 odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
   return raw/100
 end
 
@@ -433,7 +443,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.dissect = function(buffer, 
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.translate(raw)
-  local display = odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.display(value, buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.equilibrium_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.equilibrium_price, range, value, display)
 
@@ -779,12 +789,22 @@ odx_odxsecuritytoken_pts_itch_v1_2.price = {}
 odx_odxsecuritytoken_pts_itch_v1_2.price.size = 4
 
 -- Display: Price
-odx_odxsecuritytoken_pts_itch_v1_2.price.display = function(value)
+odx_odxsecuritytoken_pts_itch_v1_2.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 odx_odxsecuritytoken_pts_itch_v1_2.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
   return raw/100
 end
 
@@ -794,7 +814,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.price.dissect = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = odx_odxsecuritytoken_pts_itch_v1_2.price.translate(raw)
-  local display = odx_odxsecuritytoken_pts_itch_v1_2.price.display(value, buffer, offset, packet, parent)
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.price, range, value, display)
 
