@@ -173,6 +173,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq BxEquities Rash AsciiRash 1.0 Fields
@@ -427,36 +490,25 @@ nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.size = 10
 
 -- Display: Discretion Peg Difference
 nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Discretion Peg Difference: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Discretion Peg Difference: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Discretion Peg Difference: "..text
 end
 
 -- Dissect: Discretion Peg Difference
 nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_bxequities_rash_asciirash_v1_0.discretion_peg_difference.display(value, buffer, offset, packet, parent)
 
@@ -539,36 +591,25 @@ nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.size = 10
 
 -- Display: Discretion Price
 nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Discretion Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Discretion Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Discretion Price: "..text
 end
 
 -- Dissect: Discretion Price
 nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_bxequities_rash_asciirash_v1_0.discretion_price.display(value, buffer, offset, packet, parent)
 
@@ -1005,36 +1046,25 @@ nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.size = 10
 
 -- Display: Peg Difference
 nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Peg Difference: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Peg Difference: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Peg Difference: "..text
 end
 
 -- Dissect: Peg Difference
 nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_bxequities_rash_asciirash_v1_0.peg_difference.display(value, buffer, offset, packet, parent)
 
@@ -1117,36 +1147,25 @@ nasdaq_bxequities_rash_asciirash_v1_0.price.size = 10
 
 -- Display: Price
 nasdaq_bxequities_rash_asciirash_v1_0.price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_bxequities_rash_asciirash_v1_0.price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Price: "..text
 end
 
 -- Dissect: Price
 nasdaq_bxequities_rash_asciirash_v1_0.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_bxequities_rash_asciirash_v1_0.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_bxequities_rash_asciirash_v1_0.price.display(value, buffer, offset, packet, parent)
 

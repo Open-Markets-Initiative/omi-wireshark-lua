@@ -53,8 +53,6 @@ runuser -u tester -- tshark \
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.origclordid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofmodifyorderbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.ModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/NewOrderMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
@@ -66,8 +64,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.Binary
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.side" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofneworderbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderCancelledMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
@@ -80,9 +76,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.Binary
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.cancelreason" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.reserved1" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofreturnbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderCancelledMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderExecutionMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
@@ -101,9 +94,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.subliquidityindicator" Cboe.Bzx
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.contrabroker" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.reserved1" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofreturnbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderExecutionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderModifiedMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
@@ -116,9 +106,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.Binary
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.reserved1" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofreturnbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderModifiedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderRejectedMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
@@ -132,9 +119,6 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderrejectreason" Cboe.BzxOpti
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.text" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.reserved1" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofreturnbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.pricelong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
-grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderRejectedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/ReplayCompleteMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \

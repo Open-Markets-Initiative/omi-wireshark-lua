@@ -6018,8 +6018,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.variance_restatement_message.fields = 
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -6522,8 +6528,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.tas_restatement_message.fields = funct
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -7387,8 +7399,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.trade_cancel_or_correct_message.fields
     index, return_bitfield_17 = cboe_cfefutures_binaryorderentry_boe_v1_3.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -7833,8 +7851,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_execution_message.fields = funct
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -8367,8 +8391,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.cancel_rejected_message.fields = funct
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -8810,8 +8840,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_cancelled_message.fields = funct
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -9601,8 +9637,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_modified_message.fields = functi
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -10122,8 +10164,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_rejected_message.fields = functi
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -10670,8 +10718,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_acknowledgment_message.fields = 
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -12975,8 +13029,14 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.new_order_message.fields = function(bu
     index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_cfefutures_binaryorderentry_boe_v1_3.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil

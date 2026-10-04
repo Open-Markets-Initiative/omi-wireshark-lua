@@ -55,6 +55,181 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.contra_trader = ProtoField
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.correctedprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.bzxoptions.binaryorderentry.boe.v2.10.correctedsize", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_id = ProtoField.new("Cross Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossid", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_initiator = ProtoField.new("Cross Initiator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossinitiator", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_on_behalf_of_id = ProtoField.new("Cross On Behalf Of Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossonbehalfofid", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1 = ProtoField.new("Cross Order Rejected Return Bitfield 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_exec_inst = ProtoField.new("Cross Order Rejected Return Bitfield 1 Exec Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_min_qty = ProtoField.new("Cross Order Rejected Return Bitfield 1 Min Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_ord_type = ProtoField.new("Cross Order Rejected Return Bitfield 1 Ord Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_peg_difference = ProtoField.new("Cross Order Rejected Return Bitfield 1 Peg Difference", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_price = ProtoField.new("Cross Order Rejected Return Bitfield 1 Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_reserved_128 = ProtoField.new("Cross Order Rejected Return Bitfield 1 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_side = ProtoField.new("Cross Order Rejected Return Bitfield 1 Side", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_time_in_force = ProtoField.new("Cross Order Rejected Return Bitfield 1 Time In Force", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield1timeinforce", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10 = ProtoField.new("Cross Order Rejected Return Bitfield 10", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_alloc_qty = ProtoField.new("Cross Order Rejected Return Bitfield 10 Alloc Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10allocqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_client_qualified_role = ProtoField.new("Cross Order Rejected Return Bitfield 10 Client Qualified Role", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10clientqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_cross_exclusion_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 10 Cross Exclusion Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10crossexclusionindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_cross_id = ProtoField.new("Cross Order Rejected Return Bitfield 10 Cross Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10crossid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_give_up_firm_id = ProtoField.new("Cross Order Rejected Return Bitfield 10 Give Up Firm Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10giveupfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_price_formation = ProtoField.new("Cross Order Rejected Return Bitfield 10 Price Formation", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10priceformation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_routing_firm_id = ProtoField.new("Cross Order Rejected Return Bitfield 10 Routing Firm Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10routingfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_waiver_type = ProtoField.new("Cross Order Rejected Return Bitfield 10 Waiver Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield10waivertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11 = ProtoField.new("Cross Order Rejected Return Bitfield 11", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_algo = ProtoField.new("Cross Order Rejected Return Bitfield 11 Algo", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11algo", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_client_id = ProtoField.new("Cross Order Rejected Return Bitfield 11 Client Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11clientid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_deferral_reason = ProtoField.new("Cross Order Rejected Return Bitfield 11 Deferral Reason", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11deferralreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_executor_id = ProtoField.new("Cross Order Rejected Return Bitfield 11 Executor Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11executorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_executor_qualified_role = ProtoField.new("Cross Order Rejected Return Bitfield 11 Executor Qualified Role", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11executorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_investor_id = ProtoField.new("Cross Order Rejected Return Bitfield 11 Investor Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11investorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_investor_qualified_role = ProtoField.new("Cross Order Rejected Return Bitfield 11 Investor Qualified Role", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11investorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_order_origination = ProtoField.new("Cross Order Rejected Return Bitfield 11 Order Origination", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield11orderorigination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12 = ProtoField.new("Cross Order Rejected Return Bitfield 12", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_optional_data = ProtoField.new("Cross Order Rejected Return Bitfield 12 Clearing Optional Data", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12clearingoptionaldata", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_price = ProtoField.new("Cross Order Rejected Return Bitfield 12 Clearing Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12clearingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_size = ProtoField.new("Cross Order Rejected Return Bitfield 12 Clearing Size", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12clearingsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_symbol = ProtoField.new("Cross Order Rejected Return Bitfield 12 Clearing Symbol", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12clearingsymbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_cti_code = ProtoField.new("Cross Order Rejected Return Bitfield 12 Cti Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12cticode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_manual_order_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 12 Manual Order Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_operator_id = ProtoField.new("Cross Order Rejected Return Bitfield 12 Operator Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12operatorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_trade_date = ProtoField.new("Cross Order Rejected Return Bitfield 12 Trade Date", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield12tradedate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13 = ProtoField.new("Cross Order Rejected Return Bitfield 13", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_avg_px = ProtoField.new("Cross Order Rejected Return Bitfield 13 Avg Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13avgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_cum_qty = ProtoField.new("Cross Order Rejected Return Bitfield 13 Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13cumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_avg_px = ProtoField.new("Cross Order Rejected Return Bitfield 13 Day Avg Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13dayavgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_cum_qty = ProtoField.new("Cross Order Rejected Return Bitfield 13 Day Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13daycumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_order_qty = ProtoField.new("Cross Order Rejected Return Bitfield 13 Day Order Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13dayorderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_drill_thru_protection = ProtoField.new("Cross Order Rejected Return Bitfield 13 Drill Thru Protection", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13drillthruprotection", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_multileg_reporting_type = ProtoField.new("Cross Order Rejected Return Bitfield 13 Multileg Reporting Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13multilegreportingtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_pending_status = ProtoField.new("Cross Order Rejected Return Bitfield 13 Pending Status", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield13pendingstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14 = ProtoField.new("Cross Order Rejected Return Bitfield 14", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_cfi_code = ProtoField.new("Cross Order Rejected Return Bitfield 14 Leg Cfi Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14legcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_maturity_date = ProtoField.new("Cross Order Rejected Return Bitfield 14 Leg Maturity Date", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14legmaturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_strike_price = ProtoField.new("Cross Order Rejected Return Bitfield 14 Leg Strike Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14legstrikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_room_id = ProtoField.new("Cross Order Rejected Return Bitfield 14 Room Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14roomid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_secondary_exec_id = ProtoField.new("Cross Order Rejected Return Bitfield 14 Secondary Exec Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14secondaryexecid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_sis_username = ProtoField.new("Cross Order Rejected Return Bitfield 14 Sis Username", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14sisusername", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_user_request_id = ProtoField.new("Cross Order Rejected Return Bitfield 14 User Request Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14userrequestid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_user_status = ProtoField.new("Cross Order Rejected Return Bitfield 14 User Status", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield14userstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15 = ProtoField.new("Cross Order Rejected Return Bitfield 15", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_client_id_attr = ProtoField.new("Cross Order Rejected Return Bitfield 15 Client Id Attr", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15clientidattr", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_equity_nbbo_protect = ProtoField.new("Cross Order Rejected Return Bitfield 15 Equity Nbbo Protect", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15equitynbboprotect", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_equity_party_id = ProtoField.new("Cross Order Rejected Return Bitfield 15 Equity Party Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15equitypartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_leg_symbol_sfx = ProtoField.new("Cross Order Rejected Return Bitfield 15 Leg Symbol Sfx", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15legsymbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_mass_cancel_id = ProtoField.new("Cross Order Rejected Return Bitfield 15 Mass Cancel Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15masscancelid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_report_time = ProtoField.new("Cross Order Rejected Return Bitfield 15 Report Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15reporttime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_trade_publish_ind = ProtoField.new("Cross Order Rejected Return Bitfield 15 Trade Publish Ind", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15tradepublishind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_trade_reporting_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 15 Trade Reporting Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield15tradereportingindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16 = ProtoField.new("Cross Order Rejected Return Bitfield 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_combo_order = ProtoField.new("Cross Order Rejected Return Bitfield 16 Combo Order", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16comboorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_compression = ProtoField.new("Cross Order Rejected Return Bitfield 16 Compression", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16compression", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_floor_destination = ProtoField.new("Cross Order Rejected Return Bitfield 16 Floor Destination", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16floordestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_floor_routing_inst = ProtoField.new("Cross Order Rejected Return Bitfield 16 Floor Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_frequent_trader_id = ProtoField.new("Cross Order Rejected Return Bitfield 16 Frequent Trader Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16frequenttraderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_multi_class_sprd = ProtoField.new("Cross Order Rejected Return Bitfield 16 Multi Class Sprd", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16multiclasssprd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_order_origin = ProtoField.new("Cross Order Rejected Return Bitfield 16 Order Origin", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_session_eligibility = ProtoField.new("Cross Order Rejected Return Bitfield 16 Session Eligibility", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield16sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17 = ProtoField.new("Cross Order Rejected Return Bitfield 17", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_cust_order_handling_inst = ProtoField.new("Cross Order Rejected Return Bitfield 17 Cust Order Handling Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17custorderhandlinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_exec_leg_cfi_code = ProtoField.new("Cross Order Rejected Return Bitfield 17 Exec Leg Cfi Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17execlegcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_floor_trader_acronym = ProtoField.new("Cross Order Rejected Return Bitfield 17 Floor Trader Acronym", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17floortraderacronym", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_price_type = ProtoField.new("Cross Order Rejected Return Bitfield 17 Price Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17pricetype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_sender_location_id = ProtoField.new("Cross Order Rejected Return Bitfield 17 Sender Location Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17senderlocationid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_strategy_id = ProtoField.new("Cross Order Rejected Return Bitfield 17 Strategy Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17strategyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_trade_through_alert_type = ProtoField.new("Cross Order Rejected Return Bitfield 17 Trade Through Alert Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17tradethroughalerttype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_trading_session_id = ProtoField.new("Cross Order Rejected Return Bitfield 17 Trading Session Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield17tradingsessionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18 = ProtoField.new("Cross Order Rejected Return Bitfield 18", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_cross_initiator = ProtoField.new("Cross Order Rejected Return Bitfield 18 Cross Initiator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18crossinitiator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_cross_trade_flag = ProtoField.new("Cross Order Rejected Return Bitfield 18 Cross Trade Flag", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18crosstradeflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_held = ProtoField.new("Cross Order Rejected Return Bitfield 18 Held", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18held", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_locate_broker = ProtoField.new("Cross Order Rejected Return Bitfield 18 Locate Broker", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18locatebroker", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_1 = ProtoField.new("Cross Order Rejected Return Bitfield 18 Reserved 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_128 = ProtoField.new("Cross Order Rejected Return Bitfield 18 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_16 = ProtoField.new("Cross Order Rejected Return Bitfield 18 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_subreason = ProtoField.new("Cross Order Rejected Return Bitfield 18 Subreason", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield18subreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19 = ProtoField.new("Cross Order Rejected Return Bitfield 19", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cmc_match_qty = ProtoField.new("Cross Order Rejected Return Bitfield 19 Cmc Match Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19cmcmatchqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cmc_sessions = ProtoField.new("Cross Order Rejected Return Bitfield 19 Cmc Sessions", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19cmcsessions", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cross_on_behalf_of_id = ProtoField.new("Cross Order Rejected Return Bitfield 19 Cross On Behalf Of Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19crossonbehalfofid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_equity_ex_destination = ProtoField.new("Cross Order Rejected Return Bitfield 19 Equity Ex Destination", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19equityexdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_floor_trade_time = ProtoField.new("Cross Order Rejected Return Bitfield 19 Floor Trade Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19floortradetime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_intra_firm_trade_ind = ProtoField.new("Cross Order Rejected Return Bitfield 19 Intra Firm Trade Ind", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19intrafirmtradeind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_reserved_128 = ProtoField.new("Cross Order Rejected Return Bitfield 19 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_stop_px_type = ProtoField.new("Cross Order Rejected Return Bitfield 19 Stop Px Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield19stoppxtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2 = ProtoField.new("Cross Order Rejected Return Bitfield 2", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_capacity = ProtoField.new("Cross Order Rejected Return Bitfield 2 Capacity", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2capacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_contra_trader = ProtoField.new("Cross Order Rejected Return Bitfield 2 Contra Trader", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2contratrader", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_currency = ProtoField.new("Cross Order Rejected Return Bitfield 2 Currency", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_id_source = ProtoField.new("Cross Order Rejected Return Bitfield 2 Id Source", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2idsource", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_security_exchange = ProtoField.new("Cross Order Rejected Return Bitfield 2 Security Exchange", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2securityexchange", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_security_id = ProtoField.new("Cross Order Rejected Return Bitfield 2 Security Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2securityid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_symbol = ProtoField.new("Cross Order Rejected Return Bitfield 2 Symbol", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_symbol_sfx = ProtoField.new("Cross Order Rejected Return Bitfield 2 Symbol Sfx", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3 = ProtoField.new("Cross Order Rejected Return Bitfield 3", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_account = ProtoField.new("Cross Order Rejected Return Bitfield 3 Account", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3account", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_clearing_account = ProtoField.new("Cross Order Rejected Return Bitfield 3 Clearing Account", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_clearing_firm = ProtoField.new("Cross Order Rejected Return Bitfield 3 Clearing Firm", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_discretion_amount = ProtoField.new("Cross Order Rejected Return Bitfield 3 Discretion Amount", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3discretionamount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_display_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 3 Display Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3displayindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_max_floor = ProtoField.new("Cross Order Rejected Return Bitfield 3 Max Floor", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3maxfloor", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_order_qty = ProtoField.new("Cross Order Rejected Return Bitfield 3 Order Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3orderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_prevent_match = ProtoField.new("Cross Order Rejected Return Bitfield 3 Prevent Match", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield3preventmatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4 = ProtoField.new("Cross Order Rejected Return Bitfield 4", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_access_fee = ProtoField.new("Cross Order Rejected Return Bitfield 4 Access Fee", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4accessfee", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_cl_ord_id_batch = ProtoField.new("Cross Order Rejected Return Bitfield 4 Cl Ord Id Batch", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4clordidbatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_corrected_size = ProtoField.new("Cross Order Rejected Return Bitfield 4 Corrected Size", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4correctedsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_maturity_date = ProtoField.new("Cross Order Rejected Return Bitfield 4 Maturity Date", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4maturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_open_close = ProtoField.new("Cross Order Rejected Return Bitfield 4 Open Close", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4openclose", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_party_id = ProtoField.new("Cross Order Rejected Return Bitfield 4 Party Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4partyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_put_or_call = ProtoField.new("Cross Order Rejected Return Bitfield 4 Put Or Call", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4putorcall", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_strike_price = ProtoField.new("Cross Order Rejected Return Bitfield 4 Strike Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield4strikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5 = ProtoField.new("Cross Order Rejected Return Bitfield 5", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_base_liquidity_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 5 Base Liquidity Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_display_price = ProtoField.new("Cross Order Rejected Return Bitfield 5 Display Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_expire_time = ProtoField.new("Cross Order Rejected Return Bitfield 5 Expire Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_last_px = ProtoField.new("Cross Order Rejected Return Bitfield 5 Last Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_last_shares = ProtoField.new("Cross Order Rejected Return Bitfield 5 Last Shares", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_leaves_qty = ProtoField.new("Cross Order Rejected Return Bitfield 5 Leaves Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_orig_cl_ord_id = ProtoField.new("Cross Order Rejected Return Bitfield 5 Orig Cl Ord Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_working_price = ProtoField.new("Cross Order Rejected Return Bitfield 5 Working Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield5workingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6 = ProtoField.new("Cross Order Rejected Return Bitfield 6", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_attributed_quote = ProtoField.new("Cross Order Rejected Return Bitfield 6 Attributed Quote", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6attributedquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_bulk_order_ids = ProtoField.new("Cross Order Rejected Return Bitfield 6 Bulk Order Ids", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_bulk_reject_reasons = ProtoField.new("Cross Order Rejected Return Bitfield 6 Bulk Reject Reasons", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_ccp = ProtoField.new("Cross Order Rejected Return Bitfield 6 Ccp", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_contra_capacity = ProtoField.new("Cross Order Rejected Return Bitfield 6 Contra Capacity", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_ext_exec_inst = ProtoField.new("Cross Order Rejected Return Bitfield 6 Ext Exec Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_party_role = ProtoField.new("Cross Order Rejected Return Bitfield 6 Party Role", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_secondary_order_id = ProtoField.new("Cross Order Rejected Return Bitfield 6 Secondary Order Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield6secondaryorderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7 = ProtoField.new("Cross Order Rejected Return Bitfield 7", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_bid = ProtoField.new("Cross Order Rejected Return Bitfield 7 Bid", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7bid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_large_size = ProtoField.new("Cross Order Rejected Return Bitfield 7 Large Size", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7largesize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_last_mkt = ProtoField.new("Cross Order Rejected Return Bitfield 7 Last Mkt", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7lastmkt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_offer = ProtoField.new("Cross Order Rejected Return Bitfield 7 Offer", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7offer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_sub_liquidity_indicator = ProtoField.new("Cross Order Rejected Return Bitfield 7 Sub Liquidity Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7subliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_text = ProtoField.new("Cross Order Rejected Return Bitfield 7 Text", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7text", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_trade_publish_ind_return = ProtoField.new("Cross Order Rejected Return Bitfield 7 Trade Publish Ind Return", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7tradepublishindreturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_trade_report_type_return = ProtoField.new("Cross Order Rejected Return Bitfield 7 Trade Report Type Return", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield7tradereporttypereturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8 = ProtoField.new("Cross Order Rejected Return Bitfield 8", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_echo_text = ProtoField.new("Cross Order Rejected Return Bitfield 8 Echo Text", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8echotext", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_ex_destination = ProtoField.new("Cross Order Rejected Return Bitfield 8 Ex Destination", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8exdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_fee_code = ProtoField.new("Cross Order Rejected Return Bitfield 8 Fee Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8feecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_rout_strategy = ProtoField.new("Cross Order Rejected Return Bitfield 8 Rout Strategy", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8routstrategy", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_route_delivery_method = ProtoField.new("Cross Order Rejected Return Bitfield 8 Route Delivery Method", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8routedeliverymethod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_routing_inst = ProtoField.new("Cross Order Rejected Return Bitfield 8 Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8routinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_stop_px = ProtoField.new("Cross Order Rejected Return Bitfield 8 Stop Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_trade_report_ref_id = ProtoField.new("Cross Order Rejected Return Bitfield 8 Trade Report Ref Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield8tradereportrefid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9 = ProtoField.new("Cross Order Rejected Return Bitfield 9", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_auction_id = ProtoField.new("Cross Order Rejected Return Bitfield 9 Auction Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9auctionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cmta_number = ProtoField.new("Cross Order Rejected Return Bitfield 9 Cmta Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9cmtanumber", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cross_prioritization = ProtoField.new("Cross Order Rejected Return Bitfield 9 Cross Prioritization", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9crossprioritization", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cross_type = ProtoField.new("Cross Order Rejected Return Bitfield 9 Cross Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9crosstype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_liquidity_provision = ProtoField.new("Cross Order Rejected Return Bitfield 9 Liquidity Provision", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9liquidityprovision", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_marketing_fee_code = ProtoField.new("Cross Order Rejected Return Bitfield 9 Marketing Fee Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_order_category = ProtoField.new("Cross Order Rejected Return Bitfield 9 Order Category", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_target_party_id = ProtoField.new("Cross Order Rejected Return Bitfield 9 Target Party Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossorderrejectedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_prioritization = ProtoField.new("Cross Prioritization", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossprioritization", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_type = ProtoField.new("Cross Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crosstype", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.cumqty", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.customgroupid", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.daycumqty", ftypes.UINT32)
@@ -63,12 +238,14 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.display_indicator = ProtoF
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.display_price = ProtoField.new("Display Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.displayprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.display_range = ProtoField.new("Display Range", "cboe.bzxoptions.binaryorderentry.boe.v2.10.displayrange", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.echo_text = ProtoField.new("Echo Text", "cboe.bzxoptions.binaryorderentry.boe.v2.10.echotext", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.equity_party_id = ProtoField.new("Equity Party Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.equitypartyid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.bzxoptions.binaryorderentry.boe.v2.10.exdestination", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_id = ProtoField.new("Exec Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.execid", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.execinst", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.execrefid", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.expire_time = ProtoField.new("Expire Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.expiretime", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.fee_code = ProtoField.new("Fee Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.feecode", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.frequenttraderid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_px = ProtoField.new("Last Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastpx", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_received_sequence_number = ProtoField.new("Last Received Sequence Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastreceivedsequencenumber", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_shares = ProtoField.new("Last Shares", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastshares", ftypes.UINT32)
@@ -411,6 +588,7 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.risk_root = ProtoField.new
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.riskstatusid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.bzxoptions.binaryorderentry.boe.v2.10.routstrategy", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.bzxoptions.binaryorderentry.boe.v2.10.routedeliverymethod", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.routingfirmid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.routinginst", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.secondaryorderid", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.send_time = ProtoField.new("Send Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.sendtime", ftypes.UINT64)
@@ -423,8 +601,10 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.start_of_message = ProtoFi
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.stop_px = ProtoField.new("Stop Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.stoppx", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.strike_price = ProtoField.new("Strike Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.strikeprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.subliquidityindicator", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.subreason = ProtoField.new("Subreason", "cboe.bzxoptions.binaryorderentry.boe.v2.10.subreason", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbollong", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bzxoptions.binaryorderentry.boe.v2.10.symbolshort", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.target_party_id = ProtoField.new("Target Party Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.targetpartyid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.text = ProtoField.new("Text", "cboe.bzxoptions.binaryorderentry.boe.v2.10.text", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.time_in_force = ProtoField.new("Time In Force", "cboe.bzxoptions.binaryorderentry.boe.v2.10.timeinforce", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.transact_time = ProtoField.new("Transact Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.transacttime", ftypes.UINT64)
@@ -1430,6 +1610,130 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Cross Initiator
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator = {}
+
+-- Size: Cross Initiator
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.size = 4
+
+-- Display: Cross Initiator
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cross Initiator: No Value"
+  end
+
+  return "Cross Initiator: "..value
+end
+
+-- Dissect: Cross Initiator
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_initiator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross On Behalf Of Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id = {}
+
+-- Size: Cross On Behalf Of Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.size = 4
+
+-- Display: Cross On Behalf Of Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cross On Behalf Of Id: No Value"
+  end
+
+  return "Cross On Behalf Of Id: "..value
+end
+
+-- Dissect: Cross On Behalf Of Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_on_behalf_of_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Prioritization
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization = {}
+
+-- Size: Cross Prioritization
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.size = 1
+
+-- Display: Cross Prioritization
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.display = function(value)
+  return "Cross Prioritization: "..value
+end
+
+-- Dissect: Cross Prioritization
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_prioritization, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type = {}
+
+-- Size: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.size = 1
+
+-- Display: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.display = function(value)
+  return "Cross Type: "..value
+end
+
+-- Dissect: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Cum Qty
 cboe_bzxoptions_binaryorderentry_boe_v2_10.cum_qty = {}
 
@@ -1661,6 +1965,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.echo_text.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Equity Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id = {}
+
+-- Size: Equity Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.size = 4
+
+-- Display: Equity Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Equity Party Id: No Value"
+  end
+
+  return "Equity Party Id: "..value
+end
+
+-- Dissect: Equity Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.equity_party_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Ex Destination
 cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination = {}
 
@@ -1865,6 +2208,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.fee_code.dissect = function(buffer, o
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.fee_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Frequent Trader Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id = {}
+
+-- Size: Frequent Trader Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.size = 6
+
+-- Display: Frequent Trader Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Frequent Trader Id: No Value"
+  end
+
+  return "Frequent Trader Id: "..value
+end
+
+-- Dissect: Frequent Trader Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.frequent_trader_id, range, value, display)
 
   return offset + length, value
 end
@@ -4381,6 +4763,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.route_delivery_method.dissect = funct
   return offset + length, value
 end
 
+-- Routing Firm Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id = {}
+
+-- Size: Routing Firm Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.size = 4
+
+-- Display: Routing Firm Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Routing Firm Id: No Value"
+  end
+
+  return "Routing Firm Id: "..value
+end
+
+-- Dissect: Routing Firm Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.routing_firm_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Routing Inst
 cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_inst = {}
 
@@ -4706,6 +5127,29 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.sub_liquidity_indicator.dissect = fun
   return offset + length, value
 end
 
+-- Subreason
+cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason = {}
+
+-- Size: Subreason
+cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.size = 1
+
+-- Display: Subreason
+cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.display = function(value)
+  return "Subreason: "..value
+end
+
+-- Dissect: Subreason
+cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.subreason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol Long
 cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long = {}
 
@@ -4780,6 +5224,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_short.dissect = function(buffe
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Target Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id = {}
+
+-- Size: Target Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.size = 4
+
+-- Display: Target Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Target Party Id: No Value"
+  end
+
+  return "Target Party Id: "..value
+end
+
+-- Dissect: Target Party Id
+cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.target_party_id, range, value, display)
 
   return offset + length, value
 end
@@ -6778,8 +7261,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -6826,8 +7315,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -6892,8 +7387,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -7757,8 +8258,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.trade_cancel_or_correct_message.field
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -8197,8 +8704,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -8245,8 +8758,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -8679,8 +9198,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -8727,8 +9252,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -8784,8 +9315,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -9614,8 +10151,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -9662,8 +10205,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -9719,8 +10268,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -10223,8 +10778,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -10271,8 +10832,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -10328,8 +10895,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -10676,6 +11249,1697 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_update_rejected_message.dissect
   end
 end
 
+-- Cross Order Rejected Return Bitfield 19
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 19
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 19
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 19 Floor Trade Time flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Floor Trade Time"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Equity Ex Destination flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Equity Ex Destination"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Cross On Behalf Of Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Cross On Behalf Of Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Cmc Sessions flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Cmc Sessions"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Intra Firm Trade Ind flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Intra Firm Trade Ind"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Cmc Match Qty flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Cmc Match Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Stop Px Type flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Stop Px Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 19 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 19 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 19
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 19 Floor Trade Time: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_floor_trade_time, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Equity Ex Destination: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_equity_ex_destination, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Cross On Behalf Of Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cross_on_behalf_of_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Cmc Sessions: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cmc_sessions, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Intra Firm Trade Ind: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_intra_firm_trade_ind, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Cmc Match Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_cmc_match_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Stop Px Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_stop_px_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 19 Reserved 128: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19_reserved_128, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 19
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_19, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 18
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 18
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 18
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 18 Reserved 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Reserved 1"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Cross Initiator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Cross Initiator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Subreason flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Subreason"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Cross Trade Flag flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Cross Trade Flag"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Reserved 16 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Reserved 16"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Held flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Held"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Locate Broker flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Locate Broker"
+  end
+  -- Is Cross Order Rejected Return Bitfield 18 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 18 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 18
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 18 Reserved 1: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_1, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Cross Initiator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_cross_initiator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Subreason: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_subreason, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Cross Trade Flag: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_cross_trade_flag, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Reserved 16: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_16, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Held: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_held, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Locate Broker: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_locate_broker, range, value)
+
+  -- Cross Order Rejected Return Bitfield 18 Reserved 128: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18_reserved_128, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 18
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_18, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 17
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 17
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 17
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 17 Price Type flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Price Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Strategy Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Strategy Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Trading Session Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Trading Session Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Trade Through Alert Type flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Trade Through Alert Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Sender Location Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Sender Location Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Floor Trader Acronym flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Floor Trader Acronym"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Exec Leg Cfi Code flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Exec Leg Cfi Code"
+  end
+  -- Is Cross Order Rejected Return Bitfield 17 Cust Order Handling Inst flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 17 Cust Order Handling Inst"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 17
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 17 Price Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_price_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Strategy Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_strategy_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Trading Session Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_trading_session_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Trade Through Alert Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_trade_through_alert_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Sender Location Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_sender_location_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Floor Trader Acronym: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_floor_trader_acronym, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Exec Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_exec_leg_cfi_code, range, value)
+
+  -- Cross Order Rejected Return Bitfield 17 Cust Order Handling Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17_cust_order_handling_inst, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 17
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_17, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 16
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 16
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 16
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 16 Frequent Trader Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Frequent Trader Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Session Eligibility flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Session Eligibility"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Combo Order flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Combo Order"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Compression flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Compression"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Floor Destination flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Floor Destination"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Floor Routing Inst flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Floor Routing Inst"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Multi Class Sprd flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Multi Class Sprd"
+  end
+  -- Is Cross Order Rejected Return Bitfield 16 Order Origin flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 16 Order Origin"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 16
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 16 Frequent Trader Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_frequent_trader_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Session Eligibility: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_session_eligibility, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Combo Order: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_combo_order, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Compression: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_compression, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Floor Destination: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_floor_destination, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_floor_routing_inst, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Multi Class Sprd: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_multi_class_sprd, range, value)
+
+  -- Cross Order Rejected Return Bitfield 16 Order Origin: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16_order_origin, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 16
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_16, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 15
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 15
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 15
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 15 Trade Reporting Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Trade Reporting Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Equity Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Equity Party Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Equity Nbbo Protect flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Equity Nbbo Protect"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Mass Cancel Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Mass Cancel Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Trade Publish Ind flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Trade Publish Ind"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Report Time flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Report Time"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Leg Symbol Sfx flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Leg Symbol Sfx"
+  end
+  -- Is Cross Order Rejected Return Bitfield 15 Client Id Attr flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 15 Client Id Attr"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 15
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 15 Trade Reporting Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_trade_reporting_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Equity Party Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_equity_party_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Equity Nbbo Protect: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_equity_nbbo_protect, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Mass Cancel Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_mass_cancel_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Trade Publish Ind: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_trade_publish_ind, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Report Time: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_report_time, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Leg Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_leg_symbol_sfx, range, value)
+
+  -- Cross Order Rejected Return Bitfield 15 Client Id Attr: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15_client_id_attr, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 15
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_15, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 14
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 14
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 14
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 14 Leg Cfi Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Leg Cfi Code"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 Leg Maturity Date flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Leg Maturity Date"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 Leg Strike Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Leg Strike Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 Room Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Room Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 Secondary Exec Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Secondary Exec Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 User Request Id flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 User Request Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 Sis Username flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 Sis Username"
+  end
+  -- Is Cross Order Rejected Return Bitfield 14 User Status flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 14 User Status"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 14
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 14 Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_cfi_code, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 Leg Maturity Date: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_maturity_date, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 Leg Strike Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_leg_strike_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 Room Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_room_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 Secondary Exec Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_secondary_exec_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 User Request Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_user_request_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 Sis Username: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_sis_username, range, value)
+
+  -- Cross Order Rejected Return Bitfield 14 User Status: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14_user_status, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 14
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_14, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 13
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 13
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 13
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 13 Cum Qty flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Cum Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Day Order Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Day Order Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Day Cum Qty flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Day Cum Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Avg Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Avg Px"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Day Avg Px flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Day Avg Px"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Pending Status flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Pending Status"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Drill Thru Protection flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Drill Thru Protection"
+  end
+  -- Is Cross Order Rejected Return Bitfield 13 Multileg Reporting Type flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 13 Multileg Reporting Type"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 13
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 13 Cum Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_cum_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Day Order Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_order_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Day Cum Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_cum_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Avg Px: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_avg_px, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Day Avg Px: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_day_avg_px, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Pending Status: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_pending_status, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Drill Thru Protection: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_drill_thru_protection, range, value)
+
+  -- Cross Order Rejected Return Bitfield 13 Multileg Reporting Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13_multileg_reporting_type, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 13
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_13, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 12
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 12
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 12
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 12 Cti Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Cti Code"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Manual Order Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Manual Order Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Operator Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Operator Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Trade Date flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Trade Date"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Clearing Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Clearing Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Clearing Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Clearing Size"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Clearing Symbol flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Clearing Symbol"
+  end
+  -- Is Cross Order Rejected Return Bitfield 12 Clearing Optional Data flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 12 Clearing Optional Data"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 12
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 12 Cti Code: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_cti_code, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Manual Order Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_manual_order_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Operator Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_operator_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Trade Date: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_trade_date, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Clearing Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Clearing Size: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_size, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Clearing Symbol: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_symbol, range, value)
+
+  -- Cross Order Rejected Return Bitfield 12 Clearing Optional Data: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12_clearing_optional_data, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 12
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_12, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 11
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 11
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 11
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 11 Client Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Client Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Investor Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Investor Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Executor Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Executor Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Order Origination flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Order Origination"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Algo flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Algo"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Deferral Reason flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Deferral Reason"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Investor Qualified Role flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Investor Qualified Role"
+  end
+  -- Is Cross Order Rejected Return Bitfield 11 Executor Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 11 Executor Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 11
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 11 Client Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_client_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Investor Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_investor_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Executor Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_executor_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Order Origination: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_order_origination, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Algo: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_algo, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Deferral Reason: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_deferral_reason, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Investor Qualified Role: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_investor_qualified_role, range, value)
+
+  -- Cross Order Rejected Return Bitfield 11 Executor Qualified Role: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11_executor_qualified_role, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 11
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_11, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 10
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 10
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 10
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 10 Cross Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Cross Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Alloc Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Alloc Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Give Up Firm Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Give Up Firm Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Routing Firm Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Routing Firm Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Waiver Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Waiver Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Cross Exclusion Indicator flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Cross Exclusion Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Price Formation flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Price Formation"
+  end
+  -- Is Cross Order Rejected Return Bitfield 10 Client Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 10 Client Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 10
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 10 Cross Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_cross_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Alloc Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_alloc_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Give Up Firm Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_give_up_firm_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Routing Firm Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_routing_firm_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Waiver Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_waiver_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Cross Exclusion Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_cross_exclusion_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Price Formation: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_price_formation, range, value)
+
+  -- Cross Order Rejected Return Bitfield 10 Client Qualified Role: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10_client_qualified_role, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 10
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_10, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 9
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 9
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 9
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 9 Marketing Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Marketing Fee Code"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Target Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Target Party Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Auction Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Auction Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Order Category flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Order Category"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Liquidity Provision flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Liquidity Provision"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Cmta Number flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Cmta Number"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Cross Type flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Cross Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 9 Cross Prioritization flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 9 Cross Prioritization"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 9
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 9 Marketing Fee Code: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_marketing_fee_code, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Target Party Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_target_party_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Auction Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_auction_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Order Category: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_order_category, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Liquidity Provision: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_liquidity_provision, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Cmta Number: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cmta_number, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Cross Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cross_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 9 Cross Prioritization: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9_cross_prioritization, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 9
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_9, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 8
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 8
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 8
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 8 Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Fee Code"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Echo Text flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Echo Text"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Stop Px flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Stop Px"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Routing Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Routing Inst"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Rout Strategy flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Rout Strategy"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Route Delivery Method flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Route Delivery Method"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Ex Destination flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Ex Destination"
+  end
+  -- Is Cross Order Rejected Return Bitfield 8 Trade Report Ref Id flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 8 Trade Report Ref Id"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 8
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 8 Fee Code: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_fee_code, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Echo Text: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_echo_text, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Stop Px: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_stop_px, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Routing Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_routing_inst, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Rout Strategy: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_rout_strategy, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Route Delivery Method: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_route_delivery_method, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Ex Destination: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_ex_destination, range, value)
+
+  -- Cross Order Rejected Return Bitfield 8 Trade Report Ref Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8_trade_report_ref_id, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 8
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_8, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 7
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 7
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 7
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 7 Sub Liquidity Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Sub Liquidity Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Trade Report Type Return flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Trade Report Type Return"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Trade Publish Ind Return flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Trade Publish Ind Return"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Text flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Text"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Bid flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Bid"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Offer flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Offer"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Large Size flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Large Size"
+  end
+  -- Is Cross Order Rejected Return Bitfield 7 Last Mkt flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 7 Last Mkt"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 7
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 7 Sub Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_sub_liquidity_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Trade Report Type Return: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_trade_report_type_return, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Trade Publish Ind Return: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_trade_publish_ind_return, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Text: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_text, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Bid: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_bid, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Offer: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_offer, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Large Size: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_large_size, range, value)
+
+  -- Cross Order Rejected Return Bitfield 7 Last Mkt: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7_last_mkt, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 7
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_7, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 6
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 6
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 6
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 6 Secondary Order Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Secondary Order Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Ccp flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Ccp"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Contra Capacity flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Contra Capacity"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Attributed Quote flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Attributed Quote"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Ext Exec Inst flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Ext Exec Inst"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Bulk Order Ids flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Bulk Order Ids"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Bulk Reject Reasons flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Bulk Reject Reasons"
+  end
+  -- Is Cross Order Rejected Return Bitfield 6 Party Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 6 Party Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 6
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 6 Secondary Order Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_secondary_order_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Ccp: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_ccp, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Contra Capacity: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_contra_capacity, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Attributed Quote: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_attributed_quote, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Ext Exec Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_ext_exec_inst, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Bulk Order Ids: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_bulk_order_ids, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Bulk Reject Reasons: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_bulk_reject_reasons, range, value)
+
+  -- Cross Order Rejected Return Bitfield 6 Party Role: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6_party_role, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 6
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_6, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 5
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 5
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 5
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 5 Orig Cl Ord Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Orig Cl Ord Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Leaves Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Leaves Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Last Shares flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Last Shares"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Last Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Last Px"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Display Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Display Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Working Price flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Working Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Base Liquidity Indicator flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Base Liquidity Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 5 Expire Time flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 5 Expire Time"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 5
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 5 Orig Cl Ord Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_orig_cl_ord_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Leaves Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_leaves_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Last Shares: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_last_shares, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_last_px, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Display Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_display_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Working Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_working_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Base Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_base_liquidity_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 5 Expire Time: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5_expire_time, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 5
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_5, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 4
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 4
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 4
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 4 Maturity Date flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Maturity Date"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Strike Price flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Strike Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Put Or Call flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Put Or Call"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Open Close flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Open Close"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Cl Ord Id Batch flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Cl Ord Id Batch"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Corrected Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Corrected Size"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Party Id flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Party Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 4 Access Fee flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 4 Access Fee"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 4
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 4 Maturity Date: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_maturity_date, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Strike Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_strike_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Put Or Call: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_put_or_call, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Open Close: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_open_close, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Cl Ord Id Batch: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_cl_ord_id_batch, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Corrected Size: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_corrected_size, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Party Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_party_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 4 Access Fee: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4_access_fee, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 4
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_4, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 3
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 3
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 3
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 3 Account flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Account"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Clearing Firm flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Clearing Firm"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Clearing Account flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Clearing Account"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Display Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Display Indicator"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Max Floor flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Max Floor"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Discretion Amount flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Discretion Amount"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Order Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Order Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 3 Prevent Match flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 3 Prevent Match"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 3
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 3 Account: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_account, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Clearing Firm: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_clearing_firm, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Clearing Account: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_clearing_account, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Display Indicator: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_display_indicator, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Max Floor: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_max_floor, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Discretion Amount: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_discretion_amount, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Order Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_order_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 3 Prevent Match: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3_prevent_match, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 3
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_3, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 2
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 2
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 2
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 2 Symbol flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Symbol"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Symbol Sfx flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Symbol Sfx"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Currency flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Currency"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Id Source flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Id Source"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Security Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Security Id"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Security Exchange flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Security Exchange"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Capacity flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Capacity"
+  end
+  -- Is Cross Order Rejected Return Bitfield 2 Contra Trader flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 2 Contra Trader"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 2
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 2 Symbol: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_symbol, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_symbol_sfx, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Currency: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_currency, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Id Source: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_id_source, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Security Id: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_security_id, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Security Exchange: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_security_exchange, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Capacity: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_capacity, range, value)
+
+  -- Cross Order Rejected Return Bitfield 2 Contra Trader: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2_contra_trader, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 2
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_2, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Cross Order Rejected Return Bitfield 1
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1 = {}
+
+-- Size: Cross Order Rejected Return Bitfield 1
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.size = 1
+
+-- Display: Cross Order Rejected Return Bitfield 1
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Cross Order Rejected Return Bitfield 1 Side flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Side"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Peg Difference flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Peg Difference"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Price"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Exec Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Exec Inst"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Ord Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Ord Type"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Time In Force flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Time In Force"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Min Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Min Qty"
+  end
+  -- Is Cross Order Rejected Return Bitfield 1 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 1 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Cross Order Rejected Return Bitfield 1
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.bits = function(range, value, packet, parent)
+
+  -- Cross Order Rejected Return Bitfield 1 Side: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_side, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Peg Difference: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_peg_difference, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Price: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_price, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Exec Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_exec_inst, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_ord_type, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Time In Force: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_time_in_force, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Min Qty: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_min_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 1 Reserved 128: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1_reserved_128, range, value)
+end
+
+-- Dissect: Cross Order Rejected Return Bitfield 1
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_order_rejected_return_bitfield_1, range, display)
+
+  if show.structs then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Cross Order Rejected Message
 cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_message = {}
 
@@ -10713,8 +12977,388 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_message.fields =
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_bzxoptions_binaryorderentry_boe_v2_10.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Rejected Optional Fields
-  index, cross_order_rejected_optional_fields = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_optional_fields.dissect(buffer, index, packet, parent)
+  -- Number Of Return Bitfields: Binary
+  index, number_of_return_bitfields = cboe_bzxoptions_binaryorderentry_boe_v2_10.number_of_return_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 1
+  local cross_order_rejected_return_bitfield_1 = nil
+
+  local cross_order_rejected_return_bitfield_1_exists = number_of_return_bitfields >= 1
+
+  if cross_order_rejected_return_bitfield_1_exists then
+
+    -- Cross Order Rejected Return Bitfield 1: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_1 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 2
+  local cross_order_rejected_return_bitfield_2 = nil
+
+  local cross_order_rejected_return_bitfield_2_exists = number_of_return_bitfields >= 2
+
+  if cross_order_rejected_return_bitfield_2_exists then
+
+    -- Cross Order Rejected Return Bitfield 2: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_2 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 3
+  local cross_order_rejected_return_bitfield_3 = nil
+
+  local cross_order_rejected_return_bitfield_3_exists = number_of_return_bitfields >= 3
+
+  if cross_order_rejected_return_bitfield_3_exists then
+
+    -- Cross Order Rejected Return Bitfield 3: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_3 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_3.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 4
+  local cross_order_rejected_return_bitfield_4 = nil
+
+  local cross_order_rejected_return_bitfield_4_exists = number_of_return_bitfields >= 4
+
+  if cross_order_rejected_return_bitfield_4_exists then
+
+    -- Cross Order Rejected Return Bitfield 4: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_4 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 5
+  local cross_order_rejected_return_bitfield_5 = nil
+
+  local cross_order_rejected_return_bitfield_5_exists = number_of_return_bitfields >= 5
+
+  if cross_order_rejected_return_bitfield_5_exists then
+
+    -- Cross Order Rejected Return Bitfield 5: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_5 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_5.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 6
+  local cross_order_rejected_return_bitfield_6 = nil
+
+  local cross_order_rejected_return_bitfield_6_exists = number_of_return_bitfields >= 6
+
+  if cross_order_rejected_return_bitfield_6_exists then
+
+    -- Cross Order Rejected Return Bitfield 6: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_6 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 7
+  local cross_order_rejected_return_bitfield_7 = nil
+
+  local cross_order_rejected_return_bitfield_7_exists = number_of_return_bitfields >= 7
+
+  if cross_order_rejected_return_bitfield_7_exists then
+
+    -- Cross Order Rejected Return Bitfield 7: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_7 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_7.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 8
+  local cross_order_rejected_return_bitfield_8 = nil
+
+  local cross_order_rejected_return_bitfield_8_exists = number_of_return_bitfields >= 8
+
+  if cross_order_rejected_return_bitfield_8_exists then
+
+    -- Cross Order Rejected Return Bitfield 8: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_8 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 9
+  local cross_order_rejected_return_bitfield_9 = nil
+
+  local cross_order_rejected_return_bitfield_9_exists = number_of_return_bitfields >= 9
+
+  if cross_order_rejected_return_bitfield_9_exists then
+
+    -- Cross Order Rejected Return Bitfield 9: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_9 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_9.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 10
+  local cross_order_rejected_return_bitfield_10 = nil
+
+  local cross_order_rejected_return_bitfield_10_exists = number_of_return_bitfields >= 10
+
+  if cross_order_rejected_return_bitfield_10_exists then
+
+    -- Cross Order Rejected Return Bitfield 10: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_10 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_10.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 11
+  local cross_order_rejected_return_bitfield_11 = nil
+
+  local cross_order_rejected_return_bitfield_11_exists = number_of_return_bitfields >= 11
+
+  if cross_order_rejected_return_bitfield_11_exists then
+
+    -- Cross Order Rejected Return Bitfield 11: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_11 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_11.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 12
+  local cross_order_rejected_return_bitfield_12 = nil
+
+  local cross_order_rejected_return_bitfield_12_exists = number_of_return_bitfields >= 12
+
+  if cross_order_rejected_return_bitfield_12_exists then
+
+    -- Cross Order Rejected Return Bitfield 12: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_12 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_12.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 13
+  local cross_order_rejected_return_bitfield_13 = nil
+
+  local cross_order_rejected_return_bitfield_13_exists = number_of_return_bitfields >= 13
+
+  if cross_order_rejected_return_bitfield_13_exists then
+
+    -- Cross Order Rejected Return Bitfield 13: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_13 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_13.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 14
+  local cross_order_rejected_return_bitfield_14 = nil
+
+  local cross_order_rejected_return_bitfield_14_exists = number_of_return_bitfields >= 14
+
+  if cross_order_rejected_return_bitfield_14_exists then
+
+    -- Cross Order Rejected Return Bitfield 14: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_14 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_14.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 15
+  local cross_order_rejected_return_bitfield_15 = nil
+
+  local cross_order_rejected_return_bitfield_15_exists = number_of_return_bitfields >= 15
+
+  if cross_order_rejected_return_bitfield_15_exists then
+
+    -- Cross Order Rejected Return Bitfield 15: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_15 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_15.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 16
+  local cross_order_rejected_return_bitfield_16 = nil
+
+  local cross_order_rejected_return_bitfield_16_exists = number_of_return_bitfields >= 16
+
+  if cross_order_rejected_return_bitfield_16_exists then
+
+    -- Cross Order Rejected Return Bitfield 16: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_16 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_16.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 17
+  local cross_order_rejected_return_bitfield_17 = nil
+
+  local cross_order_rejected_return_bitfield_17_exists = number_of_return_bitfields >= 17
+
+  if cross_order_rejected_return_bitfield_17_exists then
+
+    -- Cross Order Rejected Return Bitfield 17: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_17.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 18
+  local cross_order_rejected_return_bitfield_18 = nil
+
+  local cross_order_rejected_return_bitfield_18_exists = number_of_return_bitfields >= 18
+
+  if cross_order_rejected_return_bitfield_18_exists then
+
+    -- Cross Order Rejected Return Bitfield 18: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_18 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_18.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Order Rejected Return Bitfield 19
+  local cross_order_rejected_return_bitfield_19 = nil
+
+  local cross_order_rejected_return_bitfield_19_exists = number_of_return_bitfields >= 19
+
+  if cross_order_rejected_return_bitfield_19_exists then
+
+    -- Cross Order Rejected Return Bitfield 19: Struct of 8 fields
+    index, cross_order_rejected_return_bitfield_19 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_return_bitfield_19.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(cross_order_rejected_return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Exec Inst
+  local exec_inst = nil
+
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(cross_order_rejected_return_bitfield_1, 0x08) > 0
+
+  if exec_inst_exists then
+    index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_rejected_return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(cross_order_rejected_return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(cross_order_rejected_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_bzxoptions_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Maturity Date
+  local maturity_date = nil
+
+  local maturity_date_exists = number_of_return_bitfields >= 4 and bit.band(cross_order_rejected_return_bitfield_4, 0x01) > 0
+
+  if maturity_date_exists then
+    index, maturity_date = cboe_bzxoptions_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Strike Price
+  local strike_price = nil
+
+  local strike_price_exists = number_of_return_bitfields >= 4 and bit.band(cross_order_rejected_return_bitfield_4, 0x02) > 0
+
+  if strike_price_exists then
+    index, strike_price = cboe_bzxoptions_binaryorderentry_boe_v2_10.strike_price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Put Or Call
+  local put_or_call = nil
+
+  local put_or_call_exists = number_of_return_bitfields >= 4 and bit.band(cross_order_rejected_return_bitfield_4, 0x04) > 0
+
+  if put_or_call_exists then
+    index, put_or_call = cboe_bzxoptions_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Attributed Quote
+  local attributed_quote = nil
+
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(cross_order_rejected_return_bitfield_6, 0x08) > 0
+
+  if attributed_quote_exists then
+    index, attributed_quote = cboe_bzxoptions_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Target Party Id
+  local target_party_id = nil
+
+  local target_party_id_exists = number_of_return_bitfields >= 9 and bit.band(cross_order_rejected_return_bitfield_9, 0x02) > 0
+
+  if target_party_id_exists then
+    index, target_party_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.target_party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Type
+  local cross_type = nil
+
+  local cross_type_exists = number_of_return_bitfields >= 9 and bit.band(cross_order_rejected_return_bitfield_9, 0x40) > 0
+
+  if cross_type_exists then
+    index, cross_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Prioritization
+  local cross_prioritization = nil
+
+  local cross_prioritization_exists = number_of_return_bitfields >= 9 and bit.band(cross_order_rejected_return_bitfield_9, 0x80) > 0
+
+  if cross_prioritization_exists then
+    index, cross_prioritization = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_prioritization.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Routing Firm Id
+  local routing_firm_id = nil
+
+  local routing_firm_id_exists = number_of_return_bitfields >= 10 and bit.band(cross_order_rejected_return_bitfield_10, 0x08) > 0
+
+  if routing_firm_id_exists then
+    index, routing_firm_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.routing_firm_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Equity Party Id
+  local equity_party_id = nil
+
+  local equity_party_id_exists = number_of_return_bitfields >= 15 and bit.band(cross_order_rejected_return_bitfield_15, 0x02) > 0
+
+  if equity_party_id_exists then
+    index, equity_party_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Frequent Trader Id
+  local frequent_trader_id = nil
+
+  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(cross_order_rejected_return_bitfield_16, 0x01) > 0
+
+  if frequent_trader_id_exists then
+    index, frequent_trader_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Compression
+  local compression = nil
+
+  local compression_exists = number_of_return_bitfields >= 16 and bit.band(cross_order_rejected_return_bitfield_16, 0x08) > 0
+
+  if compression_exists then
+    index, compression = cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross Initiator
+  local cross_initiator = nil
+
+  local cross_initiator_exists = number_of_return_bitfields >= 18 and bit.band(cross_order_rejected_return_bitfield_18, 0x02) > 0
+
+  if cross_initiator_exists then
+    index, cross_initiator = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_initiator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Subreason
+  local subreason = nil
+
+  local subreason_exists = number_of_return_bitfields >= 18 and bit.band(cross_order_rejected_return_bitfield_18, 0x04) > 0
+
+  if subreason_exists then
+    index, subreason = cboe_bzxoptions_binaryorderentry_boe_v2_10.subreason.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cross On Behalf Of Id
+  local cross_on_behalf_of_id = nil
+
+  local cross_on_behalf_of_id_exists = number_of_return_bitfields >= 19 and bit.band(cross_order_rejected_return_bitfield_19, 0x04) > 0
+
+  if cross_on_behalf_of_id_exists then
+    index, cross_on_behalf_of_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_on_behalf_of_id.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -10977,8 +13621,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -11025,8 +13675,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -11082,8 +13738,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -11657,8 +14319,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, side = cboe_bzxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -11705,8 +14373,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, max_remove_pct = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil
@@ -11762,8 +14436,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
+
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
@@ -12956,11 +15636,23 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functio
     index, clearing_firm = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Qty Long: Binary
-  index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  local order_qty_long_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x04) > 0
+
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_qty_long.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x08) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -14291,8 +16983,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, clearing_account = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Price Long: BinaryPrice
-  index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price Long
+  local price_long = nil
+
+  local price_long_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x04) > 0
+
+  if price_long_exists then
+    index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -14339,8 +17037,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, max_floor = cboe_bzxoptions_binaryorderentry_boe_v2_10.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
+
+  local symbol_long_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x01) > 0
+
+  if symbol_long_exists then
+    index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Capacity
   local capacity = nil

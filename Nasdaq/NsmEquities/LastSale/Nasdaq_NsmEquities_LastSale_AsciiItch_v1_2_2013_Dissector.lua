@@ -165,6 +165,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities LastSale AsciiItch 1.2.2013 Fields
@@ -178,36 +241,25 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.size = 10
 
 -- Display: Adjusted Closing Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Adjusted Closing Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Adjusted Closing Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Adjusted Closing Price: "..text
 end
 
 -- Dissect: Adjusted Closing Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.adjusted_closing_price.display(value, buffer, offset, packet, parent)
 
@@ -382,36 +434,25 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.size = 10
 
 -- Display: Corrected Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Corrected Trade Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Corrected Trade Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Corrected Trade Price: "..text
 end
 
 -- Dissect: Corrected Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -1022,36 +1063,25 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.size = 10
 
 -- Display: Original Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Original Trade Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Original Trade Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Original Trade Price: "..text
 end
 
 -- Dissect: Original Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.original_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -1576,36 +1606,25 @@ nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.size = 10
 
 -- Display: Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Trade Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Trade Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Trade Price: "..text
 end
 
 -- Dissect: Trade Price
 nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_lastsale_asciiitch_v1_2_2013.trade_price.display(value, buffer, offset, packet, parent)
 

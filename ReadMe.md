@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1256 | 8,435,187 |
+| 1262 | 8,446,307 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -122,12 +122,13 @@ Enjoy.
 [Omi.Encoding.Fbe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fbe.md "Fbe Encoding"
 [Omi.Encoding.AsciiPitch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiPitch.md "AsciiPitch Encoding"
 [Omi.Encoding.Boe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Boe.md "Boe Encoding"
-[Omi.Encoding.Apf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Apf.md "Apf Encoding"
 [Omi.Encoding.Pitch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Pitch.md "Pitch Encoding"
 [Omi.Encoding.Spin]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Spin.md "Spin Encoding"
+[Omi.Encoding.Csdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Csdp.md "Csdp Encoding"
 [Omi.Encoding.Boe3]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Boe3.md "Boe3 Encoding"
 [Omi.Encoding.Csm]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Csm.md "Csm Encoding"
 [Omi.Encoding.Cgif]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Cgif.md "Cgif Encoding"
+[Omi.Encoding.CboeOne]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/CboeOne.md "CboeOne Encoding"
 [Omi.Encoding.Aspen]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Aspen.md "Aspen Encoding"
 [Omi.Encoding.TcpOut]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/TcpOut.md "TcpOut Encoding"
 [Omi.Encoding.Tcp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tcp.md "Tcp Encoding"

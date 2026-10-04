@@ -10214,378 +10214,6 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect = function(buffer, of
   end
 end
 
--- Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info = {}
-
--- Size: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size =
-  nse_nsefo_orderentry_nnfdirect_v9_50.token_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.order_type_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.volume_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.price_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.open_close_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.size
-
--- Display: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
-  local index = offset
-
-  -- Implicit Ms Spd Leg Info Index
-  if ms_spd_leg_info_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index, ms_spd_leg_info_index)
-    iteration:set_generated()
-  end
-
-  -- Token 2: LONG
-  index, token_2 = nse_nsefo_orderentry_nnfdirect_v9_50.token_2.dissect(buffer, index, packet, parent)
-
-  -- Contract Desc: Struct of 6 fields
-  index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
-
-  -- Op Broker Id 2: CHAR
-  index, op_broker_id_2 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_2.dissect(buffer, index, packet, parent)
-
-  -- Fillerx 2: CHAR
-  index, fillerx_2 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.dissect(buffer, index, packet, parent)
-
-  -- Order Type 2: SHORT
-  index, order_type_2 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_2.dissect(buffer, index, packet, parent)
-
-  -- Buy Sell 2: SHORT
-  index, buy_sell_2 = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_2.dissect(buffer, index, packet, parent)
-
-  -- Disclosed Vol 2: LONG
-  index, disclosed_vol_2 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_2.dissect(buffer, index, packet, parent)
-
-  -- Disclosed Vol Remaining 2: LONG
-  index, disclosed_vol_remaining_2 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_2.dissect(buffer, index, packet, parent)
-
-  -- Total Vol Remaining 2: LONG
-  index, total_vol_remaining_2 = nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_2.dissect(buffer, index, packet, parent)
-
-  -- Volume 2: LONG
-  index, volume_2 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_2.dissect(buffer, index, packet, parent)
-
-  -- Volume Filled Today 2: LONG
-  index, volume_filled_today_2 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_2.dissect(buffer, index, packet, parent)
-
-  -- Price 2: LONG
-  index, price_2 = nse_nsefo_orderentry_nnfdirect_v9_50.price_2.dissect(buffer, index, packet, parent)
-
-  -- Trigger Price 2: LONG
-  index, trigger_price_2 = nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_2.dissect(buffer, index, packet, parent)
-
-  -- Min Fill Aon 2: LONG
-  index, min_fill_aon_2 = nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_2.dissect(buffer, index, packet, parent)
-
-  -- St Order Flags: Struct of 15 fields
-  index, st_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
-
-  -- Open Close 2: CHAR
-  index, open_close_2 = nse_nsefo_orderentry_nnfdirect_v9_50.open_close_2.dissect(buffer, index, packet, parent)
-
-  -- Additional Order Flags: Struct of 5 fields
-  index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
-
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Filler Y: CHAR
-  index, filler_y = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Ms Spd Leg Info
-nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
-  end
-end
-
--- Spread Order Body
-nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body = {}
-
--- Size: Spread Order Body
-nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.size =
-  nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.solicitor_period_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mod_cxl_by_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reason_code_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.start_alpha_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.end_alpha_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.token_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.order_type_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.account_number_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.volume_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.price_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.good_till_date_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.branch_id_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.trader_id_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.broker_id_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.c_ord_filler.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.open_close_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.settlor_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.pro_client_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.settlement_period_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_replay.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.pan.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.size + 
-  2 * nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size
-
--- Display: Spread Order Body
-nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Spread Order Body
-nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Participant Type 1: CHAR
-  index, participant_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: CHAR
-  index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Competitor Period 1: SHORT
-  index, competitor_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period_1.dissect(buffer, index, packet, parent)
-
-  -- Solicitor Period 1: SHORT
-  index, solicitor_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.solicitor_period_1.dissect(buffer, index, packet, parent)
-
-  -- Mod Cxl By 1: CHAR
-  index, mod_cxl_by_1 = nse_nsefo_orderentry_nnfdirect_v9_50.mod_cxl_by_1.dissect(buffer, index, packet, parent)
-
-  -- Filler 9: CHAR
-  index, filler_9 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.dissect(buffer, index, packet, parent)
-
-  -- Reason Code 1: SHORT
-  index, reason_code_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reason_code_1.dissect(buffer, index, packet, parent)
-
-  -- Start Alpha 1: CHAR
-  index, start_alpha_1 = nse_nsefo_orderentry_nnfdirect_v9_50.start_alpha_1.dissect(buffer, index, packet, parent)
-
-  -- End Alpha 1: CHAR
-  index, end_alpha_1 = nse_nsefo_orderentry_nnfdirect_v9_50.end_alpha_1.dissect(buffer, index, packet, parent)
-
-  -- Token 1: LONG
-  index, token_1 = nse_nsefo_orderentry_nnfdirect_v9_50.token_1.dissect(buffer, index, packet, parent)
-
-  -- Contract Desc: Struct of 6 fields
-  index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
-
-  -- Op Broker Id 1: CHAR
-  index, op_broker_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_1.dissect(buffer, index, packet, parent)
-
-  -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.dissect(buffer, index, packet, parent)
-
-  -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.dissect(buffer, index, packet, parent)
-
-  -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.dissect(buffer, index, packet, parent)
-
-  -- Order Type 1: SHORT
-  index, order_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_1.dissect(buffer, index, packet, parent)
-
-  -- Order Number 1: DOUBLE
-  index, order_number_1 = nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.dissect(buffer, index, packet, parent)
-
-  -- Account Number 1: CHAR
-  index, account_number_1 = nse_nsefo_orderentry_nnfdirect_v9_50.account_number_1.dissect(buffer, index, packet, parent)
-
-  -- Book Type 1: SHORT
-  index, book_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.dissect(buffer, index, packet, parent)
-
-  -- Buy Sell 1: SHORT
-  index, buy_sell_1 = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_1.dissect(buffer, index, packet, parent)
-
-  -- Disclosed Vol 1: LONG
-  index, disclosed_vol_1 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_1.dissect(buffer, index, packet, parent)
-
-  -- Disclosed Vol Remaining 1: LONG
-  index, disclosed_vol_remaining_1 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_1.dissect(buffer, index, packet, parent)
-
-  -- Total Vol Remaining 1: LONG
-  index, total_vol_remaining_1 = nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_1.dissect(buffer, index, packet, parent)
-
-  -- Volume 1: LONG
-  index, volume_1 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_1.dissect(buffer, index, packet, parent)
-
-  -- Volume Filled Today 1: LONG
-  index, volume_filled_today_1 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_1.dissect(buffer, index, packet, parent)
-
-  -- Price 1: LONG
-  index, price_1 = nse_nsefo_orderentry_nnfdirect_v9_50.price_1.dissect(buffer, index, packet, parent)
-
-  -- Trigger Price 1: LONG
-  index, trigger_price_1 = nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_1.dissect(buffer, index, packet, parent)
-
-  -- Good Till Date 1: LONG
-  index, good_till_date_1 = nse_nsefo_orderentry_nnfdirect_v9_50.good_till_date_1.dissect(buffer, index, packet, parent)
-
-  -- Entry Date Time 1: LONG
-  index, entry_date_time_1 = nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.dissect(buffer, index, packet, parent)
-
-  -- Min Fill Aon 1: LONG
-  index, min_fill_aon_1 = nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_1.dissect(buffer, index, packet, parent)
-
-  -- Last Modified 1: LONG
-  index, last_modified_1 = nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_1.dissect(buffer, index, packet, parent)
-
-  -- St Order Flags: Struct of 15 fields
-  index, st_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
-
-  -- Branch Id 1: SHORT
-  index, branch_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id_1.dissect(buffer, index, packet, parent)
-
-  -- Trader Id 1: LONG
-  index, trader_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.trader_id_1.dissect(buffer, index, packet, parent)
-
-  -- Broker Id 1: CHAR
-  index, broker_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id_1.dissect(buffer, index, packet, parent)
-
-  -- C Ord Filler: CHAR
-  index, c_ord_filler = nse_nsefo_orderentry_nnfdirect_v9_50.c_ord_filler.dissect(buffer, index, packet, parent)
-
-  -- Open Close 1: CHAR
-  index, open_close_1 = nse_nsefo_orderentry_nnfdirect_v9_50.open_close_1.dissect(buffer, index, packet, parent)
-
-  -- Settlor 1: CHAR
-  index, settlor_1 = nse_nsefo_orderentry_nnfdirect_v9_50.settlor_1.dissect(buffer, index, packet, parent)
-
-  -- Pro Client 1: SHORT
-  index, pro_client_1 = nse_nsefo_orderentry_nnfdirect_v9_50.pro_client_1.dissect(buffer, index, packet, parent)
-
-  -- Settlement Period 1: SHORT
-  index, settlement_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.settlement_period_1.dissect(buffer, index, packet, parent)
-
-  -- Additional Order Flags: Struct of 5 fields
-  index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
-
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Filler 116: CHAR
-  index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
-
-  -- Filler 17: CHAR
-  index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
-
-  -- Filler 18: CHAR
-  index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
-
-  -- Nnf Field: DOUBLE
-  index, nnf_field = nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.dissect(buffer, index, packet, parent)
-
-  -- Mkt Replay: LONG LONG
-  index, mkt_replay = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_replay.dissect(buffer, index, packet, parent)
-
-  -- Pan: CHAR
-  index, pan = nse_nsefo_orderentry_nnfdirect_v9_50.pan.dissect(buffer, index, packet, parent)
-
-  -- Algo Id: LONG
-  index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
-
-  -- Last Activity Reference: LONG LONG
-  index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
-
-  -- Reserved 52: CHAR
-  index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
-
-  -- Price Diff: LONG
-  index, price_diff = nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.dissect(buffer, index, packet, parent)
-
-  -- Array Of: Ms Spd Leg Info
-  for ms_spd_leg_info_index = 1, 2 do
-    index, ms_spd_leg_info = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect(buffer, index, packet, parent, ms_spd_leg_info_index)
-  end
-
-  return index
-end
-
--- Dissect: Spread Order Body
-nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spread_order_body, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Order Entry Body
 nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body = {}
 
@@ -10830,37 +10458,12 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect = function(buffer,
   end
 end
 
--- Cancellation Confirmation Body
-nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body = {}
-
--- Dissect: Cancellation Confirmation Body
-nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Order Entry Body
-  if message_length == 316 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Body
-  if message_length == 480 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
 -- Order Cancellation Confirmation Message
 nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message = {}
 
--- Calculate size of: Order Cancellation Confirmation Message
-nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.size = function(buffer, offset)
-  local index = 0
-
-  -- Calculate runtime size of Cancellation Confirmation Body field
-  local cancellation_confirmation_body_offset = offset + index
-  local cancellation_confirmation_body_type = buffer(cancellation_confirmation_body_offset - 2, 2):int()
-  index = index + nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.size(buffer, cancellation_confirmation_body_offset, cancellation_confirmation_body_type)
-
-  return index
-end
+-- Size: Order Cancellation Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
 
 -- Display: Order Cancellation Confirmation Message
 nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.display = function(packet, parent, length)
@@ -10871,11 +10474,8 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_confirmation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 2, 2):int()
-
-  -- Cancellation Confirmation Body: Runtime Type with 2 branches
-  index = nse_nsefo_orderentry_nnfdirect_v9_50.cancellation_confirmation_body.dissect(buffer, index, packet, parent, message_length)
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -13921,6 +13521,378 @@ nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.dissect = functi
   else
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnfdirect_v9_50.trade_confirmation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Ms Spd Leg Info
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info = {}
+
+-- Size: Ms Spd Leg Info
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.token_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_type_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.volume_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.price_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.open_close_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.size
+
+-- Display: Ms Spd Leg Info
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ms Spd Leg Info
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
+  local index = offset
+
+  -- Implicit Ms Spd Leg Info Index
+  if ms_spd_leg_info_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index, ms_spd_leg_info_index)
+    iteration:set_generated()
+  end
+
+  -- Token 2: LONG
+  index, token_2 = nse_nsefo_orderentry_nnfdirect_v9_50.token_2.dissect(buffer, index, packet, parent)
+
+  -- Contract Desc: Struct of 6 fields
+  index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
+
+  -- Op Broker Id 2: CHAR
+  index, op_broker_id_2 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_2.dissect(buffer, index, packet, parent)
+
+  -- Fillerx 2: CHAR
+  index, fillerx_2 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.dissect(buffer, index, packet, parent)
+
+  -- Order Type 2: SHORT
+  index, order_type_2 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_2.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell 2: SHORT
+  index, buy_sell_2 = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_2.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Vol 2: LONG
+  index, disclosed_vol_2 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_2.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Vol Remaining 2: LONG
+  index, disclosed_vol_remaining_2 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_2.dissect(buffer, index, packet, parent)
+
+  -- Total Vol Remaining 2: LONG
+  index, total_vol_remaining_2 = nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_2.dissect(buffer, index, packet, parent)
+
+  -- Volume 2: LONG
+  index, volume_2 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_2.dissect(buffer, index, packet, parent)
+
+  -- Volume Filled Today 2: LONG
+  index, volume_filled_today_2 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_2.dissect(buffer, index, packet, parent)
+
+  -- Price 2: LONG
+  index, price_2 = nse_nsefo_orderentry_nnfdirect_v9_50.price_2.dissect(buffer, index, packet, parent)
+
+  -- Trigger Price 2: LONG
+  index, trigger_price_2 = nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_2.dissect(buffer, index, packet, parent)
+
+  -- Min Fill Aon 2: LONG
+  index, min_fill_aon_2 = nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_2.dissect(buffer, index, packet, parent)
+
+  -- St Order Flags: Struct of 15 fields
+  index, st_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
+
+  -- Open Close 2: CHAR
+  index, open_close_2 = nse_nsefo_orderentry_nnfdirect_v9_50.open_close_2.dissect(buffer, index, packet, parent)
+
+  -- Additional Order Flags: Struct of 5 fields
+  index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Filler Y: CHAR
+  index, filler_y = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ms Spd Leg Info
+nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect = function(buffer, offset, packet, parent, ms_spd_leg_info_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields(buffer, offset, packet, parent, ms_spd_leg_info_index)
+  end
+end
+
+-- Spread Order Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body = {}
+
+-- Size: Spread Order Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.solicitor_period_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.mod_cxl_by_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reason_code_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.start_alpha_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.end_alpha_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.token_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_type_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.account_number_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.volume_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.price_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.good_till_date_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.branch_id_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.trader_id_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.broker_id_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.c_ord_filler.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.open_close_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.settlor_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.pro_client_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.settlement_period_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_replay.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.pan.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size + 
+  nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.size + 
+  2 * nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size
+
+-- Display: Spread Order Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Order Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Participant Type 1: CHAR
+  index, participant_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: CHAR
+  index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Competitor Period 1: SHORT
+  index, competitor_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period_1.dissect(buffer, index, packet, parent)
+
+  -- Solicitor Period 1: SHORT
+  index, solicitor_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.solicitor_period_1.dissect(buffer, index, packet, parent)
+
+  -- Mod Cxl By 1: CHAR
+  index, mod_cxl_by_1 = nse_nsefo_orderentry_nnfdirect_v9_50.mod_cxl_by_1.dissect(buffer, index, packet, parent)
+
+  -- Filler 9: CHAR
+  index, filler_9 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.dissect(buffer, index, packet, parent)
+
+  -- Reason Code 1: SHORT
+  index, reason_code_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reason_code_1.dissect(buffer, index, packet, parent)
+
+  -- Start Alpha 1: CHAR
+  index, start_alpha_1 = nse_nsefo_orderentry_nnfdirect_v9_50.start_alpha_1.dissect(buffer, index, packet, parent)
+
+  -- End Alpha 1: CHAR
+  index, end_alpha_1 = nse_nsefo_orderentry_nnfdirect_v9_50.end_alpha_1.dissect(buffer, index, packet, parent)
+
+  -- Token 1: LONG
+  index, token_1 = nse_nsefo_orderentry_nnfdirect_v9_50.token_1.dissect(buffer, index, packet, parent)
+
+  -- Contract Desc: Struct of 6 fields
+  index, contract_desc = nse_nsefo_orderentry_nnfdirect_v9_50.contract_desc.dissect(buffer, index, packet, parent)
+
+  -- Op Broker Id 1: CHAR
+  index, op_broker_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_1.dissect(buffer, index, packet, parent)
+
+  -- Fillerx 1: CHAR
+  index, fillerx_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.dissect(buffer, index, packet, parent)
+
+  -- Filler Options 1: CHAR
+  index, filler_options_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.dissect(buffer, index, packet, parent)
+
+  -- Fillery 1: CHAR
+  index, fillery_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.dissect(buffer, index, packet, parent)
+
+  -- Order Type 1: SHORT
+  index, order_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_1.dissect(buffer, index, packet, parent)
+
+  -- Order Number 1: DOUBLE
+  index, order_number_1 = nse_nsefo_orderentry_nnfdirect_v9_50.order_number_1.dissect(buffer, index, packet, parent)
+
+  -- Account Number 1: CHAR
+  index, account_number_1 = nse_nsefo_orderentry_nnfdirect_v9_50.account_number_1.dissect(buffer, index, packet, parent)
+
+  -- Book Type 1: SHORT
+  index, book_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.book_type_1.dissect(buffer, index, packet, parent)
+
+  -- Buy Sell 1: SHORT
+  index, buy_sell_1 = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell_1.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Vol 1: LONG
+  index, disclosed_vol_1 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_1.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Vol Remaining 1: LONG
+  index, disclosed_vol_remaining_1 = nse_nsefo_orderentry_nnfdirect_v9_50.disclosed_vol_remaining_1.dissect(buffer, index, packet, parent)
+
+  -- Total Vol Remaining 1: LONG
+  index, total_vol_remaining_1 = nse_nsefo_orderentry_nnfdirect_v9_50.total_vol_remaining_1.dissect(buffer, index, packet, parent)
+
+  -- Volume 1: LONG
+  index, volume_1 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_1.dissect(buffer, index, packet, parent)
+
+  -- Volume Filled Today 1: LONG
+  index, volume_filled_today_1 = nse_nsefo_orderentry_nnfdirect_v9_50.volume_filled_today_1.dissect(buffer, index, packet, parent)
+
+  -- Price 1: LONG
+  index, price_1 = nse_nsefo_orderentry_nnfdirect_v9_50.price_1.dissect(buffer, index, packet, parent)
+
+  -- Trigger Price 1: LONG
+  index, trigger_price_1 = nse_nsefo_orderentry_nnfdirect_v9_50.trigger_price_1.dissect(buffer, index, packet, parent)
+
+  -- Good Till Date 1: LONG
+  index, good_till_date_1 = nse_nsefo_orderentry_nnfdirect_v9_50.good_till_date_1.dissect(buffer, index, packet, parent)
+
+  -- Entry Date Time 1: LONG
+  index, entry_date_time_1 = nse_nsefo_orderentry_nnfdirect_v9_50.entry_date_time_1.dissect(buffer, index, packet, parent)
+
+  -- Min Fill Aon 1: LONG
+  index, min_fill_aon_1 = nse_nsefo_orderentry_nnfdirect_v9_50.min_fill_aon_1.dissect(buffer, index, packet, parent)
+
+  -- Last Modified 1: LONG
+  index, last_modified_1 = nse_nsefo_orderentry_nnfdirect_v9_50.last_modified_1.dissect(buffer, index, packet, parent)
+
+  -- St Order Flags: Struct of 15 fields
+  index, st_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.st_order_flags.dissect(buffer, index, packet, parent)
+
+  -- Branch Id 1: SHORT
+  index, branch_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.branch_id_1.dissect(buffer, index, packet, parent)
+
+  -- Trader Id 1: LONG
+  index, trader_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.trader_id_1.dissect(buffer, index, packet, parent)
+
+  -- Broker Id 1: CHAR
+  index, broker_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id_1.dissect(buffer, index, packet, parent)
+
+  -- C Ord Filler: CHAR
+  index, c_ord_filler = nse_nsefo_orderentry_nnfdirect_v9_50.c_ord_filler.dissect(buffer, index, packet, parent)
+
+  -- Open Close 1: CHAR
+  index, open_close_1 = nse_nsefo_orderentry_nnfdirect_v9_50.open_close_1.dissect(buffer, index, packet, parent)
+
+  -- Settlor 1: CHAR
+  index, settlor_1 = nse_nsefo_orderentry_nnfdirect_v9_50.settlor_1.dissect(buffer, index, packet, parent)
+
+  -- Pro Client 1: SHORT
+  index, pro_client_1 = nse_nsefo_orderentry_nnfdirect_v9_50.pro_client_1.dissect(buffer, index, packet, parent)
+
+  -- Settlement Period 1: SHORT
+  index, settlement_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.settlement_period_1.dissect(buffer, index, packet, parent)
+
+  -- Additional Order Flags: Struct of 5 fields
+  index, additional_order_flags = nse_nsefo_orderentry_nnfdirect_v9_50.additional_order_flags.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Filler 116: CHAR
+  index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
+
+  -- Filler 17: CHAR
+  index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
+
+  -- Filler 18: CHAR
+  index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
+
+  -- Nnf Field: DOUBLE
+  index, nnf_field = nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.dissect(buffer, index, packet, parent)
+
+  -- Mkt Replay: LONG LONG
+  index, mkt_replay = nse_nsefo_orderentry_nnfdirect_v9_50.mkt_replay.dissect(buffer, index, packet, parent)
+
+  -- Pan: CHAR
+  index, pan = nse_nsefo_orderentry_nnfdirect_v9_50.pan.dissect(buffer, index, packet, parent)
+
+  -- Algo Id: LONG
+  index, algo_id = nse_nsefo_orderentry_nnfdirect_v9_50.algo_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Last Activity Reference: LONG LONG
+  index, last_activity_reference = nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.dissect(buffer, index, packet, parent)
+
+  -- Reserved 52: CHAR
+  index, reserved_52 = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect(buffer, index, packet, parent)
+
+  -- Price Diff: LONG
+  index, price_diff = nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.dissect(buffer, index, packet, parent)
+
+  -- Array Of: Ms Spd Leg Info
+  for ms_spd_leg_info_index = 1, 2 do
+    index, ms_spd_leg_info = nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.dissect(buffer, index, packet, parent, ms_spd_leg_info_index)
+  end
+
+  return index
+end
+
+-- Dissect: Spread Order Body
+nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spread_order_body, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields(buffer, offset, packet, parent)
   end
 end
 

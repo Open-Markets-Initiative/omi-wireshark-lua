@@ -124,6 +124,53 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 1.0 Fields
@@ -433,25 +480,13 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size = 20
 
 -- Display: Price
 nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display = function(value, buffer, offset, packet, parent)
-  local text = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size):string())
 
-  if text == "" then
-    return "Price: "..tostring(value)
+  if text == nil then
+    return "Price: No Value"
   end
 
-  if text:sub(1, 1) == "-" or text:sub(1, 1) == "+" then
-    sign = text:sub(1, 1)
-    text = text:sub(2)
-  end
-
-  text = text:gsub("^0+", "")
-
-  if text == "" or text:sub(1, 1) == "." then
-    text = "0"..text
-  end
-
-  return "Price: "..sign..text
+  return "Price: "..text
 end
 
 -- Dissect: Price
@@ -461,7 +496,7 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.price.dissect = function(buffer, off
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display(value, buffer, offset, packet, parent)

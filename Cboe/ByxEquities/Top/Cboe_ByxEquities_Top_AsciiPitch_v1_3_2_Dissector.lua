@@ -118,6 +118,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Fields
@@ -131,36 +194,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size = 10
 
 -- Display: Ask Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Ask Price Long: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Ask Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Ask Price Long: "..text
 end
 
 -- Dissect: Ask Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.ask_price_long.display(value, buffer, offset, packet, parent)
 
@@ -177,36 +229,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size = 5
 
 -- Display: Ask Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size):string(), 2)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Ask Price Short: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
-  end
-
-  return "Ask Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Ask Price Short: "..text
 end
 
 -- Dissect: Ask Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/100
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/100
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.ask_price_short.display(value, buffer, offset, packet, parent)
 
@@ -279,36 +320,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size = 10
 
 -- Display: Bid Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Bid Price Long: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Bid Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Bid Price Long: "..text
 end
 
 -- Dissect: Bid Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.bid_price_long.display(value, buffer, offset, packet, parent)
 
@@ -325,36 +355,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size = 5
 
 -- Display: Bid Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size):string(), 2)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Bid Price Short: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
-  end
-
-  return "Bid Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Bid Price Short: "..text
 end
 
 -- Dissect: Bid Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/100
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/100
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.bid_price_short.display(value, buffer, offset, packet, parent)
 
@@ -506,36 +525,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size = 10
 
 -- Display: Last Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Last Price Long: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Last Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Last Price Long: "..text
 end
 
 -- Dissect: Last Price Long
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.last_price_long.display(value, buffer, offset, packet, parent)
 
@@ -552,36 +560,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size = 5
 
 -- Display: Last Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size):string(), 2)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Last Price Short: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
-  end
-
-  return "Last Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Last Price Short: "..text
 end
 
 -- Dissect: Last Price Short
 cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/100
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/100
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.last_price_short.display(value, buffer, offset, packet, parent)
 
@@ -654,36 +651,25 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size = 10
 
 -- Display: Last Trade Price
 cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Last Trade Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Last Trade Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Last Trade Price: "..text
 end
 
 -- Dissect: Last Trade Price
 cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = cboe_byxequities_top_asciipitch_v1_3_2.last_trade_price.display(value, buffer, offset, packet, parent)
 

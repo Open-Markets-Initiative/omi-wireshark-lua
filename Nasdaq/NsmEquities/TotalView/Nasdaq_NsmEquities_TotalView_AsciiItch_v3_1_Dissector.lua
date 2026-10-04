@@ -245,6 +245,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 3.1 Fields
@@ -348,36 +411,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.size = 10
 
 -- Display: Cross Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Cross Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Cross Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Cross Price: "..text
 end
 
 -- Dissect: Cross Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.cross_price.display(value, buffer, offset, packet, parent)
 
@@ -430,36 +482,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.size = 10
 
 -- Display: Current Reference Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Current Reference Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Current Reference Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Current Reference Price: "..text
 end
 
 -- Dissect: Current Reference Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.current_reference_price.display(value, buffer, offset, packet, parent)
 
@@ -555,36 +596,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.size = 10
 
 -- Display: Execution Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Execution Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Execution Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Execution Price: "..text
 end
 
 -- Dissect: Execution Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.execution_price.display(value, buffer, offset, packet, parent)
 
@@ -601,36 +631,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.size = 10
 
 -- Display: Far Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Far Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Far Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Far Price: "..text
 end
 
 -- Dissect: Far Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.far_price.display(value, buffer, offset, packet, parent)
 
@@ -1076,36 +1095,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.size = 10
 
 -- Display: Near Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Near Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Near Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Near Price: "..text
 end
 
 -- Dissect: Near Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.near_price.display(value, buffer, offset, packet, parent)
 
@@ -1257,36 +1265,25 @@ nasdaq_nsmequities_totalview_asciiitch_v3_1.price.size = 10
 
 -- Display: Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v3_1.price.size):string(), 4)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Price: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Price: "..text
 end
 
 -- Dissect: Price
 nasdaq_nsmequities_totalview_asciiitch_v3_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v3_1.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/10000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_1.price.display(value, buffer, offset, packet, parent)
 

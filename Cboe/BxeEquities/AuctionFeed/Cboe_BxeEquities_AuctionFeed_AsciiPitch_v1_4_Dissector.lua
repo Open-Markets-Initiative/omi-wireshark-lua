@@ -126,6 +126,69 @@ trim_right_spaces = function(str)
   return str:sub(1, finish)
 end
 
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
+end
+
 
 -----------------------------------------------------------------------
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Fields
@@ -185,36 +248,25 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.size = 19
 
 -- Display: Indicative Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.size):string(), 6)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Indicative Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Indicative Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Indicative Price: "..text
 end
 
 -- Dissect: Indicative Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/1000000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/1000000
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.indicative_price.display(value, buffer, offset, packet, parent)
 
@@ -356,36 +408,25 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.size = 19
 
 -- Display: Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.size):string(), 6)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Price: "..text
 end
 
 -- Dissect: Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/1000000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/1000000
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.price.display(value, buffer, offset, packet, parent)
 
@@ -402,36 +443,25 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.size = 19
 
 -- Display: Reference Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
+  local text = format_implied_decimal_text(buffer(offset, cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.size):string(), 6)
 
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
+  if text == nil then
     return "Reference Price: "..tostring(value)
   end
 
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Reference Price: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Reference Price: "..text
 end
 
 -- Dissect: Reference Price
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())/1000000
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/1000000
 
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.reference_price.display(value, buffer, offset, packet, parent)
 
