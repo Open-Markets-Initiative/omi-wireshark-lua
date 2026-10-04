@@ -1104,7 +1104,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message_type.size = 1
 -- Display: Sequenced Message Type
 odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message_type.display = function(value)
   if value == "T" then
-    return "Sequenced Message Type: Timestamp Seconds Message (T)"
+    return "Sequenced Message Type: Seconds Message (T)"
   end
   if value == "S" then
     return "Sequenced Message Type: System Event Message (S)"
