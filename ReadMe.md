@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1262 | 8,443,720 |
+| 1265 | 8,463,334 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -165,6 +165,7 @@ Enjoy.
 [Omi.Encoding.Link]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Link.md "Link Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Cta.md "Cta Encoding"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Obi.md "Obi Encoding"
+[Omi.Encoding.Gfx]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Gfx.md "Gfx Encoding"
 [Omi.Encoding.Xmt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xmt.md "Xmt Encoding"
 [Omi.Encoding.Rake]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Rake.md "Rake Encoding"
 [Omi.Encoding.Tip]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tip.md "Tip Encoding"
@@ -702,6 +703,8 @@ Enjoy.
 [Siac.Opra.Output]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Siac/Protocols/Opra/Output.md "Output"
 [SmallX.SmallFutures.OrderBookFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/SmallX/Protocols/SmallFutures/OrderBookFeed.md "Order Book Feed"
 [Tmx.Mx.SolaMulticast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Mx/SolaMulticast.md "Sola Multicast"
+[Tmx.Mx.SolaOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Mx/SolaOrderEntry.md "Sola Order Entry"
+[Tmx.Tsx.GlobalFx]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/GlobalFx.md "Global Fx Feed"
 [Tmx.Tsx.QuantumFeedLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/QuantumFeedLevel1.md "Quantum Feed Level 1"
 [Tmx.Tsx.QuantumFeedLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/QuantumFeedLevel2.md "Quantum Feed Level 2"
 [Tmx.TsxAlpha.QuantumFeedLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/TsxAlpha/QuantumFeedLevel1.md "Quantum Feed Level 1"

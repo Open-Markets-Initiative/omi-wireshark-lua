@@ -128,7 +128,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.sequence_number = ProtoField.new("Seq
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.series_status = ProtoField.new("Series Status", "tmx.mx.solamulticast.hsvf.v1.13.seriesstatus", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.settlementprice", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_futures = ProtoField.new("Settlement Price Fraction Indicator Futures", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicatorfutures", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_options = ProtoField.new("Settlement Price Fraction Indicator Options", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicatoroptions", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_y_1 = ProtoField.new("Settlement Price Fraction Indicator Y 1", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicatory1", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solamulticast.hsvf.v1.13.specialbulletincontents", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.13.specialtextbulletin", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.solamulticast.hsvf.v1.13.strategyallowimplied", ftypes.STRING)
@@ -3095,30 +3095,25 @@ tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.diss
   return offset + length, value
 end
 
--- Settlement Price Fraction Indicator Options
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options = {}
+-- Settlement Price Fraction Indicator Y 1
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1 = {}
 
--- Size: Settlement Price Fraction Indicator Options
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.size = 1
+-- Size: Settlement Price Fraction Indicator Y 1
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size = 1
 
--- Display: Settlement Price Fraction Indicator Options
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.display = function(value)
-  return "Settlement Price Fraction Indicator Options: "..value
+-- Display: Settlement Price Fraction Indicator Y 1
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.display = function(value)
+  return "Settlement Price Fraction Indicator Y 1: "..value
 end
 
--- Dissect: Settlement Price Fraction Indicator Options
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.size
+-- Dissect: Settlement Price Fraction Indicator Y 1
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = range:string()
+  local display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.display(value, buffer, offset, packet, parent)
 
-  if value == nil then
-    value = "Not Applicable"
-  end
-
-  local display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_options, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_y_1, range, value, display)
 
   return offset + length, value
 end
@@ -5461,7 +5456,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.option_marker.size + 
   tmx_mx_solamulticast_hsvf_v1_13.settlement_price.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.reason.size
@@ -5550,8 +5545,8 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   -- Settlement Price: N
   index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator Options: N
-  index, settlement_price_fraction_indicator_options = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_options.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator Y 1: N
+  index, settlement_price_fraction_indicator_y_1 = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
   index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.dissect(buffer, index, packet, parent)
@@ -8383,13 +8378,13 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sequence Number: 10 Byte Ascii String
+  -- Sequence Number: N
   index, sequence_number = tmx_mx_solamulticast_hsvf_v1_13.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Ascii String Enum with 46 values
+  -- Message Type: X
   index, message_type = tmx_mx_solamulticast_hsvf_v1_13.message_type.dissect(buffer, index, packet, parent)
 
-  -- Message Timestamp: 20 Byte Ascii String
+  -- Message Timestamp: N
   index, message_timestamp = tmx_mx_solamulticast_hsvf_v1_13.message_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -8430,7 +8425,7 @@ tmx_mx_solamulticast_hsvf_v1_13.packet.dissect = function(buffer, packet, parent
 
   while index < end_of_payload do
 
-    -- Hsvf Stx: 1 Byte Unsigned Fixed Width Integer Static
+    -- Hsvf Stx: character
     index, hsvf_stx = tmx_mx_solamulticast_hsvf_v1_13.hsvf_stx.dissect(buffer, index, packet, parent)
 
     -- Message Header: Struct of 3 fields
@@ -8442,7 +8437,7 @@ tmx_mx_solamulticast_hsvf_v1_13.packet.dissect = function(buffer, packet, parent
     -- Message Body: Runtime Type with 46 branches
     index = tmx_mx_solamulticast_hsvf_v1_13.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Hsvf Etx: 1 Byte Unsigned Fixed Width Integer Static
+    -- Hsvf Etx: character
     index, hsvf_etx = tmx_mx_solamulticast_hsvf_v1_13.hsvf_etx.dissect(buffer, index, packet, parent)
   end
 

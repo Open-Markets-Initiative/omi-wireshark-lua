@@ -831,11 +831,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_name.size = 1
 
 -- Display: Protocol Name
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_name.display = function(value)
-  if value == "X" then
-    return "Protocol Name: Xmt (X)"
-  end
-
-  return "Protocol Name: Unknown("..value..")"
+  return "Protocol Name: "..value
 end
 
 -- Dissect: Protocol Name
@@ -865,7 +861,12 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_version.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.protocol_version, range, value, display)
@@ -1062,7 +1063,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.start_of_frame.size = 1
 -- Display: Start Of Frame
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.start_of_frame.display = function(value)
   if value == 2 then
-    return "Start Of Frame: New Frame (2)"
+    return "Start Of Frame: New Frame"
   end
 
   return "Start Of Frame: Unknown("..value..")"
@@ -1729,19 +1730,19 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Version: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Version: B
   index, msg_version = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_version.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 1 Byte Ascii String
+  -- Source Id: A
   index, source_id = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.source_id.dissect(buffer, index, packet, parent)
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: B
   index, stream_id = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Sequence 0: 1 Byte Unsigned Fixed Width Integer
+  -- Sequence 0: B
   index, sequence_0 = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sequence_0.dissect(buffer, index, packet, parent)
 
-  -- Sequence 1: 4 Byte Unsigned Fixed Width Integer
+  -- Sequence 1: B
   index, sequence_1 = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sequence_1.dissect(buffer, index, packet, parent)
 
   return index
@@ -1827,10 +1828,10 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.body_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
+  -- Msg Length: B
   index, msg_length = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_length.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 1 Byte Ascii String Enum with 5 values
+  -- Msg Type: B
   index, msg_type = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1930,25 +1931,25 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.frame_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Of Frame: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Start Of Frame: B
   index, start_of_frame = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.start_of_frame.dissect(buffer, index, packet, parent)
 
-  -- Protocol Name: 1 Byte Ascii String Enum with 1 values
+  -- Protocol Name: A
   index, protocol_name = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_name.dissect(buffer, index, packet, parent)
 
-  -- Protocol Version: 1 Byte Ascii String
+  -- Protocol Version: N
   index, protocol_version = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_version.dissect(buffer, index, packet, parent)
 
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  -- Message Length: B
   index, message_length = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.message_length.dissect(buffer, index, packet, parent)
 
-  -- Session Id: 4 Byte Unsigned Fixed Width Integer
+  -- Session Id: B
   index, session_id = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.session_id.dissect(buffer, index, packet, parent)
 
-  -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 1 values
+  -- Ack Required Poss Dup: A
   index, ack_required_poss_dup = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ack_required_poss_dup.dissect(buffer, index, packet, parent)
 
-  -- Num Body: 1 Byte Unsigned Fixed Width Integer
+  -- Num Body: B
   index, num_body = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.num_body.dissect(buffer, index, packet, parent)
 
   return index
@@ -2033,10 +2034,40 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Start Of Frame Field
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.start_of_frame.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 2 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Protocol Name Field
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_name.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(1, 1):string()
+
+  if value == "X" then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.2 (Udp)
 local function omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify Start Of Frame
+  if not tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.start_of_frame.verify(buffer) then return false end
+
+  -- Verify Protocol Name
+  if not tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.protocol_name.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2

@@ -754,12 +754,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.closing_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.closing_price_fraction_indicator.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = tmx_mx_solamulticast_hsvf_v1_14.closing_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.closing_price_fraction_indicator, range, value, display)
@@ -9368,13 +9363,13 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sequence Number: 10 Byte Ascii String
+  -- Sequence Number: N
   index, sequence_number = tmx_mx_solamulticast_hsvf_v1_14.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Ascii String Enum with 53 values
+  -- Message Type: X
   index, message_type = tmx_mx_solamulticast_hsvf_v1_14.message_type.dissect(buffer, index, packet, parent)
 
-  -- Message Timestamp: 20 Byte Ascii String
+  -- Message Timestamp: N
   index, message_timestamp = tmx_mx_solamulticast_hsvf_v1_14.message_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -9415,7 +9410,7 @@ tmx_mx_solamulticast_hsvf_v1_14.packet.dissect = function(buffer, packet, parent
 
   while index < end_of_payload do
 
-    -- Hsvf Stx: 1 Byte Unsigned Fixed Width Integer Static
+    -- Hsvf Stx: character
     index, hsvf_stx = tmx_mx_solamulticast_hsvf_v1_14.hsvf_stx.dissect(buffer, index, packet, parent)
 
     -- Message Header: Struct of 3 fields
@@ -9427,7 +9422,7 @@ tmx_mx_solamulticast_hsvf_v1_14.packet.dissect = function(buffer, packet, parent
     -- Message Body: Runtime Type with 53 branches
     index = tmx_mx_solamulticast_hsvf_v1_14.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Hsvf Etx: 1 Byte Unsigned Fixed Width Integer Static
+    -- Hsvf Etx: character
     index, hsvf_etx = tmx_mx_solamulticast_hsvf_v1_14.hsvf_etx.dissect(buffer, index, packet, parent)
   end
 

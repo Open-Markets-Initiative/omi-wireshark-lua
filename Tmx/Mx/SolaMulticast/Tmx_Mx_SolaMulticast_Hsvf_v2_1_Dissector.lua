@@ -71,6 +71,22 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
 -- Tmx Mx SolaMulticast Hsvf 2.1 Fields
 -----------------------------------------------------------------------
 
@@ -255,7 +271,7 @@ end
 tmx_mx_solamulticast_hsvf_v2_1.message_type.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v2_1.message_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v2_1.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.message_type, range, value, display)
@@ -603,10 +619,10 @@ end
 tmx_mx_solamulticast_hsvf_v2_1.messageheader.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sequence Number: 9 Byte Ascii String
+  -- Sequence Number: N
   index, sequence_number = tmx_mx_solamulticast_hsvf_v2_1.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Ascii String Enum with 3 values
+  -- Message Type: X
   index, message_type = tmx_mx_solamulticast_hsvf_v2_1.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -647,19 +663,19 @@ tmx_mx_solamulticast_hsvf_v2_1.packet.dissect = function(buffer, packet, parent)
 
   while index < end_of_payload do
 
-    -- Hsvf Stx: 1 Byte Fixed Width Integer Static
+    -- Hsvf Stx: character
     index, hsvf_stx = tmx_mx_solamulticast_hsvf_v2_1.hsvf_stx.dissect(buffer, index, packet, parent)
 
     -- Messageheader: Struct of 2 fields
     index, messageheader = tmx_mx_solamulticast_hsvf_v2_1.messageheader.dissect(buffer, index, packet, parent)
 
     -- Dependency element: Message Type
-    local message_type = buffer(index - 2, 2):string()
+    local message_type = trim_right_spaces(buffer(index - 2, 2):string())
 
     -- Message Body: Runtime Type with 3 branches
     index = tmx_mx_solamulticast_hsvf_v2_1.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Hsvf Etx: 1 Byte Fixed Width Integer Static
+    -- Hsvf Etx: character
     index, hsvf_etx = tmx_mx_solamulticast_hsvf_v2_1.hsvf_etx.dissect(buffer, index, packet, parent)
   end
 

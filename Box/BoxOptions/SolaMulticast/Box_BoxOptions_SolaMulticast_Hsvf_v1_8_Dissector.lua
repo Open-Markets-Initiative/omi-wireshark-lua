@@ -6475,10 +6475,10 @@ end
 box_boxoptions_solamulticast_hsvf_v1_8.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sequence Number: 9 Byte Ascii String
+  -- Sequence Number: N
   index, sequence_number = box_boxoptions_solamulticast_hsvf_v1_8.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 2 Byte Ascii String Enum with 29 values
+  -- Message Type: X
   index, message_type = box_boxoptions_solamulticast_hsvf_v1_8.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -6519,7 +6519,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.packet.dissect = function(buffer, packet,
 
   while index < end_of_payload do
 
-    -- Hsvf Stx: 1 Byte Fixed Width Integer Static
+    -- Hsvf Stx: character
     index, hsvf_stx = box_boxoptions_solamulticast_hsvf_v1_8.hsvf_stx.dissect(buffer, index, packet, parent)
 
     -- Message Header: Struct of 2 fields
@@ -6531,7 +6531,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.packet.dissect = function(buffer, packet,
     -- Message Body: Runtime Type with 29 branches
     index = box_boxoptions_solamulticast_hsvf_v1_8.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Hsvf Etx: 1 Byte Fixed Width Integer
+    -- Hsvf Etx: character
     index, hsvf_etx = box_boxoptions_solamulticast_hsvf_v1_8.hsvf_etx.dissect(buffer, index, packet, parent)
   end
 
