@@ -433,6 +433,7 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.transact_time = ProtoField
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.transactiontime", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_number = ProtoField.new("Unit Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.unitnumber", ftypes.UINT8)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.bzxoptions.binaryorderentry.boe.v2.10.unitsequence", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_sequence_number = ProtoField.new("Unit Sequence Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.unitsequencenumber", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_sequences_param_group = ProtoField.new("Unit Sequences Param Group", "cboe.bzxoptions.binaryorderentry.boe.v2.10.unitsequencesparamgroup", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.username = ProtoField.new("Username", "cboe.bzxoptions.binaryorderentry.boe.v2.10.username", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.workingprice", ftypes.DOUBLE)
@@ -521,6 +522,36 @@ function omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.prefs_changed()
     show.indexes = omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.prefs.show_indexes
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation = {}
+cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.data = function(packet)
+  local key = cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.key(packet)
+  local data = cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.flows[key]
+  if data == nil then
+    data = { unit_sequence_number = { last = nil, frames = {} } }
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -4959,6 +4990,39 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_number.dissect = function(buffer
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number = {}
+
+-- Size: Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.size = 4
+
+-- Store: Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = nil
+
+-- Generated: Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.generated = function(value, range, packet, parent)
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.display(value)
+  local unit_sequence_number = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_sequence_number, range, value, display)
+  unit_sequence_number:set_generated()
+end
+
+-- Display: Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.display = function(value)
+  return "Unit Sequence Number: "..value
+end
+
+-- Dissect: Unit Sequence Number
+cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.unit_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -14730,7 +14794,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence = {}
 -- Size: Unit Sequence
 cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence.size =
   cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_number.size + 
-  cboe_bzxoptions_binaryorderentry_boe_v2_10.sequence_number.size
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.size
 
 -- Display: Unit Sequence
 cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence.display = function(packet, parent, length)
@@ -14750,8 +14814,15 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence.fields = function(buffe
   -- Unit Number: Binary
   index, unit_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_number.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Binary
-  index, sequence_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.sequence_number.dissect(buffer, index, packet, parent)
+  -- Unit Sequence Number: Binary
+  index, unit_sequence_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Unit Sequence Number Value
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = unit_sequence_number
+
+  if not packet.visited then
+    cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.current.unit_sequence_number.last = unit_sequence_number
+  end
 
   return index
 end
@@ -15672,7 +15743,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.message_header.fields = function(buff
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_bzxoptions_binaryorderentry_boe_v2_10.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Binary
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.sequence_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -15706,6 +15777,20 @@ end
 
 -- Dissect Packet
 cboe_bzxoptions_binaryorderentry_boe_v2_10.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.data(packet)
+  if not packet.visited then
+    data.unit_sequence_number.frames[packet.number] = data.unit_sequence_number.last
+    data.unit_sequence_number.frames[packet.number] = data.unit_sequence_number.last
+    data.unit_sequence_number.frames[packet.number] = data.unit_sequence_number.last
+    data.unit_sequence_number.frames[packet.number] = data.unit_sequence_number.last
+  end
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = data.unit_sequence_number.frames[packet.number]
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = data.unit_sequence_number.frames[packet.number]
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = data.unit_sequence_number.frames[packet.number]
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = data.unit_sequence_number.frames[packet.number]
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.current = data
+
   local index = 0
 
   -- Message Header: Struct of 5 fields
@@ -15727,6 +15812,9 @@ end
 
 -- Initialize Dissector
 function omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.init()
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.unit_sequence_number.current = nil
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.current = nil
+  cboe_bzxoptions_binaryorderentry_boe_v2_10.conversation.flows = {}
 end
 
 -- Dissector for Cboe BzxOptions BinaryOrderEntry Boe 2.10
