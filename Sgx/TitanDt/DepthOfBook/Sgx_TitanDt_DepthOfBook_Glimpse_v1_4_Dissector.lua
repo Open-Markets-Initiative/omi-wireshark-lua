@@ -420,7 +420,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.itch_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.itch_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.itch_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.itch_sequence_number, range, value, display)
@@ -473,7 +473,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_1_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_1_side, range, value, display)
@@ -496,7 +496,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_1_symbol.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_1_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_1_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_1_symbol, range, value, display)
@@ -549,7 +549,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_2_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_2_side, range, value, display)
@@ -572,7 +572,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_2_symbol.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_2_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_2_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_2_symbol, range, value, display)
@@ -625,7 +625,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_3_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_3_side, range, value, display)
@@ -648,7 +648,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_3_symbol.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_3_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_3_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_3_symbol, range, value, display)
@@ -701,7 +701,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_4_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_4_side, range, value, display)
@@ -724,7 +724,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.leg_4_symbol.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.leg_4_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.leg_4_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_4_symbol, range, value, display)
@@ -747,7 +747,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.long_name.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.long_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.long_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.long_name, range, value, display)
@@ -1412,7 +1412,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.side.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = sgx_titandt_depthofbook_glimpse_v1_4.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.side, range, value, display)
@@ -1435,7 +1435,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.state_name.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.state_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.state_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.state_name, range, value, display)
@@ -1458,7 +1458,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.symbol.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.symbol, range, value, display)
@@ -1504,7 +1504,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.trading_currency.dissect = function(buffer, offset, packet, parent)
   local length = sgx_titandt_depthofbook_glimpse_v1_4.trading_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = sgx_titandt_depthofbook_glimpse_v1_4.trading_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.trading_currency, range, value, display)

@@ -15,7 +15,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.buysellindicator" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
-grep "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.shares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderNoMpidAttributionMessage.json
 runuser -u tester -- tshark \
@@ -30,7 +30,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.buysellindicator" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
-grep "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.shares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.attribution" Nasdaq.PsxEquities.TotalView.Itch.v5.0.AddOrderWithMpidAttributionMessage.json
@@ -97,7 +97,7 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.originalorderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.neworderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
-grep "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.shares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.OrderReplaceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0/RegShoShortSalePriceTestRestrictedIndicatorMessage.pcap" \

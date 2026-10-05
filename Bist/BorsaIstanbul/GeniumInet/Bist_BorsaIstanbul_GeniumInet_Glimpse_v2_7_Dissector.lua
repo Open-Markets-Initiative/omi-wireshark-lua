@@ -566,7 +566,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.isin.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.isin, range, value, display)
@@ -642,7 +642,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.leg_side, range, value, display)
@@ -665,7 +665,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.long_name.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.long_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.long_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.long_name, range, value, display)
@@ -876,7 +876,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.participant_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.participant_id, range, value, display)
@@ -1285,7 +1285,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequence_number, range, value, display)
@@ -1441,7 +1441,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.side.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.side, range, value, display)
@@ -1464,7 +1464,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.state_name.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.state_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.state_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.state_name, range, value, display)
@@ -1510,7 +1510,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.symbol.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.symbol, range, value, display)
@@ -1556,7 +1556,7 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.trading_currency.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.trading_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.trading_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.trading_currency, range, value, display)

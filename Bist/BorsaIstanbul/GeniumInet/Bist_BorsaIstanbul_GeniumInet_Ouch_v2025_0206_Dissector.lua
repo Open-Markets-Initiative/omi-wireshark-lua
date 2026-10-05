@@ -348,7 +348,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_account.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_account.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.client_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.client_account, range, value, display)
@@ -455,7 +455,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.customer_info.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.customer_info.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.customer_info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.customer_info, range, value, display)
@@ -524,7 +524,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_16.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_16, range, value, display)
@@ -547,7 +547,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_32.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_32.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.exchange_info_alpha_32.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_32, range, value, display)
@@ -570,7 +570,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.existing_order_token.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.existing_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.existing_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.existing_order_token, range, value, display)
@@ -863,7 +863,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_token.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.order_token, range, value, display)
@@ -955,7 +955,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.previous_order_token.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.previous_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.previous_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.previous_order_token, range, value, display)
@@ -1037,7 +1037,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_9)
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.quote_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.quote_side, range, value, display)
@@ -1371,7 +1371,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.replacement_order_token.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.replacement_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.replacement_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.replacement_order_token, range, value, display)
@@ -1611,7 +1611,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_9)
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.side, range, value, display)
@@ -1634,7 +1634,7 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_id.dissect = function(buffer, offset, packet, parent)
   local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_9))
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.smp_id, range, value, display)

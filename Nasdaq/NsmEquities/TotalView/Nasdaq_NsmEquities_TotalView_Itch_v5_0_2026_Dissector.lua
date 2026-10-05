@@ -320,7 +320,12 @@ end
 nasdaq_nsmequities_totalview_itch_v5_0_2026.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.accepted_sequence_number, range, value, display)
@@ -2808,7 +2813,12 @@ end
 nasdaq_nsmequities_totalview_itch_v5_0_2026.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.requested_sequence_number, range, value, display)

@@ -215,7 +215,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.auction_info.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.auction_info.display(value, buffer, offset, packet, parent)
@@ -270,7 +270,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.auction_type.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.auction_type.display(value, buffer, offset, packet, parent)
@@ -352,7 +352,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.currency, range, value, display)
@@ -445,7 +445,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.event_code.dissect = function(buffer, offset,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.event_code.display(value, buffer, offset, packet, parent)
@@ -635,7 +635,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.isin, range, value, display)
@@ -714,7 +714,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.login_status.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.login_status.display(value, buffer, offset, packet, parent)
@@ -985,7 +985,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.opening_closing_price_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.opening_closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -1057,7 +1057,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.partition_id.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.partition_id.display(value, buffer, offset, packet, parent)
@@ -1141,7 +1141,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.replay_status.dissect = function(buffer, offs
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.replay_status.display(value, buffer, offset, packet, parent)
@@ -1332,7 +1332,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.segment, range, value, display)
@@ -1441,7 +1441,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.side.dissect = function(buffer, offset, packe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.side.display(value, buffer, offset, packet, parent)
@@ -1723,7 +1723,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.tick_id, range, value, display)
@@ -1814,7 +1814,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.trade_qualifier.dissect = function(buffer, of
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -1965,7 +1965,7 @@ lseg_lse_level2mbpreplay_gtp_v26_2.trading_status.dissect = function(buffer, off
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.trading_status.display(value, buffer, offset, packet, parent)
@@ -2080,7 +2080,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.username.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.username, range, value, display)
@@ -2108,7 +2108,7 @@ end
 lseg_lse_level2mbpreplay_gtp_v26_2.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbpreplay_gtp_v26_2.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level2mbpreplay_gtp_v26_2.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbpreplay_gtp_v26_2.fields.venue_instrument_id, range, value, display)

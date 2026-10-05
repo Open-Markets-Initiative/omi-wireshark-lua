@@ -337,7 +337,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.currency, range, value, display)
@@ -434,7 +434,7 @@ lseg_turquoise_analytics_gtp_v26_3.event_code.dissect = function(buffer, offset,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_analytics_gtp_v26_3.event_code.display(value, buffer, offset, packet, parent)
@@ -510,7 +510,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.isin, range, value, display)
@@ -731,7 +731,7 @@ lseg_turquoise_analytics_gtp_v26_3.partition_id.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_analytics_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
@@ -876,7 +876,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.security_exchange.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.security_exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.security_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.security_exchange, range, value, display)
@@ -904,7 +904,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.segment, range, value, display)
@@ -1242,7 +1242,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.tick_id, range, value, display)
@@ -1331,7 +1331,7 @@ lseg_turquoise_analytics_gtp_v26_3.trading_status.dissect = function(buffer, off
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_analytics_gtp_v26_3.trading_status.display(value, buffer, offset, packet, parent)
@@ -1361,7 +1361,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_analytics_gtp_v26_3.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.venue_instrument_id, range, value, display)

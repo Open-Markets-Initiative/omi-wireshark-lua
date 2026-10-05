@@ -851,7 +851,7 @@ eurex_t7_edci_fbe_v15_0.cum_qty.size = 8
 -- Display: Cum Qty
 eurex_t7_edci_fbe_v15_0.cum_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Cum Qty: No Value"
   end
 
@@ -861,7 +861,7 @@ end
 -- Translate: Cum Qty
 eurex_t7_edci_fbe_v15_0.cum_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -872,7 +872,7 @@ end
 eurex_t7_edci_fbe_v15_0.cum_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.cum_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.cum_qty.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.cum_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -945,7 +945,7 @@ eurex_t7_edci_fbe_v15_0.cxl_qty.size = 8
 -- Display: Cxl Qty
 eurex_t7_edci_fbe_v15_0.cxl_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Cxl Qty: No Value"
   end
 
@@ -955,7 +955,7 @@ end
 -- Translate: Cxl Qty
 eurex_t7_edci_fbe_v15_0.cxl_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -966,7 +966,7 @@ end
 eurex_t7_edci_fbe_v15_0.cxl_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.cxl_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.cxl_qty.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.cxl_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -1328,7 +1328,7 @@ eurex_t7_edci_fbe_v15_0.fill_px.size = 8
 -- Display: Fill Px
 eurex_t7_edci_fbe_v15_0.fill_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Px: No Value"
   end
 
@@ -1338,7 +1338,7 @@ end
 -- Translate: Fill Px
 eurex_t7_edci_fbe_v15_0.fill_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1349,7 +1349,7 @@ end
 eurex_t7_edci_fbe_v15_0.fill_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.fill_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.fill_px.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.fill_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -1367,7 +1367,7 @@ eurex_t7_edci_fbe_v15_0.fill_qty.size = 8
 -- Display: Fill Qty
 eurex_t7_edci_fbe_v15_0.fill_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Qty: No Value"
   end
 
@@ -1377,7 +1377,7 @@ end
 -- Translate: Fill Qty
 eurex_t7_edci_fbe_v15_0.fill_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1388,7 +1388,7 @@ end
 eurex_t7_edci_fbe_v15_0.fill_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.fill_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.fill_qty.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.fill_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -1673,7 +1673,7 @@ eurex_t7_edci_fbe_v15_0.leaves_qty.size = 8
 -- Display: Leaves Qty
 eurex_t7_edci_fbe_v15_0.leaves_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Leaves Qty: No Value"
   end
 
@@ -1683,7 +1683,7 @@ end
 -- Translate: Leaves Qty
 eurex_t7_edci_fbe_v15_0.leaves_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1694,7 +1694,7 @@ end
 eurex_t7_edci_fbe_v15_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.leaves_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.leaves_qty.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.leaves_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -1952,7 +1952,7 @@ eurex_t7_edci_fbe_v15_0.maximum_price.size = 8
 -- Display: Maximum Price
 eurex_t7_edci_fbe_v15_0.maximum_price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Maximum Price: No Value"
   end
 
@@ -1962,7 +1962,7 @@ end
 -- Translate: Maximum Price
 eurex_t7_edci_fbe_v15_0.maximum_price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1973,7 +1973,7 @@ end
 eurex_t7_edci_fbe_v15_0.maximum_price.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.maximum_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.maximum_price.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.maximum_price.display(raw, value, buffer, offset, packet, parent)
 
@@ -2375,7 +2375,7 @@ eurex_t7_edci_fbe_v15_0.order_qty.size = 8
 -- Display: Order Qty
 eurex_t7_edci_fbe_v15_0.order_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Order Qty: No Value"
   end
 
@@ -2385,7 +2385,7 @@ end
 -- Translate: Order Qty
 eurex_t7_edci_fbe_v15_0.order_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2396,7 +2396,7 @@ end
 eurex_t7_edci_fbe_v15_0.order_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.order_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.order_qty.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.order_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -3159,7 +3159,7 @@ eurex_t7_edci_fbe_v15_0.price.size = 8
 -- Display: Price
 eurex_t7_edci_fbe_v15_0.price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -3169,7 +3169,7 @@ end
 -- Translate: Price
 eurex_t7_edci_fbe_v15_0.price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3180,7 +3180,7 @@ end
 eurex_t7_edci_fbe_v15_0.price.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.price.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.price.display(raw, value, buffer, offset, packet, parent)
 
@@ -4011,7 +4011,7 @@ eurex_t7_edci_fbe_v15_0.stop_px.size = 8
 -- Display: Stop Px
 eurex_t7_edci_fbe_v15_0.stop_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Stop Px: No Value"
   end
 
@@ -4021,7 +4021,7 @@ end
 -- Translate: Stop Px
 eurex_t7_edci_fbe_v15_0.stop_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -4032,7 +4032,7 @@ end
 eurex_t7_edci_fbe_v15_0.stop_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_edci_fbe_v15_0.stop_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_edci_fbe_v15_0.stop_px.translate(raw)
   local display = eurex_t7_edci_fbe_v15_0.stop_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -5437,7 +5437,7 @@ eurex_t7_edci_fbe_v15_0.rfq_notification.fields = function(buffer, offset, packe
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_edci_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_edci_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6006,10 +6006,10 @@ eurex_t7_edci_fbe_v15_0.fills_grp_comp.fields = function(buffer, offset, packet,
     iteration:set_generated()
   end
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Px: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_px = eurex_t7_edci_fbe_v15_0.fill_px.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_qty = eurex_t7_edci_fbe_v15_0.fill_qty.dissect(buffer, index, packet, parent)
 
   -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -6082,22 +6082,22 @@ eurex_t7_edci_fbe_v15_0.order_exec_report_broadcast.fields = function(buffer, of
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_edci_fbe_v15_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_edci_fbe_v15_0.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_edci_fbe_v15_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_edci_fbe_v15_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_edci_fbe_v15_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_edci_fbe_v15_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_edci_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6618,7 +6618,7 @@ eurex_t7_edci_fbe_v15_0.cross_request_side_grp_comp.fields = function(buffer, of
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_t7_edci_fbe_v15_0.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Maximum Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Maximum Price: 8 Byte Signed Fixed Width Integer Nullable
   index, maximum_price = eurex_t7_edci_fbe_v15_0.maximum_price.dissect(buffer, index, packet, parent)
 
   -- Match Inst Cross Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -6709,10 +6709,10 @@ eurex_t7_edci_fbe_v15_0.enter_clip_request_notification.fields = function(buffer
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_edci_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_edci_fbe_v15_0.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_edci_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6965,7 +6965,7 @@ eurex_t7_edci_fbe_v15_0.cross_request_notification.fields = function(buffer, off
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_edci_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_edci_fbe_v15_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable

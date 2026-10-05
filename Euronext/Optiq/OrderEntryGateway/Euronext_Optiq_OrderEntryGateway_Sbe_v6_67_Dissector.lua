@@ -577,9 +577,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.account_number.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.account_number.display(value, buffer, offset, packet, parent)
@@ -616,9 +616,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.account_number_cross.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.account_number_cross.display(value, buffer, offset, packet, parent)
@@ -1528,9 +1528,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.centralisation_date.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.centralisation_date.display(value, buffer, offset, packet, parent)
@@ -1590,9 +1590,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.clearing_firm_id.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.clearing_firm_id.display(value, buffer, offset, packet, parent)
@@ -1677,9 +1677,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.client_id.dissect = function(buffer, 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.client_id.display(value, buffer, offset, packet, parent)
@@ -1913,9 +1913,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.counterpart_firm_id.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.counterpart_firm_id.display(value, buffer, offset, packet, parent)
@@ -2233,9 +2233,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.end_client.dissect = function(buffer,
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.end_client.display(value, buffer, offset, packet, parent)
@@ -2300,9 +2300,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.entering_counterparty.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.entering_counterparty.display(value, buffer, offset, packet, parent)
@@ -2446,9 +2446,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.exchange_id.dissect = function(buffer
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.exchange_id.display(value, buffer, offset, packet, parent)
@@ -2715,9 +2715,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.family_id.dissect = function(buffer, 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.family_id.display(value, buffer, offset, packet, parent)
@@ -2810,9 +2810,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.firm_id.dissect = function(buffer, of
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.firm_id.display(value, buffer, offset, packet, parent)
@@ -2849,9 +2849,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.firm_id_optional.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.firm_id_optional.display(value, buffer, offset, packet, parent)
@@ -2939,9 +2939,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.free_text.dissect = function(buffer, 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.free_text.display(value, buffer, offset, packet, parent)
@@ -2978,9 +2978,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.free_text_cross.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.free_text_cross.display(value, buffer, offset, packet, parent)
@@ -3138,9 +3138,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.instrument_group_code.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.instrument_group_code.display(value, buffer, offset, packet, parent)
@@ -3905,9 +3905,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.leg_last_trading_date.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.leg_last_trading_date.display(value, buffer, offset, packet, parent)
@@ -4451,9 +4451,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.long_client_id.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.long_client_id.display(value, buffer, offset, packet, parent)
@@ -4626,9 +4626,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.market_place.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.market_place.display(value, buffer, offset, packet, parent)
@@ -4665,9 +4665,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.maturity.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.maturity.display(value, buffer, offset, packet, parent)
@@ -4740,9 +4740,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.mi_cof_secondary_listing.dissect = fu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.mi_cof_secondary_listing.display(value, buffer, offset, packet, parent)
@@ -6065,9 +6065,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.package_id.dissect = function(buffer,
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.package_id.display(value, buffer, offset, packet, parent)
@@ -6160,9 +6160,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.parent_trade_unique_identifier.dissec
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.parent_trade_unique_identifier.display(value, buffer, offset, packet, parent)
@@ -6402,9 +6402,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.principal_code.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.principal_code.display(value, buffer, offset, packet, parent)
@@ -6441,9 +6441,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.principal_code_cross.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.principal_code_cross.display(value, buffer, offset, packet, parent)
@@ -7300,9 +7300,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.software_provider.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.software_provider.display(value, buffer, offset, packet, parent)
@@ -7621,7 +7621,7 @@ euronext_optiq_orderentrygateway_sbe_v6_67.strategy_code.dissect = function(buff
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.strategy_code.display(value, buffer, offset, packet, parent)
@@ -7820,7 +7820,7 @@ euronext_optiq_orderentrygateway_sbe_v6_67.strategy_code_optional.dissect = func
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.strategy_code_optional.display(value, buffer, offset, packet, parent)
@@ -8478,9 +8478,9 @@ euronext_optiq_orderentrygateway_sbe_v6_67.trade_unique_identifier.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_orderentrygateway_sbe_v6_67.trade_unique_identifier.display(value, buffer, offset, packet, parent)

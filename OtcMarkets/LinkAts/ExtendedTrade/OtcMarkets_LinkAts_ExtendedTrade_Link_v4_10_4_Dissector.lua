@@ -148,7 +148,7 @@ end
 otcmarkets_linkats_extendedtrade_link_v4_10_4.deprecated_utf_85.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_extendedtrade_link_v4_10_4.deprecated_utf_85.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_extendedtrade_link_v4_10_4.deprecated_utf_85.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.deprecated_utf_85, range, value, display)
@@ -727,7 +727,7 @@ end
 otcmarkets_linkats_extendedtrade_link_v4_10_4.venue.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_extendedtrade_link_v4_10_4.venue.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_extendedtrade_link_v4_10_4.venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_extendedtrade_link_v4_10_4.fields.venue, range, value, display)

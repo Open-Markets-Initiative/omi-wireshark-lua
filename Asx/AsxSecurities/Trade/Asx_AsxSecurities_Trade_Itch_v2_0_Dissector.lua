@@ -440,7 +440,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.event_code.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.event_code, range, value, display)
@@ -522,7 +522,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.isin.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.isin, range, value, display)
@@ -575,7 +575,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_1_side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_1_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.leg_1_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_1_side, range, value, display)
@@ -598,7 +598,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_1_symbol.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_1_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.leg_1_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_1_symbol, range, value, display)
@@ -651,7 +651,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_2_side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_2_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.leg_2_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_2_side, range, value, display)
@@ -674,7 +674,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_2_symbol.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_2_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.leg_2_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_2_symbol, range, value, display)
@@ -730,7 +730,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_3_side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_3_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.leg_3_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_3_side, range, value, display)
@@ -753,7 +753,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_3_symbol.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_3_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.leg_3_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_3_symbol, range, value, display)
@@ -809,7 +809,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_4_side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_4_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.leg_4_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_4_side, range, value, display)
@@ -832,7 +832,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.leg_4_symbol.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.leg_4_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.leg_4_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.leg_4_symbol, range, value, display)
@@ -855,7 +855,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.long_name.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.long_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.long_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.long_name, range, value, display)
@@ -1174,7 +1174,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.occurred_at_cross.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.occurred_at_cross, range, value, display)
@@ -1289,7 +1289,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.participant_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id, range, value, display)
@@ -1312,7 +1312,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.participant_id_counterparty.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.participant_id_counterparty.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.participant_id_counterparty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id_counterparty, range, value, display)
@@ -1335,7 +1335,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.participant_id_owner.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.participant_id_owner.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.participant_id_owner.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.participant_id_owner, range, value, display)
@@ -1452,7 +1452,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.printable.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.printable.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.printable, range, value, display)
@@ -1624,7 +1624,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxsecurities_trade_itch_v2_0.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.side, range, value, display)
@@ -1647,7 +1647,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.state_name.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.state_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.state_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.state_name, range, value, display)
@@ -1670,7 +1670,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.symbol.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.symbol, range, value, display)
@@ -1745,7 +1745,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.trading_currency.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_itch_v2_0.trading_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxsecurities_trade_itch_v2_0.trading_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.trading_currency, range, value, display)

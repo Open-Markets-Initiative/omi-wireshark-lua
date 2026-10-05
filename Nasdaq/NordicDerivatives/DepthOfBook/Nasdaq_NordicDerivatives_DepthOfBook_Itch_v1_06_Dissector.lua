@@ -341,7 +341,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.event_code.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.event_code, range, value, display)
@@ -456,7 +456,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.isin.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.isin, range, value, display)
@@ -509,7 +509,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_1_side, range, value, display)
@@ -532,7 +532,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_1_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_1_symbol, range, value, display)
@@ -585,7 +585,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_2_side, range, value, display)
@@ -608,7 +608,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_2_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_2_symbol, range, value, display)
@@ -661,7 +661,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_3_side, range, value, display)
@@ -684,7 +684,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_3_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_3_symbol, range, value, display)
@@ -737,7 +737,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_4_side, range, value, display)
@@ -760,7 +760,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.leg_4_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.leg_4_symbol, range, value, display)
@@ -783,7 +783,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.long_name.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.long_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.long_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.long_name, range, value, display)
@@ -1102,7 +1102,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.occurred_at_cross.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.occurred_at_cross.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.occurred_at_cross.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.occurred_at_cross, range, value, display)
@@ -1217,7 +1217,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.participant_id, range, value, display)
@@ -1240,7 +1240,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_counterparty.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_counterparty.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_counterparty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.participant_id_counterparty, range, value, display)
@@ -1263,7 +1263,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_owner.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_owner.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.participant_id_owner.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.participant_id_owner, range, value, display)
@@ -1367,7 +1367,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.printable.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.printable.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.printable, range, value, display)
@@ -1634,7 +1634,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.side, range, value, display)
@@ -1657,7 +1657,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.state_name.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.state_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.state_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.state_name, range, value, display)
@@ -1680,7 +1680,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.symbol, range, value, display)
@@ -1749,7 +1749,7 @@ end
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.trading_currency.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_depthofbook_itch_v1_06.trading_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.trading_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.trading_currency, range, value, display)

@@ -554,7 +554,7 @@ bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.size = 8
 -- Display: Accrued Interest Amt
 bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Accrued Interest Amt: No Value"
   end
 
@@ -564,7 +564,7 @@ end
 -- Translate: Accrued Interest Amt
 bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -575,7 +575,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.display(raw, value, buffer, offset, packet, parent)
 
@@ -1467,7 +1467,7 @@ bse_bseindia_eti_fbe_v1_6_14.bid_px.size = 8
 -- Display: Bid Px
 bse_bseindia_eti_fbe_v1_6_14.bid_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Bid Px: No Value"
   end
 
@@ -1477,7 +1477,7 @@ end
 -- Translate: Bid Px
 bse_bseindia_eti_fbe_v1_6_14.bid_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1488,7 +1488,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.bid_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.bid_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.bid_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.bid_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -1618,7 +1618,7 @@ bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.size = 8
 -- Display: Clearing Trade Price
 bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Clearing Trade Price: No Value"
   end
 
@@ -1628,7 +1628,7 @@ end
 -- Translate: Clearing Trade Price
 bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1639,7 +1639,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.display(raw, value, buffer, offset, packet, parent)
 
@@ -2378,7 +2378,7 @@ bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.size = 8
 -- Display: Fill Dirty Px
 bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Dirty Px: No Value"
   end
 
@@ -2388,7 +2388,7 @@ end
 -- Translate: Fill Dirty Px
 bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2399,7 +2399,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -2515,7 +2515,7 @@ bse_bseindia_eti_fbe_v1_6_14.fill_px.size = 8
 -- Display: Fill Px
 bse_bseindia_eti_fbe_v1_6_14.fill_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Px: No Value"
   end
 
@@ -2525,7 +2525,7 @@ end
 -- Translate: Fill Px
 bse_bseindia_eti_fbe_v1_6_14.fill_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2536,7 +2536,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.fill_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.fill_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.fill_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.fill_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -2582,7 +2582,7 @@ bse_bseindia_eti_fbe_v1_6_14.fill_yield.size = 8
 -- Display: Fill Yield
 bse_bseindia_eti_fbe_v1_6_14.fill_yield.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Yield: No Value"
   end
 
@@ -2592,7 +2592,7 @@ end
 -- Translate: Fill Yield
 bse_bseindia_eti_fbe_v1_6_14.fill_yield.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2603,7 +2603,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.fill_yield.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.fill_yield.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.fill_yield.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.fill_yield.display(raw, value, buffer, offset, packet, parent)
 
@@ -2965,7 +2965,7 @@ bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.size = 8
 -- Display: Gross Trade Amt
 bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Gross Trade Amt: No Value"
   end
 
@@ -2975,7 +2975,7 @@ end
 -- Translate: Gross Trade Amt
 bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2986,7 +2986,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.display(raw, value, buffer, offset, packet, parent)
 
@@ -3218,7 +3218,7 @@ bse_bseindia_eti_fbe_v1_6_14.last_px.size = 8
 -- Display: Last Px
 bse_bseindia_eti_fbe_v1_6_14.last_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Px: No Value"
   end
 
@@ -3228,7 +3228,7 @@ end
 -- Translate: Last Px
 bse_bseindia_eti_fbe_v1_6_14.last_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3239,7 +3239,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.last_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.last_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.last_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.last_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -3369,7 +3369,7 @@ bse_bseindia_eti_fbe_v1_6_14.leg_last_px.size = 8
 -- Display: Leg Last Px
 bse_bseindia_eti_fbe_v1_6_14.leg_last_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Leg Last Px: No Value"
   end
 
@@ -3379,7 +3379,7 @@ end
 -- Translate: Leg Last Px
 bse_bseindia_eti_fbe_v1_6_14.leg_last_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3390,7 +3390,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.leg_last_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.leg_last_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.leg_last_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.leg_last_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -3915,7 +3915,7 @@ bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.size = 8
 -- Display: Max Price Percentage
 bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Max Price Percentage: No Value"
   end
 
@@ -3925,7 +3925,7 @@ end
 -- Translate: Max Price Percentage
 bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3936,7 +3936,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.display(raw, value, buffer, offset, packet, parent)
 
@@ -4650,7 +4650,7 @@ bse_bseindia_eti_fbe_v1_6_14.offer_px.size = 8
 -- Display: Offer Px
 bse_bseindia_eti_fbe_v1_6_14.offer_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Offer Px: No Value"
   end
 
@@ -4660,7 +4660,7 @@ end
 -- Translate: Offer Px
 bse_bseindia_eti_fbe_v1_6_14.offer_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -4671,7 +4671,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.offer_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.offer_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.offer_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.offer_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -5690,7 +5690,7 @@ bse_bseindia_eti_fbe_v1_6_14.price.size = 8
 -- Display: Price
 bse_bseindia_eti_fbe_v1_6_14.price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -5700,7 +5700,7 @@ end
 -- Translate: Price
 bse_bseindia_eti_fbe_v1_6_14.price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5711,7 +5711,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.price.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.price.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.price.display(raw, value, buffer, offset, packet, parent)
 
@@ -5729,7 +5729,7 @@ bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.size = 8
 -- Display: Price Mk To Limit Px
 bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price Mk To Limit Px: No Value"
   end
 
@@ -5739,7 +5739,7 @@ end
 -- Translate: Price Mk To Limit Px
 bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5750,7 +5750,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -6152,7 +6152,7 @@ bse_bseindia_eti_fbe_v1_6_14.quote_event_px.size = 8
 -- Display: Quote Event Px
 bse_bseindia_eti_fbe_v1_6_14.quote_event_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Quote Event Px: No Value"
   end
 
@@ -6162,7 +6162,7 @@ end
 -- Translate: Quote Event Px
 bse_bseindia_eti_fbe_v1_6_14.quote_event_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6173,7 +6173,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_event_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_event_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.quote_event_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_event_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -7982,7 +7982,7 @@ bse_bseindia_eti_fbe_v1_6_14.side_last_px.size = 8
 -- Display: Side Last Px
 bse_bseindia_eti_fbe_v1_6_14.side_last_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Side Last Px: No Value"
   end
 
@@ -7992,7 +7992,7 @@ end
 -- Translate: Side Last Px
 bse_bseindia_eti_fbe_v1_6_14.side_last_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -8003,7 +8003,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.side_last_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.side_last_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.side_last_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.side_last_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -8148,7 +8148,7 @@ bse_bseindia_eti_fbe_v1_6_14.stop_px.size = 8
 -- Display: Stop Px
 bse_bseindia_eti_fbe_v1_6_14.stop_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Stop Px: No Value"
   end
 
@@ -8158,7 +8158,7 @@ end
 -- Translate: Stop Px
 bse_bseindia_eti_fbe_v1_6_14.stop_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -8169,7 +8169,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.stop_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.stop_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.stop_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.stop_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -9341,7 +9341,7 @@ bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.size = 8
 -- Display: Underlying Dirty Price
 bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Underlying Dirty Price: No Value"
   end
 
@@ -9351,7 +9351,7 @@ end
 -- Translate: Underlying Dirty Price
 bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -9362,7 +9362,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.display(raw, value, buffer, offset, packet, parent)
 
@@ -9380,7 +9380,7 @@ bse_bseindia_eti_fbe_v1_6_14.underlying_px.size = 8
 -- Display: Underlying Px
 bse_bseindia_eti_fbe_v1_6_14.underlying_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Underlying Px: No Value"
   end
 
@@ -9390,7 +9390,7 @@ end
 -- Translate: Underlying Px
 bse_bseindia_eti_fbe_v1_6_14.underlying_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -9401,7 +9401,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.underlying_px.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.underlying_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.underlying_px.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.underlying_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -9550,7 +9550,7 @@ bse_bseindia_eti_fbe_v1_6_14.yield.size = 8
 -- Display: Yield
 bse_bseindia_eti_fbe_v1_6_14.yield.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Yield: No Value"
   end
 
@@ -9560,7 +9560,7 @@ end
 -- Translate: Yield
 bse_bseindia_eti_fbe_v1_6_14.yield.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -9571,7 +9571,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.yield.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.yield.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = bse_bseindia_eti_fbe_v1_6_14.yield.translate(raw)
   local display = bse_bseindia_eti_fbe_v1_6_14.yield.display(raw, value, buffer, offset, packet, parent)
 
@@ -10100,7 +10100,7 @@ bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.fields = function(buffe
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Clearing Trade Price: 8 Byte Signed Fixed Width Integer Nullable
   index, clearing_trade_price = bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -10204,22 +10204,22 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   -- Related Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, related_security_id = bse_bseindia_eti_fbe_v1_6_14.related_security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = bse_bseindia_eti_fbe_v1_6_14.last_px.dissect(buffer, index, packet, parent)
 
-  -- Side Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Side Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, side_last_px = bse_bseindia_eti_fbe_v1_6_14.side_last_px.dissect(buffer, index, packet, parent)
 
-  -- Clearing Trade Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Clearing Trade Price: 8 Byte Signed Fixed Width Integer Nullable
   index, clearing_trade_price = bse_bseindia_eti_fbe_v1_6_14.clearing_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -11546,7 +11546,7 @@ bse_bseindia_eti_fbe_v1_6_14.quote_leg_exec_grp_comp.fields = function(buffer, o
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = bse_bseindia_eti_fbe_v1_6_14.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_last_px = bse_bseindia_eti_fbe_v1_6_14.leg_last_px.dissect(buffer, index, packet, parent)
 
   -- Leg Last Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -11633,7 +11633,7 @@ bse_bseindia_eti_fbe_v1_6_14.quote_event_grp_comp.fields = function(buffer, offs
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Event Px: 8 Byte Signed Fixed Width Integer Nullable
   index, quote_event_px = bse_bseindia_eti_fbe_v1_6_14.quote_event_px.dissect(buffer, index, packet, parent)
 
   -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -11878,7 +11878,7 @@ bse_bseindia_eti_fbe_v1_6_14.instrmnt_leg_exec_grp_comp.fields = function(buffer
   -- Leg Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_security_id = bse_bseindia_eti_fbe_v1_6_14.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_last_px = bse_bseindia_eti_fbe_v1_6_14.leg_last_px.dissect(buffer, index, packet, parent)
 
   -- Leg Last Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -11946,13 +11946,13 @@ bse_bseindia_eti_fbe_v1_6_14.fills_grp_comp.fields = function(buffer, offset, pa
     iteration:set_generated()
   end
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Px: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_px = bse_bseindia_eti_fbe_v1_6_14.fill_px.dissect(buffer, index, packet, parent)
 
-  -- Fill Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_yield = bse_bseindia_eti_fbe_v1_6_14.fill_yield.dissect(buffer, index, packet, parent)
 
-  -- Fill Dirty Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Dirty Px: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_dirty_px = bse_bseindia_eti_fbe_v1_6_14.fill_dirty_px.dissect(buffer, index, packet, parent)
 
   -- Fill Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -12123,7 +12123,7 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Filler2: 4 Byte
@@ -12300,7 +12300,7 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -12315,16 +12315,16 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = bse_bseindia_eti_fbe_v1_6_14.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = bse_bseindia_eti_fbe_v1_6_14.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -12786,13 +12786,13 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Mk To Limit Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Mk To Limit Px: 8 Byte Signed Fixed Width Integer Nullable
   index, price_mk_to_limit_px = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -12896,13 +12896,13 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, off
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Mk To Limit Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Mk To Limit Px: 8 Byte Signed Fixed Width Integer Nullable
   index, price_mk_to_limit_px = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13072,7 +13072,7 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_fill_grp_comp.fields = function(buffer, o
     iteration:set_generated()
   end
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Px: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_px = bse_bseindia_eti_fbe_v1_6_14.fill_px.dissect(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
@@ -13315,10 +13315,10 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_grp_comp.fields = function(buffer, offset
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = bse_bseindia_eti_fbe_v1_6_14.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
@@ -13516,13 +13516,13 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = bse_bseindia_eti_fbe_v1_6_14.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Price Mk To Limit Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Mk To Limit Px: 8 Byte Signed Fixed Width Integer Nullable
   index, price_mk_to_limit_px = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13632,13 +13632,13 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = bse_bseindia_eti_fbe_v1_6_14.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Price Mk To Limit Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price Mk To Limit Px: 8 Byte Signed Fixed Width Integer Nullable
   index, price_mk_to_limit_px = bse_bseindia_eti_fbe_v1_6_14.price_mk_to_limit_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15255,19 +15255,19 @@ bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.fields = function(buffer, off
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Px: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_px = bse_bseindia_eti_fbe_v1_6_14.underlying_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
-  -- Accrued Interest Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Accrued Interest Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, accrued_interest_amt = bse_bseindia_eti_fbe_v1_6_14.accrued_interest_amt.dissect(buffer, index, packet, parent)
 
-  -- Gross Trade Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Gross Trade Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, gross_trade_amt = bse_bseindia_eti_fbe_v1_6_14.gross_trade_amt.dissect(buffer, index, packet, parent)
 
-  -- Underlying Dirty Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Dirty Price: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_dirty_price = bse_bseindia_eti_fbe_v1_6_14.underlying_dirty_price.dissect(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
@@ -16429,7 +16429,7 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.fields = function(bu
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -16536,13 +16536,13 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = bse_bseindia_eti_fbe_v1_6_14.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -16712,13 +16712,13 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sender_location_id = bse_bseindia_eti_fbe_v1_6_14.sender_location_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Filler1: 8 Byte
@@ -16881,10 +16881,10 @@ bse_bseindia_eti_fbe_v1_6_14.multi_leg_ord_grp_comp.fields = function(buffer, of
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
@@ -17057,7 +17057,7 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.fields = function
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -17173,13 +17173,13 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = bse_bseindia_eti_fbe_v1_6_14.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -17361,10 +17361,10 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Max Price Percentage: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Max Price Percentage: 8 Byte Signed Fixed Width Integer Nullable
   index, max_price_percentage = bse_bseindia_eti_fbe_v1_6_14.max_price_percentage.dissect(buffer, index, packet, parent)
 
   -- Sender Location Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -17533,10 +17533,10 @@ bse_bseindia_eti_fbe_v1_6_14.quote_entry_grp_comp.fields = function(buffer, offs
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = bse_bseindia_eti_fbe_v1_6_14.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = bse_bseindia_eti_fbe_v1_6_14.offer_px.dissect(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Signed Fixed Width Integer Nullable
@@ -18357,10 +18357,10 @@ bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_request.fields = function(buffer, offs
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = bse_bseindia_eti_fbe_v1_6_14.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Underlying Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Px: 8 Byte Signed Fixed Width Integer Nullable
   index, underlying_px = bse_bseindia_eti_fbe_v1_6_14.underlying_px.dissect(buffer, index, packet, parent)
 
-  -- Yield: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Yield: 8 Byte Signed Fixed Width Integer Nullable
   index, yield = bse_bseindia_eti_fbe_v1_6_14.yield.dissect(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable

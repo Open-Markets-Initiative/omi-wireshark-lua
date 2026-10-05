@@ -708,7 +708,12 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.requested_sequence_number, range, value, display)
@@ -777,7 +782,12 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.sequence_number, range, value, display)

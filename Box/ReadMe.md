@@ -7,24 +7,24 @@
 
 | Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Box.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BoxOptions][BoxOptions.Exchange] | [SolaTradeReporting][Box.BoxOptions.SolaTradeReporting] | [Atr][Omi.Encoding.Atr] | [4.5][Box.BoxOptions.SolaTradeReporting.Atr.v4.5.Dissector] | 11/5/2024 | 3770 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Box.BoxOptions.SolaTradeReporting.Atr.v4.5.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaTradeReporting][Box.BoxOptions.SolaTradeReporting] | [Atr][Omi.Encoding.Atr] | [4.5][Box.BoxOptions.SolaTradeReporting.Atr.v4.5.Dissector] | 11/5/2024 | 3969 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Box.BoxOptions.SolaTradeReporting.Atr.v4.5.Pdf] |
 
 
 ### Market  Data
 
 | Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Box.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.5][Box.BoxOptions.SolaMulticast.Hsvf.v1.5.Dissector] | 3/15/2021 | 6629 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.5.Pdf] |
-| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Dissector] | 10/17/2023 | 6629 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Url] - [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Pdf] |
-| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Dissector] | 2/15/2024 | 6680 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Url] - [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Pdf] |
-| [BoxOptions][BoxOptions.Exchange] | [SolaUnicast][Box.BoxOptions.SolaUnicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.BoxOptions.SolaUnicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 7120 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.BoxOptions.SolaUnicast.Hsvf.v4.5.1.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.5][Box.BoxOptions.SolaMulticast.Hsvf.v1.5.Dissector] | 3/15/2021 | 8676 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.5.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.8][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Dissector] | 10/17/2023 | 8676 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Url] - [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaMulticast][Box.BoxOptions.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.9][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Dissector] | 2/15/2024 | 8727 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Url] - [pdf][Box.BoxOptions.SolaMulticast.Hsvf.v1.9.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaUnicast][Box.BoxOptions.SolaUnicast] | [Hsvf][Omi.Encoding.Hsvf] | [4.5.1][Box.BoxOptions.SolaUnicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 9167 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Box.BoxOptions.SolaUnicast.Hsvf.v4.5.1.Pdf] |
 
 
 ### Order  Entry
 
 | Division | [Protocol][Omi.Box.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Box.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [BoxOptions][BoxOptions.Exchange] | [SolaOrderEntry][Box.BoxOptions.SolaOrderEntry] | [Sail][Omi.Encoding.Sail] | [2.25][Box.BoxOptions.SolaOrderEntry.Sail.v2.25.Dissector] | 1/20/2025 | 10782 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Box.BoxOptions.SolaOrderEntry.Sail.v2.25.Pdf] |
+| [BoxOptions][BoxOptions.Exchange] | [SolaOrderEntry][Box.BoxOptions.SolaOrderEntry] | [Sail][Omi.Encoding.Sail] | [2.25][Box.BoxOptions.SolaOrderEntry.Sail.v2.25.Dissector] | 1/20/2025 | 10662 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Box.BoxOptions.SolaOrderEntry.Sail.v2.25.Pdf] |
 
 
 <p align="center"><a href="https://boxoptions.com" title="Box Options Market Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/boxoptionsmarket" title="Box Options Market on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Boston_Options_Exchange" title="Box Options Market on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

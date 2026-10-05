@@ -286,7 +286,7 @@ lseg_turquoise_replay_gtp_v24_4.agency_cross_indicator.dissect = function(buffer
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.agency_cross_indicator.display(value, buffer, offset, packet, parent)
@@ -329,7 +329,7 @@ lseg_turquoise_replay_gtp_v24_4.algorithmic_indicator.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.algorithmic_indicator.display(value, buffer, offset, packet, parent)
@@ -369,7 +369,7 @@ lseg_turquoise_replay_gtp_v24_4.auction_info.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.auction_info.display(value, buffer, offset, packet, parent)
@@ -409,7 +409,7 @@ lseg_turquoise_replay_gtp_v24_4.auction_type.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.auction_type.display(value, buffer, offset, packet, parent)
@@ -844,7 +844,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.cross_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.cross_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.cross_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.cross_id, range, value, display)
@@ -902,7 +902,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.currency, range, value, display)
@@ -936,7 +936,7 @@ lseg_turquoise_replay_gtp_v24_4.deferral_enrichment_type.dissect = function(buff
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.deferral_enrichment_type.display(value, buffer, offset, packet, parent)
@@ -1005,7 +1005,7 @@ lseg_turquoise_replay_gtp_v24_4.duplicative_indicator.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.duplicative_indicator.display(value, buffer, offset, packet, parent)
@@ -1104,7 +1104,7 @@ lseg_turquoise_replay_gtp_v24_4.event_code.dissect = function(buffer, offset, pa
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
@@ -1300,7 +1300,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.instrument_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.instrument_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.instrument_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.instrument_identification_code, range, value, display)
@@ -1328,7 +1328,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.instrument_identification_code_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.instrument_identification_code_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.instrument_identification_code_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
@@ -1356,7 +1356,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.isin, range, value, display)
@@ -1435,7 +1435,7 @@ lseg_turquoise_replay_gtp_v24_4.login_status.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.login_status.display(value, buffer, offset, packet, parent)
@@ -1465,7 +1465,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.market_closing_price_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.market_closing_price_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.market_closing_price_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
@@ -1532,7 +1532,7 @@ lseg_turquoise_replay_gtp_v24_4.market_mechanism.dissect = function(buffer, offs
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.market_mechanism.display(value, buffer, offset, packet, parent)
@@ -1767,7 +1767,7 @@ lseg_turquoise_replay_gtp_v24_4.modification_indicator.dissect = function(buffer
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.modification_indicator.display(value, buffer, offset, packet, parent)
@@ -1810,7 +1810,7 @@ lseg_turquoise_replay_gtp_v24_4.negotiation_indicator.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.negotiation_indicator.display(value, buffer, offset, packet, parent)
@@ -1958,7 +1958,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.notional_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.notional_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.notional_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.notional_currency, range, value, display)
@@ -1986,7 +1986,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.nt_pre_trade_waiver_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.nt_pre_trade_waiver_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.nt_pre_trade_waiver_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.nt_pre_trade_waiver_flag, range, value, display)
@@ -2070,7 +2070,7 @@ lseg_turquoise_replay_gtp_v24_4.off_book_automated_indicator.dissect = function(
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
@@ -2193,7 +2193,7 @@ lseg_turquoise_replay_gtp_v24_4.opening_closing_price_indicator.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.opening_closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -2296,7 +2296,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.participant.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.participant.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.participant, range, value, display)
@@ -2334,7 +2334,7 @@ lseg_turquoise_replay_gtp_v24_4.post_trade_deferral_reason.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
@@ -2490,7 +2490,7 @@ lseg_turquoise_replay_gtp_v24_4.price_formation_indicator.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.price_formation_indicator.display(value, buffer, offset, packet, parent)
@@ -2520,7 +2520,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.price_major_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.price_major_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.price_major_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.price_major_currency, range, value, display)
@@ -2548,7 +2548,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.price_notation.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.price_notation.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.price_notation, range, value, display)
@@ -2576,7 +2576,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.pt_algo_trade.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.pt_algo_trade.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.pt_algo_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_algo_trade, range, value, display)
@@ -2604,7 +2604,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.pt_amendment_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.pt_amendment_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.pt_amendment_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_amendment_flag, range, value, display)
@@ -2632,7 +2632,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.pt_cancellation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.pt_cancellation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.pt_cancellation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_cancellation_flag, range, value, display)
@@ -2660,7 +2660,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.pt_ref_price_waiver_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.pt_ref_price_waiver_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.pt_ref_price_waiver_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_ref_price_waiver_flag, range, value, display)
@@ -2732,7 +2732,7 @@ lseg_turquoise_replay_gtp_v24_4.reference_price_indicator.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.reference_price_indicator.display(value, buffer, offset, packet, parent)
@@ -2787,7 +2787,7 @@ lseg_turquoise_replay_gtp_v24_4.replay_status.dissect = function(buffer, offset,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.replay_status.display(value, buffer, offset, packet, parent)
@@ -3001,7 +3001,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.rfq_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.rfq_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.rfq_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.rfq_id, range, value, display)
@@ -3098,7 +3098,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.segment, range, value, display)
@@ -3321,7 +3321,7 @@ lseg_turquoise_replay_gtp_v24_4.side.dissect = function(buffer, offset, packet, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.side.display(value, buffer, offset, packet, parent)
@@ -3432,7 +3432,7 @@ lseg_turquoise_replay_gtp_v24_4.special_dividend_indicator.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.special_dividend_indicator.display(value, buffer, offset, packet, parent)
@@ -3667,7 +3667,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.tick_id, range, value, display)
@@ -3816,7 +3816,7 @@ lseg_turquoise_replay_gtp_v24_4.trade_qualifier.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -3926,7 +3926,7 @@ lseg_turquoise_replay_gtp_v24_4.trading_mode.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.trading_mode.display(value, buffer, offset, packet, parent)
@@ -3990,7 +3990,7 @@ lseg_turquoise_replay_gtp_v24_4.trading_status.dissect = function(buffer, offset
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
@@ -4033,7 +4033,7 @@ lseg_turquoise_replay_gtp_v24_4.transaction_category.dissect = function(buffer, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_replay_gtp_v24_4.transaction_category.display(value, buffer, offset, packet, parent)
@@ -4063,7 +4063,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.transaction_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.transaction_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.transaction_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.transaction_identification_code, range, value, display)
@@ -4176,7 +4176,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.username.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.username, range, value, display)
@@ -4204,7 +4204,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.venue_instrument_id, range, value, display)
@@ -4232,7 +4232,7 @@ end
 lseg_turquoise_replay_gtp_v24_4.venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_replay_gtp_v24_4.venue_of_execution.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_replay_gtp_v24_4.venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.venue_of_execution, range, value, display)

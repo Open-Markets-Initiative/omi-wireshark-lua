@@ -222,7 +222,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.currency, range, value, display)
@@ -292,7 +292,7 @@ lseg_tradeecho_level2incrementalreplay_gtp_v24_4.event_code.dissect = function(b
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
@@ -368,7 +368,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.isin, range, value, display)
@@ -447,7 +447,7 @@ lseg_tradeecho_level2incrementalreplay_gtp_v24_4.login_status.dissect = function
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.login_status.display(value, buffer, offset, packet, parent)
@@ -715,7 +715,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.participant.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.participant.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.participant, range, value, display)
@@ -884,7 +884,7 @@ lseg_tradeecho_level2incrementalreplay_gtp_v24_4.replay_status.dissect = functio
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.replay_status.display(value, buffer, offset, packet, parent)
@@ -1121,7 +1121,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.segment, range, value, display)
@@ -1212,7 +1212,7 @@ lseg_tradeecho_level2incrementalreplay_gtp_v24_4.side.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.side.display(value, buffer, offset, packet, parent)
@@ -1350,7 +1350,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.tick_id, range, value, display)
@@ -1424,7 +1424,7 @@ lseg_tradeecho_level2incrementalreplay_gtp_v24_4.trading_status.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
@@ -1481,7 +1481,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.username.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.username, range, value, display)
@@ -1509,7 +1509,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.venue_instrument_id, range, value, display)
@@ -1539,7 +1539,7 @@ end
 lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_of_publication.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_of_publication.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_level2incrementalreplay_gtp_v24_4.venue_of_publication.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.venue_of_publication, range, value, display)

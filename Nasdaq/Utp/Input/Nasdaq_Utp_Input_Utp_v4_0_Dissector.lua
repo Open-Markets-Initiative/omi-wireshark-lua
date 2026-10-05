@@ -295,7 +295,12 @@ end
 nasdaq_utp_input_utp_v4_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_utp_input_utp_v4_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number, range, value, display)
@@ -2315,7 +2320,12 @@ end
 nasdaq_utp_input_utp_v4_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_utp_input_utp_v4_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.requested_sequence_number, range, value, display)

@@ -75,6 +75,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Le
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.legratiosign", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.legsymbol", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "box.boxoptions.solaunicast.hsvf.v4.5.1.levelofmarketdepth", ftypes.STRING)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitenteredforanorder", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitenteredforanordersign", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.boxoptions.solaunicast.hsvf.v4.5.1.limitfractionindicator", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.lowprice", ftypes.STRING)
@@ -128,7 +129,6 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reserved = ProtoField.new("Res
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.boxoptions.solaunicast.hsvf.v4.5.1.resetsequence", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.boxoptions.solaunicast.hsvf.v4.5.1.rootsymbol", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.boxoptions.solaunicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING)
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.second_filler_1 = ProtoField.new("Second Filler 1", "box.boxoptions.solaunicast.hsvf.v4.5.1.secondfiller1", ftypes.BYTES)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.boxoptions.solaunicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.strikeprice", ftypes.STRING)
@@ -198,6 +198,31 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_market_depth_level_ind
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested_index = ProtoField.new("Option Classes Requested Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.optionclassesrequestedindex", ftypes.UINT16)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_ask_price = ProtoField.new("Scaled Ask Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledaskprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_bid_price = ProtoField.new("Scaled Bid Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledbidprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_high_price = ProtoField.new("Scaled High Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledhighprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_initial_order_price = ProtoField.new("Scaled Initial Order Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledinitialorderprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_last_price = ProtoField.new("Scaled Last Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledlastprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_limit_entered_for_an_order = ProtoField.new("Scaled Limit Entered For An Order", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledlimitenteredforanorder", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_low_price = ProtoField.new("Scaled Low Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledlowprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_max_threshold_price = ProtoField.new("Scaled Max Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledmaxthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_maximum_threshold_price = ProtoField.new("Scaled Maximum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledmaximumthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_min_threshold_price = ProtoField.new("Scaled Min Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledminthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_minimum_threshold_price = ProtoField.new("Scaled Minimum Threshold Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledminimumthresholdprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_net_change = ProtoField.new("Scaled Net Change", "box.boxoptions.solaunicast.hsvf.v4.5.1.scalednetchange", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_open_price = ProtoField.new("Scaled Open Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledopenprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_reference_price = ProtoField.new("Scaled Reference Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledreferenceprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledstrikeprice", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_tick_increment = ProtoField.new("Scaled Tick Increment", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledtickincrement", ftypes.DOUBLE)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "box.boxoptions.solaunicast.hsvf.v4.5.1.scaledtradeprice", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Box BoxOptions SolaUnicast Hsvf 4.5.1 Formatting
+-----------------------------------------------------------------------
+
+-- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
+box_boxoptions_solaunicast_hsvf_v4_5_1.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -218,6 +243,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_repeating_groups = Pref.bo
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs_changed()
@@ -237,6 +263,9 @@ function omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs_changed()
   end
   if show.indexes ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_indexes then
     show.indexes = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.show_indexes
+  end
+  if box_boxoptions_solaunicast_hsvf_v4_5_1.format_decimals ~= omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.format_decimals then
+    box_boxoptions_solaunicast_hsvf_v4_5_1.format_decimals = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.prefs.format_decimals
   end
 end
 
@@ -297,19 +326,66 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.size = 1
 
 -- Display: Ask Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.display = function(value)
-  return "Ask Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Ask Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Ask Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Ask Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Ask Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Ask Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Ask Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Ask Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Ask Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Ask Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Ask Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Ask Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Ask Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Ask Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Ask Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Ask Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Ask Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Ask Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Ask Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator, range, value, display)
@@ -447,7 +523,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.size = 1
 
 -- Display: Bid Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.display = function(value)
-  return "Bid Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Bid Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Bid Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Bid Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Bid Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Bid Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Bid Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Bid Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Bid Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Bid Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Bid Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Bid Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Bid Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Bid Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Bid Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Bid Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Bid Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Bid Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Bid Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Fraction Indicator
@@ -1242,7 +1370,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_fraction_indicator.size = 1
 
 -- Display: High Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_fraction_indicator.display = function(value)
-  return "High Price Fraction Indicator: "..value
+  if value == "0" then
+    return "High Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "High Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "High Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "High Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "High Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "High Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "High Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "High Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "High Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "High Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "High Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "High Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "High Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "High Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "High Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "High Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "High Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "High Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: High Price Fraction Indicator
@@ -1508,7 +1688,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.si
 
 -- Display: Initial Order Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.display = function(value)
-  return "Initial Order Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Initial Order Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Initial Order Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Initial Order Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Initial Order Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Initial Order Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Initial Order Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Initial Order Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Initial Order Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Initial Order Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Initial Order Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Initial Order Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Initial Order Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Initial Order Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Initial Order Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Initial Order Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Initial Order Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Initial Order Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Initial Order Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Initial Order Price Fraction Indicator
@@ -1745,7 +1977,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_fraction_indicator.size = 1
 
 -- Display: Last Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_fraction_indicator.display = function(value)
-  return "Last Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Last Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Last Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Last Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Last Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Last Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Last Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Last Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Last Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Last Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Last Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Last Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Last Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Last Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Last Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Last Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Last Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Last Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Last Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Fraction Indicator
@@ -1912,6 +2196,34 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.level_of_market_depth.dissect = function(
   return offset + length, value
 end
 
+-- Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order = {}
+
+-- Size: Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size = 6
+
+-- Display: Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.display = function(value)
+  return "Limit Entered For An Order: "..value
+end
+
+-- Dissect: Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order, range, value, display)
+
+  return offset + length, value
+end
+
 -- Limit Entered For An Order Sign
 box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order_sign = {}
 
@@ -1950,7 +2262,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.size = 1
 
 -- Display: Limit Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.display = function(value)
-  return "Limit Fraction Indicator: "..value
+  if value == "0" then
+    return "Limit Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Limit Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Limit Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Limit Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Limit Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Limit Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Limit Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Limit Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Limit Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Limit Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Limit Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Limit Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Limit Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Limit Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Limit Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Limit Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Limit Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Limit Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Limit Fraction Indicator
@@ -2001,7 +2365,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_fraction_indicator.size = 1
 
 -- Display: Low Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_fraction_indicator.display = function(value)
-  return "Low Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Low Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Low Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Low Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Low Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Low Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Low Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Low Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Low Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Low Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Low Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Low Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Low Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Low Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Low Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Low Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Low Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Low Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Low Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Fraction Indicator
@@ -2140,7 +2556,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator.si
 
 -- Display: Max Threshold Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator.display = function(value)
-  return "Max Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Max Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Max Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Max Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Max Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Max Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Max Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Max Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Max Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Max Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Max Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Max Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Max Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Max Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Max Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Max Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Max Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Max Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Max Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Max Threshold Price Fraction Indicator
@@ -2249,7 +2717,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicato
 
 -- Display: Maximum Threshold Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.display = function(value)
-  return "Maximum Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Maximum Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Maximum Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Maximum Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Maximum Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Maximum Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Maximum Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Maximum Threshold Price Fraction Indicator
@@ -2445,7 +2965,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator.si
 
 -- Display: Min Threshold Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator.display = function(value)
-  return "Min Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Min Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Min Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Min Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Min Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Min Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Min Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Min Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Min Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Min Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Min Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Min Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Min Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Min Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Min Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Min Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Min Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Min Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Min Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Min Threshold Price Fraction Indicator
@@ -2582,7 +3154,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicato
 
 -- Display: Minimum Threshold Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.display = function(value)
-  return "Minimum Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Minimum Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Minimum Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Minimum Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Minimum Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Minimum Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Minimum Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Minimum Threshold Price Fraction Indicator
@@ -2633,7 +3257,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.size = 1
 
 -- Display: Net Change Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.display = function(value)
-  return "Net Change Fraction Indicator: "..value
+  if value == "0" then
+    return "Net Change Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Net Change Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Net Change Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Net Change Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Net Change Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Net Change Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Net Change Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Net Change Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Net Change Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Net Change Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Net Change Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Net Change Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Net Change Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Net Change Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Net Change Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Net Change Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Net Change Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Net Change Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Fraction Indicator
@@ -2872,7 +3548,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_fraction_indicator.size = 1
 
 -- Display: Open Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_fraction_indicator.display = function(value)
-  return "Open Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Open Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Open Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Open Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Open Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Open Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Open Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Open Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Open Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Open Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Open Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Open Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Open Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Open Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Open Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Open Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Open Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Open Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Open Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Fraction Indicator
@@ -3205,7 +3933,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price_fraction_indicator.size =
 
 -- Display: Reference Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price_fraction_indicator.display = function(value)
-  return "Reference Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Reference Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Reference Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Reference Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Reference Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Reference Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Reference Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Reference Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Reference Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Reference Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Reference Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Reference Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Reference Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Reference Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Reference Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Reference Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Reference Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Reference Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Reference Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Reference Price Fraction Indicator
@@ -3350,29 +4130,6 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.scheduled_time.dissect = function(buffer,
   return offset + length, value
 end
 
--- Second Filler 1
-box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1 = {}
-
--- Size: Second Filler 1
-box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.size = 1
-
--- Display: Second Filler 1
-box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.display = function(value)
-  return "Second Filler 1: "..value
-end
-
--- Dissect: Second Filler 1
-box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.second_filler_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequence Number
 box_boxoptions_solaunicast_hsvf_v4_5_1.sequence_number = {}
 
@@ -3495,7 +4252,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_fraction_indicator.display = function(value)
-  return "Strike Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Strike Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Strike Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Strike Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Strike Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Strike Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Strike Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Strike Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Strike Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Strike Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Strike Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Strike Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Strike Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Strike Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Strike Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -3617,19 +4426,66 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size = 
 
 -- Display: Tick Increment Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.display = function(value)
-  return "Tick Increment Fraction Indicator: "..value
+  if value == "0" then
+    return "Tick Increment Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Tick Increment Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Tick Increment Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Tick Increment Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Tick Increment Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Tick Increment Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Tick Increment Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Tick Increment Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Tick Increment Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Tick Increment Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Tick Increment Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Tick Increment Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Tick Increment Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Tick Increment Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Tick Increment Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Tick Increment Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Tick Increment Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Increment Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator, range, value, display)
@@ -3729,7 +4585,59 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.size = 1
 
 -- Display: Trade Price Fraction Indicator
 box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.display = function(value)
-  return "Trade Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Trade Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Trade Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Trade Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Trade Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Trade Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Trade Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Trade Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Trade Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Trade Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Trade Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Trade Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Trade Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Trade Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Trade Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Trade Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Trade Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Trade Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Trade Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Fraction Indicator
@@ -4093,6 +5001,1145 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.volume.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Scaled Ask Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price = {}
+
+-- Display: Scaled Ask Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display = function(value)
+  return "Scaled Ask Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Ask Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display_uncoded = function(value)
+  return "Scaled Ask Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Ask Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if ask_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  elseif ask_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_ask_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.ask_price, range, mantissa, mantissa_display)
+
+  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
+  ask_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Bid Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price = {}
+
+-- Display: Scaled Bid Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display = function(value)
+  return "Scaled Bid Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Bid Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display_uncoded = function(value)
+  return "Scaled Bid Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Bid Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if bid_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  elseif bid_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_bid_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.bid_price, range, mantissa, mantissa_display)
+
+  local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
+  bid_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled High Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price = {}
+
+-- Display: Scaled High Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display = function(value)
+  return "Scaled High Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled High Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display_uncoded = function(value)
+  return "Scaled High Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled High Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if high_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_high_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.high_price, range, mantissa, mantissa_display)
+
+  local high_price_fraction_indicator_entry = field_tree:add("High Price Fraction Indicator: " .. tostring(high_price_fraction_indicator))
+  high_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Initial Order Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price = {}
+
+-- Display: Scaled Initial Order Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display = function(value)
+  return "Scaled Initial Order Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Initial Order Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display_uncoded = function(value)
+  return "Scaled Initial Order Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Initial Order Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if initial_order_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  elseif initial_order_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_initial_order_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.initial_order_price, range, mantissa, mantissa_display)
+
+  local initial_order_price_fraction_indicator_entry = field_tree:add("Initial Order Price Fraction Indicator: " .. tostring(initial_order_price_fraction_indicator))
+  initial_order_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Last Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price = {}
+
+-- Display: Scaled Last Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Last Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display_uncoded = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Last Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if last_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_last_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.last_price, range, mantissa, mantissa_display)
+
+  local last_price_fraction_indicator_entry = field_tree:add("Last Price Fraction Indicator: " .. tostring(last_price_fraction_indicator))
+  last_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order = {}
+
+-- Display: Scaled Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display = function(value)
+  return "Scaled Limit Entered For An Order: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Limit Entered For An Order with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display_uncoded = function(value)
+  return "Scaled Limit Entered For An Order: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Limit Entered For An Order
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if limit_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  elseif limit_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_limit_entered_for_an_order, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.limit_entered_for_an_order, range, mantissa, mantissa_display)
+
+  local limit_fraction_indicator_entry = field_tree:add("Limit Fraction Indicator: " .. tostring(limit_fraction_indicator))
+  limit_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Low Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price = {}
+
+-- Display: Scaled Low Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Low Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display_uncoded = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Low Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if low_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_low_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.low_price, range, mantissa, mantissa_display)
+
+  local low_price_fraction_indicator_entry = field_tree:add("Low Price Fraction Indicator: " .. tostring(low_price_fraction_indicator))
+  low_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Max Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price = {}
+
+-- Display: Scaled Max Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display = function(value)
+  return "Scaled Max Threshold Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Max Threshold Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display_uncoded = function(value)
+  return "Scaled Max Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Max Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if max_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  elseif max_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_max_threshold_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.max_threshold_price, range, mantissa, mantissa_display)
+
+  local max_threshold_price_fraction_indicator_entry = field_tree:add("Max Threshold Price Fraction Indicator: " .. tostring(max_threshold_price_fraction_indicator))
+  max_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Maximum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price = {}
+
+-- Display: Scaled Maximum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display = function(value)
+  return "Scaled Maximum Threshold Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Maximum Threshold Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display_uncoded = function(value)
+  return "Scaled Maximum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Maximum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if maximum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_maximum_threshold_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.maximum_threshold_price, range, mantissa, mantissa_display)
+
+  local maximum_threshold_price_fraction_indicator_entry = field_tree:add("Maximum Threshold Price Fraction Indicator: " .. tostring(maximum_threshold_price_fraction_indicator))
+  maximum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Min Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price = {}
+
+-- Display: Scaled Min Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display = function(value)
+  return "Scaled Min Threshold Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Min Threshold Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display_uncoded = function(value)
+  return "Scaled Min Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Min Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if min_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  elseif min_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_min_threshold_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.min_threshold_price, range, mantissa, mantissa_display)
+
+  local min_threshold_price_fraction_indicator_entry = field_tree:add("Min Threshold Price Fraction Indicator: " .. tostring(min_threshold_price_fraction_indicator))
+  min_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Minimum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price = {}
+
+-- Display: Scaled Minimum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display = function(value)
+  return "Scaled Minimum Threshold Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Minimum Threshold Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display_uncoded = function(value)
+  return "Scaled Minimum Threshold Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Minimum Threshold Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if minimum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_minimum_threshold_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.minimum_threshold_price, range, mantissa, mantissa_display)
+
+  local minimum_threshold_price_fraction_indicator_entry = field_tree:add("Minimum Threshold Price Fraction Indicator: " .. tostring(minimum_threshold_price_fraction_indicator))
+  minimum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Net Change
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change = {}
+
+-- Display: Scaled Net Change
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Net Change with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display_uncoded = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Net Change
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if net_change_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_net_change, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.net_change, range, mantissa, mantissa_display)
+
+  local net_change_fraction_indicator_entry = field_tree:add("Net Change Fraction Indicator: " .. tostring(net_change_fraction_indicator))
+  net_change_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Open Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price = {}
+
+-- Display: Scaled Open Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Open Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display_uncoded = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Open Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if open_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_open_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price, range, mantissa, mantissa_display)
+
+  local open_price_fraction_indicator_entry = field_tree:add("Open Price Fraction Indicator: " .. tostring(open_price_fraction_indicator))
+  open_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Reference Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price = {}
+
+-- Display: Scaled Reference Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display = function(value)
+  return "Scaled Reference Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Reference Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display_uncoded = function(value)
+  return "Scaled Reference Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Reference Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if reference_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  elseif reference_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_reference_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reference_price, range, mantissa, mantissa_display)
+
+  local reference_price_fraction_indicator_entry = field_tree:add("Reference Price Fraction Indicator: " .. tostring(reference_price_fraction_indicator))
+  reference_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Strike Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price = {}
+
+-- Display: Scaled Strike Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Strike Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display_uncoded = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Strike Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if strike_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_strike_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.strike_price, range, mantissa, mantissa_display)
+
+  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
+  strike_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Tick Increment
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment = {}
+
+-- Display: Scaled Tick Increment
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Tick Increment with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display_uncoded = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Tick Increment
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if tick_increment_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_tick_increment, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.tick_increment, range, mantissa, mantissa_display)
+
+  local tick_increment_fraction_indicator_entry = field_tree:add("Tick Increment Fraction Indicator: " .. tostring(tick_increment_fraction_indicator))
+  tick_increment_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Trade Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price = {}
+
+-- Display: Scaled Trade Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Trade Price with an unrecognised code
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display_uncoded = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Trade Price
+box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if trade_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_trade_price, range, value, display)
+  local mantissa_display = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.trade_price, range, mantissa, mantissa_display)
+
+  local trade_price_fraction_indicator_entry = field_tree:add("Trade Price Fraction Indicator: " .. tostring(trade_price_fraction_indicator))
+  trade_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Box BoxOptions SolaUnicast Hsvf 4.5.1
@@ -4194,7 +6241,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_description.fields = function(
   index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4300,13 +6347,13 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_im
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_side.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_order.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order_sign.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size + 
+  box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_quantity.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_sequence_number.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.size + 
+  box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.auction_type.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.firm_id.size + 
@@ -4336,8 +6383,8 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_im
   -- Limit Entered For An Order Sign: X
   index, limit_entered_for_an_order_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order_sign.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  -- Limit Entered For An Order: N
+  index, limit_entered_for_an_order = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4354,8 +6401,8 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_market_sheet_initial_and_im
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Second Filler 1: 1 Byte
-  index, second_filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: 1 Byte
+  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
@@ -4399,13 +6446,13 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_orde
   box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_description.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_side.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_order.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size + 
+  box_boxoptions_solaunicast_hsvf_v4_5_1.limit_entered_for_an_order.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_quantity.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.order_sequence_number.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_sequential_number.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.size + 
+  box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.auction_type.size + 
   box_boxoptions_solaunicast_hsvf_v4_5_1.firm_id.size + 
@@ -4432,8 +6479,8 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_orde
   -- Type Of Order: X
   index, type_of_order = box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_order.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte
-  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
+  -- Limit Entered For An Order: N
+  index, limit_entered_for_an_order = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_limit_entered_for_an_order.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.limit_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4450,8 +6497,8 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_sheet_initial_and_improvement_orde
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Second Filler 1: 1 Byte
-  index, second_filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.second_filler_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: 1 Byte
+  index, filler_1 = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
   index, end_of_the_exposition = box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_the_exposition.dissect(buffer, index, packet, parent)
@@ -4527,7 +6574,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_improvement_process_beginni
   index, initial_order_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_sign.dissect(buffer, index, packet, parent)
 
   -- Initial Order Price: N
-  index, initial_order_price = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.dissect(buffer, index, packet, parent)
+  index, initial_order_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.dissect(buffer, index, packet, parent)
 
   -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4612,7 +6659,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_improvement_process_beginning_mess
   index, improvement_phase_sequential_number = box_boxoptions_solaunicast_hsvf_v4_5_1.improvement_phase_sequential_number.dissect(buffer, index, packet, parent)
 
   -- Initial Order Price: N
-  index, initial_order_price = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price.dissect(buffer, index, packet, parent)
+  index, initial_order_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_initial_order_price.dissect(buffer, index, packet, parent)
 
   -- Initial Order Price Fraction Indicator: X
   index, initial_order_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.initial_order_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5037,7 +7084,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, bid_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5049,9 +7096,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, ask_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -5061,7 +7108,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, last_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_sign.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.dissect(buffer, index, packet, parent)
 
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5070,7 +7117,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, open_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_sign.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
-  index, open_price = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.dissect(buffer, index, packet, parent)
+  index, open_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5079,7 +7126,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, high_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_sign.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5088,7 +7135,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, low_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_sign.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5097,7 +7144,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_summary_message.fields = fu
   index, net_change_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5218,7 +7265,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_summary_message.fields = function(
   index, instrument_description = box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5227,16 +7274,16 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_summary_message.fields = function(
   index, bid_size = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
   index, ask_size = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_last_price.dissect(buffer, index, packet, parent)
 
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5254,25 +7301,25 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_summary_message.fields = function(
   index, net_change_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
-  index, open_price = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price.dissect(buffer, index, packet, parent)
+  index, open_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_open_price.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5284,7 +7331,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_summary_message.fields = function(
   index, underlying_symbol = box_boxoptions_solaunicast_hsvf_v4_5_1.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Reference Price: N
-  index, reference_price = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price.dissect(buffer, index, packet, parent)
+  index, reference_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_reference_price.dissect(buffer, index, packet, parent)
 
   -- Reference Price Fraction Indicator: X
   index, reference_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.reference_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5454,7 +7501,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_keys_message.fie
   index, max_threshold_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price_sign.dissect(buffer, index, packet, parent)
 
   -- Max Threshold Price: X
-  index, max_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price.dissect(buffer, index, packet, parent)
+  index, max_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_max_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Max Threshold Price Fraction Indicator: X
   index, max_threshold_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.max_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5463,13 +7510,13 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_keys_message.fie
   index, min_threshold_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price_sign.dissect(buffer, index, packet, parent)
 
   -- Min Threshold Price: X
-  index, min_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price.dissect(buffer, index, packet, parent)
+  index, min_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_min_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Min Threshold Price Fraction Indicator: X
   index, min_threshold_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.min_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: N
   index, tick_increment_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5611,19 +7658,19 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_instrument_keys_message.fields = f
   index, minimum_number_of_contracts_per_order = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price: X
-  index, maximum_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price.dissect(buffer, index, packet, parent)
+  index, maximum_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_maximum_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price: X
-  index, minimum_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price.dissect(buffer, index, packet, parent)
+  index, minimum_threshold_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_minimum_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: N
   index, tick_increment_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5707,7 +7754,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_trade_cancellation_message.
   index, trade_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_sign.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5777,7 +7824,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_cancellation_message.fields 
   index, volume = box_boxoptions_solaunicast_hsvf_v4_5_1.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5857,7 +7904,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_market_depth_level.fields = funct
   index, bid_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5872,9 +7919,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_market_depth_level.fields = funct
   index, ask_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -6007,7 +8054,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_depth_level.fields = function(buff
   index, level_of_market_depth = box_boxoptions_solaunicast_hsvf_v4_5_1.level_of_market_depth.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6019,9 +8066,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.market_depth_level.fields = function(buff
   index, number_of_bid_orders = box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -6158,7 +8205,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_quote_message.fields = func
   index, bid_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6170,9 +8217,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_quote_message.fields = func
   index, ask_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -6242,7 +8289,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_quote_message.fields = function(bu
   index, instrument_description = box_boxoptions_solaunicast_hsvf_v4_5_1.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Bid Price: N
-  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_bid_price.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6251,9 +8298,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_quote_message.fields = function(bu
   index, bid_size = box_boxoptions_solaunicast_hsvf_v4_5_1.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
-  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Fraction Indicator: N
+  -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Ask Size: X
@@ -6380,7 +8427,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_trade_message.fi
   index, trade_price_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_sign.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6389,7 +8436,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order_instrument_trade_message.fi
   index, net_change_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6462,7 +8509,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_message.fields = function(bu
   index, volume = box_boxoptions_solaunicast_hsvf_v4_5_1.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6471,7 +8518,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.option_trade_message.fields = function(bu
   index, net_change_sign = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = box_boxoptions_solaunicast_hsvf_v4_5_1.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_boxoptions_solaunicast_hsvf_v4_5_1.net_change_fraction_indicator.dissect(buffer, index, packet, parent)

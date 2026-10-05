@@ -464,7 +464,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.entry_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.entry_type, range, value, display)
@@ -487,7 +487,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.event_code.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.event_code, range, value, display)
@@ -669,7 +669,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.isin.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.isin, range, value, display)
@@ -830,7 +830,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.leg_side, range, value, display)
@@ -912,7 +912,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.long_name.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.long_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.long_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.long_name, range, value, display)
@@ -1004,7 +1004,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_name.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_name.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.market_name, range, value, display)
@@ -1554,7 +1554,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_source.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_source.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.price_source, range, value, display)
@@ -1600,7 +1600,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_type.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.price_type, range, value, display)
@@ -1676,7 +1676,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_1.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_1, range, value, display)
@@ -1699,7 +1699,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_5.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_5.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_5, range, value, display)
@@ -1722,7 +1722,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_7.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_7.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.reserved_alpha_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_7, range, value, display)
@@ -1791,7 +1791,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second_reserved.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second_reserved.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second_reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second_reserved, range, value, display)
@@ -1876,7 +1876,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.side.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.side, range, value, display)
@@ -1922,7 +1922,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.symbol, range, value, display)
@@ -2156,7 +2156,7 @@ end
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.trading_currency.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.trading_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.trading_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.trading_currency, range, value, display)

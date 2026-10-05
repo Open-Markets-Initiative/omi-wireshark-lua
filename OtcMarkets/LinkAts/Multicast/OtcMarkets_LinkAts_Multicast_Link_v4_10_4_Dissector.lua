@@ -218,7 +218,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.adr_level.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.adr_level.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.adr_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.adr_level, range, value, display)
@@ -593,7 +593,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.cusip.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.cusip.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.cusip.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.cusip, range, value, display)
@@ -616,7 +616,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.deprecated_utf_85.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.deprecated_utf_85.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.deprecated_utf_85.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.deprecated_utf_85, range, value, display)
@@ -750,7 +750,7 @@ end
 -- Dissect runtime sized field: Issuer Name
 otcmarkets_linkats_multicast_link_v4_10_4.issuer_name.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.issuer_name.display(value, packet, parent, size)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.issuer_name, range, value, display)
@@ -1049,7 +1049,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.mpid.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.mpid.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.mpid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.mpid, range, value, display)
@@ -1230,7 +1230,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.primary_market.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.primary_market.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.primary_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.primary_market, range, value, display)
@@ -1458,7 +1458,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.reporting_status.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.reporting_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.reporting_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.reporting_status, range, value, display)
@@ -1517,7 +1517,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.security_desc.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.security_desc.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.security_desc.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.security_desc, range, value, display)
@@ -1536,7 +1536,7 @@ end
 -- Dissect runtime sized field: Security Detail Name
 otcmarkets_linkats_multicast_link_v4_10_4.security_detail_name.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.security_detail_name.display(value, packet, parent, size)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.security_detail_name, range, value, display)
@@ -1627,7 +1627,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.security_status.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.security_status, range, value, display)
@@ -1699,7 +1699,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.security_type.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.security_type, range, value, display)
@@ -1745,7 +1745,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.short_name.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.short_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.short_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.short_name, range, value, display)
@@ -1916,7 +1916,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.symbol.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.symbol, range, value, display)
@@ -2213,7 +2213,7 @@ end
 otcmarkets_linkats_multicast_link_v4_10_4.venue.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_multicast_link_v4_10_4.venue.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_multicast_link_v4_10_4.venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_10_4.fields.venue, range, value, display)

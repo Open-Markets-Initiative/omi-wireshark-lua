@@ -823,7 +823,7 @@ end
 otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_quoteinside_link_v4_10_4.reporting_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.reporting_status, range, value, display)
@@ -927,7 +927,7 @@ end
 otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_quoteinside_link_v4_10_4.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.security_status, range, value, display)
@@ -1121,7 +1121,7 @@ end
 otcmarkets_linkats_quoteinside_link_v4_10_4.symbol.dissect = function(buffer, offset, packet, parent)
   local length = otcmarkets_linkats_quoteinside_link_v4_10_4.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_UTF_8)
   local display = otcmarkets_linkats_quoteinside_link_v4_10_4.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.symbol, range, value, display)

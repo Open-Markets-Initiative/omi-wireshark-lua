@@ -632,7 +632,7 @@ eurex_t7_xti_fbe_v8_0.accrued_interes_amt.size = 8
 -- Display: Accrued Interes Amt
 eurex_t7_xti_fbe_v8_0.accrued_interes_amt.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Accrued Interes Amt: No Value"
   end
 
@@ -642,7 +642,7 @@ end
 -- Translate: Accrued Interes Amt
 eurex_t7_xti_fbe_v8_0.accrued_interes_amt.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -653,7 +653,7 @@ end
 eurex_t7_xti_fbe_v8_0.accrued_interes_amt.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.accrued_interes_amt.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.accrued_interes_amt.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.accrued_interes_amt.display(raw, value, buffer, offset, packet, parent)
 
@@ -839,7 +839,7 @@ eurex_t7_xti_fbe_v8_0.alloc_qty.size = 8
 -- Display: Alloc Qty
 eurex_t7_xti_fbe_v8_0.alloc_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Alloc Qty: No Value"
   end
 
@@ -849,7 +849,7 @@ end
 -- Translate: Alloc Qty
 eurex_t7_xti_fbe_v8_0.alloc_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -860,7 +860,7 @@ end
 eurex_t7_xti_fbe_v8_0.alloc_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.alloc_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.alloc_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.alloc_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -1519,7 +1519,7 @@ eurex_t7_xti_fbe_v8_0.best_bid_px.size = 8
 -- Display: Best Bid Px
 eurex_t7_xti_fbe_v8_0.best_bid_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Bid Px: No Value"
   end
 
@@ -1529,7 +1529,7 @@ end
 -- Translate: Best Bid Px
 eurex_t7_xti_fbe_v8_0.best_bid_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1540,7 +1540,7 @@ end
 eurex_t7_xti_fbe_v8_0.best_bid_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.best_bid_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.best_bid_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.best_bid_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -1558,7 +1558,7 @@ eurex_t7_xti_fbe_v8_0.best_bid_size.size = 8
 -- Display: Best Bid Size
 eurex_t7_xti_fbe_v8_0.best_bid_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Bid Size: No Value"
   end
 
@@ -1568,7 +1568,7 @@ end
 -- Translate: Best Bid Size
 eurex_t7_xti_fbe_v8_0.best_bid_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1579,7 +1579,7 @@ end
 eurex_t7_xti_fbe_v8_0.best_bid_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.best_bid_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.best_bid_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.best_bid_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -1597,7 +1597,7 @@ eurex_t7_xti_fbe_v8_0.best_offer_px.size = 8
 -- Display: Best Offer Px
 eurex_t7_xti_fbe_v8_0.best_offer_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Offer Px: No Value"
   end
 
@@ -1607,7 +1607,7 @@ end
 -- Translate: Best Offer Px
 eurex_t7_xti_fbe_v8_0.best_offer_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1618,7 +1618,7 @@ end
 eurex_t7_xti_fbe_v8_0.best_offer_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.best_offer_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.best_offer_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.best_offer_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -1636,7 +1636,7 @@ eurex_t7_xti_fbe_v8_0.best_offer_size.size = 8
 -- Display: Best Offer Size
 eurex_t7_xti_fbe_v8_0.best_offer_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Offer Size: No Value"
   end
 
@@ -1646,7 +1646,7 @@ end
 -- Translate: Best Offer Size
 eurex_t7_xti_fbe_v8_0.best_offer_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1657,7 +1657,7 @@ end
 eurex_t7_xti_fbe_v8_0.best_offer_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.best_offer_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.best_offer_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.best_offer_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -1675,7 +1675,7 @@ eurex_t7_xti_fbe_v8_0.bid_cxl_size.size = 8
 -- Display: Bid Cxl Size
 eurex_t7_xti_fbe_v8_0.bid_cxl_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Bid Cxl Size: No Value"
   end
 
@@ -1685,7 +1685,7 @@ end
 -- Translate: Bid Cxl Size
 eurex_t7_xti_fbe_v8_0.bid_cxl_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1696,7 +1696,7 @@ end
 eurex_t7_xti_fbe_v8_0.bid_cxl_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.bid_cxl_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.bid_cxl_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.bid_cxl_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -1714,7 +1714,7 @@ eurex_t7_xti_fbe_v8_0.bid_px.size = 8
 -- Display: Bid Px
 eurex_t7_xti_fbe_v8_0.bid_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Bid Px: No Value"
   end
 
@@ -1724,7 +1724,7 @@ end
 -- Translate: Bid Px
 eurex_t7_xti_fbe_v8_0.bid_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1735,7 +1735,7 @@ end
 eurex_t7_xti_fbe_v8_0.bid_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.bid_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.bid_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.bid_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -1753,7 +1753,7 @@ eurex_t7_xti_fbe_v8_0.bid_size.size = 8
 -- Display: Bid Size
 eurex_t7_xti_fbe_v8_0.bid_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Bid Size: No Value"
   end
 
@@ -1763,7 +1763,7 @@ end
 -- Translate: Bid Size
 eurex_t7_xti_fbe_v8_0.bid_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1774,7 +1774,7 @@ end
 eurex_t7_xti_fbe_v8_0.bid_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.bid_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.bid_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.bid_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -1881,7 +1881,7 @@ eurex_t7_xti_fbe_v8_0.coupon_rate.size = 8
 -- Display: Coupon Rate
 eurex_t7_xti_fbe_v8_0.coupon_rate.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Coupon Rate: No Value"
   end
 
@@ -1891,7 +1891,7 @@ end
 -- Translate: Coupon Rate
 eurex_t7_xti_fbe_v8_0.coupon_rate.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1902,7 +1902,7 @@ end
 eurex_t7_xti_fbe_v8_0.coupon_rate.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.coupon_rate.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.coupon_rate.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.coupon_rate.display(raw, value, buffer, offset, packet, parent)
 
@@ -1953,7 +1953,7 @@ eurex_t7_xti_fbe_v8_0.cum_qty.size = 8
 -- Display: Cum Qty
 eurex_t7_xti_fbe_v8_0.cum_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Cum Qty: No Value"
   end
 
@@ -1963,7 +1963,7 @@ end
 -- Translate: Cum Qty
 eurex_t7_xti_fbe_v8_0.cum_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -1974,7 +1974,7 @@ end
 eurex_t7_xti_fbe_v8_0.cum_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.cum_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.cum_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.cum_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -2020,7 +2020,7 @@ eurex_t7_xti_fbe_v8_0.cxl_qty.size = 8
 -- Display: Cxl Qty
 eurex_t7_xti_fbe_v8_0.cxl_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Cxl Qty: No Value"
   end
 
@@ -2030,7 +2030,7 @@ end
 -- Translate: Cxl Qty
 eurex_t7_xti_fbe_v8_0.cxl_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2041,7 +2041,7 @@ end
 eurex_t7_xti_fbe_v8_0.cxl_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.cxl_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.cxl_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.cxl_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -2059,7 +2059,7 @@ eurex_t7_xti_fbe_v8_0.cxl_size.size = 8
 -- Display: Cxl Size
 eurex_t7_xti_fbe_v8_0.cxl_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Cxl Size: No Value"
   end
 
@@ -2069,7 +2069,7 @@ end
 -- Translate: Cxl Size
 eurex_t7_xti_fbe_v8_0.cxl_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2080,7 +2080,7 @@ end
 eurex_t7_xti_fbe_v8_0.cxl_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.cxl_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.cxl_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.cxl_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -2248,7 +2248,7 @@ eurex_t7_xti_fbe_v8_0.display_high_qty.size = 8
 -- Display: Display High Qty
 eurex_t7_xti_fbe_v8_0.display_high_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Display High Qty: No Value"
   end
 
@@ -2258,7 +2258,7 @@ end
 -- Translate: Display High Qty
 eurex_t7_xti_fbe_v8_0.display_high_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2269,7 +2269,7 @@ end
 eurex_t7_xti_fbe_v8_0.display_high_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.display_high_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.display_high_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.display_high_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -2287,7 +2287,7 @@ eurex_t7_xti_fbe_v8_0.display_low_qty.size = 8
 -- Display: Display Low Qty
 eurex_t7_xti_fbe_v8_0.display_low_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Display Low Qty: No Value"
   end
 
@@ -2297,7 +2297,7 @@ end
 -- Translate: Display Low Qty
 eurex_t7_xti_fbe_v8_0.display_low_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2308,7 +2308,7 @@ end
 eurex_t7_xti_fbe_v8_0.display_low_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.display_low_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.display_low_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.display_low_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -2326,7 +2326,7 @@ eurex_t7_xti_fbe_v8_0.display_qty.size = 8
 -- Display: Display Qty
 eurex_t7_xti_fbe_v8_0.display_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Display Qty: No Value"
   end
 
@@ -2336,7 +2336,7 @@ end
 -- Translate: Display Qty
 eurex_t7_xti_fbe_v8_0.display_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2347,7 +2347,7 @@ end
 eurex_t7_xti_fbe_v8_0.display_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.display_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.display_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.display_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -2421,7 +2421,7 @@ eurex_t7_xti_fbe_v8_0.event_px.size = 8
 -- Display: Event Px
 eurex_t7_xti_fbe_v8_0.event_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Event Px: No Value"
   end
 
@@ -2431,7 +2431,7 @@ end
 -- Translate: Event Px
 eurex_t7_xti_fbe_v8_0.event_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -2442,7 +2442,7 @@ end
 eurex_t7_xti_fbe_v8_0.event_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.event_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.event_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.event_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -3098,7 +3098,7 @@ eurex_t7_xti_fbe_v8_0.fill_px.size = 8
 -- Display: Fill Px
 eurex_t7_xti_fbe_v8_0.fill_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Px: No Value"
   end
 
@@ -3108,7 +3108,7 @@ end
 -- Translate: Fill Px
 eurex_t7_xti_fbe_v8_0.fill_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3119,7 +3119,7 @@ end
 eurex_t7_xti_fbe_v8_0.fill_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.fill_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.fill_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.fill_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -3137,7 +3137,7 @@ eurex_t7_xti_fbe_v8_0.fill_qty.size = 8
 -- Display: Fill Qty
 eurex_t7_xti_fbe_v8_0.fill_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Fill Qty: No Value"
   end
 
@@ -3147,7 +3147,7 @@ end
 -- Translate: Fill Qty
 eurex_t7_xti_fbe_v8_0.fill_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3158,7 +3158,7 @@ end
 eurex_t7_xti_fbe_v8_0.fill_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.fill_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.fill_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.fill_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -3545,7 +3545,7 @@ eurex_t7_xti_fbe_v8_0.imbalance_qty.size = 8
 -- Display: Imbalance Qty
 eurex_t7_xti_fbe_v8_0.imbalance_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Imbalance Qty: No Value"
   end
 
@@ -3555,7 +3555,7 @@ end
 -- Translate: Imbalance Qty
 eurex_t7_xti_fbe_v8_0.imbalance_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3566,7 +3566,7 @@ end
 eurex_t7_xti_fbe_v8_0.imbalance_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.imbalance_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.imbalance_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.imbalance_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -3770,7 +3770,7 @@ eurex_t7_xti_fbe_v8_0.last_px.size = 8
 -- Display: Last Px
 eurex_t7_xti_fbe_v8_0.last_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Px: No Value"
   end
 
@@ -3780,7 +3780,7 @@ end
 -- Translate: Last Px
 eurex_t7_xti_fbe_v8_0.last_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3791,7 +3791,7 @@ end
 eurex_t7_xti_fbe_v8_0.last_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.last_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.last_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.last_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -3809,7 +3809,7 @@ eurex_t7_xti_fbe_v8_0.last_qty.size = 8
 -- Display: Last Qty
 eurex_t7_xti_fbe_v8_0.last_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Qty: No Value"
   end
 
@@ -3819,7 +3819,7 @@ end
 -- Translate: Last Qty
 eurex_t7_xti_fbe_v8_0.last_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3830,7 +3830,7 @@ end
 eurex_t7_xti_fbe_v8_0.last_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.last_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.last_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.last_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -3848,7 +3848,7 @@ eurex_t7_xti_fbe_v8_0.leaves_qty.size = 8
 -- Display: Leaves Qty
 eurex_t7_xti_fbe_v8_0.leaves_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Leaves Qty: No Value"
   end
 
@@ -3858,7 +3858,7 @@ end
 -- Translate: Leaves Qty
 eurex_t7_xti_fbe_v8_0.leaves_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -3869,7 +3869,7 @@ end
 eurex_t7_xti_fbe_v8_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.leaves_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.leaves_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.leaves_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -5215,7 +5215,7 @@ eurex_t7_xti_fbe_v8_0.offer_cxl_size.size = 8
 -- Display: Offer Cxl Size
 eurex_t7_xti_fbe_v8_0.offer_cxl_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Offer Cxl Size: No Value"
   end
 
@@ -5225,7 +5225,7 @@ end
 -- Translate: Offer Cxl Size
 eurex_t7_xti_fbe_v8_0.offer_cxl_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5236,7 +5236,7 @@ end
 eurex_t7_xti_fbe_v8_0.offer_cxl_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.offer_cxl_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.offer_cxl_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.offer_cxl_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -5254,7 +5254,7 @@ eurex_t7_xti_fbe_v8_0.offer_px.size = 8
 -- Display: Offer Px
 eurex_t7_xti_fbe_v8_0.offer_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Offer Px: No Value"
   end
 
@@ -5264,7 +5264,7 @@ end
 -- Translate: Offer Px
 eurex_t7_xti_fbe_v8_0.offer_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5275,7 +5275,7 @@ end
 eurex_t7_xti_fbe_v8_0.offer_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.offer_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.offer_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.offer_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -5293,7 +5293,7 @@ eurex_t7_xti_fbe_v8_0.offer_size.size = 8
 -- Display: Offer Size
 eurex_t7_xti_fbe_v8_0.offer_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Offer Size: No Value"
   end
 
@@ -5303,7 +5303,7 @@ end
 -- Translate: Offer Size
 eurex_t7_xti_fbe_v8_0.offer_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5314,7 +5314,7 @@ end
 eurex_t7_xti_fbe_v8_0.offer_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.offer_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.offer_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.offer_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -5624,7 +5624,7 @@ eurex_t7_xti_fbe_v8_0.order_qty.size = 8
 -- Display: Order Qty
 eurex_t7_xti_fbe_v8_0.order_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Order Qty: No Value"
   end
 
@@ -5634,7 +5634,7 @@ end
 -- Translate: Order Qty
 eurex_t7_xti_fbe_v8_0.order_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -5645,7 +5645,7 @@ end
 eurex_t7_xti_fbe_v8_0.order_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.order_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.order_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.order_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -6751,7 +6751,7 @@ eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.size = 8
 -- Display: Peg Offset Value Abs
 eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value Abs: No Value"
   end
 
@@ -6761,7 +6761,7 @@ end
 -- Translate: Peg Offset Value Abs
 eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6772,7 +6772,7 @@ end
 eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.display(raw, value, buffer, offset, packet, parent)
 
@@ -6790,7 +6790,7 @@ eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.size = 8
 -- Display: Peg Offset Value Bid Px
 eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value Bid Px: No Value"
   end
 
@@ -6800,7 +6800,7 @@ end
 -- Translate: Peg Offset Value Bid Px
 eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6811,7 +6811,7 @@ end
 eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -6829,7 +6829,7 @@ eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.size = 8
 -- Display: Peg Offset Value Offer Px
 eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value Offer Px: No Value"
   end
 
@@ -6839,7 +6839,7 @@ end
 -- Translate: Peg Offset Value Offer Px
 eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6850,7 +6850,7 @@ end
 eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -6868,7 +6868,7 @@ eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.size = 8
 -- Display: Peg Offset Value Pct
 eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value Pct: No Value"
   end
 
@@ -6878,7 +6878,7 @@ end
 -- Translate: Peg Offset Value Pct
 eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6889,7 +6889,7 @@ end
 eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.display(raw, value, buffer, offset, packet, parent)
 
@@ -6907,7 +6907,7 @@ eurex_t7_xti_fbe_v8_0.potential_exec_volume.size = 8
 -- Display: Potential Exec Volume
 eurex_t7_xti_fbe_v8_0.potential_exec_volume.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Potential Exec Volume: No Value"
   end
 
@@ -6917,7 +6917,7 @@ end
 -- Translate: Potential Exec Volume
 eurex_t7_xti_fbe_v8_0.potential_exec_volume.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6928,7 +6928,7 @@ end
 eurex_t7_xti_fbe_v8_0.potential_exec_volume.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.potential_exec_volume.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.potential_exec_volume.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.potential_exec_volume.display(raw, value, buffer, offset, packet, parent)
 
@@ -6946,7 +6946,7 @@ eurex_t7_xti_fbe_v8_0.price.size = 8
 -- Display: Price
 eurex_t7_xti_fbe_v8_0.price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -6956,7 +6956,7 @@ end
 -- Translate: Price
 eurex_t7_xti_fbe_v8_0.price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -6967,7 +6967,7 @@ end
 eurex_t7_xti_fbe_v8_0.price.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.price.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.price.display(raw, value, buffer, offset, packet, parent)
 
@@ -7338,7 +7338,7 @@ eurex_t7_xti_fbe_v8_0.quote_event_px.size = 8
 -- Display: Quote Event Px
 eurex_t7_xti_fbe_v8_0.quote_event_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Quote Event Px: No Value"
   end
 
@@ -7348,7 +7348,7 @@ end
 -- Translate: Quote Event Px
 eurex_t7_xti_fbe_v8_0.quote_event_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -7359,7 +7359,7 @@ end
 eurex_t7_xti_fbe_v8_0.quote_event_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.quote_event_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.quote_event_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.quote_event_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -7377,7 +7377,7 @@ eurex_t7_xti_fbe_v8_0.quote_event_qty.size = 8
 -- Display: Quote Event Qty
 eurex_t7_xti_fbe_v8_0.quote_event_qty.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Quote Event Qty: No Value"
   end
 
@@ -7387,7 +7387,7 @@ end
 -- Translate: Quote Event Qty
 eurex_t7_xti_fbe_v8_0.quote_event_qty.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -7398,7 +7398,7 @@ end
 eurex_t7_xti_fbe_v8_0.quote_event_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.quote_event_qty.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.quote_event_qty.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.quote_event_qty.display(raw, value, buffer, offset, packet, parent)
 
@@ -8231,7 +8231,7 @@ eurex_t7_xti_fbe_v8_0.reserved_bid_size.size = 8
 -- Display: Reserved Bid Size
 eurex_t7_xti_fbe_v8_0.reserved_bid_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Reserved Bid Size: No Value"
   end
 
@@ -8241,7 +8241,7 @@ end
 -- Translate: Reserved Bid Size
 eurex_t7_xti_fbe_v8_0.reserved_bid_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -8252,7 +8252,7 @@ end
 eurex_t7_xti_fbe_v8_0.reserved_bid_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.reserved_bid_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.reserved_bid_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.reserved_bid_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -8270,7 +8270,7 @@ eurex_t7_xti_fbe_v8_0.reserved_offer_size.size = 8
 -- Display: Reserved Offer Size
 eurex_t7_xti_fbe_v8_0.reserved_offer_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Reserved Offer Size: No Value"
   end
 
@@ -8280,7 +8280,7 @@ end
 -- Translate: Reserved Offer Size
 eurex_t7_xti_fbe_v8_0.reserved_offer_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -8291,7 +8291,7 @@ end
 eurex_t7_xti_fbe_v8_0.reserved_offer_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.reserved_offer_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.reserved_offer_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.reserved_offer_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -8309,7 +8309,7 @@ eurex_t7_xti_fbe_v8_0.reserved_size.size = 8
 -- Display: Reserved Size
 eurex_t7_xti_fbe_v8_0.reserved_size.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Reserved Size: No Value"
   end
 
@@ -8319,7 +8319,7 @@ end
 -- Translate: Reserved Size
 eurex_t7_xti_fbe_v8_0.reserved_size.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -8330,7 +8330,7 @@ end
 eurex_t7_xti_fbe_v8_0.reserved_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.reserved_size.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.reserved_size.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.reserved_size.display(raw, value, buffer, offset, packet, parent)
 
@@ -9839,7 +9839,7 @@ eurex_t7_xti_fbe_v8_0.settl_curr_amt.size = 8
 -- Display: Settl Curr Amt
 eurex_t7_xti_fbe_v8_0.settl_curr_amt.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Settl Curr Amt: No Value"
   end
 
@@ -9849,7 +9849,7 @@ end
 -- Translate: Settl Curr Amt
 eurex_t7_xti_fbe_v8_0.settl_curr_amt.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -9860,7 +9860,7 @@ end
 eurex_t7_xti_fbe_v8_0.settl_curr_amt.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.settl_curr_amt.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.settl_curr_amt.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.settl_curr_amt.display(raw, value, buffer, offset, packet, parent)
 
@@ -9878,7 +9878,7 @@ eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.size = 8
 -- Display: Settl Curr Fx Rate
 eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Settl Curr Fx Rate: No Value"
   end
 
@@ -9888,7 +9888,7 @@ end
 -- Translate: Settl Curr Fx Rate
 eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -9899,7 +9899,7 @@ end
 eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.display(raw, value, buffer, offset, packet, parent)
 
@@ -10006,7 +10006,7 @@ eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.size = 8
 -- Display: Side Gross Trade Amt
 eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Side Gross Trade Amt: No Value"
   end
 
@@ -10016,7 +10016,7 @@ end
 -- Translate: Side Gross Trade Amt
 eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -10027,7 +10027,7 @@ end
 eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.display(raw, value, buffer, offset, packet, parent)
 
@@ -10198,7 +10198,7 @@ eurex_t7_xti_fbe_v8_0.stop_px.size = 8
 -- Display: Stop Px
 eurex_t7_xti_fbe_v8_0.stop_px.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Stop Px: No Value"
   end
 
@@ -10208,7 +10208,7 @@ end
 -- Translate: Stop Px
 eurex_t7_xti_fbe_v8_0.stop_px.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -10219,7 +10219,7 @@ end
 eurex_t7_xti_fbe_v8_0.stop_px.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.stop_px.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.stop_px.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.stop_px.display(raw, value, buffer, offset, packet, parent)
 
@@ -12251,7 +12251,7 @@ eurex_t7_xti_fbe_v8_0.volume_discovery_price.size = 8
 -- Display: Volume Discovery Price
 eurex_t7_xti_fbe_v8_0.volume_discovery_price.display = function(raw, value)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Volume Discovery Price: No Value"
   end
 
@@ -12261,7 +12261,7 @@ end
 -- Translate: Volume Discovery Price
 eurex_t7_xti_fbe_v8_0.volume_discovery_price.translate = function(raw)
   -- Check null sentinel value
-  if raw == UInt64(0x00000000, 0x80000000) then
+  if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
   end
 
@@ -12272,7 +12272,7 @@ end
 eurex_t7_xti_fbe_v8_0.volume_discovery_price.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_xti_fbe_v8_0.volume_discovery_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = eurex_t7_xti_fbe_v8_0.volume_discovery_price.translate(raw)
   local display = eurex_t7_xti_fbe_v8_0.volume_discovery_price.display(raw, value, buffer, offset, packet, parent)
 
@@ -12573,16 +12573,16 @@ eurex_t7_xti_fbe_v8_0.srqs_quote_entry_grp_comp.fields = function(buffer, offset
   -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_t7_xti_fbe_v8_0.secondary_quote_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Party Id Executing Trader: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -12737,16 +12737,16 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_quote_notification.fields = function(buffer
   -- Secondary Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, secondary_quote_id = eurex_t7_xti_fbe_v8_0.secondary_quote_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -12902,19 +12902,19 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_open_negotiation_requester_notification.fie
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13032,13 +13032,13 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_open_negotiation_notification.fields = func
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13216,22 +13216,22 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_negotiation_requester_notification.fields =
   -- Trd Reg Ts Execution Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_execution_time = eurex_t7_xti_fbe_v8_0.trd_reg_ts_execution_time.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13334,13 +13334,13 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_negotiation_notification.fields = function(
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_xti_fbe_v8_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
   -- Negotiation Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13512,16 +13512,16 @@ eurex_t7_xti_fbe_v8_0.order_book_item_grp_comp.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
-  -- Best Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Best Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, best_bid_px = eurex_t7_xti_fbe_v8_0.best_bid_px.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Best Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, best_bid_size = eurex_t7_xti_fbe_v8_0.best_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Best Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, best_offer_px = eurex_t7_xti_fbe_v8_0.best_offer_px.dissect(buffer, index, packet, parent)
 
-  -- Best Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Best Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, best_offer_size = eurex_t7_xti_fbe_v8_0.best_offer_size.dissect(buffer, index, packet, parent)
 
   -- Md Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13585,10 +13585,10 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_create_deal_notification.fields = function(
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_xti_fbe_v8_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -13983,10 +13983,10 @@ eurex_t7_xti_fbe_v8_0.trailing_stop_update_notification.fields = function(buffer
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -14137,19 +14137,19 @@ eurex_t7_xti_fbe_v8_0.trade_broadcast.fields = function(buffer, offset, packet, 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_amt = eurex_t7_xti_fbe_v8_0.settl_curr_amt.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14161,19 +14161,19 @@ eurex_t7_xti_fbe_v8_0.trade_broadcast.fields = function(buffer, offset, packet, 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = eurex_t7_xti_fbe_v8_0.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Gross Trade Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Side Gross Trade Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, side_gross_trade_amt = eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.dissect(buffer, index, packet, parent)
 
-  -- Accrued Interes Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Accrued Interes Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, accrued_interes_amt = eurex_t7_xti_fbe_v8_0.accrued_interes_amt.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Coupon Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, coupon_rate = eurex_t7_xti_fbe_v8_0.coupon_rate.dissect(buffer, index, packet, parent)
 
   -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -14644,28 +14644,28 @@ eurex_t7_xti_fbe_v8_0.tes_trade_broadcast.fields = function(buffer, offset, pack
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_xti_fbe_v8_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_amt = eurex_t7_xti_fbe_v8_0.settl_curr_amt.dissect(buffer, index, packet, parent)
 
-  -- Side Gross Trade Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Side Gross Trade Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, side_gross_trade_amt = eurex_t7_xti_fbe_v8_0.side_gross_trade_amt.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
-  -- Accrued Interes Amt: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Accrued Interes Amt: 8 Byte Signed Fixed Width Integer Nullable
   index, accrued_interes_amt = eurex_t7_xti_fbe_v8_0.accrued_interes_amt.dissect(buffer, index, packet, parent)
 
-  -- Coupon Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Coupon Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, coupon_rate = eurex_t7_xti_fbe_v8_0.coupon_rate.dissect(buffer, index, packet, parent)
 
   -- Root Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15108,7 +15108,7 @@ eurex_t7_xti_fbe_v8_0.side_alloc_grp_bc_comp.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Alloc Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, alloc_qty = eurex_t7_xti_fbe_v8_0.alloc_qty.dissect(buffer, index, packet, parent)
 
   -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -15181,7 +15181,7 @@ eurex_t7_xti_fbe_v8_0.tes_broadcast.fields = function(buffer, offset, packet, pa
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15190,7 +15190,7 @@ eurex_t7_xti_fbe_v8_0.tes_broadcast.fields = function(buffer, offset, packet, pa
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_t7_xti_fbe_v8_0.trans_bkd_time.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -15290,10 +15290,10 @@ eurex_t7_xti_fbe_v8_0.tes_approve_broadcast.fields = function(buffer, offset, pa
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Alloc Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, alloc_qty = eurex_t7_xti_fbe_v8_0.alloc_qty.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -15302,7 +15302,7 @@ eurex_t7_xti_fbe_v8_0.tes_approve_broadcast.fields = function(buffer, offset, pa
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_t7_xti_fbe_v8_0.trans_bkd_time.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -15678,16 +15678,16 @@ eurex_t7_xti_fbe_v8_0.specialist_rfq_reply_notification.fields = function(buffer
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_t7_xti_fbe_v8_0.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -15751,10 +15751,10 @@ eurex_t7_xti_fbe_v8_0.fills_grp_comp.fields = function(buffer, offset, packet, p
     iteration:set_generated()
   end
 
-  -- Fill Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Px: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_px = eurex_t7_xti_fbe_v8_0.fill_px.dissect(buffer, index, packet, parent)
 
-  -- Fill Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Fill Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, fill_qty = eurex_t7_xti_fbe_v8_0.fill_qty.dissect(buffer, index, packet, parent)
 
   -- Fill Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -15839,22 +15839,22 @@ eurex_t7_xti_fbe_v8_0.specialist_order_book_notification.fields = function(buffe
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_t7_xti_fbe_v8_0.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -16685,7 +16685,7 @@ eurex_t7_xti_fbe_v8_0.rfq_specialist_broadcast.fields = function(buffer, offset,
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -16892,7 +16892,7 @@ eurex_t7_xti_fbe_v8_0.rfq_broadcast.fields = function(buffer, offset, packet, pa
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -16967,10 +16967,10 @@ eurex_t7_xti_fbe_v8_0.quote_event_grp_comp.fields = function(buffer, offset, pac
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Event Px: 8 Byte Signed Fixed Width Integer Nullable
   index, quote_event_px = eurex_t7_xti_fbe_v8_0.quote_event_px.dissect(buffer, index, packet, parent)
 
-  -- Quote Event Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Event Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, quote_event_qty = eurex_t7_xti_fbe_v8_0.quote_event_qty.dissect(buffer, index, packet, parent)
 
   -- Quote Msg Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -17571,16 +17571,16 @@ eurex_t7_xti_fbe_v8_0.order_exec_response.fields = function(buffer, offset, pack
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_t7_xti_fbe_v8_0.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -17698,40 +17698,40 @@ eurex_t7_xti_fbe_v8_0.order_exec_report_broadcast.fields = function(buffer, offs
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_time_priority = eurex_t7_xti_fbe_v8_0.trd_reg_ts_time_priority.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Low Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Low Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_low_qty = eurex_t7_xti_fbe_v8_0.display_low_qty.dissect(buffer, index, packet, parent)
 
-  -- Display High Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display High Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_high_qty = eurex_t7_xti_fbe_v8_0.display_high_qty.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Volume Discovery Price: 8 Byte Signed Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_t7_xti_fbe_v8_0.volume_discovery_price.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Abs: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Pct: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -17912,16 +17912,16 @@ eurex_t7_xti_fbe_v8_0.order_exec_notification.fields = function(buffer, offset, 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -18302,19 +18302,19 @@ eurex_t7_xti_fbe_v8_0.modify_order_response.fields = function(buffer, offset, pa
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
   -- Trd Reg Ts Time Priority: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -18412,19 +18412,19 @@ eurex_t7_xti_fbe_v8_0.modify_order_nr_response.fields = function(buffer, offset,
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -18506,7 +18506,7 @@ eurex_t7_xti_fbe_v8_0.quote_entry_ack_grp_comp.fields = function(buffer, offset,
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Cxl Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Size: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_size = eurex_t7_xti_fbe_v8_0.cxl_size.dissect(buffer, index, packet, parent)
 
   -- Quote Entry Reject Reason: 4 Byte Unsigned Fixed Width Integer Enum with 45 values
@@ -18923,16 +18923,16 @@ eurex_t7_xti_fbe_v8_0.issuer_notification.fields = function(buffer, offset, pack
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_xti_fbe_v8_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
-  -- Potential Exec Volume: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Potential Exec Volume: 8 Byte Signed Fixed Width Integer Nullable
   index, potential_exec_volume = eurex_t7_xti_fbe_v8_0.potential_exec_volume.dissect(buffer, index, packet, parent)
 
-  -- Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, last_qty = eurex_t7_xti_fbe_v8_0.last_qty.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Imbalance Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, imbalance_qty = eurex_t7_xti_fbe_v8_0.imbalance_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -19616,40 +19616,40 @@ eurex_t7_xti_fbe_v8_0.extended_deletion_report.fields = function(buffer, offset,
   -- Trd Reg Ts Entry Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trd_reg_ts_entry_time = eurex_t7_xti_fbe_v8_0.trd_reg_ts_entry_time.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Leaves Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = eurex_t7_xti_fbe_v8_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Low Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Low Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_low_qty = eurex_t7_xti_fbe_v8_0.display_low_qty.dissect(buffer, index, packet, parent)
 
-  -- Display High Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display High Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_high_qty = eurex_t7_xti_fbe_v8_0.display_high_qty.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Volume Discovery Price: 8 Byte Signed Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_t7_xti_fbe_v8_0.volume_discovery_price.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Abs: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Pct: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -19810,10 +19810,10 @@ eurex_t7_xti_fbe_v8_0.delete_order_response.fields = function(buffer, offset, pa
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -19902,10 +19902,10 @@ eurex_t7_xti_fbe_v8_0.delete_order_nr_response.fields = function(buffer, offset,
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Order Id Sfx: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -19994,10 +19994,10 @@ eurex_t7_xti_fbe_v8_0.delete_order_broadcast.fields = function(buffer, offset, p
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, exec_id = eurex_t7_xti_fbe_v8_0.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Cum Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cum Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cum_qty = eurex_t7_xti_fbe_v8_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Cxl Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cxl Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = eurex_t7_xti_fbe_v8_0.cxl_qty.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -20522,7 +20522,7 @@ eurex_t7_xti_fbe_v8_0.delete_all_order_broadcast.fields = function(buffer, offse
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -20782,10 +20782,10 @@ eurex_t7_xti_fbe_v8_0.best_quote_response.fields = function(buffer, offset, pack
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Cxl Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Cxl Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_cxl_size = eurex_t7_xti_fbe_v8_0.bid_cxl_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Cxl Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Cxl Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_cxl_size = eurex_t7_xti_fbe_v8_0.offer_cxl_size.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -20856,13 +20856,13 @@ eurex_t7_xti_fbe_v8_0.best_quote_execution_report.fields = function(buffer, offs
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Event Px: 8 Byte Signed Fixed Width Integer Nullable
   index, quote_event_px = eurex_t7_xti_fbe_v8_0.quote_event_px.dissect(buffer, index, packet, parent)
 
-  -- Quote Event Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Event Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, quote_event_qty = eurex_t7_xti_fbe_v8_0.quote_event_qty.dissect(buffer, index, packet, parent)
 
-  -- Reserved Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Reserved Size: 8 Byte Signed Fixed Width Integer Nullable
   index, reserved_size = eurex_t7_xti_fbe_v8_0.reserved_size.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -21462,13 +21462,13 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_update_negotiation_request.fields = functio
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_xti_fbe_v8_0.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -21642,13 +21642,13 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_open_negotiation_request.fields = function(
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Valid Until Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -21757,10 +21757,10 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_hit_quote_request.fields = function(buffer,
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_t7_xti_fbe_v8_0.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -21879,16 +21879,16 @@ eurex_t7_xti_fbe_v8_0.xetra_en_light_enter_quote_request.fields = function(buffe
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_xti_fbe_v8_0.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22326,16 +22326,16 @@ eurex_t7_xti_fbe_v8_0.specialist_rfq_reply_request.fields = function(buffer, off
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_id = eurex_t7_xti_fbe_v8_0.quote_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -22489,19 +22489,19 @@ eurex_t7_xti_fbe_v8_0.single_quote_request.fields = function(buffer, offset, pac
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_t7_xti_fbe_v8_0.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -22753,7 +22753,7 @@ eurex_t7_xti_fbe_v8_0.rfq_request.fields = function(buffer, offset, packet, pare
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Quote Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -22913,10 +22913,10 @@ eurex_t7_xti_fbe_v8_0.new_order_single_short_request.fields = function(buffer, o
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23035,31 +23035,31 @@ eurex_t7_xti_fbe_v8_0.new_order_single_request.fields = function(buffer, offset,
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_xti_fbe_v8_0.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Low Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Low Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_low_qty = eurex_t7_xti_fbe_v8_0.display_low_qty.dissect(buffer, index, packet, parent)
 
-  -- Display High Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display High Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_high_qty = eurex_t7_xti_fbe_v8_0.display_high_qty.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Volume Discovery Price: 8 Byte Signed Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_t7_xti_fbe_v8_0.volume_discovery_price.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Abs: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Pct: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23209,7 +23209,7 @@ eurex_t7_xti_fbe_v8_0.side_alloc_grp_comp.fields = function(buffer, offset, pack
     iteration:set_generated()
   end
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Alloc Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, alloc_qty = eurex_t7_xti_fbe_v8_0.alloc_qty.dissect(buffer, index, packet, parent)
 
   -- Individual Alloc Id: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -23276,7 +23276,7 @@ eurex_t7_xti_fbe_v8_0.modify_tes_trade_request.fields = function(buffer, offset,
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_t7_xti_fbe_v8_0.request_header_comp.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23382,10 +23382,10 @@ eurex_t7_xti_fbe_v8_0.modify_order_single_short_request.fields = function(buffer
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23513,31 +23513,31 @@ eurex_t7_xti_fbe_v8_0.modify_order_single_request.fields = function(buffer, offs
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_qty = eurex_t7_xti_fbe_v8_0.display_qty.dissect(buffer, index, packet, parent)
 
-  -- Display Low Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display Low Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_low_qty = eurex_t7_xti_fbe_v8_0.display_low_qty.dissect(buffer, index, packet, parent)
 
-  -- Display High Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Display High Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, display_high_qty = eurex_t7_xti_fbe_v8_0.display_high_qty.dissect(buffer, index, packet, parent)
 
-  -- Stop Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = eurex_t7_xti_fbe_v8_0.stop_px.dissect(buffer, index, packet, parent)
 
-  -- Volume Discovery Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Volume Discovery Price: 8 Byte Signed Fixed Width Integer Nullable
   index, volume_discovery_price = eurex_t7_xti_fbe_v8_0.volume_discovery_price.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Abs: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Abs: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_abs = eurex_t7_xti_fbe_v8_0.peg_offset_value_abs.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Pct: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Pct: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_pct = eurex_t7_xti_fbe_v8_0.peg_offset_value_pct.dissect(buffer, index, packet, parent)
 
   -- Party Id Client Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -23684,16 +23684,16 @@ eurex_t7_xti_fbe_v8_0.quote_entry_grp_comp.fields = function(buffer, offset, pac
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -24008,7 +24008,7 @@ eurex_t7_xti_fbe_v8_0.security_status_event_grp_comp.fields = function(buffer, o
     iteration:set_generated()
   end
 
-  -- Event Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Event Px: 8 Byte Signed Fixed Width Integer Nullable
   index, event_px = eurex_t7_xti_fbe_v8_0.event_px.dissect(buffer, index, packet, parent)
 
   -- Event Date: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -24384,13 +24384,13 @@ eurex_t7_xti_fbe_v8_0.enter_tes_trade_request.fields = function(buffer, offset, 
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, last_px = eurex_t7_xti_fbe_v8_0.last_px.dissect(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trans_bkd_time = eurex_t7_xti_fbe_v8_0.trans_bkd_time.dissect(buffer, index, packet, parent)
 
-  -- Settl Curr Fx Rate: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Settl Curr Fx Rate: 8 Byte Signed Fixed Width Integer Nullable
   index, settl_curr_fx_rate = eurex_t7_xti_fbe_v8_0.settl_curr_fx_rate.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -24484,28 +24484,28 @@ eurex_t7_xti_fbe_v8_0.enter_best_quote_request.fields = function(buffer, offset,
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = eurex_t7_xti_fbe_v8_0.bid_px.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_size = eurex_t7_xti_fbe_v8_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Reserved Bid Size: 8 Byte Signed Fixed Width Integer Nullable
   index, reserved_bid_size = eurex_t7_xti_fbe_v8_0.reserved_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = eurex_t7_xti_fbe_v8_0.offer_px.dissect(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_size = eurex_t7_xti_fbe_v8_0.offer_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Reserved Offer Size: 8 Byte Signed Fixed Width Integer Nullable
   index, reserved_offer_size = eurex_t7_xti_fbe_v8_0.reserved_offer_size.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Bid Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_bid_px = eurex_t7_xti_fbe_v8_0.peg_offset_value_bid_px.dissect(buffer, index, packet, parent)
 
-  -- Peg Offset Value Offer Px: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Peg Offset Value Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, peg_offset_value_offer_px = eurex_t7_xti_fbe_v8_0.peg_offset_value_offer_px.dissect(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24849,7 +24849,7 @@ eurex_t7_xti_fbe_v8_0.delete_all_order_request.fields = function(buffer, offset,
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = eurex_t7_xti_fbe_v8_0.price.dissect(buffer, index, packet, parent)
 
   -- Party Id Investment Decision Maker: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -24938,7 +24938,7 @@ eurex_t7_xti_fbe_v8_0.cross_request.fields = function(buffer, offset, packet, pa
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_xti_fbe_v8_0.security_id.dissect(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, order_qty = eurex_t7_xti_fbe_v8_0.order_qty.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -25012,7 +25012,7 @@ eurex_t7_xti_fbe_v8_0.approve_tes_trade_request.fields = function(buffer, offset
   -- Executing Trader: 8 Byte Unsigned Fixed Width Integer Nullable
   index, executing_trader = eurex_t7_xti_fbe_v8_0.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Alloc Qty: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Alloc Qty: 8 Byte Signed Fixed Width Integer Nullable
   index, alloc_qty = eurex_t7_xti_fbe_v8_0.alloc_qty.dissect(buffer, index, packet, parent)
 
   -- Package Id: 4 Byte Unsigned Fixed Width Integer Nullable

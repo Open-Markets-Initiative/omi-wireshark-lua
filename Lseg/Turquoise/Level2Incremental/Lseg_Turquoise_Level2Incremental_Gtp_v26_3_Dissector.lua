@@ -211,7 +211,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.auction_info.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.auction_info.display(value, buffer, offset, packet, parent)
@@ -251,7 +251,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.auction_type.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.auction_type.display(value, buffer, offset, packet, parent)
@@ -426,7 +426,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.cross_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.cross_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.cross_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.cross_id, range, value, display)
@@ -484,7 +484,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.currency, range, value, display)
@@ -583,7 +583,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.event_code.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.event_code.display(value, buffer, offset, packet, parent)
@@ -779,7 +779,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.isin, range, value, display)
@@ -1101,7 +1101,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.opening_closing_price_indicator.disse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.opening_closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -1204,7 +1204,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.participant.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.participant.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.participant, range, value, display)
@@ -1238,7 +1238,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.partition_id.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
@@ -1470,7 +1470,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.rfq_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.rfq_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.rfq_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.rfq_id, range, value, display)
@@ -1521,7 +1521,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.security_exchange.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.security_exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.security_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.security_exchange, range, value, display)
@@ -1549,7 +1549,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.segment, range, value, display)
@@ -1658,7 +1658,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.side.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.side.display(value, buffer, offset, packet, parent)
@@ -1914,7 +1914,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.tick_id, range, value, display)
@@ -2078,7 +2078,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_qualifier.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -2124,7 +2124,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.dissect = function
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.display(value, buffer, offset, packet, parent)
@@ -2221,7 +2221,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.trading_status.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level2incremental_gtp_v26_3.trading_status.display(value, buffer, offset, packet, parent)
@@ -2336,7 +2336,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level2incremental_gtp_v26_3.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.venue_instrument_id, range, value, display)

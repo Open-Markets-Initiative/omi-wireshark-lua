@@ -23,6 +23,7 @@ omi_nasdaq_psxequities_totalview_itch_v5_0.fields.breached_level = ProtoField.ne
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.psxequities.totalview.itch.v5.0.buysellindicator", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cancelled_shares = ProtoField.new("Cancelled Shares", "nasdaq.psxequities.totalview.itch.v5.0.cancelledshares", ftypes.UINT32)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.psxequities.totalview.itch.v5.0.crossprice", ftypes.DOUBLE)
+omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.psxequities.totalview.itch.v5.0.crossshares", ftypes.UINT64)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.psxequities.totalview.itch.v5.0.crosstype", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.psxequities.totalview.itch.v5.0.currentreferenceprice", ftypes.DOUBLE)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.psxequities.totalview.itch.v5.0.etpflag", ftypes.STRING)
@@ -70,8 +71,7 @@ omi_nasdaq_psxequities_totalview_itch_v5_0.fields.round_lot_size = ProtoField.ne
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.psxequities.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.totalview.itch.v5.0.sequencenumber", ftypes.UINT64)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.psxequities.totalview.itch.v5.0.session", ftypes.STRING)
-omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares_integer_4 = ProtoField.new("Shares Integer 4", "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger4", ftypes.UINT32)
-omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares_integer_8 = ProtoField.new("Shares Integer 8", "nasdaq.psxequities.totalview.itch.v5.0.sharesinteger8", ftypes.UINT64)
+omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.totalview.itch.v5.0.shares", ftypes.UINT32)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.psxequities.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.totalview.itch.v5.0.stock", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.psxequities.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
@@ -456,6 +456,29 @@ nasdaq_psxequities_totalview_itch_v5_0.cross_price.dissect = function(buffer, of
   local display = nasdaq_psxequities_totalview_itch_v5_0.cross_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cross_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Shares
+nasdaq_psxequities_totalview_itch_v5_0.cross_shares = {}
+
+-- Size: Cross Shares
+nasdaq_psxequities_totalview_itch_v5_0.cross_shares.size = 8
+
+-- Display: Cross Shares
+nasdaq_psxequities_totalview_itch_v5_0.cross_shares.display = function(value)
+  return "Cross Shares: "..value
+end
+
+-- Dissect: Cross Shares
+nasdaq_psxequities_totalview_itch_v5_0.cross_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_totalview_itch_v5_0.cross_shares.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_psxequities_totalview_itch_v5_0.cross_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.cross_shares, range, value, display)
 
   return offset + length, value
 end
@@ -2031,48 +2054,25 @@ nasdaq_psxequities_totalview_itch_v5_0.session.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Shares Integer 4
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4 = {}
+-- Shares
+nasdaq_psxequities_totalview_itch_v5_0.shares = {}
 
--- Size: Shares Integer 4
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size = 4
+-- Size: Shares
+nasdaq_psxequities_totalview_itch_v5_0.shares.size = 4
 
--- Display: Shares Integer 4
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.display = function(value)
-  return "Shares Integer 4: "..value
+-- Display: Shares
+nasdaq_psxequities_totalview_itch_v5_0.shares.display = function(value)
+  return "Shares: "..value
 end
 
--- Dissect: Shares Integer 4
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size
+-- Dissect: Shares
+nasdaq_psxequities_totalview_itch_v5_0.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_totalview_itch_v5_0.shares.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_totalview_itch_v5_0.shares.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares_integer_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Shares Integer 8
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8 = {}
-
--- Size: Shares Integer 8
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.size = 8
-
--- Display: Shares Integer 8
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.display = function(value)
-  return "Shares Integer 8: "..value
-end
-
--- Dissect: Shares Integer 8
-nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares_integer_8, range, value, display)
+  parent:add(omi_nasdaq_psxequities_totalview_itch_v5_0.fields.shares, range, value, display)
 
   return offset + length, value
 end
@@ -2525,7 +2525,7 @@ nasdaq_psxequities_totalview_itch_v5_0.cross_trade_message.size =
   nasdaq_psxequities_totalview_itch_v5_0.stock_locate.size + 
   nasdaq_psxequities_totalview_itch_v5_0.tracking_number.size + 
   nasdaq_psxequities_totalview_itch_v5_0.timestamp.size + 
-  nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.size + 
+  nasdaq_psxequities_totalview_itch_v5_0.cross_shares.size + 
   nasdaq_psxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_psxequities_totalview_itch_v5_0.cross_price.size + 
   nasdaq_psxequities_totalview_itch_v5_0.match_number.size + 
@@ -2549,8 +2549,8 @@ nasdaq_psxequities_totalview_itch_v5_0.cross_trade_message.fields = function(buf
   -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Shares Integer 8: Integer
-  index, shares_integer_8 = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_8.dissect(buffer, index, packet, parent)
+  -- Cross Shares: Integer
+  index, cross_shares = nasdaq_psxequities_totalview_itch_v5_0.cross_shares.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0.stock.dissect(buffer, index, packet, parent)
@@ -2595,7 +2595,7 @@ nasdaq_psxequities_totalview_itch_v5_0.trade_message_non_cross.size =
   nasdaq_psxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_psxequities_totalview_itch_v5_0.order_reference_number.size + 
   nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size + 
+  nasdaq_psxequities_totalview_itch_v5_0.shares.size + 
   nasdaq_psxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_psxequities_totalview_itch_v5_0.price.size + 
   nasdaq_psxequities_totalview_itch_v5_0.match_number.size
@@ -2624,8 +2624,8 @@ nasdaq_psxequities_totalview_itch_v5_0.trade_message_non_cross.fields = function
   -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Integer 4: Integer
-  index, shares_integer_4 = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.dissect(buffer, index, packet, parent)
+  -- Shares: Integer
+  index, shares = nasdaq_psxequities_totalview_itch_v5_0.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0.stock.dissect(buffer, index, packet, parent)
@@ -2667,7 +2667,7 @@ nasdaq_psxequities_totalview_itch_v5_0.order_replace_message.size =
   nasdaq_psxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_psxequities_totalview_itch_v5_0.original_order_reference_number.size + 
   nasdaq_psxequities_totalview_itch_v5_0.new_order_reference_number.size + 
-  nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size + 
+  nasdaq_psxequities_totalview_itch_v5_0.shares.size + 
   nasdaq_psxequities_totalview_itch_v5_0.price.size
 
 -- Display: Order Replace Message
@@ -2694,8 +2694,8 @@ nasdaq_psxequities_totalview_itch_v5_0.order_replace_message.fields = function(b
   -- New Order Reference Number: Integer
   index, new_order_reference_number = nasdaq_psxequities_totalview_itch_v5_0.new_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Shares Integer 4: Integer
-  index, shares_integer_4 = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.dissect(buffer, index, packet, parent)
+  -- Shares: Integer
+  index, shares = nasdaq_psxequities_totalview_itch_v5_0.shares.dissect(buffer, index, packet, parent)
 
   -- Price: Price (4)
   index, price = nasdaq_psxequities_totalview_itch_v5_0.price.dissect(buffer, index, packet, parent)
@@ -2967,7 +2967,7 @@ nasdaq_psxequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.s
   nasdaq_psxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_psxequities_totalview_itch_v5_0.order_reference_number.size + 
   nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size + 
+  nasdaq_psxequities_totalview_itch_v5_0.shares.size + 
   nasdaq_psxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_psxequities_totalview_itch_v5_0.price.size + 
   nasdaq_psxequities_totalview_itch_v5_0.attribution.size
@@ -2996,8 +2996,8 @@ nasdaq_psxequities_totalview_itch_v5_0.add_order_with_mpid_attribution_message.f
   -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Integer 4: Integer
-  index, shares_integer_4 = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.dissect(buffer, index, packet, parent)
+  -- Shares: Integer
+  index, shares = nasdaq_psxequities_totalview_itch_v5_0.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0.stock.dissect(buffer, index, packet, parent)
@@ -3039,7 +3039,7 @@ nasdaq_psxequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.siz
   nasdaq_psxequities_totalview_itch_v5_0.timestamp.size + 
   nasdaq_psxequities_totalview_itch_v5_0.order_reference_number.size + 
   nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.size + 
-  nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.size + 
+  nasdaq_psxequities_totalview_itch_v5_0.shares.size + 
   nasdaq_psxequities_totalview_itch_v5_0.stock.size + 
   nasdaq_psxequities_totalview_itch_v5_0.price.size
 
@@ -3067,8 +3067,8 @@ nasdaq_psxequities_totalview_itch_v5_0.add_order_no_mpid_attribution_message.fie
   -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Integer 4: Integer
-  index, shares_integer_4 = nasdaq_psxequities_totalview_itch_v5_0.shares_integer_4.dissect(buffer, index, packet, parent)
+  -- Shares: Integer
+  index, shares = nasdaq_psxequities_totalview_itch_v5_0.shares.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0.stock.dissect(buffer, index, packet, parent)

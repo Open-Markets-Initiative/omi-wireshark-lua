@@ -234,7 +234,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.agency_cross_indicator.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.agency_cross_indicator.display(value, buffer, offset, packet, parent)
@@ -264,7 +264,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.agency_cross_trade_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.agency_cross_trade_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.agency_cross_trade_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.agency_cross_trade_flag, range, value, display)
@@ -292,7 +292,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.algo_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.algo_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.algo_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.algo_transaction_flag, range, value, display)
@@ -326,7 +326,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.algorithmic_indicator.dissect = functio
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.algorithmic_indicator.display(value, buffer, offset, packet, parent)
@@ -356,7 +356,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.amendment_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.amendment_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.amendment_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.amendment_flag, range, value, display)
@@ -413,7 +413,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.benchmark_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.benchmark_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.benchmark_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.benchmark_transaction_flag, range, value, display)
@@ -441,7 +441,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.cancellation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.cancellation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.cancellation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.cancellation_flag, range, value, display)
@@ -469,7 +469,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.consecutive_aggregation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.consecutive_aggregation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.consecutive_aggregation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.consecutive_aggregation_flag, range, value, display)
@@ -497,7 +497,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.contingent_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.contingent_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.contingent_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.contingent_transaction_flag, range, value, display)
@@ -525,7 +525,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.currency, range, value, display)
@@ -553,7 +553,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.da_full_details_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.da_full_details_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.da_full_details_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.da_full_details_flag, range, value, display)
@@ -581,7 +581,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.daily_aggregated_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.daily_aggregated_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.daily_aggregated_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.daily_aggregated_transaction_flag, range, value, display)
@@ -615,7 +615,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.dissect = func
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.display(value, buffer, offset, packet, parent)
@@ -645,7 +645,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicate_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicate_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicate_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.duplicate_flag, range, value, display)
@@ -679,7 +679,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicative_indicator.dissect = functio
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.duplicative_indicator.display(value, buffer, offset, packet, parent)
@@ -738,7 +738,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.emission_allowance_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.emission_allowance_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.emission_allowance_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.emission_allowance_type, range, value, display)
@@ -779,7 +779,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.event_code.dissect = function(buffer, o
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
@@ -809,7 +809,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.exchange_for_physicals_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.exchange_for_physicals_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.exchange_for_physicals_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.exchange_for_physicals_flag, range, value, display)
@@ -837,7 +837,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.fa_full_details_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.fa_full_details_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.fa_full_details_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.fa_full_details_flag, range, value, display)
@@ -865,7 +865,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.four_weeks_aggregation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.four_weeks_aggregation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.four_weeks_aggregation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.four_weeks_aggregation_flag, range, value, display)
@@ -893,7 +893,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.indefinite_aggregation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.indefinite_aggregation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.indefinite_aggregation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.indefinite_aggregation_flag, range, value, display)
@@ -944,7 +944,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.instrument_identification_code, range, value, display)
@@ -971,7 +971,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.instrument_identification_code_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.instrument_identification_code_type, range, value, display)
@@ -999,7 +999,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.isin, range, value, display)
@@ -1027,7 +1027,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.ld_full_details_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.ld_full_details_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.ld_full_details_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.ld_full_details_flag, range, value, display)
@@ -1078,7 +1078,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.limited_details_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.limited_details_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.limited_details_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.limited_details_flag, range, value, display)
@@ -1106,7 +1106,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.market_closing_price_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.market_closing_price_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.market_closing_price_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.market_closing_price_flag, range, value, display)
@@ -1167,7 +1167,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.market_mechanism.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.market_mechanism.display(value, buffer, offset, packet, parent)
@@ -1382,7 +1382,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.modification_indicator.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.modification_indicator.display(value, buffer, offset, packet, parent)
@@ -1437,7 +1437,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.negotiation_indicator.dissect = functio
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.negotiation_indicator.display(value, buffer, offset, packet, parent)
@@ -1499,7 +1499,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_contribution_to_discovery.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_contribution_to_discovery.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_contribution_to_discovery.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.non_price_contribution_to_discovery, range, value, display)
@@ -1527,7 +1527,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_forming_transactions_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_forming_transactions_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.non_price_forming_transactions_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.non_price_forming_transactions_flag, range, value, display)
@@ -1583,7 +1583,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.notional_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.notional_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.notional_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.notional_currency, range, value, display)
@@ -1611,7 +1611,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_large_in_scale_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_large_in_scale_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_large_in_scale_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_large_in_scale_flag, range, value, display)
@@ -1639,7 +1639,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_liquidity_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_liquidity_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_liquidity_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_liquidity_flag, range, value, display)
@@ -1667,7 +1667,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_pre_trade_transparency_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_pre_trade_transparency_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_pre_trade_transparency_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_pre_trade_transparency_flag, range, value, display)
@@ -1695,7 +1695,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_price_conditions_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_price_conditions_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.nt_price_conditions_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.nt_price_conditions_flag, range, value, display)
@@ -1775,7 +1775,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.dissect = 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
@@ -1835,7 +1835,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.portfolio_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.portfolio_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.portfolio_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.portfolio_transaction_flag, range, value, display)
@@ -1869,7 +1869,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.dissect = fu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
@@ -1928,7 +1928,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_conditions.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_conditions.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_conditions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.price_conditions, range, value, display)
@@ -1956,7 +1956,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.price_currency, range, value, display)
@@ -1990,7 +1990,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_formation_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_formation_indicator.display(value, buffer, offset, packet, parent)
@@ -2020,7 +2020,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_improvement_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_improvement_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_improvement_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.price_improvement_flag, range, value, display)
@@ -2056,7 +2056,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_notation.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_notation.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.price_notation, range, value, display)
@@ -2084,7 +2084,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_deferral_reason_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_deferral_reason_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_deferral_reason_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.pt_deferral_reason_flag, range, value, display)
@@ -2112,7 +2112,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_illiquid_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_illiquid_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.pt_illiquid_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.pt_illiquid_flag, range, value, display)
@@ -2202,7 +2202,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.reference_price_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.reference_price_indicator.display(value, buffer, offset, packet, parent)
@@ -2232,7 +2232,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.reference_price_transaction_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.reference_price_transaction_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.reference_price_transaction_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.reference_price_transaction_flag, range, value, display)
@@ -2421,7 +2421,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.segment, range, value, display)
@@ -2526,7 +2526,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.special_dividend_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.special_dividend_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.special_dividend_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.special_dividend_flag, range, value, display)
@@ -2560,7 +2560,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.special_dividend_indicator.dissect = fu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.special_dividend_indicator.display(value, buffer, offset, packet, parent)
@@ -2642,7 +2642,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.thirdcountry_trading_venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.thirdcountry_trading_venue_of_execution, range, value, display)
@@ -2670,7 +2670,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.tick_id, range, value, display)
@@ -2764,7 +2764,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.trading_mode.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.trading_mode.display(value, buffer, offset, packet, parent)
@@ -2813,7 +2813,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.trading_status.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
@@ -2868,7 +2868,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_category.dissect = function
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_category.display(value, buffer, offset, packet, parent)
@@ -2898,7 +2898,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.transaction_identification_code, range, value, display)
@@ -2939,7 +2939,7 @@ lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_to_be_cleared.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.transaction_to_be_cleared.display(value, buffer, offset, packet, parent)
@@ -3057,7 +3057,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.venue_instrument_id, range, value, display)
@@ -3085,7 +3085,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_measurement_unit_notation.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_measurement_unit_notation.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_measurement_unit_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.venue_measurement_unit_notation, range, value, display)
@@ -3113,7 +3113,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_execution.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.venue_of_execution, range, value, display)
@@ -3141,7 +3141,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_publication.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_publication.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.venue_of_publication.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.venue_of_publication, range, value, display)
@@ -3205,7 +3205,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.vo_full_details_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vo_full_details_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.vo_full_details_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.vo_full_details_flag, range, value, display)
@@ -3262,7 +3262,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_omission_flag, range, value, display)
@@ -3290,7 +3290,7 @@ end
 lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_for_sovereign_debt_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_for_sovereign_debt_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_tradeecho_mifid2posttrade_gtp_v24_4.volume_omission_for_sovereign_debt_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.volume_omission_for_sovereign_debt_flag, range, value, display)

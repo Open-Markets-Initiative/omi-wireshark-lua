@@ -524,9 +524,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.account_number.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.account_number.display(value, buffer, offset, packet, parent)
@@ -1664,9 +1664,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.clearing_account.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.clearing_account.display(value, buffer, offset, packet, parent)
@@ -1703,9 +1703,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.clearing_firm_id.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.clearing_firm_id.display(value, buffer, offset, packet, parent)
@@ -1742,9 +1742,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.clearing_firm_id_optional.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.clearing_firm_id_optional.display(value, buffer, offset, packet, parent)
@@ -1874,9 +1874,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.client_id.dissect = function(buffer, of
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.client_id.display(value, buffer, offset, packet, parent)
@@ -2048,9 +2048,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.counterpart_firm_id.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.counterpart_firm_id.display(value, buffer, offset, packet, parent)
@@ -2368,9 +2368,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.desk_id.dissect = function(buffer, offs
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.desk_id.display(value, buffer, offset, packet, parent)
@@ -2523,9 +2523,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.end_client.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.end_client.display(value, buffer, offset, packet, parent)
@@ -2562,9 +2562,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.entering_counterparty.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.entering_counterparty.display(value, buffer, offset, packet, parent)
@@ -2787,9 +2787,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.event_investor_id.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.event_investor_id.display(value, buffer, offset, packet, parent)
@@ -3112,9 +3112,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.firm_id.dissect = function(buffer, offs
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.firm_id.display(value, buffer, offset, packet, parent)
@@ -3197,9 +3197,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.free_text.dissect = function(buffer, of
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.free_text.display(value, buffer, offset, packet, parent)
@@ -3548,9 +3548,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.investor_id.dissect = function(buffer, 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.investor_id.display(value, buffer, offset, packet, parent)
@@ -4055,9 +4055,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.long_client_id.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.long_client_id.display(value, buffer, offset, packet, parent)
@@ -5466,9 +5466,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.original_investor_id.dissect = function
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.original_investor_id.display(value, buffer, offset, packet, parent)
@@ -5628,9 +5628,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.parent_trade_unique_identifier.dissect 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.parent_trade_unique_identifier.display(value, buffer, offset, packet, parent)
@@ -6005,9 +6005,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.principal_code.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.principal_code.display(value, buffer, offset, packet, parent)
@@ -6509,9 +6509,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.sender_location_id.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.sender_location_id.display(value, buffer, offset, packet, parent)
@@ -7560,9 +7560,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.trade_unique_identifier.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.trade_unique_identifier.display(value, buffer, offset, packet, parent)
@@ -7599,9 +7599,9 @@ euronext_optiq_dropcopygateway_sbe_v5_35.trader_id.dissect = function(buffer, of
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_dropcopygateway_sbe_v5_35.trader_id.display(value, buffer, offset, packet, parent)

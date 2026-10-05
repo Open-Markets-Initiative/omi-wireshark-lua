@@ -819,9 +819,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.apa_origin.dissect = function(buffer,
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.apa_origin.display(value, buffer, offset, packet, parent)
@@ -972,7 +972,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.block_trade_code.dissect = function(b
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.block_trade_code.display(value, buffer, offset, packet, parent)
@@ -1063,9 +1063,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.cfi.dissect = function(buffer, offset
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.cfi.display(value, buffer, offset, packet, parent)
@@ -1102,9 +1102,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.cfi_optional.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.cfi_optional.display(value, buffer, offset, packet, parent)
@@ -1444,9 +1444,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.contract_name.dissect = function(buff
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.contract_name.display(value, buffer, offset, packet, parent)
@@ -1557,7 +1557,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.contract_type.dissect = function(buff
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.contract_type.display(value, buffer, offset, packet, parent)
@@ -1594,9 +1594,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.country_of_exchange.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.country_of_exchange.display(value, buffer, offset, packet, parent)
@@ -1633,9 +1633,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.country_of_exchange_optional.dissect 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.country_of_exchange_optional.display(value, buffer, offset, packet, parent)
@@ -1700,9 +1700,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.currency.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.currency.display(value, buffer, offset, packet, parent)
@@ -1767,9 +1767,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.currency_optional.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.currency_optional.display(value, buffer, offset, packet, parent)
@@ -1974,9 +1974,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.depositary_list.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.depositary_list.display(value, buffer, offset, packet, parent)
@@ -2013,9 +2013,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.derivatives_instrument_trading_code.d
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.derivatives_instrument_trading_code.display(value, buffer, offset, packet, parent)
@@ -2052,9 +2052,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.derivatives_instrument_trading_code_o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.derivatives_instrument_trading_code_optional.display(value, buffer, offset, packet, parent)
@@ -2169,9 +2169,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.dividend_currency.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.dividend_currency.display(value, buffer, offset, packet, parent)
@@ -2398,7 +2398,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_agency_cross_trade_indi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_agency_cross_trade_indicator.display(value, buffer, offset, packet, parent)
@@ -2444,7 +2444,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_algorithmic_indicator.d
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_algorithmic_indicator.display(value, buffer, offset, packet, parent)
@@ -2493,7 +2493,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_benchmark_indicator.dis
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_benchmark_indicator.display(value, buffer, offset, packet, parent)
@@ -2545,7 +2545,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_contributionto_price.di
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_contributionto_price.display(value, buffer, offset, packet, parent)
@@ -2591,7 +2591,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_duplicative_indicator.d
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_duplicative_indicator.display(value, buffer, offset, packet, parent)
@@ -2688,7 +2688,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_modification_indicator.
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_modification_indicator.display(value, buffer, offset, packet, parent)
@@ -2752,7 +2752,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_negotiation_indicator.d
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_negotiation_indicator.display(value, buffer, offset, packet, parent)
@@ -2801,7 +2801,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_off_book_automated_indi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_off_book_automated_indicator.display(value, buffer, offset, packet, parent)
@@ -2877,7 +2877,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_post_trade_deferral.dis
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_post_trade_deferral.display(value, buffer, offset, packet, parent)
@@ -2938,7 +2938,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_publication_mode.dissec
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_publication_mode.display(value, buffer, offset, packet, parent)
@@ -2984,7 +2984,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_special_dividend_indica
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_special_dividend_indicator.display(value, buffer, offset, packet, parent)
@@ -3060,7 +3060,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_trading_mode.dissect = 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_trading_mode.display(value, buffer, offset, packet, parent)
@@ -3115,7 +3115,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_transaction_category.di
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.efficient_mmt_transaction_category.display(value, buffer, offset, packet, parent)
@@ -3471,7 +3471,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.exchange_code.dissect = function(buff
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.exchange_code.display(value, buffer, offset, packet, parent)
@@ -3626,9 +3626,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.expiry_date.dissect = function(buffer
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.expiry_date.display(value, buffer, offset, packet, parent)
@@ -3665,9 +3665,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.firm_id.dissect = function(buffer, of
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.firm_id.display(value, buffer, offset, packet, parent)
@@ -3755,9 +3755,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.full_instrument_name.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.full_instrument_name.display(value, buffer, offset, packet, parent)
@@ -3859,7 +3859,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.gross_of_cdsc_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.gross_of_cdsc_indicator.display(value, buffer, offset, packet, parent)
@@ -3985,9 +3985,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.icb.dissect = function(buffer, offset
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.icb.display(value, buffer, offset, packet, parent)
@@ -4024,9 +4024,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.icb_code.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.icb_code.display(value, buffer, offset, packet, parent)
@@ -4380,9 +4380,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.instrument_group_code.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.instrument_group_code.display(value, buffer, offset, packet, parent)
@@ -4419,9 +4419,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.instrument_name.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.instrument_name.display(value, buffer, offset, packet, parent)
@@ -4563,9 +4563,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.instrument_trading_code.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.instrument_trading_code.display(value, buffer, offset, packet, parent)
@@ -4630,9 +4630,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.isin_code.dissect = function(buffer, 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.isin_code.display(value, buffer, offset, packet, parent)
@@ -4669,9 +4669,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.isin_code_optional.dissect = function
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.isin_code_optional.display(value, buffer, offset, packet, parent)
@@ -4792,9 +4792,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.issuing_country.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.issuing_country.display(value, buffer, offset, packet, parent)
@@ -4949,7 +4949,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.leg_buy_sell.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.leg_buy_sell.display(value, buffer, offset, packet, parent)
@@ -5116,9 +5116,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.lei_code.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.lei_code.display(value, buffer, offset, packet, parent)
@@ -5239,9 +5239,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.long_instrument_name.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.long_instrument_name.display(value, buffer, offset, packet, parent)
@@ -5278,9 +5278,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.long_issuer_name.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.long_issuer_name.display(value, buffer, offset, packet, parent)
@@ -5317,9 +5317,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.long_mnemonic.dissect = function(buff
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.long_mnemonic.display(value, buffer, offset, packet, parent)
@@ -5356,9 +5356,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.long_trade_reference.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.long_trade_reference.display(value, buffer, offset, packet, parent)
@@ -5524,9 +5524,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.main_depositary.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.main_depositary.display(value, buffer, offset, packet, parent)
@@ -5608,9 +5608,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.market_of_reference_mic.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.market_of_reference_mic.display(value, buffer, offset, packet, parent)
@@ -5647,9 +5647,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.maturity_date.dissect = function(buff
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.maturity_date.display(value, buffer, offset, packet, parent)
@@ -5686,9 +5686,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.maturity_date_optional.dissect = func
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.maturity_date_optional.display(value, buffer, offset, packet, parent)
@@ -5952,9 +5952,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mic.dissect = function(buffer, offset
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mic.display(value, buffer, offset, packet, parent)
@@ -5991,9 +5991,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mic_list.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mic_list.display(value, buffer, offset, packet, parent)
@@ -6030,9 +6030,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mic_optional.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mic_optional.display(value, buffer, offset, packet, parent)
@@ -6069,9 +6069,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_clearing_flag.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_clearing_flag.display(value, buffer, offset, packet, parent)
@@ -6108,9 +6108,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_currency.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_currency.display(value, buffer, offset, packet, parent)
@@ -6147,9 +6147,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_emission_allowance_type.dissect
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_emission_allowance_type.display(value, buffer, offset, packet, parent)
@@ -6186,9 +6186,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_execution_id.dissect = function
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_execution_id.display(value, buffer, offset, packet, parent)
@@ -6225,9 +6225,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id.display(value, buffer, offset, packet, parent)
@@ -6264,9 +6264,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_optional.dissect 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_optional.display(value, buffer, offset, packet, parent)
@@ -6303,9 +6303,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_type.dissect = fu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_type.display(value, buffer, offset, packet, parent)
@@ -6342,9 +6342,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_type_optional.dis
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_instrument_id_type_optional.display(value, buffer, offset, packet, parent)
@@ -6381,9 +6381,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_notional_amount.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_notional_amount.display(value, buffer, offset, packet, parent)
@@ -6420,9 +6420,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price.dissect = function(buffer
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price.display(value, buffer, offset, packet, parent)
@@ -6459,9 +6459,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price_notation.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price_notation.display(value, buffer, offset, packet, parent)
@@ -6498,9 +6498,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price_optional.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_price_optional.display(value, buffer, offset, packet, parent)
@@ -6537,9 +6537,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_qty_in_msrmt_unit_notation.diss
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_qty_in_msrmt_unit_notation.display(value, buffer, offset, packet, parent)
@@ -6576,9 +6576,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_quantity.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_quantity.display(value, buffer, offset, packet, parent)
@@ -6615,9 +6615,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_quantity_measurement_unit.disse
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_quantity_measurement_unit.display(value, buffer, offset, packet, parent)
@@ -6654,9 +6654,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mifid_transaction_id.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mifid_transaction_id.display(value, buffer, offset, packet, parent)
@@ -6744,9 +6744,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.missing_price.dissect = function(buff
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.missing_price.display(value, buffer, offset, packet, parent)
@@ -6783,9 +6783,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_agency_cross_trade_indicator.diss
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_agency_cross_trade_indicator.display(value, buffer, offset, packet, parent)
@@ -6822,9 +6822,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_algorithmic_indicator.dissect = f
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_algorithmic_indicator.display(value, buffer, offset, packet, parent)
@@ -6861,9 +6861,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_benchmark_indicator.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_benchmark_indicator.display(value, buffer, offset, packet, parent)
@@ -6900,9 +6900,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_contingent_transaction_indicator.
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_contingent_transaction_indicator.display(value, buffer, offset, packet, parent)
@@ -6939,9 +6939,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_contributionto_price.dissect = fu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_contributionto_price.display(value, buffer, offset, packet, parent)
@@ -6978,9 +6978,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_duplicative_indicator.dissect = f
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_duplicative_indicator.display(value, buffer, offset, packet, parent)
@@ -7068,9 +7068,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_modification_indicator.dissect = 
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_modification_indicator.display(value, buffer, offset, packet, parent)
@@ -7107,9 +7107,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_modification_indicator_optional.d
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_modification_indicator_optional.display(value, buffer, offset, packet, parent)
@@ -7146,9 +7146,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_negotiation_indicator.dissect = f
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_negotiation_indicator.display(value, buffer, offset, packet, parent)
@@ -7197,7 +7197,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_off_book_automated_indicator.diss
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_off_book_automated_indicator.display(value, buffer, offset, packet, parent)
@@ -7234,9 +7234,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_portfolio_transaction_indicator.d
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_portfolio_transaction_indicator.display(value, buffer, offset, packet, parent)
@@ -7273,9 +7273,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_post_trade_deferral.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_post_trade_deferral.display(value, buffer, offset, packet, parent)
@@ -7312,9 +7312,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_pre_trade_transparency_waiver_rel
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.display(value, buffer, offset, packet, parent)
@@ -7351,9 +7351,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode.display(value, buffer, offset, packet, parent)
@@ -7390,9 +7390,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode_illiquid.dissect
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode_illiquid.display(value, buffer, offset, packet, parent)
@@ -7429,9 +7429,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode_size_specific.di
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_publication_mode_size_specific.display(value, buffer, offset, packet, parent)
@@ -7468,9 +7468,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_special_dividend_indicator.dissec
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_special_dividend_indicator.display(value, buffer, offset, packet, parent)
@@ -7546,7 +7546,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_trading_mode.dissect = function(b
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_trading_mode.display(value, buffer, offset, packet, parent)
@@ -7583,9 +7583,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mmt_transaction_category.dissect = fu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mmt_transaction_category.display(value, buffer, offset, packet, parent)
@@ -7622,9 +7622,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mnemonic.dissect = function(buffer, o
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mnemonic.display(value, buffer, offset, packet, parent)
@@ -7661,9 +7661,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.mother_stock_isin.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.mother_stock_isin.display(value, buffer, offset, packet, parent)
@@ -7784,9 +7784,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.next_meeting.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.next_meeting.display(value, buffer, offset, packet, parent)
@@ -7823,9 +7823,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.nominal_currency.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.nominal_currency.display(value, buffer, offset, packet, parent)
@@ -7890,9 +7890,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.notional_currency.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.notional_currency.display(value, buffer, offset, packet, parent)
@@ -8073,7 +8073,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.opened_closed_fund.dissect = function
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.opened_closed_fund.display(value, buffer, offset, packet, parent)
@@ -8874,9 +8874,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.post_trade_deferral_flags.dissect = f
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.post_trade_deferral_flags.display(value, buffer, offset, packet, parent)
@@ -9358,9 +9358,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.product_code.dissect = function(buffe
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.product_code.display(value, buffer, offset, packet, parent)
@@ -9397,9 +9397,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.publication_date_time.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.publication_date_time.display(value, buffer, offset, packet, parent)
@@ -9487,9 +9487,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.quantity_notation.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.quantity_notation.display(value, buffer, offset, packet, parent)
@@ -10189,9 +10189,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.second_notional_currency.dissect = fu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.second_notional_currency.display(value, buffer, offset, packet, parent)
@@ -10252,7 +10252,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.security_condition.dissect = function
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.security_condition.display(value, buffer, offset, packet, parent)
@@ -10289,9 +10289,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.sedol_code.dissect = function(buffer,
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.sedol_code.display(value, buffer, offset, packet, parent)
@@ -10433,9 +10433,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.settlement_delay.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.settlement_delay.display(value, buffer, offset, packet, parent)
@@ -10471,7 +10471,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.settlement_method.dissect = function(
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.settlement_method.display(value, buffer, offset, packet, parent)
@@ -10949,7 +10949,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.strategy_code.dissect = function(buff
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.strategy_code.display(value, buffer, offset, packet, parent)
@@ -10986,9 +10986,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.strike_currency.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.strike_currency.display(value, buffer, offset, packet, parent)
@@ -11235,7 +11235,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.tax_description_attaching_to_a_divide
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.tax_description_attaching_to_a_dividend.display(value, buffer, offset, packet, parent)
@@ -11525,9 +11525,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.trade_reference.dissect = function(bu
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.trade_reference.display(value, buffer, offset, packet, parent)
@@ -11753,9 +11753,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.trade_unique_identifier.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.trade_unique_identifier.display(value, buffer, offset, packet, parent)
@@ -11792,9 +11792,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.trading_currency.dissect = function(b
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.trading_currency.display(value, buffer, offset, packet, parent)
@@ -11864,9 +11864,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.trading_currency_optional.dissect = f
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.trading_currency_optional.display(value, buffer, offset, packet, parent)
@@ -11903,9 +11903,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.trading_date_time.dissect = function(
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.trading_date_time.display(value, buffer, offset, packet, parent)
@@ -12198,9 +12198,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.type_of_corporate_event.dissect = fun
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.type_of_corporate_event.display(value, buffer, offset, packet, parent)
@@ -12288,7 +12288,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.type_of_market_admission.dissect = fu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.type_of_market_admission.display(value, buffer, offset, packet, parent)
@@ -12325,9 +12325,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_derivatives_instrument_tra
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_derivatives_instrument_trading_code.display(value, buffer, offset, packet, parent)
@@ -12392,9 +12392,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_index_name.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_index_name.display(value, buffer, offset, packet, parent)
@@ -12431,9 +12431,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_index_term.dissect = funct
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_index_term.display(value, buffer, offset, packet, parent)
@@ -12470,9 +12470,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_isin_code.dissect = functi
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_isin_code.display(value, buffer, offset, packet, parent)
@@ -12509,9 +12509,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_mic.dissect = function(buf
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_mic.display(value, buffer, offset, packet, parent)
@@ -12753,7 +12753,7 @@ euronext_optiq_marketdatagateway_sbe_v6_63.underlying_type.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.underlying_type.display(value, buffer, offset, packet, parent)
@@ -13117,9 +13117,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.venue.dissect = function(buffer, offs
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.venue.display(value, buffer, offset, packet, parent)
@@ -13156,9 +13156,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.venueof_publication.dissect = functio
   -- read full string or up to first zero
   local value = ''
   if last == 0 then
-    value = range:stringz()
+    value = range:stringz(ENC_UTF_8)
   else
-    value = range:string()
+    value = range:string(ENC_UTF_8)
   end
 
   local display = euronext_optiq_marketdatagateway_sbe_v6_63.venueof_publication.display(value, buffer, offset, packet, parent)

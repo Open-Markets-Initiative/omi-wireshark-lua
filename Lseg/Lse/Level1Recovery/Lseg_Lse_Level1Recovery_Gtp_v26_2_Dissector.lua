@@ -265,7 +265,7 @@ lseg_lse_level1recovery_gtp_v26_2.auction_type.dissect = function(buffer, offset
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.auction_type.display(value, buffer, offset, packet, parent)
@@ -556,7 +556,7 @@ lseg_lse_level1recovery_gtp_v26_2.closing_price_indicator.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -609,7 +609,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.country_of_register.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.country_of_register.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.country_of_register.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.country_of_register, range, value, display)
@@ -637,7 +637,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.currency, range, value, display)
@@ -665,7 +665,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.description.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.description.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.description.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.description, range, value, display)
@@ -764,7 +764,7 @@ lseg_lse_level1recovery_gtp_v26_2.event_code.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.event_code.display(value, buffer, offset, packet, parent)
@@ -794,7 +794,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.ex_marker_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.ex_marker_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.ex_marker_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.ex_marker_code, range, value, display)
@@ -1033,7 +1033,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.group_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.group_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.group_id, range, value, display)
@@ -1171,7 +1171,7 @@ lseg_lse_level1recovery_gtp_v26_2.imbalance_direction.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.imbalance_direction.display(value, buffer, offset, packet, parent)
@@ -1253,7 +1253,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.isin, range, value, display)
@@ -1542,7 +1542,7 @@ lseg_lse_level1recovery_gtp_v26_2.login_status.dissect = function(buffer, offset
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.login_status.display(value, buffer, offset, packet, parent)
@@ -2010,7 +2010,7 @@ lseg_lse_level1recovery_gtp_v26_2.opening_price_indicator.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.opening_price_indicator.display(value, buffer, offset, packet, parent)
@@ -2082,7 +2082,7 @@ lseg_lse_level1recovery_gtp_v26_2.partition_id.dissect = function(buffer, offset
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.partition_id.display(value, buffer, offset, packet, parent)
@@ -2198,7 +2198,7 @@ lseg_lse_level1recovery_gtp_v26_2.recovery_status.dissect = function(buffer, off
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.recovery_status.display(value, buffer, offset, packet, parent)
@@ -2529,7 +2529,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.security_exchange.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.security_exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.security_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.security_exchange, range, value, display)
@@ -2658,7 +2658,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.sedol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.sedol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.sedol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.sedol, range, value, display)
@@ -2686,7 +2686,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.segment, range, value, display)
@@ -2942,7 +2942,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.symbol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.symbol, range, value, display)
@@ -3016,7 +3016,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.tick_id, range, value, display)
@@ -3223,7 +3223,7 @@ lseg_lse_level1recovery_gtp_v26_2.trade_qualifier.dissect = function(buffer, off
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -3374,7 +3374,7 @@ lseg_lse_level1recovery_gtp_v26_2.trading_status.dissect = function(buffer, offs
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_level1recovery_gtp_v26_2.trading_status.display(value, buffer, offset, packet, parent)
@@ -3489,7 +3489,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.username.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.username, range, value, display)
@@ -3517,7 +3517,7 @@ end
 lseg_lse_level1recovery_gtp_v26_2.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1recovery_gtp_v26_2.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_level1recovery_gtp_v26_2.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1recovery_gtp_v26_2.fields.venue_instrument_id, range, value, display)

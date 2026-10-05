@@ -330,7 +330,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.client_account.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account, range, value, display)
@@ -415,7 +415,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.customer_info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info, range, value, display)
@@ -494,7 +494,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.exchange_info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info, range, value, display)
@@ -517,7 +517,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.existing_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.existing_order_token, range, value, display)
@@ -678,7 +678,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.order_token.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.order_token, range, value, display)
@@ -747,7 +747,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.previous_order_token.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.previous_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.previous_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.previous_order_token, range, value, display)
@@ -1395,7 +1395,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.replacement_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replacement_order_token, range, value, display)
@@ -1587,7 +1587,7 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.side.dissect = function(buffer, offset, packet, parent)
   local length = jpx_osederivatives_geniuminet_ouch_v5_0.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side, range, value, display)

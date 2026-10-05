@@ -274,7 +274,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.country_of_register.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.country_of_register.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.country_of_register.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.country_of_register, range, value, display)
@@ -302,7 +302,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.currency, range, value, display)
@@ -330,7 +330,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.description.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.description.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.description.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.description, range, value, display)
@@ -400,7 +400,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.event_code.dissect = function(buffer, of
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.event_code.display(value, buffer, offset, packet, parent)
@@ -430,7 +430,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.ex_marker_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.ex_marker_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.ex_marker_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.ex_marker_code, range, value, display)
@@ -628,7 +628,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.instrument_identification_code, range, value, display)
@@ -656,7 +656,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.isin, range, value, display)
@@ -1058,7 +1058,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.order_book_side.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.order_book_side.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.order_book_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_side, range, value, display)
@@ -1119,7 +1119,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.dissect = function(buffer, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
@@ -1206,7 +1206,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.price_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_currency, range, value, display)
@@ -1233,7 +1233,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.price_notation.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_notation.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_notation, range, value, display)
@@ -1478,7 +1478,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.security_exchange.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.security_exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.security_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.security_exchange, range, value, display)
@@ -1558,7 +1558,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.sedol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.sedol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.sedol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.sedol, range, value, display)
@@ -1586,7 +1586,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.segment, range, value, display)
@@ -1828,7 +1828,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.symbol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.symbol, range, value, display)
@@ -1902,7 +1902,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.tick_id, range, value, display)
@@ -1991,7 +1991,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_status.dissect = function(buffer
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_status.display(value, buffer, offset, packet, parent)
@@ -2023,7 +2023,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system, range, value, display)
@@ -2053,7 +2053,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system_phase.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system_phase.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.trading_system_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system_phase, range, value, display)
@@ -2109,7 +2109,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.venue.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.venue.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue, range, value, display)
@@ -2137,7 +2137,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue_instrument_id, range, value, display)

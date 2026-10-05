@@ -740,7 +740,12 @@ end
 nasdaq_ntxequities_drop_asciidrop_v2_3.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_drop_asciidrop_v2_3.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_ntxequities_drop_asciidrop_v2_3.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.requested_sequence_number, range, value, display)
@@ -786,7 +791,12 @@ end
 nasdaq_ntxequities_drop_asciidrop_v2_3.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_drop_asciidrop_v2_3.sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_ntxequities_drop_asciidrop_v2_3.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_3.fields.sequence_number, range, value, display)

@@ -196,7 +196,7 @@ lseg_turquoise_level1_gtp_v24_4.auction_info.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.auction_info.display(value, buffer, offset, packet, parent)
@@ -236,7 +236,7 @@ lseg_turquoise_level1_gtp_v24_4.auction_type.dissect = function(buffer, offset, 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.auction_type.display(value, buffer, offset, packet, parent)
@@ -382,7 +382,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.cross_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.cross_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.cross_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.cross_id, range, value, display)
@@ -440,7 +440,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.currency, range, value, display)
@@ -510,7 +510,7 @@ lseg_turquoise_level1_gtp_v24_4.event_code.dissect = function(buffer, offset, pa
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
@@ -654,7 +654,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.isin, range, value, display)
@@ -996,7 +996,7 @@ lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -1272,7 +1272,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.segment, range, value, display)
@@ -1565,7 +1565,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.tick_id, range, value, display)
@@ -1671,7 +1671,7 @@ lseg_turquoise_level1_gtp_v24_4.trade_qualifier.dissect = function(buffer, offse
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -1758,7 +1758,7 @@ lseg_turquoise_level1_gtp_v24_4.trading_status.dissect = function(buffer, offset
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_turquoise_level1_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
@@ -1873,7 +1873,7 @@ end
 lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_turquoise_level1_gtp_v24_4.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.venue_instrument_id, range, value, display)

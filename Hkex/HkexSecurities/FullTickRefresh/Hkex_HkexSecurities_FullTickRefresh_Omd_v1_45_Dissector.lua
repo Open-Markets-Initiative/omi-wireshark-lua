@@ -2052,7 +2052,7 @@ end
 hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gb.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gb.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.security_name_gb, range, value, display)
@@ -2075,7 +2075,7 @@ end
 hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gccs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gccs.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_fulltickrefresh_omd_v1_45.security_name_gccs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.security_name_gccs, range, value, display)

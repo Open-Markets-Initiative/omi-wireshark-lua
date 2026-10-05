@@ -1478,7 +1478,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.headline.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.headline, range, value, display)
@@ -2445,7 +2445,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line, range, value, display)
@@ -3370,7 +3370,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gb, range, value, display)
@@ -3393,7 +3393,7 @@ end
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_name_gccs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.security_name_gccs, range, value, display)
@@ -5720,9 +5720,7 @@ end
 -- News Line Item
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item = {}
 
--- Size: News Line Item
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.size =
-  hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line.size
+-- Size of News Line Item: not written, it needs News Type passed down from News Message
 
 -- Display: News Line Item
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.display = function(packet, parent, length)
@@ -5730,7 +5728,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.display = function(
 end
 
 -- Dissect Fields: News Line Item
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields = function(buffer, offset, packet, parent, news_line_item_index)
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields = function(buffer, offset, packet, parent, news_line_item_index, news_type)
   local index = offset
 
   -- Implicit News Line Item Index
@@ -5746,11 +5744,11 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields = function(b
 end
 
 -- Dissect: News Line Item
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.dissect = function(buffer, offset, packet, parent, news_line_item_index)
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.dissect = function(buffer, offset, packet, parent, news_line_item_index, news_type)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.news_line_item, buffer(offset, 0))
-    local index = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields(buffer, offset, packet, parent, news_line_item_index)
+    local index = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields(buffer, offset, packet, parent, news_line_item_index, news_type)
     local length = index - offset
     parent:set_len(length)
     local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.display(packet, parent, length)
@@ -5759,7 +5757,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    return hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields(buffer, offset, packet, parent, news_line_item_index)
+    return hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.fields(buffer, offset, packet, parent, news_line_item_index, news_type)
   end
 end
 
@@ -5898,8 +5896,9 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.size = function(buffe
 
   -- Calculate field size from count
   local news_line_item_count = buffer(offset + index - 2, 2):le_uint()
-  index = index + news_line_item_count * 160
-
+  for i = 1, news_line_item_count do
+    index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -5911,6 +5910,7 @@ end
 -- Dissect Fields: News Message
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+  local news_type = buffer(offset, 3):string()
 
   -- News Type: String
   index, news_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_type.dissect(buffer, index, packet, parent)
@@ -5963,7 +5963,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_message.fields = function(buf
 
   -- Repeating: News Line Item
   for news_line_item_index = 1, no_news_lines do
-    index, news_line_item = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.dissect(buffer, index, packet, parent, news_line_item_index)
+    index, news_line_item = hkex_hkexsecurities_combinedrefresh_omd_v1_44.news_line_item.dissect(buffer, index, packet, parent, news_line_item_index, news_type)
   end
 
   return index

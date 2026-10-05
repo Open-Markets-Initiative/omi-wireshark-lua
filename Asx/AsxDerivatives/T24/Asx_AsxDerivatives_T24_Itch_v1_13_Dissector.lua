@@ -295,7 +295,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.activated.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.activated.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.activated.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.activated, range, value, display)
@@ -646,7 +646,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.contract_type.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.contract_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.contract_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.contract_type, range, value, display)
@@ -715,7 +715,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.currency.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxderivatives_t24_itch_v1_13.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.currency, range, value, display)
@@ -916,7 +916,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.event_code.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.event_code, range, value, display)
@@ -939,7 +939,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.exchange.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxderivatives_t24_itch_v1_13.exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.exchange, range, value, display)
@@ -1047,7 +1047,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.financial_type.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.financial_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.financial_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.financial_type, range, value, display)
@@ -1122,7 +1122,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.instrument.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.instrument.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxderivatives_t24_itch_v1_13.instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.instrument, range, value, display)
@@ -1583,7 +1583,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.option_type.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.option_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.option_type, range, value, display)
@@ -1803,7 +1803,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.printable.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.printable.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.printable, range, value, display)
@@ -2194,7 +2194,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.settlement_type, range, value, display)
@@ -2224,7 +2224,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.side.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.side, range, value, display)
@@ -2247,7 +2247,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.side_of_buyer.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.side_of_buyer.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.side_of_buyer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.side_of_buyer, range, value, display)
@@ -2270,7 +2270,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.side_of_seller.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.side_of_seller.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.side_of_seller.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.side_of_seller, range, value, display)
@@ -2293,7 +2293,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.source_id.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.source_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxderivatives_t24_itch_v1_13.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.source_id, range, value, display)
@@ -2437,7 +2437,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.text_message.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.text_message.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_ISO_8859_1))
   local display = asx_asxderivatives_t24_itch_v1_13.text_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.text_message, range, value, display)
@@ -2558,7 +2558,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.trade_side_of_leg.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.trade_side_of_leg.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.trade_side_of_leg.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.trade_side_of_leg, range, value, display)
@@ -2581,7 +2581,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.trade_side_of_non_custom_order.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.trade_side_of_non_custom_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.trade_side_of_non_custom_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.trade_side_of_non_custom_order, range, value, display)
@@ -2647,7 +2647,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.trade_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.trade_type, range, value, display)
@@ -2756,7 +2756,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:string(ENC_ISO_8859_1)
   local display = asx_asxderivatives_t24_itch_v1_13.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.trading_status, range, value, display)

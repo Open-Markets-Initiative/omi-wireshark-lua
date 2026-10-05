@@ -601,7 +601,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v1_49.content.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v1_49.content.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_standardretrans_omd_v1_49.content.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v1_49.fields.content, range, value, display)
@@ -1266,7 +1266,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v1_49.header.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v1_49.header.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_standardretrans_omd_v1_49.header.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v1_49.fields.header, range, value, display)

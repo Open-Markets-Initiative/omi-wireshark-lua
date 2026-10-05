@@ -264,7 +264,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.agency_cross_indicator.dissect = func
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.agency_cross_indicator.display(value, buffer, offset, packet, parent)
@@ -307,7 +307,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.algorithmic_indicator.dissect = funct
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.algorithmic_indicator.display(value, buffer, offset, packet, parent)
@@ -362,7 +362,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.auction_type.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.auction_type.display(value, buffer, offset, packet, parent)
@@ -566,7 +566,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.closing_price_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.closing_price_indicator.display(value, buffer, offset, packet, parent)
@@ -619,7 +619,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.country_of_register.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.country_of_register.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.country_of_register.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.country_of_register, range, value, display)
@@ -647,7 +647,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.currency, range, value, display)
@@ -685,7 +685,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.deferral_enrichment_type.dissect = fu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.deferral_enrichment_type.display(value, buffer, offset, packet, parent)
@@ -715,7 +715,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.description.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.description.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.description.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.description, range, value, display)
@@ -753,7 +753,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.duplicative_indicator.dissect = funct
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.duplicative_indicator.display(value, buffer, offset, packet, parent)
@@ -854,7 +854,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.event_code.dissect = function(buffer,
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.event_code.display(value, buffer, offset, packet, parent)
@@ -884,7 +884,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.ex_marker_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.ex_marker_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.ex_marker_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.ex_marker_code, range, value, display)
@@ -1094,7 +1094,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.group_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.group_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.group_id, range, value, display)
@@ -1199,7 +1199,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.imbalance_direction.dissect = functio
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.imbalance_direction.display(value, buffer, offset, packet, parent)
@@ -1281,7 +1281,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.instrument_identification_code, range, value, display)
@@ -1308,7 +1308,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code_type.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_identification_code_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.instrument_identification_code_type, range, value, display)
@@ -1336,7 +1336,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.isin.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.isin, range, value, display)
@@ -1625,7 +1625,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.login_status.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.login_status.display(value, buffer, offset, packet, parent)
@@ -1654,7 +1654,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.market_closing_price_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.market_closing_price_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.market_closing_price_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.market_closing_price_flag, range, value, display)
@@ -1718,7 +1718,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.market_mechanism.dissect = function(b
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.market_mechanism.display(value, buffer, offset, packet, parent)
@@ -2026,7 +2026,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.modification_indicator.dissect = func
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.modification_indicator.display(value, buffer, offset, packet, parent)
@@ -2066,7 +2066,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.negotiation_indicator.dissect = funct
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.negotiation_indicator.display(value, buffer, offset, packet, parent)
@@ -2156,7 +2156,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.notional_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.notional_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.notional_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.notional_currency, range, value, display)
@@ -2240,7 +2240,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.off_book_automated_indicator.dissect 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
@@ -2356,7 +2356,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.opening_price_indicator.dissect = fun
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.opening_price_indicator.display(value, buffer, offset, packet, parent)
@@ -2428,7 +2428,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.partition_id.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.partition_id.display(value, buffer, offset, packet, parent)
@@ -2468,7 +2468,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.post_trade_deferral_reason.dissect = 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
@@ -2537,7 +2537,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_formation_indicator.dissect = f
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_formation_indicator.display(value, buffer, offset, packet, parent)
@@ -2567,7 +2567,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_major_currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_major_currency.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_major_currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.price_major_currency, range, value, display)
@@ -2597,7 +2597,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_notation.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_notation.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.price_notation, range, value, display)
@@ -2624,7 +2624,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_algo_trade.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_algo_trade.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_algo_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.pt_algo_trade, range, value, display)
@@ -2651,7 +2651,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_amendment_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_amendment_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_amendment_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.pt_amendment_flag, range, value, display)
@@ -2678,7 +2678,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_cancellation_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_cancellation_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_cancellation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.pt_cancellation_flag, range, value, display)
@@ -2706,7 +2706,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_ref_price_waiver_flag.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_ref_price_waiver_flag.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_ref_price_waiver_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.pt_ref_price_waiver_flag, range, value, display)
@@ -2790,7 +2790,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.recovery_status.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.recovery_status.display(value, buffer, offset, packet, parent)
@@ -2878,7 +2878,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.reference_price_indicator.dissect = f
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reference_price_indicator.display(value, buffer, offset, packet, parent)
@@ -3233,7 +3233,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.security_exchange.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.security_exchange.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.security_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.security_exchange, range, value, display)
@@ -3362,7 +3362,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.sedol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.sedol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.sedol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.sedol, range, value, display)
@@ -3390,7 +3390,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.segment.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.segment, range, value, display)
@@ -3569,7 +3569,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.special_dividend_indicator.dissect = 
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.special_dividend_indicator.display(value, buffer, offset, packet, parent)
@@ -3686,7 +3686,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.symbol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.symbol.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.symbol, range, value, display)
@@ -3760,7 +3760,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.tick_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.tick_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.tick_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.tick_id, range, value, display)
@@ -3944,7 +3944,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_qualifier.dissect = function(bu
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trade_qualifier.display(value, buffer, offset, packet, parent)
@@ -4027,7 +4027,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.trading_mode.dissect = function(buffe
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trading_mode.display(value, buffer, offset, packet, parent)
@@ -4130,7 +4130,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.trading_status.dissect = function(buf
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.trading_status.display(value, buffer, offset, packet, parent)
@@ -4173,7 +4173,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.transaction_category.dissect = functi
 
   -- check if value is non zero
   if value ~= 0 then
-    value = range:string()
+    value = range:string(ENC_WINDOWS_1252)
   end
 
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.transaction_category.display(value, buffer, offset, packet, parent)
@@ -4203,7 +4203,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.transaction_identification_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.transaction_identification_code.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.transaction_identification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_identification_code, range, value, display)
@@ -4289,7 +4289,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.username.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.username.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.username, range, value, display)
@@ -4317,7 +4317,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_instrument_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_instrument_id, range, value, display)
@@ -4345,7 +4345,7 @@ end
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_of_execution.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
   local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_of_execution, range, value, display)

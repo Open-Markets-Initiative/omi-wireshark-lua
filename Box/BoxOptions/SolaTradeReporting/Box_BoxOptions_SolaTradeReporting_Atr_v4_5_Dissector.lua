@@ -46,7 +46,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.option_type = ProtoField.n
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.parent_transaction_id = ProtoField.new("Parent Transaction Id", "box.boxoptions.solatradereporting.atr.v4.5.parenttransactionid", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.participant_session_name = ProtoField.new("Participant Session Name", "box.boxoptions.solatradereporting.atr.v4.5.participantsessionname", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "box.boxoptions.solatradereporting.atr.v4.5.passwordmd5encryption", ftypes.STRING)
-omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price_x_10000 = ProtoField.new("Price X 10000", "box.boxoptions.solatradereporting.atr.v4.5.pricex10000", ftypes.STRING)
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price = ProtoField.new("Price", "box.boxoptions.solatradereporting.atr.v4.5.price", ftypes.DOUBLE)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.protocol_version = ProtoField.new("Protocol Version", "box.boxoptions.solatradereporting.atr.v4.5.protocolversion", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_message_type = ProtoField.new("Reference Message Type", "box.boxoptions.solatradereporting.atr.v4.5.referencemessagetype", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.reference_trade_number = ProtoField.new("Reference Trade Number", "box.boxoptions.solatradereporting.atr.v4.5.referencetradenumber", ftypes.STRING)
@@ -96,9 +96,15 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.start_of_day_acknowledgeme
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade = ProtoField.new("Trade", "box.boxoptions.solatradereporting.atr.v4.5.trade", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.trade_cancel = ProtoField.new("Trade Cancel", "box.boxoptions.solatradereporting.atr.v4.5.tradecancel", ftypes.STRING)
 
+-- Box BoxOptions SolaTradeReporting Atr 4.5 Generated Fields
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "box.boxoptions.solatradereporting.atr.v4.5.scaledstrikeprice", ftypes.DOUBLE)
+
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Formatting
 -----------------------------------------------------------------------
+
+-- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
+box_boxoptions_solatradereporting_atr_v4_5.format_decimals = true
 
 -- assumed connection role
 local role_enum = {
@@ -126,6 +132,7 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.swap_sides = Pref.bool("Swa
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_box_boxoptions_solatradereporting_atr_v4_5.prefs_changed()
@@ -139,6 +146,9 @@ function omi_box_boxoptions_solatradereporting_atr_v4_5.prefs_changed()
   end
   if show.structs ~= omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_structs then
     show.structs = omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.show_structs
+  end
+  if box_boxoptions_solatradereporting_atr_v4_5.format_decimals ~= omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.format_decimals then
+    box_boxoptions_solatradereporting_atr_v4_5.format_decimals = omi_box_boxoptions_solatradereporting_atr_v4_5.prefs.format_decimals
   end
 end
 
@@ -156,6 +166,69 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
 
@@ -1079,30 +1152,37 @@ box_boxoptions_solatradereporting_atr_v4_5.password_md_5_encryption.dissect = fu
   return offset + length, value
 end
 
--- Price X 10000
-box_boxoptions_solatradereporting_atr_v4_5.price_x_10000 = {}
+-- Price
+box_boxoptions_solatradereporting_atr_v4_5.price = {}
 
--- Size: Price X 10000
-box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size = 8
+-- Size: Price
+box_boxoptions_solatradereporting_atr_v4_5.price.size = 8
 
--- Display: Price X 10000
-box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.display = function(value)
-  return "Price X 10000: "..value
+-- Display: Price
+box_boxoptions_solatradereporting_atr_v4_5.price.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, box_boxoptions_solatradereporting_atr_v4_5.price.size):string(), 4)
+
+  if text == nil then
+    return "Price: "..tostring(value)
+  end
+
+  return "Price: "..text
 end
 
--- Dissect: Price X 10000
-box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size
+-- Dissect: Price
+box_boxoptions_solatradereporting_atr_v4_5.price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solatradereporting_atr_v4_5.price.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
+  value = value/10000
 
-  local display = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.display(value, buffer, offset, packet, parent)
+  local display = box_boxoptions_solatradereporting_atr_v4_5.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price_x_10000, range, value, display)
+  parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1296,7 +1376,59 @@ box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size 
 
 -- Display: Strike Price Fraction Indicator
 box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.display = function(value)
-  return "Strike Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Strike Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Strike Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Strike Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Strike Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Strike Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Strike Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Strike Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Strike Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Strike Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Strike Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Strike Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Strike Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Strike Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Strike Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -1601,6 +1733,73 @@ box_boxoptions_solatradereporting_atr_v4_5.volume.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Scaled Strike Price
+box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price = {}
+
+-- Display: Scaled Strike Price
+box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Strike Price with an unrecognised code
+box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Strike Price
+box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solatradereporting_atr_v4_5.strike_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if strike_price_fraction_indicator == "0" then
+    value = mantissa
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display(value)
+  else
+    value = mantissa
+    display = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.scaled_strike_price, range, value, display)
+  local mantissa_display = box_boxoptions_solatradereporting_atr_v4_5.strike_price.display(mantissa)
+
+  field_tree:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.strike_price, range, mantissa, mantissa_display)
+
+  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
+  strike_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Box BoxOptions SolaTradeReporting Atr 4.5
@@ -1685,7 +1884,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -1730,7 +1929,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.fields = function(buff
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -1741,8 +1940,8 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up_cancel.fields = function(buff
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -1833,7 +2032,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -1878,7 +2077,7 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.fields = function(buffer, off
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -1889,8 +2088,8 @@ box_boxoptions_solatradereporting_atr_v4_5.give_up.fields = function(buffer, off
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -1981,7 +2180,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -2024,7 +2223,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.fields = function(b
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -2035,8 +2234,8 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation_cancel.fields = function(b
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -2121,7 +2320,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -2164,7 +2363,7 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.fields = function(buffer, 
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -2175,8 +2374,8 @@ box_boxoptions_solatradereporting_atr_v4_5.allocation.fields = function(buffer, 
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -2261,7 +2460,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -2304,7 +2503,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.fields = function(buffer
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -2315,8 +2514,8 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_cancel.fields = function(buffer
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
@@ -2401,7 +2600,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.size =
   box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.size + 
   box_boxoptions_solatradereporting_atr_v4_5.option_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.volume.size + 
-  box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.size + 
+  box_boxoptions_solatradereporting_atr_v4_5.price.size + 
   box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.size + 
   box_boxoptions_solatradereporting_atr_v4_5.account_type.size + 
   box_boxoptions_solatradereporting_atr_v4_5.subtrader_id.size + 
@@ -2444,7 +2643,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.fields = function(buffer, offse
   index, expiration_date = box_boxoptions_solatradereporting_atr_v4_5.expiration_date.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = box_boxoptions_solatradereporting_atr_v4_5.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: A
   index, strike_price_fraction_indicator = box_boxoptions_solatradereporting_atr_v4_5.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -2455,8 +2654,8 @@ box_boxoptions_solatradereporting_atr_v4_5.trade.fields = function(buffer, offse
   -- Volume: N
   index, volume = box_boxoptions_solatradereporting_atr_v4_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Price X 10000: N
-  index, price_x_10000 = box_boxoptions_solatradereporting_atr_v4_5.price_x_10000.dissect(buffer, index, packet, parent)
+  -- Price: Decimal:4
+  index, price = box_boxoptions_solatradereporting_atr_v4_5.price.dissect(buffer, index, packet, parent)
 
   -- Cmta Broker: N
   index, cmta_broker = box_boxoptions_solatradereporting_atr_v4_5.cmta_broker.dissect(buffer, index, packet, parent)
