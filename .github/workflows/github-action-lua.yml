@@ -52,8 +52,14 @@ jobs:
       - name: Run Cboe BzxEquities BinaryOrderEntry Boe 2.3 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxEquities-BinaryOrderEntry-Boe-v2-3-Test.sh
 
+      - name: Run Cboe BzxEquities MulticastDepthOfBook Pitch 2.20.4 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxEquities-MulticastDepthOfBook-Pitch-v2-20-4-Test.sh
+
       - name: Run Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
+
+      - name: Run Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxEquities-MulticastDepthOfBook-Spin-v2-20-4-Test.sh
 
       - name: Run Cboe BzxOptions BinaryOrderEntry Boe 2.10 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxOptions-BinaryOrderEntry-Boe-v2-10-Test.sh
@@ -87,6 +93,9 @@ jobs:
 
       - name: Run Cboe EdgxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-EdgxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
+
+      - name: Run Cboe GapRequestProxy Pitch 1 Dissector Tests
+        run: bash -x .github/tests/Cboe-GapRequestProxy-Pitch-v1-Test.sh
 
       - name: Run Cboe TitaniumConsolidated Indices Cgif 1.4.13 Dissector Tests
         run: bash -x .github/tests/Cboe-TitaniumConsolidated-Indices-Cgif-v1-4-13-Test.sh
