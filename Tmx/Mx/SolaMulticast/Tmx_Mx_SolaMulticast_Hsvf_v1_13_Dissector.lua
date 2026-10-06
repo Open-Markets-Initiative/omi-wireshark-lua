@@ -127,8 +127,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scheduled_status_change_time = ProtoF
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.solamulticast.hsvf.v1.13.sequencenumber", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.series_status = ProtoField.new("Series Status", "tmx.mx.solamulticast.hsvf.v1.13.seriesstatus", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.settlementprice", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_futures = ProtoField.new("Settlement Price Fraction Indicator Futures", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicatorfutures", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_y_1 = ProtoField.new("Settlement Price Fraction Indicator Y 1", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicatory1", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator = ProtoField.new("Settlement Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.13.settlementpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_bulletin_contents = ProtoField.new("Special Bulletin Contents", "tmx.mx.solamulticast.hsvf.v1.13.specialbulletincontents", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.solamulticast.hsvf.v1.13.specialtextbulletin", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.solamulticast.hsvf.v1.13.strategyallowimplied", ftypes.STRING)
@@ -226,6 +225,43 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.fields.option_market_depth_level_index = Pro
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_instrument_leg_index = ProtoField.new("Strategy Instrument Leg Index", "tmx.mx.solamulticast.hsvf.v1.13.strategyinstrumentlegindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strategy_market_depth_trading_instrument_index = ProtoField.new("Strategy Market Depth Trading Instrument Index", "tmx.mx.solamulticast.hsvf.v1.13.strategymarketdepthtradinginstrumentindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_entry_index = ProtoField.new("Tick Entry Index", "tmx.mx.solamulticast.hsvf.v1.13.tickentryindex", ftypes.UINT16)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_quote = ProtoField.new("Scaled Ask Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.scaledaskpricequote", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_summary = ProtoField.new("Scaled Ask Price Summary", "tmx.mx.solamulticast.hsvf.v1.13.scaledaskpricesummary", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_quote = ProtoField.new("Scaled Bid Price Quote", "tmx.mx.solamulticast.hsvf.v1.13.scaledbidpricequote", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_summary = ProtoField.new("Scaled Bid Price Summary", "tmx.mx.solamulticast.hsvf.v1.13.scaledbidpricesummary", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_conversion_factor = ProtoField.new("Scaled Conversion Factor", "tmx.mx.solamulticast.hsvf.v1.13.scaledconversionfactor", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_coupon = ProtoField.new("Scaled Coupon", "tmx.mx.solamulticast.hsvf.v1.13.scaledcoupon", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_external_price_at_source = ProtoField.new("Scaled External Price At Source", "tmx.mx.solamulticast.hsvf.v1.13.scaledexternalpriceatsource", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_high_price = ProtoField.new("Scaled High Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledhighprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_last_price = ProtoField.new("Scaled Last Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledlastprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_leg_price = ProtoField.new("Scaled Leg Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledlegprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_leg_ratio_or_delta = ProtoField.new("Scaled Leg Ratio Or Delta", "tmx.mx.solamulticast.hsvf.v1.13.scaledlegratioordelta", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_low_price = ProtoField.new("Scaled Low Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledlowprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_maximum_threshold_price_futures = ProtoField.new("Scaled Maximum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.13.scaledmaximumthresholdpricefutures", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_maximum_threshold_price_options = ProtoField.new("Scaled Maximum Threshold Price Options", "tmx.mx.solamulticast.hsvf.v1.13.scaledmaximumthresholdpriceoptions", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_min_price = ProtoField.new("Scaled Min Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledminprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_minimum_threshold_price_futures = ProtoField.new("Scaled Minimum Threshold Price Futures", "tmx.mx.solamulticast.hsvf.v1.13.scaledminimumthresholdpricefutures", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_minimum_threshold_price_options = ProtoField.new("Scaled Minimum Threshold Price Options", "tmx.mx.solamulticast.hsvf.v1.13.scaledminimumthresholdpriceoptions", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_net_change = ProtoField.new("Scaled Net Change", "tmx.mx.solamulticast.hsvf.v1.13.scalednetchange", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_open_price = ProtoField.new("Scaled Open Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledopenprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_opening_price = ProtoField.new("Scaled Opening Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledopeningprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_previous_settlement = ProtoField.new("Scaled Previous Settlement", "tmx.mx.solamulticast.hsvf.v1.13.scaledprevioussettlement", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_previous_settlement_price = ProtoField.new("Scaled Previous Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledprevioussettlementprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_price = ProtoField.new("Scaled Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_settlement_price = ProtoField.new("Scaled Settlement Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledsettlementprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledstrikeprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_increment = ProtoField.new("Scaled Tick Increment", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickincrement", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_price = ProtoField.new("Scaled Tick Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickprice", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_value = ProtoField.new("Scaled Tick Value", "tmx.mx.solamulticast.hsvf.v1.13.scaledtickvalue", ftypes.DOUBLE)
+omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "tmx.mx.solamulticast.hsvf.v1.13.scaledtradeprice", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Tmx Mx SolaMulticast Hsvf 1.13 Formatting
+-----------------------------------------------------------------------
+
+-- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
+tmx_mx_solamulticast_hsvf_v1_13.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -246,6 +282,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_application_messages = Pref.bool(
 omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_tmx_mx_solamulticast_hsvf_v1_13.prefs_changed()
@@ -265,6 +302,9 @@ function omi_tmx_mx_solamulticast_hsvf_v1_13.prefs_changed()
   end
   if show.indexes ~= omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_indexes then
     show.indexes = omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.show_indexes
+  end
+  if tmx_mx_solamulticast_hsvf_v1_13.format_decimals ~= omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.format_decimals then
+    tmx_mx_solamulticast_hsvf_v1_13.format_decimals = omi_tmx_mx_solamulticast_hsvf_v1_13.prefs.format_decimals
   end
 end
 
@@ -297,7 +337,59 @@ tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size = 1
 
 -- Display: Ask Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.display = function(value)
-  return "Ask Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Ask Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Ask Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Ask Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Ask Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Ask Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Ask Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Ask Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Ask Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Ask Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Ask Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Ask Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Ask Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Ask Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Ask Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Ask Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Ask Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Ask Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Ask Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Ask Price Fraction Indicator
@@ -417,7 +509,59 @@ tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.size = 1
 
 -- Display: Bid Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.display = function(value)
-  return "Bid Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Bid Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Bid Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Bid Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Bid Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Bid Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Bid Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Bid Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Bid Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Bid Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Bid Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Bid Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Bid Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Bid Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Bid Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Bid Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Bid Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Bid Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Bid Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bid Price Fraction Indicator
@@ -681,7 +825,59 @@ tmx_mx_solamulticast_hsvf_v1_13.conversion_factor_fraction_indicator.size = 1
 
 -- Display: Conversion Factor Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.conversion_factor_fraction_indicator.display = function(value)
-  return "Conversion Factor Fraction Indicator: "..value
+  if value == "0" then
+    return "Conversion Factor Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Conversion Factor Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Conversion Factor Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Conversion Factor Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Conversion Factor Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Conversion Factor Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Conversion Factor Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Conversion Factor Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Conversion Factor Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Conversion Factor Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Conversion Factor Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Conversion Factor Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Conversion Factor Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Conversion Factor Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Conversion Factor Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Conversion Factor Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Conversion Factor Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Conversion Factor Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Conversion Factor Fraction Indicator
@@ -732,7 +928,59 @@ tmx_mx_solamulticast_hsvf_v1_13.coupon_fraction_indicator.size = 1
 
 -- Display: Coupon Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.coupon_fraction_indicator.display = function(value)
-  return "Coupon Fraction Indicator: "..value
+  if value == "0" then
+    return "Coupon Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Coupon Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Coupon Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Coupon Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Coupon Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Coupon Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Coupon Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Coupon Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Coupon Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Coupon Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Coupon Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Coupon Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Coupon Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Coupon Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Coupon Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Coupon Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Coupon Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Coupon Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Coupon Fraction Indicator
@@ -1030,7 +1278,59 @@ tmx_mx_solamulticast_hsvf_v1_13.external_price_fraction_indicator.size = 1
 
 -- Display: External Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.external_price_fraction_indicator.display = function(value)
-  return "External Price Fraction Indicator: "..value
+  if value == "0" then
+    return "External Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "External Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "External Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "External Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "External Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "External Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "External Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "External Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "External Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "External Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "External Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "External Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "External Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "External Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "External Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "External Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "External Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "External Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: External Price Fraction Indicator
@@ -1127,7 +1427,59 @@ tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.size = 1
 
 -- Display: High Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.display = function(value)
-  return "High Price Fraction Indicator: "..value
+  if value == "0" then
+    return "High Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "High Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "High Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "High Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "High Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "High Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "High Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "High Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "High Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "High Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "High Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "High Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "High Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "High Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "High Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "High Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "High Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "High Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: High Price Fraction Indicator
@@ -1324,7 +1676,59 @@ tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.size = 1
 
 -- Display: Last Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.display = function(value)
-  return "Last Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Last Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Last Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Last Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Last Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Last Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Last Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Last Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Last Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Last Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Last Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Last Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Last Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Last Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Last Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Last Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Last Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Last Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Last Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Last Price Fraction Indicator
@@ -1472,7 +1876,59 @@ tmx_mx_solamulticast_hsvf_v1_13.leg_price_fraction_indicator.size = 1
 
 -- Display: Leg Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.leg_price_fraction_indicator.display = function(value)
-  return "Leg Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Leg Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Leg Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Leg Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Leg Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Leg Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Leg Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Leg Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Leg Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Leg Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Leg Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Leg Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Leg Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Leg Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Leg Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Leg Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Leg Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Leg Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Leg Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Leg Price Fraction Indicator
@@ -1523,7 +1979,59 @@ tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta_fraction_indicator.size = 1
 
 -- Display: Leg Ratio Or Delta Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta_fraction_indicator.display = function(value)
-  return "Leg Ratio Or Delta Fraction Indicator: "..value
+  if value == "0" then
+    return "Leg Ratio Or Delta Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Leg Ratio Or Delta Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Leg Ratio Or Delta Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Leg Ratio Or Delta Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Leg Ratio Or Delta Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Leg Ratio Or Delta Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Leg Ratio Or Delta Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Leg Ratio Or Delta Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Leg Ratio Or Delta Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Leg Ratio Or Delta Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Leg Ratio Or Delta Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Leg Ratio Or Delta Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Leg Ratio Or Delta Fraction Indicator
@@ -1597,7 +2105,59 @@ tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.size = 1
 
 -- Display: Low Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.display = function(value)
-  return "Low Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Low Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Low Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Low Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Low Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Low Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Low Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Low Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Low Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Low Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Low Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Low Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Low Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Low Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Low Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Low Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Low Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Low Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Low Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Low Price Fraction Indicator
@@ -1712,7 +2272,59 @@ tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.size 
 
 -- Display: Maximum Threshold Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.display = function(value)
-  return "Maximum Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Maximum Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Maximum Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Maximum Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Maximum Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Maximum Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Maximum Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Maximum Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Maximum Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Maximum Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Maximum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Maximum Threshold Price Fraction Indicator
@@ -1932,8 +2544,8 @@ tmx_mx_solamulticast_hsvf_v1_13.message_type.display = function(value)
   if value == "KF" then
     return "Message Type: Future Deliverables Message (KF)"
   end
-  if value == "L:" then
-    return "Message Type: Bulletins Message (L:)"
+  if value == "L" then
+    return "Message Type: Bulletins Message (L)"
   end
   if value == "S" then
     return "Message Type: End Of Sales Message (S)"
@@ -1999,7 +2611,59 @@ tmx_mx_solamulticast_hsvf_v1_13.min_price_fraction_indicator.size = 1
 
 -- Display: Min Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.min_price_fraction_indicator.display = function(value)
-  return "Min Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Min Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Min Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Min Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Min Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Min Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Min Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Min Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Min Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Min Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Min Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Min Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Min Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Min Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Min Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Min Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Min Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Min Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Min Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Min Price Fraction Indicator
@@ -2045,7 +2709,59 @@ tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.size 
 
 -- Display: Minimum Threshold Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.display = function(value)
-  return "Minimum Threshold Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Minimum Threshold Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Minimum Threshold Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Minimum Threshold Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Minimum Threshold Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Minimum Threshold Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Minimum Threshold Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Minimum Threshold Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Minimum Threshold Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Minimum Threshold Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Minimum Threshold Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Minimum Threshold Price Fraction Indicator
@@ -2147,7 +2863,59 @@ tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.size = 1
 
 -- Display: Net Change Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.display = function(value)
-  return "Net Change Fraction Indicator: "..value
+  if value == "0" then
+    return "Net Change Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Net Change Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Net Change Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Net Change Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Net Change Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Net Change Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Net Change Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Net Change Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Net Change Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Net Change Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Net Change Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Net Change Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Net Change Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Net Change Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Net Change Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Net Change Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Net Change Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Net Change Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Net Change Fraction Indicator
@@ -2435,7 +3203,59 @@ tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.size = 1
 
 -- Display: Open Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.display = function(value)
-  return "Open Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Open Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Open Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Open Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Open Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Open Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Open Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Open Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Open Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Open Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Open Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Open Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Open Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Open Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Open Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Open Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Open Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Open Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Open Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Open Price Fraction Indicator
@@ -2509,7 +3329,59 @@ tmx_mx_solamulticast_hsvf_v1_13.opening_price_fraction_indicator.size = 1
 
 -- Display: Opening Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.opening_price_fraction_indicator.display = function(value)
-  return "Opening Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Opening Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Opening Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Opening Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Opening Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Opening Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Opening Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Opening Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Opening Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Opening Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Opening Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Opening Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Opening Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Opening Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Opening Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Opening Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Opening Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Opening Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Opening Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Opening Price Fraction Indicator
@@ -2641,7 +3513,59 @@ tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_fraction_indicator.size = 1
 
 -- Display: Previous Settlement Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_fraction_indicator.display = function(value)
-  return "Previous Settlement Fraction Indicator: "..value
+  if value == "0" then
+    return "Previous Settlement Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Previous Settlement Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Previous Settlement Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Previous Settlement Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Previous Settlement Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Previous Settlement Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Previous Settlement Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Previous Settlement Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Previous Settlement Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Previous Settlement Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Previous Settlement Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Previous Settlement Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Previous Settlement Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Previous Settlement Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Previous Settlement Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Previous Settlement Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Previous Settlement Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Previous Settlement Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Previous Settlement Fraction Indicator
@@ -2692,7 +3616,59 @@ tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.siz
 
 -- Display: Previous Settlement Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.display = function(value)
-  return "Previous Settlement Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Previous Settlement Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Previous Settlement Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Previous Settlement Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Previous Settlement Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Previous Settlement Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Previous Settlement Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Previous Settlement Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Previous Settlement Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Previous Settlement Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Previous Settlement Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Previous Settlement Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Previous Settlement Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Previous Settlement Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Previous Settlement Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Previous Settlement Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Previous Settlement Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Previous Settlement Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Previous Settlement Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Previous Settlement Price Fraction Indicator
@@ -2743,7 +3719,59 @@ tmx_mx_solamulticast_hsvf_v1_13.price_fraction_indicator.size = 1
 
 -- Display: Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.price_fraction_indicator.display = function(value)
-  return "Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Price Fraction Indicator
@@ -3072,48 +4100,77 @@ tmx_mx_solamulticast_hsvf_v1_13.settlement_price.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Settlement Price Fraction Indicator Futures
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures = {}
+-- Settlement Price Fraction Indicator
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator = {}
 
--- Size: Settlement Price Fraction Indicator Futures
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.size = 1
+-- Size: Settlement Price Fraction Indicator
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.size = 1
 
--- Display: Settlement Price Fraction Indicator Futures
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.display = function(value)
-  return "Settlement Price Fraction Indicator Futures: "..value
+-- Display: Settlement Price Fraction Indicator
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.display = function(value)
+  if value == "0" then
+    return "Settlement Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Settlement Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Settlement Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Settlement Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Settlement Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Settlement Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Settlement Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Settlement Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Settlement Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Settlement Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Settlement Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Settlement Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Settlement Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Settlement Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Settlement Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Settlement Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Settlement Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Settlement Price Fraction Indicator: Unknown("..value..")"
 end
 
--- Dissect: Settlement Price Fraction Indicator Futures
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.size
+-- Dissect: Settlement Price Fraction Indicator
+tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_futures, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price Fraction Indicator Y 1
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1 = {}
-
--- Size: Settlement Price Fraction Indicator Y 1
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size = 1
-
--- Display: Settlement Price Fraction Indicator Y 1
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.display = function(value)
-  return "Settlement Price Fraction Indicator Y 1: "..value
-end
-
--- Dissect: Settlement Price Fraction Indicator Y 1
-tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator_y_1, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3312,7 +4369,59 @@ tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.size = 1
 
 -- Display: Strike Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.display = function(value)
-  return "Strike Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Strike Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Strike Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Strike Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Strike Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Strike Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Strike Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Strike Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Strike Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Strike Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Strike Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Strike Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Strike Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Strike Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Strike Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Strike Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Strike Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Strike Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Strike Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Strike Price Fraction Indicator
@@ -3485,7 +4594,59 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.size = 1
 
 -- Display: Tick Increment Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.display = function(value)
-  return "Tick Increment Fraction Indicator: "..value
+  if value == "0" then
+    return "Tick Increment Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Tick Increment Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Tick Increment Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Tick Increment Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Tick Increment Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Tick Increment Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Tick Increment Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Tick Increment Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Tick Increment Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Tick Increment Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Tick Increment Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Tick Increment Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Tick Increment Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Tick Increment Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Tick Increment Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Tick Increment Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Tick Increment Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Tick Increment Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Increment Fraction Indicator
@@ -3536,7 +4697,59 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_price_fraction_indicator.size = 1
 
 -- Display: Tick Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.tick_price_fraction_indicator.display = function(value)
-  return "Tick Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Tick Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Tick Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Tick Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Tick Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Tick Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Tick Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Tick Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Tick Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Tick Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Tick Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Tick Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Tick Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Tick Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Tick Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Tick Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Tick Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Tick Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Tick Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Price Fraction Indicator
@@ -3633,7 +4846,59 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.size = 1
 
 -- Display: Tick Value Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.display = function(value)
-  return "Tick Value Fraction Indicator: "..value
+  if value == "0" then
+    return "Tick Value Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Tick Value Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Tick Value Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Tick Value Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Tick Value Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Tick Value Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Tick Value Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Tick Value Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Tick Value Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Tick Value Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Tick Value Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Tick Value Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Tick Value Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Tick Value Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Tick Value Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Tick Value Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Tick Value Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Tick Value Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Tick Value Fraction Indicator
@@ -3735,7 +5000,59 @@ tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.size = 1
 
 -- Display: Trade Price Fraction Indicator
 tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.display = function(value)
-  return "Trade Price Fraction Indicator: "..value
+  if value == "0" then
+    return "Trade Price Fraction Indicator: Whole (0)"
+  end
+  if value == "1" then
+    return "Trade Price Fraction Indicator: Ten (1)"
+  end
+  if value == "2" then
+    return "Trade Price Fraction Indicator: Hundred (2)"
+  end
+  if value == "3" then
+    return "Trade Price Fraction Indicator: Thousand (3)"
+  end
+  if value == "4" then
+    return "Trade Price Fraction Indicator: Ten Thousand (4)"
+  end
+  if value == "5" then
+    return "Trade Price Fraction Indicator: Hundred Thousand (5)"
+  end
+  if value == "6" then
+    return "Trade Price Fraction Indicator: Million (6)"
+  end
+  if value == "7" then
+    return "Trade Price Fraction Indicator: Ten Million (7)"
+  end
+  if value == "8" then
+    return "Trade Price Fraction Indicator: Hundred Million (8)"
+  end
+  if value == "9" then
+    return "Trade Price Fraction Indicator: Billion (9)"
+  end
+  if value == "A" then
+    return "Trade Price Fraction Indicator: Negative Whole (A)"
+  end
+  if value == "B" then
+    return "Trade Price Fraction Indicator: Negative Ten (B)"
+  end
+  if value == "C" then
+    return "Trade Price Fraction Indicator: Negative Hundred (C)"
+  end
+  if value == "D" then
+    return "Trade Price Fraction Indicator: Negative Thousand (D)"
+  end
+  if value == "E" then
+    return "Trade Price Fraction Indicator: Negative Ten Thousand (E)"
+  end
+  if value == "F" then
+    return "Trade Price Fraction Indicator: Negative Hundred Thousand (F)"
+  end
+  if value == "G" then
+    return "Trade Price Fraction Indicator: Negative Million (G)"
+  end
+
+  return "Trade Price Fraction Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Price Fraction Indicator
@@ -3921,6 +5238,1949 @@ tmx_mx_solamulticast_hsvf_v1_13.volume.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Scaled Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote = {}
+
+-- Display: Scaled Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display = function(value)
+  return "Scaled Ask Price Quote: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Ask Price Quote with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display_uncoded = function(value)
+  return "Scaled Ask Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Ask Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if ask_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  elseif ask_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_quote, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_quote, range, mantissa, mantissa_display)
+
+  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
+  ask_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Ask Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary = {}
+
+-- Display: Scaled Ask Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display = function(value)
+  return "Scaled Ask Price Summary: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Ask Price Summary with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display_uncoded = function(value)
+  return "Scaled Ask Price Summary: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Ask Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if ask_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  elseif ask_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_ask_price_summary, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.ask_price_summary, range, mantissa, mantissa_display)
+
+  local ask_price_fraction_indicator_entry = field_tree:add("Ask Price Fraction Indicator: " .. tostring(ask_price_fraction_indicator))
+  ask_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote = {}
+
+-- Display: Scaled Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display = function(value)
+  return "Scaled Bid Price Quote: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Bid Price Quote with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display_uncoded = function(value)
+  return "Scaled Bid Price Quote: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Bid Price Quote
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if bid_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  elseif bid_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_quote, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_quote, range, mantissa, mantissa_display)
+
+  local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
+  bid_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Bid Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary = {}
+
+-- Display: Scaled Bid Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display = function(value)
+  return "Scaled Bid Price Summary: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Bid Price Summary with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display_uncoded = function(value)
+  return "Scaled Bid Price Summary: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Bid Price Summary
+tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if bid_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  elseif bid_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_bid_price_summary, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.bid_price_summary, range, mantissa, mantissa_display)
+
+  local bid_price_fraction_indicator_entry = field_tree:add("Bid Price Fraction Indicator: " .. tostring(bid_price_fraction_indicator))
+  bid_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Conversion Factor
+tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor = {}
+
+-- Display: Scaled Conversion Factor
+tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display = function(value)
+  return "Scaled Conversion Factor: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Conversion Factor with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display_uncoded = function(value)
+  return "Scaled Conversion Factor: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Conversion Factor
+tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.conversion_factor.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if conversion_factor_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  elseif conversion_factor_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_conversion_factor, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.conversion_factor.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.conversion_factor, range, mantissa, mantissa_display)
+
+  local conversion_factor_fraction_indicator_entry = field_tree:add("Conversion Factor Fraction Indicator: " .. tostring(conversion_factor_fraction_indicator))
+  conversion_factor_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Coupon
+tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon = {}
+
+-- Display: Scaled Coupon
+tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display = function(value)
+  return "Scaled Coupon: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Coupon with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display_uncoded = function(value)
+  return "Scaled Coupon: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Coupon
+tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.coupon.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if coupon_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  elseif coupon_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_coupon, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.coupon.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.coupon, range, mantissa, mantissa_display)
+
+  local coupon_fraction_indicator_entry = field_tree:add("Coupon Fraction Indicator: " .. tostring(coupon_fraction_indicator))
+  coupon_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled External Price At Source
+tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source = {}
+
+-- Display: Scaled External Price At Source
+tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display = function(value)
+  return "Scaled External Price At Source: " .. string.format("%g", value)
+end
+
+-- Display: Scaled External Price At Source with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display_uncoded = function(value)
+  return "Scaled External Price At Source: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled External Price At Source
+tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.external_price_at_source.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if external_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  elseif external_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_external_price_at_source, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.external_price_at_source.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.external_price_at_source, range, mantissa, mantissa_display)
+
+  local external_price_fraction_indicator_entry = field_tree:add("External Price Fraction Indicator: " .. tostring(external_price_fraction_indicator))
+  external_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled High Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price = {}
+
+-- Display: Scaled High Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display = function(value)
+  return "Scaled High Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled High Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display_uncoded = function(value)
+  return "Scaled High Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled High Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if high_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  elseif high_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_high_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.high_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.high_price, range, mantissa, mantissa_display)
+
+  local high_price_fraction_indicator_entry = field_tree:add("High Price Fraction Indicator: " .. tostring(high_price_fraction_indicator))
+  high_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Last Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price = {}
+
+-- Display: Scaled Last Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Last Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display_uncoded = function(value)
+  return "Scaled Last Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Last Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.last_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if last_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  elseif last_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_last_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.last_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.last_price, range, mantissa, mantissa_display)
+
+  local last_price_fraction_indicator_entry = field_tree:add("Last Price Fraction Indicator: " .. tostring(last_price_fraction_indicator))
+  last_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Leg Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price = {}
+
+-- Display: Scaled Leg Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display = function(value)
+  return "Scaled Leg Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Leg Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display_uncoded = function(value)
+  return "Scaled Leg Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Leg Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.leg_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if leg_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  elseif leg_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_leg_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.leg_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.leg_price, range, mantissa, mantissa_display)
+
+  local leg_price_fraction_indicator_entry = field_tree:add("Leg Price Fraction Indicator: " .. tostring(leg_price_fraction_indicator))
+  leg_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Leg Ratio Or Delta
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta = {}
+
+-- Display: Scaled Leg Ratio Or Delta
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display = function(value)
+  return "Scaled Leg Ratio Or Delta: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Leg Ratio Or Delta with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display_uncoded = function(value)
+  return "Scaled Leg Ratio Or Delta: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Leg Ratio Or Delta
+tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if leg_ratio_or_delta_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  elseif leg_ratio_or_delta_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_leg_ratio_or_delta, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.leg_ratio_or_delta, range, mantissa, mantissa_display)
+
+  local leg_ratio_or_delta_fraction_indicator_entry = field_tree:add("Leg Ratio Or Delta Fraction Indicator: " .. tostring(leg_ratio_or_delta_fraction_indicator))
+  leg_ratio_or_delta_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Low Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price = {}
+
+-- Display: Scaled Low Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Low Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display_uncoded = function(value)
+  return "Scaled Low Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Low Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if low_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  elseif low_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_low_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.low_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.low_price, range, mantissa, mantissa_display)
+
+  local low_price_fraction_indicator_entry = field_tree:add("Low Price Fraction Indicator: " .. tostring(low_price_fraction_indicator))
+  low_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Maximum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures = {}
+
+-- Display: Scaled Maximum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display = function(value)
+  return "Scaled Maximum Threshold Price Futures: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Maximum Threshold Price Futures with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display_uncoded = function(value)
+  return "Scaled Maximum Threshold Price Futures: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Maximum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_futures.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if maximum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_maximum_threshold_price_futures, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_futures.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_futures, range, mantissa, mantissa_display)
+
+  local maximum_threshold_price_fraction_indicator_entry = field_tree:add("Maximum Threshold Price Fraction Indicator: " .. tostring(maximum_threshold_price_fraction_indicator))
+  maximum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Maximum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options = {}
+
+-- Display: Scaled Maximum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display = function(value)
+  return "Scaled Maximum Threshold Price Options: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Maximum Threshold Price Options with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display_uncoded = function(value)
+  return "Scaled Maximum Threshold Price Options: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Maximum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if maximum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  elseif maximum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_maximum_threshold_price_options, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.maximum_threshold_price_options, range, mantissa, mantissa_display)
+
+  local maximum_threshold_price_fraction_indicator_entry = field_tree:add("Maximum Threshold Price Fraction Indicator: " .. tostring(maximum_threshold_price_fraction_indicator))
+  maximum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Min Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price = {}
+
+-- Display: Scaled Min Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display = function(value)
+  return "Scaled Min Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Min Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display_uncoded = function(value)
+  return "Scaled Min Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Min Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.min_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if min_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  elseif min_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_min_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.min_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.min_price, range, mantissa, mantissa_display)
+
+  local min_price_fraction_indicator_entry = field_tree:add("Min Price Fraction Indicator: " .. tostring(min_price_fraction_indicator))
+  min_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Minimum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures = {}
+
+-- Display: Scaled Minimum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display = function(value)
+  return "Scaled Minimum Threshold Price Futures: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Minimum Threshold Price Futures with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display_uncoded = function(value)
+  return "Scaled Minimum Threshold Price Futures: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Minimum Threshold Price Futures
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_futures.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if minimum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_minimum_threshold_price_futures, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_futures.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.minimum_threshold_price_futures, range, mantissa, mantissa_display)
+
+  local minimum_threshold_price_fraction_indicator_entry = field_tree:add("Minimum Threshold Price Fraction Indicator: " .. tostring(minimum_threshold_price_fraction_indicator))
+  minimum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Minimum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options = {}
+
+-- Display: Scaled Minimum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display = function(value)
+  return "Scaled Minimum Threshold Price Options: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Minimum Threshold Price Options with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display_uncoded = function(value)
+  return "Scaled Minimum Threshold Price Options: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Minimum Threshold Price Options
+tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if minimum_threshold_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  elseif minimum_threshold_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_minimum_threshold_price_options, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.minimum_threshold_price_options, range, mantissa, mantissa_display)
+
+  local minimum_threshold_price_fraction_indicator_entry = field_tree:add("Minimum Threshold Price Fraction Indicator: " .. tostring(minimum_threshold_price_fraction_indicator))
+  minimum_threshold_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Net Change
+tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change = {}
+
+-- Display: Scaled Net Change
+tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Net Change with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display_uncoded = function(value)
+  return "Scaled Net Change: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Net Change
+tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.net_change.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if net_change_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  elseif net_change_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_net_change, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.net_change.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.net_change, range, mantissa, mantissa_display)
+
+  local net_change_fraction_indicator_entry = field_tree:add("Net Change Fraction Indicator: " .. tostring(net_change_fraction_indicator))
+  net_change_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Open Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price = {}
+
+-- Display: Scaled Open Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Open Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display_uncoded = function(value)
+  return "Scaled Open Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Open Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.open_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if open_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  elseif open_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_open_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.open_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.open_price, range, mantissa, mantissa_display)
+
+  local open_price_fraction_indicator_entry = field_tree:add("Open Price Fraction Indicator: " .. tostring(open_price_fraction_indicator))
+  open_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Opening Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price = {}
+
+-- Display: Scaled Opening Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display = function(value)
+  return "Scaled Opening Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Opening Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display_uncoded = function(value)
+  return "Scaled Opening Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Opening Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.opening_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if opening_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  elseif opening_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_opening_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.opening_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.opening_price, range, mantissa, mantissa_display)
+
+  local opening_price_fraction_indicator_entry = field_tree:add("Opening Price Fraction Indicator: " .. tostring(opening_price_fraction_indicator))
+  opening_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Previous Settlement
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement = {}
+
+-- Display: Scaled Previous Settlement
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display = function(value)
+  return "Scaled Previous Settlement: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Previous Settlement with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display_uncoded = function(value)
+  return "Scaled Previous Settlement: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Previous Settlement
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if previous_settlement_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  elseif previous_settlement_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_previous_settlement, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.previous_settlement, range, mantissa, mantissa_display)
+
+  local previous_settlement_fraction_indicator_entry = field_tree:add("Previous Settlement Fraction Indicator: " .. tostring(previous_settlement_fraction_indicator))
+  previous_settlement_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Previous Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price = {}
+
+-- Display: Scaled Previous Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display = function(value)
+  return "Scaled Previous Settlement Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Previous Settlement Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display_uncoded = function(value)
+  return "Scaled Previous Settlement Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Previous Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if previous_settlement_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  elseif previous_settlement_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_previous_settlement_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.previous_settlement_price, range, mantissa, mantissa_display)
+
+  local previous_settlement_price_fraction_indicator_entry = field_tree:add("Previous Settlement Price Fraction Indicator: " .. tostring(previous_settlement_price_fraction_indicator))
+  previous_settlement_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_price = {}
+
+-- Display: Scaled Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display = function(value)
+  return "Scaled Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display_uncoded = function(value)
+  return "Scaled Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  elseif price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.price, range, mantissa, mantissa_display)
+
+  local price_fraction_indicator_entry = field_tree:add("Price Fraction Indicator: " .. tostring(price_fraction_indicator))
+  price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price = {}
+
+-- Display: Scaled Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display = function(value)
+  return "Scaled Settlement Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Settlement Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display_uncoded = function(value)
+  return "Scaled Settlement Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Settlement Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if settlement_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  elseif settlement_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_settlement_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.settlement_price, range, mantissa, mantissa_display)
+
+  local settlement_price_fraction_indicator_entry = field_tree:add("Settlement Price Fraction Indicator: " .. tostring(settlement_price_fraction_indicator))
+  settlement_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Strike Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price = {}
+
+-- Display: Scaled Strike Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Strike Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display_uncoded = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Strike Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.strike_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if strike_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  elseif strike_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_strike_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.strike_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.strike_price, range, mantissa, mantissa_display)
+
+  local strike_price_fraction_indicator_entry = field_tree:add("Strike Price Fraction Indicator: " .. tostring(strike_price_fraction_indicator))
+  strike_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment = {}
+
+-- Display: Scaled Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Tick Increment with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display_uncoded = function(value)
+  return "Scaled Tick Increment: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Tick Increment
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if tick_increment_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  elseif tick_increment_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_increment, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_increment, range, mantissa, mantissa_display)
+
+  local tick_increment_fraction_indicator_entry = field_tree:add("Tick Increment Fraction Indicator: " .. tostring(tick_increment_fraction_indicator))
+  tick_increment_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Tick Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price = {}
+
+-- Display: Scaled Tick Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display = function(value)
+  return "Scaled Tick Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Tick Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display_uncoded = function(value)
+  return "Scaled Tick Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Tick Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if tick_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  elseif tick_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.tick_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_price, range, mantissa, mantissa_display)
+
+  local tick_price_fraction_indicator_entry = field_tree:add("Tick Price Fraction Indicator: " .. tostring(tick_price_fraction_indicator))
+  tick_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Tick Value
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value = {}
+
+-- Display: Scaled Tick Value
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display = function(value)
+  return "Scaled Tick Value: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Tick Value with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display_uncoded = function(value)
+  return "Scaled Tick Value: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Tick Value
+tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.tick_value.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if tick_value_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  elseif tick_value_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_tick_value, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.tick_value.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_value, range, mantissa, mantissa_display)
+
+  local tick_value_fraction_indicator_entry = field_tree:add("Tick Value Fraction Indicator: " .. tostring(tick_value_fraction_indicator))
+  tick_value_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Scaled Trade Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price = {}
+
+-- Display: Scaled Trade Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value)
+end
+
+-- Display: Scaled Trade Price with an unrecognised code
+tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display_uncoded = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
+-- Composite: Scaled Trade Price
+tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_13.trade_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:string()
+
+  local value
+  local display
+  if trade_price_fraction_indicator == "0" then
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "1" then
+    value = mantissa / (10 ^ 1)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "2" then
+    value = mantissa / (10 ^ 2)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "3" then
+    value = mantissa / (10 ^ 3)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "4" then
+    value = mantissa / (10 ^ 4)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "5" then
+    value = mantissa / (10 ^ 5)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "6" then
+    value = mantissa / (10 ^ 6)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "7" then
+    value = mantissa / (10 ^ 7)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "8" then
+    value = mantissa / (10 ^ 8)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  elseif trade_price_fraction_indicator == "9" then
+    value = mantissa / (10 ^ 9)
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display(value)
+  else
+    value = mantissa
+    display = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.display_uncoded(value)
+  end
+
+  local field_tree = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.scaled_trade_price, range, value, display)
+  local mantissa_display = tmx_mx_solamulticast_hsvf_v1_13.trade_price.display(mantissa)
+
+  field_tree:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.trade_price, range, mantissa, mantissa_display)
+
+  local trade_price_fraction_indicator_entry = field_tree:add("Trade Price Fraction Indicator: " .. tostring(trade_price_fraction_indicator))
+  trade_price_fraction_indicator_entry:set_generated()
+
+  return offset + length, value
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Tmx Mx SolaMulticast Hsvf 1.13
@@ -4036,13 +7296,13 @@ tmx_mx_solamulticast_hsvf_v1_13.tick_entry.fields = function(buffer, offset, pac
   end
 
   -- Min Price: N
-  index, min_price = tmx_mx_solamulticast_hsvf_v1_13.min_price.dissect(buffer, index, packet, parent)
+  index, min_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_min_price.dissect(buffer, index, packet, parent)
 
   -- Min Price Fraction Indicator: X
   index, min_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.min_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Price: N
-  index, tick_price = tmx_mx_solamulticast_hsvf_v1_13.tick_price.dissect(buffer, index, packet, parent)
+  index, tick_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_price.dissect(buffer, index, packet, parent)
 
   -- Tick Price Fraction Indicator: X
   index, tick_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4379,7 +7639,7 @@ tmx_mx_solamulticast_hsvf_v1_13.bond_definition.fields = function(buffer, offset
   index, maturity_date = tmx_mx_solamulticast_hsvf_v1_13.maturity_date.dissect(buffer, index, packet, parent)
 
   -- Coupon: N
-  index, coupon = tmx_mx_solamulticast_hsvf_v1_13.coupon.dissect(buffer, index, packet, parent)
+  index, coupon = tmx_mx_solamulticast_hsvf_v1_13.scaled_coupon.dissect(buffer, index, packet, parent)
 
   -- Coupon Fraction Indicator: A
   index, coupon_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.coupon_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4388,7 +7648,7 @@ tmx_mx_solamulticast_hsvf_v1_13.bond_definition.fields = function(buffer, offset
   index, outstanding_bond_value = tmx_mx_solamulticast_hsvf_v1_13.outstanding_bond_value.dissect(buffer, index, packet, parent)
 
   -- Conversion Factor: N
-  index, conversion_factor = tmx_mx_solamulticast_hsvf_v1_13.conversion_factor.dissect(buffer, index, packet, parent)
+  index, conversion_factor = tmx_mx_solamulticast_hsvf_v1_13.scaled_conversion_factor.dissect(buffer, index, packet, parent)
 
   -- Conversion Factor Fraction Indicator: X
   index, conversion_factor_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.conversion_factor_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4599,7 +7859,7 @@ tmx_mx_solamulticast_hsvf_v1_13.group_status_message.fields = function(buffer, o
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_13.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol: A
+  -- Root Symbol: X
   index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Group Status: A
@@ -4661,7 +7921,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_correction_message.fields = functi
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4670,7 +7930,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_correction_message.fields = functi
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4914,7 +8174,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price Summary: N
-  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.dissect(buffer, index, packet, parent)
+  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4926,7 +8186,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price Summary: N
-  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.dissect(buffer, index, packet, parent)
+  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4938,7 +8198,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, last_price_sign = tmx_mx_solamulticast_hsvf_v1_13.last_price_sign.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect(buffer, index, packet, parent)
 
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4947,7 +8207,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, open_price_sign = tmx_mx_solamulticast_hsvf_v1_13.open_price_sign.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
-  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.open_price.dissect(buffer, index, packet, parent)
+  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4956,7 +8216,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, high_price_sign = tmx_mx_solamulticast_hsvf_v1_13.high_price_sign.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4965,7 +8225,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, low_price_sign = tmx_mx_solamulticast_hsvf_v1_13.low_price_sign.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -4974,7 +8234,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_summary_message.fields = function(buffe
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5028,7 +8288,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.low_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.settlement_price.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.size + 
   tmx_mx_solamulticast_hsvf_v1_13.net_change.size + 
   tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.size + 
@@ -5057,7 +8317,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   index, future_product = tmx_mx_solamulticast_hsvf_v1_13.future_product.dissect(buffer, index, packet, parent)
 
   -- Bid Price Summary: N
-  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.dissect(buffer, index, packet, parent)
+  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5066,7 +8326,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Summary: N
-  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.dissect(buffer, index, packet, parent)
+  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5075,40 +8335,40 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect(buffer, index, packet, parent)
 
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
-  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.open_price.dissect(buffer, index, packet, parent)
+  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: N
-  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.dissect(buffer, index, packet, parent)
+  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator Futures: X
-  index, settlement_price_fraction_indicator_futures = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator: N
+  index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: A
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5117,7 +8377,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement: N
-  index, previous_settlement = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement.dissect(buffer, index, packet, parent)
+  index, previous_settlement = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Fraction Indicator: X
   index, previous_settlement_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5132,7 +8392,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_summary_message.fields = function(buffer
   index, reason = tmx_mx_solamulticast_hsvf_v1_13.reason.dissect(buffer, index, packet, parent)
 
   -- External Price At Source: N
-  index, external_price_at_source = tmx_mx_solamulticast_hsvf_v1_13.external_price_at_source.dissect(buffer, index, packet, parent)
+  index, external_price_at_source = tmx_mx_solamulticast_hsvf_v1_13.scaled_external_price_at_source.dissect(buffer, index, packet, parent)
 
   -- External Price Fraction Indicator: X
   index, external_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.external_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5196,7 +8456,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.fields = function(buffer, o
   index, call_put_code = tmx_mx_solamulticast_hsvf_v1_13.call_put_code.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = tmx_mx_solamulticast_hsvf_v1_13.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5236,6 +8496,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.ask_size.size + 
   tmx_mx_solamulticast_hsvf_v1_13.last_price.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.open_interest.size + 
   tmx_mx_solamulticast_hsvf_v1_13.open_interest_date.size + 
   tmx_mx_solamulticast_hsvf_v1_13.tick.size + 
@@ -5250,7 +8511,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.low_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.settlement_price.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.reason.size
@@ -5271,7 +8532,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Summary: N
-  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.dissect(buffer, index, packet, parent)
+  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5280,7 +8541,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Summary: N
-  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.dissect(buffer, index, packet, parent)
+  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5289,7 +8550,10 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Price Fraction Indicator: X
+  index, last_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Interest: N
   index, open_interest = tmx_mx_solamulticast_hsvf_v1_13.open_interest.dissect(buffer, index, packet, parent)
@@ -5307,37 +8571,37 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_summary_message.fields = function
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Opening Price: N
-  index, opening_price = tmx_mx_solamulticast_hsvf_v1_13.opening_price.dissect(buffer, index, packet, parent)
+  index, opening_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_opening_price.dissect(buffer, index, packet, parent)
 
   -- Opening Price Fraction Indicator: X
   index, opening_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.opening_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: N
-  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.dissect(buffer, index, packet, parent)
+  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator Futures: X
-  index, settlement_price_fraction_indicator_futures = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_futures.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator: N
+  index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
-  index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.dissect(buffer, index, packet, parent)
+  index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price Fraction Indicator: X
   index, previous_settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5394,7 +8658,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_symbol.fields = function(buffer, offset, 
   index, expiry_month = tmx_mx_solamulticast_hsvf_v1_13.expiry_month.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
-  index, strike_price = tmx_mx_solamulticast_hsvf_v1_13.strike_price.dissect(buffer, index, packet, parent)
+  index, strike_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5456,7 +8720,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.option_marker.size + 
   tmx_mx_solamulticast_hsvf_v1_13.settlement_price.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.size + 
   tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.size + 
   tmx_mx_solamulticast_hsvf_v1_13.reason.size
@@ -5477,7 +8741,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   index, option_symbol = tmx_mx_solamulticast_hsvf_v1_13.option_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Summary: N
-  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.bid_price_summary.dissect(buffer, index, packet, parent)
+  index, bid_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5486,7 +8750,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Summary: N
-  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.ask_price_summary.dissect(buffer, index, packet, parent)
+  index, ask_price_summary = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5495,7 +8759,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   index, ask_size = tmx_mx_solamulticast_hsvf_v1_13.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
-  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.last_price.dissect(buffer, index, packet, parent)
+  index, last_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_last_price.dissect(buffer, index, packet, parent)
 
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5516,25 +8780,25 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
-  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.open_price.dissect(buffer, index, packet, parent)
+  index, open_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_open_price.dissect(buffer, index, packet, parent)
 
   -- Open Price Fraction Indicator: X
   index, open_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.open_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- High Price: N
-  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.high_price.dissect(buffer, index, packet, parent)
+  index, high_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_high_price.dissect(buffer, index, packet, parent)
 
   -- High Price Fraction Indicator: X
   index, high_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.high_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Low Price: N
-  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.low_price.dissect(buffer, index, packet, parent)
+  index, low_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_low_price.dissect(buffer, index, packet, parent)
 
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5543,13 +8807,13 @@ tmx_mx_solamulticast_hsvf_v1_13.option_summary_message.fields = function(buffer,
   index, option_marker = tmx_mx_solamulticast_hsvf_v1_13.option_marker.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: N
-  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.settlement_price.dissect(buffer, index, packet, parent)
+  index, settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator Y 1: N
-  index, settlement_price_fraction_indicator_y_1 = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator_y_1.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator: N
+  index, settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
-  index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price.dissect(buffer, index, packet, parent)
+  index, previous_settlement_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_previous_settlement_price.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price Fraction Indicator: X
   index, previous_settlement_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.previous_settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5612,13 +8876,13 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_leg.fields = function(buffer
   index, leg_instrument = tmx_mx_solamulticast_hsvf_v1_13.leg_instrument.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio Or Delta: N
-  index, leg_ratio_or_delta = tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta.dissect(buffer, index, packet, parent)
+  index, leg_ratio_or_delta = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_ratio_or_delta.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio Or Delta Fraction Indicator: X
   index, leg_ratio_or_delta_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.leg_ratio_or_delta_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Leg Price: N
-  index, leg_price = tmx_mx_solamulticast_hsvf_v1_13.leg_price.dissect(buffer, index, packet, parent)
+  index, leg_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_leg_price.dissect(buffer, index, packet, parent)
 
   -- Leg Price Fraction Indicator: X
   index, leg_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.leg_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5733,19 +8997,19 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_instrument_keys_message.fields = functi
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Options: X
-  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Options: X
-  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: X
   index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5822,7 +9086,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.associated_product.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root Symbol: A
+  -- Root Symbol: X
   index, root_symbol = tmx_mx_solamulticast_hsvf_v1_13.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Symbol Month: A
@@ -5881,7 +9145,8 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.currency.size + 
   tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_13.delivery_type.size + 
-  tmx_mx_solamulticast_hsvf_v1_13.associated_product.size
+  tmx_mx_solamulticast_hsvf_v1_13.associated_product.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.size
 
 -- Display: Futures Instrument Keys Message
 tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.display = function(packet, parent, length)
@@ -5908,19 +9173,19 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.fields = functio
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Futures: N
-  index, maximum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_futures.dissect(buffer, index, packet, parent)
+  index, maximum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_futures.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Futures: N
-  index, minimum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_futures.dissect(buffer, index, packet, parent)
+  index, minimum_threshold_price_futures = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_futures.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: X
   index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5941,7 +9206,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.fields = functio
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_13.contract_size.dissect(buffer, index, packet, parent)
 
   -- Tick Value: N
-  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.tick_value.dissect(buffer, index, packet, parent)
+  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.dissect(buffer, index, packet, parent)
 
   -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5957,6 +9222,9 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_instrument_keys_message.fields = functio
 
   -- Associated Product: Struct of 4 fields
   index, associated_product = tmx_mx_solamulticast_hsvf_v1_13.associated_product.dissect(buffer, index, packet, parent)
+
+  -- Last Trading Datetime: N
+  index, last_trading_datetime = tmx_mx_solamulticast_hsvf_v1_13.last_trading_datetime.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6038,6 +9306,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message = {}
 tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.size =
   tmx_mx_solamulticast_hsvf_v1_13.exchange_id.size + 
   tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.size + 
+  tmx_mx_solamulticast_hsvf_v1_13.expiry_date.size + 
   tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.size + 
   tmx_mx_solamulticast_hsvf_v1_13.maximum_number_of_contracts_per_order.size + 
   tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.size + 
@@ -6076,6 +9345,9 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.fields = 
   -- Future Option Symbol: Struct of 7 fields
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.dissect(buffer, index, packet, parent)
 
+  -- Expiry Date: N
+  index, expiry_date = tmx_mx_solamulticast_hsvf_v1_13.expiry_date.dissect(buffer, index, packet, parent)
+
   -- Strike Price Currency: A
   index, strike_price_currency = tmx_mx_solamulticast_hsvf_v1_13.strike_price_currency.dissect(buffer, index, packet, parent)
 
@@ -6086,19 +9358,19 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.fields = 
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Options: X
-  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Options: X
-  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: X
   index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6119,7 +9391,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_instrument_keys_message.fields = 
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_13.contract_size.dissect(buffer, index, packet, parent)
 
   -- Tick Value: N
-  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.tick_value.dissect(buffer, index, packet, parent)
+  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.dissect(buffer, index, packet, parent)
 
   -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6218,19 +9490,19 @@ tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.fields = function
   index, minimum_number_of_contracts_per_order = tmx_mx_solamulticast_hsvf_v1_13.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Options: X
-  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, maximum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Options: X
-  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
+  index, minimum_threshold_price_options = tmx_mx_solamulticast_hsvf_v1_13.scaled_minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Tick Increment: X
-  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.tick_increment.dissect(buffer, index, packet, parent)
+  index, tick_increment = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_increment.dissect(buffer, index, packet, parent)
 
   -- Tick Increment Fraction Indicator: X
   index, tick_increment_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_increment_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6260,7 +9532,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_instrument_keys_message.fields = function
   index, contract_size = tmx_mx_solamulticast_hsvf_v1_13.contract_size.dissect(buffer, index, packet, parent)
 
   -- Tick Value: N
-  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.tick_value.dissect(buffer, index, packet, parent)
+  index, tick_value = tmx_mx_solamulticast_hsvf_v1_13.scaled_tick_value.dissect(buffer, index, packet, parent)
 
   -- Tick Value Fraction Indicator: X
   index, tick_value_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.tick_value_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6330,7 +9602,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_trade_cancellation_message.fields = fun
   index, trade_price_sign = tmx_mx_solamulticast_hsvf_v1_13.trade_price_sign.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6391,7 +9663,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_trade_cancellation_message.fields = funct
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6455,7 +9727,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_trade_cancellation_message.fields
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Price: N
-  index, price = tmx_mx_solamulticast_hsvf_v1_13.price.dissect(buffer, index, packet, parent)
+  index, price = tmx_mx_solamulticast_hsvf_v1_13.scaled_price.dissect(buffer, index, packet, parent)
 
   -- Price Fraction Indicator: X
   index, price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6519,7 +9791,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_trade_cancellation_message.fields = funct
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6590,7 +9862,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.fields 
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6605,7 +9877,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_market_depth_trading_instrument.fields 
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6740,7 +10012,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.fields =
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6752,7 +10024,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_market_depth_trading_instrument.fields =
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6887,7 +10159,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.f
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6899,7 +10171,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_market_depth_trading_instrument.f
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7034,7 +10306,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.fields = function(buff
   index, level_of_market_depth = tmx_mx_solamulticast_hsvf_v1_13.level_of_market_depth.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7046,7 +10318,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_market_depth_level.fields = function(buff
   index, number_of_bid_orders = tmx_mx_solamulticast_hsvf_v1_13.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7183,7 +10455,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.fields = function(buffer,
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_13.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7195,7 +10467,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_quote_message.fields = function(buffer,
   index, ask_price_sign = tmx_mx_solamulticast_hsvf_v1_13.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7258,7 +10530,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.fields = function(buffer, 
   index, future_product = tmx_mx_solamulticast_hsvf_v1_13.future_product.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7267,7 +10539,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_quote_message.fields = function(buffer, 
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7330,7 +10602,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.fields = function(b
   index, future_option_symbol = tmx_mx_solamulticast_hsvf_v1_13.future_option_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7339,7 +10611,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_quote_message.fields = function(b
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7402,7 +10674,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.fields = function(buffer, o
   index, option_symbol = tmx_mx_solamulticast_hsvf_v1_13.option_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote: X
-  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7411,7 +10683,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_quote_message.fields = function(buffer, o
   index, bid_size = tmx_mx_solamulticast_hsvf_v1_13.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote: X
-  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote = tmx_mx_solamulticast_hsvf_v1_13.scaled_ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7898,7 +11170,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_trade_message.fields = function(buffer,
   index, trade_price_sign = tmx_mx_solamulticast_hsvf_v1_13.trade_price_sign.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7907,7 +11179,7 @@ tmx_mx_solamulticast_hsvf_v1_13.strategy_trade_message.fields = function(buffer,
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7974,7 +11246,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_message.fields = function(buffer, 
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7983,7 +11255,7 @@ tmx_mx_solamulticast_hsvf_v1_13.futures_trade_message.fields = function(buffer, 
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8050,7 +11322,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_trade_message.fields = function(b
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8062,7 +11334,7 @@ tmx_mx_solamulticast_hsvf_v1_13.future_options_trade_message.fields = function(b
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8126,7 +11398,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_trade_message.fields = function(buffer, o
   index, volume = tmx_mx_solamulticast_hsvf_v1_13.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Price: N
-  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = tmx_mx_solamulticast_hsvf_v1_13.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8135,7 +11407,7 @@ tmx_mx_solamulticast_hsvf_v1_13.option_trade_message.fields = function(buffer, o
   index, net_change_sign = tmx_mx_solamulticast_hsvf_v1_13.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
-  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.net_change.dissect(buffer, index, packet, parent)
+  index, net_change = tmx_mx_solamulticast_hsvf_v1_13.scaled_net_change.dissect(buffer, index, packet, parent)
 
   -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_solamulticast_hsvf_v1_13.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8337,7 +11609,7 @@ tmx_mx_solamulticast_hsvf_v1_13.message_body.dissect = function(buffer, offset, 
     return tmx_mx_solamulticast_hsvf_v1_13.future_deliverables_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bulletins Message
-  if message_type == "L:" then
+  if message_type == "L" then
     return tmx_mx_solamulticast_hsvf_v1_13.bulletins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Sales Message

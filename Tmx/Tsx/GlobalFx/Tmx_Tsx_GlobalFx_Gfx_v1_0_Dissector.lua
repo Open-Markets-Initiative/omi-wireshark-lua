@@ -15,14 +15,16 @@ local tmx_tsx_globalfx_gfx_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Tmx Tsx GlobalFx Gfx 1.0 Fields
-omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price = ProtoField.new("Bid Price", "tmx.tsx.globalfx.gfx.v1.0.bidprice", ftypes.INT32)
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price = ProtoField.new("Bid Price", "tmx.tsx.globalfx.gfx.v1.0.bidprice", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price_exponent = ProtoField.new("Bid Price Exponent", "tmx.tsx.globalfx.gfx.v1.0.bidpriceexponent", ftypes.INT8)
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price_mantissa = ProtoField.new("Bid Price Mantissa", "tmx.tsx.globalfx.gfx.v1.0.bidpricemantissa", ftypes.INT32)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.currency_1 = ProtoField.new("Currency 1", "tmx.tsx.globalfx.gfx.v1.0.currency1", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.currency_2 = ProtoField.new("Currency 2", "tmx.tsx.globalfx.gfx.v1.0.currency2", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.msg_type = ProtoField.new("Msg Type", "tmx.tsx.globalfx.gfx.v1.0.msgtype", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.number_of_tiers = ProtoField.new("Number Of Tiers", "tmx.tsx.globalfx.gfx.v1.0.numberoftiers", ftypes.UINT8)
-omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price = ProtoField.new("Offer Price", "tmx.tsx.globalfx.gfx.v1.0.offerprice", ftypes.INT32)
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price = ProtoField.new("Offer Price", "tmx.tsx.globalfx.gfx.v1.0.offerprice", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price_exponent = ProtoField.new("Offer Price Exponent", "tmx.tsx.globalfx.gfx.v1.0.offerpriceexponent", ftypes.INT8)
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price_mantissa = ProtoField.new("Offer Price Mantissa", "tmx.tsx.globalfx.gfx.v1.0.offerpricemantissa", ftypes.INT32)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.price_terms = ProtoField.new("Price Terms", "tmx.tsx.globalfx.gfx.v1.0.priceterms", ftypes.STRING)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.tsx.globalfx.gfx.v1.0.sequencenumber", ftypes.UINT32)
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.size_tier = ProtoField.new("Size Tier", "tmx.tsx.globalfx.gfx.v1.0.sizetier", ftypes.STRING)
@@ -95,29 +97,6 @@ end
 -- Tmx Tsx GlobalFx Gfx 1.0 Fields
 -----------------------------------------------------------------------
 
--- Bid Price
-tmx_tsx_globalfx_gfx_v1_0.bid_price = {}
-
--- Size: Bid Price
-tmx_tsx_globalfx_gfx_v1_0.bid_price.size = 4
-
--- Display: Bid Price
-tmx_tsx_globalfx_gfx_v1_0.bid_price.display = function(value)
-  return "Bid Price: "..value
-end
-
--- Dissect: Bid Price
-tmx_tsx_globalfx_gfx_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_tsx_globalfx_gfx_v1_0.bid_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_tsx_globalfx_gfx_v1_0.bid_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bid Price Exponent
 tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent = {}
 
@@ -137,6 +116,29 @@ tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.dissect = function(buffer, offset, 
   local display = tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price_exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa = {}
+
+-- Size: Bid Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.size = 4
+
+-- Display: Bid Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.display = function(value)
+  return "Bid Price Mantissa: "..value
+end
+
+-- Dissect: Bid Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price_mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -379,29 +381,6 @@ tmx_tsx_globalfx_gfx_v1_0.number_of_tiers.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Offer Price
-tmx_tsx_globalfx_gfx_v1_0.offer_price = {}
-
--- Size: Offer Price
-tmx_tsx_globalfx_gfx_v1_0.offer_price.size = 4
-
--- Display: Offer Price
-tmx_tsx_globalfx_gfx_v1_0.offer_price.display = function(value)
-  return "Offer Price: "..value
-end
-
--- Dissect: Offer Price
-tmx_tsx_globalfx_gfx_v1_0.offer_price.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_tsx_globalfx_gfx_v1_0.offer_price.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = tmx_tsx_globalfx_gfx_v1_0.offer_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Offer Price Exponent
 tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent = {}
 
@@ -421,6 +400,29 @@ tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.dissect = function(buffer, offset
   local display = tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price_exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa = {}
+
+-- Size: Offer Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.size = 4
+
+-- Display: Offer Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.display = function(value)
+  return "Offer Price Mantissa: "..value
+end
+
+-- Dissect: Offer Price Mantissa
+tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price_mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -447,7 +449,15 @@ end
 tmx_tsx_globalfx_gfx_v1_0.price_terms.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_globalfx_gfx_v1_0.price_terms.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = tmx_tsx_globalfx_gfx_v1_0.price_terms.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.price_terms, range, value, display)
@@ -635,6 +645,11 @@ tmx_tsx_globalfx_gfx_v1_0.valid_for_seconds.size = 2
 
 -- Display: Valid For Seconds
 tmx_tsx_globalfx_gfx_v1_0.valid_for_seconds.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Valid For Seconds: No Value"
+  end
+
   return "Valid For Seconds: "..value
 end
 
@@ -655,6 +670,94 @@ end
 -- Dissect Tmx Tsx GlobalFx Gfx 1.0
 -----------------------------------------------------------------------
 
+-- Offer Price
+tmx_tsx_globalfx_gfx_v1_0.offer_price = {}
+
+-- Size: Offer Price
+tmx_tsx_globalfx_gfx_v1_0.offer_price.size =
+  tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.size + 
+  tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.size
+
+-- Display: Offer Price
+tmx_tsx_globalfx_gfx_v1_0.offer_price.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Offer Price
+tmx_tsx_globalfx_gfx_v1_0.offer_price.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Offer Price Mantissa: INT32
+  index, offer_price_mantissa = tmx_tsx_globalfx_gfx_v1_0.offer_price_mantissa.dissect(buffer, index, packet, parent)
+
+  -- Offer Price Exponent: INT8
+  index, offer_price_exponent = tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Offer Price
+tmx_tsx_globalfx_gfx_v1_0.offer_price.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.offer_price, buffer(offset, 0))
+    local index = tmx_tsx_globalfx_gfx_v1_0.offer_price.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_tsx_globalfx_gfx_v1_0.offer_price.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return tmx_tsx_globalfx_gfx_v1_0.offer_price.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bid Price
+tmx_tsx_globalfx_gfx_v1_0.bid_price = {}
+
+-- Size: Bid Price
+tmx_tsx_globalfx_gfx_v1_0.bid_price.size =
+  tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.size + 
+  tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.size
+
+-- Display: Bid Price
+tmx_tsx_globalfx_gfx_v1_0.bid_price.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Bid Price
+tmx_tsx_globalfx_gfx_v1_0.bid_price.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Bid Price Mantissa: INT32
+  index, bid_price_mantissa = tmx_tsx_globalfx_gfx_v1_0.bid_price_mantissa.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Exponent: INT8
+  index, bid_price_exponent = tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Bid Price
+tmx_tsx_globalfx_gfx_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.bid_price, buffer(offset, 0))
+    local index = tmx_tsx_globalfx_gfx_v1_0.bid_price.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_tsx_globalfx_gfx_v1_0.bid_price.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return tmx_tsx_globalfx_gfx_v1_0.bid_price.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Size Tier
 tmx_tsx_globalfx_gfx_v1_0.size_tier = {}
 
@@ -664,9 +767,7 @@ tmx_tsx_globalfx_gfx_v1_0.size_tier.size =
   tmx_tsx_globalfx_gfx_v1_0.tier_size.size + 
   tmx_tsx_globalfx_gfx_v1_0.price_terms.size + 
   tmx_tsx_globalfx_gfx_v1_0.bid_price.size + 
-  tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.size + 
-  tmx_tsx_globalfx_gfx_v1_0.offer_price.size + 
-  tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.size
+  tmx_tsx_globalfx_gfx_v1_0.offer_price.size
 
 -- Display: Size Tier
 tmx_tsx_globalfx_gfx_v1_0.size_tier.display = function(packet, parent, length)
@@ -692,17 +793,11 @@ tmx_tsx_globalfx_gfx_v1_0.size_tier.fields = function(buffer, offset, packet, pa
   -- Price Terms: CHAR1
   index, price_terms = tmx_tsx_globalfx_gfx_v1_0.price_terms.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: INT32
+  -- Bid Price: Struct of 2 fields
   index, bid_price = tmx_tsx_globalfx_gfx_v1_0.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Exponent: INT8
-  index, bid_price_exponent = tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.dissect(buffer, index, packet, parent)
-
-  -- Offer Price: INT32
+  -- Offer Price: Struct of 2 fields
   index, offer_price = tmx_tsx_globalfx_gfx_v1_0.offer_price.dissect(buffer, index, packet, parent)
-
-  -- Offer Price Exponent: INT8
-  index, offer_price_exponent = tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.dissect(buffer, index, packet, parent)
 
   return index
 end

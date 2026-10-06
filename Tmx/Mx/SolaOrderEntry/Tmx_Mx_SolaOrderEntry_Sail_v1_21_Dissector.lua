@@ -69,13 +69,12 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.exchange_message_id = ProtoField.new
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.excluded_instrument_notice_occurrence = ProtoField.new("Excluded Instrument Notice Occurrence", "tmx.mx.solaorderentry.sail.v1.21.excludedinstrumentnoticeoccurrence", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.executing_participant = ProtoField.new("Executing Participant", "tmx.mx.solaorderentry.sail.v1.21.executingparticipant", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.expected_last_user_sequence_id = ProtoField.new("Expected Last User Sequence Id", "tmx.mx.solaorderentry.sail.v1.21.expectedlastusersequenceid", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_must_be_blank_x_2 = ProtoField.new("Filler Must Be Blank X 2", "tmx.mx.solaorderentry.sail.v1.21.fillermustbeblankx2", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_must_be_blank_x_5 = ProtoField.new("Filler Must Be Blank X 5", "tmx.mx.solaorderentry.sail.v1.21.fillermustbeblankx5", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_n_6 = ProtoField.new("Filler N 6", "tmx.mx.solaorderentry.sail.v1.21.fillern6", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_1 = ProtoField.new("Filler X 1", "tmx.mx.solaorderentry.sail.v1.21.fillerx1", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_2 = ProtoField.new("Filler X 2", "tmx.mx.solaorderentry.sail.v1.21.fillerx2", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_20 = ProtoField.new("Filler X 20", "tmx.mx.solaorderentry.sail.v1.21.fillerx20", ftypes.BYTES)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_4 = ProtoField.new("Filler X 4", "tmx.mx.solaorderentry.sail.v1.21.fillerx4", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_1 = ProtoField.new("Filler 1", "tmx.mx.solaorderentry.sail.v1.21.filler1", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_2 = ProtoField.new("Filler 2", "tmx.mx.solaorderentry.sail.v1.21.filler2", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_20 = ProtoField.new("Filler 20", "tmx.mx.solaorderentry.sail.v1.21.filler20", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_4 = ProtoField.new("Filler 4", "tmx.mx.solaorderentry.sail.v1.21.filler4", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_5 = ProtoField.new("Filler 5", "tmx.mx.solaorderentry.sail.v1.21.filler5", ftypes.BYTES)
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_6 = ProtoField.new("Filler 6", "tmx.mx.solaorderentry.sail.v1.21.filler6", ftypes.BYTES)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_level_risk_option = ProtoField.new("Firm Level Risk Option", "tmx.mx.solaorderentry.sail.v1.21.firmlevelriskoption", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config_trader_team = ProtoField.new("Firm Risk Config Trader Team", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfigtraderteam", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.firm_risk_config_trader_team_trader = ProtoField.new("Firm Risk Config Trader Team Trader", "tmx.mx.solaorderentry.sail.v1.21.firmriskconfigtraderteamtrader", ftypes.STRING)
@@ -1468,163 +1467,140 @@ tmx_mx_solaorderentry_sail_v1_21.expected_last_user_sequence_id.dissect = functi
   return offset + length, value
 end
 
--- Filler Must Be Blank X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2 = {}
+-- Filler 1
+tmx_mx_solaorderentry_sail_v1_21.filler_1 = {}
 
--- Size: Filler Must Be Blank X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.size = 2
+-- Size: Filler 1
+tmx_mx_solaorderentry_sail_v1_21.filler_1.size = 1
 
--- Display: Filler Must Be Blank X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.display = function(value)
-  return "Filler Must Be Blank X 2: "..value
+-- Display: Filler 1
+tmx_mx_solaorderentry_sail_v1_21.filler_1.display = function(value)
+  return "Filler 1: "..value
 end
 
--- Dissect: Filler Must Be Blank X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.size
+-- Dissect: Filler 1
+tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_must_be_blank_x_2, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_1, range, value, display)
 
   return offset + length, value
 end
 
--- Filler Must Be Blank X 5
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5 = {}
+-- Filler 2
+tmx_mx_solaorderentry_sail_v1_21.filler_2 = {}
 
--- Size: Filler Must Be Blank X 5
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.size = 5
+-- Size: Filler 2
+tmx_mx_solaorderentry_sail_v1_21.filler_2.size = 2
 
--- Display: Filler Must Be Blank X 5
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.display = function(value)
-  return "Filler Must Be Blank X 5: "..value
+-- Display: Filler 2
+tmx_mx_solaorderentry_sail_v1_21.filler_2.display = function(value)
+  return "Filler 2: "..value
 end
 
--- Dissect: Filler Must Be Blank X 5
-tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.size
+-- Dissect: Filler 2
+tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_2.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_must_be_blank_x_5, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_2, range, value, display)
 
   return offset + length, value
 end
 
--- Filler N 6
-tmx_mx_solaorderentry_sail_v1_21.filler_n_6 = {}
+-- Filler 20
+tmx_mx_solaorderentry_sail_v1_21.filler_20 = {}
 
--- Size: Filler N 6
-tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size = 6
+-- Size: Filler 20
+tmx_mx_solaorderentry_sail_v1_21.filler_20.size = 20
 
--- Display: Filler N 6
-tmx_mx_solaorderentry_sail_v1_21.filler_n_6.display = function(value)
-  return "Filler N 6: "..value
+-- Display: Filler 20
+tmx_mx_solaorderentry_sail_v1_21.filler_20.display = function(value)
+  return "Filler 20: "..value
 end
 
--- Dissect: Filler N 6
-tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size
+-- Dissect: Filler 20
+tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_20.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_n_6, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_20, range, value, display)
 
   return offset + length, value
 end
 
--- Filler X 1
-tmx_mx_solaorderentry_sail_v1_21.filler_x_1 = {}
+-- Filler 4
+tmx_mx_solaorderentry_sail_v1_21.filler_4 = {}
 
--- Size: Filler X 1
-tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size = 1
+-- Size: Filler 4
+tmx_mx_solaorderentry_sail_v1_21.filler_4.size = 4
 
--- Display: Filler X 1
-tmx_mx_solaorderentry_sail_v1_21.filler_x_1.display = function(value)
-  return "Filler X 1: "..value
+-- Display: Filler 4
+tmx_mx_solaorderentry_sail_v1_21.filler_4.display = function(value)
+  return "Filler 4: "..value
 end
 
--- Dissect: Filler X 1
-tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size
+-- Dissect: Filler 4
+tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_1, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_4, range, value, display)
 
   return offset + length, value
 end
 
--- Filler X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_x_2 = {}
+-- Filler 5
+tmx_mx_solaorderentry_sail_v1_21.filler_5 = {}
 
--- Size: Filler X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_x_2.size = 2
+-- Size: Filler 5
+tmx_mx_solaorderentry_sail_v1_21.filler_5.size = 5
 
--- Display: Filler X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_x_2.display = function(value)
-  return "Filler X 2: "..value
+-- Display: Filler 5
+tmx_mx_solaorderentry_sail_v1_21.filler_5.display = function(value)
+  return "Filler 5: "..value
 end
 
--- Dissect: Filler X 2
-tmx_mx_solaorderentry_sail_v1_21.filler_x_2.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_x_2.size
+-- Dissect: Filler 5
+tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_5.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_x_2.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_2, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_5, range, value, display)
 
   return offset + length, value
 end
 
--- Filler X 20
-tmx_mx_solaorderentry_sail_v1_21.filler_x_20 = {}
+-- Filler 6
+tmx_mx_solaorderentry_sail_v1_21.filler_6 = {}
 
--- Size: Filler X 20
-tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size = 20
+-- Size: Filler 6
+tmx_mx_solaorderentry_sail_v1_21.filler_6.size = 6
 
--- Display: Filler X 20
-tmx_mx_solaorderentry_sail_v1_21.filler_x_20.display = function(value)
-  return "Filler X 20: "..value
+-- Display: Filler 6
+tmx_mx_solaorderentry_sail_v1_21.filler_6.display = function(value)
+  return "Filler 6: "..value
 end
 
--- Dissect: Filler X 20
-tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size
+-- Dissect: Filler 6
+tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solaorderentry_sail_v1_21.filler_6.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solaorderentry_sail_v1_21.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_20, range, value, display)
-
-  return offset + length, value
-end
-
--- Filler X 4
-tmx_mx_solaorderentry_sail_v1_21.filler_x_4 = {}
-
--- Size: Filler X 4
-tmx_mx_solaorderentry_sail_v1_21.filler_x_4.size = 4
-
--- Display: Filler X 4
-tmx_mx_solaorderentry_sail_v1_21.filler_x_4.display = function(value)
-  return "Filler X 4: "..value
-end
-
--- Dissect: Filler X 4
-tmx_mx_solaorderentry_sail_v1_21.filler_x_4.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solaorderentry_sail_v1_21.filler_x_4.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = tmx_mx_solaorderentry_sail_v1_21.filler_x_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_x_4, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_6, range, value, display)
 
   return offset + length, value
 end
@@ -4776,7 +4752,7 @@ tmx_mx_solaorderentry_sail_v1_21.clearing_data.size =
   tmx_mx_solaorderentry_sail_v1_21.account_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.open_close.size + 
   tmx_mx_solaorderentry_sail_v1_21.hedge_spec.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_5.size
 
 -- Display: Clearing Data
 tmx_mx_solaorderentry_sail_v1_21.clearing_data.display = function(packet, parent, length)
@@ -4799,8 +4775,8 @@ tmx_mx_solaorderentry_sail_v1_21.clearing_data.fields = function(buffer, offset,
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
-  -- Filler Must Be Blank X 5: String (5)
-  index, filler_must_be_blank_x_5 = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.dissect(buffer, index, packet, parent)
+  -- Filler 5: String (5)
+  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4839,7 +4815,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.size
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_order_id.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size
 
 -- Display: Order Cancellation Notice By Mod Or System
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.display = function(packet, parent, length)
@@ -4883,8 +4859,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_notice_by_mod_or_system.fiel
   -- Original Order Id: Original Order ID
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4925,7 +4901,7 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice.size =
   tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.size + 
   tmx_mx_solaorderentry_sail_v1_21.price_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_type.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_number.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_memo.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_reference_id.size + 
@@ -4984,8 +4960,8 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_cancellation_notice.fields = func
   -- Trade Type: Trade Type
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -5053,7 +5029,7 @@ tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice.size =
   tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.size + 
   tmx_mx_solaorderentry_sail_v1_21.price_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_type.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_number.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_memo.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_reference_id.size + 
@@ -5107,8 +5083,8 @@ tmx_mx_solaorderentry_sail_v1_21.execution_cancellation_notice.fields = function
   -- Trade Type: Trade Type
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -5162,7 +5138,7 @@ tmx_mx_solaorderentry_sail_v1_21.execution_notice.size =
   tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.size + 
   tmx_mx_solaorderentry_sail_v1_21.price_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_type.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_number.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_memo.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_reference_id.size + 
@@ -5219,8 +5195,8 @@ tmx_mx_solaorderentry_sail_v1_21.execution_notice.fields = function(buffer, offs
   -- Trade Type: Trade Type
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -5446,7 +5422,7 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_notice.size =
   tmx_mx_solaorderentry_sail_v1_21.special_trade_indicator.size + 
   tmx_mx_solaorderentry_sail_v1_21.price_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_type.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_number.size + 
   tmx_mx_solaorderentry_sail_v1_21.trade_memo.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_reference_id.size + 
@@ -5508,8 +5484,8 @@ tmx_mx_solaorderentry_sail_v1_21.leg_execution_notice.fields = function(buffer, 
   -- Trade Type: Trade Type
   index, trade_type = tmx_mx_solaorderentry_sail_v1_21.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   -- Trade Number: Trade Number
   index, trade_number = tmx_mx_solaorderentry_sail_v1_21.trade_number.dissect(buffer, index, packet, parent)
@@ -5716,11 +5692,11 @@ tmx_mx_solaorderentry_sail_v1_21.excluded_instrument_notice.size = function(buff
 
   index = index + tmx_mx_solaorderentry_sail_v1_21.group.size
 
-  index = index + tmx_mx_solaorderentry_sail_v1_21.filler_x_2.size
+  index = index + tmx_mx_solaorderentry_sail_v1_21.filler_2.size
 
   index = index + tmx_mx_solaorderentry_sail_v1_21.trader_id.size
 
-  index = index + tmx_mx_solaorderentry_sail_v1_21.filler_x_4.size
+  index = index + tmx_mx_solaorderentry_sail_v1_21.filler_4.size
 
   index = index + tmx_mx_solaorderentry_sail_v1_21.nb_of_instruments.size
 
@@ -5746,14 +5722,14 @@ tmx_mx_solaorderentry_sail_v1_21.excluded_instrument_notice.fields = function(bu
   -- Group: Group ID
   index, group = tmx_mx_solaorderentry_sail_v1_21.group.dissect(buffer, index, packet, parent)
 
-  -- Filler X 2: String (2)
-  index, filler_x_2 = tmx_mx_solaorderentry_sail_v1_21.filler_x_2.dissect(buffer, index, packet, parent)
+  -- Filler 2: String (2)
+  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
 
   -- Trader Id: Trader ID
   index, trader_id = tmx_mx_solaorderentry_sail_v1_21.trader_id.dissect(buffer, index, packet, parent)
 
-  -- Filler X 4: String (4)
-  index, filler_x_4 = tmx_mx_solaorderentry_sail_v1_21.filler_x_4.dissect(buffer, index, packet, parent)
+  -- Filler 4: String (4)
+  index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
 
   -- Nb Of Instruments: Numeric (4)
   index, nb_of_instruments = tmx_mx_solaorderentry_sail_v1_21.nb_of_instruments.dissect(buffer, index, packet, parent)
@@ -6153,7 +6129,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.size =
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_order_id.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size
 
 -- Display: Order Cancellation Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.display = function(packet, parent, length)
@@ -6197,8 +6173,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_cancellation_acknowledgement.fields = fun
   -- Original Order Id: Original Order ID
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6277,7 +6253,7 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_acknowledgement_leg_def
   tmx_mx_solaorderentry_sail_v1_21.leg_group.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_verb.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_1.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.size
 
 -- Display: New Strategy Instrument Acknowledgement Leg Definition Repeating Block
@@ -6304,8 +6280,8 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_acknowledgement_leg_def
   -- Leg Verb: Verb
   index, leg_verb = tmx_mx_solaorderentry_sail_v1_21.leg_verb.dissect(buffer, index, packet, parent)
 
-  -- Filler X 1: String (1)
-  index, filler_x_1 = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String (1)
+  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -6421,7 +6397,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.size =
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_order_id.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size
 
 -- Display: Order Modification Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.display = function(packet, parent, length)
@@ -6465,8 +6441,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification_acknowledgement.fields = fun
   -- Original Order Id: Original Order ID
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6558,7 +6534,7 @@ tmx_mx_solaorderentry_sail_v1_21.order_acknowledgement.size =
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.original_order_id.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_n_6.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_6.size
 
 -- Display: Order Acknowledgement
 tmx_mx_solaorderentry_sail_v1_21.order_acknowledgement.display = function(packet, parent, length)
@@ -6605,8 +6581,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_acknowledgement.fields = function(buffer,
   -- Original Order Id: Original Order ID
   index, original_order_id = tmx_mx_solaorderentry_sail_v1_21.original_order_id.dissect(buffer, index, packet, parent)
 
-  -- Filler N 6: Numeric (6)
-  index, filler_n_6 = tmx_mx_solaorderentry_sail_v1_21.filler_n_6.dissect(buffer, index, packet, parent)
+  -- Filler 6: Numeric (6)
+  index, filler_6 = tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7790,7 +7766,7 @@ tmx_mx_solaorderentry_sail_v1_21.selling_clearing_data.size =
   tmx_mx_solaorderentry_sail_v1_21.account_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.open_close.size + 
   tmx_mx_solaorderentry_sail_v1_21.hedge_spec.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_5.size
 
 -- Display: Selling Clearing Data
 tmx_mx_solaorderentry_sail_v1_21.selling_clearing_data.display = function(packet, parent, length)
@@ -7813,8 +7789,8 @@ tmx_mx_solaorderentry_sail_v1_21.selling_clearing_data.fields = function(buffer,
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
-  -- Filler Must Be Blank X 5: String (5)
-  index, filler_must_be_blank_x_5 = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.dissect(buffer, index, packet, parent)
+  -- Filler 5: String (5)
+  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7846,7 +7822,7 @@ tmx_mx_solaorderentry_sail_v1_21.buying_clearing_data.size =
   tmx_mx_solaorderentry_sail_v1_21.account_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.open_close.size + 
   tmx_mx_solaorderentry_sail_v1_21.hedge_spec.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_5.size
 
 -- Display: Buying Clearing Data
 tmx_mx_solaorderentry_sail_v1_21.buying_clearing_data.display = function(packet, parent, length)
@@ -7869,8 +7845,8 @@ tmx_mx_solaorderentry_sail_v1_21.buying_clearing_data.fields = function(buffer, 
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = tmx_mx_solaorderentry_sail_v1_21.hedge_spec.dissect(buffer, index, packet, parent)
 
-  -- Filler Must Be Blank X 5: String (5)
-  index, filler_must_be_blank_x_5 = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_5.dissect(buffer, index, packet, parent)
+  -- Filler 5: String (5)
+  index, filler_5 = tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7901,15 +7877,14 @@ tmx_mx_solaorderentry_sail_v1_21.cross_entry.size =
   tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size + 
   tmx_mx_solaorderentry_sail_v1_21.group.size + 
   tmx_mx_solaorderentry_sail_v1_21.instrument.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_1.size + 
   tmx_mx_solaorderentry_sail_v1_21.quantity.size + 
   tmx_mx_solaorderentry_sail_v1_21.price.size + 
   tmx_mx_solaorderentry_sail_v1_21.buying_clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.selling_clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.buying_owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.selling_owner_data.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_20.size
 
 -- Display: Cross Entry
 tmx_mx_solaorderentry_sail_v1_21.cross_entry.display = function(packet, parent, length)
@@ -7929,8 +7904,8 @@ tmx_mx_solaorderentry_sail_v1_21.cross_entry.fields = function(buffer, offset, p
   -- Instrument: Instrument ID
   index, instrument = tmx_mx_solaorderentry_sail_v1_21.instrument.dissect(buffer, index, packet, parent)
 
-  -- Filler X 1: String (1)
-  index, filler_x_1 = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String (1)
+  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
 
   -- Quantity: Quantity
   index, quantity = tmx_mx_solaorderentry_sail_v1_21.quantity.dissect(buffer, index, packet, parent)
@@ -7950,11 +7925,8 @@ tmx_mx_solaorderentry_sail_v1_21.cross_entry.fields = function(buffer, offset, p
   -- Selling Owner Data: Struct of 1 fields
   index, selling_owner_data = tmx_mx_solaorderentry_sail_v1_21.selling_owner_data.dissect(buffer, index, packet, parent)
 
-  -- Filler X 20: String (20)
-  index, filler_x_20 = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect(buffer, index, packet, parent)
-
-  -- Filler X 20: String (20)
-  index, filler_x_20 = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect(buffer, index, packet, parent)
+  -- Filler 20: String (20)
+  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7985,7 +7957,7 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_leg_definition_repeatin
   tmx_mx_solaorderentry_sail_v1_21.leg_group.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_instrument.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_verb.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_1.size + 
   tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.size
 
 -- Display: New Strategy Instrument Leg Definition Repeating Block
@@ -8012,8 +7984,8 @@ tmx_mx_solaorderentry_sail_v1_21.new_strategy_instrument_leg_definition_repeatin
   -- Leg Verb: Verb
   index, leg_verb = tmx_mx_solaorderentry_sail_v1_21.leg_verb.dissect(buffer, index, packet, parent)
 
-  -- Filler X 1: String (1)
-  index, filler_x_1 = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String (1)
+  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
 
   -- Leg Quantity Ratio: Quantity
   index, leg_quantity_ratio = tmx_mx_solaorderentry_sail_v1_21.leg_quantity_ratio.dissect(buffer, index, packet, parent)
@@ -8117,14 +8089,14 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification.size =
   tmx_mx_solaorderentry_sail_v1_21.additional_quantity.size + 
   tmx_mx_solaorderentry_sail_v1_21.duration_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.gtd_date.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_4.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_4.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_1.size + 
   tmx_mx_solaorderentry_sail_v1_21.modified_order_id.size + 
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.anti_wash_id.size + 
   tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_20.size
 
 -- Display: Order Modification
 tmx_mx_solaorderentry_sail_v1_21.order_modification.display = function(packet, parent, length)
@@ -8177,11 +8149,11 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification.fields = function(buffer, of
   -- Gtd Date: Date
   index, gtd_date = tmx_mx_solaorderentry_sail_v1_21.gtd_date.dissect(buffer, index, packet, parent)
 
-  -- Filler X 4: String (4)
-  index, filler_x_4 = tmx_mx_solaorderentry_sail_v1_21.filler_x_4.dissect(buffer, index, packet, parent)
+  -- Filler 4: String (4)
+  index, filler_4 = tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect(buffer, index, packet, parent)
 
-  -- Filler X 1: String (1)
-  index, filler_x_1 = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String (1)
+  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
 
   -- Modified Order Id: Order ID
   index, modified_order_id = tmx_mx_solaorderentry_sail_v1_21.modified_order_id.dissect(buffer, index, packet, parent)
@@ -8198,8 +8170,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_modification.fields = function(buffer, of
   -- Anti Wash Instruction: AntiWashInstruction
   index, anti_wash_instruction = tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.dissect(buffer, index, packet, parent)
 
-  -- Filler X 20: String (20)
-  index, filler_x_20 = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect(buffer, index, packet, parent)
+  -- Filler 20: String (20)
+  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8241,12 +8213,12 @@ tmx_mx_solaorderentry_sail_v1_21.order_entry.size =
   tmx_mx_solaorderentry_sail_v1_21.duration_type.size + 
   tmx_mx_solaorderentry_sail_v1_21.gtd_date.size + 
   tmx_mx_solaorderentry_sail_v1_21.executing_participant.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_1.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_1.size + 
   tmx_mx_solaorderentry_sail_v1_21.clearing_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.anti_wash_id.size + 
   tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_20.size
 
 -- Display: Order Entry
 tmx_mx_solaorderentry_sail_v1_21.order_entry.display = function(packet, parent, length)
@@ -8299,8 +8271,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_entry.fields = function(buffer, offset, p
   -- Executing Participant: Firm ID
   index, executing_participant = tmx_mx_solaorderentry_sail_v1_21.executing_participant.dissect(buffer, index, packet, parent)
 
-  -- Filler X 1: String (1)
-  index, filler_x_1 = tmx_mx_solaorderentry_sail_v1_21.filler_x_1.dissect(buffer, index, packet, parent)
+  -- Filler 1: String (1)
+  index, filler_1 = tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect(buffer, index, packet, parent)
 
   -- Clearing Data: Struct of 5 fields
   index, clearing_data = tmx_mx_solaorderentry_sail_v1_21.clearing_data.dissect(buffer, index, packet, parent)
@@ -8314,8 +8286,8 @@ tmx_mx_solaorderentry_sail_v1_21.order_entry.fields = function(buffer, offset, p
   -- Anti Wash Instruction: AntiWashInstruction
   index, anti_wash_instruction = tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.dissect(buffer, index, packet, parent)
 
-  -- Filler X 20: String (20)
-  index, filler_x_20 = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect(buffer, index, packet, parent)
+  -- Filler 20: String (20)
+  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8458,7 +8430,7 @@ tmx_mx_solaorderentry_sail_v1_21.set_group_risk_limits_occurrence.size =
   tmx_mx_solaorderentry_sail_v1_21.net_exposure_limit.size + 
   tmx_mx_solaorderentry_sail_v1_21.long_exposure_limit.size + 
   tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_2.size
 
 -- Display: Set Group Risk Limits Occurrence
 tmx_mx_solaorderentry_sail_v1_21.set_group_risk_limits_occurrence.display = function(packet, parent, length)
@@ -8520,8 +8492,8 @@ tmx_mx_solaorderentry_sail_v1_21.set_group_risk_limits_occurrence.fields = funct
   -- Short Exposure Limit: Price
   index, short_exposure_limit = tmx_mx_solaorderentry_sail_v1_21.short_exposure_limit.dissect(buffer, index, packet, parent)
 
-  -- Filler Must Be Blank X 2: String (2)
-  index, filler_must_be_blank_x_2 = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.dissect(buffer, index, packet, parent)
+  -- Filler 2: String (2)
+  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8899,14 +8871,14 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.size =
   tmx_mx_solaorderentry_sail_v1_21.owner_data.size + 
   tmx_mx_solaorderentry_sail_v1_21.maximum_number_trades.size + 
   tmx_mx_solaorderentry_sail_v1_21.minimum_volume.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.size + 
+  tmx_mx_solaorderentry_sail_v1_21.filler_2.size + 
   tmx_mx_solaorderentry_sail_v1_21.calculation_time_interval.size + 
   tmx_mx_solaorderentry_sail_v1_21.maximum_total_volume.size + 
   tmx_mx_solaorderentry_sail_v1_21.maximum_total_value.size + 
   tmx_mx_solaorderentry_sail_v1_21.delta_maximum_volume.size + 
   tmx_mx_solaorderentry_sail_v1_21.delta_maximum_value.size + 
   tmx_mx_solaorderentry_sail_v1_21.anti_wash_id.size + 
-  tmx_mx_solaorderentry_sail_v1_21.filler_x_20.size
+  tmx_mx_solaorderentry_sail_v1_21.filler_20.size
 
 -- Display: Bulk Quote Data
 tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.display = function(packet, parent, length)
@@ -8935,8 +8907,8 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.fields = function(buffer, offse
   -- Minimum Volume: Quantity
   index, minimum_volume = tmx_mx_solaorderentry_sail_v1_21.minimum_volume.dissect(buffer, index, packet, parent)
 
-  -- Filler Must Be Blank X 2: String (2)
-  index, filler_must_be_blank_x_2 = tmx_mx_solaorderentry_sail_v1_21.filler_must_be_blank_x_2.dissect(buffer, index, packet, parent)
+  -- Filler 2: String (2)
+  index, filler_2 = tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect(buffer, index, packet, parent)
 
   -- Calculation Time Interval: Numeric (8)
   index, calculation_time_interval = tmx_mx_solaorderentry_sail_v1_21.calculation_time_interval.dissect(buffer, index, packet, parent)
@@ -8956,8 +8928,8 @@ tmx_mx_solaorderentry_sail_v1_21.bulk_quote_data.fields = function(buffer, offse
   -- Anti Wash Id: AntiWashId
   index, anti_wash_id = tmx_mx_solaorderentry_sail_v1_21.anti_wash_id.dissect(buffer, index, packet, parent)
 
-  -- Filler X 20: String (20)
-  index, filler_x_20 = tmx_mx_solaorderentry_sail_v1_21.filler_x_20.dissect(buffer, index, packet, parent)
+  -- Filler 20: String (20)
+  index, filler_20 = tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect(buffer, index, packet, parent)
 
   return index
 end
