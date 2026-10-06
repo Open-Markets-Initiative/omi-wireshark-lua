@@ -15,7 +15,6 @@ local cboe_titaniumconsolidated_oneoptions_spin_v1_0_10 = {}
 -----------------------------------------------------------------------
 
 -- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Fields
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.count", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.feedsymbol", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.filler = ProtoField.new("Filler", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.filler", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_count = ProtoField.new("Instrument Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentcount", ftypes.UINT32)
@@ -117,29 +116,6 @@ end
 -----------------------------------------------------------------------
 -- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Fields
 -----------------------------------------------------------------------
-
--- Count
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count = {}
-
--- Size: Count
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.size = 1
-
--- Display: Count
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.count, range, value, display)
-
-  return offset + length, value
-end
 
 -- Feed Symbol
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.feed_symbol = {}
@@ -1409,14 +1385,14 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages = {}
 
 -- Dissect: Messages
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1432,7 +1408,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header = {}
 -- Size: Packet Header
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.size =
   cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.length.size + 
-  cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.size + 
+  cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.size + 
   cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.unit.size + 
   cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.sequence.size
 
@@ -1448,8 +1424,8 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.fields = functio
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.count.dissect(buffer, index, packet, parent)
+  -- Message Count: Binary
+  index, message_count = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.unit.dissect(buffer, index, packet, parent)
@@ -1493,11 +1469,11 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet.dissect = function(buff
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 13, 8):le_uint64()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

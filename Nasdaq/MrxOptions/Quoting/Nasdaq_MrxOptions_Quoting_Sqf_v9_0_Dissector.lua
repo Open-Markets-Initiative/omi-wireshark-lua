@@ -1044,7 +1044,7 @@ end
 nasdaq_mrxoptions_quoting_sqf_v9_0.debug_text = {}
 
 -- Size: Debug Text
-nasdaq_mrxoptions_quoting_sqf_v9_0.debug_text.size = 1
+nasdaq_mrxoptions_quoting_sqf_v9_0.debug_text.size = 0
 
 -- Display: Debug Text
 nasdaq_mrxoptions_quoting_sqf_v9_0.debug_text.display = function(value)
@@ -6498,7 +6498,7 @@ end
 nasdaq_mrxoptions_quoting_sqf_v9_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
+  -- Debug Text: 0 Byte Ascii String
   index, debug_text = nasdaq_mrxoptions_quoting_sqf_v9_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index

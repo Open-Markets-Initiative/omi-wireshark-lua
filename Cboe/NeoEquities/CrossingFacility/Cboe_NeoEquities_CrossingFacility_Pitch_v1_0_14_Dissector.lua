@@ -25,7 +25,6 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.corrected_price = Pro
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "cboe.neoequities.crossingfacility.pitch.v1.0.14.correctedquantity", ftypes.UINT32)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.corrected_settlement_date = ProtoField.new("Corrected Settlement Date", "cboe.neoequities.crossingfacility.pitch.v1.0.14.correctedsettlementdate", ftypes.UINT32)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.corrected_settlement_type = ProtoField.new("Corrected Settlement Type", "cboe.neoequities.crossingfacility.pitch.v1.0.14.correctedsettlementtype", ftypes.UINT8)
-omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.count = ProtoField.new("Count", "cboe.neoequities.crossingfacility.pitch.v1.0.14.count", ftypes.UINT8)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.cross_type = ProtoField.new("Cross Type", "cboe.neoequities.crossingfacility.pitch.v1.0.14.crosstype", ftypes.UINT8)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.crossing_facility = ProtoField.new("Crossing Facility", "cboe.neoequities.crossingfacility.pitch.v1.0.14.crossingfacility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.currency = ProtoField.new("Currency", "cboe.neoequities.crossingfacility.pitch.v1.0.14.currency", ftypes.STRING)
@@ -35,6 +34,7 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.halt_reason = ProtoFi
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.instrument_flags = ProtoField.new("Instrument Flags", "cboe.neoequities.crossingfacility.pitch.v1.0.14.instrumentflags", ftypes.STRING)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.length = ProtoField.new("Length", "cboe.neoequities.crossingfacility.pitch.v1.0.14.length", ftypes.UINT16)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.lot_size = ProtoField.new("Lot Size", "cboe.neoequities.crossingfacility.pitch.v1.0.14.lotsize", ftypes.UINT32)
+omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_count = ProtoField.new("Message Count", "cboe.neoequities.crossingfacility.pitch.v1.0.14.messagecount", ftypes.UINT8)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.neoequities.crossingfacility.pitch.v1.0.14.messagelength", ftypes.UINT8)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.neoequities.crossingfacility.pitch.v1.0.14.messagetype", ftypes.UINT8)
 omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.neod = ProtoField.new("Neod", "cboe.neoequities.crossingfacility.pitch.v1.0.14.neod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
@@ -286,29 +286,6 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.corrected_settlement_type.dissec
   return offset + length, value
 end
 
--- Count
-cboe_neoequities_crossingfacility_pitch_v1_0_14.count = {}
-
--- Size: Count
-cboe_neoequities_crossingfacility_pitch_v1_0_14.count.size = 1
-
--- Display: Count
-cboe_neoequities_crossingfacility_pitch_v1_0_14.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_neoequities_crossingfacility_pitch_v1_0_14.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cross Type
 cboe_neoequities_crossingfacility_pitch_v1_0_14.cross_type = {}
 
@@ -513,6 +490,29 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.lot_size.dissect = function(buff
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count = {}
+
+-- Size: Message Count
+cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.size = 1
+
+-- Display: Message Count
+cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2011,14 +2011,14 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
-cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_neoequities_crossingfacility_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2034,7 +2034,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.packet_header = {}
 -- Size: Packet Header
 cboe_neoequities_crossingfacility_pitch_v1_0_14.packet_header.size =
   cboe_neoequities_crossingfacility_pitch_v1_0_14.length.size + 
-  cboe_neoequities_crossingfacility_pitch_v1_0_14.count.size + 
+  cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.size + 
   cboe_neoequities_crossingfacility_pitch_v1_0_14.unit.size + 
   cboe_neoequities_crossingfacility_pitch_v1_0_14.sequence.size
 
@@ -2050,8 +2050,8 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.packet_header.fields = function(
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_neoequities_crossingfacility_pitch_v1_0_14.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_neoequities_crossingfacility_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_neoequities_crossingfacility_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
@@ -2095,11 +2095,11 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.packet.dissect = function(buffer
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_neoequities_crossingfacility_pitch_v1_0_14.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

@@ -34,7 +34,6 @@ omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.bit_fields = ProtoField.n
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.buycontracts", ftypes.UINT32)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.compositemarketofferprice", ftypes.DOUBLE)
-omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.count = ProtoField.new("Count", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.count", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.customer = ProtoField.new("Customer", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.customer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.customerquantitylong", ftypes.UINT32)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.customerquantityshort", ftypes.UINT16)
@@ -44,6 +43,7 @@ omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.feed_symbol = ProtoField.
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.gthtradingstatus", ftypes.STRING)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.indicativeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.length = ProtoField.new("Length", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.length", ftypes.UINT16)
+omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.message_count = ProtoField.new("Message Count", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.messagecount", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.message_length = ProtoField.new("Message Length", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.messagelength", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.message_type = ProtoField.new("Message Type", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.messagetype", ftypes.UINT8)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.multiplier = ProtoField.new("Multiplier", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.multiplier", ftypes.DOUBLE)
@@ -667,29 +667,6 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.composite_market_offer_price.dissect
   return offset + length, value
 end
 
--- Count
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.count = {}
-
--- Size: Count
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.size = 1
-
--- Display: Count
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Quantity Long
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.customer_quantity_long = {}
 
@@ -889,6 +866,29 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.length.dissect = function(buffer, of
   local display = cboe_edgxoptions_multicasttop_pitch_v1_2_54.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count = {}
+
+-- Size: Message Count
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.size = 1
+
+-- Display: Message Count
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2806,14 +2806,14 @@ end
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages = {}
 
 -- Dissect: Messages
-cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_edgxoptions_multicasttop_pitch_v1_2_54.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2829,7 +2829,7 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.packet_header = {}
 -- Size: Packet Header
 cboe_edgxoptions_multicasttop_pitch_v1_2_54.packet_header.size =
   cboe_edgxoptions_multicasttop_pitch_v1_2_54.length.size + 
-  cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.size + 
+  cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.size + 
   cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit.size + 
   cboe_edgxoptions_multicasttop_pitch_v1_2_54.sequence.size
 
@@ -2845,8 +2845,8 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.packet_header.fields = function(buff
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_edgxoptions_multicasttop_pitch_v1_2_54.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_edgxoptions_multicasttop_pitch_v1_2_54.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_edgxoptions_multicasttop_pitch_v1_2_54.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_edgxoptions_multicasttop_pitch_v1_2_54.unit.dissect(buffer, index, packet, parent)
@@ -2898,11 +2898,11 @@ cboe_edgxoptions_multicasttop_pitch_v1_2_54.packet.dissect = function(buffer, pa
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_edgxoptions_multicasttop_pitch_v1_2_54.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_edgxoptions_multicasttop_pitch_v1_2_54.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

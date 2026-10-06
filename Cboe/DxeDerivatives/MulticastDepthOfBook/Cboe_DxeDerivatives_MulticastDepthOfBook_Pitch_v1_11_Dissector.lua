@@ -36,7 +36,6 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.contract_size = ProtoField.new("Contract Size", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.contractsize", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_long = ProtoField.new("Contracts Long", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.contractslong", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_short = ProtoField.new("Contracts Short", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.contractsshort", ftypes.UINT16)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.count = ProtoField.new("Count", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.count", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.crossing_trade = ProtoField.new("Crossing Trade", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.crossingtrade", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.currency = ProtoField.new("Currency", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.currency", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.customerindicator", ftypes.STRING)
@@ -64,6 +63,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.listing_state = 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price = ProtoField.new("Low Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.marketmechanism", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_count = ProtoField.new("Message Count", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagecount", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_length = ProtoField.new("Message Length", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagelength", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_type = ProtoField.new("Message Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagetype", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.modificationindicator", ftypes.STRING)
@@ -832,29 +832,6 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect = f
   return offset + length, value
 end
 
--- Count
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count = {}
-
--- Size: Count
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.size = 1
-
--- Display: Count
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Crossing Trade
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.crossing_trade = {}
 
@@ -1472,6 +1449,29 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.dissect = 
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.market_mechanism, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count = {}
+
+-- Size: Message Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.size = 1
+
+-- Display: Message Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -5401,14 +5401,14 @@ end
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.messages = {}
 
 -- Dissect: Messages
-cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -5424,7 +5424,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header = {}
 -- Size: Packet Header
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.size =
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.length.size + 
-  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.size + 
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.size + 
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.unit.size + 
   cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.sequence.size
 
@@ -5440,8 +5440,8 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.fields = func
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.unit.dissect(buffer, index, packet, parent)
@@ -5493,11 +5493,11 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet.dissect = function(b
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

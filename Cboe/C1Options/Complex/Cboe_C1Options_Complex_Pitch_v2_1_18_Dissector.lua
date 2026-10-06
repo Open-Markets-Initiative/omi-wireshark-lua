@@ -32,7 +32,6 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_underlying = 
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_symbol_id = ProtoField.new("Complex Symbol Id", "cboe.c1options.complex.pitch.v2.1.18.complexsymbolid", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.complex.pitch.v2.1.18.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.complex.pitch.v2.1.18.compositemarketofferprice", ftypes.DOUBLE)
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.count = ProtoField.new("Count", "cboe.c1options.complex.pitch.v2.1.18.count", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.complex.pitch.v2.1.18.customerindicator", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.complex.pitch.v2.1.18.executedquantity", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complex.pitch.v2.1.18.executionid", ftypes.UINT64)
@@ -44,6 +43,7 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.leg_ratio = ProtoField.new("Leg 
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.c1options.complex.pitch.v2.1.18.legsecuritytype", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.c1options.complex.pitch.v2.1.18.legsymbol", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.length = ProtoField.new("Length", "cboe.c1options.complex.pitch.v2.1.18.length", ftypes.UINT16)
+omi_cboe_c1options_complex_pitch_v2_1_18.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.complex.pitch.v2.1.18.messagecount", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.complex.pitch.v2.1.18.messagelength", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complex.pitch.v2.1.18.messagetype", ftypes.UINT8)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.complex.pitch.v2.1.18.openingcondition", ftypes.STRING)
@@ -643,29 +643,6 @@ cboe_c1options_complex_pitch_v2_1_18.composite_market_offer_price.dissect = func
   return offset + length, value
 end
 
--- Count
-cboe_c1options_complex_pitch_v2_1_18.count = {}
-
--- Size: Count
-cboe_c1options_complex_pitch_v2_1_18.count.size = 1
-
--- Display: Count
-cboe_c1options_complex_pitch_v2_1_18.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1options_complex_pitch_v2_1_18.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_18.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_complex_pitch_v2_1_18.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Indicator
 cboe_c1options_complex_pitch_v2_1_18.customer_indicator = {}
 
@@ -945,6 +922,29 @@ cboe_c1options_complex_pitch_v2_1_18.length.dissect = function(buffer, offset, p
   local display = cboe_c1options_complex_pitch_v2_1_18.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_c1options_complex_pitch_v2_1_18.message_count = {}
+
+-- Size: Message Count
+cboe_c1options_complex_pitch_v2_1_18.message_count.size = 1
+
+-- Display: Message Count
+cboe_c1options_complex_pitch_v2_1_18.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_c1options_complex_pitch_v2_1_18.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_18.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_complex_pitch_v2_1_18.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3459,14 +3459,14 @@ end
 cboe_c1options_complex_pitch_v2_1_18.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_complex_pitch_v2_1_18.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_c1options_complex_pitch_v2_1_18.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_c1options_complex_pitch_v2_1_18.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -3482,7 +3482,7 @@ cboe_c1options_complex_pitch_v2_1_18.packet_header = {}
 -- Size: Packet Header
 cboe_c1options_complex_pitch_v2_1_18.packet_header.size =
   cboe_c1options_complex_pitch_v2_1_18.length.size + 
-  cboe_c1options_complex_pitch_v2_1_18.count.size + 
+  cboe_c1options_complex_pitch_v2_1_18.message_count.size + 
   cboe_c1options_complex_pitch_v2_1_18.unit.size + 
   cboe_c1options_complex_pitch_v2_1_18.sequence.size
 
@@ -3498,8 +3498,8 @@ cboe_c1options_complex_pitch_v2_1_18.packet_header.fields = function(buffer, off
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_c1options_complex_pitch_v2_1_18.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_c1options_complex_pitch_v2_1_18.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_c1options_complex_pitch_v2_1_18.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_c1options_complex_pitch_v2_1_18.unit.dissect(buffer, index, packet, parent)
@@ -3551,11 +3551,11 @@ cboe_c1options_complex_pitch_v2_1_18.packet.dissect = function(buffer, packet, p
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_complex_pitch_v2_1_18.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_complex_pitch_v2_1_18.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_c1options_complex_pitch_v2_1_18.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

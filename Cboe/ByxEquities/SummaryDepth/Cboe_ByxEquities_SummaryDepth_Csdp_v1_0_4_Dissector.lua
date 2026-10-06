@@ -23,7 +23,6 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.block_type = ProtoField.new
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.cboe_cumulative_executed_volume = ProtoField.new("Cboe Cumulative Executed Volume", "cboe.byxequities.summarydepth.csdp.v1.0.4.cboecumulativeexecutedvolume", ftypes.UINT64)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.clear = ProtoField.new("Clear", "cboe.byxequities.summarydepth.csdp.v1.0.4.clear", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.complete = ProtoField.new("Complete", "cboe.byxequities.summarydepth.csdp.v1.0.4.complete", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.count = ProtoField.new("Count", "cboe.byxequities.summarydepth.csdp.v1.0.4.count", ftypes.UINT8)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.byxequities.summarydepth.csdp.v1.0.4.executionid", ftypes.UINT64)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.halt_status = ProtoField.new("Halt Status", "cboe.byxequities.summarydepth.csdp.v1.0.4.haltstatus", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.last_price = ProtoField.new("Last Price", "cboe.byxequities.summarydepth.csdp.v1.0.4.lastprice", ftypes.DOUBLE)
@@ -33,6 +32,7 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.lastsale_eligible = ProtoFi
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.length = ProtoField.new("Length", "cboe.byxequities.summarydepth.csdp.v1.0.4.length", ftypes.UINT16)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.byxequities.summarydepth.csdp.v1.0.4.longupdateadapblock", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.market_status = ProtoField.new("Market Status", "cboe.byxequities.summarydepth.csdp.v1.0.4.marketstatus", ftypes.STRING)
+omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.message_count = ProtoField.new("Message Count", "cboe.byxequities.summarydepth.csdp.v1.0.4.messagecount", ftypes.UINT8)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.message_length = ProtoField.new("Message Length", "cboe.byxequities.summarydepth.csdp.v1.0.4.messagelength", ftypes.UINT8)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.message_type = ProtoField.new("Message Type", "cboe.byxequities.summarydepth.csdp.v1.0.4.messagetype", ftypes.UINT8)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.price_long = ProtoField.new("Price Long", "cboe.byxequities.summarydepth.csdp.v1.0.4.pricelong", ftypes.DOUBLE)
@@ -203,29 +203,6 @@ cboe_byxequities_summarydepth_csdp_v1_0_4.cboe_cumulative_executed_volume.dissec
   local display = cboe_byxequities_summarydepth_csdp_v1_0_4.cboe_cumulative_executed_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.cboe_cumulative_executed_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-cboe_byxequities_summarydepth_csdp_v1_0_4.count = {}
-
--- Size: Count
-cboe_byxequities_summarydepth_csdp_v1_0_4.count.size = 1
-
--- Display: Count
-cboe_byxequities_summarydepth_csdp_v1_0_4.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_byxequities_summarydepth_csdp_v1_0_4.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_byxequities_summarydepth_csdp_v1_0_4.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_byxequities_summarydepth_csdp_v1_0_4.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -403,6 +380,29 @@ cboe_byxequities_summarydepth_csdp_v1_0_4.market_status.dissect = function(buffe
   local display = cboe_byxequities_summarydepth_csdp_v1_0_4.market_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.market_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_byxequities_summarydepth_csdp_v1_0_4.message_count = {}
+
+-- Size: Message Count
+cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.size = 1
+
+-- Display: Message Count
+cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_byxequities_summarydepth_csdp_v1_0_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1749,14 +1749,14 @@ end
 cboe_byxequities_summarydepth_csdp_v1_0_4.messages = {}
 
 -- Dissect: Messages
-cboe_byxequities_summarydepth_csdp_v1_0_4.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_byxequities_summarydepth_csdp_v1_0_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_byxequities_summarydepth_csdp_v1_0_4.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1772,7 +1772,7 @@ cboe_byxequities_summarydepth_csdp_v1_0_4.packet_header = {}
 -- Size: Packet Header
 cboe_byxequities_summarydepth_csdp_v1_0_4.packet_header.size =
   cboe_byxequities_summarydepth_csdp_v1_0_4.length.size + 
-  cboe_byxequities_summarydepth_csdp_v1_0_4.count.size + 
+  cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.size + 
   cboe_byxequities_summarydepth_csdp_v1_0_4.unit.size + 
   cboe_byxequities_summarydepth_csdp_v1_0_4.sequence.size
 
@@ -1788,8 +1788,8 @@ cboe_byxequities_summarydepth_csdp_v1_0_4.packet_header.fields = function(buffer
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_byxequities_summarydepth_csdp_v1_0_4.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_byxequities_summarydepth_csdp_v1_0_4.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_byxequities_summarydepth_csdp_v1_0_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_byxequities_summarydepth_csdp_v1_0_4.unit.dissect(buffer, index, packet, parent)
@@ -1833,11 +1833,11 @@ cboe_byxequities_summarydepth_csdp_v1_0_4.packet.dissect = function(buffer, pack
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_byxequities_summarydepth_csdp_v1_0_4.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_byxequities_summarydepth_csdp_v1_0_4.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_byxequities_summarydepth_csdp_v1_0_4.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

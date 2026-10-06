@@ -20,7 +20,6 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.call_put_indicator = ProtoField.new(
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_flex_leg = ProtoField.new("Complex Flex Leg", "cboe.c1options.flex.spin.v1.1.30.complexflexleg", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.c1options.flex.spin.v1.1.30.complexinstrumentid", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.c1options.flex.spin.v1.1.30.complexinstrumenttype", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.count = ProtoField.new("Count", "cboe.c1options.flex.spin.v1.1.30.count", ftypes.UINT8)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.creation_day = ProtoField.new("Creation Day", "cboe.c1options.flex.spin.v1.1.30.creationday", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.day = ProtoField.new("Day", "cboe.c1options.flex.spin.v1.1.30.day", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.decimal_strike = ProtoField.new("Decimal Strike", "cboe.c1options.flex.spin.v1.1.30.decimalstrike", ftypes.STRING)
@@ -230,29 +229,6 @@ cboe_c1options_flex_spin_v1_1_30.complex_instrument_type.dissect = function(buff
   local display = cboe_c1options_flex_spin_v1_1_30.complex_instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_instrument_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Count
-cboe_c1options_flex_spin_v1_1_30.count = {}
-
--- Size: Count
-cboe_c1options_flex_spin_v1_1_30.count.size = 1
-
--- Display: Count
-cboe_c1options_flex_spin_v1_1_30.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1options_flex_spin_v1_1_30.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_spin_v1_1_30.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_flex_spin_v1_1_30.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -2467,14 +2443,14 @@ end
 cboe_c1options_flex_spin_v1_1_30.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_flex_spin_v1_1_30.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_c1options_flex_spin_v1_1_30.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_c1options_flex_spin_v1_1_30.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2490,7 +2466,7 @@ cboe_c1options_flex_spin_v1_1_30.packet_header = {}
 -- Size: Packet Header
 cboe_c1options_flex_spin_v1_1_30.packet_header.size =
   cboe_c1options_flex_spin_v1_1_30.length.size + 
-  cboe_c1options_flex_spin_v1_1_30.count.size + 
+  cboe_c1options_flex_spin_v1_1_30.message_count.size + 
   cboe_c1options_flex_spin_v1_1_30.unit.size + 
   cboe_c1options_flex_spin_v1_1_30.sequence.size
 
@@ -2506,8 +2482,8 @@ cboe_c1options_flex_spin_v1_1_30.packet_header.fields = function(buffer, offset,
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_c1options_flex_spin_v1_1_30.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_c1options_flex_spin_v1_1_30.count.dissect(buffer, index, packet, parent)
+  -- Message Count: Binary
+  index, message_count = cboe_c1options_flex_spin_v1_1_30.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_c1options_flex_spin_v1_1_30.unit.dissect(buffer, index, packet, parent)
@@ -2551,11 +2527,11 @@ cboe_c1options_flex_spin_v1_1_30.packet.dissect = function(buffer, packet, paren
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_flex_spin_v1_1_30.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_flex_spin_v1_1_30.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_c1options_flex_spin_v1_1_30.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

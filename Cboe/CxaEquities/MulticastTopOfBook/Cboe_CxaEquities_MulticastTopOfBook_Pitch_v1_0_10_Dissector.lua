@@ -22,12 +22,12 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.bid_price = ProtoFi
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.bid_quantity = ProtoField.new("Bid Quantity", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.bidquantity", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.buyshares", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.contra_pid = ProtoField.new("Contra Pid", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.contrapid", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.count = ProtoField.new("Count", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.count", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.execution_id = ProtoField.new("Execution Id", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.executionid", ftypes.UINT64)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.flags = ProtoField.new("Flags", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.flags", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.indicativeprice", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.length = ProtoField.new("Length", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.length", ftypes.UINT16)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.market_id_code = ProtoField.new("Market Id Code", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.marketidcode", ftypes.STRING)
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messagecount", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.pid = ProtoField.new("Pid", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.pid", ftypes.STRING)
@@ -316,29 +316,6 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.contra_pid.dissect = function(
   return offset + length, value
 end
 
--- Count
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count = {}
-
--- Size: Count
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.size = 1
-
--- Display: Count
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Id
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.execution_id = {}
 
@@ -449,6 +426,29 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.market_id_code.dissect = funct
   local display = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.market_id_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.market_id_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count = {}
+
+-- Size: Message Count
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.size = 1
+
+-- Display: Message Count
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1922,14 +1922,14 @@ end
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.messages = {}
 
 -- Dissect: Messages
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1945,7 +1945,7 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.packet_header = {}
 -- Size: Packet Header
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.packet_header.size =
   cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.length.size + 
-  cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.size + 
+  cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.size + 
   cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.unit.size + 
   cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.sequence.size
 
@@ -1961,8 +1961,8 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.packet_header.fields = functio
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.unit.dissect(buffer, index, packet, parent)
@@ -2006,11 +2006,11 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.packet.dissect = function(buff
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

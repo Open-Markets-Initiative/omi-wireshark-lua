@@ -17,13 +17,17 @@ local cboe_neoequities_gaprequestproxy_pitch_v1_0_14 = {}
 -- Cboe NeoEquities GapRequestProxy Pitch 1.0.14 Fields
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.count = ProtoField.new("Count", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.count", ftypes.UINT16)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.filler = ProtoField.new("Filler", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.filler", ftypes.STRING)
+omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.gapresponsestatus", ftypes.STRING)
+omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_sequence = ProtoField.new("Gap Sequence", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.gapsequence", ftypes.UINT32)
+omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_unit = ProtoField.new("Gap Unit", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.gapunit", ftypes.UINT8)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.length = ProtoField.new("Length", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.length", ftypes.UINT16)
+omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.loginresponsestatus", ftypes.STRING)
+omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.message_count = ProtoField.new("Message Count", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.messagecount", ftypes.UINT8)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.messagelength", ftypes.UINT8)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.messagetype", ftypes.UINT8)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.password = ProtoField.new("Password", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.password", ftypes.STRING)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.sequence = ProtoField.new("Sequence", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.sequence", ftypes.UINT32)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.sessionsubid", ftypes.STRING)
-omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.status = ProtoField.new("Status", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.status", ftypes.STRING)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.unit", ftypes.UINT8)
 omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.username = ProtoField.new("Username", "cboe.neoequities.gaprequestproxy.pitch.v1.0.14.username", ftypes.STRING)
 
@@ -145,6 +149,100 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.filler.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Gap Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status = {}
+
+-- Size: Gap Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.size = 1
+
+-- Display: Gap Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.display = function(value)
+  if value == "A" then
+    return "Gap Response Status: Accepted (A)"
+  end
+  if value == "O" then
+    return "Gap Response Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)"
+  end
+  if value == "D" then
+    return "Gap Response Status: Daily Gap Request Allocation Exhausted (D)"
+  end
+  if value == "M" then
+    return "Gap Response Status: Minute Gap Request Allocation Exhausted (M)"
+  end
+  if value == "S" then
+    return "Gap Response Status: Second Gap Request Allocation Exhausted (S)"
+  end
+  if value == "C" then
+    return "Gap Response Status: Count Request Limit For One Gap Request Exceeded (C)"
+  end
+  if value == "I" then
+    return "Gap Response Status: Invalid Unit Specified In Request (I)"
+  end
+  if value == "U" then
+    return "Gap Response Status: Unit Is Currently Unavailable (U)"
+  end
+
+  return "Gap Response Status: Unknown("..value..")"
+end
+
+-- Dissect: Gap Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gap Sequence
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence = {}
+
+-- Size: Gap Sequence
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.size = 4
+
+-- Display: Gap Sequence
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.display = function(value)
+  return "Gap Sequence: "..value
+end
+
+-- Dissect: Gap Sequence
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gap Unit
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit = {}
+
+-- Size: Gap Unit
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.size = 1
+
+-- Display: Gap Unit
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.display = function(value)
+  return "Gap Unit: "..value
+end
+
+-- Dissect: Gap Unit
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.gap_unit, range, value, display)
+
+  return offset + length, value
+end
+
 -- Length
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.length = {}
 
@@ -164,6 +262,65 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.length.dissect = function(buffer,
   local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status = {}
+
+-- Size: Login Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.size = 1
+
+-- Display: Login Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.display = function(value)
+  if value == "A" then
+    return "Login Response Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized Invalid Username Password (N)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
+end
+
+-- Dissect: Login Response Status
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.login_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count = {}
+
+-- Size: Message Count
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.size = 1
+
+-- Display: Message Count
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -296,60 +453,6 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.session_sub_id.dissect = function
   return offset + length, value
 end
 
--- Status
-cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status = {}
-
--- Size: Status
-cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.size = 1
-
--- Display: Status
-cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.display = function(value)
-  if value == "A" then
-    return "Status: Accepted (A)"
-  end
-  if value == "N" then
-    return "Status: Not Authorized Invalid Username Password (N)"
-  end
-  if value == "B" then
-    return "Status: Session In Use (B)"
-  end
-  if value == "S" then
-    return "Status: Invalid Session (S)"
-  end
-  if value == "O" then
-    return "Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)"
-  end
-  if value == "D" then
-    return "Status: Daily Gap Request Allocation Exhausted (D)"
-  end
-  if value == "M" then
-    return "Status: Minute Gap Request Allocation Exhausted (M)"
-  end
-  if value == "C" then
-    return "Status: Count Request Limit For One Gap Request Exceeded (C)"
-  end
-  if value == "I" then
-    return "Status: Invalid Unit Specified In Request (I)"
-  end
-  if value == "U" then
-    return "Status: Unit Is Currently Unavailable (U)"
-  end
-
-  return "Status: Unknown("..value..")"
-end
-
--- Dissect: Status
-cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_neoequities_gaprequestproxy_pitch_v1_0_14.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Unit
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit = {}
 
@@ -406,10 +509,10 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_message = {}
 
 -- Size: Gap Response Message
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_message.size =
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.size + 
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.size + 
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.size + 
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.size + 
   cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.size + 
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.size
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.size
 
 -- Display: Gap Response Message
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_message.display = function(packet, parent, length)
@@ -420,17 +523,17 @@ end
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unit: Binary
-  index, unit = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
+  -- Gap Unit: Binary
+  index, gap_unit = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
-  index, sequence = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+  -- Gap Sequence: Binary
+  index, gap_sequence = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.dissect(buffer, index, packet, parent)
 
   -- Count: Binary
   index, count = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.dissect(buffer, index, packet, parent)
+  -- Gap Response Status: Alphanumeric
+  index, gap_response_status = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_response_status.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -458,8 +561,8 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_request_message = {}
 
 -- Size: Gap Request Message
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_request_message.size =
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.size + 
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.size + 
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.size + 
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.size + 
   cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.size
 
 -- Display: Gap Request Message
@@ -471,11 +574,11 @@ end
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unit: Binary
-  index, unit = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
+  -- Gap Unit: Binary
+  index, gap_unit = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
-  index, sequence = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+  -- Gap Sequence: Binary
+  index, gap_sequence = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.gap_sequence.dissect(buffer, index, packet, parent)
 
   -- Count: Binary
   index, count = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
@@ -506,7 +609,7 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_message = {}
 
 -- Size: Login Response Message
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_message.size =
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.size
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.size
 
 -- Display: Login Response Message
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_message.display = function(packet, parent, length)
@@ -517,8 +620,8 @@ end
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Status: Alphanumeric
-  index, status = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.status.dissect(buffer, index, packet, parent)
+  -- Login Response Status: Alphanumeric
+  index, login_response_status = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.login_response_status.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -745,14 +848,14 @@ end
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
-cboe_neoequities_gaprequestproxy_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_neoequities_gaprequestproxy_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_neoequities_gaprequestproxy_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -768,7 +871,7 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.packet_header = {}
 -- Size: Packet Header
 cboe_neoequities_gaprequestproxy_pitch_v1_0_14.packet_header.size =
   cboe_neoequities_gaprequestproxy_pitch_v1_0_14.length.size + 
-  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.size + 
+  cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.size + 
   cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.size + 
   cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.size
 
@@ -784,13 +887,13 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.packet_header.fields = function(b
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.length.dissect(buffer, index, packet, parent)
 
-  -- Count: Binary
-  index, count = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_count.dissect(buffer, index, packet, parent)
 
-  -- Unit: Binary
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
 
   return index
@@ -829,11 +932,11 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.packet.dissect = function(buffer,
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 7, 2):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_neoequities_gaprequestproxy_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

@@ -51,3 +51,13 @@ runuser -u tester -- tshark \
 grep "nyse.nationalequities.bbo.pillar.v2.5.d.id" Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json
 grep "nyse.nationalequities.bbo.pillar.v2.5.d.symbolseqnum" Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json
 grep "nyse.nationalequities.bbo.pillar.v2.5.d.sourcetime" Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/NationalEquities.Bbo.Pillar.v2.5.d/MultipleMessages.pcap" \
+  -X "lua_script:Nyse/NationalEquities/Bbo/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
+  -T json \
+  > Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json 2> Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json.stderr; exit 1; }
+
+grep "nyse.nationalequities.bbo.pillar.v2.5.d." Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json
+
+[ "$(grep -c 'nyse.nationalequities.bbo.pillar.v2.5.d.' Nyse.NationalEquities.Bbo.Pillar.v2.5.d.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

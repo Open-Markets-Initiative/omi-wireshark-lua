@@ -18,8 +18,11 @@ local cboe_gaprequestproxy_pitch_v1 = {}
 omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16)
 omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.gaprequestproxy.pitch.v1.gapresponsestatus", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_sequence = ProtoField.new("Gap Sequence", "cboe.gaprequestproxy.pitch.v1.gapsequence", ftypes.UINT32)
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_unit = ProtoField.new("Gap Unit", "cboe.gaprequestproxy.pitch.v1.gapunit", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.length = ProtoField.new("Length", "cboe.gaprequestproxy.pitch.v1.length", ftypes.UINT16)
 omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.gaprequestproxy.pitch.v1.loginresponsestatus", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.message_count = ProtoField.new("Message Count", "cboe.gaprequestproxy.pitch.v1.messagecount", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_length = ProtoField.new("Message Length", "cboe.gaprequestproxy.pitch.v1.messagelength", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_type = ProtoField.new("Message Type", "cboe.gaprequestproxy.pitch.v1.messagetype", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.password = ProtoField.new("Password", "cboe.gaprequestproxy.pitch.v1.password", ftypes.STRING)
@@ -194,6 +197,52 @@ cboe_gaprequestproxy_pitch_v1.gap_response_status.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Gap Sequence
+cboe_gaprequestproxy_pitch_v1.gap_sequence = {}
+
+-- Size: Gap Sequence
+cboe_gaprequestproxy_pitch_v1.gap_sequence.size = 4
+
+-- Display: Gap Sequence
+cboe_gaprequestproxy_pitch_v1.gap_sequence.display = function(value)
+  return "Gap Sequence: "..value
+end
+
+-- Dissect: Gap Sequence
+cboe_gaprequestproxy_pitch_v1.gap_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_gaprequestproxy_pitch_v1.gap_sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_gaprequestproxy_pitch_v1.gap_sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_gaprequestproxy_pitch_v1.fields.gap_sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Gap Unit
+cboe_gaprequestproxy_pitch_v1.gap_unit = {}
+
+-- Size: Gap Unit
+cboe_gaprequestproxy_pitch_v1.gap_unit.size = 1
+
+-- Display: Gap Unit
+cboe_gaprequestproxy_pitch_v1.gap_unit.display = function(value)
+  return "Gap Unit: "..value
+end
+
+-- Dissect: Gap Unit
+cboe_gaprequestproxy_pitch_v1.gap_unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_gaprequestproxy_pitch_v1.gap_unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_gaprequestproxy_pitch_v1.gap_unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_gaprequestproxy_pitch_v1.fields.gap_unit, range, value, display)
+
+  return offset + length, value
+end
+
 -- Length
 cboe_gaprequestproxy_pitch_v1.length = {}
 
@@ -229,7 +278,7 @@ cboe_gaprequestproxy_pitch_v1.login_response_status.display = function(value)
     return "Login Response Status: Login Accepted (A)"
   end
   if value == "N" then
-    return "Login Response Status: Not Authorized Invalid Usernamepassword (N)"
+    return "Login Response Status: Not Authorized Invalid Username Password (N)"
   end
   if value == "B" then
     return "Login Response Status: Session In Use (B)"
@@ -249,6 +298,29 @@ cboe_gaprequestproxy_pitch_v1.login_response_status.dissect = function(buffer, o
   local display = cboe_gaprequestproxy_pitch_v1.login_response_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_gaprequestproxy_pitch_v1.message_count = {}
+
+-- Size: Message Count
+cboe_gaprequestproxy_pitch_v1.message_count.size = 1
+
+-- Display: Message Count
+cboe_gaprequestproxy_pitch_v1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_gaprequestproxy_pitch_v1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_gaprequestproxy_pitch_v1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_gaprequestproxy_pitch_v1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_gaprequestproxy_pitch_v1.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -437,8 +509,8 @@ cboe_gaprequestproxy_pitch_v1.gap_response_message = {}
 
 -- Size: Gap Response Message
 cboe_gaprequestproxy_pitch_v1.gap_response_message.size =
-  cboe_gaprequestproxy_pitch_v1.unit.size + 
-  cboe_gaprequestproxy_pitch_v1.sequence.size + 
+  cboe_gaprequestproxy_pitch_v1.gap_unit.size + 
+  cboe_gaprequestproxy_pitch_v1.gap_sequence.size + 
   cboe_gaprequestproxy_pitch_v1.count.size + 
   cboe_gaprequestproxy_pitch_v1.gap_response_status.size
 
@@ -451,11 +523,11 @@ end
 cboe_gaprequestproxy_pitch_v1.gap_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unit: Binary
-  index, unit = cboe_gaprequestproxy_pitch_v1.unit.dissect(buffer, index, packet, parent)
+  -- Gap Unit: Binary
+  index, gap_unit = cboe_gaprequestproxy_pitch_v1.gap_unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
-  index, sequence = cboe_gaprequestproxy_pitch_v1.sequence.dissect(buffer, index, packet, parent)
+  -- Gap Sequence: Binary
+  index, gap_sequence = cboe_gaprequestproxy_pitch_v1.gap_sequence.dissect(buffer, index, packet, parent)
 
   -- Count: Binary
   index, count = cboe_gaprequestproxy_pitch_v1.count.dissect(buffer, index, packet, parent)
@@ -489,8 +561,8 @@ cboe_gaprequestproxy_pitch_v1.gap_request_message = {}
 
 -- Size: Gap Request Message
 cboe_gaprequestproxy_pitch_v1.gap_request_message.size =
-  cboe_gaprequestproxy_pitch_v1.unit.size + 
-  cboe_gaprequestproxy_pitch_v1.sequence.size + 
+  cboe_gaprequestproxy_pitch_v1.gap_unit.size + 
+  cboe_gaprequestproxy_pitch_v1.gap_sequence.size + 
   cboe_gaprequestproxy_pitch_v1.count.size
 
 -- Display: Gap Request Message
@@ -502,11 +574,11 @@ end
 cboe_gaprequestproxy_pitch_v1.gap_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Unit: Binary
-  index, unit = cboe_gaprequestproxy_pitch_v1.unit.dissect(buffer, index, packet, parent)
+  -- Gap Unit: Binary
+  index, gap_unit = cboe_gaprequestproxy_pitch_v1.gap_unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
-  index, sequence = cboe_gaprequestproxy_pitch_v1.sequence.dissect(buffer, index, packet, parent)
+  -- Gap Sequence: Binary
+  index, gap_sequence = cboe_gaprequestproxy_pitch_v1.gap_sequence.dissect(buffer, index, packet, parent)
 
   -- Count: Binary
   index, count = cboe_gaprequestproxy_pitch_v1.count.dissect(buffer, index, packet, parent)
@@ -776,14 +848,14 @@ end
 cboe_gaprequestproxy_pitch_v1.messages = {}
 
 -- Dissect: Messages
-cboe_gaprequestproxy_pitch_v1.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_gaprequestproxy_pitch_v1.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_gaprequestproxy_pitch_v1.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -799,7 +871,7 @@ cboe_gaprequestproxy_pitch_v1.packet_header = {}
 -- Size: Packet Header
 cboe_gaprequestproxy_pitch_v1.packet_header.size =
   cboe_gaprequestproxy_pitch_v1.length.size + 
-  cboe_gaprequestproxy_pitch_v1.count.size + 
+  cboe_gaprequestproxy_pitch_v1.message_count.size + 
   cboe_gaprequestproxy_pitch_v1.unit.size + 
   cboe_gaprequestproxy_pitch_v1.sequence.size
 
@@ -815,13 +887,13 @@ cboe_gaprequestproxy_pitch_v1.packet_header.fields = function(buffer, offset, pa
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_gaprequestproxy_pitch_v1.length.dissect(buffer, index, packet, parent)
 
-  -- Count: Binary
-  index, count = cboe_gaprequestproxy_pitch_v1.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_gaprequestproxy_pitch_v1.message_count.dissect(buffer, index, packet, parent)
 
-  -- Unit: Binary
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_gaprequestproxy_pitch_v1.unit.dissect(buffer, index, packet, parent)
 
-  -- Sequence: Binary
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_gaprequestproxy_pitch_v1.sequence.dissect(buffer, index, packet, parent)
 
   return index
@@ -860,11 +932,11 @@ cboe_gaprequestproxy_pitch_v1.packet.dissect = function(buffer, packet, parent)
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_gaprequestproxy_pitch_v1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 7, 2):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_gaprequestproxy_pitch_v1.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_gaprequestproxy_pitch_v1.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

@@ -29,7 +29,6 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.complex_instrument_underl
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.c1options.complexauction.pitch.v2.2.41.complexleg", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.complexauction.pitch.v2.2.41.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.complexauction.pitch.v2.2.41.compositemarketofferprice", ftypes.DOUBLE)
-omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.count = ProtoField.new("Count", "cboe.c1options.complexauction.pitch.v2.2.41.count", ftypes.UINT8)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.complexauction.pitch.v2.2.41.customerindicator", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complexauction.pitch.v2.2.41.epochtime", ftypes.UINT32)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complexauction.pitch.v2.2.41.executionid", ftypes.UINT64)
@@ -40,6 +39,7 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.leg_ratio = ProtoField.ne
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.c1options.complexauction.pitch.v2.2.41.legsecuritytype", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.c1options.complexauction.pitch.v2.2.41.legsymbol", ftypes.STRING)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.length = ProtoField.new("Length", "cboe.c1options.complexauction.pitch.v2.2.41.length", ftypes.UINT16)
+omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.complexauction.pitch.v2.2.41.messagecount", ftypes.UINT8)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.complexauction.pitch.v2.2.41.messagelength", ftypes.UINT8)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complexauction.pitch.v2.2.41.messagetype", ftypes.UINT8)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complexauction.pitch.v2.2.41.midnightreference", ftypes.UINT32)
@@ -527,29 +527,6 @@ cboe_c1options_complexauction_pitch_v2_2_41.composite_market_offer_price.dissect
   return offset + length, value
 end
 
--- Count
-cboe_c1options_complexauction_pitch_v2_2_41.count = {}
-
--- Size: Count
-cboe_c1options_complexauction_pitch_v2_2_41.count.size = 1
-
--- Display: Count
-cboe_c1options_complexauction_pitch_v2_2_41.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1options_complexauction_pitch_v2_2_41.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complexauction_pitch_v2_2_41.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_complexauction_pitch_v2_2_41.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Indicator
 cboe_c1options_complexauction_pitch_v2_2_41.customer_indicator = {}
 
@@ -796,6 +773,29 @@ cboe_c1options_complexauction_pitch_v2_2_41.length.dissect = function(buffer, of
   local display = cboe_c1options_complexauction_pitch_v2_2_41.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_c1options_complexauction_pitch_v2_2_41.message_count = {}
+
+-- Size: Message Count
+cboe_c1options_complexauction_pitch_v2_2_41.message_count.size = 1
+
+-- Display: Message Count
+cboe_c1options_complexauction_pitch_v2_2_41.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_c1options_complexauction_pitch_v2_2_41.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complexauction_pitch_v2_2_41.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_complexauction_pitch_v2_2_41.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2201,14 +2201,14 @@ end
 cboe_c1options_complexauction_pitch_v2_2_41.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_complexauction_pitch_v2_2_41.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_c1options_complexauction_pitch_v2_2_41.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_c1options_complexauction_pitch_v2_2_41.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2224,7 +2224,7 @@ cboe_c1options_complexauction_pitch_v2_2_41.packet_header = {}
 -- Size: Packet Header
 cboe_c1options_complexauction_pitch_v2_2_41.packet_header.size =
   cboe_c1options_complexauction_pitch_v2_2_41.length.size + 
-  cboe_c1options_complexauction_pitch_v2_2_41.count.size + 
+  cboe_c1options_complexauction_pitch_v2_2_41.message_count.size + 
   cboe_c1options_complexauction_pitch_v2_2_41.unit.size + 
   cboe_c1options_complexauction_pitch_v2_2_41.sequence.size
 
@@ -2240,8 +2240,8 @@ cboe_c1options_complexauction_pitch_v2_2_41.packet_header.fields = function(buff
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_c1options_complexauction_pitch_v2_2_41.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_c1options_complexauction_pitch_v2_2_41.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_c1options_complexauction_pitch_v2_2_41.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_c1options_complexauction_pitch_v2_2_41.unit.dissect(buffer, index, packet, parent)
@@ -2297,11 +2297,11 @@ cboe_c1options_complexauction_pitch_v2_2_41.packet.dissect = function(buffer, pa
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_complexauction_pitch_v2_2_41.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_complexauction_pitch_v2_2_41.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_c1options_complexauction_pitch_v2_2_41.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

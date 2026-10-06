@@ -27,7 +27,6 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_bid_quantity_short = ProtoField.new("Consolidated Best Bid Quantity Short", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedbestbidquantityshort", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_best_quote_price = ProtoField.new("Consolidated Best Quote Price", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedbestquoteprice", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.consolidated_quote_quantity = ProtoField.new("Consolidated Quote Quantity", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.consolidatedquotequantity", ftypes.UINT64)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.count = ProtoField.new("Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.count", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.halt_status = ProtoField.new("Halt Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.haltstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.lastprice", ftypes.DOUBLE)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.lastquantity", ftypes.UINT64)
@@ -36,6 +35,7 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.length = ProtoFiel
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketcenter", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_center_execution_id = ProtoField.new("Market Center Execution Id", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketcenterexecutionid", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketstatus", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagecount", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved1", ftypes.BYTES)
@@ -458,29 +458,6 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.consolidated_quote_quantity.d
   return offset + length, value
 end
 
--- Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count = {}
-
--- Size: Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size = 1
-
--- Display: Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Halt Status
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.halt_status = {}
 
@@ -723,6 +700,29 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.market_status.dissect = funct
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.market_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count = {}
+
+-- Size: Message Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size = 1
+
+-- Display: Message Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1763,14 +1763,14 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages = {}
 
 -- Dissect: Messages
-cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1786,7 +1786,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header = {}
 -- Size: Packet Header
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.size =
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.length.size + 
-  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.size + 
+  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.size + 
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.size + 
   cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.size
 
@@ -1802,8 +1802,8 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.fields = functi
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.unit.dissect(buffer, index, packet, parent)
@@ -1847,11 +1847,11 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet.dissect = function(buf
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

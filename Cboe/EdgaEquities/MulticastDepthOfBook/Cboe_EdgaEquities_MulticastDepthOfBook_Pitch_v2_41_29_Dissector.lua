@@ -18,13 +18,13 @@ local cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29 = {}
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.canceledquantityshort", ftypes.UINT16)
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.count", ftypes.UINT8)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.last_timestamp = ProtoField.new("Last Timestamp", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.lasttimestamp", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.length", ftypes.UINT16)
+omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.message_count = ProtoField.new("Message Count", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.messagecount", ftypes.UINT8)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.modifyorderflags", ftypes.STRING)
@@ -246,29 +246,6 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.canceled_quantity_short.di
   return offset + length, value
 end
 
--- Count
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count = {}
-
--- Size: Count
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.size = 1
-
--- Display: Count
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Indicator
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.customer_indicator = {}
 
@@ -380,6 +357,29 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.length.dissect = function(
   local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count = {}
+
+-- Size: Message Count
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.size = 1
+
+-- Display: Message Count
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2276,14 +2276,14 @@ end
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.messages = {}
 
 -- Dissect: Messages
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2299,7 +2299,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.packet_header = {}
 -- Size: Packet Header
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.packet_header.size =
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.length.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.unit.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.sequence.size
 
@@ -2315,8 +2315,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.packet_header.fields = fun
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.unit.dissect(buffer, index, packet, parent)
@@ -2368,11 +2368,11 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.packet.dissect = function(
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

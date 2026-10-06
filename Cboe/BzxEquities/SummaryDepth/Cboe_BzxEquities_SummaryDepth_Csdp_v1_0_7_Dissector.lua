@@ -23,7 +23,6 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.adap_flags = ProtoField.new
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.block_type = ProtoField.new("Block Type", "cboe.bzxequities.summarydepth.csdp.v1.0.7.blocktype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.cboe_cumulative_executed_volume = ProtoField.new("Cboe Cumulative Executed Volume", "cboe.bzxequities.summarydepth.csdp.v1.0.7.cboecumulativeexecutedvolume", ftypes.UINT64)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.clear_adap = ProtoField.new("Clear Adap", "cboe.bzxequities.summarydepth.csdp.v1.0.7.clearadap", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.count = ProtoField.new("Count", "cboe.bzxequities.summarydepth.csdp.v1.0.7.count", ftypes.UINT8)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxequities.summarydepth.csdp.v1.0.7.executionid", ftypes.UINT64)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.halt_status = ProtoField.new("Halt Status", "cboe.bzxequities.summarydepth.csdp.v1.0.7.haltstatus", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.last_price = ProtoField.new("Last Price", "cboe.bzxequities.summarydepth.csdp.v1.0.7.lastprice", ftypes.DOUBLE)
@@ -33,6 +32,7 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.last_update_timestamp = Pro
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.length = ProtoField.new("Length", "cboe.bzxequities.summarydepth.csdp.v1.0.7.length", ftypes.UINT16)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.bzxequities.summarydepth.csdp.v1.0.7.longupdateadapblock", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.market_status = ProtoField.new("Market Status", "cboe.bzxequities.summarydepth.csdp.v1.0.7.marketstatus", ftypes.STRING)
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.message_count = ProtoField.new("Message Count", "cboe.bzxequities.summarydepth.csdp.v1.0.7.messagecount", ftypes.UINT8)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.summarydepth.csdp.v1.0.7.messagelength", ftypes.UINT8)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.summarydepth.csdp.v1.0.7.messagetype", ftypes.UINT8)
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.price_long = ProtoField.new("Price Long", "cboe.bzxequities.summarydepth.csdp.v1.0.7.pricelong", ftypes.DOUBLE)
@@ -236,29 +236,6 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.cboe_cumulative_executed_volume.dissec
   return offset + length, value
 end
 
--- Count
-cboe_bzxequities_summarydepth_csdp_v1_0_7.count = {}
-
--- Size: Count
-cboe_bzxequities_summarydepth_csdp_v1_0_7.count.size = 1
-
--- Display: Count
-cboe_bzxequities_summarydepth_csdp_v1_0_7.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_bzxequities_summarydepth_csdp_v1_0_7.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_summarydepth_csdp_v1_0_7.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_bzxequities_summarydepth_csdp_v1_0_7.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Id
 cboe_bzxequities_summarydepth_csdp_v1_0_7.execution_id = {}
 
@@ -452,6 +429,29 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.market_status.dissect = function(buffe
   local display = cboe_bzxequities_summarydepth_csdp_v1_0_7.market_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.market_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count = {}
+
+-- Size: Message Count
+cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.size = 1
+
+-- Display: Message Count
+cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_summarydepth_csdp_v1_0_7.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1885,14 +1885,14 @@ end
 cboe_bzxequities_summarydepth_csdp_v1_0_7.messages = {}
 
 -- Dissect: Messages
-cboe_bzxequities_summarydepth_csdp_v1_0_7.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_bzxequities_summarydepth_csdp_v1_0_7.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_bzxequities_summarydepth_csdp_v1_0_7.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1908,7 +1908,7 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.packet_header = {}
 -- Size: Packet Header
 cboe_bzxequities_summarydepth_csdp_v1_0_7.packet_header.size =
   cboe_bzxequities_summarydepth_csdp_v1_0_7.length.size + 
-  cboe_bzxequities_summarydepth_csdp_v1_0_7.count.size + 
+  cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.size + 
   cboe_bzxequities_summarydepth_csdp_v1_0_7.unit.size + 
   cboe_bzxequities_summarydepth_csdp_v1_0_7.sequence.size
 
@@ -1924,8 +1924,8 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.packet_header.fields = function(buffer
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_bzxequities_summarydepth_csdp_v1_0_7.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_bzxequities_summarydepth_csdp_v1_0_7.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_bzxequities_summarydepth_csdp_v1_0_7.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_bzxequities_summarydepth_csdp_v1_0_7.unit.dissect(buffer, index, packet, parent)
@@ -1969,11 +1969,11 @@ cboe_bzxequities_summarydepth_csdp_v1_0_7.packet.dissect = function(buffer, pack
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_bzxequities_summarydepth_csdp_v1_0_7.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_bzxequities_summarydepth_csdp_v1_0_7.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_bzxequities_summarydepth_csdp_v1_0_7.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

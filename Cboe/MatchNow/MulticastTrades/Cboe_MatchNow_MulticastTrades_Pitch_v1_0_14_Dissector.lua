@@ -17,10 +17,10 @@ local cboe_matchnow_multicasttrades_pitch_v1_0_14 = {}
 -- Cboe MatchNow MulticastTrades Pitch 1.0.14 Fields
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.buy_broker_number = ProtoField.new("Buy Broker Number", "cboe.matchnow.multicasttrades.pitch.v1.0.14.buybrokernumber", ftypes.UINT16)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.conditional = ProtoField.new("Conditional", "cboe.matchnow.multicasttrades.pitch.v1.0.14.conditional", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.count = ProtoField.new("Count", "cboe.matchnow.multicasttrades.pitch.v1.0.14.count", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.execution_id = ProtoField.new("Execution Id", "cboe.matchnow.multicasttrades.pitch.v1.0.14.executionid", ftypes.UINT64)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.length = ProtoField.new("Length", "cboe.matchnow.multicasttrades.pitch.v1.0.14.length", ftypes.UINT16)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.listing_exchange = ProtoField.new("Listing Exchange", "cboe.matchnow.multicasttrades.pitch.v1.0.14.listingexchange", ftypes.STRING)
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_count = ProtoField.new("Message Count", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagecount", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagelength", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagetype", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.odd_lot = ProtoField.new("Odd Lot", "cboe.matchnow.multicasttrades.pitch.v1.0.14.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -135,29 +135,6 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.buy_broker_number.dissect = function
   return offset + length, value
 end
 
--- Count
-cboe_matchnow_multicasttrades_pitch_v1_0_14.count = {}
-
--- Size: Count
-cboe_matchnow_multicasttrades_pitch_v1_0_14.count.size = 1
-
--- Display: Count
-cboe_matchnow_multicasttrades_pitch_v1_0_14.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_matchnow_multicasttrades_pitch_v1_0_14.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_matchnow_multicasttrades_pitch_v1_0_14.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Execution Id
 cboe_matchnow_multicasttrades_pitch_v1_0_14.execution_id = {}
 
@@ -236,6 +213,29 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.listing_exchange.dissect = function(
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.listing_exchange.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.listing_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count = {}
+
+-- Size: Message Count
+cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.size = 1
+
+-- Display: Message Count
+cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -1051,14 +1051,14 @@ end
 cboe_matchnow_multicasttrades_pitch_v1_0_14.messages = {}
 
 -- Dissect: Messages
-cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_matchnow_multicasttrades_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -1074,7 +1074,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header = {}
 -- Size: Packet Header
 cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header.size =
   cboe_matchnow_multicasttrades_pitch_v1_0_14.length.size + 
-  cboe_matchnow_multicasttrades_pitch_v1_0_14.count.size + 
+  cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.size + 
   cboe_matchnow_multicasttrades_pitch_v1_0_14.unit.size + 
   cboe_matchnow_multicasttrades_pitch_v1_0_14.sequence.size
 
@@ -1090,8 +1090,8 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header.fields = function(buff
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_matchnow_multicasttrades_pitch_v1_0_14.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_matchnow_multicasttrades_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_matchnow_multicasttrades_pitch_v1_0_14.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_matchnow_multicasttrades_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
@@ -1135,11 +1135,11 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.packet.dissect = function(buffer, pa
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

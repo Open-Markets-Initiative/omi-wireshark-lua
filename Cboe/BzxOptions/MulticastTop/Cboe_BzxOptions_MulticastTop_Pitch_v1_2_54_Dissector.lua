@@ -34,7 +34,6 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.bit_fields = ProtoField.ne
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.buycontracts", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.compositemarketbidprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.compositemarketofferprice", ftypes.DOUBLE)
-omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.count = ProtoField.new("Count", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.count", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer = ProtoField.new("Customer", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.customer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.customerquantitylong", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.customerquantityshort", ftypes.UINT16)
@@ -44,6 +43,7 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.feed_symbol = ProtoField.n
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.gthtradingstatus", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.indicativeprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.length = ProtoField.new("Length", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.length", ftypes.UINT16)
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_count = ProtoField.new("Message Count", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messagecount", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_length = ProtoField.new("Message Length", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messagelength", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_type = ProtoField.new("Message Type", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messagetype", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.openingcondition", ftypes.STRING)
@@ -664,29 +664,6 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.composite_market_offer_price.dissect 
   return offset + length, value
 end
 
--- Count
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.count = {}
-
--- Size: Count
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.size = 1
-
--- Display: Count
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Quantity Long
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.customer_quantity_long = {}
 
@@ -886,6 +863,29 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.length.dissect = function(buffer, off
   local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count = {}
+
+-- Size: Message Count
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.size = 1
+
+-- Display: Message Count
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -2685,14 +2685,14 @@ end
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.messages = {}
 
 -- Dissect: Messages
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_bzxoptions_multicasttop_pitch_v1_2_54.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -2708,7 +2708,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header = {}
 -- Size: Packet Header
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.length.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.unit.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.sequence.size
 
@@ -2724,8 +2724,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header.fields = function(buffe
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_bzxoptions_multicasttop_pitch_v1_2_54.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_bzxoptions_multicasttop_pitch_v1_2_54.unit.dissect(buffer, index, packet, parent)
@@ -2777,11 +2777,11 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet.dissect = function(buffer, pac
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_bzxoptions_multicasttop_pitch_v1_2_54.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_bzxoptions_multicasttop_pitch_v1_2_54.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

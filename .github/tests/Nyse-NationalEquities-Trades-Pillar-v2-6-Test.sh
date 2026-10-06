@@ -43,3 +43,13 @@ grep "nyse.nationalequities.trades.pillar.v2.6.tradecond1" Nyse.NationalEquities
 grep "nyse.nationalequities.trades.pillar.v2.6.tradecond2" Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.tradecond3" Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json
 grep "nyse.nationalequities.trades.pillar.v2.6.tradecond4" Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/NationalEquities.Trades.Pillar.v2.6/MultipleMessages.pcap" \
+  -X "lua_script:Nyse/NationalEquities/Trades/Nyse_NationalEquities_Trades_Pillar_v2_6_Dissector.lua" \
+  -T json \
+  > Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json 2> Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json.stderr; exit 1; }
+
+grep "nyse.nationalequities.trades.pillar.v2.6." Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json
+
+[ "$(grep -c 'nyse.nationalequities.trades.pillar.v2.6.' Nyse.NationalEquities.Trades.Pillar.v2.6.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

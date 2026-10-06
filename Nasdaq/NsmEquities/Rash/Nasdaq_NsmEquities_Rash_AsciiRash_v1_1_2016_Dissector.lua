@@ -597,7 +597,7 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text = {}
 
 -- Size: Debug Text
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.size = 1
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.size = 0
 
 -- Display: Debug Text
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.display = function(value)
@@ -3186,7 +3186,7 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
+  -- Debug Text: 0 Byte Ascii String
   index, debug_text = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.dissect(buffer, index, packet, parent)
 
   return index

@@ -1,0 +1,3523 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Protocol
+local omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4 = Proto("Omi.Cboe.BzxEquities.MulticastDepthOfBook.Spin.v2.20.4", "Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4")
+
+-- Protocol table
+local cboe_bzxequities_multicastdepthofbook_spin_v2_20_4 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Fields
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_flags = ProtoField.new("Add Flags", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.addflags", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.auctiononlyprice", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_type = ProtoField.new("Auction Type", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.auctiontype", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.buyshares", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.canceled_quantity_binary_2 = ProtoField.new("Canceled Quantity Binary 2", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.canceledquantitybinary2", ftypes.UINT16)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.canceled_quantity_binary_4 = ProtoField.new("Canceled Quantity Binary 4", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.canceledquantitybinary4", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.display = ProtoField.new("Display", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.display", ftypes.UINT8, {[0]="Not Displayed In Sip", [1]="Displayed In Sip"}, base.DEC, 0x01)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.executedquantity", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.executionid", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.feedsymbol", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.filler = ProtoField.new("Filler", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.filler", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.indicativeprice", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.length = ProtoField.new("Length", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.length", ftypes.UINT16)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.loginresponsestatus", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.maintainpriority", ftypes.UINT8, {[0]="Reset Priority", [1]="Maintain Priority"}, base.DEC, 0x02)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_count = ProtoField.new("Message Count", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.messagecount", ftypes.UINT8)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.messagelength", ftypes.UINT8)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.messagetype", ftypes.UINT8)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.modifyflags", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_count = ProtoField.new("Order Count", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.ordercount", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_id = ProtoField.new("Order Id", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.orderid", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.osisymbol", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.participantid", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.password = ProtoField.new("Password", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.password", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_8 = ProtoField.new("Price Binary 8", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.pricebinary8", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.pricebinarylongprice8", ftypes.DOUBLE)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.pricebinaryshortprice2", ftypes.DOUBLE)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.quantity_binary_2 = ProtoField.new("Quantity Binary 2", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.quantitybinary2", ftypes.UINT16)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.quantity_binary_4 = ProtoField.new("Quantity Binary 4", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.quantitybinary4", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reference_price = ProtoField.new("Reference Price", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.referenceprice", ftypes.UINT64)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.regshoaction", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.remainingquantity", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.reserved1", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.retailpriceimprovement", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.sellshares", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.sequence = ProtoField.new("Sequence", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.sequence", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.sessionsubid", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.shares = ProtoField.new("Shares", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.shares", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.sideindicator", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.spinresponsestatus", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.stock_symbol = ProtoField.new("Stock Symbol", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.stocksymbol", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.symbolcondition", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.symbollong", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.symbolshort", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time = ProtoField.new("Time", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.time", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time_offset = ProtoField.new("Time Offset", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.timeoffset", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.timestamp", ftypes.UINT32)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trading_status = ProtoField.new("Trading Status", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradingstatus", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unit = ProtoField.new("Unit", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.unit", ftypes.UINT8)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unused_7 = ProtoField.new("Unused 7", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.username = ProtoField.new("Username", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.username", ftypes.STRING)
+
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Framing
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message = ProtoField.new("Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.message", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.messageheader", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.packet", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.packetheader", ftypes.STRING)
+
+-- Cboe BzxEquities MulticastDepthOfBook 2.20.4 Application Messages
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.addorderexpandedmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.addorderlongmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.addordershortmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.auctionsummarymessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.auctionupdatemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.deleteordermessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.endofsessionmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_message = ProtoField.new("Login Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.loginmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.loginresponsemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.modifyorderlongmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.modifyordershortmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.orderexecutedatpricesizemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.orderexecutedmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.reducesizelongmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.reducesizeshortmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.retailpriceimprovementmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_finished_message = ProtoField.new("Spin Finished Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.spinfinishedmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_image_available_message = ProtoField.new("Spin Image Available Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.spinimageavailablemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_request_message = ProtoField.new("Spin Request Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.spinrequestmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_response_message = ProtoField.new("Spin Response Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.spinresponsemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.symbolmappingmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time_message = ProtoField.new("Time Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.timemessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradebreakmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_expanded_message = ProtoField.new("Trade Expanded Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradeexpandedmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradelongmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradeshortmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.tradingstatusmessage", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.unitclearmessage", ftypes.STRING)
+
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Generated Fields
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_index = ProtoField.new("Message Index", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.messageindex", ftypes.UINT16)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.multicastdepthofbook.spin.v2.20.4.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.utc_offset_hours = 5
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.format_timestamp = true
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.headers = true
+show.indexes = true
+
+-- Register Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Show Options
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
+
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+
+-- Handle changed preferences
+function omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_application_messages then
+    show.application_messages = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_headers then
+    show.headers = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_headers
+  end
+  if show.structs ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_structs then
+    show.structs = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_indexes then
+    show.indexes = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.show_indexes
+  end
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.format_timestamp ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.format_timestamp then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.format_timestamp = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.format_timestamp
+  end
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp_format ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.timestamp_format then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp_format = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.timestamp_format
+  end
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.utc_offset_hours ~= omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.utc_offset_hours then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.utc_offset_hours = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.prefs.utc_offset_hours
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation = {}
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.data = function(packet)
+  local key = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.key(packet)
+  local data = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.flows[key]
+  if data == nil then
+    data = { time = { last = nil, frames = {} } }
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.current = nil
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 Fields
+-----------------------------------------------------------------------
+
+-- Auction Only Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price = {}
+
+-- Size: Auction Only Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.size = 8
+
+-- Display: Auction Only Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.display = function(value)
+  return "Auction Only Price: "..value
+end
+
+-- Dissect: Auction Only Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_only_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type = {}
+
+-- Size: Auction Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.size = 1
+
+-- Display: Auction Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.display = function(value)
+  if value == "O" then
+    return "Auction Type: Opening Auction (O)"
+  end
+  if value == "C" then
+    return "Auction Type: Closing Auction (C)"
+  end
+  if value == "H" then
+    return "Auction Type: Halt Auction (H)"
+  end
+  if value == "I" then
+    return "Auction Type: Ipo Auction (I)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares = {}
+
+-- Size: Buy Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.size = 4
+
+-- Display: Buy Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.display = function(value)
+  return "Buy Shares: "..value
+end
+
+-- Dissect: Buy Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.buy_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2 = {}
+
+-- Size: Canceled Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.size = 2
+
+-- Display: Canceled Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.display = function(value)
+  return "Canceled Quantity Binary 2: "..value
+end
+
+-- Dissect: Canceled Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.canceled_quantity_binary_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4 = {}
+
+-- Size: Canceled Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.size = 4
+
+-- Display: Canceled Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.display = function(value)
+  return "Canceled Quantity Binary 4: "..value
+end
+
+-- Dissect: Canceled Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.canceled_quantity_binary_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity = {}
+
+-- Size: Executed Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id = {}
+
+-- Size: Execution Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size = 8
+
+-- Display: Execution Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Feed Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol = {}
+
+-- Size: Feed Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.size = 6
+
+-- Display: Feed Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.display = function(value)
+  return "Feed Symbol: "..value
+end
+
+-- Dissect: Feed Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.feed_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler = {}
+
+-- Size: Filler
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.size = 2
+
+-- Display: Filler
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.display = function(value)
+  return "Filler: "..value
+end
+
+-- Dissect: Filler
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.filler, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indicative Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price = {}
+
+-- Size: Indicative Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.size = 8
+
+-- Display: Indicative Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.display = function(value)
+  return "Indicative Price: "..value
+end
+
+-- Dissect: Indicative Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.indicative_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length = {}
+
+-- Size: Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.size = 2
+
+-- Display: Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status = {}
+
+-- Size: Login Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.size = 1
+
+-- Display: Login Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.display = function(value)
+  if value == "A" then
+    return "Login Response Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized Invalid Username Password (N)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
+end
+
+-- Dissect: Login Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count = {}
+
+-- Size: Message Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.size = 1
+
+-- Display: Message Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length = {}
+
+-- Size: Message Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.size = 1
+
+-- Display: Message Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type = {}
+
+-- Size: Message Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.size = 1
+
+-- Display: Message Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.display = function(value)
+  if value == 0x01 then
+    return "Message Type: Login Message (0x01)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x80 then
+    return "Message Type: Spin Image Available Message (0x80)"
+  end
+  if value == 0x81 then
+    return "Message Type: Spin Request Message (0x81)"
+  end
+  if value == 0x82 then
+    return "Message Type: Spin Response Message (0x82)"
+  end
+  if value == 0x83 then
+    return "Message Type: Spin Finished Message (0x83)"
+  end
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0x21 then
+    return "Message Type: Add Order Long Message (0x21)"
+  end
+  if value == 0x22 then
+    return "Message Type: Add Order Short Message (0x22)"
+  end
+  if value == 0x2F then
+    return "Message Type: Add Order Expanded Message (0x2F)"
+  end
+  if value == 0x23 then
+    return "Message Type: Order Executed Message (0x23)"
+  end
+  if value == 0x24 then
+    return "Message Type: Order Executed At Price Size Message (0x24)"
+  end
+  if value == 0x25 then
+    return "Message Type: Reduce Size Long Message (0x25)"
+  end
+  if value == 0x26 then
+    return "Message Type: Reduce Size Short Message (0x26)"
+  end
+  if value == 0x27 then
+    return "Message Type: Modify Order Long Message (0x27)"
+  end
+  if value == 0x28 then
+    return "Message Type: Modify Order Short Message (0x28)"
+  end
+  if value == 0x29 then
+    return "Message Type: Delete Order Message (0x29)"
+  end
+  if value == 0x2A then
+    return "Message Type: Trade Long Message (0x2A)"
+  end
+  if value == 0x2B then
+    return "Message Type: Trade Short Message (0x2B)"
+  end
+  if value == 0x30 then
+    return "Message Type: Trade Expanded Message (0x30)"
+  end
+  if value == 0x2C then
+    return "Message Type: Trade Break Message (0x2C)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+  if value == 0x2E then
+    return "Message Type: Symbol Mapping Message (0x2E)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0x95 then
+    return "Message Type: Auction Update Message (0x95)"
+  end
+  if value == 0x96 then
+    return "Message Type: Auction Summary Message (0x96)"
+  end
+  if value == 0x98 then
+    return "Message Type: Retail Price Improvement Message (0x98)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count = {}
+
+-- Size: Order Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.size = 4
+
+-- Display: Order Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.display = function(value)
+  return "Order Count: "..value
+end
+
+-- Dissect: Order Count
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id = {}
+
+-- Size: Order Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size = 8
+
+-- Display: Order Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Osi Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol = {}
+
+-- Size: Osi Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.size = 21
+
+-- Display: Osi Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.display = function(value)
+  return "Osi Symbol: "..value
+end
+
+-- Dissect: Osi Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.osi_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Participant Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id = {}
+
+-- Size: Participant Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.size = 4
+
+-- Display: Participant Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.display = function(value)
+  return "Participant Id: "..value
+end
+
+-- Dissect: Participant Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password = {}
+
+-- Size: Password
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.size = 10
+
+-- Display: Password
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Binary 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8 = {}
+
+-- Size: Price Binary 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.size = 8
+
+-- Display: Price Binary 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.display = function(value)
+  return "Price Binary 8: "..value
+end
+
+-- Dissect: Price Binary 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Binary Long Price 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8 = {}
+
+-- Size: Price Binary Long Price 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size = 8
+
+-- Display: Price Binary Long Price 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.display = function(value)
+  return "Price Binary Long Price 8: "..value
+end
+
+-- Translate: Price Binary Long Price 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price Binary Long Price 8
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.translate(raw)
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_long_price_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Binary Short Price 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2 = {}
+
+-- Size: Price Binary Short Price 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.size = 2
+
+-- Display: Price Binary Short Price 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.display = function(value)
+  return "Price Binary Short Price 2: "..value
+end
+
+-- Translate: Price Binary Short Price 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Binary Short Price 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.translate(raw)
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.price_binary_short_price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2 = {}
+
+-- Size: Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.size = 2
+
+-- Display: Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.display = function(value)
+  return "Quantity Binary 2: "..value
+end
+
+-- Dissect: Quantity Binary 2
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.quantity_binary_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4 = {}
+
+-- Size: Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size = 4
+
+-- Display: Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.display = function(value)
+  return "Quantity Binary 4: "..value
+end
+
+-- Dissect: Quantity Binary 4
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.quantity_binary_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price = {}
+
+-- Size: Reference Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.size = 8
+
+-- Display: Reference Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.display = function(value)
+  return "Reference Price: "..value
+end
+
+-- Dissect: Reference Price
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reg Sho Action
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action = {}
+
+-- Size: Reg Sho Action
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.size = 1
+
+-- Display: Reg Sho Action
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Effect (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
+end
+
+-- Dissect: Reg Sho Action
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Remaining Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity = {}
+
+-- Size: Remaining Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.size = 4
+
+-- Display: Remaining Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.display = function(value)
+  return "Remaining Quantity: "..value
+end
+
+-- Dissect: Remaining Quantity
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.remaining_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1 = {}
+
+-- Size: Reserved 1
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.size = 1
+
+-- Display: Reserved 1
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retail Price Improvement
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement = {}
+
+-- Size: Retail Price Improvement
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.size = 1
+
+-- Display: Retail Price Improvement
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.display = function(value)
+  if value == "B" then
+    return "Retail Price Improvement: Buy Side Rpi (B)"
+  end
+  if value == "S" then
+    return "Retail Price Improvement: Sell Side Rpi (S)"
+  end
+  if value == "A" then
+    return "Retail Price Improvement: Buy And Sell Rpi (A)"
+  end
+  if value == "N" then
+    return "Retail Price Improvement: No Rpi (N)"
+  end
+
+  return "Retail Price Improvement: Unknown("..value..")"
+end
+
+-- Dissect: Retail Price Improvement
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.retail_price_improvement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares = {}
+
+-- Size: Sell Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.size = 4
+
+-- Display: Sell Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.display = function(value)
+  return "Sell Shares: "..value
+end
+
+-- Dissect: Sell Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.sell_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence = {}
+
+-- Size: Sequence
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size = 4
+
+-- Display: Sequence
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Sub Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id = {}
+
+-- Size: Session Sub Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.size = 4
+
+-- Display: Session Sub Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.display = function(value)
+  return "Session Sub Id: "..value
+end
+
+-- Dissect: Session Sub Id
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares = {}
+
+-- Size: Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.size = 4
+
+-- Display: Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.display = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side Indicator
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator = {}
+
+-- Size: Side Indicator
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size = 1
+
+-- Display: Side Indicator
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.display = function(value)
+  if value == "B" then
+    return "Side Indicator: Buy Order (B)"
+  end
+  if value == "S" then
+    return "Side Indicator: Sell Order (S)"
+  end
+
+  return "Side Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Side Indicator
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Spin Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status = {}
+
+-- Size: Spin Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.size = 1
+
+-- Display: Spin Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.display = function(value)
+  if value == "A" then
+    return "Spin Response Status: Accepted (A)"
+  end
+  if value == "O" then
+    return "Spin Response Status: Out Of Range Spin No Longer Available (O)"
+  end
+  if value == "S" then
+    return "Spin Response Status: Spin Already In Progress Only One Spin Can Be Running At A Time (S)"
+  end
+
+  return "Spin Response Status: Unknown("..value..")"
+end
+
+-- Dissect: Spin Response Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_response_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Stock Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol = {}
+
+-- Size: Stock Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.size = 8
+
+-- Display: Stock Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.display = function(value)
+  return "Stock Symbol: "..value
+end
+
+-- Dissect: Stock Symbol
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.stock_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Condition
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition = {}
+
+-- Size: Symbol Condition
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.size = 1
+
+-- Display: Symbol Condition
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.display = function(value)
+  if value == "N" then
+    return "Symbol Condition: Normal (N)"
+  end
+  if value == "C" then
+    return "Symbol Condition: Closing Only (C)"
+  end
+
+  return "Symbol Condition: Unknown("..value..")"
+end
+
+-- Dissect: Symbol Condition
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Long
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long = {}
+
+-- Size: Symbol Long
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size = 8
+
+-- Display: Symbol Long
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.display = function(value)
+  return "Symbol Long: "..value
+end
+
+-- Dissect: Symbol Long
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Short
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short = {}
+
+-- Size: Symbol Short
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size = 6
+
+-- Display: Symbol Short
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.display = function(value)
+  return "Symbol Short: "..value
+end
+
+-- Dissect: Symbol Short
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time = {}
+
+-- Size: Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.size = 4
+
+-- Store: Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.current = nil
+
+-- Generated: Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.generated = function(value, range, packet, parent)
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.display(value)
+  local time = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time, range, value, display)
+  time:set_generated()
+end
+
+-- Display: Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.display = function(value)
+  return "Time: "..value
+end
+
+-- Dissect: Time
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Offset
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset = {}
+
+-- Size: Time Offset
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp = {}
+
+-- Size: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.size = 4
+
+-- Display: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.display = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status = {}
+
+-- Size: Trading Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.size = 1
+
+-- Display: Trading Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.display = function(value)
+  if value == "H" then
+    return "Trading Status: Halted (H)"
+  end
+  if value == "Q" then
+    return "Trading Status: Quote Only (Q)"
+  end
+  if value == "T" then
+    return "Trading Status: Trading (T)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit = {}
+
+-- Size: Unit
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.size = 1
+
+-- Display: Unit
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username = {}
+
+-- Size: Username
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.size = 4
+
+-- Display: Username
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp = {}
+
+-- Translate: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.translate = function(time_offset, stored_time)
+  return UInt64.new(stored_time * 1000000000 + time_offset)
+end
+
+-- Display: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.display = function(time_offset, stored_time, packet)
+  -- Raw display mode
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp_format == 0 then
+    return "Timestamp: "..(stored_time * 1000000000 + time_offset)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
+    local full_seconds = local_midnight + stored_time
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", time_offset)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_time)..string.format("%09d", time_offset)
+end
+
+-- Composite: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.composite = function(buffer, offset, stored_time, packet, parent)
+  local length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.translate(time_offset, stored_time)
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.display(time_offset, stored_time, packet)
+  parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.timestamp, range, value, display)
+
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.generated(stored_time, range, packet, parent)
+
+  display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.display(time_offset)
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect = function(buffer, offset, packet, parent)
+  if cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.format_timestamp then
+    local stored_time = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.current
+
+    if stored_time ~= nil then
+      return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.composite(buffer, offset, stored_time, packet, parent)
+    end
+  end
+
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.dissect(buffer, offset, packet, parent)
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4
+-----------------------------------------------------------------------
+
+-- Retail Price Improvement Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message = {}
+
+-- Size: Retail Price Improvement Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.size
+
+-- Display: Retail Price Improvement Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retail Price Improvement Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.dissect(buffer, index, packet, parent)
+
+  -- Retail Price Improvement: Alpha
+  index, retail_price_improvement = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retail Price Improvement Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.retail_price_improvement_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Summary Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message = {}
+
+-- Size: Auction Summary Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.size
+
+-- Display: Auction Summary Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Summary Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Stock Symbol: Alphanumeric
+  index, stock_symbol = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alphanumeric
+  index, auction_type = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Price Binary 8: Binary
+  index, price_binary_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_8.dissect(buffer, index, packet, parent)
+
+  -- Shares: Binary
+  index, shares = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.shares.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Summary Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_summary_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Auction Update Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message = {}
+
+-- Size: Auction Update Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.size
+
+-- Display: Auction Update Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Update Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Stock Symbol: Alphanumeric
+  index, stock_symbol = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.stock_symbol.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alphanumeric
+  index, auction_type = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Reference Price: Binary
+  index, reference_price = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reference_price.dissect(buffer, index, packet, parent)
+
+  -- Buy Shares: Binary
+  index, buy_shares = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.buy_shares.dissect(buffer, index, packet, parent)
+
+  -- Sell Shares: Binary
+  index, sell_shares = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sell_shares.dissect(buffer, index, packet, parent)
+
+  -- Indicative Price: Binary
+  index, indicative_price = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.indicative_price.dissect(buffer, index, packet, parent)
+
+  -- Auction Only Price: Binary
+  index, auction_only_price = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_only_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Update Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.auction_update_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading Status Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message = {}
+
+-- Size: Trading Status Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.size
+
+-- Display: Trading Status Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Status Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alpha
+  index, trading_status = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reg Sho Action: Alphanumeric
+  index, reg_sho_action = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reg_sho_action.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Alpha
+  index, reserved_1 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Alpha
+  index, reserved_1 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reserved_1.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Status Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Mapping Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message = {}
+
+-- Size: Symbol Mapping Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.size
+
+-- Display: Symbol Mapping Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Mapping Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Feed Symbol: Alphanumeric
+  index, feed_symbol = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.feed_symbol.dissect(buffer, index, packet, parent)
+
+  -- Osi Symbol: Alphanumeric
+  index, osi_symbol = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.osi_symbol.dissect(buffer, index, packet, parent)
+
+  -- Symbol Condition: Alphanumeric
+  index, symbol_condition = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_condition.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Mapping Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.symbol_mapping_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- End Of Session Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message = {}
+
+-- Size: End Of Session Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.size
+
+-- Display: End Of Session Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Session Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Binary
+  index, timestamp = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Break Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message = {}
+
+-- Size: Trade Break Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+
+-- Display: Trade Break Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Break Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Break Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_break_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message = {}
+
+-- Size: Trade Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+
+-- Display: Trade Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 4: Binary
+  index, quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_expanded_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message = {}
+
+-- Size: Trade Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+
+-- Display: Trade Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 2: Binary
+  index, quantity_binary_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.dissect(buffer, index, packet, parent)
+
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Short Price 2: Binary Short Price
+  index, price_binary_short_price_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_short_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trade Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message = {}
+
+-- Size: Trade Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+
+-- Display: Trade Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 4: Binary
+  index, quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trade Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.trade_long_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Delete Order Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message = {}
+
+-- Size: Delete Order Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size
+
+-- Display: Delete Order Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Delete Order Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Delete Order Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.delete_order_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags = {}
+
+-- Size: Modify Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.size = 1
+
+-- Display: Modify Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Display flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Display"
+  end
+  -- Is Maintain Priority flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Maintain Priority"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Modify Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.bits = function(range, value, packet, parent)
+
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.display, range, value)
+
+  -- Maintain Priority: 1 Bit Enum with 2 values
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.maintain_priority, range, value)
+
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unused_6, range, value)
+end
+
+-- Dissect: Modify Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_flags, range, display)
+
+  if show.structs then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Modify Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message = {}
+
+-- Size: Modify Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.size
+
+-- Display: Modify Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 2: Binary
+  index, quantity_binary_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Short Price 2: Binary Short Price
+  index, price_binary_short_price_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.dissect(buffer, index, packet, parent)
+
+  -- Modify Flags: Struct of 3 fields
+  index, modify_flags = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_order_short_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message = {}
+
+-- Size: Modify Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.size
+
+-- Display: Modify Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 4: Binary
+  index, quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  -- Modify Flags: Struct of 3 fields
+  index, modify_flags = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Modify Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.modify_order_long_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reduce Size Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message = {}
+
+-- Size: Reduce Size Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.size
+
+-- Display: Reduce Size Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reduce Size Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Canceled Quantity Binary 2: Binary
+  index, canceled_quantity_binary_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reduce Size Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reduce_size_short_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reduce Size Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message = {}
+
+-- Size: Reduce Size Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.size
+
+-- Display: Reduce Size Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reduce Size Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Canceled Quantity Binary 4: Binary
+  index, canceled_quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.canceled_quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reduce Size Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.reduce_size_long_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Executed At Price Size Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message = {}
+
+-- Size: Order Executed At Price Size Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size
+
+-- Display: Order Executed At Price Size Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Executed At Price Size Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Executed Quantity: Binary
+  index, executed_quantity = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.dissect(buffer, index, packet, parent)
+
+  -- Remaining Quantity: Binary
+  index, remaining_quantity = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.remaining_quantity.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Executed At Price Size Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_executed_at_price_size_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Executed Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message = {}
+
+-- Size: Order Executed Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.size
+
+-- Display: Order Executed Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Executed Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Executed Quantity: Binary
+  index, executed_quantity = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.executed_quantity.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.execution_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Executed Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.order_executed_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags = {}
+
+-- Size: Add Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.size = 1
+
+-- Display: Add Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Display flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Display"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Add Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.bits = function(range, value, packet, parent)
+
+  -- Display: 1 Bit Enum with 2 values
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.display, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unused_7, range, value)
+end
+
+-- Dissect: Add Flags
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_flags, range, display)
+
+  if show.structs then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Add Order Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message = {}
+
+-- Size: Add Order Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.size
+
+-- Display: Add Order Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 4: Binary
+  index, quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_long.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  -- Add Flags: Struct of 2 fields
+  index, add_flags = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.dissect(buffer, index, packet, parent)
+
+  -- Participant Id: Alphanumeric
+  index, participant_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.participant_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order Expanded Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_expanded_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message = {}
+
+-- Size: Add Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.size
+
+-- Display: Add Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 2: Binary
+  index, quantity_binary_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_2.dissect(buffer, index, packet, parent)
+
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Short Price 2: Binary Short Price
+  index, price_binary_short_price_2 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_short_price_2.dissect(buffer, index, packet, parent)
+
+  -- Add Flags: Struct of 2 fields
+  index, add_flags = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order Short Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_short_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Add Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message = {}
+
+-- Size: Add Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.size
+
+-- Display: Add Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Add Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Binary
+  index, order_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side Indicator: Alphanumeric
+  index, side_indicator = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.side_indicator.dissect(buffer, index, packet, parent)
+
+  -- Quantity Binary 4: Binary
+  index, quantity_binary_4 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.quantity_binary_4.dissect(buffer, index, packet, parent)
+
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_short.dissect(buffer, index, packet, parent)
+
+  -- Price Binary Long Price 8: Binary Long Price
+  index, price_binary_long_price_8 = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+
+  -- Add Flags: Struct of 2 fields
+  index, add_flags = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_flags.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Add Order Long Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.add_order_long_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unit Clear Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message = {}
+
+-- Size: Unit Clear Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_offset.size
+
+-- Display: Unit Clear Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Clear Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Clear Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Time Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message = {}
+
+-- Size: Time Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.size
+
+-- Display: Time Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Time Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time: Binary
+  index, time = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.dissect(buffer, index, packet, parent)
+
+  -- Store Time Value
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.current = time
+
+  if not packet.visited then
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.current.time.last = time
+  end
+
+  return index
+end
+
+-- Dissect: Time Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.time_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spin Finished Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message = {}
+
+-- Size: Spin Finished Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size
+
+-- Display: Spin Finished Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spin Finished Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequence: Binary
+  index, sequence = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spin Finished Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_finished_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spin Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message = {}
+
+-- Size: Spin Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.size
+
+-- Display: Spin Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spin Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequence: Binary
+  index, sequence = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect(buffer, index, packet, parent)
+
+  -- Order Count: Binary
+  index, order_count = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_count.dissect(buffer, index, packet, parent)
+
+  -- Spin Response Status: Alphanumeric
+  index, spin_response_status = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spin Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_response_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spin Request Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message = {}
+
+-- Size: Spin Request Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size
+
+-- Display: Spin Request Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spin Request Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequence: Binary
+  index, sequence = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spin Request Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_request_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spin Image Available Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message = {}
+
+-- Size: Spin Image Available Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size
+
+-- Display: Spin Image Available Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spin Image Available Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sequence: Binary
+  index, sequence = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spin Image Available Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.spin_image_available_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message = {}
+
+-- Size: Login Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.size
+
+-- Display: Login Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Response Status: Alphanumeric
+  index, login_response_status = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_response_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message = {}
+
+-- Size: Login Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.size
+
+-- Display: Login Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Sub Id: Alphanumeric
+  index, session_sub_id = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Username: Alphanumeric
+  index, username = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.username.dissect(buffer, index, packet, parent)
+
+  -- Filler: Alphanumeric
+  index, filler = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.filler.dissect(buffer, index, packet, parent)
+
+  -- Password: Alphanumeric
+  index, password = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.password.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.login_message, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.payload = {}
+
+-- Dissect: Payload
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Message
+  if message_type == 0x01 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spin Image Available Message
+  if message_type == 0x80 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_image_available_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spin Request Message
+  if message_type == 0x81 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spin Response Message
+  if message_type == 0x82 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spin Finished Message
+  if message_type == 0x83 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.spin_finished_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Long Message
+  if message_type == 0x21 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Short Message
+  if message_type == 0x22 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Expanded Message
+  if message_type == 0x2F then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.add_order_expanded_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == 0x23 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed At Price Size Message
+  if message_type == 0x24 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.order_executed_at_price_size_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Long Message
+  if message_type == 0x25 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reduce Size Short Message
+  if message_type == 0x26 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.reduce_size_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Long Message
+  if message_type == 0x27 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Modify Order Short Message
+  if message_type == 0x28 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.modify_order_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Delete Order Message
+  if message_type == 0x29 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.delete_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Long Message
+  if message_type == 0x2A then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Short Message
+  if message_type == 0x2B then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Expanded Message
+  if message_type == 0x30 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_expanded_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Break Message
+  if message_type == 0x2C then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.end_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Mapping Message
+  if message_type == 0x2E then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.symbol_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Update Message
+  if message_type == 0x95 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Summary Message
+  if message_type == 0x96 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.auction_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retail Price Improvement Message
+  if message_type == 0x98 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.retail_price_improvement_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header = {}
+
+-- Size: Message Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.size
+
+-- Display: Message Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 1 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 28 values
+  index, message_type = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_header, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message = {}
+
+-- Read runtime size of: Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):le_uint()
+
+  return message_length
+end
+
+-- Display: Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):le_uint()
+
+  -- Payload: Runtime Type with 28 branches
+  index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.message, buffer(offset, 0))
+    local current = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Heartbeat
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.messages = {}
+
+-- Dissect: Messages
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Heartbeat
+  if message_count == 0 then
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+end
+
+-- Packet Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header = {}
+
+-- Size: Packet Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.size =
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.size + 
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.size
+
+-- Display: Packet Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.message_count.dissect(buffer, index, packet, parent)
+
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
+  index, unit = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: Binary
+  index, sequence = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.fields.packet_header, buffer(offset, 0))
+    local index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet = {}
+
+-- Verify required size of Tcp packet
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.size
+end
+
+-- Dissect Packet
+cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.data(packet)
+  if not packet.visited then
+    data.time.frames[packet.number] = data.time.last
+  end
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.current = data.time.frames[packet.number]
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.current = data
+
+  local index = 0
+
+  -- Packet Header: Struct of 4 fields
+  index, packet_header = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
+
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.messages.dissect(buffer, index, packet, parent, message_count)
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.init()
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.time.current = nil
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.current = nil
+  cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.conversation.flows = {}
+end
+
+-- Dissector for Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4
+function omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4, buffer(), omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.description, "("..buffer:len().." Bytes)")
+  return cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 (Tcp)
+local function omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4
+  omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4
+omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4:register_heuristic("tcp", omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4_tcp_heuristic)
+
+-- Register Cboe BzxEquities MulticastDepthOfBook Spin 2.20.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_bzxequities_multicastdepthofbook_spin_v2_20_4)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Chicago Board Options Exchange
+--   Version: 2.20.4
+--   Since: 2.20.0
+--   Date: Wednesday, January 29, 2014
+--   Specification: BATS_MC_PITCH_Specification.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

@@ -24,7 +24,6 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.buy_shares = ProtoF
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.canceled_long_quantity = ProtoField.new("Canceled Long Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.canceledlongquantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.canceled_short_quantity = ProtoField.new("Canceled Short Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.canceledshortquantity", ftypes.UINT16)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.contracts", ftypes.UINT32)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.count = ProtoField.new("Count", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.count", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.customerindicator", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.display", ftypes.UINT8, {[0]="Not Aggregated", [1]="Aggregated"}, base.DEC, 0x01)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.executedquantity", ftypes.UINT32)
@@ -36,6 +35,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.length = ProtoField
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.long_price = ProtoField.new("Long Price", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longprice", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.longquantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.maintain_priority = ProtoField.new("Maintain Priority", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.maintainpriority", ftypes.UINT8, {[0]="Reset Priority", [1]="Maintain Priority"}, base.DEC, 0x02)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagecount", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagelength", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.messagetype", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.39.4.modifyflags", ftypes.STRING)
@@ -435,29 +435,6 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.contracts.dissect = function(b
   return offset + length, value
 end
 
--- Count
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count = {}
-
--- Size: Count
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.size = 1
-
--- Display: Count
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.display = function(value)
-  return "Count: "..value
-end
-
--- Dissect: Count
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.count, range, value, display)
-
-  return offset + length, value
-end
-
 -- Customer Indicator
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.customer_indicator = {}
 
@@ -680,6 +657,29 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.dissect = functi
   local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.long_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.long_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count = {}
+
+-- Size: Message Count
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.size = 1
+
+-- Display: Message Count
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_4.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -3210,14 +3210,14 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.messages = {}
 
 -- Dissect: Messages
-cboe_c1options_multicastdepthofbook_pitch_v2_39_4.messages.dissect = function(buffer, offset, packet, parent, count)
+cboe_c1options_multicastdepthofbook_pitch_v2_39_4.messages.dissect = function(buffer, offset, packet, parent, message_count)
   -- Dissect Heartbeat
-  if count == 0 then
+  if message_count == 0 then
     return cboe_c1options_multicastdepthofbook_pitch_v2_39_4.heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   -- Repeating: Message
-  for message_index = 1, count do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(offset, 1):le_uint()
@@ -3233,7 +3233,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.packet_header = {}
 -- Size: Packet Header
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.packet_header.size =
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.length.size + 
-  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_39_4.sequence.size
 
@@ -3249,8 +3249,8 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.packet_header.fields = functio
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.length.dissect(buffer, index, packet, parent)
 
-  -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.count.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
   index, unit = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.unit.dissect(buffer, index, packet, parent)
@@ -3302,11 +3302,11 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.packet.dissect = function(buff
   -- Packet Header: Struct of 4 fields
   index, packet_header = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Count
-  local count = buffer(index - 6, 1):le_uint()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):le_uint()
 
   -- Messages: Runtime Type with 2 branches
-  index = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.messages.dissect(buffer, index, packet, parent, count)
+  index = cboe_c1options_multicastdepthofbook_pitch_v2_39_4.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end
