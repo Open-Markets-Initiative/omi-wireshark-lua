@@ -24,6 +24,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.begin_seq_num = ProtoFie
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.hkexderivatives.premiumretrans.omd.v2.0.bidaskflag", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexderivatives.premiumretrans.omd.v2.0.bookentry", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.hkexderivatives.premiumretrans.omd.v2.0.calculatedopeningprice", ftypes.INT64)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.calculated_opening_quantity = ProtoField.new("Calculated Opening Quantity", "hkex.hkexderivatives.premiumretrans.omd.v2.0.calculatedopeningquantity", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.channel_id = ProtoField.new("Channel Id", "hkex.hkexderivatives.premiumretrans.omd.v2.0.channelid", ftypes.UINT16)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.combo_orderbook_id = ProtoField.new("Combo Orderbook Id", "hkex.hkexderivatives.premiumretrans.omd.v2.0.comboorderbookid", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.commodity_code = ProtoField.new("Commodity Code", "hkex.hkexderivatives.premiumretrans.omd.v2.0.commoditycode", ftypes.UINT32)
@@ -31,8 +32,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.commodity_id = ProtoFiel
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.commodity_name = ProtoField.new("Commodity Name", "hkex.hkexderivatives.premiumretrans.omd.v2.0.commodityname", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.premiumretrans.omd.v2.0.compressionmode", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.premiumretrans.omd.v2.0.content", ftypes.BYTES)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size_int_324 = ProtoField.new("Contract Size Int 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.contractsizeint324", ftypes.INT32)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size_uint_324 = ProtoField.new("Contract Size Uint 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.contractsizeuint324", ftypes.UINT32)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size = ProtoField.new("Contract Size", "hkex.hkexderivatives.premiumretrans.omd.v2.0.contractsize", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.premiumretrans.omd.v2.0.coolingoffendtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.premiumretrans.omd.v2.0.coolingoffstarttime", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.day_indicator = ProtoField.new("Day Indicator", "hkex.hkexderivatives.premiumretrans.omd.v2.0.dayindicator", ftypes.UINT16)
@@ -63,8 +63,10 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.implied_volatility = Pro
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_class_id = ProtoField.new("Instrument Class Id", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentclassid", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_class_key = ProtoField.new("Instrument Class Key", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentclasskey", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_class_name = ProtoField.new("Instrument Class Name", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentclassname", ftypes.STRING)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_contract_size = ProtoField.new("Instrument Contract Size", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentcontractsize", ftypes.INT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_group = ProtoField.new("Instrument Group", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentgroup", ftypes.UINT16)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_status_uint_81 = ProtoField.new("Instrument Status Uint 81", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentstatusuint81", ftypes.UINT8)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_price_quotation_factor = ProtoField.new("Instrument Price Quotation Factor", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentpricequotationfactor", ftypes.INT32)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_status_code = ProtoField.new("Instrument Status Code", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumentstatuscode", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_type_id = ProtoField.new("Instrument Type Id", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumenttypeid", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_type_key = ProtoField.new("Instrument Type Key", "hkex.hkexderivatives.premiumretrans.omd.v2.0.instrumenttypekey", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.isin_code = ProtoField.new("Isin Code", "hkex.hkexderivatives.premiumretrans.omd.v2.0.isincode", ftypes.STRING)
@@ -78,8 +80,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.leg_orderbook_id = Proto
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.hkexderivatives.premiumretrans.omd.v2.0.legratio", ftypes.INT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.leg_side = ProtoField.new("Leg Side", "hkex.hkexderivatives.premiumretrans.omd.v2.0.legside", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.low_price = ProtoField.new("Low Price", "hkex.hkexderivatives.premiumretrans.omd.v2.0.lowprice", ftypes.INT64)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market_uint_162 = ProtoField.new("Market Uint 162", "hkex.hkexderivatives.premiumretrans.omd.v2.0.marketuint162", ftypes.UINT16)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market_uint_164 = ProtoField.new("Market Uint 164", "hkex.hkexderivatives.premiumretrans.omd.v2.0.marketuint164", ftypes.UINT32)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market = ProtoField.new("Market", "hkex.hkexderivatives.premiumretrans.omd.v2.0.market", ftypes.UINT16)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.match_id = ProtoField.new("Match Id", "hkex.hkexderivatives.premiumretrans.omd.v2.0.matchid", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.modifier = ProtoField.new("Modifier", "hkex.hkexderivatives.premiumretrans.omd.v2.0.modifier", ftypes.UINT16)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexderivatives.premiumretrans.omd.v2.0.msgcount", ftypes.UINT8)
@@ -98,12 +99,10 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.pkt_size = ProtoField.ne
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.premiumretrans.omd.v2.0.plannedstarttime", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.premiumretrans.omd.v2.0.price", ftypes.INT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_level = ProtoField.new("Price Level", "hkex.hkexderivatives.premiumretrans.omd.v2.0.pricelevel", ftypes.UINT8)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor_int_324 = ProtoField.new("Price Quotation Factor Int 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.pricequotationfactorint324", ftypes.INT32)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor_uint_324 = ProtoField.new("Price Quotation Factor Uint 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.pricequotationfactoruint324", ftypes.UINT32)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.hkexderivatives.premiumretrans.omd.v2.0.pricequotationfactor", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.premiumretrans.omd.v2.0.priority", ftypes.UINT8)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_int_324 = ProtoField.new("Quantity Int 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.quantityint324", ftypes.INT32)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.hkexderivatives.premiumretrans.omd.v2.0.quantityuint324", ftypes.UINT32)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.hkexderivatives.premiumretrans.omd.v2.0.quantityuint648", ftypes.UINT64)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.premiumretrans.omd.v2.0.quantity", ftypes.UINT32)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.premiumretrans.omd.v2.0.quotequantity", ftypes.INT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.premiumretrans.omd.v2.0.retransstatus", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.premiumretrans.omd.v2.0.secondfiller3", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.premiumretrans.omd.v2.0.sendtime", ftypes.UINT64)
@@ -116,6 +115,7 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.side = ProtoField.new("S
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.source = ProtoField.new("Source", "hkex.hkexderivatives.premiumretrans.omd.v2.0.source", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.state = ProtoField.new("State", "hkex.hkexderivatives.premiumretrans.omd.v2.0.state", ftypes.UINT16)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.state_level = ProtoField.new("State Level", "hkex.hkexderivatives.premiumretrans.omd.v2.0.statelevel", ftypes.STRING)
+omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.status_market = ProtoField.new("Status Market", "hkex.hkexderivatives.premiumretrans.omd.v2.0.statusmarket", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.strike_price = ProtoField.new("Strike Price", "hkex.hkexderivatives.premiumretrans.omd.v2.0.strikeprice", ftypes.INT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.suspended = ProtoField.new("Suspended", "hkex.hkexderivatives.premiumretrans.omd.v2.0.suspended", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexderivatives.premiumretrans.omd.v2.0.suspensionindicator", ftypes.UINT8)
@@ -444,6 +444,29 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_price.dissect = 
   return offset + length, value
 end
 
+-- Calculated Opening Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity = {}
+
+-- Size: Calculated Opening Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.size = 8
+
+-- Display: Calculated Opening Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.display = function(value)
+  return "Calculated Opening Quantity: "..value
+end
+
+-- Dissect: Calculated Opening Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.calculated_opening_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Channel Id
 hkex_hkexderivatives_premiumretrans_omd_v2_0.channel_id = {}
 
@@ -605,48 +628,25 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.content.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Contract Size Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324 = {}
+-- Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size = {}
 
--- Size: Contract Size Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.size = 4
+-- Size: Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.size = 4
 
--- Display: Contract Size Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.display = function(value)
-  return "Contract Size Int 324: "..value
+-- Display: Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.display = function(value)
+  return "Contract Size: "..value
 end
 
--- Dissect: Contract Size Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size_int_324, range, value, display)
-
-  return offset + length, value
-end
-
--- Contract Size Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324 = {}
-
--- Size: Contract Size Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.size = 4
-
--- Display: Contract Size Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.display = function(value)
-  return "Contract Size Uint 324: "..value
-end
-
--- Dissect: Contract Size Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.size
+-- Dissect: Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size_uint_324, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.contract_size, range, value, display)
 
   return offset + length, value
 end
@@ -1362,6 +1362,29 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_name.dissect = fun
   return offset + length, value
 end
 
+-- Instrument Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size = {}
+
+-- Size: Instrument Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.size = 4
+
+-- Display: Instrument Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.display = function(value)
+  return "Instrument Contract Size: "..value
+end
+
+-- Dissect: Instrument Contract Size
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_contract_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Instrument Group
 hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group = {}
 
@@ -1385,25 +1408,58 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group.dissect = function
   return offset + length, value
 end
 
--- Instrument Status Uint 81
-hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81 = {}
+-- Instrument Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor = {}
 
--- Size: Instrument Status Uint 81
-hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.size = 1
+-- Size: Instrument Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.size = 4
 
--- Display: Instrument Status Uint 81
-hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.display = function(value)
-  return "Instrument Status Uint 81: "..value
+-- Display: Instrument Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.display = function(value)
+  return "Instrument Price Quotation Factor: "..value
 end
 
--- Dissect: Instrument Status Uint 81
-hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.size
+-- Dissect: Instrument Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_price_quotation_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Status Code
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code = {}
+
+-- Size: Instrument Status Code
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.size = 1
+
+-- Display: Instrument Status Code
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.display = function(value)
+  if value == 1 then
+    return "Instrument Status Code: Active (1)"
+  end
+  if value == 2 then
+    return "Instrument Status Code: Suspended (2)"
+  end
+  if value == 4 then
+    return "Instrument Status Code: Delisted (4)"
+  end
+
+  return "Instrument Status Code: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Status Code
+hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_status_uint_81, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.instrument_status_code, range, value, display)
 
   return offset + length, value
 end
@@ -1728,48 +1784,25 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.low_price.dissect = function(buffer
   return offset + length, value
 end
 
--- Market Uint 162
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162 = {}
+-- Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.market = {}
 
--- Size: Market Uint 162
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.size = 2
+-- Size: Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.market.size = 2
 
--- Display: Market Uint 162
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.display = function(value)
-  return "Market Uint 162: "..value
+-- Display: Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.market.display = function(value)
+  return "Market: "..value
 end
 
--- Dissect: Market Uint 162
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.size
+-- Dissect: Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.market.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.market.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.market.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market_uint_162, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Uint 164
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164 = {}
-
--- Size: Market Uint 164
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.size = 4
-
--- Display: Market Uint 164
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.display = function(value)
-  return "Market Uint 164: "..value
-end
-
--- Dissect: Market Uint 164
-hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market_uint_164, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.market, range, value, display)
 
   return offset + length, value
 end
@@ -2270,48 +2303,25 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.price_level.dissect = function(buff
   return offset + length, value
 end
 
--- Price Quotation Factor Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324 = {}
+-- Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor = {}
 
--- Size: Price Quotation Factor Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.size = 4
+-- Size: Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.size = 4
 
--- Display: Price Quotation Factor Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.display = function(value)
-  return "Price Quotation Factor Int 324: "..value
+-- Display: Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.display = function(value)
+  return "Price Quotation Factor: "..value
 end
 
--- Dissect: Price Quotation Factor Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor_int_324, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Quotation Factor Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324 = {}
-
--- Size: Price Quotation Factor Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.size = 4
-
--- Display: Price Quotation Factor Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.display = function(value)
-  return "Price Quotation Factor Uint 324: "..value
-end
-
--- Dissect: Price Quotation Factor Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.size
+-- Dissect: Price Quotation Factor
+hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor_uint_324, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.price_quotation_factor, range, value, display)
 
   return offset + length, value
 end
@@ -2349,71 +2359,48 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.priority.dissect = function(buffer,
   return offset + length, value
 end
 
--- Quantity Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324 = {}
+-- Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity = {}
 
--- Size: Quantity Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.size = 4
+-- Size: Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.size = 4
 
--- Display: Quantity Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.display = function(value)
-  return "Quantity Int 324: "..value
+-- Display: Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.display = function(value)
+  return "Quantity: "..value
 end
 
--- Dissect: Quantity Int 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_int_324, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324 = {}
-
--- Size: Quantity Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.size = 4
-
--- Display: Quantity Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.display = function(value)
-  return "Quantity Uint 324: "..value
-end
-
--- Dissect: Quantity Uint 324
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.size
+-- Dissect: Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_uint_324, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity Uint 648
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648 = {}
+-- Quote Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity = {}
 
--- Size: Quantity Uint 648
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.size = 8
+-- Size: Quote Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.size = 4
 
--- Display: Quantity Uint 648
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.display = function(value)
-  return "Quantity Uint 648: "..value
+-- Display: Quote Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.display = function(value)
+  return "Quote Quantity: "..value
 end
 
--- Dissect: Quantity Uint 648
-hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.size
+-- Dissect: Quote Quantity
+hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.display(value, buffer, offset, packet, parent)
+  local value = range:le_int()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quantity_uint_648, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.quote_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2757,6 +2744,29 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.state_level.dissect = function(buff
   local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.state_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.state_level, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market = {}
+
+-- Size: Status Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.size = 4
+
+-- Display: Status Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.display = function(value)
+  return "Status Market: "..value
+end
+
+-- Dissect: Status Market
+hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_0.fields.status_market, range, value, display)
 
   return offset + length, value
 end
@@ -3441,7 +3451,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_amendment_message.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.price.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.amendment_execution_time.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_state.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size
@@ -3464,8 +3474,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_amendment_message.fields = fu
   -- Price: Int64
   index, price = hkex_hkexderivatives_premiumretrans_omd_v2_0.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity Uint 324: Uint32
-  index, quantity_uint_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.dissect(buffer, index, packet, parent)
+  -- Quantity: Uint32
+  index, quantity = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Amendment Execution Time: Uint64
   index, amendment_execution_time = hkex_hkexderivatives_premiumretrans_omd_v2_0.amendment_execution_time.dissect(buffer, index, packet, parent)
@@ -3511,7 +3521,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.trade.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_sub_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_condition.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_time.size
 
 -- Display: Trade
@@ -3550,8 +3560,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.trade.fields = function(buffer, off
   -- Filler 3: String
   index, filler_3 = hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
 
-  -- Quantity Uint 324: Uint32
-  index, quantity_uint_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_324.dissect(buffer, index, packet, parent)
+  -- Quantity: Uint32
+  index, quantity = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Time: Uint64
   index, trade_time = hkex_hkexderivatives_premiumretrans_omd_v2_0.trade_time.dissect(buffer, index, packet, parent)
@@ -3626,8 +3636,6 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.vcm_end = {}
 
 -- Size: Vcm End
 hkex_hkexderivatives_premiumretrans_omd_v2_0.vcm_end.size =
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.cooling_off_start_time.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.cooling_off_end_time.size
@@ -3640,12 +3648,6 @@ end
 -- Dissect Fields: Vcm End
 hkex_hkexderivatives_premiumretrans_omd_v2_0.vcm_end.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Msg Size: Uint16
-  index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Uint16
-  index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
@@ -3800,7 +3802,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status = {}
 hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.suspension_indicator.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_2.size
 
 -- Display: Instrument Status
@@ -3818,8 +3820,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status.fields = function
   -- Suspension Indicator: Uint8
   index, suspension_indicator = hkex_hkexderivatives_premiumretrans_omd_v2_0.suspension_indicator.dissect(buffer, index, packet, parent)
 
-  -- Instrument Status Uint 81: Uint8
-  index, instrument_status_uint_81 = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.dissect(buffer, index, packet, parent)
+  -- Instrument Status Code: Uint8
+  index, instrument_status_code = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
   index, filler_2 = hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
@@ -3851,7 +3853,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.market_status = {}
 -- Size: Market Status
 hkex_hkexderivatives_premiumretrans_omd_v2_0.market_status.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.state_level.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_type_key.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_key.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_4.size + 
@@ -3872,8 +3874,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.market_status.fields = function(buf
   -- State Level: String
   index, state_level = hkex_hkexderivatives_premiumretrans_omd_v2_0.state_level.dissect(buffer, index, packet, parent)
 
-  -- Market Uint 164: Uint16
-  index, market_uint_164 = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_164.dissect(buffer, index, packet, parent)
+  -- Status Market: Uint16
+  index, status_market = hkex_hkexderivatives_premiumretrans_omd_v2_0.status_market.dissect(buffer, index, packet, parent)
 
   -- Instrument Type Key: Uint32
   index, instrument_type_key = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_type_key.dissect(buffer, index, packet, parent)
@@ -4154,8 +4156,6 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.combination_definition = {}
 
 -- Size: Combination Definition
 hkex_hkexderivatives_premiumretrans_omd_v2_0.combination_definition.size =
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.combo_orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.leg_orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size + 
@@ -4170,12 +4170,6 @@ end
 -- Dissect Fields: Combination Definition
 hkex_hkexderivatives_premiumretrans_omd_v2_0.combination_definition.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Msg Size: Uint16
-  index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Uint16
-  index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
 
   -- Combo Orderbook Id: Uint32
   index, combo_orderbook_id = hkex_hkexderivatives_premiumretrans_omd_v2_0.combo_orderbook_id.dissect(buffer, index, packet, parent)
@@ -4218,12 +4212,10 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition = {}
 
 -- Size: Instrument Definition
 hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition.size =
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.symbol.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_key.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.market.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.modifier.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.commodity_code.size + 
@@ -4234,9 +4226,9 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.first_trading_date.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.first_trading_time.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.number_of_legs.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.vcm_flag.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.isin_code.size + 
@@ -4252,12 +4244,6 @@ end
 hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Size: Uint16
-  index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Uint16
-  index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
-
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
@@ -4267,8 +4253,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition.fields = func
   -- Instrument Class Key: Uint32
   index, instrument_class_key = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_key.dissect(buffer, index, packet, parent)
 
-  -- Market Uint 162: Uint16
-  index, market_uint_162 = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.dissect(buffer, index, packet, parent)
+  -- Market: Uint16
+  index, market = hkex_hkexderivatives_premiumretrans_omd_v2_0.market.dissect(buffer, index, packet, parent)
 
   -- Instrument Group: Uint16
   index, instrument_group = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group.dissect(buffer, index, packet, parent)
@@ -4300,14 +4286,14 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_definition.fields = func
   -- Filler 3: String
   index, filler_3 = hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
 
-  -- Instrument Status Uint 81: Uint8
-  index, instrument_status_uint_81 = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_uint_81.dissect(buffer, index, packet, parent)
+  -- Instrument Status Code: Uint8
+  index, instrument_status_code = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_status_code.dissect(buffer, index, packet, parent)
 
-  -- Contract Size Int 324: Int32
-  index, contract_size_int_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_int_324.dissect(buffer, index, packet, parent)
+  -- Instrument Contract Size: Int32
+  index, instrument_contract_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_contract_size.dissect(buffer, index, packet, parent)
 
-  -- Price Quotation Factor Int 324: Int32
-  index, price_quotation_factor_int_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_int_324.dissect(buffer, index, packet, parent)
+  -- Instrument Price Quotation Factor: Int32
+  index, instrument_price_quotation_factor = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_price_quotation_factor.dissect(buffer, index, packet, parent)
 
   -- Number Of Legs: Uint8
   index, number_of_legs = hkex_hkexderivatives_premiumretrans_omd_v2_0.number_of_legs.dissect(buffer, index, packet, parent)
@@ -4350,21 +4336,19 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.class_definition = {}
 
 -- Size: Class Definition
 hkex_hkexderivatives_premiumretrans_omd_v2_0.class_definition.size =
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_key.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.key_type.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_name.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.exchange.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.market.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.commodity_code.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_type_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_type_key.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.decimal_in_contract_size.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.decimal_in_strike_price.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.decimal_in_price.size + 
@@ -4384,12 +4368,6 @@ end
 hkex_hkexderivatives_premiumretrans_omd_v2_0.class_definition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Size: Uint16
-  index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.dissect(buffer, index, packet, parent)
-
-  -- Msg Type: Uint16
-  index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
-
   -- Instrument Class Id: String
   index, instrument_class_id = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_class_id.dissect(buffer, index, packet, parent)
 
@@ -4405,8 +4383,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.class_definition.fields = function(
   -- Exchange: Uint16
   index, exchange = hkex_hkexderivatives_premiumretrans_omd_v2_0.exchange.dissect(buffer, index, packet, parent)
 
-  -- Market Uint 162: Uint16
-  index, market_uint_162 = hkex_hkexderivatives_premiumretrans_omd_v2_0.market_uint_162.dissect(buffer, index, packet, parent)
+  -- Market: Uint16
+  index, market = hkex_hkexderivatives_premiumretrans_omd_v2_0.market.dissect(buffer, index, packet, parent)
 
   -- Instrument Group: Uint16
   index, instrument_group = hkex_hkexderivatives_premiumretrans_omd_v2_0.instrument_group.dissect(buffer, index, packet, parent)
@@ -4423,11 +4401,11 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.class_definition.fields = function(
   -- Filler 3: String
   index, filler_3 = hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.dissect(buffer, index, packet, parent)
 
-  -- Price Quotation Factor Uint 324: Uint32
-  index, price_quotation_factor_uint_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor_uint_324.dissect(buffer, index, packet, parent)
+  -- Price Quotation Factor: Uint32
+  index, price_quotation_factor = hkex_hkexderivatives_premiumretrans_omd_v2_0.price_quotation_factor.dissect(buffer, index, packet, parent)
 
-  -- Contract Size Uint 324: Uint32
-  index, contract_size_uint_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size_uint_324.dissect(buffer, index, packet, parent)
+  -- Contract Size: Uint32
+  index, contract_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.contract_size.dissect(buffer, index, packet, parent)
 
   -- Decimal In Contract Size: Uint16
   index, decimal_in_contract_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.decimal_in_contract_size.dissect(buffer, index, packet, parent)
@@ -4555,7 +4533,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_request = {}
 -- Size: Quote Request
 hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_request.size =
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.size + 
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.bid_ask_flag.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_3.size
 
@@ -4571,8 +4549,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_request.fields = function(buf
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Int 324: Int32
-  index, quantity_int_324 = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_int_324.dissect(buffer, index, packet, parent)
+  -- Quote Quantity: Int32
+  index, quote_quantity = hkex_hkexderivatives_premiumretrans_omd_v2_0.quote_quantity.dissect(buffer, index, packet, parent)
 
   -- Bid Ask Flag: Uint8
   index, bid_ask_flag = hkex_hkexderivatives_premiumretrans_omd_v2_0.bid_ask_flag.dissect(buffer, index, packet, parent)
@@ -4872,7 +4850,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_price_message.si
   hkex_hkexderivatives_premiumretrans_omd_v2_0.orderbook_id.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_price.size + 
   hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_4.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.size
+  hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.size
 
 -- Display: Calculated Opening Price Message
 hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_price_message.display = function(packet, parent, length)
@@ -4892,8 +4870,8 @@ hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_price_message.fi
   -- Filler 4: String
   index, filler_4 = hkex_hkexderivatives_premiumretrans_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
 
-  -- Quantity Uint 648: Uint64
-  index, quantity_uint_648 = hkex_hkexderivatives_premiumretrans_omd_v2_0.quantity_uint_648.dissect(buffer, index, packet, parent)
+  -- Calculated Opening Quantity: Uint64
+  index, calculated_opening_quantity = hkex_hkexderivatives_premiumretrans_omd_v2_0.calculated_opening_quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5240,10 +5218,10 @@ end
 hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Msg Size: Uint16
+  -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: Uint16
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 27 values
   index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_0.msg_type.dissect(buffer, index, packet, parent)
 
   return index

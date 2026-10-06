@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1299 | 8,753,748 |
+| 1295 | 8,752,027 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -65,7 +65,7 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Organizations
 
-> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [Nextrade][Nextrade.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [Osi][Osi.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Sgx][Sgx.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
+> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [Nextrade][Nextrade.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Sgx][Sgx.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
 
 ## Exchanges and Ats
 
@@ -165,8 +165,6 @@ Enjoy.
 [Omi.Encoding.PillarStream]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/PillarStream.md "PillarStream Encoding"
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xdp.md "Xdp Encoding"
 [Omi.Encoding.Ultra]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ultra.md "Ultra Encoding"
-[Omi.Encoding.Ip]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ip.md "Ip Encoding"
-[Omi.Encoding.Ethernet]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ethernet.md "Ethernet Encoding"
 [Omi.Encoding.Link]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Link.md "Link Encoding"
 [Omi.Encoding.Cta]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Cta.md "Cta Encoding"
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Obi.md "Obi Encoding"
@@ -689,9 +687,6 @@ Enjoy.
 [Nyse.TexasEquities.Trades]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Nyse/Protocols/TexasEquities/Trades.md "Trades"
 [Odx.OdxEquities.Pts]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Odx/Protocols/OdxEquities/Pts.md "Proprietary Trading System"
 [Odx.OdxSecurityToken.Pts]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Odx/Protocols/OdxSecurityToken/Pts.md "Proprietary Trading System"
-[Osi.Network.Internet]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Osi/Protocols/Network/Internet.md "Internet"
-[Osi.Network.Link]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Osi/Protocols/Network/Link.md "Link"
-[Osi.Network.Transport]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Osi/Protocols/Network/Transport.md "Transport"
 [OtcMarkets.LinkAts.ExtendedTrade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/LinkAts/ExtendedTrade.md ""
 [OtcMarkets.LinkAts.Headers]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/LinkAts/Headers.md ""
 [OtcMarkets.LinkAts.Multicast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/LinkAts/Multicast.md "OTC Markets Multicast"
@@ -772,7 +767,6 @@ Enjoy.
 [NsxAustralia.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/NsxAustralia "Nation Stock Exchange of Australia"
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Nyse "New York Stock Exchange"
 [Odx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Odx "Osaka Digital Exchange"
-[Osi.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Osi "Open Systems Interconnection"
 [OtcMarkets.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/OtcMarkets "OTC Markets Group"
 [Sgx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Sgx "Singapore Exchange"
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Siac "The Securities Industry Automation Corporation"

@@ -17,12 +17,13 @@ local hkex_hkexsecurities_mmdh_omd_v2_1 = {}
 -- Hkex HkexSecurities Mmdh Omd 2.1 Fields
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.mmdh.omd.v2.1.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.mmdh.omd.v2.1.aggregatequantity", ftypes.UINT64)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bond_maturity_date = ProtoField.new("Bond Maturity Date", "hkex.hkexsecurities.mmdh.omd.v2.1.bondmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexsecurities.mmdh.omd.v2.1.bookentry", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bq_item = ProtoField.new("Bq Item", "hkex.hkexsecurities.mmdh.omd.v2.1.bqitem", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bq_more_flag = ProtoField.new("Bq More Flag", "hkex.hkexsecurities.mmdh.omd.v2.1.bqmoreflag", ftypes.STRING)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bq_side = ProtoField.new("Bq Side", "hkex.hkexsecurities.mmdh.omd.v2.1.bqside", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.broker_id = ProtoField.new("Broker Id", "hkex.hkexsecurities.mmdh.omd.v2.1.brokerid", ftypes.UINT16)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.buy_plus_sell_turnover = ProtoField.new("Buy Plus Sell Turnover", "hkex.hkexsecurities.mmdh.omd.v2.1.buyplussellturnover", ftypes.INT64)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.broker_side = ProtoField.new("Broker Side", "hkex.hkexsecurities.mmdh.omd.v2.1.brokerside", ftypes.UINT16)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.buy_sell_turnover = ProtoField.new("Buy Sell Turnover", "hkex.hkexsecurities.mmdh.omd.v2.1.buysellturnover", ftypes.INT64)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.buy_turnover = ProtoField.new("Buy Turnover", "hkex.hkexsecurities.mmdh.omd.v2.1.buyturnover", ftypes.INT64)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.call_price = ProtoField.new("Call Price", "hkex.hkexsecurities.mmdh.omd.v2.1.callprice", ftypes.INT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.call_price_composite = ProtoField.new("Call Price Composite", "hkex.hkexsecurities.mmdh.omd.v2.1.callpricecomposite", ftypes.STRING)
@@ -102,7 +103,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.lower_price = ProtoField.new("Lower
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.lp_broker_number = ProtoField.new("Lp Broker Number", "hkex.hkexsecurities.mmdh.omd.v2.1.lpbrokernumber", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.mmdh.omd.v2.1.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.mmdh.omd.v2.1.marketname", ftypes.STRING)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.mmdh.omd.v2.1.maturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_length = ProtoField.new("Msg Length", "hkex.hkexsecurities.mmdh.omd.v2.1.msglength", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.mmdh.omd.v2.1.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.mmdh.omd.v2.1.msgtype", ftypes.UINT16)
@@ -124,7 +124,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.no_warrants_per_entitlement = Proto
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.nominal_price = ProtoField.new("Nominal Price", "hkex.hkexsecurities.mmdh.omd.v2.1.nominalprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.number_of_orders = ProtoField.new("Number Of Orders", "hkex.hkexsecurities.mmdh.omd.v2.1.numberoforders", ftypes.UINT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.number_of_securities = ProtoField.new("Number Of Securities", "hkex.hkexsecurities.mmdh.omd.v2.1.numberofsecurities", ftypes.UINT32)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.number_of_trades = ProtoField.new("Number Of Trades", "hkex.hkexsecurities.mmdh.omd.v2.1.numberoftrades", ftypes.UINT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.omd_public_key = ProtoField.new("Omd Public Key", "hkex.hkexsecurities.mmdh.omd.v2.1.omdpublickey", ftypes.BYTES)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.mmdh.omd.v2.1.openingvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.order_id = ProtoField.new("Order Id", "hkex.hkexsecurities.mmdh.omd.v2.1.orderid", ftypes.UINT64)
@@ -189,7 +188,6 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vcm_flag = ProtoField.new("Vcm Flag
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vcm_lower_price = ProtoField.new("Vcm Lower Price", "hkex.hkexsecurities.mmdh.omd.v2.1.vcmlowerprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexsecurities.mmdh.omd.v2.1.vcmreferenceprice", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexsecurities.mmdh.omd.v2.1.vcmupperprice", ftypes.DOUBLE)
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vwap = ProtoField.new("Vwap", "hkex.hkexsecurities.mmdh.omd.v2.1.vwap", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_maturity_date = ProtoField.new("Warrant Maturity Date", "hkex.hkexsecurities.mmdh.omd.v2.1.warrantmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.mmdh.omd.v2.1.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.mmdh.omd.v2.1.yield", ftypes.DOUBLE)
@@ -356,6 +354,29 @@ hkex_hkexsecurities_mmdh_omd_v2_1.aggregate_quantity.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Bond Maturity Date
+hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date = {}
+
+-- Size: Bond Maturity Date
+hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.size = 4
+
+-- Display: Bond Maturity Date
+hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.display = function(value)
+  return "Bond Maturity Date: "..value
+end
+
+-- Dissect: Bond Maturity Date
+hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bond_maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Bq More Flag
 hkex_hkexsecurities_mmdh_omd_v2_1.bq_more_flag = {}
 
@@ -386,36 +407,6 @@ hkex_hkexsecurities_mmdh_omd_v2_1.bq_more_flag.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Bq Side
-hkex_hkexsecurities_mmdh_omd_v2_1.bq_side = {}
-
--- Size: Bq Side
-hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.size = 2
-
--- Display: Bq Side
-hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.display = function(value)
-  if value == 1 then
-    return "Bq Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Bq Side: Sell (2)"
-  end
-
-  return "Bq Side: Unknown("..value..")"
-end
-
--- Dissect: Bq Side
-hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.bq_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Broker Id
 hkex_hkexsecurities_mmdh_omd_v2_1.broker_id = {}
 
@@ -439,25 +430,55 @@ hkex_hkexsecurities_mmdh_omd_v2_1.broker_id.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Buy Plus Sell Turnover
-hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover = {}
+-- Broker Side
+hkex_hkexsecurities_mmdh_omd_v2_1.broker_side = {}
 
--- Size: Buy Plus Sell Turnover
-hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.size = 8
+-- Size: Broker Side
+hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.size = 2
 
--- Display: Buy Plus Sell Turnover
-hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.display = function(value)
-  return "Buy Plus Sell Turnover: "..value
+-- Display: Broker Side
+hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.display = function(value)
+  if value == 1 then
+    return "Broker Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Broker Side: Sell (2)"
+  end
+
+  return "Broker Side: Unknown("..value..")"
 end
 
--- Dissect: Buy Plus Sell Turnover
-hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.size
+-- Dissect: Broker Side
+hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.broker_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Turnover
+hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover = {}
+
+-- Size: Buy Sell Turnover
+hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.size = 8
+
+-- Display: Buy Sell Turnover
+hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.display = function(value)
+  return "Buy Sell Turnover: "..value
+end
+
+-- Dissect: Buy Sell Turnover
+hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.buy_plus_sell_turnover, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.buy_sell_turnover, range, value, display)
 
   return offset + length, value
 end
@@ -2389,29 +2410,6 @@ hkex_hkexsecurities_mmdh_omd_v2_1.market_name.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Maturity Date
-hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date = {}
-
--- Size: Maturity Date
-hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.size = 4
-
--- Display: Maturity Date
-hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Msg Length
 hkex_hkexsecurities_mmdh_omd_v2_1.msg_length = {}
 
@@ -2944,29 +2942,6 @@ hkex_hkexsecurities_mmdh_omd_v2_1.number_of_securities.dissect = function(buffer
   local display = hkex_hkexsecurities_mmdh_omd_v2_1.number_of_securities.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.number_of_securities, range, value, display)
-
-  return offset + length, value
-end
-
--- Number Of Trades
-hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades = {}
-
--- Size: Number Of Trades
-hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.size = 4
-
--- Display: Number Of Trades
-hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.display = function(value)
-  return "Number Of Trades: "..value
-end
-
--- Dissect: Number Of Trades
-hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.number_of_trades, range, value, display)
 
   return offset + length, value
 end
@@ -4851,35 +4826,6 @@ hkex_hkexsecurities_mmdh_omd_v2_1.vcm_upper_price.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Vwap
-hkex_hkexsecurities_mmdh_omd_v2_1.vwap = {}
-
--- Size: Vwap
-hkex_hkexsecurities_mmdh_omd_v2_1.vwap.size = 4
-
--- Display: Vwap
-hkex_hkexsecurities_mmdh_omd_v2_1.vwap.display = function(value)
-  return "Vwap: "..value
-end
-
--- Translate: Vwap
-hkex_hkexsecurities_mmdh_omd_v2_1.vwap.translate = function(raw)
-  return raw/1000
-end
-
--- Dissect: Vwap
-hkex_hkexsecurities_mmdh_omd_v2_1.vwap.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_mmdh_omd_v2_1.vwap.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = hkex_hkexsecurities_mmdh_omd_v2_1.vwap.translate(raw)
-  local display = hkex_hkexsecurities_mmdh_omd_v2_1.vwap.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.vwap, range, value, display)
-
-  return offset + length, value
-end
-
 -- Warrant Maturity Date
 hkex_hkexsecurities_mmdh_omd_v2_1.warrant_maturity_date = {}
 
@@ -5107,7 +5053,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.stock_connect_market_turnover_message.size =
   hkex_hkexsecurities_mmdh_omd_v2_1.trading_direction.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.buy_turnover.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.sell_turnover.size + 
-  hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.size
+  hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.size
 
 -- Display: Stock Connect Market Turnover Message
 hkex_hkexsecurities_mmdh_omd_v2_1.stock_connect_market_turnover_message.display = function(packet, parent, length)
@@ -5130,8 +5076,8 @@ hkex_hkexsecurities_mmdh_omd_v2_1.stock_connect_market_turnover_message.fields =
   -- Sell Turnover: Int64
   index, sell_turnover = hkex_hkexsecurities_mmdh_omd_v2_1.sell_turnover.dissect(buffer, index, packet, parent)
 
-  -- Buy Plus Sell Turnover: Int64
-  index, buy_plus_sell_turnover = hkex_hkexsecurities_mmdh_omd_v2_1.buy_plus_sell_turnover.dissect(buffer, index, packet, parent)
+  -- Buy Sell Turnover: Int64
+  index, buy_sell_turnover = hkex_hkexsecurities_mmdh_omd_v2_1.buy_sell_turnover.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5429,7 +5375,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.statistics_message.size =
   hkex_hkexsecurities_mmdh_omd_v2_1.high_price.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.low_price.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.last_price.size + 
-  hkex_hkexsecurities_mmdh_omd_v2_1.vwap.size + 
+  hkex_hkexsecurities_mmdh_omd_v2_1.filler_4.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.short_sell_shares_traded.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.short_sell_turnover.size
 
@@ -5460,8 +5406,8 @@ hkex_hkexsecurities_mmdh_omd_v2_1.statistics_message.fields = function(buffer, o
   -- Last Price: Int32
   index, last_price = hkex_hkexsecurities_mmdh_omd_v2_1.last_price.dissect(buffer, index, packet, parent)
 
-  -- Vwap: Int32
-  index, vwap = hkex_hkexsecurities_mmdh_omd_v2_1.vwap.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = hkex_hkexsecurities_mmdh_omd_v2_1.filler_4.dissect(buffer, index, packet, parent)
 
   -- Short Sell Shares Traded: Uint32
   index, short_sell_shares_traded = hkex_hkexsecurities_mmdh_omd_v2_1.short_sell_shares_traded.dissect(buffer, index, packet, parent)
@@ -6279,7 +6225,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.security_definition_message.size = function(bu
 
   index = index + hkex_hkexsecurities_mmdh_omd_v2_1.face_value_currency.size
 
-  index = index + hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.size
+  index = index + hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.size
 
   index = index + hkex_hkexsecurities_mmdh_omd_v2_1.investor_type.size
 
@@ -6438,8 +6384,8 @@ hkex_hkexsecurities_mmdh_omd_v2_1.security_definition_message.fields = function(
   -- Face Value Currency: String
   index, face_value_currency = hkex_hkexsecurities_mmdh_omd_v2_1.face_value_currency.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: Uint32
-  index, maturity_date = hkex_hkexsecurities_mmdh_omd_v2_1.maturity_date.dissect(buffer, index, packet, parent)
+  -- Bond Maturity Date: Uint32
+  index, bond_maturity_date = hkex_hkexsecurities_mmdh_omd_v2_1.bond_maturity_date.dissect(buffer, index, packet, parent)
 
   -- Investor Type: String
   index, investor_type = hkex_hkexsecurities_mmdh_omd_v2_1.investor_type.dissect(buffer, index, packet, parent)
@@ -7193,7 +7139,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.closing_price_message = {}
 hkex_hkexsecurities_mmdh_omd_v2_1.closing_price_message.size =
   hkex_hkexsecurities_mmdh_omd_v2_1.security_code.size + 
   hkex_hkexsecurities_mmdh_omd_v2_1.closing_price.size + 
-  hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.size
+  hkex_hkexsecurities_mmdh_omd_v2_1.filler_4.size
 
 -- Display: Closing Price Message
 hkex_hkexsecurities_mmdh_omd_v2_1.closing_price_message.display = function(packet, parent, length)
@@ -7210,8 +7156,8 @@ hkex_hkexsecurities_mmdh_omd_v2_1.closing_price_message.fields = function(buffer
   -- Closing Price: Int32
   index, closing_price = hkex_hkexsecurities_mmdh_omd_v2_1.closing_price.dissect(buffer, index, packet, parent)
 
-  -- Number Of Trades: Uint32
-  index, number_of_trades = hkex_hkexsecurities_mmdh_omd_v2_1.number_of_trades.dissect(buffer, index, packet, parent)
+  -- Filler 4: String
+  index, filler_4 = hkex_hkexsecurities_mmdh_omd_v2_1.filler_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7299,7 +7245,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.broker_queue_message.size = function(buffer, o
 
   index = index + hkex_hkexsecurities_mmdh_omd_v2_1.item_count.size
 
-  index = index + hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.size
+  index = index + hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.size
 
   index = index + hkex_hkexsecurities_mmdh_omd_v2_1.bq_more_flag.size
 
@@ -7325,8 +7271,8 @@ hkex_hkexsecurities_mmdh_omd_v2_1.broker_queue_message.fields = function(buffer,
   -- Item Count: Uint8
   index, item_count = hkex_hkexsecurities_mmdh_omd_v2_1.item_count.dissect(buffer, index, packet, parent)
 
-  -- Bq Side: Uint16
-  index, bq_side = hkex_hkexsecurities_mmdh_omd_v2_1.bq_side.dissect(buffer, index, packet, parent)
+  -- Broker Side: Uint16
+  index, broker_side = hkex_hkexsecurities_mmdh_omd_v2_1.broker_side.dissect(buffer, index, packet, parent)
 
   -- Bq More Flag: String
   index, bq_more_flag = hkex_hkexsecurities_mmdh_omd_v2_1.bq_more_flag.dissect(buffer, index, packet, parent)

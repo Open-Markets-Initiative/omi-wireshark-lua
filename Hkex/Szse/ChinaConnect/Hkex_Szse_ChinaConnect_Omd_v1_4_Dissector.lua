@@ -34,6 +34,7 @@ omi_hkex_szse_chinaconnect_omd_v1_4.fields.high_price = ProtoField.new("High Pri
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.instrument_type = ProtoField.new("Instrument Type", "hkex.szse.chinaconnect.omd.v1.4.instrumenttype", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.isin_code = ProtoField.new("Isin Code", "hkex.szse.chinaconnect.omd.v1.4.isincode", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.last_price = ProtoField.new("Last Price", "hkex.szse.chinaconnect.omd.v1.4.lastprice", ftypes.DOUBLE)
+omi_hkex_szse_chinaconnect_omd_v1_4.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.szse.chinaconnect.omd.v1.4.lastseqnum", ftypes.UINT32)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.listing_date = ProtoField.new("Listing Date", "hkex.szse.chinaconnect.omd.v1.4.listingdate", ftypes.UINT32)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.lot_size = ProtoField.new("Lot Size", "hkex.szse.chinaconnect.omd.v1.4.lotsize", ftypes.UINT32)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.low_price = ProtoField.new("Low Price", "hkex.szse.chinaconnect.omd.v1.4.lowprice", ftypes.DOUBLE)
@@ -67,6 +68,7 @@ omi_hkex_szse_chinaconnect_omd_v1_4.fields.packet_header = ProtoField.new("Packe
 -- Hkex Szse ChinaConnect 1.4 Application Messages
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.szse.chinaconnect.omd.v1.4.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.market_definition_message = ProtoField.new("Market Definition Message", "hkex.szse.chinaconnect.omd.v1.4.marketdefinitionmessage", ftypes.STRING)
+omi_hkex_szse_chinaconnect_omd_v1_4.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.szse.chinaconnect.omd.v1.4.refreshcompletemessage", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "hkex.szse.chinaconnect.omd.v1.4.securitydefinitionmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.security_status_message = ProtoField.new("Security Status Message", "hkex.szse.chinaconnect.omd.v1.4.securitystatusmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "hkex.szse.chinaconnect.omd.v1.4.sequenceresetmessage", ftypes.STRING)
@@ -608,6 +610,29 @@ hkex_szse_chinaconnect_omd_v1_4.last_price.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Last Seq Num
+hkex_szse_chinaconnect_omd_v1_4.last_seq_num = {}
+
+-- Size: Last Seq Num
+hkex_szse_chinaconnect_omd_v1_4.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+hkex_szse_chinaconnect_omd_v1_4.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+hkex_szse_chinaconnect_omd_v1_4.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_szse_chinaconnect_omd_v1_4.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_szse_chinaconnect_omd_v1_4.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_szse_chinaconnect_omd_v1_4.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
 -- Listing Date
 hkex_szse_chinaconnect_omd_v1_4.listing_date = {}
 
@@ -798,6 +823,9 @@ hkex_szse_chinaconnect_omd_v1_4.msg_type.display = function(value)
   end
   if value == 610 then
     return "Msg Type: Market Definition Message (610)"
+  end
+  if value == 203 then
+    return "Msg Type: Refresh Complete Message (203)"
   end
   if value == 611 then
     return "Msg Type: Security Definition Message (611)"
@@ -1493,6 +1521,46 @@ hkex_szse_chinaconnect_omd_v1_4.security_definition_message.dissect = function(b
   end
 end
 
+-- Refresh Complete Message
+hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message = {}
+
+-- Size: Refresh Complete Message
+hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.size =
+  hkex_szse_chinaconnect_omd_v1_4.last_seq_num.size
+
+-- Display: Refresh Complete Message
+hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Complete Message
+hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Uint32
+  index, last_seq_num = hkex_szse_chinaconnect_omd_v1_4.last_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Complete Message
+hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_szse_chinaconnect_omd_v1_4.fields.refresh_complete_message, buffer(offset, 0))
+    local index = hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Market Definition Message
 hkex_szse_chinaconnect_omd_v1_4.market_definition_message = {}
 
@@ -1642,6 +1710,10 @@ hkex_szse_chinaconnect_omd_v1_4.payload.dissect = function(buffer, offset, packe
   if msg_type == 610 then
     return hkex_szse_chinaconnect_omd_v1_4.market_definition_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Refresh Complete Message
+  if msg_type == 203 then
+    return hkex_szse_chinaconnect_omd_v1_4.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Security Definition Message
   if msg_type == 611 then
     return hkex_szse_chinaconnect_omd_v1_4.security_definition_message.dissect(buffer, offset, packet, parent)
@@ -1682,7 +1754,7 @@ hkex_szse_chinaconnect_omd_v1_4.msg_header.fields = function(buffer, offset, pac
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_szse_chinaconnect_omd_v1_4.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, msg_type = hkex_szse_chinaconnect_omd_v1_4.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1730,7 +1802,7 @@ hkex_szse_chinaconnect_omd_v1_4.message.fields = function(buffer, offset, packet
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 7 branches
+  -- Payload: Runtime Type with 8 branches
   index = hkex_szse_chinaconnect_omd_v1_4.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index

@@ -31,6 +31,7 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time = ProtoField.new("Inde
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_turnover = ProtoField.new("Index Turnover", "hkex.hkexsecurities.index.omd.v1.45.indexturnover", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.index.omd.v1.45.indexvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.index.omd.v1.45.indexvolume", ftypes.INT64)
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexsecurities.index.omd.v1.45.lastseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.low_value = ProtoField.new("Low Value", "hkex.hkexsecurities.index.omd.v1.45.lowvalue", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.index.omd.v1.45.msgcount", ftypes.UINT8)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.index.omd.v1.45.msgsize", ftypes.UINT16)
@@ -54,6 +55,7 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.packet_header = ProtoField.new("P
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "hkex.hkexsecurities.index.omd.v1.45.disasterrecoverysignalmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_data_message = ProtoField.new("Index Data Message", "hkex.hkexsecurities.index.omd.v1.45.indexdatamessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.index.omd.v1.45.indexdefinitionmessage", ftypes.STRING)
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.index.omd.v1.45.refreshcompletemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "hkex.hkexsecurities.index.omd.v1.45.sequenceresetmessage", ftypes.STRING)
 
 -- Hkex HkexSecurities Index Omd 1.45 Generated Fields
@@ -560,6 +562,29 @@ hkex_hkexsecurities_index_omd_v1_45.index_volume.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Last Seq Num
+hkex_hkexsecurities_index_omd_v1_45.last_seq_num = {}
+
+-- Size: Last Seq Num
+hkex_hkexsecurities_index_omd_v1_45.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+hkex_hkexsecurities_index_omd_v1_45.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+hkex_hkexsecurities_index_omd_v1_45.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_index_omd_v1_45.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_index_omd_v1_45.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
 -- Low Value
 hkex_hkexsecurities_index_omd_v1_45.low_value = {}
 
@@ -654,6 +679,9 @@ hkex_hkexsecurities_index_omd_v1_45.msg_type.display = function(value)
   end
   if value == 71 then
     return "Msg Type: Index Data Message (71)"
+  end
+  if value == 203 then
+    return "Msg Type: Refresh Complete Message (203)"
   end
 
   return "Msg Type: Unknown("..value..")"
@@ -887,6 +915,46 @@ end
 -----------------------------------------------------------------------
 -- Dissect Hkex HkexSecurities Index Omd 1.45
 -----------------------------------------------------------------------
+
+-- Refresh Complete Message
+hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message = {}
+
+-- Size: Refresh Complete Message
+hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.size =
+  hkex_hkexsecurities_index_omd_v1_45.last_seq_num.size
+
+-- Display: Refresh Complete Message
+hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Complete Message
+hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Uint32
+  index, last_seq_num = hkex_hkexsecurities_index_omd_v1_45.last_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Complete Message
+hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.refresh_complete_message, buffer(offset, 0))
+    local index = hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Index Data Message
 hkex_hkexsecurities_index_omd_v1_45.index_data_message = {}
@@ -1141,6 +1209,10 @@ hkex_hkexsecurities_index_omd_v1_45.payload.dissect = function(buffer, offset, p
   if msg_type == 71 then
     return hkex_hkexsecurities_index_omd_v1_45.index_data_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Refresh Complete Message
+  if msg_type == 203 then
+    return hkex_hkexsecurities_index_omd_v1_45.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -1165,7 +1237,7 @@ hkex_hkexsecurities_index_omd_v1_45.msg_header.fields = function(buffer, offset,
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_hkexsecurities_index_omd_v1_45.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, msg_type = hkex_hkexsecurities_index_omd_v1_45.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1213,7 +1285,7 @@ hkex_hkexsecurities_index_omd_v1_45.message.fields = function(buffer, offset, pa
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 4 branches
+  -- Payload: Runtime Type with 5 branches
   index = hkex_hkexsecurities_index_omd_v1_45.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index

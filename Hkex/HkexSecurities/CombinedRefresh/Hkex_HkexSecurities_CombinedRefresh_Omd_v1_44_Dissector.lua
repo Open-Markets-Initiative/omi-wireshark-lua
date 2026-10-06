@@ -17,12 +17,13 @@ local hkex_hkexsecurities_combinedrefresh_omd_v1_44 = {}
 -- Hkex HkexSecurities CombinedRefresh Omd 1.44 Fields
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.aggregatequantity", ftypes.UINT64)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bond_maturity_date = ProtoField.new("Bond Maturity Date", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bondmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bookentry", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bq_item = ProtoField.new("Bq Item", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bqitem", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bq_more_flag = ProtoField.new("Bq More Flag", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bqmoreflag", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bq_side = ProtoField.new("Bq Side", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bqside", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.broker_id = ProtoField.new("Broker Id", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.brokerid", ftypes.UINT16)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.buy_plus_sell_turnover = ProtoField.new("Buy Plus Sell Turnover", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.buyplussellturnover", ftypes.INT64)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.broker_side = ProtoField.new("Broker Side", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.brokerside", ftypes.UINT16)
+omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.buy_sell_turnover = ProtoField.new("Buy Sell Turnover", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.buysellturnover", ftypes.INT64)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.buy_turnover = ProtoField.new("Buy Turnover", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.buyturnover", ftypes.INT64)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.call_price = ProtoField.new("Call Price", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.callprice", ftypes.INT32)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.call_put_flag = ProtoField.new("Call Put Flag", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.callputflag", ftypes.STRING)
@@ -91,7 +92,6 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.lower_price = ProtoFiel
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.lp_broker_number = ProtoField.new("Lp Broker Number", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.lpbrokernumber", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.marketname", ftypes.STRING)
-omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.maturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.msgcount", ftypes.UINT8)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.msgtype", ftypes.UINT16)
@@ -332,6 +332,29 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.aggregate_quantity.dissect = funct
   return offset + length, value
 end
 
+-- Bond Maturity Date
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date = {}
+
+-- Size: Bond Maturity Date
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.size = 4
+
+-- Display: Bond Maturity Date
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.display = function(value)
+  return "Bond Maturity Date: "..value
+end
+
+-- Dissect: Bond Maturity Date
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bond_maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Bq More Flag
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_more_flag = {}
 
@@ -362,36 +385,6 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_more_flag.dissect = function(bu
   return offset + length, value
 end
 
--- Bq Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side = {}
-
--- Size: Bq Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.size = 2
-
--- Display: Bq Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.display = function(value)
-  if value == 1 then
-    return "Bq Side: Buy (1)"
-  end
-  if value == 2 then
-    return "Bq Side: Sell (2)"
-  end
-
-  return "Bq Side: Unknown("..value..")"
-end
-
--- Dissect: Bq Side
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bq_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Broker Id
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_id = {}
 
@@ -415,25 +408,55 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_id.dissect = function(buffe
   return offset + length, value
 end
 
--- Buy Plus Sell Turnover
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover = {}
+-- Broker Side
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side = {}
 
--- Size: Buy Plus Sell Turnover
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.size = 8
+-- Size: Broker Side
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.size = 2
 
--- Display: Buy Plus Sell Turnover
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.display = function(value)
-  return "Buy Plus Sell Turnover: "..value
+-- Display: Broker Side
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.display = function(value)
+  if value == 1 then
+    return "Broker Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Broker Side: Sell (2)"
+  end
+
+  return "Broker Side: Unknown("..value..")"
 end
 
--- Dissect: Buy Plus Sell Turnover
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.size
+-- Dissect: Broker Side
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.broker_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Sell Turnover
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover = {}
+
+-- Size: Buy Sell Turnover
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.size = 8
+
+-- Display: Buy Sell Turnover
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.display = function(value)
+  return "Buy Sell Turnover: "..value
+end
+
+-- Dissect: Buy Sell Turnover
+hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.buy_plus_sell_turnover, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.buy_sell_turnover, range, value, display)
 
   return offset + length, value
 end
@@ -2177,29 +2200,6 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_name.dissect = function(buf
   local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.market_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date = {}
-
--- Size: Maturity Date
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.size = 4
-
--- Display: Maturity Date
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -4550,7 +4550,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market_turnover_mess
   hkex_hkexsecurities_combinedrefresh_omd_v1_44.trading_direction.size + 
   hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_turnover.size + 
   hkex_hkexsecurities_combinedrefresh_omd_v1_44.sell_turnover.size + 
-  hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.size
+  hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.size
 
 -- Display: Stock Connect Market Turnover Message
 hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market_turnover_message.display = function(packet, parent, length)
@@ -4573,8 +4573,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.stock_connect_market_turnover_mess
   -- Sell Turnover: Int64
   index, sell_turnover = hkex_hkexsecurities_combinedrefresh_omd_v1_44.sell_turnover.dissect(buffer, index, packet, parent)
 
-  -- Buy Plus Sell Turnover: Int64
-  index, buy_plus_sell_turnover = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_plus_sell_turnover.dissect(buffer, index, packet, parent)
+  -- Buy Sell Turnover: Int64
+  index, buy_sell_turnover = hkex_hkexsecurities_combinedrefresh_omd_v1_44.buy_sell_turnover.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5319,7 +5319,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.size =
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value_currency.size
 
-  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.size
+  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.size
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.investor_type.size
 
@@ -5485,8 +5485,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.security_definition_message.fields
   -- Face Value Currency: String
   index, face_value_currency = hkex_hkexsecurities_combinedrefresh_omd_v1_44.face_value_currency.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: Uint32
-  index, maturity_date = hkex_hkexsecurities_combinedrefresh_omd_v1_44.maturity_date.dissect(buffer, index, packet, parent)
+  -- Bond Maturity Date: Uint32
+  index, bond_maturity_date = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bond_maturity_date.dissect(buffer, index, packet, parent)
 
   -- Investor Type: String
   index, investor_type = hkex_hkexsecurities_combinedrefresh_omd_v1_44.investor_type.dissect(buffer, index, packet, parent)
@@ -6300,7 +6300,7 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_queue_message.size = functi
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.item_count.size
 
-  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.size
+  index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.size
 
   index = index + hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_more_flag.size
 
@@ -6326,8 +6326,8 @@ hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_queue_message.fields = func
   -- Item Count: Uint8
   index, item_count = hkex_hkexsecurities_combinedrefresh_omd_v1_44.item_count.dissect(buffer, index, packet, parent)
 
-  -- Bq Side: Uint16
-  index, bq_side = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_side.dissect(buffer, index, packet, parent)
+  -- Broker Side: Uint16
+  index, broker_side = hkex_hkexsecurities_combinedrefresh_omd_v1_44.broker_side.dissect(buffer, index, packet, parent)
 
   -- Bq More Flag: String
   index, bq_more_flag = hkex_hkexsecurities_combinedrefresh_omd_v1_44.bq_more_flag.dissect(buffer, index, packet, parent)

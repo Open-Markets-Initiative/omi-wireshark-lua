@@ -18,6 +18,7 @@ local hkex_hkexsecurities_fulltickretrans_omd_v1_45 = {}
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.aggregatequantity", ftypes.UINT64)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.beginseqnum", ftypes.UINT32)
+omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.bond_maturity_date = ProtoField.new("Bond Maturity Date", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.bondmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.call_price = ProtoField.new("Call Price", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.callprice", ftypes.INT32)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.call_price_composite = ProtoField.new("Call Price Composite", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.callpricecomposite", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.call_put_flag = ProtoField.new("Call Put Flag", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.callputflag", ftypes.STRING)
@@ -68,7 +69,6 @@ omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.lower_price = ProtoFiel
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.lp_broker_number = ProtoField.new("Lp Broker Number", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.lpbrokernumber", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.marketname", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.maturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.msgcount", ftypes.UINT8)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.fulltickretrans.omd.v1.45.msgtype", ftypes.UINT16)
@@ -295,6 +295,29 @@ hkex_hkexsecurities_fulltickretrans_omd_v1_45.begin_seq_num.dissect = function(b
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_45.begin_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bond Maturity Date
+hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date = {}
+
+-- Size: Bond Maturity Date
+hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.size = 4
+
+-- Display: Bond Maturity Date
+hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.display = function(value)
+  return "Bond Maturity Date: "..value
+end
+
+-- Dissect: Bond Maturity Date
+hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.bond_maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -1449,29 +1472,6 @@ hkex_hkexsecurities_fulltickretrans_omd_v1_45.market_name.dissect = function(buf
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_45.market_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.market_name, range, value, display)
-
-  return offset + length, value
-end
-
--- Maturity Date
-hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date = {}
-
--- Size: Maturity Date
-hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.size = 4
-
--- Display: Maturity Date
-hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_45.fields.maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -4220,7 +4220,7 @@ hkex_hkexsecurities_fulltickretrans_omd_v1_45.security_definition_message.size =
 
   index = index + hkex_hkexsecurities_fulltickretrans_omd_v1_45.face_value_currency.size
 
-  index = index + hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.size
+  index = index + hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.size
 
   index = index + hkex_hkexsecurities_fulltickretrans_omd_v1_45.investor_type.size
 
@@ -4379,8 +4379,8 @@ hkex_hkexsecurities_fulltickretrans_omd_v1_45.security_definition_message.fields
   -- Face Value Currency: String
   index, face_value_currency = hkex_hkexsecurities_fulltickretrans_omd_v1_45.face_value_currency.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: Uint32
-  index, maturity_date = hkex_hkexsecurities_fulltickretrans_omd_v1_45.maturity_date.dissect(buffer, index, packet, parent)
+  -- Bond Maturity Date: Uint32
+  index, bond_maturity_date = hkex_hkexsecurities_fulltickretrans_omd_v1_45.bond_maturity_date.dissect(buffer, index, packet, parent)
 
   -- Investor Type: String
   index, investor_type = hkex_hkexsecurities_fulltickretrans_omd_v1_45.investor_type.dissect(buffer, index, packet, parent)

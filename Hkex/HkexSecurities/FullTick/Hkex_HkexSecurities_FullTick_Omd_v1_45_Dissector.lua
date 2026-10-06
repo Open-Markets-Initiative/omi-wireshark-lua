@@ -17,6 +17,7 @@ local hkex_hkexsecurities_fulltick_omd_v1_45 = {}
 -- Hkex HkexSecurities FullTick Omd 1.45 Fields
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.accrued_interest = ProtoField.new("Accrued Interest", "hkex.hkexsecurities.fulltick.omd.v1.45.accruedinterest", ftypes.DOUBLE)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexsecurities.fulltick.omd.v1.45.aggregatequantity", ftypes.UINT64)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.bond_maturity_date = ProtoField.new("Bond Maturity Date", "hkex.hkexsecurities.fulltick.omd.v1.45.bondmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.call_price = ProtoField.new("Call Price", "hkex.hkexsecurities.fulltick.omd.v1.45.callprice", ftypes.INT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.call_price_composite = ProtoField.new("Call Price Composite", "hkex.hkexsecurities.fulltick.omd.v1.45.callpricecomposite", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.call_put_flag = ProtoField.new("Call Put Flag", "hkex.hkexsecurities.fulltick.omd.v1.45.callputflag", ftypes.STRING)
@@ -57,6 +58,7 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.free_text = ProtoField.new("Fr
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.instrument_type = ProtoField.new("Instrument Type", "hkex.hkexsecurities.fulltick.omd.v1.45.instrumenttype", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.investor_type = ProtoField.new("Investor Type", "hkex.hkexsecurities.fulltick.omd.v1.45.investortype", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.isin_code = ProtoField.new("Isin Code", "hkex.hkexsecurities.fulltick.omd.v1.45.isincode", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexsecurities.fulltick.omd.v1.45.lastseqnum", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.liquidity_provider = ProtoField.new("Liquidity Provider", "hkex.hkexsecurities.fulltick.omd.v1.45.liquidityprovider", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.listing_date = ProtoField.new("Listing Date", "hkex.hkexsecurities.fulltick.omd.v1.45.listingdate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.lot_size = ProtoField.new("Lot Size", "hkex.hkexsecurities.fulltick.omd.v1.45.lotsize", ftypes.UINT32)
@@ -64,7 +66,6 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.lower_price = ProtoField.new("
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.lp_broker_number = ProtoField.new("Lp Broker Number", "hkex.hkexsecurities.fulltick.omd.v1.45.lpbrokernumber", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.market_code = ProtoField.new("Market Code", "hkex.hkexsecurities.fulltick.omd.v1.45.marketcode", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.market_name = ProtoField.new("Market Name", "hkex.hkexsecurities.fulltick.omd.v1.45.marketname", ftypes.STRING)
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.maturity_date = ProtoField.new("Maturity Date", "hkex.hkexsecurities.fulltick.omd.v1.45.maturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.msg_count = ProtoField.new("Msg Count", "hkex.hkexsecurities.fulltick.omd.v1.45.msgcount", ftypes.UINT8)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.msg_size = ProtoField.new("Msg Size", "hkex.hkexsecurities.fulltick.omd.v1.45.msgsize", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.msg_type = ProtoField.new("Msg Type", "hkex.hkexsecurities.fulltick.omd.v1.45.msgtype", ftypes.UINT16)
@@ -137,6 +138,7 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.market_definition_message = Pr
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.modify_order_message = ProtoField.new("Modify Order Message", "hkex.hkexsecurities.fulltick.omd.v1.45.modifyordermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.order_imbalance_message = ProtoField.new("Order Imbalance Message", "hkex.hkexsecurities.fulltick.omd.v1.45.orderimbalancemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.reference_price_message = ProtoField.new("Reference Price Message", "hkex.hkexsecurities.fulltick.omd.v1.45.referencepricemessage", ftypes.STRING)
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.fulltick.omd.v1.45.refreshcompletemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.security_definition_message = ProtoField.new("Security Definition Message", "hkex.hkexsecurities.fulltick.omd.v1.45.securitydefinitionmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.security_status_message = ProtoField.new("Security Status Message", "hkex.hkexsecurities.fulltick.omd.v1.45.securitystatusmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "hkex.hkexsecurities.fulltick.omd.v1.45.sequenceresetmessage", ftypes.STRING)
@@ -260,6 +262,29 @@ hkex_hkexsecurities_fulltick_omd_v1_45.aggregate_quantity.dissect = function(buf
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.aggregate_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.aggregate_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bond Maturity Date
+hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date = {}
+
+-- Size: Bond Maturity Date
+hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.size = 4
+
+-- Display: Bond Maturity Date
+hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.display = function(value)
+  return "Bond Maturity Date: "..value
+end
+
+-- Dissect: Bond Maturity Date
+hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.bond_maturity_date, range, value, display)
 
   return offset + length, value
 end
@@ -1192,6 +1217,29 @@ hkex_hkexsecurities_fulltick_omd_v1_45.isin_code.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Last Seq Num
+hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num = {}
+
+-- Size: Last Seq Num
+hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
 -- Listing Date
 hkex_hkexsecurities_fulltick_omd_v1_45.listing_date = {}
 
@@ -1349,29 +1397,6 @@ hkex_hkexsecurities_fulltick_omd_v1_45.market_name.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Maturity Date
-hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date = {}
-
--- Size: Maturity Date
-hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.size = 4
-
--- Display: Maturity Date
-hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.display = function(value)
-  return "Maturity Date: "..value
-end
-
--- Dissect: Maturity Date
-hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.maturity_date, range, value, display)
-
-  return offset + length, value
-end
-
 -- Msg Count
 hkex_hkexsecurities_fulltick_omd_v1_45.msg_count = {}
 
@@ -1461,6 +1486,9 @@ hkex_hkexsecurities_fulltick_omd_v1_45.msg_type.display = function(value)
   end
   if value == 43 then
     return "Msg Type: Reference Price Message (43)"
+  end
+  if value == 203 then
+    return "Msg Type: Refresh Complete Message (203)"
   end
   if value == 20 then
     return "Msg Type: Trading Session Status Message (20)"
@@ -3261,6 +3289,46 @@ hkex_hkexsecurities_fulltick_omd_v1_45.trading_session_status_message.dissect = 
   end
 end
 
+-- Refresh Complete Message
+hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message = {}
+
+-- Size: Refresh Complete Message
+hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.size =
+  hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.size
+
+-- Display: Refresh Complete Message
+hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Complete Message
+hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Seq Num: Uint32
+  index, last_seq_num = hkex_hkexsecurities_fulltick_omd_v1_45.last_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Complete Message
+hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.refresh_complete_message, buffer(offset, 0))
+    local index = hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Reference Price Message
 hkex_hkexsecurities_fulltick_omd_v1_45.reference_price_message = {}
 
@@ -3758,7 +3826,7 @@ hkex_hkexsecurities_fulltick_omd_v1_45.security_definition_message.size = functi
 
   index = index + hkex_hkexsecurities_fulltick_omd_v1_45.face_value_currency.size
 
-  index = index + hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.size
+  index = index + hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.size
 
   index = index + hkex_hkexsecurities_fulltick_omd_v1_45.investor_type.size
 
@@ -3917,8 +3985,8 @@ hkex_hkexsecurities_fulltick_omd_v1_45.security_definition_message.fields = func
   -- Face Value Currency: String
   index, face_value_currency = hkex_hkexsecurities_fulltick_omd_v1_45.face_value_currency.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: Uint32
-  index, maturity_date = hkex_hkexsecurities_fulltick_omd_v1_45.maturity_date.dissect(buffer, index, packet, parent)
+  -- Bond Maturity Date: Uint32
+  index, bond_maturity_date = hkex_hkexsecurities_fulltick_omd_v1_45.bond_maturity_date.dissect(buffer, index, packet, parent)
 
   -- Investor Type: String
   index, investor_type = hkex_hkexsecurities_fulltick_omd_v1_45.investor_type.dissect(buffer, index, packet, parent)
@@ -4460,6 +4528,10 @@ hkex_hkexsecurities_fulltick_omd_v1_45.payload.dissect = function(buffer, offset
   if msg_type == 43 then
     return hkex_hkexsecurities_fulltick_omd_v1_45.reference_price_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Refresh Complete Message
+  if msg_type == 203 then
+    return hkex_hkexsecurities_fulltick_omd_v1_45.refresh_complete_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Trading Session Status Message
   if msg_type == 20 then
     return hkex_hkexsecurities_fulltick_omd_v1_45.trading_session_status_message.dissect(buffer, offset, packet, parent)
@@ -4504,7 +4576,7 @@ hkex_hkexsecurities_fulltick_omd_v1_45.msg_header.fields = function(buffer, offs
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_hkexsecurities_fulltick_omd_v1_45.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 18 values
   index, msg_type = hkex_hkexsecurities_fulltick_omd_v1_45.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -4552,7 +4624,7 @@ hkex_hkexsecurities_fulltick_omd_v1_45.message.fields = function(buffer, offset,
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 17 branches
+  -- Payload: Runtime Type with 18 branches
   index = hkex_hkexsecurities_fulltick_omd_v1_45.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index

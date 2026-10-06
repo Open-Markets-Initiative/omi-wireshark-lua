@@ -24,7 +24,6 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.begin_seq_num = ProtoF
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.bidaskflag", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.buy_write = ProtoField.new("Buy Write", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.buywrite", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.calculatedopeningprice", ftypes.INT32)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.calculated_opening_quantity = ProtoField.new("Calculated Opening Quantity", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.calculatedopeningquantity", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.channel_id = ProtoField.new("Channel Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.channelid", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.combo_group_id = ProtoField.new("Combo Group Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.combogroupid", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.combo_orderbook_id = ProtoField.new("Combo Orderbook Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.comboorderbookid", ftypes.UINT32)
@@ -39,13 +38,13 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.convert_to_aggressive 
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.country = ProtoField.new("Country", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.country", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.datetimefirsttrading", ftypes.INT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.datetimelasttrading", ftypes.INT64)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.deal_info_uint_162 = ProtoField.new("Deal Info Uint 162", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.dealinfouint162", ftypes.UINT16)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.deal_info = ProtoField.new("Deal Info", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.dealinfo", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.deal_type = ProtoField.new("Deal Type", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.dealtype", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.decimalincontractsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.decimal_in_premium = ProtoField.new("Decimal In Premium", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.decimalinpremium", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.decimalinstrikeprice", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.decimal_in_underlying_price = ProtoField.new("Decimal In Underlying Price", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.decimalinunderlyingprice", ftypes.UINT16)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.disaster_recovery_status = ProtoField.new("Disaster Recovery Status", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.disasterrecoverystatus", ftypes.UINT32)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.dr_status = ProtoField.new("Dr Status", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.drstatus", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.effective_exp_date = ProtoField.new("Effective Exp Date", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.effectiveexpdate", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.effectivetomorrow", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.end_seq_num = ProtoField.new("End Seq Num", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.endseqnum", ftypes.UINT32)
@@ -61,6 +60,7 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.firm_color_disabled = 
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.force = ProtoField.new("Force", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.force", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.info_type = ProtoField.new("Info Type", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.infotype", ftypes.UINT8)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.instrument = ProtoField.new("Instrument", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.instrument", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.instrument_class_id = ProtoField.new("Instrument Class Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.instrumentclassid", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.instrument_class_name = ProtoField.new("Instrument Class Name", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.instrumentclassname", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.instrument_group = ProtoField.new("Instrument Group", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.instrumentgroup", ftypes.UINT8)
@@ -91,13 +91,14 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.occurred_at_cross = Pr
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.off_market = ProtoField.new("Off Market", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.offmarket", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.order_book_position = ProtoField.new("Order Book Position", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.orderbookposition", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.order_id = ProtoField.new("Order Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.orderid", ftypes.UINT64)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.order_quantity = ProtoField.new("Order Quantity", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.orderquantity", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.ordertype", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.orderbookid", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.override_crossing = ProtoField.new("Override Crossing", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.overridecrossing", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.pktsize", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.planned_start_date = ProtoField.new("Planned Start Date", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.plannedstartdate", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.plannedstarttime", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.premium_unit = ProtoField.new("Premium Unit", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.premiumunit", ftypes.UINT8)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.premium_unit_4_price = ProtoField.new("Premium Unit 4 Price", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.premiumunit4price", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.price", ftypes.INT32)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.price_method = ProtoField.new("Price Method", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.pricemethod", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.pricequotationfactor", ftypes.INT32)
@@ -105,7 +106,7 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.price_stabilization = 
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.printable = ProtoField.new("Printable", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.printable", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.put_or_call = ProtoField.new("Put Or Call", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.putorcall", ftypes.UINT8)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.quantity", ftypes.UINT32)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.quantity", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.ranking_type = ProtoField.new("Ranking Type", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.rankingtype", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.reported_trade = ProtoField.new("Reported Trade", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.reportedtrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.retransstatus", ftypes.UINT8)
@@ -128,14 +129,15 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.tick_step_size = Proto
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.tradable = ProtoField.new("Tradable", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradable", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_condition = ProtoField.new("Trade Condition", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradecondition", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradeid", ftypes.UINT64)
-omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_quantity = ProtoField.new("Trade Quantity", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradequantity", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_side = ProtoField.new("Trade Side", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradeside", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_state = ProtoField.new("Trade State", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradestate", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradetime", ftypes.UINT64)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.underlyingcode", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.underlying_price_unit = ProtoField.new("Underlying Price Unit", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.underlyingpriceunit", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.underlyingtype", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.undisclosed = ProtoField.new("Undisclosed", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_12 = ProtoField.new("Unused 12", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unused12", ftypes.UINT16, nil, base.DEC, 0xFFF0)
+omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_15 = ProtoField.new("Unused 15", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_5 = ProtoField.new("Unused 5", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_order_type_bit_10 = ProtoField.new("Unused Order Type Bit 10", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unusedordertypebit10", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_order_type_bit_15 = ProtoField.new("Unused Order Type Bit 15", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.unusedordertypebit15", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000)
@@ -415,29 +417,6 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price.dissect 
   local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.calculated_opening_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculated Opening Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity = {}
-
--- Size: Calculated Opening Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.size = 8
-
--- Display: Calculated Opening Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.display = function(value)
-  return "Calculated Opening Quantity: "..value
-end
-
--- Dissect: Calculated Opening Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.calculated_opening_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -741,29 +720,6 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.date_time_last_trading.dissect = 
   return offset + length, value
 end
 
--- Deal Info Uint 162
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162 = {}
-
--- Size: Deal Info Uint 162
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.size = 2
-
--- Display: Deal Info Uint 162
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.display = function(value)
-  return "Deal Info Uint 162: "..value
-end
-
--- Dissect: Deal Info Uint 162
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.deal_info_uint_162, range, value, display)
-
-  return offset + length, value
-end
-
 -- Decimal In Contract Size
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.decimal_in_contract_size = {}
 
@@ -856,32 +812,32 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.decimal_in_underlying_price.disse
   return offset + length, value
 end
 
--- Disaster Recovery Status
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status = {}
+-- Dr Status
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status = {}
 
--- Size: Disaster Recovery Status
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.size = 4
+-- Size: Dr Status
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.size = 4
 
--- Display: Disaster Recovery Status
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.display = function(value)
+-- Display: Dr Status
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.display = function(value)
   if value == 1 then
-    return "Disaster Recovery Status: In Progress (1)"
+    return "Dr Status: In Progress (1)"
   end
   if value == 2 then
-    return "Disaster Recovery Status: Completed (2)"
+    return "Dr Status: Completed (2)"
   end
 
-  return "Disaster Recovery Status: Unknown("..value..")"
+  return "Dr Status: Unknown("..value..")"
 end
 
--- Dissect: Disaster Recovery Status
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.size
+-- Dissect: Dr Status
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.disaster_recovery_status, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.dr_status, range, value, display)
 
   return offset + length, value
 end
@@ -1227,6 +1183,29 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.info_type.dissect = function(buff
   local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.info_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.info_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument = {}
+
+-- Size: Instrument
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.size = 1
+
+-- Display: Instrument
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -2158,6 +2137,29 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_id.dissect = function(buffe
   return offset + length, value
 end
 
+-- Order Quantity
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity = {}
+
+-- Size: Order Quantity
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.size = 4
+
+-- Display: Order Quantity
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.display = function(value)
+  return "Order Quantity: "..value
+end
+
+-- Dissect: Order Quantity
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Orderbook Id
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id = {}
 
@@ -2250,53 +2252,53 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.planned_start_time.dissect = func
   return offset + length, value
 end
 
--- Premium Unit
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit = {}
+-- Premium Unit 4 Price
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price = {}
 
--- Size: Premium Unit
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.size = 1
+-- Size: Premium Unit 4 Price
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.size = 1
 
--- Display: Premium Unit
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.display = function(value)
+-- Display: Premium Unit 4 Price
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.display = function(value)
   if value == 1 then
-    return "Premium Unit: Price (1)"
+    return "Premium Unit 4 Price: Price (1)"
   end
   if value == 2 then
-    return "Premium Unit: Yield (2)"
+    return "Premium Unit 4 Price: Yield (2)"
   end
   if value == 3 then
-    return "Premium Unit: Points (3)"
+    return "Premium Unit 4 Price: Points (3)"
   end
   if value == 4 then
-    return "Premium Unit: Yield Diff (4)"
+    return "Premium Unit 4 Price: Yield Diff (4)"
   end
   if value == 5 then
-    return "Premium Unit: Imm Index (5)"
+    return "Premium Unit 4 Price: Imm Index (5)"
   end
   if value == 6 then
-    return "Premium Unit: Basis Points (6)"
+    return "Premium Unit 4 Price: Basis Points (6)"
   end
   if value == 7 then
-    return "Premium Unit: Inverted Yield (7)"
+    return "Premium Unit 4 Price: Inverted Yield (7)"
   end
   if value == 8 then
-    return "Premium Unit: Percentage Of Nominal (8)"
+    return "Premium Unit 4 Price: Percentage Of Nominal (8)"
   end
   if value == 9 then
-    return "Premium Unit: Dirty Price (9)"
+    return "Premium Unit 4 Price: Dirty Price (9)"
   end
 
-  return "Premium Unit: Unknown("..value..")"
+  return "Premium Unit 4 Price: Unknown("..value..")"
 end
 
--- Dissect: Premium Unit
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.size
+-- Dissect: Premium Unit 4 Price
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.display(value, buffer, offset, packet, parent)
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.premium_unit, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.premium_unit_4_price, range, value, display)
 
   return offset + length, value
 end
@@ -2456,7 +2458,7 @@ end
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity = {}
 
 -- Size: Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size = 4
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size = 8
 
 -- Display: Quantity
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.display = function(value)
@@ -2467,7 +2469,7 @@ end
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.quantity, range, value, display)
@@ -3140,29 +3142,6 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_id.dissect = function(buffe
   return offset + length, value
 end
 
--- Trade Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity = {}
-
--- Size: Trade Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.size = 8
-
--- Display: Trade Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.display = function(value)
-  return "Trade Quantity: "..value
-end
-
--- Dissect: Trade Quantity
-hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_quantity, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Side
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_side = {}
 
@@ -3251,6 +3230,29 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.dissect = function(buf
   local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Code
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code = {}
+
+-- Size: Underlying Code
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.size = 20
+
+-- Display: Underlying Code
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.display = function(value)
+  return "Underlying Code: "..value
+end
+
+-- Dissect: Underlying Code
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.dissect = function(buffer, offset, packet, parent)
+  local length = hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.underlying_code, range, value, display)
 
   return offset + length, value
 end
@@ -3418,7 +3420,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_amendment_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.combo_group_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_state.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_3.size
@@ -3441,8 +3443,8 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_amendment_message.fields = 
   -- Price: Int32
   index, price = hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.dissect(buffer, index, packet, parent)
 
-  -- Trade Quantity: Uint64
-  index, trade_quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.dissect(buffer, index, packet, parent)
+  -- Quantity: Uint64
+  index, quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Time: Uint64
   index, trade_time = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.dissect(buffer, index, packet, parent)
@@ -3472,6 +3474,49 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_amendment_message.dissect =
     -- Skip element, add fields directly
     return hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_amendment_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Deal Info
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info = {}
+
+-- Size: Deal Info
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.size = 2
+
+-- Display: Deal Info
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Reported Trade flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Reported Trade"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Deal Info
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.bits = function(range, value, packet, parent)
+
+  -- Reported Trade: 1 Bit
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.reported_trade, range, value)
+
+  -- Unused 15: 15 Bit
+  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.unused_15, range, value)
+end
+
+-- Dissect: Deal Info
+hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.dissect = function(buffer, offset, packet, parent)
+  local size = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.display(range, value, packet, parent)
+  local element = parent:add_le(omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.deal_info, range, display)
+
+  if show.structs then
+    hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
 end
 
 -- Trade Condition
@@ -3608,9 +3653,9 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_side.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_type.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_condition.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_2.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.size
 
 -- Display: Trade Message
@@ -3646,14 +3691,14 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_message.fields = function(b
   -- Trade Condition: Struct of 5 fields
   index, trade_condition = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Deal Info Uint 162: Uint16
-  index, deal_info_uint_162 = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info_uint_162.dissect(buffer, index, packet, parent)
+  -- Deal Info: Struct of 2 fields
+  index, deal_info = hkex_hkexderivatives_fulltickretrans_omd_v1_49.deal_info.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
   index, filler_2 = hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_2.dissect(buffer, index, packet, parent)
 
-  -- Trade Quantity: Uint64
-  index, trade_quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_quantity.dissect(buffer, index, packet, parent)
+  -- Quantity: Uint64
+  index, quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect(buffer, index, packet, parent)
 
   -- Trade Time: Uint64
   index, trade_time = hkex_hkexderivatives_fulltickretrans_omd_v1_49.trade_time.dissect(buffer, index, packet, parent)
@@ -3786,7 +3831,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.market_status_message = {}
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.market_status_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.state_level.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.market.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument_group.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.commodity_code.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_2.size + 
@@ -3814,8 +3859,8 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.market_status_message.fields = fu
   -- Market: Uint8
   index, market = hkex_hkexderivatives_fulltickretrans_omd_v1_49.market.dissect(buffer, index, packet, parent)
 
-  -- Instrument Group: Uint8
-  index, instrument_group = hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument_group.dissect(buffer, index, packet, parent)
+  -- Instrument: Uint8
+  index, instrument = hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Uint32
   index, orderbook_id = hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id.dissect(buffer, index, packet, parent)
@@ -4365,7 +4410,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.class_definition_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.decimal_in_premium.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.ranking_type.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.tradable.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.base_currency.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument_class_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.instrument_class_name.size + 
@@ -4423,8 +4468,8 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.class_definition_message.fields =
   -- Tradable: Uint8
   index, tradable = hkex_hkexderivatives_fulltickretrans_omd_v1_49.tradable.dissect(buffer, index, packet, parent)
 
-  -- Premium Unit: Uint8
-  index, premium_unit = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit.dissect(buffer, index, packet, parent)
+  -- Premium Unit 4 Price: Uint8
+  index, premium_unit_4_price = hkex_hkexderivatives_fulltickretrans_omd_v1_49.premium_unit_4_price.dissect(buffer, index, packet, parent)
 
   -- Base Currency: String
   index, base_currency = hkex_hkexderivatives_fulltickretrans_omd_v1_49.base_currency.dissect(buffer, index, packet, parent)
@@ -4483,6 +4528,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.commodity_definition_message.size
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_price_unit.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.commodity_name.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.nominal_value.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_type.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.effective_tomorrow.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.commodity_id.size + 
@@ -4517,6 +4563,9 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.commodity_definition_message.fiel
 
   -- Nominal Value: Int64
   index, nominal_value = hkex_hkexderivatives_fulltickretrans_omd_v1_49.nominal_value.dissect(buffer, index, packet, parent)
+
+  -- Underlying Code: String
+  index, underlying_code = hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_code.dissect(buffer, index, packet, parent)
 
   -- Underlying Type: Uint8
   index, underlying_type = hkex_hkexderivatives_fulltickretrans_omd_v1_49.underlying_type.dissect(buffer, index, packet, parent)
@@ -4848,8 +4897,9 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.modify_order_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.side.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_1.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_type.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_book_position.size
 
@@ -4871,11 +4921,14 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.modify_order_message.fields = fun
   -- Price: Int32
   index, price = hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint32
-  index, quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect(buffer, index, packet, parent)
+  -- Order Quantity: Uint32
+  index, order_quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Uint8
   index, side = hkex_hkexderivatives_fulltickretrans_omd_v1_49.side.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: String
+  index, filler_1 = hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_1.dissect(buffer, index, packet, parent)
 
   -- Order Type: Struct of 16 fields
   index, order_type = hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_type.dissect(buffer, index, packet, parent)
@@ -4912,7 +4965,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.add_order_message.size =
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size + 
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.side.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.lot_type.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_type.size + 
@@ -4936,8 +4989,8 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.add_order_message.fields = functi
   -- Price: Int32
   index, price = hkex_hkexderivatives_fulltickretrans_omd_v1_49.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Uint32
-  index, quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect(buffer, index, packet, parent)
+  -- Order Quantity: Uint32
+  index, order_quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.order_quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Uint8
   index, side = hkex_hkexderivatives_fulltickretrans_omd_v1_49.side.dissect(buffer, index, packet, parent)
@@ -5066,7 +5119,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_signal_message 
 
 -- Size: Disaster Recovery Signal Message
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_signal_message.size =
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.size
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.size
 
 -- Display: Disaster Recovery Signal Message
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_signal_message.display = function(packet, parent, length)
@@ -5077,8 +5130,8 @@ end
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_signal_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Disaster Recovery Status: Uint32
-  index, disaster_recovery_status = hkex_hkexderivatives_fulltickretrans_omd_v1_49.disaster_recovery_status.dissect(buffer, index, packet, parent)
+  -- Dr Status: Uint32
+  index, dr_status = hkex_hkexderivatives_fulltickretrans_omd_v1_49.dr_status.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5149,7 +5202,7 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price_message.
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.orderbook_id.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price.size + 
   hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_4.size + 
-  hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.size
+  hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.size
 
 -- Display: Calculated Opening Price Message
 hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price_message.display = function(packet, parent, length)
@@ -5169,8 +5222,8 @@ hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_price_message.
   -- Filler 4: String
   index, filler_4 = hkex_hkexderivatives_fulltickretrans_omd_v1_49.filler_4.dissect(buffer, index, packet, parent)
 
-  -- Calculated Opening Quantity: Uint64
-  index, calculated_opening_quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.calculated_opening_quantity.dissect(buffer, index, packet, parent)
+  -- Quantity: Uint64
+  index, quantity = hkex_hkexderivatives_fulltickretrans_omd_v1_49.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
