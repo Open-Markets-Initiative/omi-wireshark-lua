@@ -21,13 +21,16 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.channel_id = ProtoField.new("Chan
 omi_iex_iexequities_deepplus_snap_v1_06.fields.detail = ProtoField.new("Detail", "iex.iexequities.deepplus.snap.v1.06.detail", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.etp = ProtoField.new("Etp", "iex.iexequities.deepplus.snap.v1.06.etp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.extended_hours = ProtoField.new("Extended Hours", "iex.iexequities.deepplus.snap.v1.06.extendedhours", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_iex_iexequities_deepplus_snap_v1_06.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.iexequities.deepplus.snap.v1.06.iextpheader", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.deepplus.snap.v1.06.firstmessagesequencenumber", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.iex_tp_message_block_length = ProtoField.new("Iex Tp Message Block Length", "iex.iexequities.deepplus.snap.v1.06.iextpmessageblocklength", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.iex_tp_message_length = ProtoField.new("Iex Tp Message Length", "iex.iexequities.deepplus.snap.v1.06.iextpmessagelength", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.iex_tp_message_type = ProtoField.new("Iex Tp Message Type", "iex.iexequities.deepplus.snap.v1.06.iextpmessagetype", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deepplus.snap.v1.06.iextpheader", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.iexequities.deepplus.snap.v1.06.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.deepplus.snap.v1.06.luldtier", ftypes.UINT8)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.message_count = ProtoField.new("Message Count", "iex.iexequities.deepplus.snap.v1.06.messagecount", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.deepplus.snap.v1.06.messagelength", ftypes.UINT16)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.iexequities.deepplus.snap.v1.06.messageprotocolid", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.deepplus.snap.v1.06.messagetype", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.minimum_sequence_number = ProtoField.new("Minimum Sequence Number", "iex.iexequities.deepplus.snap.v1.06.minimumsequencenumber", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.modify_flags = ProtoField.new("Modify Flags", "iex.iexequities.deepplus.snap.v1.06.modifyflags", ftypes.STRING)
@@ -35,16 +38,19 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.odd_lot = ProtoField.new("Odd Lot
 omi_iex_iexequities_deepplus_snap_v1_06.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.iexequities.deepplus.snap.v1.06.operationalhaltstatus", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.order_id = ProtoField.new("Order Id", "iex.iexequities.deepplus.snap.v1.06.orderid", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.order_id_reference = ProtoField.new("Order Id Reference", "iex.iexequities.deepplus.snap.v1.06.orderidreference", ftypes.UINT64)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.payload_length = ProtoField.new("Payload Length", "iex.iexequities.deepplus.snap.v1.06.payloadlength", ftypes.UINT16)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.price = ProtoField.new("Price", "iex.iexequities.deepplus.snap.v1.06.price", ftypes.DOUBLE)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.priority = ProtoField.new("Priority", "iex.iexequities.deepplus.snap.v1.06.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reason = ProtoField.new("Reason", "iex.iexequities.deepplus.snap.v1.06.reason", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "iex.iexequities.deepplus.snap.v1.06.rejectreasoncode", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.deepplus.snap.v1.06.reserved", ftypes.BYTES)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved_1 = ProtoField.new("Reserved 1", "iex.iexequities.deepplus.snap.v1.06.reserved1", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.iexequities.deepplus.snap.v1.06.retailliquidityindicator", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.iexequities.deepplus.snap.v1.06.roundlotsize", ftypes.UINT32)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.deepplus.snap.v1.06.saleconditionflags", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.iexequities.deepplus.snap.v1.06.securitydirectoryflags", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.security_event = ProtoField.new("Security Event", "iex.iexequities.deepplus.snap.v1.06.securityevent", ftypes.STRING)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deepplus.snap.v1.06.sendtime", ftypes.INT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.deepplus.snap.v1.06.sessionid", ftypes.UINT32)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.deepplus.snap.v1.06.shortsalepriceteststatus", ftypes.UINT8)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.side = ProtoField.new("Side", "iex.iexequities.deepplus.snap.v1.06.side", ftypes.STRING)
@@ -52,6 +58,7 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.singleprice_cross_trade = ProtoFi
 omi_iex_iexequities_deepplus_snap_v1_06.fields.size = ProtoField.new("Size", "iex.iexequities.deepplus.snap.v1.06.size", ftypes.UINT32)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.snapshot_length = ProtoField.new("Snapshot Length", "iex.iexequities.deepplus.snap.v1.06.snapshotlength", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.snapshot_sequence_number = ProtoField.new("Snapshot Sequence Number", "iex.iexequities.deepplus.snap.v1.06.snapshotsequencenumber", ftypes.UINT64)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.deepplus.snap.v1.06.streamoffset", ftypes.UINT64)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.deepplus.snap.v1.06.symbol", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.system_event = ProtoField.new("System Event", "iex.iexequities.deepplus.snap.v1.06.systemevent", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.test_security = ProtoField.new("Test Security", "iex.iexequities.deepplus.snap.v1.06.testsecurity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -62,6 +69,7 @@ omi_iex_iexequities_deepplus_snap_v1_06.fields.trading_status = ProtoField.new("
 omi_iex_iexequities_deepplus_snap_v1_06.fields.unused_3 = ProtoField.new("Unused 3", "iex.iexequities.deepplus.snap.v1.06.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.unused_5 = ProtoField.new("Unused 5", "iex.iexequities.deepplus.snap.v1.06.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.unused_7 = ProtoField.new("Unused 7", "iex.iexequities.deepplus.snap.v1.06.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
+omi_iex_iexequities_deepplus_snap_v1_06.fields.version = ProtoField.new("Version", "iex.iexequities.deepplus.snap.v1.06.version", ftypes.UINT8)
 omi_iex_iexequities_deepplus_snap_v1_06.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deepplus.snap.v1.06.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
 -- Iex IexEquities DeepPlus Snap 1.06 Framing
@@ -256,25 +264,25 @@ iex_iexequities_deepplus_snap_v1_06.detail.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Iex Tp Header
-iex_iexequities_deepplus_snap_v1_06.iex_tp_header = {}
+-- First Message Sequence Number
+iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number = {}
 
--- Size: Iex Tp Header
-iex_iexequities_deepplus_snap_v1_06.iex_tp_header.size = 1
+-- Size: First Message Sequence Number
+iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.size = 8
 
--- Display: Iex Tp Header
-iex_iexequities_deepplus_snap_v1_06.iex_tp_header.display = function(value)
-  return "Iex Tp Header: "..value
+-- Display: First Message Sequence Number
+iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.display = function(value)
+  return "First Message Sequence Number: "..value
 end
 
--- Dissect: Iex Tp Header
-iex_iexequities_deepplus_snap_v1_06.iex_tp_header.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexequities_deepplus_snap_v1_06.iex_tp_header.size
+-- Dissect: First Message Sequence Number
+iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = iex_iexequities_deepplus_snap_v1_06.iex_tp_header.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.iex_tp_header, range, value, display)
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.first_message_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -424,6 +432,29 @@ iex_iexequities_deepplus_snap_v1_06.luld_tier.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Message Count
+iex_iexequities_deepplus_snap_v1_06.message_count = {}
+
+-- Size: Message Count
+iex_iexequities_deepplus_snap_v1_06.message_count.size = 2
+
+-- Display: Message Count
+iex_iexequities_deepplus_snap_v1_06.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+iex_iexequities_deepplus_snap_v1_06.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_iexequities_deepplus_snap_v1_06.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Length
 iex_iexequities_deepplus_snap_v1_06.message_length = {}
 
@@ -443,6 +474,29 @@ iex_iexequities_deepplus_snap_v1_06.message_length.dissect = function(buffer, of
   local display = iex_iexequities_deepplus_snap_v1_06.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Protocol Id
+iex_iexequities_deepplus_snap_v1_06.message_protocol_id = {}
+
+-- Size: Message Protocol Id
+iex_iexequities_deepplus_snap_v1_06.message_protocol_id.size = 2
+
+-- Display: Message Protocol Id
+iex_iexequities_deepplus_snap_v1_06.message_protocol_id.display = function(value)
+  return "Message Protocol Id: "..value
+end
+
+-- Dissect: Message Protocol Id
+iex_iexequities_deepplus_snap_v1_06.message_protocol_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.message_protocol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_iexequities_deepplus_snap_v1_06.message_protocol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.message_protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -585,6 +639,29 @@ iex_iexequities_deepplus_snap_v1_06.order_id_reference.dissect = function(buffer
   return offset + length, value
 end
 
+-- Payload Length
+iex_iexequities_deepplus_snap_v1_06.payload_length = {}
+
+-- Size: Payload Length
+iex_iexequities_deepplus_snap_v1_06.payload_length.size = 2
+
+-- Display: Payload Length
+iex_iexequities_deepplus_snap_v1_06.payload_length.display = function(value)
+  return "Payload Length: "..value
+end
+
+-- Dissect: Payload Length
+iex_iexequities_deepplus_snap_v1_06.payload_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.payload_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_iexequities_deepplus_snap_v1_06.payload_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.payload_length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price
 iex_iexequities_deepplus_snap_v1_06.price = {}
 
@@ -678,6 +755,29 @@ iex_iexequities_deepplus_snap_v1_06.reject_reason_code.dissect = function(buffer
   local display = iex_iexequities_deepplus_snap_v1_06.reject_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+iex_iexequities_deepplus_snap_v1_06.reserved = {}
+
+-- Size: Reserved
+iex_iexequities_deepplus_snap_v1_06.reserved.size = 1
+
+-- Display: Reserved
+iex_iexequities_deepplus_snap_v1_06.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+iex_iexequities_deepplus_snap_v1_06.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.reserved.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = iex_iexequities_deepplus_snap_v1_06.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -790,6 +890,33 @@ iex_iexequities_deepplus_snap_v1_06.security_event.dissect = function(buffer, of
   local display = iex_iexequities_deepplus_snap_v1_06.security_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.security_event, range, value, display)
+
+  return offset + length, value
+end
+
+-- Send Time
+iex_iexequities_deepplus_snap_v1_06.send_time = {}
+
+-- Size: Send Time
+iex_iexequities_deepplus_snap_v1_06.send_time.size = 8
+
+-- Display: Send Time
+iex_iexequities_deepplus_snap_v1_06.send_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Send Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Send Time
+iex_iexequities_deepplus_snap_v1_06.send_time.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.send_time.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = iex_iexequities_deepplus_snap_v1_06.send_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.send_time, range, value, display)
 
   return offset + length, value
 end
@@ -946,6 +1073,29 @@ iex_iexequities_deepplus_snap_v1_06.snapshot_sequence_number.dissect = function(
   return offset + length, value
 end
 
+-- Stream Offset
+iex_iexequities_deepplus_snap_v1_06.stream_offset = {}
+
+-- Size: Stream Offset
+iex_iexequities_deepplus_snap_v1_06.stream_offset.size = 8
+
+-- Display: Stream Offset
+iex_iexequities_deepplus_snap_v1_06.stream_offset.display = function(value)
+  return "Stream Offset: "..value
+end
+
+-- Dissect: Stream Offset
+iex_iexequities_deepplus_snap_v1_06.stream_offset.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.stream_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = iex_iexequities_deepplus_snap_v1_06.stream_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.stream_offset, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol
 iex_iexequities_deepplus_snap_v1_06.symbol = {}
 
@@ -1093,6 +1243,29 @@ iex_iexequities_deepplus_snap_v1_06.trading_status.dissect = function(buffer, of
   local display = iex_iexequities_deepplus_snap_v1_06.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+iex_iexequities_deepplus_snap_v1_06.version = {}
+
+-- Size: Version
+iex_iexequities_deepplus_snap_v1_06.version.size = 1
+
+-- Display: Version
+iex_iexequities_deepplus_snap_v1_06.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+iex_iexequities_deepplus_snap_v1_06.version.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_deepplus_snap_v1_06.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = iex_iexequities_deepplus_snap_v1_06.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -2134,27 +2307,93 @@ iex_iexequities_deepplus_snap_v1_06.iex_tp_message_data.dissect = function(buffe
   return offset
 end
 
+-- Iextp Header
+iex_iexequities_deepplus_snap_v1_06.iextp_header = {}
+
+-- Size: Iextp Header
+iex_iexequities_deepplus_snap_v1_06.iextp_header.size =
+  iex_iexequities_deepplus_snap_v1_06.version.size + 
+  iex_iexequities_deepplus_snap_v1_06.reserved.size + 
+  iex_iexequities_deepplus_snap_v1_06.message_protocol_id.size + 
+  iex_iexequities_deepplus_snap_v1_06.channel_id.size + 
+  iex_iexequities_deepplus_snap_v1_06.session_id.size + 
+  iex_iexequities_deepplus_snap_v1_06.payload_length.size + 
+  iex_iexequities_deepplus_snap_v1_06.message_count.size + 
+  iex_iexequities_deepplus_snap_v1_06.stream_offset.size + 
+  iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.size + 
+  iex_iexequities_deepplus_snap_v1_06.send_time.size
+
+-- Display: Iextp Header
+iex_iexequities_deepplus_snap_v1_06.iextp_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Iextp Header
+iex_iexequities_deepplus_snap_v1_06.iextp_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Version: 1 Byte Unsigned Fixed Width Integer
+  index, version = iex_iexequities_deepplus_snap_v1_06.version.dissect(buffer, index, packet, parent)
+
+  -- Reserved: 1 Byte
+  index, reserved = iex_iexequities_deepplus_snap_v1_06.reserved.dissect(buffer, index, packet, parent)
+
+  -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer
+  index, message_protocol_id = iex_iexequities_deepplus_snap_v1_06.message_protocol_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Integer
+  index, channel_id = iex_iexequities_deepplus_snap_v1_06.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Session Id: Integer
+  index, session_id = iex_iexequities_deepplus_snap_v1_06.session_id.dissect(buffer, index, packet, parent)
+
+  -- Payload Length: 2 Byte Unsigned Fixed Width Integer
+  index, payload_length = iex_iexequities_deepplus_snap_v1_06.payload_length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 2 Byte Unsigned Fixed Width Integer
+  index, message_count = iex_iexequities_deepplus_snap_v1_06.message_count.dissect(buffer, index, packet, parent)
+
+  -- Stream Offset: 8 Byte Unsigned Fixed Width Integer
+  index, stream_offset = iex_iexequities_deepplus_snap_v1_06.stream_offset.dissect(buffer, index, packet, parent)
+
+  -- First Message Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, first_message_sequence_number = iex_iexequities_deepplus_snap_v1_06.first_message_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Send Time: 8 Byte Signed Fixed Width Integer
+  index, send_time = iex_iexequities_deepplus_snap_v1_06.send_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Iextp Header
+iex_iexequities_deepplus_snap_v1_06.iextp_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.iextp_header, buffer(offset, 0))
+    local index = iex_iexequities_deepplus_snap_v1_06.iextp_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexequities_deepplus_snap_v1_06.iextp_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexequities_deepplus_snap_v1_06.iextp_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Snapshot Data Message
 iex_iexequities_deepplus_snap_v1_06.snapshot_data_message = {}
 
--- Calculate size of: Snapshot Data Message
+-- Read runtime size of: Snapshot Data Message
 iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.size = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  index = index + iex_iexequities_deepplus_snap_v1_06.iex_tp_header.size
+  -- Dependency element: Iex Tp Message Block Length
+  local iex_tp_message_block_length = buffer(offset + 40, 2):le_uint()
 
-  index = index + iex_iexequities_deepplus_snap_v1_06.iex_tp_message_block_length.size
-
-  index = index + iex_iexequities_deepplus_snap_v1_06.iex_tp_message_length.size
-
-  index = index + iex_iexequities_deepplus_snap_v1_06.iex_tp_message_type.size
-
-  -- Calculate runtime size of Iex Tp Message Data field
-  local iex_tp_message_data_offset = offset + index
-  local iex_tp_message_data_type = buffer(iex_tp_message_data_offset - 1, 1):string()
-  index = index + iex_iexequities_deepplus_snap_v1_06.iex_tp_message_data.size(buffer, iex_tp_message_data_offset, iex_tp_message_data_type)
-
-  return index
+  return iex_tp_message_block_length + 42
 end
 
 -- Display: Snapshot Data Message
@@ -2163,11 +2402,11 @@ iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.display = function(pac
 end
 
 -- Dissect Fields: Snapshot Data Message
-iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields = function(buffer, offset, packet, parent)
+iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields = function(buffer, offset, packet, parent, size_of_snapshot_data_message)
   local index = offset
 
-  -- Iex Tp Header: Byte
-  index, iex_tp_header = iex_iexequities_deepplus_snap_v1_06.iex_tp_header.dissect(buffer, index, packet, parent)
+  -- Iextp Header: Struct of 10 fields
+  index, iextp_header = iex_iexequities_deepplus_snap_v1_06.iextp_header.dissect(buffer, index, packet, parent)
 
   -- Iex Tp Message Block Length: Integer
   index, iex_tp_message_block_length = iex_iexequities_deepplus_snap_v1_06.iex_tp_message_block_length.dissect(buffer, index, packet, parent)
@@ -2185,20 +2424,24 @@ iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields = function(buff
 end
 
 -- Dissect: Snapshot Data Message
-iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.dissect = function(buffer, offset, packet, parent)
+iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.dissect = function(buffer, offset, packet, parent, size_of_snapshot_data_message)
+  local size_of_snapshot_data_message = iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.size(buffer, offset)
+  local index = offset + size_of_snapshot_data_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.application_messages then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexequities_deepplus_snap_v1_06.fields.snapshot_data_message, buffer(offset, 0))
-    local index = iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.display(packet, parent, length)
+    local current = iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields(buffer, offset, packet, parent, size_of_snapshot_data_message)
+    parent:set_len(size_of_snapshot_data_message)
+    local display = iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields(buffer, offset, packet, parent)
+    iex_iexequities_deepplus_snap_v1_06.snapshot_data_message.fields(buffer, offset, packet, parent, size_of_snapshot_data_message)
+
+    return index
   end
 end
 
