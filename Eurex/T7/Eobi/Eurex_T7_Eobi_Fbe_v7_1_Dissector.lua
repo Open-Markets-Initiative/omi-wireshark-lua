@@ -18,7 +18,7 @@ local eurex_t7_eobi_fbe_v7_1 = {}
 omi_eurex_t7_eobi_fbe_v7_1.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.t7.eobi.fbe.v7.1.aggressorside", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v7_1.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v7.1.aggressortime", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v7_1.fields.algorithmic_trade_indicator = ProtoField.new("Algorithmic Trade Indicator", "eurex.t7.eobi.fbe.v7.1.algorithmictradeindicator", ftypes.UINT8)
-omi_eurex_t7_eobi_fbe_v7_1.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.t7.eobi.fbe.v7.1.applseqnum", ftypes.UINT64)
+omi_eurex_t7_eobi_fbe_v7_1.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.t7.eobi.fbe.v7.1.applseqnum", ftypes.UINT32)
 omi_eurex_t7_eobi_fbe_v7_1.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "eurex.t7.eobi.fbe.v7.1.applseqresetindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v7_1.fields.bid_ord_type = ProtoField.new("Bid Ord Type", "eurex.t7.eobi.fbe.v7.1.bidordtype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v7_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.t7.eobi.fbe.v7.1.bidpx", ftypes.DOUBLE)
@@ -62,7 +62,7 @@ omi_eurex_t7_eobi_fbe_v7_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.t
 omi_eurex_t7_eobi_fbe_v7_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.t7.eobi.fbe.v7.1.offersize", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v7_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.t7.eobi.fbe.v7.1.ordtype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v7_1.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.t7.eobi.fbe.v7.1.orderdetailscomp", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v7_1.fields.pad_1 = ProtoField.new("Pad 1", "eurex.t7.eobi.fbe.v7.1.pad1", ftypes.BYTES)
+omi_eurex_t7_eobi_fbe_v7_1.fields.pad1 = ProtoField.new("Pad1", "eurex.t7.eobi.fbe.v7.1.pad1", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v7_1.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.eobi.fbe.v7.1.pad2", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v7_1.fields.pad3 = ProtoField.new("Pad3", "eurex.t7.eobi.fbe.v7.1.pad3", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v7_1.fields.pad4 = ProtoField.new("Pad4", "eurex.t7.eobi.fbe.v7.1.pad4", ftypes.BYTES)
@@ -278,7 +278,7 @@ end
 eurex_t7_eobi_fbe_v7_1.appl_seq_num = {}
 
 -- Size: Appl Seq Num
-eurex_t7_eobi_fbe_v7_1.appl_seq_num.size = 8
+eurex_t7_eobi_fbe_v7_1.appl_seq_num.size = 4
 
 -- Display: Appl Seq Num
 eurex_t7_eobi_fbe_v7_1.appl_seq_num.display = function(value)
@@ -289,7 +289,7 @@ end
 eurex_t7_eobi_fbe_v7_1.appl_seq_num.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eobi_fbe_v7_1.appl_seq_num.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = eurex_t7_eobi_fbe_v7_1.appl_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eobi_fbe_v7_1.fields.appl_seq_num, range, value, display)
@@ -1565,25 +1565,25 @@ eurex_t7_eobi_fbe_v7_1.ord_type.dissect = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
--- Pad 1
-eurex_t7_eobi_fbe_v7_1.pad_1 = {}
+-- Pad1
+eurex_t7_eobi_fbe_v7_1.pad1 = {}
 
--- Size: Pad 1
-eurex_t7_eobi_fbe_v7_1.pad_1.size = 1
+-- Size: Pad1
+eurex_t7_eobi_fbe_v7_1.pad1.size = 1
 
--- Display: Pad 1
-eurex_t7_eobi_fbe_v7_1.pad_1.display = function(value)
-  return "Pad 1: "..value
+-- Display: Pad1
+eurex_t7_eobi_fbe_v7_1.pad1.display = function(value)
+  return "Pad1: "..value
 end
 
--- Dissect: Pad 1
-eurex_t7_eobi_fbe_v7_1.pad_1.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_eobi_fbe_v7_1.pad_1.size
+-- Dissect: Pad1
+eurex_t7_eobi_fbe_v7_1.pad1.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_eobi_fbe_v7_1.pad1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_eobi_fbe_v7_1.pad_1.display(value, buffer, offset, packet, parent)
+  local display = eurex_t7_eobi_fbe_v7_1.pad1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v7_1.fields.pad_1, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v7_1.fields.pad1, range, value, display)
 
   return offset + length, value
 end
@@ -3409,7 +3409,7 @@ eurex_t7_eobi_fbe_v7_1.partial_order_execution.size =
   eurex_t7_eobi_fbe_v7_1.side.size + 
   eurex_t7_eobi_fbe_v7_1.ord_type.size + 
   eurex_t7_eobi_fbe_v7_1.algorithmic_trade_indicator.size + 
-  eurex_t7_eobi_fbe_v7_1.pad_1.size + 
+  eurex_t7_eobi_fbe_v7_1.pad1.size + 
   eurex_t7_eobi_fbe_v7_1.trd_match_id.size + 
   eurex_t7_eobi_fbe_v7_1.price.size + 
   eurex_t7_eobi_fbe_v7_1.trd_reg_ts_time_priority.size + 
@@ -3435,8 +3435,8 @@ eurex_t7_eobi_fbe_v7_1.partial_order_execution.fields = function(buffer, offset,
   -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, algorithmic_trade_indicator = eurex_t7_eobi_fbe_v7_1.algorithmic_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Pad 1: 1 Byte
-  index, pad_1 = eurex_t7_eobi_fbe_v7_1.pad_1.dissect(buffer, index, packet, parent)
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eobi_fbe_v7_1.pad1.dissect(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_t7_eobi_fbe_v7_1.trd_match_id.dissect(buffer, index, packet, parent)
@@ -4019,7 +4019,7 @@ eurex_t7_eobi_fbe_v7_1.full_order_execution.size =
   eurex_t7_eobi_fbe_v7_1.side.size + 
   eurex_t7_eobi_fbe_v7_1.ord_type.size + 
   eurex_t7_eobi_fbe_v7_1.algorithmic_trade_indicator.size + 
-  eurex_t7_eobi_fbe_v7_1.pad_1.size + 
+  eurex_t7_eobi_fbe_v7_1.pad1.size + 
   eurex_t7_eobi_fbe_v7_1.trd_match_id.size + 
   eurex_t7_eobi_fbe_v7_1.price.size + 
   eurex_t7_eobi_fbe_v7_1.trd_reg_ts_time_priority.size + 
@@ -4045,8 +4045,8 @@ eurex_t7_eobi_fbe_v7_1.full_order_execution.fields = function(buffer, offset, pa
   -- Algorithmic Trade Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, algorithmic_trade_indicator = eurex_t7_eobi_fbe_v7_1.algorithmic_trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Pad 1: 1 Byte
-  index, pad_1 = eurex_t7_eobi_fbe_v7_1.pad_1.dissect(buffer, index, packet, parent)
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eobi_fbe_v7_1.pad1.dissect(buffer, index, packet, parent)
 
   -- Trd Match Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trd_match_id = eurex_t7_eobi_fbe_v7_1.trd_match_id.dissect(buffer, index, packet, parent)
@@ -4470,7 +4470,7 @@ eurex_t7_eobi_fbe_v7_1.add_complex_instrument.size =
   eurex_t7_eobi_fbe_v7_1.product_complex.size + 
   eurex_t7_eobi_fbe_v7_1.implied_market_indicator.size + 
   eurex_t7_eobi_fbe_v7_1.no_legs.size + 
-  eurex_t7_eobi_fbe_v7_1.pad_1.size + 
+  eurex_t7_eobi_fbe_v7_1.pad1.size + 
   20 * eurex_t7_eobi_fbe_v7_1.instrmt_leg_grp_comp.size
 
 -- Display: Add Complex Instrument
@@ -4500,8 +4500,8 @@ eurex_t7_eobi_fbe_v7_1.add_complex_instrument.fields = function(buffer, offset, 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_legs = eurex_t7_eobi_fbe_v7_1.no_legs.dissect(buffer, index, packet, parent)
 
-  -- Pad 1: 1 Byte
-  index, pad_1 = eurex_t7_eobi_fbe_v7_1.pad_1.dissect(buffer, index, packet, parent)
+  -- Pad1: 1 Byte
+  index, pad1 = eurex_t7_eobi_fbe_v7_1.pad1.dissect(buffer, index, packet, parent)
 
   -- Array Of: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, 20 do
@@ -4778,7 +4778,7 @@ eurex_t7_eobi_fbe_v7_1.packet_header.size =
   eurex_t7_eobi_fbe_v7_1.partition_id.size + 
   eurex_t7_eobi_fbe_v7_1.completion_indicator.size + 
   eurex_t7_eobi_fbe_v7_1.appl_seq_reset_indicator.size + 
-  eurex_t7_eobi_fbe_v7_1.pad_1.size + 
+  eurex_t7_eobi_fbe_v7_1.pad5.size + 
   eurex_t7_eobi_fbe_v7_1.transact_time.size
 
 -- Display: Packet Header
@@ -4793,7 +4793,7 @@ eurex_t7_eobi_fbe_v7_1.packet_header.fields = function(buffer, offset, packet, p
   -- Eobi Header: Struct of 3 fields
   index, eobi_header = eurex_t7_eobi_fbe_v7_1.eobi_header.dissect(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 8 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, appl_seq_num = eurex_t7_eobi_fbe_v7_1.appl_seq_num.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -4808,8 +4808,8 @@ eurex_t7_eobi_fbe_v7_1.packet_header.fields = function(buffer, offset, packet, p
   -- Appl Seq Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_reset_indicator = eurex_t7_eobi_fbe_v7_1.appl_seq_reset_indicator.dissect(buffer, index, packet, parent)
 
-  -- Pad 1: 1 Byte
-  index, pad_1 = eurex_t7_eobi_fbe_v7_1.pad_1.dissect(buffer, index, packet, parent)
+  -- Pad5: 5 Byte
+  index, pad5 = eurex_t7_eobi_fbe_v7_1.pad5.dissect(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, transact_time = eurex_t7_eobi_fbe_v7_1.transact_time.dissect(buffer, index, packet, parent)
