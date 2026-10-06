@@ -971,24 +971,20 @@ end
 -- Debug Text
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text = {}
 
--- Size: Debug Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size = 1
-
 -- Display: Debug Text
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Decrement Quantity
@@ -5311,9 +5307,15 @@ end
 -- Debug Packet
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.size =
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.display = function(packet, parent, length)
@@ -5324,8 +5326,14 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
-  index, debug_text = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect(buffer, index, packet, parent)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -6306,40 +6314,9 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet.fingerprint = funct
     return true
   end
 
-  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Unsequenced Data Packet
   if client_packet_type == "U" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local unsequenced_message_type = buffer(3, 1):string()
-
-    -- Enter Order Message
-    if unsequenced_message_type == "O" then
-      return true
-    end
-
-    -- Replace Order Message
-    if unsequenced_message_type == "U" then
-      return true
-    end
-
-    -- Cancel Order Message
-    if unsequenced_message_type == "X" then
-      return true
-    end
-
-    -- Account Query Message
-    if unsequenced_message_type == "Q" then
-      return true
-    end
-
-    -- Mmi Notification Request Message
-    if unsequenced_message_type == "M" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Client Heartbeat
@@ -6378,90 +6355,9 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet.fingerprint = funct
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(3, 1):string()
-
-    -- System Event Message
-    if sequenced_message_type == "S" then
-      return true
-    end
-
-    -- Order Accepted Message
-    if sequenced_message_type == "A" then
-      return true
-    end
-
-    -- Order Replaced Message
-    if sequenced_message_type == "U" then
-      return true
-    end
-
-    -- Cancelled Order Message
-    if sequenced_message_type == "C" then
-      return true
-    end
-
-    -- Cancel Pending Message
-    if sequenced_message_type == "P" then
-      return true
-    end
-
-    -- Replace Pending Message
-    if sequenced_message_type == "N" then
-      return true
-    end
-
-    -- Executed Order Message
-    if sequenced_message_type == "E" then
-      return true
-    end
-
-    -- Broken Trade Message
-    if sequenced_message_type == "B" then
-      return true
-    end
-
-    -- Rejected Order Message
-    if sequenced_message_type == "J" then
-      return true
-    end
-
-    -- Cancel Rejected Message
-    if sequenced_message_type == "I" then
-      return true
-    end
-
-    -- Order Restated Message
-    if sequenced_message_type == "T" then
-      return true
-    end
-
-    -- Mmo Refresh Request Message
-    if sequenced_message_type == "W" then
-      return true
-    end
-
-    -- Account Query Response Message
-    if sequenced_message_type == "Q" then
-      return true
-    end
-
-    -- Gtc Cancelled Message
-    if sequenced_message_type == "G" then
-      return true
-    end
-
-    -- Response To Mmi Notification Message
-    if sequenced_message_type == "R" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat

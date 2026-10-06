@@ -367,24 +367,20 @@ end
 -- Debug Text
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text = {}
 
--- Size: Debug Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size = 1
-
 -- Display: Debug Text
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.display(value, buffer, offset, packet, parent)
+  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Decimals In Nominal Value
@@ -2572,9 +2568,15 @@ end
 -- Debug Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet = {}
 
--- Size: Debug Packet
-bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.size =
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size
+-- Calculate size of: Debug Packet
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.display = function(packet, parent, length)
@@ -2585,8 +2587,14 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
-  index, debug_text = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect(buffer, index, packet, parent)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -3290,60 +3298,9 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet.fingerprint = function(
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(3, 1):string()
-
-    -- Seconds Message
-    if sequenced_message_type == "T" then
-      return true
-    end
-
-    -- Order Book Directory
-    if sequenced_message_type == "R" then
-      return true
-    end
-
-    -- Combination Order Book Leg
-    if sequenced_message_type == "M" then
-      return true
-    end
-
-    -- Tick Size Table Entry
-    if sequenced_message_type == "L" then
-      return true
-    end
-
-    -- Short Sell Status
-    if sequenced_message_type == "V" then
-      return true
-    end
-
-    -- Order Book State Message
-    if sequenced_message_type == "O" then
-      return true
-    end
-
-    -- Add Order No Mpid Attribution
-    if sequenced_message_type == "A" then
-      return true
-    end
-
-    -- Add Order With Mpid Attribution
-    if sequenced_message_type == "F" then
-      return true
-    end
-
-    -- End Of Snapshot Message
-    if sequenced_message_type == "G" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat

@@ -2334,6 +2334,9 @@ asx_asxderivatives_ntp_itch_v1_05.side_leg.display = function(value)
   if value == "S" then
     return "Side Leg: Sell (S)"
   end
+  if value == " " then
+    return "Side Leg: Not Defined (<whitespace>)"
+  end
 
   return "Side Leg: Unknown("..value..")"
 end

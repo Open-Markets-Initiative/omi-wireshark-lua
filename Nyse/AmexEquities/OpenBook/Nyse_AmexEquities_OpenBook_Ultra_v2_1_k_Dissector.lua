@@ -2345,7 +2345,7 @@ nyse_amexequities_openbook_ultra_v2_1_k.product_id.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(12, 1):uint()
 
-  if value == 50 then
+  if value == 62 then
     return true
   end
 
@@ -2382,7 +2382,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_openbook_ultra_v2_1_k)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.1.k
---   Date: Thursday, February 22, 2024
+--   Date: Thursday, July 25, 2024
 --   Specification: OpenBook_Ultra_Client_Specification.pdf
 --
 -- Script:

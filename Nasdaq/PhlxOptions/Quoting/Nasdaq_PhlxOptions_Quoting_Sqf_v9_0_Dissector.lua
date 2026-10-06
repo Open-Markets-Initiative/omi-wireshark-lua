@@ -1228,7 +1228,12 @@ end
 nasdaq_phlxoptions_quoting_sqf_v9_0.heartbeat_timeout.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_quoting_sqf_v9_0.heartbeat_timeout.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.heartbeat_timeout.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.heartbeat_timeout, range, value, display)

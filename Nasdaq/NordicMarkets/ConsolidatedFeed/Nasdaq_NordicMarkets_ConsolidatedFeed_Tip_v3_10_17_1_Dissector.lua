@@ -28356,24 +28356,20 @@ end
 -- Debug Text
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text = {}
 
--- Size: Debug Text
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.size = 1
-
 -- Display: Debug Text
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Packet Length
@@ -28819,9 +28815,15 @@ end
 -- Debug Packet
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_packet.size =
-  nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_packet.display = function(packet, parent, length)
@@ -28832,8 +28834,14 @@ end
 nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
-  index, debug_text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.dissect(buffer, index, packet, parent)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_17_1.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
