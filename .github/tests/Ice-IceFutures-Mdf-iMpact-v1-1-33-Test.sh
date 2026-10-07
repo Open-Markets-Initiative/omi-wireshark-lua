@@ -34,6 +34,13 @@ grep "ice.icefutures.mdf.impact.v1.1.33.orderid" Ice.IceFutures.Mdf.iMpact.v1.1.
 grep "ice.icefutures.mdf.impact.v1.1.33.messagedatetime" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 grep "ice.icefutures.mdf.impact.v1.1.33.sequencewithinmillis" Ice.IceFutures.Mdf.iMpact.v1.1.33.DeleteOrderMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Ice/IceFutures.Mdf.iMpact.v1.1.33/Heartbeat.pcap" \
+  -X "lua_script:Ice/IceFutures/Mdf/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
+  -T json \
+  > Ice.IceFutures.Mdf.iMpact.v1.1.33.Heartbeat.json 2> Ice.IceFutures.Mdf.iMpact.v1.1.33.Heartbeat.json.stderr \
+  || { echo "--- tshark FAILED (Heartbeat) ---"; cat Ice.IceFutures.Mdf.iMpact.v1.1.33.Heartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Ice/IceFutures.Mdf.iMpact.v1.1.33/MarketSnapShotMessage.pcap" \
   -X "lua_script:Ice/IceFutures/Mdf/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua" \
   -T json \

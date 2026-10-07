@@ -11328,6 +11328,16 @@ end
 -- Message
 ice_icefutures_mdf_impact_v1_1_34.message = {}
 
+-- Read runtime size of: Message
+ice_icefutures_mdf_impact_v1_1_34.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Length
+  local length = buffer(offset + 1, 2):uint()
+
+  return length + 3
+end
+
 -- Display: Message
 ice_icefutures_mdf_impact_v1_1_34.message.display = function(packet, parent, length)
   return ""
@@ -11363,6 +11373,7 @@ end
 
 -- Dissect: Message
 ice_icefutures_mdf_impact_v1_1_34.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = ice_icefutures_mdf_impact_v1_1_34.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -11379,6 +11390,47 @@ ice_icefutures_mdf_impact_v1_1_34.message.dissect = function(buffer, offset, pac
     ice_icefutures_mdf_impact_v1_1_34.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
+  end
+end
+
+-- Heartbeat
+ice_icefutures_mdf_impact_v1_1_34.heartbeat = {}
+
+-- Display: Heartbeat
+ice_icefutures_mdf_impact_v1_1_34.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+ice_icefutures_mdf_impact_v1_1_34.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = ice_icefutures_mdf_impact_v1_1_34.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+ice_icefutures_mdf_impact_v1_1_34.messages = {}
+
+-- Dissect: Messages
+ice_icefutures_mdf_impact_v1_1_34.messages.dissect = function(buffer, offset, packet, parent, number_of_msgs)
+  -- Dissect Heartbeat
+  if number_of_msgs == 0 then
+    return ice_icefutures_mdf_impact_v1_1_34.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, number_of_msgs do
+
+    -- Dependency element: Length
+    local length = buffer(offset + 1, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 3
+
+    -- Message: Struct of 3 fields
+    offset = ice_icefutures_mdf_impact_v1_1_34.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
 end
 
@@ -11452,18 +11504,8 @@ ice_icefutures_mdf_impact_v1_1_34.packet.dissect = function(buffer, packet, pare
   -- Dependency element: Number Of Msgs
   local number_of_msgs = buffer(index - 10, 2):uint()
 
-  -- Repeating: Message
-  for message_index = 1, number_of_msgs do
-
-    -- Dependency element: Length
-    local length = buffer(index + 1, 2):uint()
-
-    -- Runtime Size Of: Message
-    local size_of_message = length + 3
-
-    -- Message: Struct of 3 fields
-    index, message = ice_icefutures_mdf_impact_v1_1_34.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = ice_icefutures_mdf_impact_v1_1_34.messages.dissect(buffer, index, packet, parent, number_of_msgs)
 
   return index
 end
