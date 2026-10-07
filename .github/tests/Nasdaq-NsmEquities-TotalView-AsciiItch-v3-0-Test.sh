@@ -175,3 +175,13 @@ grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric6" Nasdaq.NsmEqui
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.price" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.matchnumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/NsmEquities.TotalView.AsciiItch.v3.0/MultipleMessages.pcap" \
+  -X "lua_script:Nasdaq/NsmEquities/TotalView/Nasdaq_NsmEquities_TotalView_AsciiItch_v3_0_Dissector.lua" \
+  -T json \
+  > Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json 2> Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json.stderr; exit 1; }
+
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0." Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json
+
+[ "$(grep -c 'nasdaq.nsmequities.totalview.asciiitch.v3.0.' Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

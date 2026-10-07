@@ -33,6 +33,25 @@ grep "miax.pearlequities.expressorders.meo.v2.6.leavesqty" Miax.PearlEquities.Ex
 grep "miax.pearlequities.expressorders.meo.v2.6.cancelstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved10" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/CancelReduceSizeOrderNotification.pcap" \
+  -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -T json \
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json.stderr \
+  || { echo "--- tshark FAILED (CancelReduceSizeOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json.stderr; exit 1; }
+
+grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.clientorderid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.orderid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.leavesqty" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.cancelreason" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.lastprice" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.lastsize" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.pendingcancelstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.pendingrejectreason" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelReduceSizeOrderNotification.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/ClientHeartbeat.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
@@ -92,6 +111,37 @@ grep "miax.pearlequities.expressorders.meo.v2.6.locateaccount" Miax.PearlEquitie
 grep "miax.pearlequities.expressorders.meo.v2.6.purgegroup" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.originalordercapacity" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved18" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/NewOrderRequestMessage.pcap" \
+  -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -T json \
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json.stderr \
+  || { echo "--- tshark FAILED (NewOrderRequestMessage) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json.stderr; exit 1; }
+
+grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.mpid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.clientorderid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.price" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.size" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.neworderinstructions" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.timeinforce" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.ordertype" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.priceslidingandrepricefrequency" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.selftradeprotection" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.selftradeprotectiongroup" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.routing" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.tradingcollardollarvalue" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.capacity" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.account" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.clearingaccount" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.minqty" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.maxfloorqty" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.displayrangeqty" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.pegoffset" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.locateaccount" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.purgegroup" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.reserved19" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderRequestMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/OrderPriceUpdateNotification.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \

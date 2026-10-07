@@ -102,6 +102,17 @@ grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrstate" Nyse.AmexEquities.In
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.marketstate" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sessionstate" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeed.Xdp.v2.1.g/SequenceNumberResetMessage.pcap" \
+  -X "lua_script:Nyse/AmexEquities/IntegratedFeed/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -T json \
+  > Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json 2> Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json.stderr \
+  || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json.stderr; exit 1; }
+
+grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json
+grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json
+grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.productid" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json
+grep "nyse.amexequities.integratedfeed.xdp.v2.1.g.channelid" Nyse.AmexEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexEquities.IntegratedFeed.Xdp.v2.1.g/SourceTimeReferenceMessage.pcap" \
   -X "lua_script:Nyse/AmexEquities/IntegratedFeed/Nyse_AmexEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \

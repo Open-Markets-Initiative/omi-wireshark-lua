@@ -27,43 +27,43 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.adjustment_reason_
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.allocation_type_code = ProtoField.new("Allocation Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.allocationtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.application_date = ProtoField.new("Application Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.applicationdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_order_counts = ProtoField.new("Ask Level 1 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_order_counts = ProtoField.new("Ask Level 10 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_order_counts = ProtoField.new("Ask Level 2 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_order_counts = ProtoField.new("Ask Level 3 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_order_counts = ProtoField.new("Ask Level 4 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_order_counts = ProtoField.new("Ask Level 5 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_order_counts = ProtoField.new("Ask Level 6 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_order_counts = ProtoField.new("Ask Level 7 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_order_counts = ProtoField.new("Ask Level 8 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_order_counts = ProtoField.new("Ask Level 9 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_price_valid_counts = ProtoField.new("Ask Price Valid Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.askpricevalidcounts", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_total_volume = ProtoField.new("Ask Total Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktotalvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_value = ProtoField.new("Ask Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_volume = ProtoField.new("Ask Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktradingvolume", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.atm = ProtoField.new("Atm", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.atm", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.atm = ProtoField.new("Atm", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.atm", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.atm_type_code = ProtoField.new("Atm Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.atmtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basedate", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.baseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.baseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price_adjustment_type_code = ProtoField.new("Base Price Adjustment Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basepriceadjustmenttypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price_for_trading_type_code = ProtoField.new("Base Price For Trading Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basepricefortradingtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price_of_clearing_margins = ProtoField.new("Base Price Of Clearing Margins", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basepriceofclearingmargins", ftypes.DOUBLE)
@@ -73,34 +73,34 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_product_id = 
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_theoretical_price = ProtoField.new("Base Theoretical Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basetheoreticalprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_order_counts = ProtoField.new("Bid Level 1 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_order_counts = ProtoField.new("Bid Level 10 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_order_counts = ProtoField.new("Bid Level 2 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_order_counts = ProtoField.new("Bid Level 3 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_order_counts = ProtoField.new("Bid Level 4 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_order_counts = ProtoField.new("Bid Level 5 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_order_counts = ProtoField.new("Bid Level 6 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_order_counts = ProtoField.new("Bid Level 7 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_order_counts = ProtoField.new("Bid Level 8 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_order_counts = ProtoField.new("Bid Level 9 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9ordercounts", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9price", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_price_valid_counts = ProtoField.new("Bid Price Valid Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidpricevalidcounts", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_total_volume = ProtoField.new("Bid Total Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidtotalvolume", ftypes.STRING)
@@ -120,11 +120,12 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.calculating_date =
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.calculation_time_activities = ProtoField.new("Calculation Time Activities", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.calculationtimeactivities", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.calculation_time_sensitivity = ProtoField.new("Calculation Time Sensitivity", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.calculationtimesensitivity", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.call_averaged_implied_volatility = ProtoField.new("Call Averaged Implied Volatility", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.callaveragedimpliedvolatility", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.closingprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.closing_price_of_underlying_asset = ProtoField.new("Closing Price Of Underlying Asset", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.closingpriceofunderlyingasset", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.closingprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.closing_price_of_underlying_asset = ProtoField.new("Closing Price Of Underlying Asset", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.closingpriceofunderlyingasset", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.closingpricetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.conditionedorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.conversion_factor = ProtoField.new("Conversion Factor", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.conversionfactor", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.current_time_1_minute_interval = ProtoField.new("Current Time 1 Minute Interval", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.currenttime1minuteinterval", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.date = ProtoField.new("Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.date", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.delisting_date = ProtoField.new("Delisting Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.delistingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.denominator_coefficient_of_adjustment = ProtoField.new("Denominator Coefficient Of Adjustment", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.denominatorcoefficientofadjustment", ftypes.DOUBLE)
@@ -133,15 +134,15 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.direction_of_price
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.disclosure_date = ProtoField.new("Disclosure Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.disclosuredate", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.disclosure_type = ProtoField.new("Disclosure Type", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.disclosuretype", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.disparate_ratio = ProtoField.new("Disparate Ratio", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.disparateratio", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.distant_month_contract_trading_price = ProtoField.new("Distant Month Contract Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.distantmonthcontracttradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.distant_month_contract_trading_price = ProtoField.new("Distant Month Contract Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.distantmonthcontracttradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.dividend_value_for_settlement_price = ProtoField.new("Dividend Value For Settlement Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.dividendvalueforsettlementprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.dynamic_price_limit_type_code = ProtoField.new("Dynamic Price Limit Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.dynamicpricelimittypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.efp_trading_item = ProtoField.new("Efp Trading Item", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.efptradingitem", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.efp_trading_value = ProtoField.new("Efp Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.efptradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.efp_trading_volume = ProtoField.new("Efp Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.efptradingvolume", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.endkeyword", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.endkeyword", ftypes.UINT8)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.english_issue_name = ProtoField.new("English Issue Name", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.englishissuename", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.estimatedtradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.estimatedtradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.estimatedtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.exercise_price = ProtoField.new("Exercise Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.exerciseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.exercise_price_after_adjustment = ProtoField.new("Exercise Price After Adjustment", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.exercisepriceafteradjustment", ftypes.DOUBLE)
@@ -152,11 +153,11 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.expiration_date = 
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.finalaskbidtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.final_stage_of_price_limit_expansion = ProtoField.new("Final Stage Of Price Limit Expansion", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.finalstageofpricelimitexpansion", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.flex_trading_item = ProtoField.new("Flex Trading Item", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.flextradingitem", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_lower_limit_price = ProtoField.new("Futures Circuit Breakers Lower Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakerslowerlimitprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_upper_limit_price = ProtoField.new("Futures Circuit Breakers Upper Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakersupperlimitprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_lower_limit_price = ProtoField.new("Futures Circuit Breakers Lower Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakerslowerlimitprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_upper_limit_price = ProtoField.new("Futures Circuit Breakers Upper Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakersupperlimitprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_options_type_code = ProtoField.new("Futures Options Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futuresoptionstypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.gap_between_lower_limit_price_of_dynamic_price_and_trading_value = ProtoField.new("Gap Between Lower Limit Price Of Dynamic Price And Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.gapbetweenlowerlimitpriceofdynamicpriceandtradingvalue", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.gap_between_upper_limit_price_of_dynamic_price_and_trading_value = ProtoField.new("Gap Between Upper Limit Price Of Dynamic Price And Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.gapbetweenupperlimitpriceofdynamicpriceandtradingvalue", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.gap_between_lower_limit_price_of_dynamic_price_and_trading_value = ProtoField.new("Gap Between Lower Limit Price Of Dynamic Price And Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.gapbetweenlowerlimitpriceofdynamicpriceandtradingvalue", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.gap_between_upper_limit_price_of_dynamic_price_and_trading_value = ProtoField.new("Gap Between Upper Limit Price Of Dynamic Price And Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.gapbetweenupperlimitpriceofdynamicpriceandtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.historical_volatility_90_days = ProtoField.new("Historical Volatility 90 Days", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.historicalvolatility90days", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.implied_volatility = ProtoField.new("Implied Volatility", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.impliedvolatility", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.implied_volatility_type_code = ProtoField.new("Implied Volatility Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.impliedvolatilitytypecode", ftypes.STRING)
@@ -180,13 +181,13 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.limit_order_permis
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.limitation_of_dynamic_price = ProtoField.new("Limitation Of Dynamic Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.limitationofdynamicprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.listing_date = ProtoField.new("Listing Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.listingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.listing_type_code = ProtoField.new("Listing Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.listingtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_of_dynamic_price_range = ProtoField.new("Lower Limit Of Dynamic Price Range", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitofdynamicpricerange", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_of_dynamic_price_range = ProtoField.new("Lower Limit Of Dynamic Price Range", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitofdynamicpricerange", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_quantity = ProtoField.new("Lower Limit Quantity", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitquantity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_limit_quantity_for_block_trade = ProtoField.new("Lower Limit Quantity For Block Trade", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerlimitquantityforblocktrade", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_1_st_stage = ProtoField.new("Lower Price Limit 1 St Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit1ststage", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_2_nd_stage = ProtoField.new("Lower Price Limit 2 Nd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit2ndstage", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_3_rd_stage = ProtoField.new("Lower Price Limit 3 Rd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit3rdstage", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_1_st_stage = ProtoField.new("Lower Price Limit 1 St Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit1ststage", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_2_nd_stage = ProtoField.new("Lower Price Limit 2 Nd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit2ndstage", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.lower_price_limit_3_rd_stage = ProtoField.new("Lower Price Limit 3 Rd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.lowerpricelimit3rdstage", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_holidays = ProtoField.new("Market Holidays", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.marketholidays", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_id = ProtoField.new("Market Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.marketid", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.marketoperationproductid", ftypes.STRING)
@@ -194,7 +195,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_price_order
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.me_group_number = ProtoField.new("Me Group Number", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.megroupnumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.messagesequencenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.nearby_month_contract_trading_price = ProtoField.new("Nearby Month Contract Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.nearbymonthcontracttradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.nearby_month_contract_trading_price = ProtoField.new("Nearby Month Contract Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.nearbymonthcontracttradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.number_of_issues_for_base_product = ProtoField.new("Number Of Issues For Base Product", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.numberofissuesforbaseproduct", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.number_of_issues_for_subsidiary_product = ProtoField.new("Number Of Issues For Subsidiary Product", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.numberofissuesforsubsidiaryproduct", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.number_of_listing_days_per_year = ProtoField.new("Number Of Listing Days Per Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.numberoflistingdaysperyear", ftypes.STRING)
@@ -206,20 +207,20 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.offset_rate_of_ass
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.open_interest = ProtoField.new("Open Interest", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.openinterest", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.open_interest_limit_quantity = ProtoField.new("Open Interest Limit Quantity", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.openinterestlimitquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.open_interest_type_code = ProtoField.new("Open Interest Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.openinteresttypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.openingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.openingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.payment_methods = ProtoField.new("Payment Methods", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.paymentmethods", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_adjusted_closing_price = ProtoField.new("Previous Days Adjusted Closing Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysadjustedclosingprice", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_best_ask = ProtoField.new("Previous Days Best Ask", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysbestask", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_best_bid = ProtoField.new("Previous Days Best Bid", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysbestbid", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_best_ask = ProtoField.new("Previous Days Best Ask", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysbestask", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_best_bid = ProtoField.new("Previous Days Best Bid", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysbestbid", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_bpmm = ProtoField.new("Previous Days Bpmm", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysbpmm", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_high_price = ProtoField.new("Previous Days High Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdayshighprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_low_price = ProtoField.new("Previous Days Low Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdayslowprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_high_price = ProtoField.new("Previous Days High Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdayshighprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_low_price = ProtoField.new("Previous Days Low Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdayslowprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_open_interest = ProtoField.new("Previous Days Open Interest", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysopeninterest", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_opening_price = ProtoField.new("Previous Days Opening Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysopeningprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_opening_price = ProtoField.new("Previous Days Opening Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaysopeningprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_settlement_price = ProtoField.new("Previous Days Settlement Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdayssettlementprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_total_accumulated_trading_value = ProtoField.new("Previous Days Total Accumulated Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaystotalaccumulatedtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_days_total_accumulated_trading_volume = ProtoField.new("Previous Days Total Accumulated Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousdaystotalaccumulatedtradingvolume", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_price = ProtoField.new("Previous Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.previous_price = ProtoField.new("Previous Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.previousprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.price_limit_expansion_lower_limit = ProtoField.new("Price Limit Expansion Lower Limit", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.pricelimitexpansionlowerlimit", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.price_limit_expansion_upper_limit = ProtoField.new("Price Limit Expansion Upper Limit", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.pricelimitexpansionupperlimit", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING)
@@ -260,17 +261,17 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_hi
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_lowest_premium_in_a_year = ProtoField.new("The Date Of The Lowest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thedateofthelowestpremiuminayear", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_lowest_premium_of_the_lifetime = ProtoField.new("The Date Of The Lowest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thedateofthelowestpremiumofthelifetime", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_first_trading_date = ProtoField.new("The First Trading Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thefirsttradingdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_highest_premium_in_a_year = ProtoField.new("The Highest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thehighestpremiuminayear", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_highest_premium_of_the_lifetime = ProtoField.new("The Highest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thehighestpremiumofthelifetime", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_highest_premium_in_a_year = ProtoField.new("The Highest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thehighestpremiuminayear", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_highest_premium_of_the_lifetime = ProtoField.new("The Highest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thehighestpremiumofthelifetime", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_last_settlement_price = ProtoField.new("The Last Settlement Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelastsettlementprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_last_trading_time = ProtoField.new("The Last Trading Time", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelasttradingtime", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_lowest_premium_in_a_year = ProtoField.new("The Lowest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelowestpremiuminayear", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_lowest_premium_of_the_lifetime = ProtoField.new("The Lowest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelowestpremiumofthelifetime", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_lowest_premium_in_a_year = ProtoField.new("The Lowest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelowestpremiuminayear", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_lowest_premium_of_the_lifetime = ProtoField.new("The Lowest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thelowestpremiumofthelifetime", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_time_imposing_a_price_limit = ProtoField.new("The Time Imposing A Price Limit", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thetimeimposingapricelimit", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.theoretical_settlement_price = ProtoField.new("Theoretical Settlement Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.theoreticalsettlementprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.time_when_allocation_ended = ProtoField.new("Time When Allocation Ended", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.timewhenallocationended", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.todays_high = ProtoField.new("Todays High", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.todayshigh", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.todays_low = ProtoField.new("Todays Low", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.todayslow", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.todays_high = ProtoField.new("Todays High", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.todayshigh", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.todays_low = ProtoField.new("Todays Low", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.todayslow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_accumulated_trading_value = ProtoField.new("Total Accumulated Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalaccumulatedtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_accumulated_trading_volume = ProtoField.new("Total Accumulated Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalaccumulatedtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalnumberofinstrumentsofthecontract", ftypes.STRING)
@@ -281,7 +282,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_halt_type_
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_multiplier = ProtoField.new("Trading Multiplier", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingmultiplier", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_multiplier_after_adjustment_equity_options_10 = ProtoField.new("Trading Multiplier After Adjustment Equity Options 10", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingmultiplierafteradjustmentequityoptions10", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_multiplier_before_adjustment = ProtoField.new("Trading Multiplier Before Adjustment", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingmultiplierbeforeadjustment", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_unit = ProtoField.new("Trading Unit", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingunit", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.transaction_status_type_code = ProtoField.new("Transaction Status Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.transactionstatustypecode", ftypes.STRING)
@@ -290,16 +291,16 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.type_of_liquidityp
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.underlying_asset_id = ProtoField.new("Underlying Asset Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.underlyingassetid", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.underlying_asset_market_id = ProtoField.new("Underlying Asset Market Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.underlyingassetmarketid", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.underlying_asset_product_id = ProtoField.new("Underlying Asset Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.underlyingassetproductid", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_of_dynamic_price_range = ProtoField.new("Upper Limit Of Dynamic Price Range", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitofdynamicpricerange", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_of_dynamic_price_range = ProtoField.new("Upper Limit Of Dynamic Price Range", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitofdynamicpricerange", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_quantity = ProtoField.new("Upper Limit Quantity", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitquantity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_limit_quantity_for_block_trade = ProtoField.new("Upper Limit Quantity For Block Trade", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperlimitquantityforblocktrade", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_1_st_stage = ProtoField.new("Upper Price Limit 1 St Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit1ststage", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_2_nd_stage = ProtoField.new("Upper Price Limit 2 Nd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit2ndstage", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_3_rd_stage = ProtoField.new("Upper Price Limit 3 Rd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit3rdstage", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_1_st_stage = ProtoField.new("Upper Price Limit 1 St Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit1ststage", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_2_nd_stage = ProtoField.new("Upper Price Limit 2 Nd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit2ndstage", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.upper_price_limit_3_rd_stage = ProtoField.new("Upper Price Limit 3 Rd Stage", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.upperpricelimit3rdstage", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_amount = ProtoField.new("Yesterdays Accumulated Trading Amount", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.yesterdaysaccumulatedtradingamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_value = ProtoField.new("Yesterdays Accumulated Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.yesterdaysaccumulatedtradingvalue", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.yesterdaysclosingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.yesterdaysclosingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.yesterdays_closing_price_type_code = ProtoField.new("Yesterdays Closing Price Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.yesterdaysclosingpricetypecode", ftypes.STRING)
 
 -- Koscom MdcsRealtime NightDerivatives Exture 2.020 Framing
@@ -334,6 +335,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_settled_pr
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.options_base_price_of_clearing_margins_message = ProtoField.new("Options Base Price Of Clearing Margins Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.optionsbasepriceofclearingmarginsmessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.options_implied_volatility_message = ProtoField.new("Options Implied Volatility Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.optionsimpliedvolatilitymessage", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.options_sensitivity_message = ProtoField.new("Options Sensitivity Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.optionssensitivitymessage", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.polling_data_message = ProtoField.new("Polling Data Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.pollingdatamessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Koscom MdcsRealtime NightDerivatives Exture 2.020 Formatting
@@ -542,10 +544,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.siz
 
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Trading Value: "..text
@@ -604,10 +619,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.adjusted_base_price.size = 18
 
 -- Display: Adjusted Base Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.adjusted_base_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.adjusted_base_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.adjusted_base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Adjusted Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Adjusted Base Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Adjusted Base Price: "..text.." (expected 8 places)"
   end
 
   return "Adjusted Base Price: "..text
@@ -762,8 +790,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size = 9
 
 -- Display: Ask Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.display = function(value)
-  return "Ask Level 1 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 1 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 1 Price: No Value"
+  end
+
+  return "Ask Level 1 Price: "..text
 end
 
 -- Dissect: Ask Level 1 Price
@@ -773,7 +813,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.display(value, buffer, offset, packet, parent)
@@ -846,8 +886,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size = 9
 
 -- Display: Ask Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.display = function(value)
-  return "Ask Level 10 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 10 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 10 Price: No Value"
+  end
+
+  return "Ask Level 10 Price: "..text
 end
 
 -- Dissect: Ask Level 10 Price
@@ -857,7 +909,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.display(value, buffer, offset, packet, parent)
@@ -930,8 +982,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size = 9
 
 -- Display: Ask Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.display = function(value)
-  return "Ask Level 2 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 2 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 2 Price: No Value"
+  end
+
+  return "Ask Level 2 Price: "..text
 end
 
 -- Dissect: Ask Level 2 Price
@@ -941,7 +1005,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.display(value, buffer, offset, packet, parent)
@@ -1014,8 +1078,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size = 9
 
 -- Display: Ask Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.display = function(value)
-  return "Ask Level 3 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 3 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 3 Price: No Value"
+  end
+
+  return "Ask Level 3 Price: "..text
 end
 
 -- Dissect: Ask Level 3 Price
@@ -1025,7 +1101,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.display(value, buffer, offset, packet, parent)
@@ -1098,8 +1174,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size = 9
 
 -- Display: Ask Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.display = function(value)
-  return "Ask Level 4 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 4 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 4 Price: No Value"
+  end
+
+  return "Ask Level 4 Price: "..text
 end
 
 -- Dissect: Ask Level 4 Price
@@ -1109,7 +1197,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.display(value, buffer, offset, packet, parent)
@@ -1182,8 +1270,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size = 9
 
 -- Display: Ask Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.display = function(value)
-  return "Ask Level 5 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 5 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 5 Price: No Value"
+  end
+
+  return "Ask Level 5 Price: "..text
 end
 
 -- Dissect: Ask Level 5 Price
@@ -1193,7 +1293,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.display(value, buffer, offset, packet, parent)
@@ -1266,8 +1366,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size = 9
 
 -- Display: Ask Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.display = function(value)
-  return "Ask Level 6 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 6 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 6 Price: No Value"
+  end
+
+  return "Ask Level 6 Price: "..text
 end
 
 -- Dissect: Ask Level 6 Price
@@ -1277,7 +1389,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.display(value, buffer, offset, packet, parent)
@@ -1350,8 +1462,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size = 9
 
 -- Display: Ask Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.display = function(value)
-  return "Ask Level 7 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 7 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 7 Price: No Value"
+  end
+
+  return "Ask Level 7 Price: "..text
 end
 
 -- Dissect: Ask Level 7 Price
@@ -1361,7 +1485,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.display(value, buffer, offset, packet, parent)
@@ -1434,8 +1558,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size = 9
 
 -- Display: Ask Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.display = function(value)
-  return "Ask Level 8 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 8 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 8 Price: No Value"
+  end
+
+  return "Ask Level 8 Price: "..text
 end
 
 -- Dissect: Ask Level 8 Price
@@ -1445,7 +1581,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.display(value, buffer, offset, packet, parent)
@@ -1518,8 +1654,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size = 9
 
 -- Display: Ask Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.display = function(value)
-  return "Ask Level 9 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 9 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 9 Price: No Value"
+  end
+
+  return "Ask Level 9 Price: "..text
 end
 
 -- Dissect: Ask Level 9 Price
@@ -1529,7 +1677,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.display(value, buffer, offset, packet, parent)
@@ -1631,10 +1779,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_value.size = 22
 
 -- Display: Ask Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value: "..text
@@ -1692,8 +1853,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.size = 11
 
 -- Display: Atm
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.display = function(value)
-  return "Atm: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Atm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Atm: No Value"
+  end
+
+  return "Atm: "..text
 end
 
 -- Dissect: Atm
@@ -1703,7 +1876,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.atm.display(value, buffer, offset, packet, parent)
@@ -1766,8 +1939,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.size = 11
 
 -- Display: Base Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.display = function(value)
-  return "Base Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Base Price: No Value"
+  end
+
+  return "Base Price: "..text
 end
 
 -- Dissect: Base Price
@@ -1777,7 +1962,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price.display(value, buffer, offset, packet, parent)
@@ -1841,10 +2026,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price_of_clearing_margin
 
 -- Display: Base Price Of Clearing Margins
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price_of_clearing_margins.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price_of_clearing_margins.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_price_of_clearing_margins.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price Of Clearing Margins: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Base Price Of Clearing Margins: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Base Price Of Clearing Margins: "..text.." (expected 8 places)"
   end
 
   return "Base Price Of Clearing Margins: "..text
@@ -1944,10 +2142,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_theoretical_price.size =
 
 -- Display: Base Theoretical Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_theoretical_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_theoretical_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.base_theoretical_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Theoretical Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Base Theoretical Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Base Theoretical Price: "..text.." (expected 6 places)"
   end
 
   return "Base Theoretical Price: "..text
@@ -2033,8 +2244,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size = 9
 
 -- Display: Bid Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.display = function(value)
-  return "Bid Level 1 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 1 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 1 Price: No Value"
+  end
+
+  return "Bid Level 1 Price: "..text
 end
 
 -- Dissect: Bid Level 1 Price
@@ -2044,7 +2267,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -2117,8 +2340,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size = 9
 
 -- Display: Bid Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.display = function(value)
-  return "Bid Level 10 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 10 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 10 Price: No Value"
+  end
+
+  return "Bid Level 10 Price: "..text
 end
 
 -- Dissect: Bid Level 10 Price
@@ -2128,7 +2363,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.display(value, buffer, offset, packet, parent)
@@ -2201,8 +2436,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size = 9
 
 -- Display: Bid Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.display = function(value)
-  return "Bid Level 2 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 2 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 2 Price: No Value"
+  end
+
+  return "Bid Level 2 Price: "..text
 end
 
 -- Dissect: Bid Level 2 Price
@@ -2212,7 +2459,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -2285,8 +2532,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size = 9
 
 -- Display: Bid Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.display = function(value)
-  return "Bid Level 3 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 3 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 3 Price: No Value"
+  end
+
+  return "Bid Level 3 Price: "..text
 end
 
 -- Dissect: Bid Level 3 Price
@@ -2296,7 +2555,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -2369,8 +2628,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size = 9
 
 -- Display: Bid Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.display = function(value)
-  return "Bid Level 4 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 4 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 4 Price: No Value"
+  end
+
+  return "Bid Level 4 Price: "..text
 end
 
 -- Dissect: Bid Level 4 Price
@@ -2380,7 +2651,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -2453,8 +2724,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size = 9
 
 -- Display: Bid Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.display = function(value)
-  return "Bid Level 5 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 5 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 5 Price: No Value"
+  end
+
+  return "Bid Level 5 Price: "..text
 end
 
 -- Dissect: Bid Level 5 Price
@@ -2464,7 +2747,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -2537,8 +2820,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size = 9
 
 -- Display: Bid Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.display = function(value)
-  return "Bid Level 6 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 6 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 6 Price: No Value"
+  end
+
+  return "Bid Level 6 Price: "..text
 end
 
 -- Dissect: Bid Level 6 Price
@@ -2548,7 +2843,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.display(value, buffer, offset, packet, parent)
@@ -2621,8 +2916,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size = 9
 
 -- Display: Bid Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.display = function(value)
-  return "Bid Level 7 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 7 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 7 Price: No Value"
+  end
+
+  return "Bid Level 7 Price: "..text
 end
 
 -- Dissect: Bid Level 7 Price
@@ -2632,7 +2939,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.display(value, buffer, offset, packet, parent)
@@ -2705,8 +3012,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size = 9
 
 -- Display: Bid Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.display = function(value)
-  return "Bid Level 8 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 8 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 8 Price: No Value"
+  end
+
+  return "Bid Level 8 Price: "..text
 end
 
 -- Dissect: Bid Level 8 Price
@@ -2716,7 +3035,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.display(value, buffer, offset, packet, parent)
@@ -2789,8 +3108,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size = 9
 
 -- Display: Bid Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.display = function(value)
-  return "Bid Level 9 Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 9 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 9 Price: No Value"
+  end
+
+  return "Bid Level 9 Price: "..text
 end
 
 -- Dissect: Bid Level 9 Price
@@ -2800,7 +3131,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.display(value, buffer, offset, packet, parent)
@@ -2902,10 +3233,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_value.size = 22
 
 -- Display: Bid Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value: "..text
@@ -3048,10 +3392,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bis_yield_ratio.size = 9
 
 -- Display: Bis Yield Ratio
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.bis_yield_ratio.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bis_yield_ratio.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bis_yield_ratio.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bis Yield Ratio: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bis Yield Ratio: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 5 then
+    return "Bis Yield Ratio: "..text.." (expected 5 places)"
   end
 
   return "Bis Yield Ratio: "..text
@@ -3298,10 +3655,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.call_averaged_implied_volatil
 
 -- Display: Call Averaged Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.call_averaged_implied_volatility.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.call_averaged_implied_volatility.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.call_averaged_implied_volatility.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Averaged Implied Volatility: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Averaged Implied Volatility: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Call Averaged Implied Volatility: "..text.." (expected 4 places)"
   end
 
   return "Call Averaged Implied Volatility: "..text
@@ -3331,8 +3701,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.size = 9
 
 -- Display: Closing Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.display = function(value)
-  return "Closing Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price: No Value"
+  end
+
+  return "Closing Price: "..text
 end
 
 -- Dissect: Closing Price
@@ -3342,7 +3724,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price.display(value, buffer, offset, packet, parent)
@@ -3359,8 +3741,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_a
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_asset.size = 11
 
 -- Display: Closing Price Of Underlying Asset
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_asset.display = function(value)
-  return "Closing Price Of Underlying Asset: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_asset.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_asset.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price Of Underlying Asset: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Of Underlying Asset: No Value"
+  end
+
+  return "Closing Price Of Underlying Asset: "..text
 end
 
 -- Dissect: Closing Price Of Underlying Asset
@@ -3370,7 +3764,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_a
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.closing_price_of_underlying_asset.display(value, buffer, offset, packet, parent)
@@ -3439,10 +3833,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.size = 22
 
 -- Display: Conversion Factor
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Conversion Factor: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Conversion Factor: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Conversion Factor: "..text.." (expected 8 places)"
   end
 
   return "Conversion Factor: "..text
@@ -3461,6 +3868,40 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.dissect = f
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.conversion_factor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.conversion_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Time 1 Minute Interval
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval = {}
+
+-- Size: Current Time 1 Minute Interval
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.size = 4
+
+-- Display: Current Time 1 Minute Interval
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.display = function(value)
+  if #value < 4 then
+    return "Current Time 1 Minute Interval: "..value
+  end
+
+  local hour = value:sub(1, 2)
+  local minute = value:sub(3, 4)
+
+  if minute:match("^%s*$") then
+    return "Current Time 1 Minute Interval: "..hour
+  end
+
+  return "Current Time 1 Minute Interval: "..hour..":"..minute
+end
+
+-- Dissect: Current Time 1 Minute Interval
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_020.text_encoding)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.current_time_1_minute_interval, range, value, display)
 
   return offset + length, value
 end
@@ -3519,10 +3960,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.denominator_coefficient_of_ad
 
 -- Display: Denominator Coefficient Of Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.denominator_coefficient_of_adjustment.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.denominator_coefficient_of_adjustment.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.denominator_coefficient_of_adjustment.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Denominator Coefficient Of Adjustment: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Denominator Coefficient Of Adjustment: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Denominator Coefficient Of Adjustment: "..text.." (expected 8 places)"
   end
 
   return "Denominator Coefficient Of Adjustment: "..text
@@ -3650,10 +4104,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.disparate_ratio.size = 13
 
 -- Display: Disparate Ratio
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.disparate_ratio.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.disparate_ratio.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.disparate_ratio.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Disparate Ratio: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Disparate Ratio: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Disparate Ratio: "..text.." (expected 6 places)"
   end
 
   return "Disparate Ratio: "..text
@@ -3683,8 +4150,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_tradin
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_trading_price.size = 9
 
 -- Display: Distant Month Contract Trading Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_trading_price.display = function(value)
-  return "Distant Month Contract Trading Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Distant Month Contract Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Distant Month Contract Trading Price: No Value"
+  end
+
+  return "Distant Month Contract Trading Price: "..text
 end
 
 -- Dissect: Distant Month Contract Trading Price
@@ -3694,7 +4173,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_tradin
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.distant_month_contract_trading_price.display(value, buffer, offset, packet, parent)
@@ -3712,10 +4191,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.dividend_value_for_settlement
 
 -- Display: Dividend Value For Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.dividend_value_for_settlement_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.dividend_value_for_settlement_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.dividend_value_for_settlement_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Dividend Value For Settlement Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Dividend Value For Settlement Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Dividend Value For Settlement Price: "..text.." (expected 6 places)"
   end
 
   return "Dividend Value For Settlement Price: "..text
@@ -3792,10 +4284,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.efp_trading_value.size = 22
 
 -- Display: Efp Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.efp_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.efp_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.efp_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Efp Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Efp Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Efp Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Efp Trading Value: "..text
@@ -3854,14 +4359,18 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.size = 1
 
 -- Display: End Keyword
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.display = function(value)
-  return "End Keyword: "..value
+  if value == 255 then
+    return "End Keyword: End Of Message (255)"
+  end
+
+  return "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_020.text_encoding)
+  local value = range:uint()
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.end_keyword, range, value, display)
@@ -3899,8 +4408,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.size = 9
 
 -- Display: Estimated Trading Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.display = function(value)
-  return "Estimated Trading Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Estimated Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Estimated Trading Price: No Value"
+  end
+
+  return "Estimated Trading Price: "..text
 end
 
 -- Dissect: Estimated Trading Price
@@ -3910,7 +4431,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.estimated_trading_price.display(value, buffer, offset, packet, parent)
@@ -3956,10 +4477,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price.size = 18
 
 -- Display: Exercise Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Exercise Price: "..text.." (expected 8 places)"
   end
 
   return "Exercise Price: "..text
@@ -3990,10 +4524,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_after_adjustme
 
 -- Display: Exercise Price After Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_after_adjustment.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_after_adjustment.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_after_adjustment.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price After Adjustment: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price After Adjustment: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Exercise Price After Adjustment: "..text.." (expected 8 places)"
   end
 
   return "Exercise Price After Adjustment: "..text
@@ -4024,10 +4571,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_before_adjustm
 
 -- Display: Exercise Price Before Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_before_adjustment.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_before_adjustment.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_before_adjustment.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price Before Adjustment: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price Before Adjustment: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Exercise Price Before Adjustment: "..text.." (expected 8 places)"
   end
 
   return "Exercise Price Before Adjustment: "..text
@@ -4058,10 +4618,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_for_displaying
 
 -- Display: Exercise Price For Displaying Not For Trading
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_for_displaying_not_for_trading.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_for_displaying_not_for_trading.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.exercise_price_for_displaying_not_for_trading.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price For Displaying Not For Trading: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price For Displaying Not For Trading: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Exercise Price For Displaying Not For Trading: "..text.." (expected 8 places)"
   end
 
   return "Exercise Price For Displaying Not For Trading: "..text
@@ -4211,8 +4784,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lowe
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lower_limit_price.size = 11
 
 -- Display: Futures Circuit Breakers Lower Limit Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lower_limit_price.display = function(value)
-  return "Futures Circuit Breakers Lower Limit Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lower_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lower_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Futures Circuit Breakers Lower Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Futures Circuit Breakers Lower Limit Price: No Value"
+  end
+
+  return "Futures Circuit Breakers Lower Limit Price: "..text
 end
 
 -- Dissect: Futures Circuit Breakers Lower Limit Price
@@ -4222,7 +4807,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lowe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -4239,8 +4824,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_uppe
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_upper_limit_price.size = 11
 
 -- Display: Futures Circuit Breakers Upper Limit Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_upper_limit_price.display = function(value)
-  return "Futures Circuit Breakers Upper Limit Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_upper_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_upper_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Futures Circuit Breakers Upper Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Futures Circuit Breakers Upper Limit Price: No Value"
+  end
+
+  return "Futures Circuit Breakers Upper Limit Price: "..text
 end
 
 -- Dissect: Futures Circuit Breakers Upper Limit Price
@@ -4250,7 +4847,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_uppe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_circuit_breakers_upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -4290,8 +4887,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.size = 11
 
 -- Display: Gap Between Lower Limit Price Of Dynamic Price And Trading Value
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.display = function(value)
-  return "Gap Between Lower Limit Price Of Dynamic Price And Trading Value: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Gap Between Lower Limit Price Of Dynamic Price And Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Gap Between Lower Limit Price Of Dynamic Price And Trading Value: No Value"
+  end
+
+  return "Gap Between Lower Limit Price Of Dynamic Price And Trading Value: "..text
 end
 
 -- Dissect: Gap Between Lower Limit Price Of Dynamic Price And Trading Value
@@ -4301,7 +4910,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.display(value, buffer, offset, packet, parent)
@@ -4318,8 +4927,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.size = 11
 
 -- Display: Gap Between Upper Limit Price Of Dynamic Price And Trading Value
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.display = function(value)
-  return "Gap Between Upper Limit Price Of Dynamic Price And Trading Value: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Gap Between Upper Limit Price Of Dynamic Price And Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Gap Between Upper Limit Price Of Dynamic Price And Trading Value: No Value"
+  end
+
+  return "Gap Between Upper Limit Price Of Dynamic Price And Trading Value: "..text
 end
 
 -- Dissect: Gap Between Upper Limit Price Of Dynamic Price And Trading Value
@@ -4329,7 +4950,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.display(value, buffer, offset, packet, parent)
@@ -4347,10 +4968,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.historical_volatility_90_days
 
 -- Display: Historical Volatility 90 Days
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.historical_volatility_90_days.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.historical_volatility_90_days.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.historical_volatility_90_days.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Historical Volatility 90 Days: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Historical Volatility 90 Days: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Historical Volatility 90 Days: "..text.." (expected 4 places)"
   end
 
   return "Historical Volatility 90 Days: "..text
@@ -4381,10 +5015,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.implied_volatility.size = 11
 
 -- Display: Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.implied_volatility.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.implied_volatility.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.implied_volatility.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Implied Volatility: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Implied Volatility: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Implied Volatility: "..text.." (expected 4 places)"
   end
 
   return "Implied Volatility: "..text
@@ -4461,10 +5108,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.interest_rate.size = 11
 
 -- Display: Interest Rate
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.interest_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.interest_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.interest_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Interest Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Interest Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Interest Rate: "..text.." (expected 6 places)"
   end
 
   return "Interest Rate: "..text
@@ -4913,8 +5573,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size = 9
 
 -- Display: Lower Limit Of Dynamic Price Range
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.display = function(value)
-  return "Lower Limit Of Dynamic Price Range: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Of Dynamic Price Range: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Limit Of Dynamic Price Range: No Value"
+  end
+
+  return "Lower Limit Of Dynamic Price Range: "..text
 end
 
 -- Dissect: Lower Limit Of Dynamic Price Range
@@ -4924,7 +5596,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.display(value, buffer, offset, packet, parent)
@@ -4941,8 +5613,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.size = 9
 
 -- Display: Lower Limit Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.display = function(value)
-  return "Lower Limit Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Limit Price: No Value"
+  end
+
+  return "Lower Limit Price: "..text
 end
 
 -- Dissect: Lower Limit Price
@@ -4952,7 +5636,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -4970,10 +5654,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity.size = 2
 
 -- Display: Lower Limit Quantity
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Quantity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Lower Limit Quantity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Lower Limit Quantity: "..text.." (expected 3 places)"
   end
 
   return "Lower Limit Quantity: "..text
@@ -5004,10 +5701,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity_for_bloc
 
 -- Display: Lower Limit Quantity For Block Trade
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity_for_block_trade.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity_for_block_trade.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_quantity_for_block_trade.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Quantity For Block Trade: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Lower Limit Quantity For Block Trade: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Lower Limit Quantity For Block Trade: "..text.." (expected 3 places)"
   end
 
   return "Lower Limit Quantity For Block Trade: "..text
@@ -5037,8 +5747,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.size = 11
 
 -- Display: Lower Price Limit 1 St Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.display = function(value)
-  return "Lower Price Limit 1 St Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Price Limit 1 St Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Price Limit 1 St Stage: No Value"
+  end
+
+  return "Lower Price Limit 1 St Stage: "..text
 end
 
 -- Dissect: Lower Price Limit 1 St Stage
@@ -5048,7 +5770,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_1_st_stage.display(value, buffer, offset, packet, parent)
@@ -5065,8 +5787,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.size = 11
 
 -- Display: Lower Price Limit 2 Nd Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.display = function(value)
-  return "Lower Price Limit 2 Nd Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Price Limit 2 Nd Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Price Limit 2 Nd Stage: No Value"
+  end
+
+  return "Lower Price Limit 2 Nd Stage: "..text
 end
 
 -- Dissect: Lower Price Limit 2 Nd Stage
@@ -5076,7 +5810,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_2_nd_stage.display(value, buffer, offset, packet, parent)
@@ -5093,8 +5827,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.size = 11
 
 -- Display: Lower Price Limit 3 Rd Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.display = function(value)
-  return "Lower Price Limit 3 Rd Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Price Limit 3 Rd Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Price Limit 3 Rd Stage: No Value"
+  end
+
+  return "Lower Price Limit 3 Rd Stage: "..text
 end
 
 -- Dissect: Lower Price Limit 3 Rd Stage
@@ -5104,7 +5850,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_price_limit_3_rd_stage.display(value, buffer, offset, packet, parent)
@@ -5242,311 +5988,314 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.size = 5
 
 -- Display: Message Code
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = function(value)
-  if value == "B601F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B601F)"
+  if value == "I2000" then
+    return "Message Code: Polling Data Message (I2000)"
   end
-  if value == "B602F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B602F)"
+  if value == "B601V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B601V)"
   end
-  if value == "B603F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B603F)"
+  if value == "B602V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B602V)"
   end
-  if value == "B606F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B606F)"
+  if value == "B603V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B603V)"
   end
-  if value == "B607F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B607F)"
+  if value == "B606V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B606V)"
   end
-  if value == "B608F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B608F)"
+  if value == "B607V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B607V)"
   end
-  if value == "B609F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B609F)"
+  if value == "B608V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B608V)"
   end
-  if value == "B610F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B610F)"
+  if value == "B609V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B609V)"
   end
-  if value == "B611F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B611F)"
+  if value == "B610V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B610V)"
   end
-  if value == "B612F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B612F)"
+  if value == "B611V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B611V)"
   end
-  if value == "B613F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B613F)"
+  if value == "B612V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B612V)"
   end
-  if value == "B615F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B615F)"
+  if value == "B613V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B613V)"
   end
-  if value == "B616F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B616F)"
+  if value == "B615V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B615V)"
   end
-  if value == "B617F" then
-    return "Message Code: Derivatives Quote Five Levels Message (B617F)"
+  if value == "B616V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B616V)"
   end
-  if value == "B604F" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B604F)"
+  if value == "B617V" then
+    return "Message Code: Derivatives Quote Five Levels Message (B617V)"
   end
-  if value == "B605F" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B605F)"
+  if value == "B604V" then
+    return "Message Code: Derivatives Quote Ten Levels Message (B604V)"
   end
-  if value == "B618F" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B618F)"
+  if value == "B605V" then
+    return "Message Code: Derivatives Quote Ten Levels Message (B605V)"
   end
-  if value == "B201F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B201F)"
+  if value == "B618V" then
+    return "Message Code: Derivatives Quote Ten Levels Message (B618V)"
   end
-  if value == "B202F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B202F)"
+  if value == "B201V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B201V)"
   end
-  if value == "B203F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B203F)"
+  if value == "B202V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B202V)"
   end
-  if value == "B206F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B206F)"
+  if value == "B203V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B203V)"
   end
-  if value == "B207F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B207F)"
+  if value == "B206V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B206V)"
   end
-  if value == "B208F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B208F)"
+  if value == "B207V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B207V)"
   end
-  if value == "B209F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B209F)"
+  if value == "B208V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B208V)"
   end
-  if value == "B210F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B210F)"
+  if value == "B209V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B209V)"
   end
-  if value == "B211F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B211F)"
+  if value == "B210V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B210V)"
   end
-  if value == "B212F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B212F)"
+  if value == "B211V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B211V)"
   end
-  if value == "B213F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B213F)"
+  if value == "B212V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B212V)"
   end
-  if value == "B215F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B215F)"
+  if value == "B213V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B213V)"
   end
-  if value == "B216F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B216F)"
+  if value == "B215V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B215V)"
   end
-  if value == "B217F" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B217F)"
+  if value == "B216V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B216V)"
   end
-  if value == "B204F" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B204F)"
+  if value == "B217V" then
+    return "Message Code: Derivatives Snapshot Five Levels Message (B217V)"
   end
-  if value == "B205F" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B205F)"
+  if value == "B204V" then
+    return "Message Code: Derivatives Snapshot Ten Levels Message (B204V)"
   end
-  if value == "B218F" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B218F)"
+  if value == "B205V" then
+    return "Message Code: Derivatives Snapshot Ten Levels Message (B205V)"
   end
-  if value == "A301F" then
-    return "Message Code: Derivatives Order Filled Message (A301F)"
+  if value == "B218V" then
+    return "Message Code: Derivatives Snapshot Ten Levels Message (B218V)"
   end
-  if value == "A302F" then
-    return "Message Code: Derivatives Order Filled Message (A302F)"
+  if value == "A301V" then
+    return "Message Code: Derivatives Order Filled Message (A301V)"
   end
-  if value == "A303F" then
-    return "Message Code: Derivatives Order Filled Message (A303F)"
+  if value == "A302V" then
+    return "Message Code: Derivatives Order Filled Message (A302V)"
   end
-  if value == "A304F" then
-    return "Message Code: Derivatives Order Filled Message (A304F)"
+  if value == "A303V" then
+    return "Message Code: Derivatives Order Filled Message (A303V)"
   end
-  if value == "A305F" then
-    return "Message Code: Derivatives Order Filled Message (A305F)"
+  if value == "A304V" then
+    return "Message Code: Derivatives Order Filled Message (A304V)"
   end
-  if value == "A306F" then
-    return "Message Code: Derivatives Order Filled Message (A306F)"
+  if value == "A305V" then
+    return "Message Code: Derivatives Order Filled Message (A305V)"
   end
-  if value == "A307F" then
-    return "Message Code: Derivatives Order Filled Message (A307F)"
+  if value == "A306V" then
+    return "Message Code: Derivatives Order Filled Message (A306V)"
   end
-  if value == "A308F" then
-    return "Message Code: Derivatives Order Filled Message (A308F)"
+  if value == "A307V" then
+    return "Message Code: Derivatives Order Filled Message (A307V)"
   end
-  if value == "A309F" then
-    return "Message Code: Derivatives Order Filled Message (A309F)"
+  if value == "A308V" then
+    return "Message Code: Derivatives Order Filled Message (A308V)"
   end
-  if value == "A310F" then
-    return "Message Code: Derivatives Order Filled Message (A310F)"
+  if value == "A309V" then
+    return "Message Code: Derivatives Order Filled Message (A309V)"
   end
-  if value == "A311F" then
-    return "Message Code: Derivatives Order Filled Message (A311F)"
+  if value == "A310V" then
+    return "Message Code: Derivatives Order Filled Message (A310V)"
   end
-  if value == "A312F" then
-    return "Message Code: Derivatives Order Filled Message (A312F)"
+  if value == "A311V" then
+    return "Message Code: Derivatives Order Filled Message (A311V)"
   end
-  if value == "A313F" then
-    return "Message Code: Derivatives Order Filled Message (A313F)"
+  if value == "A312V" then
+    return "Message Code: Derivatives Order Filled Message (A312V)"
   end
-  if value == "A315F" then
-    return "Message Code: Derivatives Order Filled Message (A315F)"
+  if value == "A313V" then
+    return "Message Code: Derivatives Order Filled Message (A313V)"
   end
-  if value == "A316F" then
-    return "Message Code: Derivatives Order Filled Message (A316F)"
+  if value == "A315V" then
+    return "Message Code: Derivatives Order Filled Message (A315V)"
   end
-  if value == "A317F" then
-    return "Message Code: Derivatives Order Filled Message (A317F)"
+  if value == "A316V" then
+    return "Message Code: Derivatives Order Filled Message (A316V)"
   end
-  if value == "A318F" then
-    return "Message Code: Derivatives Order Filled Message (A318F)"
+  if value == "A317V" then
+    return "Message Code: Derivatives Order Filled Message (A317V)"
   end
-  if value == "G701F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G701F)"
+  if value == "A318V" then
+    return "Message Code: Derivatives Order Filled Message (A318V)"
   end
-  if value == "G702F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G702F)"
+  if value == "G701V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G701V)"
   end
-  if value == "G703F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G703F)"
+  if value == "G702V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G702V)"
   end
-  if value == "G706F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G706F)"
+  if value == "G703V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G703V)"
   end
-  if value == "G707F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G707F)"
+  if value == "G706V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G706V)"
   end
-  if value == "G708F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G708F)"
+  if value == "G707V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G707V)"
   end
-  if value == "G709F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G709F)"
+  if value == "G708V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G708V)"
   end
-  if value == "G710F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G710F)"
+  if value == "G709V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G709V)"
   end
-  if value == "G711F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G711F)"
+  if value == "G710V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G710V)"
   end
-  if value == "G712F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G712F)"
+  if value == "G711V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G711V)"
   end
-  if value == "G713F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G713F)"
+  if value == "G712V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G712V)"
   end
-  if value == "G715F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G715F)"
+  if value == "G713V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G713V)"
   end
-  if value == "G716F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G716F)"
+  if value == "G715V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G715V)"
   end
-  if value == "G717F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G717F)"
+  if value == "G716V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G716V)"
   end
-  if value == "G704F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G704F)"
+  if value == "G717V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G717V)"
   end
-  if value == "G705F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G705F)"
+  if value == "G704V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G704V)"
   end
-  if value == "G718F" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G718F)"
+  if value == "G705V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G705V)"
   end
-  if value == "R101F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R101F)"
+  if value == "G718V" then
+    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G718V)"
   end
-  if value == "R102F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R102F)"
+  if value == "R101V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R101V)"
   end
-  if value == "R103F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R103F)"
+  if value == "R102V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R102V)"
   end
-  if value == "R106F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R106F)"
+  if value == "R103V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R103V)"
   end
-  if value == "R107F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R107F)"
+  if value == "R106V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R106V)"
   end
-  if value == "R108F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R108F)"
+  if value == "R107V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R107V)"
   end
-  if value == "R109F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R109F)"
+  if value == "R108V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R108V)"
   end
-  if value == "R110F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R110F)"
+  if value == "R109V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R109V)"
   end
-  if value == "R111F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R111F)"
+  if value == "R110V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R110V)"
   end
-  if value == "R112F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R112F)"
+  if value == "R111V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R111V)"
   end
-  if value == "R113F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R113F)"
+  if value == "R112V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R112V)"
   end
-  if value == "R115F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R115F)"
+  if value == "R113V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R113V)"
   end
-  if value == "R116F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R116F)"
+  if value == "R115V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R115V)"
   end
-  if value == "R117F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R117F)"
+  if value == "R116V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R116V)"
   end
-  if value == "R104F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R104F)"
+  if value == "R117V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R117V)"
   end
-  if value == "R105F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R105F)"
+  if value == "R104V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R104V)"
   end
-  if value == "R118F" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R118F)"
+  if value == "R105V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R105V)"
   end
-  if value == "C401F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C401F)"
+  if value == "R118V" then
+    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R118V)"
   end
-  if value == "C402F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C402F)"
+  if value == "C401V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C401V)"
   end
-  if value == "C403F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C403F)"
+  if value == "C402V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C402V)"
   end
-  if value == "C404F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C404F)"
+  if value == "C403V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C403V)"
   end
-  if value == "C405F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C405F)"
+  if value == "C404V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C404V)"
   end
-  if value == "C406F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C406F)"
+  if value == "C405V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C405V)"
   end
-  if value == "C407F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C407F)"
+  if value == "C406V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C406V)"
   end
-  if value == "C408F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C408F)"
+  if value == "C407V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C407V)"
   end
-  if value == "C409F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C409F)"
+  if value == "C408V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C408V)"
   end
-  if value == "C410F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C410F)"
+  if value == "C409V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C409V)"
   end
-  if value == "C411F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C411F)"
+  if value == "C410V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C410V)"
   end
-  if value == "C412F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C412F)"
+  if value == "C411V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C411V)"
   end
-  if value == "C413F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C413F)"
+  if value == "C412V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C412V)"
   end
-  if value == "C415F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C415F)"
+  if value == "C413V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C413V)"
   end
-  if value == "C416F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C416F)"
+  if value == "C415V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C415V)"
   end
-  if value == "C417F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C417F)"
+  if value == "C416V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C416V)"
   end
-  if value == "C418F" then
-    return "Message Code: Derivatives Negotiated Trade Message (C418F)"
+  if value == "C417V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C417V)"
+  end
+  if value == "C418V" then
+    return "Message Code: Derivatives Negotiated Trade Message (C418V)"
   end
   if value == "A701S" then
     return "Message Code: Derivatives Market Operation Ts Message (A701S)"
@@ -5581,56 +6330,56 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "A701R" then
     return "Message Code: Derivatives Market Operation Ts Message (A701R)"
   end
-  if value == "A701F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701F)"
+  if value == "A701V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A701V)"
   end
-  if value == "A702F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A702F)"
+  if value == "A702V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A702V)"
   end
-  if value == "A703F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A703F)"
+  if value == "A703V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A703V)"
   end
-  if value == "A704F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A704F)"
+  if value == "A704V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A704V)"
   end
-  if value == "A705F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A705F)"
+  if value == "A705V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A705V)"
   end
-  if value == "A706F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A706F)"
+  if value == "A706V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A706V)"
   end
-  if value == "A707F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A707F)"
+  if value == "A707V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A707V)"
   end
-  if value == "A708F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A708F)"
+  if value == "A708V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A708V)"
   end
-  if value == "A709F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A709F)"
+  if value == "A709V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A709V)"
   end
-  if value == "A710F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A710F)"
+  if value == "A710V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A710V)"
   end
-  if value == "A711F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A711F)"
+  if value == "A711V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A711V)"
   end
-  if value == "A712F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A712F)"
+  if value == "A712V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A712V)"
   end
-  if value == "A713F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A713F)"
+  if value == "A713V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A713V)"
   end
-  if value == "A715F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A715F)"
+  if value == "A715V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A715V)"
   end
-  if value == "A716F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A716F)"
+  if value == "A716V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A716V)"
   end
-  if value == "A717F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A717F)"
+  if value == "A717V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A717V)"
   end
-  if value == "A718F" then
-    return "Message Code: Derivatives Market Operation Ts Message (A718F)"
+  if value == "A718V" then
+    return "Message Code: Derivatives Market Operation Ts Message (A718V)"
   end
   if value == "A701G" then
     return "Message Code: Derivatives Market Operation Ts Message (A701G)"
@@ -5638,56 +6387,56 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "A701E" then
     return "Message Code: Derivatives Market Operation Ts Message (A701E)"
   end
-  if value == "A601F" then
-    return "Message Code: Derivatives Issue Closing Message (A601F)"
+  if value == "A601V" then
+    return "Message Code: Derivatives Issue Closing Message (A601V)"
   end
-  if value == "A602F" then
-    return "Message Code: Derivatives Issue Closing Message (A602F)"
+  if value == "A602V" then
+    return "Message Code: Derivatives Issue Closing Message (A602V)"
   end
-  if value == "A603F" then
-    return "Message Code: Derivatives Issue Closing Message (A603F)"
+  if value == "A603V" then
+    return "Message Code: Derivatives Issue Closing Message (A603V)"
   end
-  if value == "A604F" then
-    return "Message Code: Derivatives Issue Closing Message (A604F)"
+  if value == "A604V" then
+    return "Message Code: Derivatives Issue Closing Message (A604V)"
   end
-  if value == "A605F" then
-    return "Message Code: Derivatives Issue Closing Message (A605F)"
+  if value == "A605V" then
+    return "Message Code: Derivatives Issue Closing Message (A605V)"
   end
-  if value == "A606F" then
-    return "Message Code: Derivatives Issue Closing Message (A606F)"
+  if value == "A606V" then
+    return "Message Code: Derivatives Issue Closing Message (A606V)"
   end
-  if value == "A607F" then
-    return "Message Code: Derivatives Issue Closing Message (A607F)"
+  if value == "A607V" then
+    return "Message Code: Derivatives Issue Closing Message (A607V)"
   end
-  if value == "A608F" then
-    return "Message Code: Derivatives Issue Closing Message (A608F)"
+  if value == "A608V" then
+    return "Message Code: Derivatives Issue Closing Message (A608V)"
   end
-  if value == "A609F" then
-    return "Message Code: Derivatives Issue Closing Message (A609F)"
+  if value == "A609V" then
+    return "Message Code: Derivatives Issue Closing Message (A609V)"
   end
-  if value == "A610F" then
-    return "Message Code: Derivatives Issue Closing Message (A610F)"
+  if value == "A610V" then
+    return "Message Code: Derivatives Issue Closing Message (A610V)"
   end
-  if value == "A611F" then
-    return "Message Code: Derivatives Issue Closing Message (A611F)"
+  if value == "A611V" then
+    return "Message Code: Derivatives Issue Closing Message (A611V)"
   end
-  if value == "A612F" then
-    return "Message Code: Derivatives Issue Closing Message (A612F)"
+  if value == "A612V" then
+    return "Message Code: Derivatives Issue Closing Message (A612V)"
   end
-  if value == "A613F" then
-    return "Message Code: Derivatives Issue Closing Message (A613F)"
+  if value == "A613V" then
+    return "Message Code: Derivatives Issue Closing Message (A613V)"
   end
-  if value == "A615F" then
-    return "Message Code: Derivatives Issue Closing Message (A615F)"
+  if value == "A615V" then
+    return "Message Code: Derivatives Issue Closing Message (A615V)"
   end
-  if value == "A616F" then
-    return "Message Code: Derivatives Issue Closing Message (A616F)"
+  if value == "A616V" then
+    return "Message Code: Derivatives Issue Closing Message (A616V)"
   end
-  if value == "A617F" then
-    return "Message Code: Derivatives Issue Closing Message (A617F)"
+  if value == "A617V" then
+    return "Message Code: Derivatives Issue Closing Message (A617V)"
   end
-  if value == "A618F" then
-    return "Message Code: Derivatives Issue Closing Message (A618F)"
+  if value == "A618V" then
+    return "Message Code: Derivatives Issue Closing Message (A618V)"
   end
   if value == "M401S" then
     return "Message Code: Derivatives Market Operation Schedule Message (M401S)"
@@ -5722,56 +6471,56 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "M401R" then
     return "Message Code: Derivatives Market Operation Schedule Message (M401R)"
   end
-  if value == "M401F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401F)"
+  if value == "M401V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M401V)"
   end
-  if value == "M402F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M402F)"
+  if value == "M402V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M402V)"
   end
-  if value == "M403F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M403F)"
+  if value == "M403V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M403V)"
   end
-  if value == "M404F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M404F)"
+  if value == "M404V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M404V)"
   end
-  if value == "M405F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M405F)"
+  if value == "M405V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M405V)"
   end
-  if value == "M406F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M406F)"
+  if value == "M406V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M406V)"
   end
-  if value == "M407F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M407F)"
+  if value == "M407V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M407V)"
   end
-  if value == "M408F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M408F)"
+  if value == "M408V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M408V)"
   end
-  if value == "M409F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M409F)"
+  if value == "M409V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M409V)"
   end
-  if value == "M410F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M410F)"
+  if value == "M410V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M410V)"
   end
-  if value == "M411F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M411F)"
+  if value == "M411V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M411V)"
   end
-  if value == "M412F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M412F)"
+  if value == "M412V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M412V)"
   end
-  if value == "M413F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M413F)"
+  if value == "M413V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M413V)"
   end
-  if value == "M415F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M415F)"
+  if value == "M415V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M415V)"
   end
-  if value == "M416F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M416F)"
+  if value == "M416V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M416V)"
   end
-  if value == "M417F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M417F)"
+  if value == "M417V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M417V)"
   end
-  if value == "M418F" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M418F)"
+  if value == "M418V" then
+    return "Message Code: Derivatives Market Operation Schedule Message (M418V)"
   end
   if value == "M401G" then
     return "Message Code: Derivatives Market Operation Schedule Message (M401G)"
@@ -5779,83 +6528,83 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "M401E" then
     return "Message Code: Derivatives Market Operation Schedule Message (M401E)"
   end
-  if value == "Q201F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q201F)"
+  if value == "Q201V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q201V)"
   end
-  if value == "Q202F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q202F)"
+  if value == "Q202V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q202V)"
   end
-  if value == "Q203F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q203F)"
+  if value == "Q203V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q203V)"
   end
-  if value == "Q204F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q204F)"
+  if value == "Q204V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q204V)"
   end
-  if value == "Q206F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q206F)"
+  if value == "Q206V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q206V)"
   end
-  if value == "Q208F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q208F)"
+  if value == "Q208V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q208V)"
   end
-  if value == "Q209F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q209F)"
+  if value == "Q209V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q209V)"
   end
-  if value == "Q210F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q210F)"
+  if value == "Q210V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q210V)"
   end
-  if value == "Q211F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q211F)"
+  if value == "Q211V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q211V)"
   end
-  if value == "Q212F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q212F)"
+  if value == "Q212V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q212V)"
   end
-  if value == "Q216F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q216F)"
+  if value == "Q216V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q216V)"
   end
-  if value == "Q217F" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q217F)"
+  if value == "Q217V" then
+    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q217V)"
   end
-  if value == "V101F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V101F)"
+  if value == "V101V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V101V)"
   end
-  if value == "V102F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V102F)"
+  if value == "V102V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V102V)"
   end
-  if value == "V103F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V103F)"
+  if value == "V103V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V103V)"
   end
-  if value == "V104F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V104F)"
+  if value == "V104V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V104V)"
   end
-  if value == "V105F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V105F)"
+  if value == "V105V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V105V)"
   end
-  if value == "V108F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V108F)"
+  if value == "V108V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V108V)"
   end
-  if value == "V109F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V109F)"
+  if value == "V109V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V109V)"
   end
-  if value == "V111F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V111F)"
+  if value == "V111V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V111V)"
   end
-  if value == "V112F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V112F)"
+  if value == "V112V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V112V)"
   end
-  if value == "V113F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V113F)"
+  if value == "V113V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V113V)"
   end
-  if value == "V115F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V115F)"
+  if value == "V115V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V115V)"
   end
-  if value == "V116F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V116F)"
+  if value == "V116V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V116V)"
   end
-  if value == "V117F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V117F)"
+  if value == "V117V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V117V)"
   end
-  if value == "V118F" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V118F)"
+  if value == "V118V" then
+    return "Message Code: Derivatives Price Limit Range Increase Message (V118V)"
   end
   if value == "O601S" then
     return "Message Code: Derivatives Quantity Allocation Message (O601S)"
@@ -5875,56 +6624,56 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "O601X" then
     return "Message Code: Derivatives Quantity Allocation Message (O601X)"
   end
-  if value == "O601F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O601F)"
+  if value == "O601V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O601V)"
   end
-  if value == "O602F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O602F)"
+  if value == "O602V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O602V)"
   end
-  if value == "O603F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O603F)"
+  if value == "O603V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O603V)"
   end
-  if value == "O604F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O604F)"
+  if value == "O604V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O604V)"
   end
-  if value == "O605F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O605F)"
+  if value == "O605V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O605V)"
   end
-  if value == "O606F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O606F)"
+  if value == "O606V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O606V)"
   end
-  if value == "O607F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O607F)"
+  if value == "O607V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O607V)"
   end
-  if value == "O608F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O608F)"
+  if value == "O608V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O608V)"
   end
-  if value == "O609F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O609F)"
+  if value == "O609V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O609V)"
   end
-  if value == "O610F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O610F)"
+  if value == "O610V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O610V)"
   end
-  if value == "O611F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O611F)"
+  if value == "O611V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O611V)"
   end
-  if value == "O612F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O612F)"
+  if value == "O612V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O612V)"
   end
-  if value == "O613F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O613F)"
+  if value == "O613V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O613V)"
   end
-  if value == "O615F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O615F)"
+  if value == "O615V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O615V)"
   end
-  if value == "O616F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O616F)"
+  if value == "O616V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O616V)"
   end
-  if value == "O617F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O617F)"
+  if value == "O617V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O617V)"
   end
-  if value == "O618F" then
-    return "Message Code: Derivatives Quantity Allocation Message (O618F)"
+  if value == "O618V" then
+    return "Message Code: Derivatives Quantity Allocation Message (O618V)"
   end
   if value == "IF01S" then
     return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01S)"
@@ -5944,320 +6693,320 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = functi
   if value == "IF01Q" then
     return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01Q)"
   end
-  if value == "IF01F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01F)"
+  if value == "IF01V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01V)"
   end
-  if value == "IF02F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF02F)"
+  if value == "IF02V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF02V)"
   end
-  if value == "IF03F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF03F)"
+  if value == "IF03V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF03V)"
   end
-  if value == "IF04F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF04F)"
+  if value == "IF04V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF04V)"
   end
-  if value == "IF05F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF05F)"
+  if value == "IF05V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF05V)"
   end
-  if value == "IF06F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF06F)"
+  if value == "IF06V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF06V)"
   end
-  if value == "IF07F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF07F)"
+  if value == "IF07V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF07V)"
   end
-  if value == "IF08F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF08F)"
+  if value == "IF08V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF08V)"
   end
-  if value == "IF09F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF09F)"
+  if value == "IF09V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF09V)"
   end
-  if value == "IF10F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF10F)"
+  if value == "IF10V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF10V)"
   end
-  if value == "IF11F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF11F)"
+  if value == "IF11V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF11V)"
   end
-  if value == "IF12F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF12F)"
+  if value == "IF12V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF12V)"
   end
-  if value == "IF13F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF13F)"
+  if value == "IF13V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF13V)"
   end
-  if value == "IF15F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF15F)"
+  if value == "IF15V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF15V)"
   end
-  if value == "IF16F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF16F)"
+  if value == "IF16V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF16V)"
   end
-  if value == "IF17F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF17F)"
+  if value == "IF17V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF17V)"
   end
-  if value == "IF18F" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF18F)"
+  if value == "IF18V" then
+    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF18V)"
   end
-  if value == "A001F" then
-    return "Message Code: Derivatives Batch Data Message (A001F)"
+  if value == "A001V" then
+    return "Message Code: Derivatives Batch Data Message (A001V)"
   end
-  if value == "A002F" then
-    return "Message Code: Derivatives Batch Data Message (A002F)"
+  if value == "A002V" then
+    return "Message Code: Derivatives Batch Data Message (A002V)"
   end
-  if value == "A003F" then
-    return "Message Code: Derivatives Batch Data Message (A003F)"
+  if value == "A003V" then
+    return "Message Code: Derivatives Batch Data Message (A003V)"
   end
-  if value == "A004F" then
-    return "Message Code: Derivatives Batch Data Message (A004F)"
+  if value == "A004V" then
+    return "Message Code: Derivatives Batch Data Message (A004V)"
   end
-  if value == "A005F" then
-    return "Message Code: Derivatives Batch Data Message (A005F)"
+  if value == "A005V" then
+    return "Message Code: Derivatives Batch Data Message (A005V)"
   end
-  if value == "A006F" then
-    return "Message Code: Derivatives Batch Data Message (A006F)"
+  if value == "A006V" then
+    return "Message Code: Derivatives Batch Data Message (A006V)"
   end
-  if value == "A007F" then
-    return "Message Code: Derivatives Batch Data Message (A007F)"
+  if value == "A007V" then
+    return "Message Code: Derivatives Batch Data Message (A007V)"
   end
-  if value == "A008F" then
-    return "Message Code: Derivatives Batch Data Message (A008F)"
+  if value == "A008V" then
+    return "Message Code: Derivatives Batch Data Message (A008V)"
   end
-  if value == "A009F" then
-    return "Message Code: Derivatives Batch Data Message (A009F)"
+  if value == "A009V" then
+    return "Message Code: Derivatives Batch Data Message (A009V)"
   end
-  if value == "A010F" then
-    return "Message Code: Derivatives Batch Data Message (A010F)"
+  if value == "A010V" then
+    return "Message Code: Derivatives Batch Data Message (A010V)"
   end
-  if value == "A011F" then
-    return "Message Code: Derivatives Batch Data Message (A011F)"
+  if value == "A011V" then
+    return "Message Code: Derivatives Batch Data Message (A011V)"
   end
-  if value == "A012F" then
-    return "Message Code: Derivatives Batch Data Message (A012F)"
+  if value == "A012V" then
+    return "Message Code: Derivatives Batch Data Message (A012V)"
   end
-  if value == "A013F" then
-    return "Message Code: Derivatives Batch Data Message (A013F)"
+  if value == "A013V" then
+    return "Message Code: Derivatives Batch Data Message (A013V)"
   end
-  if value == "A015F" then
-    return "Message Code: Derivatives Batch Data Message (A015F)"
+  if value == "A015V" then
+    return "Message Code: Derivatives Batch Data Message (A015V)"
   end
-  if value == "A016F" then
-    return "Message Code: Derivatives Batch Data Message (A016F)"
+  if value == "A016V" then
+    return "Message Code: Derivatives Batch Data Message (A016V)"
   end
-  if value == "A017F" then
-    return "Message Code: Derivatives Batch Data Message (A017F)"
+  if value == "A017V" then
+    return "Message Code: Derivatives Batch Data Message (A017V)"
   end
-  if value == "A018F" then
-    return "Message Code: Derivatives Batch Data Message (A018F)"
+  if value == "A018V" then
+    return "Message Code: Derivatives Batch Data Message (A018V)"
   end
-  if value == "H404F" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H404F)"
+  if value == "H404V" then
+    return "Message Code: Equity Derivatives Adjustment Details Message (H404V)"
   end
-  if value == "H405F" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H405F)"
+  if value == "H405V" then
+    return "Message Code: Equity Derivatives Adjustment Details Message (H405V)"
   end
-  if value == "H418F" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H418F)"
+  if value == "H418V" then
+    return "Message Code: Equity Derivatives Adjustment Details Message (H418V)"
   end
-  if value == "H606F" then
-    return "Message Code: Commodity Futures Settlement Reference Ktb Message (H606F)"
+  if value == "H606V" then
+    return "Message Code: Commodity Futures Settlement Reference Ktb Message (H606V)"
   end
-  if value == "H101F" then
-    return "Message Code: Derivatives Investor Activities Message (H101F)"
+  if value == "H101V" then
+    return "Message Code: Derivatives Investor Activities Message (H101V)"
   end
-  if value == "H102F" then
-    return "Message Code: Derivatives Investor Activities Message (H102F)"
+  if value == "H102V" then
+    return "Message Code: Derivatives Investor Activities Message (H102V)"
   end
-  if value == "H103F" then
-    return "Message Code: Derivatives Investor Activities Message (H103F)"
+  if value == "H103V" then
+    return "Message Code: Derivatives Investor Activities Message (H103V)"
   end
-  if value == "H104F" then
-    return "Message Code: Derivatives Investor Activities Message (H104F)"
+  if value == "H104V" then
+    return "Message Code: Derivatives Investor Activities Message (H104V)"
   end
-  if value == "H105F" then
-    return "Message Code: Derivatives Investor Activities Message (H105F)"
+  if value == "H105V" then
+    return "Message Code: Derivatives Investor Activities Message (H105V)"
   end
-  if value == "H106F" then
-    return "Message Code: Derivatives Investor Activities Message (H106F)"
+  if value == "H106V" then
+    return "Message Code: Derivatives Investor Activities Message (H106V)"
   end
-  if value == "H107F" then
-    return "Message Code: Derivatives Investor Activities Message (H107F)"
+  if value == "H107V" then
+    return "Message Code: Derivatives Investor Activities Message (H107V)"
   end
-  if value == "H108F" then
-    return "Message Code: Derivatives Investor Activities Message (H108F)"
+  if value == "H108V" then
+    return "Message Code: Derivatives Investor Activities Message (H108V)"
   end
-  if value == "H109F" then
-    return "Message Code: Derivatives Investor Activities Message (H109F)"
+  if value == "H109V" then
+    return "Message Code: Derivatives Investor Activities Message (H109V)"
   end
-  if value == "H110F" then
-    return "Message Code: Derivatives Investor Activities Message (H110F)"
+  if value == "H110V" then
+    return "Message Code: Derivatives Investor Activities Message (H110V)"
   end
-  if value == "H111F" then
-    return "Message Code: Derivatives Investor Activities Message (H111F)"
+  if value == "H111V" then
+    return "Message Code: Derivatives Investor Activities Message (H111V)"
   end
-  if value == "H112F" then
-    return "Message Code: Derivatives Investor Activities Message (H112F)"
+  if value == "H112V" then
+    return "Message Code: Derivatives Investor Activities Message (H112V)"
   end
-  if value == "H113F" then
-    return "Message Code: Derivatives Investor Activities Message (H113F)"
+  if value == "H113V" then
+    return "Message Code: Derivatives Investor Activities Message (H113V)"
   end
-  if value == "H115F" then
-    return "Message Code: Derivatives Investor Activities Message (H115F)"
+  if value == "H115V" then
+    return "Message Code: Derivatives Investor Activities Message (H115V)"
   end
-  if value == "H116F" then
-    return "Message Code: Derivatives Investor Activities Message (H116F)"
+  if value == "H116V" then
+    return "Message Code: Derivatives Investor Activities Message (H116V)"
   end
-  if value == "H117F" then
-    return "Message Code: Derivatives Investor Activities Message (H117F)"
+  if value == "H117V" then
+    return "Message Code: Derivatives Investor Activities Message (H117V)"
   end
-  if value == "H118F" then
-    return "Message Code: Derivatives Investor Activities Message (H118F)"
+  if value == "H118V" then
+    return "Message Code: Derivatives Investor Activities Message (H118V)"
   end
-  if value == "H201F" then
-    return "Message Code: Derivatives Open Interest Message (H201F)"
+  if value == "H201V" then
+    return "Message Code: Derivatives Open Interest Message (H201V)"
   end
-  if value == "H202F" then
-    return "Message Code: Derivatives Open Interest Message (H202F)"
+  if value == "H202V" then
+    return "Message Code: Derivatives Open Interest Message (H202V)"
   end
-  if value == "H203F" then
-    return "Message Code: Derivatives Open Interest Message (H203F)"
+  if value == "H203V" then
+    return "Message Code: Derivatives Open Interest Message (H203V)"
   end
-  if value == "H204F" then
-    return "Message Code: Derivatives Open Interest Message (H204F)"
+  if value == "H204V" then
+    return "Message Code: Derivatives Open Interest Message (H204V)"
   end
-  if value == "H205F" then
-    return "Message Code: Derivatives Open Interest Message (H205F)"
+  if value == "H205V" then
+    return "Message Code: Derivatives Open Interest Message (H205V)"
   end
-  if value == "H206F" then
-    return "Message Code: Derivatives Open Interest Message (H206F)"
+  if value == "H206V" then
+    return "Message Code: Derivatives Open Interest Message (H206V)"
   end
-  if value == "H207F" then
-    return "Message Code: Derivatives Open Interest Message (H207F)"
+  if value == "H207V" then
+    return "Message Code: Derivatives Open Interest Message (H207V)"
   end
-  if value == "H208F" then
-    return "Message Code: Derivatives Open Interest Message (H208F)"
+  if value == "H208V" then
+    return "Message Code: Derivatives Open Interest Message (H208V)"
   end
-  if value == "H209F" then
-    return "Message Code: Derivatives Open Interest Message (H209F)"
+  if value == "H209V" then
+    return "Message Code: Derivatives Open Interest Message (H209V)"
   end
-  if value == "H210F" then
-    return "Message Code: Derivatives Open Interest Message (H210F)"
+  if value == "H210V" then
+    return "Message Code: Derivatives Open Interest Message (H210V)"
   end
-  if value == "H211F" then
-    return "Message Code: Derivatives Open Interest Message (H211F)"
+  if value == "H211V" then
+    return "Message Code: Derivatives Open Interest Message (H211V)"
   end
-  if value == "H212F" then
-    return "Message Code: Derivatives Open Interest Message (H212F)"
+  if value == "H212V" then
+    return "Message Code: Derivatives Open Interest Message (H212V)"
   end
-  if value == "H213F" then
-    return "Message Code: Derivatives Open Interest Message (H213F)"
+  if value == "H213V" then
+    return "Message Code: Derivatives Open Interest Message (H213V)"
   end
-  if value == "H215F" then
-    return "Message Code: Derivatives Open Interest Message (H215F)"
+  if value == "H215V" then
+    return "Message Code: Derivatives Open Interest Message (H215V)"
   end
-  if value == "H216F" then
-    return "Message Code: Derivatives Open Interest Message (H216F)"
+  if value == "H216V" then
+    return "Message Code: Derivatives Open Interest Message (H216V)"
   end
-  if value == "H217F" then
-    return "Message Code: Derivatives Open Interest Message (H217F)"
+  if value == "H217V" then
+    return "Message Code: Derivatives Open Interest Message (H217V)"
   end
-  if value == "H218F" then
-    return "Message Code: Derivatives Open Interest Message (H218F)"
+  if value == "H218V" then
+    return "Message Code: Derivatives Open Interest Message (H218V)"
   end
-  if value == "H301F" then
-    return "Message Code: Futures Settled Price Message (H301F)"
+  if value == "H301V" then
+    return "Message Code: Futures Settled Price Message (H301V)"
   end
-  if value == "H302F" then
-    return "Message Code: Futures Settled Price Message (H302F)"
+  if value == "H302V" then
+    return "Message Code: Futures Settled Price Message (H302V)"
   end
-  if value == "H304F" then
-    return "Message Code: Futures Settled Price Message (H304F)"
+  if value == "H304V" then
+    return "Message Code: Futures Settled Price Message (H304V)"
   end
-  if value == "H306F" then
-    return "Message Code: Futures Settled Price Message (H306F)"
+  if value == "H306V" then
+    return "Message Code: Futures Settled Price Message (H306V)"
   end
-  if value == "H308F" then
-    return "Message Code: Futures Settled Price Message (H308F)"
+  if value == "H308V" then
+    return "Message Code: Futures Settled Price Message (H308V)"
   end
-  if value == "H309F" then
-    return "Message Code: Futures Settled Price Message (H309F)"
+  if value == "H309V" then
+    return "Message Code: Futures Settled Price Message (H309V)"
   end
-  if value == "H310F" then
-    return "Message Code: Futures Settled Price Message (H310F)"
+  if value == "H310V" then
+    return "Message Code: Futures Settled Price Message (H310V)"
   end
-  if value == "H311F" then
-    return "Message Code: Futures Settled Price Message (H311F)"
+  if value == "H311V" then
+    return "Message Code: Futures Settled Price Message (H311V)"
   end
-  if value == "H313F" then
-    return "Message Code: Futures Settled Price Message (H313F)"
+  if value == "H313V" then
+    return "Message Code: Futures Settled Price Message (H313V)"
   end
-  if value == "ID03F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID03F)"
+  if value == "ID03V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID03V)"
   end
-  if value == "ID05F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID05F)"
+  if value == "ID05V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID05V)"
   end
-  if value == "ID07F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID07F)"
+  if value == "ID07V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID07V)"
   end
-  if value == "ID12F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID12F)"
+  if value == "ID12V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID12V)"
   end
-  if value == "ID15F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID15F)"
+  if value == "ID15V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID15V)"
   end
-  if value == "ID16F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID16F)"
+  if value == "ID16V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID16V)"
   end
-  if value == "ID17F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID17F)"
+  if value == "ID17V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID17V)"
   end
-  if value == "ID18F" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID18F)"
+  if value == "ID18V" then
+    return "Message Code: Options Base Price Of Clearing Margins Message (ID18V)"
   end
-  if value == "P103F" then
-    return "Message Code: Options Implied Volatility Message (P103F)"
+  if value == "P103V" then
+    return "Message Code: Options Implied Volatility Message (P103V)"
   end
-  if value == "P112F" then
-    return "Message Code: Options Implied Volatility Message (P112F)"
+  if value == "P112V" then
+    return "Message Code: Options Implied Volatility Message (P112V)"
   end
-  if value == "P115F" then
-    return "Message Code: Options Implied Volatility Message (P115F)"
+  if value == "P115V" then
+    return "Message Code: Options Implied Volatility Message (P115V)"
   end
-  if value == "P116F" then
-    return "Message Code: Options Implied Volatility Message (P116F)"
+  if value == "P116V" then
+    return "Message Code: Options Implied Volatility Message (P116V)"
   end
-  if value == "P117F" then
-    return "Message Code: Options Implied Volatility Message (P117F)"
+  if value == "P117V" then
+    return "Message Code: Options Implied Volatility Message (P117V)"
   end
-  if value == "N703F" then
-    return "Message Code: Options Sensitivity Message (N703F)"
+  if value == "N703V" then
+    return "Message Code: Options Sensitivity Message (N703V)"
   end
-  if value == "N705F" then
-    return "Message Code: Options Sensitivity Message (N705F)"
+  if value == "N705V" then
+    return "Message Code: Options Sensitivity Message (N705V)"
   end
-  if value == "N707F" then
-    return "Message Code: Options Sensitivity Message (N707F)"
+  if value == "N707V" then
+    return "Message Code: Options Sensitivity Message (N707V)"
   end
-  if value == "N712F" then
-    return "Message Code: Options Sensitivity Message (N712F)"
+  if value == "N712V" then
+    return "Message Code: Options Sensitivity Message (N712V)"
   end
-  if value == "N715F" then
-    return "Message Code: Options Sensitivity Message (N715F)"
+  if value == "N715V" then
+    return "Message Code: Options Sensitivity Message (N715V)"
   end
-  if value == "N716F" then
-    return "Message Code: Options Sensitivity Message (N716F)"
+  if value == "N716V" then
+    return "Message Code: Options Sensitivity Message (N716V)"
   end
-  if value == "N717F" then
-    return "Message Code: Options Sensitivity Message (N717F)"
+  if value == "N717V" then
+    return "Message Code: Options Sensitivity Message (N717V)"
   end
-  if value == "N718F" then
-    return "Message Code: Options Sensitivity Message (N718F)"
+  if value == "N718V" then
+    return "Message Code: Options Sensitivity Message (N718V)"
   end
-  if value == "H506F" then
-    return "Message Code: Commodity Futures Spot Settlement Reference Message (H506F)"
+  if value == "H506V" then
+    return "Message Code: Commodity Futures Spot Settlement Reference Message (H506V)"
   end
-  if value == "H599F" then
-    return "Message Code: Commodity Futures Spot Settlement Reference Message (H599F)"
+  if value == "H599V" then
+    return "Message Code: Commodity Futures Spot Settlement Reference Message (H599V)"
   end
-  if value == "HA06F" then
-    return "Message Code: Daily Disclosed Rfr Message (HA06F)"
+  if value == "HA06V" then
+    return "Message Code: Daily Disclosed Rfr Message (HA06V)"
   end
 
   return "Message Code: Unknown("..value..")"
@@ -6283,6 +7032,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number.size 
 
 -- Display: Message Sequence Number
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Message Sequence Number: No Value"
+  end
+
   return "Message Sequence Number: "..value
 end
 
@@ -6290,12 +7044,7 @@ end
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_020.text_encoding))
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_sequence_number, range, value, display)
@@ -6310,8 +7059,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading_price.size = 9
 
 -- Display: Nearby Month Contract Trading Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading_price.display = function(value)
-  return "Nearby Month Contract Trading Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Nearby Month Contract Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Nearby Month Contract Trading Price: No Value"
+  end
+
+  return "Nearby Month Contract Trading Price: "..text
 end
 
 -- Dissect: Nearby Month Contract Trading Price
@@ -6321,7 +7082,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.nearby_month_contract_trading_price.display(value, buffer, offset, packet, parent)
@@ -6507,10 +7268,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.numerator_adjustment_of_coeff
 
 -- Display: Numerator Adjustment Of Coefficient
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.numerator_adjustment_of_coefficient.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.numerator_adjustment_of_coefficient.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.numerator_adjustment_of_coefficient.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Numerator Adjustment Of Coefficient: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Numerator Adjustment Of Coefficient: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Numerator Adjustment Of Coefficient: "..text.." (expected 8 places)"
   end
 
   return "Numerator Adjustment Of Coefficient: "..text
@@ -6541,10 +7315,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.offset_rate_of_asset_group.si
 
 -- Display: Offset Rate Of Asset Group
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.offset_rate_of_asset_group.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.offset_rate_of_asset_group.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.offset_rate_of_asset_group.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Offset Rate Of Asset Group: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Offset Rate Of Asset Group: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Offset Rate Of Asset Group: "..text.." (expected 2 places)"
   end
 
   return "Offset Rate Of Asset Group: "..text
@@ -6653,8 +7440,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.size = 9
 
 -- Display: Opening Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.display = function(value)
-  return "Opening Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Opening Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Opening Price: No Value"
+  end
+
+  return "Opening Price: "..text
 end
 
 -- Dissect: Opening Price
@@ -6664,7 +7463,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.opening_price.display(value, buffer, offset, packet, parent)
@@ -6705,10 +7504,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_adjusted_closin
 
 -- Display: Previous Days Adjusted Closing Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_adjusted_closing_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_adjusted_closing_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_adjusted_closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Adjusted Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Previous Days Adjusted Closing Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Previous Days Adjusted Closing Price: "..text.." (expected 8 places)"
   end
 
   return "Previous Days Adjusted Closing Price: "..text
@@ -6738,8 +7550,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.size = 11
 
 -- Display: Previous Days Best Ask
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.display = function(value)
-  return "Previous Days Best Ask: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Best Ask: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Days Best Ask: No Value"
+  end
+
+  return "Previous Days Best Ask: "..text
 end
 
 -- Dissect: Previous Days Best Ask
@@ -6749,7 +7573,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_ask.display(value, buffer, offset, packet, parent)
@@ -6766,8 +7590,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.size = 11
 
 -- Display: Previous Days Best Bid
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.display = function(value)
-  return "Previous Days Best Bid: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Best Bid: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Days Best Bid: No Value"
+  end
+
+  return "Previous Days Best Bid: "..text
 end
 
 -- Dissect: Previous Days Best Bid
@@ -6777,7 +7613,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.dissec
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_best_bid.display(value, buffer, offset, packet, parent)
@@ -6795,10 +7631,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_bpmm.size = 23
 
 -- Display: Previous Days Bpmm
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_bpmm.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_bpmm.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_bpmm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Bpmm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Previous Days Bpmm: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Previous Days Bpmm: "..text.." (expected 3 places)"
   end
 
   return "Previous Days Bpmm: "..text
@@ -6828,8 +7677,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.size = 11
 
 -- Display: Previous Days High Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.display = function(value)
-  return "Previous Days High Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days High Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Days High Price: No Value"
+  end
+
+  return "Previous Days High Price: "..text
 end
 
 -- Dissect: Previous Days High Price
@@ -6839,7 +7700,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_high_price.display(value, buffer, offset, packet, parent)
@@ -6856,8 +7717,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.size = 11
 
 -- Display: Previous Days Low Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.display = function(value)
-  return "Previous Days Low Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Low Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Days Low Price: No Value"
+  end
+
+  return "Previous Days Low Price: "..text
 end
 
 -- Dissect: Previous Days Low Price
@@ -6867,7 +7740,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_low_price.display(value, buffer, offset, packet, parent)
@@ -6912,8 +7785,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price =
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.size = 11
 
 -- Display: Previous Days Opening Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.display = function(value)
-  return "Previous Days Opening Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Opening Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Days Opening Price: No Value"
+  end
+
+  return "Previous Days Opening Price: "..text
 end
 
 -- Dissect: Previous Days Opening Price
@@ -6923,7 +7808,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.d
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_opening_price.display(value, buffer, offset, packet, parent)
@@ -6941,10 +7826,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_settlement_pric
 
 -- Display: Previous Days Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_settlement_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_settlement_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_settlement_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Settlement Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Previous Days Settlement Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Previous Days Settlement Price: "..text.." (expected 8 places)"
   end
 
   return "Previous Days Settlement Price: "..text
@@ -6975,10 +7873,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_total_accumulat
 
 -- Display: Previous Days Total Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_total_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_total_accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_days_total_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Days Total Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Previous Days Total Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Previous Days Total Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Previous Days Total Accumulated Trading Value: "..text
@@ -7036,8 +7947,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.size = 9
 
 -- Display: Previous Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.display = function(value)
-  return "Previous Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Previous Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Previous Price: No Value"
+  end
+
+  return "Previous Price: "..text
 end
 
 -- Dissect: Previous Price
@@ -7047,7 +7970,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.previous_price.display(value, buffer, offset, packet, parent)
@@ -7194,10 +8117,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.put_averaged_implied_volatili
 
 -- Display: Put Averaged Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.put_averaged_implied_volatility.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.put_averaged_implied_volatility.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.put_averaged_implied_volatility.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Put Averaged Implied Volatility: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Put Averaged Implied Volatility: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Put Averaged Implied Volatility: "..text.." (expected 4 places)"
   end
 
   return "Put Averaged Implied Volatility: "..text
@@ -7256,10 +8192,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.representative_implied_volati
 
 -- Display: Representative Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.representative_implied_volatility.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.representative_implied_volatility.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.representative_implied_volatility.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Representative Implied Volatility: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Representative Implied Volatility: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Representative Implied Volatility: "..text.." (expected 4 places)"
   end
 
   return "Representative Implied Volatility: "..text
@@ -7336,10 +8285,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_delta.size = 20
 
 -- Display: Sensitivity Delta
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_delta.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_delta.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_delta.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sensitivity Delta: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sensitivity Delta: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Sensitivity Delta: "..text.." (expected 6 places)"
   end
 
   return "Sensitivity Delta: "..text
@@ -7370,10 +8332,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_gamma.size = 20
 
 -- Display: Sensitivity Gamma
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_gamma.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_gamma.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_gamma.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sensitivity Gamma: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sensitivity Gamma: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Sensitivity Gamma: "..text.." (expected 6 places)"
   end
 
   return "Sensitivity Gamma: "..text
@@ -7404,10 +8379,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_rho.size = 20
 
 -- Display: Sensitivity Rho
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_rho.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_rho.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_rho.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sensitivity Rho: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sensitivity Rho: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Sensitivity Rho: "..text.." (expected 6 places)"
   end
 
   return "Sensitivity Rho: "..text
@@ -7438,10 +8426,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_theta.size = 20
 
 -- Display: Sensitivity Theta
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_theta.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_theta.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_theta.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sensitivity Theta: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sensitivity Theta: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Sensitivity Theta: "..text.." (expected 6 places)"
   end
 
   return "Sensitivity Theta: "..text
@@ -7472,10 +8473,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_vega.size = 20
 
 -- Display: Sensitivity Vega
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_vega.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_vega.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.sensitivity_vega.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sensitivity Vega: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sensitivity Vega: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Sensitivity Vega: "..text.." (expected 6 places)"
   end
 
   return "Sensitivity Vega: "..text
@@ -7580,10 +8594,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price.size = 18
 
 -- Display: Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Settlement Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Settlement Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Settlement Price: "..text.." (expected 8 places)"
   end
 
   return "Settlement Price: "..text
@@ -7614,10 +8641,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price_after_exerci
 
 -- Display: Settlement Price After Exercising An Option
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price_after_exercising_an_option.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price_after_exercising_an_option.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.settlement_price_after_exercising_an_option.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Settlement Price After Exercising An Option: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Settlement Price After Exercising An Option: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Settlement Price After Exercising An Option: "..text.." (expected 8 places)"
   end
 
   return "Settlement Price After Exercising An Option: "..text
@@ -7694,10 +8734,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_ask_trading_value.size
 
 -- Display: Spread Ask Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_ask_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_ask_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_ask_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Spread Ask Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Spread Ask Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Spread Ask Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Spread Ask Trading Value: "..text
@@ -7756,10 +8809,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_bid_trading_value.size
 
 -- Display: Spread Bid Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_bid_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_bid_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.spread_bid_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Spread Bid Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Spread Bid Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Spread Bid Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Spread Bid Trading Value: "..text
@@ -8144,8 +9210,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year.size = 11
 
 -- Display: The Highest Premium In A Year
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year.display = function(value)
-  return "The Highest Premium In A Year: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Highest Premium In A Year: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Highest Premium In A Year: No Value"
+  end
+
+  return "The Highest Premium In A Year: "..text
 end
 
 -- Dissect: The Highest Premium In A Year
@@ -8155,7 +9233,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_in_a_year.display(value, buffer, offset, packet, parent)
@@ -8172,8 +9250,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_li
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_lifetime.size = 11
 
 -- Display: The Highest Premium Of The Lifetime
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_lifetime.display = function(value)
-  return "The Highest Premium Of The Lifetime: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_lifetime.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_lifetime.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Highest Premium Of The Lifetime: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Highest Premium Of The Lifetime: No Value"
+  end
+
+  return "The Highest Premium Of The Lifetime: "..text
 end
 
 -- Dissect: The Highest Premium Of The Lifetime
@@ -8183,7 +9273,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_li
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_highest_premium_of_the_lifetime.display(value, buffer, offset, packet, parent)
@@ -8201,10 +9291,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_last_settlement_price.siz
 
 -- Display: The Last Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_last_settlement_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_last_settlement_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_last_settlement_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Last Settlement Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "The Last Settlement Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "The Last Settlement Price: "..text.." (expected 8 places)"
   end
 
   return "The Last Settlement Price: "..text
@@ -8257,8 +9360,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.size = 11
 
 -- Display: The Lowest Premium In A Year
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.display = function(value)
-  return "The Lowest Premium In A Year: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Lowest Premium In A Year: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Lowest Premium In A Year: No Value"
+  end
+
+  return "The Lowest Premium In A Year: "..text
 end
 
 -- Dissect: The Lowest Premium In A Year
@@ -8268,7 +9383,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_in_a_year.display(value, buffer, offset, packet, parent)
@@ -8285,8 +9400,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lif
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lifetime.size = 11
 
 -- Display: The Lowest Premium Of The Lifetime
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lifetime.display = function(value)
-  return "The Lowest Premium Of The Lifetime: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lifetime.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lifetime.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Lowest Premium Of The Lifetime: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Lowest Premium Of The Lifetime: No Value"
+  end
+
+  return "The Lowest Premium Of The Lifetime: "..text
 end
 
 -- Dissect: The Lowest Premium Of The Lifetime
@@ -8296,7 +9423,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lif
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.the_lowest_premium_of_the_lifetime.display(value, buffer, offset, packet, parent)
@@ -8337,10 +9464,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.theoretical_settlement_price.
 
 -- Display: Theoretical Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.theoretical_settlement_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.theoretical_settlement_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.theoretical_settlement_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Theoretical Settlement Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Theoretical Settlement Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Theoretical Settlement Price: "..text.." (expected 6 places)"
   end
 
   return "Theoretical Settlement Price: "..text
@@ -8393,8 +9533,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.size = 9
 
 -- Display: Todays High
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.display = function(value)
-  return "Todays High: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays High: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Todays High: No Value"
+  end
+
+  return "Todays High: "..text
 end
 
 -- Dissect: Todays High
@@ -8404,7 +9556,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_high.display(value, buffer, offset, packet, parent)
@@ -8421,8 +9573,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.size = 9
 
 -- Display: Todays Low
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.display = function(value)
-  return "Todays Low: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays Low: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Todays Low: No Value"
+  end
+
+  return "Todays Low: "..text
 end
 
 -- Dissect: Todays Low
@@ -8432,7 +9596,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.todays_low.display(value, buffer, offset, packet, parent)
@@ -8450,10 +9614,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_accumulated_trading_val
 
 -- Display: Total Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Total Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Total Accumulated Trading Value: "..text
@@ -8632,10 +9809,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier.size = 22
 
 -- Display: Trading Multiplier
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Multiplier: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Trading Multiplier: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Trading Multiplier: "..text.." (expected 8 places)"
   end
 
   return "Trading Multiplier: "..text
@@ -8666,10 +9856,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_after_adju
 
 -- Display: Trading Multiplier After Adjustment Equity Options 10
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_after_adjustment_equity_options_10.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_after_adjustment_equity_options_10.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_after_adjustment_equity_options_10.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Multiplier After Adjustment Equity Options 10: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Trading Multiplier After Adjustment Equity Options 10: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Trading Multiplier After Adjustment Equity Options 10: "..text.." (expected 8 places)"
   end
 
   return "Trading Multiplier After Adjustment Equity Options 10: "..text
@@ -8700,10 +9903,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_before_adj
 
 -- Display: Trading Multiplier Before Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_before_adjustment.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_before_adjustment.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_multiplier_before_adjustment.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Multiplier Before Adjustment: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Trading Multiplier Before Adjustment: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Trading Multiplier Before Adjustment: "..text.." (expected 8 places)"
   end
 
   return "Trading Multiplier Before Adjustment: "..text
@@ -8733,8 +9949,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.size = 9
 
 -- Display: Trading Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.display = function(value)
-  return "Trading Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Trading Price: No Value"
+  end
+
+  return "Trading Price: "..text
 end
 
 -- Dissect: Trading Price
@@ -8744,7 +9972,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_price.display(value, buffer, offset, packet, parent)
@@ -8762,10 +9990,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_unit.size = 22
 
 -- Display: Trading Unit
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_unit.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_unit.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.trading_unit.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Unit: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Trading Unit: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Trading Unit: "..text.." (expected 8 places)"
   end
 
   return "Trading Unit: "..text
@@ -8961,8 +10202,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size = 9
 
 -- Display: Upper Limit Of Dynamic Price Range
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.display = function(value)
-  return "Upper Limit Of Dynamic Price Range: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Of Dynamic Price Range: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Limit Of Dynamic Price Range: No Value"
+  end
+
+  return "Upper Limit Of Dynamic Price Range: "..text
 end
 
 -- Dissect: Upper Limit Of Dynamic Price Range
@@ -8972,7 +10225,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.display(value, buffer, offset, packet, parent)
@@ -8989,8 +10242,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.size = 9
 
 -- Display: Upper Limit Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.display = function(value)
-  return "Upper Limit Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Limit Price: No Value"
+  end
+
+  return "Upper Limit Price: "..text
 end
 
 -- Dissect: Upper Limit Price
@@ -9000,7 +10265,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.dissect = f
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -9018,10 +10283,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity.size = 2
 
 -- Display: Upper Limit Quantity
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Quantity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Quantity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Upper Limit Quantity: "..text.." (expected 3 places)"
   end
 
   return "Upper Limit Quantity: "..text
@@ -9052,10 +10330,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity_for_bloc
 
 -- Display: Upper Limit Quantity For Block Trade
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity_for_block_trade.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity_for_block_trade.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_quantity_for_block_trade.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Quantity For Block Trade: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Quantity For Block Trade: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Upper Limit Quantity For Block Trade: "..text.." (expected 3 places)"
   end
 
   return "Upper Limit Quantity For Block Trade: "..text
@@ -9085,8 +10376,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.size = 11
 
 -- Display: Upper Price Limit 1 St Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.display = function(value)
-  return "Upper Price Limit 1 St Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Price Limit 1 St Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Price Limit 1 St Stage: No Value"
+  end
+
+  return "Upper Price Limit 1 St Stage: "..text
 end
 
 -- Dissect: Upper Price Limit 1 St Stage
@@ -9096,7 +10399,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_1_st_stage.display(value, buffer, offset, packet, parent)
@@ -9113,8 +10416,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.size = 11
 
 -- Display: Upper Price Limit 2 Nd Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.display = function(value)
-  return "Upper Price Limit 2 Nd Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Price Limit 2 Nd Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Price Limit 2 Nd Stage: No Value"
+  end
+
+  return "Upper Price Limit 2 Nd Stage: "..text
 end
 
 -- Dissect: Upper Price Limit 2 Nd Stage
@@ -9124,7 +10439,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_2_nd_stage.display(value, buffer, offset, packet, parent)
@@ -9141,8 +10456,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage 
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.size = 11
 
 -- Display: Upper Price Limit 3 Rd Stage
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.display = function(value)
-  return "Upper Price Limit 3 Rd Stage: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Price Limit 3 Rd Stage: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Price Limit 3 Rd Stage: No Value"
+  end
+
+  return "Upper Price Limit 3 Rd Stage: "..text
 end
 
 -- Dissect: Upper Price Limit 3 Rd Stage
@@ -9152,7 +10479,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_price_limit_3_rd_stage.display(value, buffer, offset, packet, parent)
@@ -9198,10 +10525,23 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_accumulated_tradin
 
 -- Display: Yesterdays Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Yesterdays Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Yesterdays Accumulated Trading Value: "..text
@@ -9231,8 +10571,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.size = 11
 
 -- Display: Yesterdays Closing Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.display = function(value)
-  return "Yesterdays Closing Price: "..value
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  return "Yesterdays Closing Price: "..text
 end
 
 -- Dissect: Yesterdays Closing Price
@@ -9242,7 +10594,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.diss
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.yesterdays_closing_price.display(value, buffer, offset, packet, parent)
@@ -13564,417 +14916,465 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels
   end
 end
 
+-- Polling Data Message
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message = {}
+
+-- Size: Polling Data Message
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.size =
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.size
+
+-- Display: Polling Data Message
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Polling Data Message
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Current Time 1 Minute Interval: String
+  index, current_time_1_minute_interval = koscom_mdcsrealtime_nightderivatives_exture_v2_020.current_time_1_minute_interval.dissect(buffer, index, packet, parent)
+
+  -- End Keyword: String
+  index, end_keyword = koscom_mdcsrealtime_nightderivatives_exture_v2_020.end_keyword.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Polling Data Message
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.polling_data_message, buffer(offset, 0))
+    local index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Payload
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload = {}
 
 -- Dissect: Payload
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, message_code)
+  -- Dissect Polling Data Message
+  if message_code == "I2000" then
+    return koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B601F" then
+  if message_code == "B601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B602F" then
+  if message_code == "B602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B603F" then
+  if message_code == "B603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B606F" then
+  if message_code == "B606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B607F" then
+  if message_code == "B607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B608F" then
+  if message_code == "B608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B609F" then
+  if message_code == "B609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B610F" then
+  if message_code == "B610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B611F" then
+  if message_code == "B611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B612F" then
+  if message_code == "B612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B613F" then
+  if message_code == "B613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B615F" then
+  if message_code == "B615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B616F" then
+  if message_code == "B616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B617F" then
+  if message_code == "B617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B604F" then
+  if message_code == "B604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B605F" then
+  if message_code == "B605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B618F" then
+  if message_code == "B618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B201F" then
+  if message_code == "B201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B202F" then
+  if message_code == "B202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B203F" then
+  if message_code == "B203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B206F" then
+  if message_code == "B206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B207F" then
+  if message_code == "B207V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B208F" then
+  if message_code == "B208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B209F" then
+  if message_code == "B209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B210F" then
+  if message_code == "B210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B211F" then
+  if message_code == "B211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B212F" then
+  if message_code == "B212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B213F" then
+  if message_code == "B213V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B215F" then
+  if message_code == "B215V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B216F" then
+  if message_code == "B216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B217F" then
+  if message_code == "B217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B204F" then
+  if message_code == "B204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B205F" then
+  if message_code == "B205V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B218F" then
+  if message_code == "B218V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A301F" then
+  if message_code == "A301V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A302F" then
+  if message_code == "A302V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A303F" then
+  if message_code == "A303V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A304F" then
+  if message_code == "A304V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A305F" then
+  if message_code == "A305V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A306F" then
+  if message_code == "A306V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A307F" then
+  if message_code == "A307V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A308F" then
+  if message_code == "A308V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A309F" then
+  if message_code == "A309V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A310F" then
+  if message_code == "A310V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A311F" then
+  if message_code == "A311V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A312F" then
+  if message_code == "A312V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A313F" then
+  if message_code == "A313V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A315F" then
+  if message_code == "A315V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A316F" then
+  if message_code == "A316V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A317F" then
+  if message_code == "A317V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A318F" then
+  if message_code == "A318V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G701F" then
+  if message_code == "G701V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G702F" then
+  if message_code == "G702V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G703F" then
+  if message_code == "G703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G706F" then
+  if message_code == "G706V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G707F" then
+  if message_code == "G707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G708F" then
+  if message_code == "G708V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G709F" then
+  if message_code == "G709V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G710F" then
+  if message_code == "G710V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G711F" then
+  if message_code == "G711V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G712F" then
+  if message_code == "G712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G713F" then
+  if message_code == "G713V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G715F" then
+  if message_code == "G715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G716F" then
+  if message_code == "G716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G717F" then
+  if message_code == "G717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G704F" then
+  if message_code == "G704V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G705F" then
+  if message_code == "G705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G718F" then
+  if message_code == "G718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R101F" then
+  if message_code == "R101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R102F" then
+  if message_code == "R102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R103F" then
+  if message_code == "R103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R106F" then
+  if message_code == "R106V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R107F" then
+  if message_code == "R107V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R108F" then
+  if message_code == "R108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R109F" then
+  if message_code == "R109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R110F" then
+  if message_code == "R110V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R111F" then
+  if message_code == "R111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R112F" then
+  if message_code == "R112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R113F" then
+  if message_code == "R113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R115F" then
+  if message_code == "R115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R116F" then
+  if message_code == "R116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R117F" then
+  if message_code == "R117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R104F" then
+  if message_code == "R104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R105F" then
+  if message_code == "R105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R118F" then
+  if message_code == "R118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C401F" then
+  if message_code == "C401V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C402F" then
+  if message_code == "C402V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C403F" then
+  if message_code == "C403V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C404F" then
+  if message_code == "C404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C405F" then
+  if message_code == "C405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C406F" then
+  if message_code == "C406V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C407F" then
+  if message_code == "C407V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C408F" then
+  if message_code == "C408V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C409F" then
+  if message_code == "C409V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C410F" then
+  if message_code == "C410V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C411F" then
+  if message_code == "C411V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C412F" then
+  if message_code == "C412V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C413F" then
+  if message_code == "C413V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C415F" then
+  if message_code == "C415V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C416F" then
+  if message_code == "C416V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C417F" then
+  if message_code == "C417V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C418F" then
+  if message_code == "C418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
@@ -14022,71 +15422,71 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701F" then
+  if message_code == "A701V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A702F" then
+  if message_code == "A702V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A703F" then
+  if message_code == "A703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A704F" then
+  if message_code == "A704V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A705F" then
+  if message_code == "A705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A706F" then
+  if message_code == "A706V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A707F" then
+  if message_code == "A707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A708F" then
+  if message_code == "A708V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A709F" then
+  if message_code == "A709V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A710F" then
+  if message_code == "A710V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A711F" then
+  if message_code == "A711V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A712F" then
+  if message_code == "A712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A713F" then
+  if message_code == "A713V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A715F" then
+  if message_code == "A715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A716F" then
+  if message_code == "A716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A717F" then
+  if message_code == "A717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A718F" then
+  if message_code == "A718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
@@ -14098,71 +15498,71 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A601F" then
+  if message_code == "A601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A602F" then
+  if message_code == "A602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A603F" then
+  if message_code == "A603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A604F" then
+  if message_code == "A604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A605F" then
+  if message_code == "A605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A606F" then
+  if message_code == "A606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A607F" then
+  if message_code == "A607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A608F" then
+  if message_code == "A608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A609F" then
+  if message_code == "A609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A610F" then
+  if message_code == "A610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A611F" then
+  if message_code == "A611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A612F" then
+  if message_code == "A612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A613F" then
+  if message_code == "A613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A615F" then
+  if message_code == "A615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A616F" then
+  if message_code == "A616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A617F" then
+  if message_code == "A617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A618F" then
+  if message_code == "A618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
@@ -14210,71 +15610,71 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401F" then
+  if message_code == "M401V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M402F" then
+  if message_code == "M402V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M403F" then
+  if message_code == "M403V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M404F" then
+  if message_code == "M404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M405F" then
+  if message_code == "M405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M406F" then
+  if message_code == "M406V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M407F" then
+  if message_code == "M407V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M408F" then
+  if message_code == "M408V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M409F" then
+  if message_code == "M409V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M410F" then
+  if message_code == "M410V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M411F" then
+  if message_code == "M411V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M412F" then
+  if message_code == "M412V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M413F" then
+  if message_code == "M413V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M415F" then
+  if message_code == "M415V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M416F" then
+  if message_code == "M416V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M417F" then
+  if message_code == "M417V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M418F" then
+  if message_code == "M418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
@@ -14286,107 +15686,107 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q201F" then
+  if message_code == "Q201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q202F" then
+  if message_code == "Q202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q203F" then
+  if message_code == "Q203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q204F" then
+  if message_code == "Q204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q206F" then
+  if message_code == "Q206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q208F" then
+  if message_code == "Q208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q209F" then
+  if message_code == "Q209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q210F" then
+  if message_code == "Q210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q211F" then
+  if message_code == "Q211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q212F" then
+  if message_code == "Q212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q216F" then
+  if message_code == "Q216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q217F" then
+  if message_code == "Q217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V101F" then
+  if message_code == "V101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V102F" then
+  if message_code == "V102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V103F" then
+  if message_code == "V103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V104F" then
+  if message_code == "V104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V105F" then
+  if message_code == "V105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V108F" then
+  if message_code == "V108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V109F" then
+  if message_code == "V109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V111F" then
+  if message_code == "V111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V112F" then
+  if message_code == "V112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V113F" then
+  if message_code == "V113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V115F" then
+  if message_code == "V115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V116F" then
+  if message_code == "V116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V117F" then
+  if message_code == "V117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V118F" then
+  if message_code == "V118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
@@ -14414,71 +15814,71 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O601F" then
+  if message_code == "O601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O602F" then
+  if message_code == "O602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O603F" then
+  if message_code == "O603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O604F" then
+  if message_code == "O604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O605F" then
+  if message_code == "O605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O606F" then
+  if message_code == "O606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O607F" then
+  if message_code == "O607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O608F" then
+  if message_code == "O608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O609F" then
+  if message_code == "O609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O610F" then
+  if message_code == "O610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O611F" then
+  if message_code == "O611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O612F" then
+  if message_code == "O612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O613F" then
+  if message_code == "O613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O615F" then
+  if message_code == "O615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O616F" then
+  if message_code == "O616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O617F" then
+  if message_code == "O617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O618F" then
+  if message_code == "O618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
@@ -14506,423 +15906,423 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(bu
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF01F" then
+  if message_code == "IF01V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF02F" then
+  if message_code == "IF02V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF03F" then
+  if message_code == "IF03V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF04F" then
+  if message_code == "IF04V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF05F" then
+  if message_code == "IF05V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF06F" then
+  if message_code == "IF06V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF07F" then
+  if message_code == "IF07V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF08F" then
+  if message_code == "IF08V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF09F" then
+  if message_code == "IF09V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF10F" then
+  if message_code == "IF10V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF11F" then
+  if message_code == "IF11V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF12F" then
+  if message_code == "IF12V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF13F" then
+  if message_code == "IF13V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF15F" then
+  if message_code == "IF15V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF16F" then
+  if message_code == "IF16V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF17F" then
+  if message_code == "IF17V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF18F" then
+  if message_code == "IF18V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A001F" then
+  if message_code == "A001V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A002F" then
+  if message_code == "A002V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A003F" then
+  if message_code == "A003V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A004F" then
+  if message_code == "A004V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A005F" then
+  if message_code == "A005V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A006F" then
+  if message_code == "A006V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A007F" then
+  if message_code == "A007V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A008F" then
+  if message_code == "A008V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A009F" then
+  if message_code == "A009V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A010F" then
+  if message_code == "A010V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A011F" then
+  if message_code == "A011V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A012F" then
+  if message_code == "A012V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A013F" then
+  if message_code == "A013V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A015F" then
+  if message_code == "A015V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A016F" then
+  if message_code == "A016V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A017F" then
+  if message_code == "A017V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A018F" then
+  if message_code == "A018V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H404F" then
+  if message_code == "H404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H405F" then
+  if message_code == "H405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H418F" then
+  if message_code == "H418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Settlement Reference Ktb Message
-  if message_code == "H606F" then
+  if message_code == "H606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_settlement_reference_ktb_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H101F" then
+  if message_code == "H101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H102F" then
+  if message_code == "H102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H103F" then
+  if message_code == "H103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H104F" then
+  if message_code == "H104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H105F" then
+  if message_code == "H105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H106F" then
+  if message_code == "H106V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H107F" then
+  if message_code == "H107V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H108F" then
+  if message_code == "H108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H109F" then
+  if message_code == "H109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H110F" then
+  if message_code == "H110V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H111F" then
+  if message_code == "H111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H112F" then
+  if message_code == "H112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H113F" then
+  if message_code == "H113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H115F" then
+  if message_code == "H115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H116F" then
+  if message_code == "H116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H117F" then
+  if message_code == "H117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H118F" then
+  if message_code == "H118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H201F" then
+  if message_code == "H201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H202F" then
+  if message_code == "H202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H203F" then
+  if message_code == "H203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H204F" then
+  if message_code == "H204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H205F" then
+  if message_code == "H205V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H206F" then
+  if message_code == "H206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H207F" then
+  if message_code == "H207V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H208F" then
+  if message_code == "H208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H209F" then
+  if message_code == "H209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H210F" then
+  if message_code == "H210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H211F" then
+  if message_code == "H211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H212F" then
+  if message_code == "H212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H213F" then
+  if message_code == "H213V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H215F" then
+  if message_code == "H215V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H216F" then
+  if message_code == "H216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H217F" then
+  if message_code == "H217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H218F" then
+  if message_code == "H218V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H301F" then
+  if message_code == "H301V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H302F" then
+  if message_code == "H302V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H304F" then
+  if message_code == "H304V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H306F" then
+  if message_code == "H306V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H308F" then
+  if message_code == "H308V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H309F" then
+  if message_code == "H309V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H310F" then
+  if message_code == "H310V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H311F" then
+  if message_code == "H311V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H313F" then
+  if message_code == "H313V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID03F" then
+  if message_code == "ID03V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID05F" then
+  if message_code == "ID05V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID07F" then
+  if message_code == "ID07V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID12F" then
+  if message_code == "ID12V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID15F" then
+  if message_code == "ID15V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID16F" then
+  if message_code == "ID16V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID17F" then
+  if message_code == "ID17V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID18F" then
+  if message_code == "ID18V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P103F" then
+  if message_code == "P103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P112F" then
+  if message_code == "P112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P115F" then
+  if message_code == "P115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P116F" then
+  if message_code == "P116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P117F" then
+  if message_code == "P117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N703F" then
+  if message_code == "N703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N705F" then
+  if message_code == "N705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N707F" then
+  if message_code == "N707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N712F" then
+  if message_code == "N712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N715F" then
+  if message_code == "N715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N716F" then
+  if message_code == "N716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N717F" then
+  if message_code == "N717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N718F" then
+  if message_code == "N718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Spot Settlement Reference Message
-  if message_code == "H506F" then
+  if message_code == "H506V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_spot_settlement_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Spot Settlement Reference Message
-  if message_code == "H599F" then
+  if message_code == "H599V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_spot_settlement_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Daily Disclosed Rfr Message
-  if message_code == "HA06F" then
+  if message_code == "HA06V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.daily_disclosed_rfr_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -14949,7 +16349,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.packet.dissect = function(buf
     -- Message Code: String
     index, message_code = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 28 branches
+    -- Payload: Runtime Type with 29 branches
     index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect(buffer, index, packet, parent, message_code)
   end
 

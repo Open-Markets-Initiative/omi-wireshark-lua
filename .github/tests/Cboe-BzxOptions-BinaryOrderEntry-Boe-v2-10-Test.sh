@@ -65,6 +65,18 @@ grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.side" Cboe.BzxOptions.BinaryOrd
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
 grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofneworderbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.NewOrderMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderAcknowledgmentMessage.pcap" \
+  -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
+  -T json \
+  > Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json 2> Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderAcknowledgmentMessage) ---"; cat Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json.stderr; exit 1; }
+
+grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.transacttime" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json
+grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.clordid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json
+grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderid" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json
+grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.reserved1" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json
+grep "cboe.bzxoptions.binaryorderentry.boe.v2.10.numberofreturnbitfields" Cboe.BzxOptions.BinaryOrderEntry.Boe.v2.10.OrderAcknowledgmentMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxOptions.BinaryOrderEntry.Boe.v2.10/OrderCancelledMessage.pcap" \
   -X "lua_script:Cboe/BzxOptions/BinaryOrderEntry/Cboe_BzxOptions_BinaryOrderEntry_Boe_v2_10_Dissector.lua" \
   -T json \

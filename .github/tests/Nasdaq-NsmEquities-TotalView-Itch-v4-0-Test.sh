@@ -181,3 +181,13 @@ grep "nasdaq.nsmequities.totalview.itch.v4.0.shares" Nasdaq.NsmEquities.TotalVie
 grep "nasdaq.nsmequities.totalview.itch.v4.0.stock" Nasdaq.NsmEquities.TotalView.Itch.v4.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v4.0.price" Nasdaq.NsmEquities.TotalView.Itch.v4.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v4.0.matchnumber" Nasdaq.NsmEquities.TotalView.Itch.v4.0.TradeMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/NsmEquities.TotalView.Itch.v4.0/MultipleMessages.pcap" \
+  -X "lua_script:Nasdaq/NsmEquities/TotalView/Nasdaq_NsmEquities_TotalView_Itch_v4_0_Dissector.lua" \
+  -T json \
+  > Nasdaq.NsmEquities.TotalView.Itch.v4.0.Multiplemessages.json 2> Nasdaq.NsmEquities.TotalView.Itch.v4.0.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v4.0.Multiplemessages.json.stderr; exit 1; }
+
+grep "nasdaq.nsmequities.totalview.itch.v4.0." Nasdaq.NsmEquities.TotalView.Itch.v4.0.Multiplemessages.json
+
+[ "$(grep -c 'nasdaq.nsmequities.totalview.itch.v4.0.' Nasdaq.NsmEquities.TotalView.Itch.v4.0.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

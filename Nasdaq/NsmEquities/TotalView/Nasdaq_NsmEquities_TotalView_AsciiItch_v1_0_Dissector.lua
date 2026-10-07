@@ -480,7 +480,8 @@ nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size = 20
 
 -- Display: Price
 nasdaq_nsmequities_totalview_asciiitch_v1_0.price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size):string())
+  local raw = buffer(offset, nasdaq_nsmequities_totalview_asciiitch_v1_0.price.size):string()
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Price: No Value"

@@ -60,6 +60,36 @@ grep "tmx.mx.solamulticast.hsvf.v1.14.auctionexpirytimestamp" Tmx.Mx.SolaMultica
 grep "tmx.mx.solamulticast.hsvf.v1.14.auctionduration" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.initialquantityassured" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyAuctionBeginningMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Tmx/Mx.SolaMulticast.Hsvf.v1.14/StrategyInstrumentKeysMessage.pcap" \
+  -X "lua_script:Tmx/Mx/SolaMulticast/Tmx_Mx_SolaMulticast_Hsvf_v1_14_Dissector.lua" \
+  -T json \
+  > Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json 2> Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json.stderr \
+  || { echo "--- tshark FAILED (StrategyInstrumentKeysMessage) ---"; cat Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json.stderr; exit 1; }
+
+grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.strategysymbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.expiryyear" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.expirymonth" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.expiryday" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.maximumnumberofcontractsperorder" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.minimumnumberofcontractsperorder" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdprice" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.maximumthresholdpricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricestrategy" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.minimumthresholdpricefractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.tickincrement" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.tickincrementfractionindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.marketflowindicator" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.groupinstrument" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.instrument" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.instrumentexternalcode" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.strategyallowimplied" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.strategycode" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.strategytype" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.lasttradingdatetime" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.variablelegsstrategycode" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.numberoflegs" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyInstrumentKeysMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Tmx/Mx.SolaMulticast.Hsvf.v1.14/StrategyMarketDepthMessage.pcap" \
   -X "lua_script:Tmx/Mx/SolaMulticast/Tmx_Mx_SolaMulticast_Hsvf_v1_14_Dissector.lua" \
   -T json \

@@ -136,3 +136,19 @@ grep "nasdaq.psxequities.totalview.itch.v5.0.stocklocate" Nasdaq.PsxEquities.Tot
 grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.SystemEventMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.SystemEventMessage.json
 grep "nasdaq.psxequities.totalview.itch.v5.0.eventcode" Nasdaq.PsxEquities.TotalView.Itch.v5.0.SystemEventMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/PsxEquities.TotalView.Itch.v5.0/TradeMessageNonCross.pcap" \
+  -X "lua_script:Nasdaq/PsxEquities/TotalView/Nasdaq_PsxEquities_TotalView_Itch_v5_0_Dissector.lua" \
+  -T json \
+  > Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json 2> Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json.stderr \
+  || { echo "--- tshark FAILED (TradeMessageNonCross) ---"; cat Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json.stderr; exit 1; }
+
+grep "nasdaq.psxequities.totalview.itch.v5.0.stocklocate" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.trackingnumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.timestamp" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.orderreferencenumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.buysellindicator" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.shares" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.stock" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.price" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json
+grep "nasdaq.psxequities.totalview.itch.v5.0.matchnumber" Nasdaq.PsxEquities.TotalView.Itch.v5.0.TradeMessageNonCross.json

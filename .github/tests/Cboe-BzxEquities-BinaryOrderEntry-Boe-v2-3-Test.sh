@@ -75,6 +75,17 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (LogoutRequestMessage) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.LogoutRequestMessage.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/MassCancelAcknowledgmentMessage.pcap" \
+  -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json.stderr \
+  || { echo "--- tshark FAILED (MassCancelAcknowledgmentMessage) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.transactiontime" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.masscancelid" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.cancelledordercount" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.MassCancelAcknowledgmentMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/ModifyOrderMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
   -T json \
@@ -95,6 +106,18 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.clordid" Cboe.BzxEquities.Binar
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.side" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.orderqty" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofneworderbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.NewOrderMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/OrderAcknowledgmentMessage.pcap" \
+  -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json.stderr \
+  || { echo "--- tshark FAILED (OrderAcknowledgmentMessage) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.transacttime" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.clordid" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.orderid" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofreturnbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderAcknowledgmentMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/OrderCancelledMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
@@ -163,6 +186,16 @@ grep "cboe.bzxequities.binaryorderentry.boe.v2.3.orderid" Cboe.BzxEquities.Binar
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.restatementreason" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderRestatedMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderRestatedMessage.json
 grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofreturnbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.OrderRestatedMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/PurgeOrderMessage.pcap" \
+  -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \
+  -T json \
+  > Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json 2> Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (PurgeOrderMessage) ---"; cat Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json.stderr; exit 1; }
+
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofpurgeorderbitfields" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json
+grep "cboe.bzxequities.binaryorderentry.boe.v2.3.customgroupidcnt" Cboe.BzxEquities.BinaryOrderEntry.Boe.v2.3.PurgeOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.BinaryOrderEntry.Boe.v2.3/PurgeRejectedMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/BinaryOrderEntry/Cboe_BzxEquities_BinaryOrderEntry_Boe_v2_3_Dissector.lua" \

@@ -15,10 +15,10 @@ local koscom_mdcsrealtime_securitiesa_exture_v2_018 = {}
 -----------------------------------------------------------------------
 
 -- Koscom MdcsRealtime SecuritiesA Exture 2.018 Fields
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerdynamicvi", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerstaticvi", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_dynamic_vi = ProtoField.new("A Base Price To Trigger Dynamic Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerdynamicvi", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_base_price_to_trigger_static_vi = ProtoField.new("A Base Price To Trigger Static Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abasepricetotriggerstaticvi", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.securitiesa.exture.v2.018.adesignatednumberforanissue", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.securitiesa.exture.v2.018.apricechangeagainstthepreviousday", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.securitiesa.exture.v2.018.apricechangeagainstthepreviousday", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abbreviatedissuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abbreviatedissuename", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.abbreviated_issue_name_in_en = ProtoField.new("Abbreviated Issue Name In En", "koscom.mdcsrealtime.securitiesa.exture.v2.018.abbreviatedissuenameinen", ftypes.STRING)
@@ -40,7 +40,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.an_issue_of_which_base_
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.an_obligatory_time_interval_to_place_an_order = ProtoField.new("An Obligatory Time Interval To Place An Order", "koscom.mdcsrealtime.securitiesa.exture.v2.018.anobligatorytimeintervaltoplaceanorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.announcement_of_estimated_trading_price = ProtoField.new("Announcement Of Estimated Trading Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.announcementofestimatedtradingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.appraisal_ratio_of_substitute_price = ProtoField.new("Appraisal Ratio Of Substitute Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.appraisalratioofsubstituteprice", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.appraised_price = ProtoField.new("Appraised Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.appraisedprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.appraised_price = ProtoField.new("Appraised Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.appraisedprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_ask_principal_trading_value = ProtoField.new("Arbitrage Ask Principal Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.arbitrageaskprincipaltradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_ask_principal_trading_volume = ProtoField.new("Arbitrage Ask Principal Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.arbitrageaskprincipaltradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_ask_trust_trading_value = ProtoField.new("Arbitrage Ask Trust Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.arbitrageasktrusttradingvalue", ftypes.DOUBLE)
@@ -50,25 +50,25 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_bid_principal
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_bid_trust_trading_value = ProtoField.new("Arbitrage Bid Trust Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.arbitragebidtrusttradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.arbitrage_bid_trust_trading_volume = ProtoField.new("Arbitrage Bid Trust Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.arbitragebidtrusttradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_bid_type_code = ProtoField.new("Ask Bid Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.askbidtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel1price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel1price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel1volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel10price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel10price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel10volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel2price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel2price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel2volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel3price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel3price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel3volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel4price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel4price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel4volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel5price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel5price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel5volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel6price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel6price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel6volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel7price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel7price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel7volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel8price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel8price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel8volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel9price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel9price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asklevel9volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_mid_price_total_volume = ProtoField.new("Ask Mid Price Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.askmidpricetotalvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.ask_total_volume = ProtoField.new("Ask Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.asktotalvolume", ftypes.STRING)
@@ -96,7 +96,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.average_ytm = ProtoFiel
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.baby_bonds_type_code = ProtoField.new("Baby Bonds Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.babybondstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "koscom.mdcsrealtime.securitiesa.exture.v2.018.backdoorlisting", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.basedate", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.baseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.baseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_price_change = ProtoField.new("Base Price Change", "koscom.mdcsrealtime.securitiesa.exture.v2.018.basepricechange", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_price_of_underlying_asset = ProtoField.new("Base Price Of Underlying Asset", "koscom.mdcsrealtime.securitiesa.exture.v2.018.basepriceofunderlyingasset", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.base_price_to_knockout_elw = ProtoField.new("Base Price To Knockout Elw", "koscom.mdcsrealtime.securitiesa.exture.v2.018.basepricetoknockoutelw", ftypes.DOUBLE)
@@ -105,25 +105,25 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.basis_price = ProtoFiel
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.basket_trading_in_the_preopening_market = ProtoField.new("Basket Trading In The Preopening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.018.baskettradinginthepreopeningmarket", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bestfavorableorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidaskspreadunitcode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel1price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel1price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel1volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel10price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel10price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel10volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel2price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel2price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel2volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel3price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel3price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel3volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel4price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel4price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel4volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel5price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel5price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel5volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel6price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel6price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel6volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel7price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel7price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel7volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel8price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel8price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel8volume", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel9price", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel9price", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidlevel9volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_mid_price_total_volume = ProtoField.new("Bid Mid Price Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidmidpricetotalvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.bid_total_volume = ProtoField.new("Bid Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.bidtotalvolume", ftypes.STRING)
@@ -181,17 +181,17 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.clean_price_index_krx =
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.clean_price_index_ktb = ProtoField.new("Clean Price Index Ktb", "koscom.mdcsrealtime.securitiesa.exture.v2.018.cleanpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_date = ProtoField.new("Closing Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricebasepriceofbuyin", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricelowerlimitofbuyin", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricebasepriceofbuyin", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricelowerlimitofbuyin", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_trading_in_the_preopening_market = ProtoField.new("Closing Price Trading In The Preopening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricetradinginthepreopeningmarket", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_trading_possibility_in_the_after_hours = ProtoField.new("Closing Price Trading Possibility In The After Hours", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricetradingpossibilityintheafterhours", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpricetypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpriceupperlimitofbuyin", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_weighted_stock_price_average = ProtoField.new("Closing Price Weighted Stock Price Average", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpriceweightedstockpriceaverage", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpriceupperlimitofbuyin", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.closing_price_weighted_stock_price_average = ProtoField.new("Closing Price Weighted Stock Price Average", "koscom.mdcsrealtime.securitiesa.exture.v2.018.closingpriceweightedstockpriceaverage", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.conditionedorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.convexity", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.country_code = ProtoField.new("Country Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.countrycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.coupon_payment_date_type_code = ProtoField.new("Coupon Payment Date Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.couponpaymentdatetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.coupon_payment_timing_code = ProtoField.new("Coupon Payment Timing Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.couponpaymenttimingcode", ftypes.STRING)
@@ -202,7 +202,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.covered_short_selling_t
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.credit_order_possibillity = ProtoField.new("Credit Order Possibillity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.creditorderpossibillity", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.currency_code = ProtoField.new("Currency Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.currencycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.currency_iso_code = ProtoField.new("Currency Iso Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.currencyisocode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.current_price = ProtoField.new("Current Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.currentprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.current_price = ProtoField.new("Current Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.currentprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.securitiesa.exture.v2.018.currenttime", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.date_to_end_exercising = ProtoField.new("Date To End Exercising", "koscom.mdcsrealtime.securitiesa.exture.v2.018.datetoendexercising", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.date_to_start_exercising = ProtoField.new("Date To Start Exercising", "koscom.mdcsrealtime.securitiesa.exture.v2.018.datetostartexercising", ftypes.STRING)
@@ -234,18 +234,18 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.elw_payment_agent = Pro
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.elw_payment_date = ProtoField.new("Elw Payment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.elwpaymentdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.elw_rights_type_code = ProtoField.new("Elw Rights Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.elwrightstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.elwlp_holding_quantity = ProtoField.new("Elwlp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.elwlpholdingquantity", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.securitiesa.exture.v2.018.endkeyword", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.securitiesa.exture.v2.018.endkeyword", ftypes.UINT8)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.english_name_of_issuer = ProtoField.new("English Name Of Issuer", "koscom.mdcsrealtime.securitiesa.exture.v2.018.englishnameofissuer", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.eps = ProtoField.new("Eps", "koscom.mdcsrealtime.securitiesa.exture.v2.018.eps", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.eps_calculation = ProtoField.new("Eps Calculation", "koscom.mdcsrealtime.securitiesa.exture.v2.018.epscalculation", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.estimatedtradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.estimated_trading_price = ProtoField.new("Estimated Trading Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.estimatedtradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.estimated_trading_volume = ProtoField.new("Estimated Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.estimatedtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etf_replication_methods_type_code = ProtoField.new("Etf Replication Methods Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etfreplicationmethodstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etf_tracking_difference = ProtoField.new("Etf Tracking Difference", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etftrackingdifference", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_early_redemption_period = ProtoField.new("Etn Early Redemption Period", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnearlyredemptionperiod", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_early_redemption_possibility = ProtoField.new("Etn Early Redemption Possibility", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnearlyredemptionpossibility", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_maximum_redemption_price = ProtoField.new("Etn Maximum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnmaximumredemptionprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_minimum_redemption_price = ProtoField.new("Etn Minimum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnminimumredemptionprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_maximum_redemption_price = ProtoField.new("Etn Maximum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnmaximumredemptionprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_minimum_redemption_price = ProtoField.new("Etn Minimum Redemption Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnminimumredemptionprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etn_payment_date = ProtoField.new("Etn Payment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnpaymentdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etnlp_holding_quantity = ProtoField.new("Etnlp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etnlpholdingquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.etp_product_type_code = ProtoField.new("Etp Product Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.etpproducttypecode", ftypes.STRING)
@@ -260,7 +260,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.expected_time_of_expand
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.expiration_date = ProtoField.new("Expiration Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.expirationdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.expiration_date_for_right = ProtoField.new("Expiration Date For Right", "koscom.mdcsrealtime.securitiesa.exture.v2.018.expirationdateforright", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_1 = ProtoField.new("Filler 1", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler1", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler11", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_11 = ProtoField.new("Filler 11", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_3 = ProtoField.new("Filler 3", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler3", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_4 = ProtoField.new("Filler 4", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler4", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.securitiesa.exture.v2.018.filler8", ftypes.STRING)
@@ -269,7 +269,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.first_best_order_permis
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.futuresbasisprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.groupcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.group_number = ProtoField.new("Group Number", "koscom.mdcsrealtime.securitiesa.exture.v2.018.groupnumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.highest_order_price = ProtoField.new("Highest Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.highestorderprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.highest_order_price = ProtoField.new("Highest Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.highestorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.index = ProtoField.new("Index", "koscom.mdcsrealtime.securitiesa.exture.v2.018.index", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.index_asset_classification_id_1 = ProtoField.new("Index Asset Classification Id 1", "koscom.mdcsrealtime.securitiesa.exture.v2.018.indexassetclassificationid1", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.index_asset_classification_id_2 = ProtoField.new("Index Asset Classification Id 2", "koscom.mdcsrealtime.securitiesa.exture.v2.018.indexassetclassificationid2", ftypes.STRING)
@@ -308,7 +308,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issue_for_administratio
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.securitiesa.exture.v2.018.issuedamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.issuedamountweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issuing_amount = ProtoField.new("Issuing Amount", "koscom.mdcsrealtime.securitiesa.exture.v2.018.issuingamount", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.issuingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.issuingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.knockout_elw_calculation_of_appraised_price = ProtoField.new("Knockout Elw Calculation Of Appraised Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.knockoutelwcalculationofappraisedprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.knockout_elw_rights = ProtoField.new("Knockout Elw Rights", "koscom.mdcsrealtime.securitiesa.exture.v2.018.knockoutelwrights", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.knockout_elw_triggering_time = ProtoField.new("Knockout Elw Triggering Time", "koscom.mdcsrealtime.securitiesa.exture.v2.018.knockoutelwtriggeringtime", ftypes.STRING)
@@ -338,9 +338,9 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.loss_protection_etn_pro
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lotsizeafterhourstrading", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lot_sizes = ProtoField.new("Lot Sizes", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lotsizes", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.low_liquidity = ProtoField.new("Low Liquidity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowliquidity", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lower_limit_of_base_price = ProtoField.new("Lower Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowerlimitofbaseprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowerlimitprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowestorderprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lower_limit_of_base_price = ProtoField.new("Lower Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowerlimitofbaseprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowerlimitprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lowestorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lpasklevel1volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lp_ask_level_10_volume = ProtoField.new("Lp Ask Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lpasklevel10volume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.lpasklevel2volume", ftypes.STRING)
@@ -382,7 +382,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_price_index_krx 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.securitiesa.exture.v2.018.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_price_order_permission_type_code = ProtoField.new("Market Price Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.marketpriceorderpermissiontypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.marketvalue", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.marketvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.maturity_date = ProtoField.new("Maturity Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.maturitydate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.maximum_bid_price = ProtoField.new("Maximum Bid Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.maximumbidprice", ftypes.DOUBLE)
@@ -404,7 +404,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.member_number_5_for_bid
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.securitiesa.exture.v2.018.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.mid_price_order_permission_type_code = ProtoField.new("Mid Price Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.midpriceorderpermissiontypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.midpoint = ProtoField.new("Midpoint", "koscom.mdcsrealtime.securitiesa.exture.v2.018.midpoint", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.midpoint = ProtoField.new("Midpoint", "koscom.mdcsrealtime.securitiesa.exture.v2.018.midpoint", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.minimum_ask_price = ProtoField.new("Minimum Ask Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.minimumaskprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.minimum_order_price = ProtoField.new("Minimum Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.minimumorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.minimum_order_volume = ProtoField.new("Minimum Order Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.minimumordervolume", ftypes.STRING)
@@ -437,7 +437,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.number_of_listed_shares
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.number_of_months_for_grace = ProtoField.new("Number Of Months For Grace", "koscom.mdcsrealtime.securitiesa.exture.v2.018.numberofmonthsforgrace", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.securitiesa.exture.v2.018.numberofrepotradeperiods", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.numbers_of_issuer = ProtoField.new("Numbers Of Issuer", "koscom.mdcsrealtime.securitiesa.exture.v2.018.numbersofissuer", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.openingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.openingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.otherstocktypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.par_value = ProtoField.new("Par Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.parvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.parvaluetypecode", ftypes.STRING)
@@ -492,7 +492,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.retail_bond_type_code =
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.rights_execution_type_code = ProtoField.new("Rights Execution Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.rightsexecutiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.rights_type_code = ProtoField.new("Rights Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.rightstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.sale_date = ProtoField.new("Sale Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.saledate", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.securitiesa.exture.v2.018.secondfiller11", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.second_filler_11 = ProtoField.new("Second Filler 11", "koscom.mdcsrealtime.securitiesa.exture.v2.018.secondfiller11", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.section_type_code = ProtoField.new("Section Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.sectiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.securitiesa.exture.v2.018.securitygroupid", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.segment_type_code = ProtoField.new("Segment Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.segmenttypecode", ftypes.STRING)
@@ -517,11 +517,11 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.start_time_of_a_board_e
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.step_applied = ProtoField.new("Step Applied", "koscom.mdcsrealtime.securitiesa.exture.v2.018.stepapplied", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.stop_limit_price_order_permission_type_code = ProtoField.new("Stop Limit Price Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.stoplimitpriceorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.strip_bond_type_code = ProtoField.new("Strip Bond Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.stripbondtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.securitiesa.exture.v2.018.substitutepriceofsecurities", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.securitiesa.exture.v2.018.substitutepriceofsecurities", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.target_stock_isin_code = ProtoField.new("Target Stock Isin Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.targetstockisincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.tax_type_code = ProtoField.new("Tax Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.taxtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thebestask", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thebestbid", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thebestask", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thebestbid", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_date_knockout_occurred = ProtoField.new("The Date Knockout Occurred", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thedateknockoutoccurred", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_establishment_date = ProtoField.new("The Establishment Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.theestablishmentdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.the_time_ending_vi = ProtoField.new("The Time Ending Vi", "koscom.mdcsrealtime.securitiesa.exture.v2.018.thetimeendingvi", ftypes.STRING)
@@ -540,7 +540,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_date_of_underly
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_halt = ProtoField.new("Trading Halt", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradinghalt", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_halt_reason_code = ProtoField.new("Trading Halt Reason Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradinghaltreasoncode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_halt_type_code = ProtoField.new("Trading Halt Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradinghalttypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.tradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.transmission_date = ProtoField.new("Transmission Date", "koscom.mdcsrealtime.securitiesa.exture.v2.018.transmissiondate", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.securitiesa.exture.v2.018.transmissiontime", ftypes.STRING)
@@ -564,16 +564,16 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.underlying_asset_type_c
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.underlying_isin_code = ProtoField.new("Underlying ISIN Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.underlyingisincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.unfaithful_disclosure = ProtoField.new("Unfaithful Disclosure", "koscom.mdcsrealtime.securitiesa.exture.v2.018.unfaithfuldisclosure", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.securitiesa.exture.v2.018.unitofvolumeinmainboard", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_of_base_price = ProtoField.new("Upper Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitofbaseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_of_base_price = ProtoField.new("Upper Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitofbaseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_of_bid_ask_spread = ProtoField.new("Upper Limit Of Bid Ask Spread", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitofbidaskspread", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.upper_limit_quantity = ProtoField.new("Upper Limit Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.upperlimitquantity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.uptick_rule_applied_covered_short_selling_trading_value = ProtoField.new("Uptick Rule Applied Covered Short Selling Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.uptickruleappliedcoveredshortsellingtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.uptick_rule_applied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Applied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.uptickruleappliedcoveredshortsellingtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.uptick_rule_unapplied_covered_short_selling_trading_value = ProtoField.new("Uptick Rule Unapplied Covered Short Selling Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.uptickruleunappliedcoveredshortsellingtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.uptick_rule_unapplied_covered_short_selling_trading_volume = ProtoField.new("Uptick Rule Unapplied Covered Short Selling Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.018.uptickruleunappliedcoveredshortsellingtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.vi_status_code = ProtoField.new("Vi Status Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.vistatuscode", ftypes.STRING)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.vi_triggering_price = ProtoField.new("Vi Triggering Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.vitriggeringprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.vi_triggering_price = ProtoField.new("Vi Triggering Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.vitriggeringprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.vi_type_code = ProtoField.new("Vi Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.vitypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
@@ -581,7 +581,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.weight_of_sum_index_val
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yesterdays_accumulated_trading_amount = ProtoField.new("Yesterdays Accumulated Trading Amount", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yesterdaysaccumulatedtradingamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yesterdays_accumulated_trading_value = ProtoField.new("Yesterdays Accumulated Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yesterdaysaccumulatedtradingvalue", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yesterdaysclosingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yesterdaysclosingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yesterdays_closing_price_type_code = ProtoField.new("Yesterdays Closing Price Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yesterdaysclosingpricetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.yield_to_maturity = ProtoField.new("Yield To Maturity", "koscom.mdcsrealtime.securitiesa.exture.v2.018.yieldtomaturity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.securitiesa.exture.v2.018.zeroreinvestmentindexweight", ftypes.DOUBLE)
@@ -768,8 +768,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi
 koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi.size = 11
 
 -- Display: A Base Price To Trigger Dynamic Vi
-koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi.display = function(value)
-  return "A Base Price To Trigger Dynamic Vi: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "A Base Price To Trigger Dynamic Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "A Base Price To Trigger Dynamic Vi: No Value"
+  end
+
+  return "A Base Price To Trigger Dynamic Vi: "..text
 end
 
 -- Dissect: A Base Price To Trigger Dynamic Vi
@@ -779,7 +791,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_dynamic_vi.display(value, buffer, offset, packet, parent)
@@ -796,8 +808,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi 
 koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.size = 11
 
 -- Display: A Base Price To Trigger Static Vi
-koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.display = function(value)
-  return "A Base Price To Trigger Static Vi: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "A Base Price To Trigger Static Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "A Base Price To Trigger Static Vi: No Value"
+  end
+
+  return "A Base Price To Trigger Static Vi: "..text
 end
 
 -- Dissect: A Base Price To Trigger Static Vi
@@ -807,7 +831,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.a_base_price_to_trigger_static_vi.display(value, buffer, offset, packet, parent)
@@ -852,8 +876,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previou
 koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previous_day.size = 11
 
 -- Display: A Price Change Against The Previous Day
-koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previous_day.display = function(value)
-  return "A Price Change Against The Previous Day: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previous_day.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "A Price Change Against The Previous Day: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "A Price Change Against The Previous Day: No Value"
+  end
+
+  return "A Price Change Against The Previous Day: "..text
 end
 
 -- Dissect: A Price Change Against The Previous Day
@@ -863,7 +899,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previou
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.a_price_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -973,10 +1009,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_ask_trading_value.size
 
 -- Display: Accumulated Ask Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_ask_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_ask_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Ask Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Ask Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Ask Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Ask Trading Value: "..text
@@ -1035,10 +1084,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_bid_trading_value.size
 
 -- Display: Accumulated Bid Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_bid_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_bid_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Bid Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Bid Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Bid Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Bid Trading Value: "..text
@@ -1097,10 +1159,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_cash.size = 26
 
 -- Display: Accumulated Cash
 koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_cash.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_cash.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_cash.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Cash: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Cash: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Accumulated Cash: "..text.." (expected 6 places)"
   end
 
   return "Accumulated Cash: "..text
@@ -1159,10 +1234,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_trading_value.size = 2
 
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Trading Value: "..text
@@ -1410,10 +1498,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.appraisal_ratio_of_substitute_pric
 
 -- Display: Appraisal Ratio Of Substitute Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.appraisal_ratio_of_substitute_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.appraisal_ratio_of_substitute_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.appraisal_ratio_of_substitute_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Appraisal Ratio Of Substitute Price: "..text.." (expected 6 places)"
   end
 
   return "Appraisal Ratio Of Substitute Price: "..text
@@ -1443,8 +1544,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.size = 11
 
 -- Display: Appraised Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.display = function(value)
-  return "Appraised Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Appraised Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Appraised Price: No Value"
+  end
+
+  return "Appraised Price: "..text
 end
 
 -- Dissect: Appraised Price
@@ -1454,7 +1567,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.dissect = function
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.appraised_price.display(value, buffer, offset, packet, parent)
@@ -1472,10 +1585,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_principal_trading_va
 
 -- Display: Arbitrage Ask Principal Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_principal_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_principal_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_principal_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Arbitrage Ask Principal Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Arbitrage Ask Principal Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Arbitrage Ask Principal Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Arbitrage Ask Principal Trading Value: "..text
@@ -1534,10 +1660,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_trust_trading_value.
 
 -- Display: Arbitrage Ask Trust Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_trust_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_trust_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_ask_trust_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Arbitrage Ask Trust Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Arbitrage Ask Trust Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Arbitrage Ask Trust Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Arbitrage Ask Trust Trading Value: "..text
@@ -1596,10 +1735,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_principal_trading_va
 
 -- Display: Arbitrage Bid Principal Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_principal_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_principal_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_principal_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Arbitrage Bid Principal Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Arbitrage Bid Principal Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Arbitrage Bid Principal Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Arbitrage Bid Principal Trading Value: "..text
@@ -1658,10 +1810,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_trust_trading_value.
 
 -- Display: Arbitrage Bid Trust Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_trust_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_trust_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.arbitrage_bid_trust_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Arbitrage Bid Trust Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Arbitrage Bid Trust Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Arbitrage Bid Trust Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Arbitrage Bid Trust Trading Value: "..text
@@ -1742,8 +1907,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.size = 11
 
 -- Display: Ask Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.display = function(value)
-  return "Ask Level 1 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 1 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 1 Price: No Value"
+  end
+
+  return "Ask Level 1 Price: "..text
 end
 
 -- Dissect: Ask Level 1 Price
@@ -1753,7 +1930,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_1_price.display(value, buffer, offset, packet, parent)
@@ -1798,8 +1975,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.size = 11
 
 -- Display: Ask Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.display = function(value)
-  return "Ask Level 10 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 10 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 10 Price: No Value"
+  end
+
+  return "Ask Level 10 Price: "..text
 end
 
 -- Dissect: Ask Level 10 Price
@@ -1809,7 +1998,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_10_price.display(value, buffer, offset, packet, parent)
@@ -1854,8 +2043,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.size = 11
 
 -- Display: Ask Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.display = function(value)
-  return "Ask Level 2 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 2 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 2 Price: No Value"
+  end
+
+  return "Ask Level 2 Price: "..text
 end
 
 -- Dissect: Ask Level 2 Price
@@ -1865,7 +2066,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_2_price.display(value, buffer, offset, packet, parent)
@@ -1910,8 +2111,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.size = 11
 
 -- Display: Ask Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.display = function(value)
-  return "Ask Level 3 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 3 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 3 Price: No Value"
+  end
+
+  return "Ask Level 3 Price: "..text
 end
 
 -- Dissect: Ask Level 3 Price
@@ -1921,7 +2134,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_3_price.display(value, buffer, offset, packet, parent)
@@ -1966,8 +2179,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.size = 11
 
 -- Display: Ask Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.display = function(value)
-  return "Ask Level 4 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 4 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 4 Price: No Value"
+  end
+
+  return "Ask Level 4 Price: "..text
 end
 
 -- Dissect: Ask Level 4 Price
@@ -1977,7 +2202,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_4_price.display(value, buffer, offset, packet, parent)
@@ -2022,8 +2247,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.size = 11
 
 -- Display: Ask Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.display = function(value)
-  return "Ask Level 5 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 5 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 5 Price: No Value"
+  end
+
+  return "Ask Level 5 Price: "..text
 end
 
 -- Dissect: Ask Level 5 Price
@@ -2033,7 +2270,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_5_price.display(value, buffer, offset, packet, parent)
@@ -2078,8 +2315,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.size = 11
 
 -- Display: Ask Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.display = function(value)
-  return "Ask Level 6 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 6 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 6 Price: No Value"
+  end
+
+  return "Ask Level 6 Price: "..text
 end
 
 -- Dissect: Ask Level 6 Price
@@ -2089,7 +2338,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_6_price.display(value, buffer, offset, packet, parent)
@@ -2134,8 +2383,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.size = 11
 
 -- Display: Ask Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.display = function(value)
-  return "Ask Level 7 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 7 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 7 Price: No Value"
+  end
+
+  return "Ask Level 7 Price: "..text
 end
 
 -- Dissect: Ask Level 7 Price
@@ -2145,7 +2406,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_7_price.display(value, buffer, offset, packet, parent)
@@ -2190,8 +2451,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.size = 11
 
 -- Display: Ask Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.display = function(value)
-  return "Ask Level 8 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 8 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 8 Price: No Value"
+  end
+
+  return "Ask Level 8 Price: "..text
 end
 
 -- Dissect: Ask Level 8 Price
@@ -2201,7 +2474,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_8_price.display(value, buffer, offset, packet, parent)
@@ -2246,8 +2519,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.size = 11
 
 -- Display: Ask Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.display = function(value)
-  return "Ask Level 9 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Level 9 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Level 9 Price: No Value"
+  end
+
+  return "Ask Level 9 Price: "..text
 end
 
 -- Dissect: Ask Level 9 Price
@@ -2257,7 +2542,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_level_9_price.display(value, buffer, offset, packet, parent)
@@ -2359,10 +2644,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_1.size = 22
 
 -- Display: Ask Trading Value 1
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_1.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 1: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 1: "..text
@@ -2393,10 +2691,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_2.size = 22
 
 -- Display: Ask Trading Value 2
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_2.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 2: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 2: "..text
@@ -2427,10 +2738,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_3.size = 22
 
 -- Display: Ask Trading Value 3
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_3.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_3.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_3.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 3: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 3: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 3: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 3: "..text
@@ -2461,10 +2785,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_4.size = 22
 
 -- Display: Ask Trading Value 4
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_4.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_4.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_4.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 4: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 4: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 4: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 4: "..text
@@ -2495,10 +2832,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_5.size = 22
 
 -- Display: Ask Trading Value 5
 koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_5.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_5.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.ask_trading_value_5.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 5: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 5: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 5: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 5: "..text
@@ -2692,10 +3042,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_convexity.size = 16
 
 -- Display: Average Convexity
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_convexity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_convexity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_convexity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Convexity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Convexity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Convexity: "..text.." (expected 6 places)"
   end
 
   return "Average Convexity: "..text
@@ -2726,10 +3089,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_coupon_price.size = 16
 
 -- Display: Average Coupon Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_coupon_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_coupon_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_coupon_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Coupon Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Coupon Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Coupon Price: "..text.." (expected 6 places)"
   end
 
   return "Average Coupon Price: "..text
@@ -2760,10 +3136,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_current_yield.size = 16
 
 -- Display: Average Current Yield
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_current_yield.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_current_yield.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_current_yield.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Current Yield: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Current Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Current Yield: "..text.." (expected 6 places)"
   end
 
   return "Average Current Yield: "..text
@@ -2794,10 +3183,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_duration.size = 16
 
 -- Display: Average Duration
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_duration.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_duration.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_duration.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Duration: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Duration: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Duration: "..text.." (expected 6 places)"
   end
 
   return "Average Duration: "..text
@@ -2828,10 +3230,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_forward_ytm.size = 7
 
 -- Display: Average Forward Ytm
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_forward_ytm.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_forward_ytm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Forward Ytm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Forward Ytm: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Average Forward Ytm: "..text.." (expected 3 places)"
   end
 
   return "Average Forward Ytm: "..text
@@ -2862,10 +3277,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_remaining_maturity_price.s
 
 -- Display: Average Remaining Maturity Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_remaining_maturity_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_remaining_maturity_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Remaining Maturity Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Remaining Maturity Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Remaining Maturity Price: "..text.." (expected 6 places)"
   end
 
   return "Average Remaining Maturity Price: "..text
@@ -2896,10 +3324,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_spread.size = 16
 
 -- Display: Average Spread
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_spread.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_spread.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_spread.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Spread: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Spread: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Spread: "..text.." (expected 6 places)"
   end
 
   return "Average Spread: "..text
@@ -2963,10 +3404,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_yld.size = 16
 
 -- Display: Average Yld
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_yld.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_yld.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_yld.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Yld: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Yld: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Yld: "..text.." (expected 6 places)"
   end
 
   return "Average Yld: "..text
@@ -2997,10 +3451,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.average_ytm.size = 7
 
 -- Display: Average Ytm
 koscom_mdcsrealtime_securitiesa_exture_v2_018.average_ytm.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_ytm.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.average_ytm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Ytm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Ytm: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Average Ytm: "..text.." (expected 3 places)"
   end
 
   return "Average Ytm: "..text
@@ -3103,8 +3570,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.size = 11
 
 -- Display: Base Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.display = function(value)
-  return "Base Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Base Price: No Value"
+  end
+
+  return "Base Price: "..text
 end
 
 -- Dissect: Base Price
@@ -3114,7 +3593,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.dissect = function(buff
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price.display(value, buffer, offset, packet, parent)
@@ -3155,10 +3634,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_of_underlying_asset.siz
 
 -- Display: Base Price Of Underlying Asset
 koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_of_underlying_asset.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_of_underlying_asset.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_of_underlying_asset.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price Of Underlying Asset: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Base Price Of Underlying Asset: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Base Price Of Underlying Asset: "..text.." (expected 3 places)"
   end
 
   return "Base Price Of Underlying Asset: "..text
@@ -3189,10 +3681,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_to_knockout_elw.size = 
 
 -- Display: Base Price To Knockout Elw
 koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_to_knockout_elw.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_to_knockout_elw.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.base_price_to_knockout_elw.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price To Knockout Elw: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Base Price To Knockout Elw: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Base Price To Knockout Elw: "..text.." (expected 3 places)"
   end
 
   return "Base Price To Knockout Elw: "..text
@@ -3250,10 +3755,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.basis_price.size = 10
 
 -- Display: Basis Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.basis_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.basis_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.basis_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Basis Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Basis Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Basis Price: "..text.." (expected 2 places)"
   end
 
   return "Basis Price: "..text
@@ -3357,8 +3875,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.size = 11
 
 -- Display: Bid Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.display = function(value)
-  return "Bid Level 1 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 1 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 1 Price: No Value"
+  end
+
+  return "Bid Level 1 Price: "..text
 end
 
 -- Dissect: Bid Level 1 Price
@@ -3368,7 +3898,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_1_price.display(value, buffer, offset, packet, parent)
@@ -3413,8 +3943,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.size = 11
 
 -- Display: Bid Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.display = function(value)
-  return "Bid Level 10 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 10 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 10 Price: No Value"
+  end
+
+  return "Bid Level 10 Price: "..text
 end
 
 -- Dissect: Bid Level 10 Price
@@ -3424,7 +3966,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_10_price.display(value, buffer, offset, packet, parent)
@@ -3469,8 +4011,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.size = 11
 
 -- Display: Bid Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.display = function(value)
-  return "Bid Level 2 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 2 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 2 Price: No Value"
+  end
+
+  return "Bid Level 2 Price: "..text
 end
 
 -- Dissect: Bid Level 2 Price
@@ -3480,7 +4034,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_2_price.display(value, buffer, offset, packet, parent)
@@ -3525,8 +4079,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.size = 11
 
 -- Display: Bid Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.display = function(value)
-  return "Bid Level 3 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 3 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 3 Price: No Value"
+  end
+
+  return "Bid Level 3 Price: "..text
 end
 
 -- Dissect: Bid Level 3 Price
@@ -3536,7 +4102,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_3_price.display(value, buffer, offset, packet, parent)
@@ -3581,8 +4147,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.size = 11
 
 -- Display: Bid Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.display = function(value)
-  return "Bid Level 4 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 4 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 4 Price: No Value"
+  end
+
+  return "Bid Level 4 Price: "..text
 end
 
 -- Dissect: Bid Level 4 Price
@@ -3592,7 +4170,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_4_price.display(value, buffer, offset, packet, parent)
@@ -3637,8 +4215,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.size = 11
 
 -- Display: Bid Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.display = function(value)
-  return "Bid Level 5 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 5 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 5 Price: No Value"
+  end
+
+  return "Bid Level 5 Price: "..text
 end
 
 -- Dissect: Bid Level 5 Price
@@ -3648,7 +4238,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_5_price.display(value, buffer, offset, packet, parent)
@@ -3693,8 +4283,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.size = 11
 
 -- Display: Bid Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.display = function(value)
-  return "Bid Level 6 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 6 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 6 Price: No Value"
+  end
+
+  return "Bid Level 6 Price: "..text
 end
 
 -- Dissect: Bid Level 6 Price
@@ -3704,7 +4306,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_6_price.display(value, buffer, offset, packet, parent)
@@ -3749,8 +4351,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.size = 11
 
 -- Display: Bid Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.display = function(value)
-  return "Bid Level 7 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 7 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 7 Price: No Value"
+  end
+
+  return "Bid Level 7 Price: "..text
 end
 
 -- Dissect: Bid Level 7 Price
@@ -3760,7 +4374,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_7_price.display(value, buffer, offset, packet, parent)
@@ -3805,8 +4419,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.size = 11
 
 -- Display: Bid Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.display = function(value)
-  return "Bid Level 8 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 8 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 8 Price: No Value"
+  end
+
+  return "Bid Level 8 Price: "..text
 end
 
 -- Dissect: Bid Level 8 Price
@@ -3816,7 +4442,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_8_price.display(value, buffer, offset, packet, parent)
@@ -3861,8 +4487,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.size = 11
 
 -- Display: Bid Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.display = function(value)
-  return "Bid Level 9 Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Level 9 Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Level 9 Price: No Value"
+  end
+
+  return "Bid Level 9 Price: "..text
 end
 
 -- Dissect: Bid Level 9 Price
@@ -3872,7 +4510,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_level_9_price.display(value, buffer, offset, packet, parent)
@@ -3974,10 +4612,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_1.size = 22
 
 -- Display: Bid Trading Value 1
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_1.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 1: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 1: "..text
@@ -4008,10 +4659,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_2.size = 22
 
 -- Display: Bid Trading Value 2
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_2.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 2: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 2: "..text
@@ -4042,10 +4706,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_3.size = 22
 
 -- Display: Bid Trading Value 3
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_3.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_3.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_3.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 3: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 3: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 3: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 3: "..text
@@ -4076,10 +4753,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_4.size = 22
 
 -- Display: Bid Trading Value 4
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_4.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_4.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_4.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 4: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 4: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 4: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 4: "..text
@@ -4110,10 +4800,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_5.size = 22
 
 -- Display: Bid Trading Value 5
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_5.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_5.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bid_trading_value_5.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 5: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 5: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 5: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 5: "..text
@@ -4496,10 +5199,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bond_issuance_rate.size = 13
 
 -- Display: Bond Issuance Rate
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bond_issuance_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bond_issuance_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bond_issuance_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bond Issuance Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bond Issuance Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Bond Issuance Rate: "..text.." (expected 6 places)"
   end
 
   return "Bond Issuance Rate: "..text
@@ -4553,10 +5269,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.bps.size = 22
 
 -- Display: Bps
 koscom_mdcsrealtime_securitiesa_exture_v2_018.bps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.bps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bps: "..text.." (expected 3 places)"
   end
 
   return "Bps: "..text
@@ -4824,10 +5553,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_arbitrage_value.size = 22
 
 -- Display: Buyside Arbitrage Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_arbitrage_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_arbitrage_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Buyside Arbitrage Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Buyside Arbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Buyside Arbitrage Value: "..text.." (expected 3 places)"
   end
 
   return "Buyside Arbitrage Value: "..text
@@ -4942,10 +5684,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_nonarbitrage_value.size = 
 
 -- Display: Buyside Nonarbitrage Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_nonarbitrage_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.buyside_nonarbitrage_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Buyside Nonarbitrage Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Buyside Nonarbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Buyside Nonarbitrage Value: "..text.." (expected 3 places)"
   end
 
   return "Buyside Nonarbitrage Value: "..text
@@ -5154,10 +5909,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.call_re_investment_index_weight.si
 
 -- Display: Call Re Investment Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_re_investment_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_re_investment_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re Investment Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re Investment Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Call Re Investment Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Call Re Investment Index Weight: "..text
@@ -5188,10 +5956,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_krx.size =
 
 -- Display: Call Re-Investment Index Krx
 koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re-Investment Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re-Investment Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Call Re-Investment Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Call Re-Investment Index Krx: "..text
@@ -5222,10 +6003,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_ktb.size =
 
 -- Display: Call Re-Investment Index Ktb
 koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.call_reinvestment_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re-Investment Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re-Investment Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Call Re-Investment Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Call Re-Investment Index Ktb: "..text
@@ -5256,10 +6050,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.capital.size = 22
 
 -- Display: Capital
 koscom_mdcsrealtime_securitiesa_exture_v2_018.capital.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.capital.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.capital.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Capital: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Capital: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Capital: "..text.." (expected 3 places)"
   end
 
   return "Capital: "..text
@@ -5313,10 +6120,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.cash_inflow.size = 26
 
 -- Display: Cash Inflow
 koscom_mdcsrealtime_securitiesa_exture_v2_018.cash_inflow.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.cash_inflow.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.cash_inflow.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Cash Inflow: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Cash Inflow: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Cash Inflow: "..text.." (expected 6 places)"
   end
 
   return "Cash Inflow: "..text
@@ -5347,10 +6167,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price.size = 10
 
 -- Display: Clean Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Clean Price: "..text.." (expected 2 places)"
   end
 
   return "Clean Price: "..text
@@ -5381,10 +6214,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_krx.size = 16
 
 -- Display: Clean Price Index Krx
 koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Clean Price Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Clean Price Index Krx: "..text
@@ -5415,10 +6261,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_ktb.size = 11
 
 -- Display: Clean Price Index Ktb
 koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Clean Price Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Clean Price Index Ktb: "..text
@@ -5449,10 +6308,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_weight.size = 16
 
 -- Display: Clean Price Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.clean_price_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Clean Price Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Clean Price Index Weight: "..text
@@ -5505,8 +6377,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.size = 11
 
 -- Display: Closing Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.display = function(value)
-  return "Closing Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price: No Value"
+  end
+
+  return "Closing Price: "..text
 end
 
 -- Dissect: Closing Price
@@ -5516,7 +6400,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price.display(value, buffer, offset, packet, parent)
@@ -5533,8 +6417,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in
 koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in.size = 11
 
 -- Display: Closing Price Base Price Of Buy In
-koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in.display = function(value)
-  return "Closing Price Base Price Of Buy In: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price Base Price Of Buy In: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Base Price Of Buy In: No Value"
+  end
+
+  return "Closing Price Base Price Of Buy In: "..text
 end
 
 -- Dissect: Closing Price Base Price Of Buy In
@@ -5544,7 +6440,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_base_price_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -5561,8 +6457,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_i
 koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_in.size = 11
 
 -- Display: Closing Price Lower Limit Of Buy In
-koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_in.display = function(value)
-  return "Closing Price Lower Limit Of Buy In: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_in.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_in.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price Lower Limit Of Buy In: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Lower Limit Of Buy In: No Value"
+  end
+
+  return "Closing Price Lower Limit Of Buy In: "..text
 end
 
 -- Dissect: Closing Price Lower Limit Of Buy In
@@ -5572,7 +6480,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_i
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_lower_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -5658,8 +6566,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_i
 koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_in.size = 11
 
 -- Display: Closing Price Upper Limit Of Buy In
-koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_in.display = function(value)
-  return "Closing Price Upper Limit Of Buy In: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_in.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_in.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price Upper Limit Of Buy In: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Upper Limit Of Buy In: No Value"
+  end
+
+  return "Closing Price Upper Limit Of Buy In: "..text
 end
 
 -- Dissect: Closing Price Upper Limit Of Buy In
@@ -5669,7 +6589,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_i
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_upper_limit_of_buy_in.display(value, buffer, offset, packet, parent)
@@ -5686,8 +6606,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price_average.size = 11
 
 -- Display: Closing Price Weighted Stock Price Average
-koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price_average.display = function(value)
-  return "Closing Price Weighted Stock Price Average: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price_average.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price_average.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Closing Price Weighted Stock Price Average: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Weighted Stock Price Average: No Value"
+  end
+
+  return "Closing Price Weighted Stock Price Average: "..text
 end
 
 -- Dissect: Closing Price Weighted Stock Price Average
@@ -5697,7 +6629,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.closing_price_weighted_stock_price_average.display(value, buffer, offset, packet, parent)
@@ -5743,10 +6675,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.convexity.size = 7
 
 -- Display: Convexity
 koscom_mdcsrealtime_securitiesa_exture_v2_018.convexity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.convexity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.convexity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Convexity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Convexity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Convexity: "..text.." (expected 3 places)"
   end
 
   return "Convexity: "..text
@@ -5776,8 +6721,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securit
 koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.size = 11
 
 -- Display: Corporate Bonds Related To Securities Exercise Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.display = function(value)
-  return "Corporate Bonds Related To Securities Exercise Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Corporate Bonds Related To Securities Exercise Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Corporate Bonds Related To Securities Exercise Price: No Value"
+  end
+
+  return "Corporate Bonds Related To Securities Exercise Price: "..text
 end
 
 -- Dissect: Corporate Bonds Related To Securities Exercise Price
@@ -5787,7 +6744,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securit
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.display(value, buffer, offset, packet, parent)
@@ -5897,10 +6854,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.coupon_rate.size = 14
 
 -- Display: Coupon Rate
 koscom_mdcsrealtime_securitiesa_exture_v2_018.coupon_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.coupon_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.coupon_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Coupon Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Coupon Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 5 then
+    return "Coupon Rate: "..text.." (expected 5 places)"
   end
 
   return "Coupon Rate: "..text
@@ -5931,10 +6901,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.covered_short_selling_trading_valu
 
 -- Display: Covered Short Selling Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Covered Short Selling Trading Value: "..text
@@ -6086,8 +7069,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.size = 11
 
 -- Display: Current Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.display = function(value)
-  return "Current Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Current Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Current Price: No Value"
+  end
+
+  return "Current Price: "..text
 end
 
 -- Dissect: Current Price
@@ -6097,7 +7092,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.current_price.display(value, buffer, offset, packet, parent)
@@ -6356,10 +7351,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_dynamic
 
 -- Display: Disparate Ratio To Trigger Dynamic Vi
 koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_dynamic_vi.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_dynamic_vi.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_dynamic_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Disparate Ratio To Trigger Dynamic Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Disparate Ratio To Trigger Dynamic Vi: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Disparate Ratio To Trigger Dynamic Vi: "..text.." (expected 6 places)"
   end
 
   return "Disparate Ratio To Trigger Dynamic Vi: "..text
@@ -6390,10 +7398,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_static_
 
 -- Display: Disparate Ratio To Trigger Static Vi
 koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_static_vi.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_static_vi.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.disparate_ratio_to_trigger_static_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Disparate Ratio To Trigger Static Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Disparate Ratio To Trigger Static Vi: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Disparate Ratio To Trigger Static Vi: "..text.." (expected 6 places)"
   end
 
   return "Disparate Ratio To Trigger Static Vi: "..text
@@ -6447,10 +7468,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.dividend_yield.size = 13
 
 -- Display: Dividend Yield
 koscom_mdcsrealtime_securitiesa_exture_v2_018.dividend_yield.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.dividend_yield.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.dividend_yield.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Dividend Yield: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Dividend Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Dividend Yield: "..text.." (expected 6 places)"
   end
 
   return "Dividend Yield: "..text
@@ -6481,10 +7515,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.dps.size = 22
 
 -- Display: Dps
 koscom_mdcsrealtime_securitiesa_exture_v2_018.dps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.dps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.dps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Dps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Dps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Dps: "..text.." (expected 3 places)"
   end
 
   return "Dps: "..text
@@ -6538,10 +7585,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.duration.size = 7
 
 -- Display: Duration
 koscom_mdcsrealtime_securitiesa_exture_v2_018.duration.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.duration.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.duration.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Duration: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Duration: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Duration: "..text.." (expected 3 places)"
   end
 
   return "Duration: "..text
@@ -6595,10 +7655,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_1.size
 
 -- Display: Early Redemption Base Index 1
 koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_1.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Early Redemption Base Index 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Early Redemption Base Index 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Early Redemption Base Index 1: "..text.." (expected 2 places)"
   end
 
   return "Early Redemption Base Index 1: "..text
@@ -6629,10 +7702,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_2.size
 
 -- Display: Early Redemption Base Index 2
 koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_2.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_base_index_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Early Redemption Base Index 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Early Redemption Base Index 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Early Redemption Base Index 2: "..text.." (expected 2 places)"
   end
 
   return "Early Redemption Base Index 2: "..text
@@ -6686,10 +7772,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_price.size = 23
 
 -- Display: Early Redemption Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.early_redemption_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Early Redemption Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Early Redemption Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Early Redemption Price: "..text.." (expected 2 places)"
   end
 
   return "Early Redemption Price: "..text
@@ -6743,10 +7842,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_conversion_rate.size = 13
 
 -- Display: Elw Conversion Rate
 koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_conversion_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_conversion_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_conversion_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Elw Conversion Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Elw Conversion Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Elw Conversion Rate: "..text.." (expected 6 places)"
   end
 
   return "Elw Conversion Rate: "..text
@@ -6777,10 +7889,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_fixed_payment.size = 22
 
 -- Display: Elw Fixed Payment
 koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_fixed_payment.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_fixed_payment.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_fixed_payment.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Elw Fixed Payment: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Elw Fixed Payment: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Elw Fixed Payment: "..text.." (expected 3 places)"
   end
 
   return "Elw Fixed Payment: "..text
@@ -6811,10 +7936,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_decr
 
 -- Display: Elw Guaranteed Rate For Price Decreases
 koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_decreases.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_decreases.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_decreases.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Elw Guaranteed Rate For Price Decreases: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Elw Guaranteed Rate For Price Decreases: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Elw Guaranteed Rate For Price Decreases: "..text.." (expected 2 places)"
   end
 
   return "Elw Guaranteed Rate For Price Decreases: "..text
@@ -6845,10 +7983,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_incr
 
 -- Display: Elw Guaranteed Rate For Price Increases
 koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_increases.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_increases.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.elw_guaranteed_rate_for_price_increases.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Elw Guaranteed Rate For Price Increases: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Elw Guaranteed Rate For Price Increases: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Elw Guaranteed Rate For Price Increases: "..text.." (expected 2 places)"
   end
 
   return "Elw Guaranteed Rate For Price Increases: "..text
@@ -6976,14 +8127,18 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.end_keyword.size = 1
 
 -- Display: End Keyword
 koscom_mdcsrealtime_securitiesa_exture_v2_018.end_keyword.display = function(value)
-  return "End Keyword: "..value
+  if value == 255 then
+    return "End Keyword: End Of Message (255)"
+  end
+
+  return "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
 koscom_mdcsrealtime_securitiesa_exture_v2_018.end_keyword.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesa_exture_v2_018.end_keyword.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_securitiesa_exture_v2_018.text_encoding)
+  local value = range:uint()
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.end_keyword.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.end_keyword, range, value, display)
@@ -7022,10 +8177,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.eps.size = 22
 
 -- Display: Eps
 koscom_mdcsrealtime_securitiesa_exture_v2_018.eps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.eps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.eps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Eps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Eps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Eps: "..text.." (expected 3 places)"
   end
 
   return "Eps: "..text
@@ -7078,8 +8246,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.size = 11
 
 -- Display: Estimated Trading Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.display = function(value)
-  return "Estimated Trading Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Estimated Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Estimated Trading Price: No Value"
+  end
+
+  return "Estimated Trading Price: "..text
 end
 
 -- Dissect: Estimated Trading Price
@@ -7089,7 +8269,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.estimated_trading_price.display(value, buffer, offset, packet, parent)
@@ -7158,10 +8338,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.etf_tracking_difference.size = 13
 
 -- Display: Etf Tracking Difference
 koscom_mdcsrealtime_securitiesa_exture_v2_018.etf_tracking_difference.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.etf_tracking_difference.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.etf_tracking_difference.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Etf Tracking Difference: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Etf Tracking Difference: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Etf Tracking Difference: "..text.." (expected 6 places)"
   end
 
   return "Etf Tracking Difference: "..text
@@ -7237,8 +8430,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.size = 11
 
 -- Display: Etn Maximum Redemption Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.display = function(value)
-  return "Etn Maximum Redemption Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Etn Maximum Redemption Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Etn Maximum Redemption Price: No Value"
+  end
+
+  return "Etn Maximum Redemption Price: "..text
 end
 
 -- Dissect: Etn Maximum Redemption Price
@@ -7248,7 +8453,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_maximum_redemption_price.display(value, buffer, offset, packet, parent)
@@ -7265,8 +8470,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.size = 11
 
 -- Display: Etn Minimum Redemption Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.display = function(value)
-  return "Etn Minimum Redemption Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Etn Minimum Redemption Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Etn Minimum Redemption Price: No Value"
+  end
+
+  return "Etn Minimum Redemption Price: "..text
 end
 
 -- Dissect: Etn Minimum Redemption Price
@@ -7276,7 +8493,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.disse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.etn_minimum_redemption_price.display(value, buffer, offset, packet, parent)
@@ -7460,10 +8677,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_price_of_elw_or_bw.size =
 
 -- Display: Exercise Price Of Elw Or Bw
 koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_price_of_elw_or_bw.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_price_of_elw_or_bw.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_price_of_elw_or_bw.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Exercise Price Of Elw Or Bw: "..text.." (expected 3 places)"
   end
 
   return "Exercise Price Of Elw Or Bw: "..text
@@ -7494,10 +8724,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_ratio.size = 7
 
 -- Display: Exercise Ratio
 koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_ratio.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_ratio.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.exercise_ratio.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Ratio: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Ratio: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Exercise Ratio: "..text.." (expected 2 places)"
   end
 
   return "Exercise Ratio: "..text
@@ -7642,8 +8885,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11 = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.size = 11
 
 -- Display: Filler 11
-koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.display = function(value)
-  return "Filler 11: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Filler 11: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Filler 11: No Value"
+  end
+
+  return "Filler 11: "..text
 end
 
 -- Dissect: Filler 11
@@ -7653,7 +8908,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.dissect = function(buffe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.filler_11.display(value, buffer, offset, packet, parent)
@@ -7791,10 +9046,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.futures_basis_price.size = 10
 
 -- Display: Futures Basis Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.futures_basis_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.futures_basis_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.futures_basis_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Futures Basis Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Futures Basis Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Futures Basis Price: "..text.." (expected 2 places)"
   end
 
   return "Futures Basis Price: "..text
@@ -7870,8 +9138,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.size = 11
 
 -- Display: Highest Order Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.display = function(value)
-  return "Highest Order Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Highest Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Highest Order Price: No Value"
+  end
+
+  return "Highest Order Price: "..text
 end
 
 -- Dissect: Highest Order Price
@@ -7881,7 +9161,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.highest_order_price.display(value, buffer, offset, packet, parent)
@@ -7899,10 +9179,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.index.size = 9
 
 -- Display: Index
 koscom_mdcsrealtime_securitiesa_exture_v2_018.index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Index: "..text.." (expected 2 places)"
   end
 
   return "Index: "..text
@@ -8002,10 +9295,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.index_change_against_the_previous_
 
 -- Display: Index Change Against The Previous Day
 koscom_mdcsrealtime_securitiesa_exture_v2_018.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.index_change_against_the_previous_day.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.index_change_against_the_previous_day.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Index Change Against The Previous Day: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Index Change Against The Previous Day: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Index Change Against The Previous Day: "..text.." (expected 2 places)"
   end
 
   return "Index Change Against The Previous Day: "..text
@@ -8781,10 +10087,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.issued_amount_weight.size = 16
 
 -- Display: Issued Amount Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.issued_amount_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.issued_amount_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issued Amount Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Issued Amount Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Issued Amount Weight: "..text.." (expected 6 places)"
   end
 
   return "Issued Amount Weight: "..text
@@ -8815,10 +10134,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_amount.size = 22
 
 -- Display: Issuing Amount
 koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_amount.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_amount.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_amount.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issuing Amount: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Issuing Amount: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Issuing Amount: "..text.." (expected 3 places)"
   end
 
   return "Issuing Amount: "..text
@@ -8848,8 +10180,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.size = 11
 
 -- Display: Issuing Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.display = function(value)
-  return "Issuing Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issuing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Issuing Price: No Value"
+  end
+
+  return "Issuing Price: "..text
 end
 
 -- Dissect: Issuing Price
@@ -8859,7 +10203,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.issuing_price.display(value, buffer, offset, packet, parent)
@@ -9388,10 +10732,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.listed_amount.size = 22
 
 -- Display: Listed Amount
 koscom_mdcsrealtime_securitiesa_exture_v2_018.listed_amount.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.listed_amount.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.listed_amount.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Listed Amount: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Listed Amount: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Listed Amount: "..text.." (expected 3 places)"
   end
 
   return "Listed Amount: "..text
@@ -9569,8 +10926,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.size = 11
 
 -- Display: Lower Limit Of Base Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.display = function(value)
-  return "Lower Limit Of Base Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Of Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Limit Of Base Price: No Value"
+  end
+
+  return "Lower Limit Of Base Price: "..text
 end
 
 -- Dissect: Lower Limit Of Base Price
@@ -9580,7 +10949,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_of_base_price.display(value, buffer, offset, packet, parent)
@@ -9597,8 +10966,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.size = 11
 
 -- Display: Lower Limit Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.display = function(value)
-  return "Lower Limit Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Limit Price: No Value"
+  end
+
+  return "Lower Limit Price: "..text
 end
 
 -- Dissect: Lower Limit Price
@@ -9608,7 +10989,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -9625,8 +11006,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.size = 11
 
 -- Display: Lowest Order Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.display = function(value)
-  return "Lowest Order Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lowest Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lowest Order Price: No Value"
+  end
+
+  return "Lowest Order Price: "..text
 end
 
 -- Dissect: Lowest Order Price
@@ -9636,7 +11029,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.lowest_order_price.display(value, buffer, offset, packet, parent)
@@ -10380,10 +11773,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_capitalization_weight.size 
 
 -- Display: Market Capitalization Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_capitalization_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_capitalization_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Capitalization Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Capitalization Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Capitalization Weight: "..text.." (expected 6 places)"
   end
 
   return "Market Capitalization Weight: "..text
@@ -10621,10 +12027,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_krx.size = 16
 
 -- Display: Market Price Index Krx
 koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Price Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Market Price Index Krx: "..text
@@ -10655,10 +12074,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_ktb.size = 11
 
 -- Display: Market Price Index Ktb
 koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Market Price Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Market Price Index Ktb: "..text
@@ -10689,10 +12121,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_weight.size = 1
 
 -- Display: Market Price Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_price_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Price Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Market Price Index Weight: "..text
@@ -10750,8 +12195,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.size = 11
 
 -- Display: Market Value
-koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.display = function(value)
-  return "Market Value: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Market Value: No Value"
+  end
+
+  return "Market Value: "..text
 end
 
 -- Dissect: Market Value
@@ -10761,7 +12218,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.market_value.display(value, buffer, offset, packet, parent)
@@ -10825,10 +12282,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_bid_price.size = 22
 
 -- Display: Maximum Bid Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_bid_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_bid_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_bid_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Bid Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Bid Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Bid Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Bid Price: "..text
@@ -10859,10 +12329,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_order_price.size = 22
 
 -- Display: Maximum Order Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_order_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.maximum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Order Price: "..text
@@ -12152,6 +13635,11 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.message_sequence_number.size = 8
 
 -- Display: Message Sequence Number
 koscom_mdcsrealtime_securitiesa_exture_v2_018.message_sequence_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Message Sequence Number: No Value"
+  end
+
   return "Message Sequence Number: "..value
 end
 
@@ -12159,12 +13647,7 @@ end
 koscom_mdcsrealtime_securitiesa_exture_v2_018.message_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesa_exture_v2_018.message_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.message_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_018.fields.message_sequence_number, range, value, display)
@@ -12207,8 +13690,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.size = 11
 
 -- Display: Midpoint
-koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.display = function(value)
-  return "Midpoint: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Midpoint: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Midpoint: No Value"
+  end
+
+  return "Midpoint: "..text
 end
 
 -- Dissect: Midpoint
@@ -12218,7 +13713,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.dissect = function(buffer
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.midpoint.display(value, buffer, offset, packet, parent)
@@ -12236,10 +13731,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_ask_price.size = 22
 
 -- Display: Minimum Ask Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_ask_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_ask_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_ask_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Ask Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Ask Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Ask Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Ask Price: "..text
@@ -12270,10 +13778,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_order_price.size = 22
 
 -- Display: Minimum Order Price
 koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_order_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.minimum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Order Price: "..text
@@ -12475,10 +13996,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_principal_tradin
 
 -- Display: Non Arbitrage Ask Principal Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_principal_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_principal_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_principal_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Non Arbitrage Ask Principal Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Non Arbitrage Ask Principal Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Non Arbitrage Ask Principal Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Non Arbitrage Ask Principal Trading Value: "..text
@@ -12537,10 +14071,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_trust_trading_va
 
 -- Display: Non Arbitrage Ask Trust Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_trust_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_trust_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_ask_trust_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Non Arbitrage Ask Trust Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Non Arbitrage Ask Trust Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Non Arbitrage Ask Trust Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Non Arbitrage Ask Trust Trading Value: "..text
@@ -12599,10 +14146,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_principal_tradin
 
 -- Display: Non Arbitrage Bid Principal Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_principal_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_principal_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_principal_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Non Arbitrage Bid Principal Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Non Arbitrage Bid Principal Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Non Arbitrage Bid Principal Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Non Arbitrage Bid Principal Trading Value: "..text
@@ -12661,10 +14221,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_trust_trading_va
 
 -- Display: Non Arbitrage Bid Trust Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_trust_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_trust_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.non_arbitrage_bid_trust_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Non Arbitrage Bid Trust Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Non Arbitrage Bid Trust Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Non Arbitrage Bid Trust Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Non Arbitrage Bid Trust Trading Value: "..text
@@ -13137,8 +14710,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.size = 11
 
 -- Display: Opening Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.display = function(value)
-  return "Opening Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Opening Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Opening Price: No Value"
+  end
+
+  return "Opening Price: "..text
 end
 
 -- Dissect: Opening Price
@@ -13148,7 +14733,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.opening_price.display(value, buffer, offset, packet, parent)
@@ -13189,10 +14774,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.par_value.size = 11
 
 -- Display: Par Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.par_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.par_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.par_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Par Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Par Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Par Value: "..text.." (expected 3 places)"
   end
 
   return "Par Value: "..text
@@ -13269,10 +14867,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.pbr.size = 13
 
 -- Display: Pbr
 koscom_mdcsrealtime_securitiesa_exture_v2_018.pbr.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.pbr.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.pbr.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Pbr: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Pbr: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Pbr: "..text.." (expected 6 places)"
   end
 
   return "Pbr: "..text
@@ -13303,10 +14914,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.per.size = 13
 
 -- Display: Per
 koscom_mdcsrealtime_securitiesa_exture_v2_018.per.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.per.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.per.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Per: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Per: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Per: "..text.." (expected 6 places)"
   end
 
   return "Per: "..text
@@ -13915,10 +15539,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.redemption_ratio_at_maturity.size 
 
 -- Display: Redemption Ratio At Maturity
 koscom_mdcsrealtime_securitiesa_exture_v2_018.redemption_ratio_at_maturity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.redemption_ratio_at_maturity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.redemption_ratio_at_maturity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Redemption Ratio At Maturity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Redemption Ratio At Maturity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Redemption Ratio At Maturity: "..text.." (expected 6 places)"
   end
 
   return "Redemption Ratio At Maturity: "..text
@@ -14041,10 +15678,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.reinvest_call_cash.size = 26
 
 -- Display: Reinvest Call Cash
 koscom_mdcsrealtime_securitiesa_exture_v2_018.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.reinvest_call_cash.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.reinvest_call_cash.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Reinvest Call Cash: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Reinvest Call Cash: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Reinvest Call Cash: "..text.." (expected 6 places)"
   end
 
   return "Reinvest Call Cash: "..text
@@ -14561,8 +16211,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11 = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.size = 11
 
 -- Display: Second Filler 11
-koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.display = function(value)
-  return "Second Filler 11: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Second Filler 11: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Second Filler 11: No Value"
+  end
+
+  return "Second Filler 11: "..text
 end
 
 -- Dissect: Second Filler 11
@@ -14572,7 +16234,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.second_filler_11.display(value, buffer, offset, packet, parent)
@@ -14715,10 +16377,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_arbitrage_value.size = 22
 
 -- Display: Sellside Arbitrage Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_arbitrage_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_arbitrage_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sellside Arbitrage Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sellside Arbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Sellside Arbitrage Value: "..text.." (expected 3 places)"
   end
 
   return "Sellside Arbitrage Value: "..text
@@ -14833,10 +16508,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_nonarbitrage_value.size =
 
 -- Display: Sellside Nonarbitrage Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_nonarbitrage_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.sellside_nonarbitrage_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Sellside Nonarbitrage Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Sellside Nonarbitrage Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Sellside Nonarbitrage Value: "..text.." (expected 3 places)"
   end
 
   return "Sellside Nonarbitrage Value: "..text
@@ -15208,8 +16896,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities = {
 koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.size = 11
 
 -- Display: Substitute Price Of Securities
-koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.display = function(value)
-  return "Substitute Price Of Securities: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Substitute Price Of Securities: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Substitute Price Of Securities: No Value"
+  end
+
+  return "Substitute Price Of Securities: "..text
 end
 
 -- Dissect: Substitute Price Of Securities
@@ -15219,7 +16919,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.substitute_price_of_securities.display(value, buffer, offset, packet, parent)
@@ -15282,8 +16982,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.size = 11
 
 -- Display: The Best Ask
-koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.display = function(value)
-  return "The Best Ask: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Best Ask: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Best Ask: No Value"
+  end
+
+  return "The Best Ask: "..text
 end
 
 -- Dissect: The Best Ask
@@ -15293,7 +17005,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_ask.display(value, buffer, offset, packet, parent)
@@ -15310,8 +17022,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.size = 11
 
 -- Display: The Best Bid
-koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.display = function(value)
-  return "The Best Bid: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Best Bid: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Best Bid: No Value"
+  end
+
+  return "The Best Bid: "..text
 end
 
 -- Dissect: The Best Bid
@@ -15321,7 +17045,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.dissect = function(bu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.the_best_bid.display(value, buffer, offset, packet, parent)
@@ -15431,10 +17155,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_high.size = 11
 
 -- Display: Todays High
 koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_high.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_high.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_high.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays High: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Todays High: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Todays High: "..text.." (expected 3 places)"
   end
 
   return "Todays High: "..text
@@ -15465,10 +17202,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_low.size = 11
 
 -- Display: Todays Low
 koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_low.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_low.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.todays_low.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays Low: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Todays Low: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Todays Low: "..text.." (expected 3 places)"
   end
 
   return "Todays Low: "..text
@@ -15555,10 +17305,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index.size = 16
 
 -- Display: Total Earnings Index
 koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Earnings Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Earnings Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Total Earnings Index: "..text.." (expected 6 places)"
   end
 
   return "Total Earnings Index: "..text
@@ -15589,10 +17352,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index_weight.size =
 
 -- Display: Total Earnings Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_earnings_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Earnings Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Earnings Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Total Earnings Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Total Earnings Index Weight: "..text
@@ -15679,10 +17455,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.total_profit_index.size = 11
 
 -- Display: Total Profit Index
 koscom_mdcsrealtime_securitiesa_exture_v2_018.total_profit_index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_profit_index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.total_profit_index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Profit Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Profit Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Total Profit Index: "..text.." (expected 4 places)"
   end
 
   return "Total Profit Index: "..text
@@ -15827,8 +17616,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.size = 11
 
 -- Display: Trading Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.display = function(value)
-  return "Trading Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Trading Price: No Value"
+  end
+
+  return "Trading Price: "..text
 end
 
 -- Dissect: Trading Price
@@ -15838,7 +17639,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.dissect = function(b
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.trading_price.display(value, buffer, offset, packet, parent)
@@ -16095,10 +17896,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio
 
 -- Display: Underlying Asset Composition Ratio 1
 koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_1.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Underlying Asset Composition Ratio 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Underlying Asset Composition Ratio 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Underlying Asset Composition Ratio 1: "..text.." (expected 6 places)"
   end
 
   return "Underlying Asset Composition Ratio 1: "..text
@@ -16129,10 +17943,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio
 
 -- Display: Underlying Asset Composition Ratio 2
 koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_2.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Underlying Asset Composition Ratio 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Underlying Asset Composition Ratio 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Underlying Asset Composition Ratio 2: "..text.." (expected 6 places)"
   end
 
   return "Underlying Asset Composition Ratio 2: "..text
@@ -16163,10 +17990,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio
 
 -- Display: Underlying Asset Composition Ratio 3
 koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_3.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_3.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_3.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Underlying Asset Composition Ratio 3: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Underlying Asset Composition Ratio 3: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Underlying Asset Composition Ratio 3: "..text.." (expected 6 places)"
   end
 
   return "Underlying Asset Composition Ratio 3: "..text
@@ -16197,10 +18037,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio
 
 -- Display: Underlying Asset Composition Ratio 4
 koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_4.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_4.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_4.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Underlying Asset Composition Ratio 4: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Underlying Asset Composition Ratio 4: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Underlying Asset Composition Ratio 4: "..text.." (expected 6 places)"
   end
 
   return "Underlying Asset Composition Ratio 4: "..text
@@ -16231,10 +18084,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio
 
 -- Display: Underlying Asset Composition Ratio 5
 koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_5.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_5.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.underlying_asset_composition_ratio_5.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Underlying Asset Composition Ratio 5: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Underlying Asset Composition Ratio 5: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Underlying Asset Composition Ratio 5: "..text.." (expected 6 places)"
   end
 
   return "Underlying Asset Composition Ratio 5: "..text
@@ -16453,8 +18319,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.size = 11
 
 -- Display: Upper Limit Of Base Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.display = function(value)
-  return "Upper Limit Of Base Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Of Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Limit Of Base Price: No Value"
+  end
+
+  return "Upper Limit Of Base Price: "..text
 end
 
 -- Dissect: Upper Limit Of Base Price
@@ -16464,7 +18342,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_base_price.display(value, buffer, offset, packet, parent)
@@ -16482,10 +18360,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_bid_ask_spread.size
 
 -- Display: Upper Limit Of Bid Ask Spread
 koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_bid_ask_spread.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_bid_ask_spread.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_of_bid_ask_spread.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Of Bid Ask Spread: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Of Bid Ask Spread: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Upper Limit Of Bid Ask Spread: "..text.." (expected 8 places)"
   end
 
   return "Upper Limit Of Bid Ask Spread: "..text
@@ -16515,8 +18406,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.size = 11
 
 -- Display: Upper Limit Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.display = function(value)
-  return "Upper Limit Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Limit Price: No Value"
+  end
+
+  return "Upper Limit Price: "..text
 end
 
 -- Dissect: Upper Limit Price
@@ -16526,7 +18429,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.dissect = functi
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -16544,10 +18447,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_quantity.size = 23
 
 -- Display: Upper Limit Quantity
 koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_quantity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.upper_limit_quantity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Quantity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Quantity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Upper Limit Quantity: "..text.." (expected 3 places)"
   end
 
   return "Upper Limit Quantity: "..text
@@ -16578,10 +18494,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_applied_covered_short_
 
 -- Display: Uptick Rule Applied Covered Short Selling Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_applied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_applied_covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_applied_covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Uptick Rule Applied Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Uptick Rule Applied Covered Short Selling Trading Value: "..text
@@ -16640,10 +18569,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_unapplied_covered_shor
 
 -- Display: Uptick Rule Unapplied Covered Short Selling Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_unapplied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_unapplied_covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.uptick_rule_unapplied_covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Uptick Rule Unapplied Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Uptick Rule Unapplied Covered Short Selling Trading Value: "..text
@@ -16724,8 +18666,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.size = 11
 
 -- Display: Vi Triggering Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.display = function(value)
-  return "Vi Triggering Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Vi Triggering Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Vi Triggering Price: No Value"
+  end
+
+  return "Vi Triggering Price: "..text
 end
 
 -- Dissect: Vi Triggering Price
@@ -16735,7 +18689,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.vi_triggering_price.display(value, buffer, offset, packet, parent)
@@ -16776,10 +18730,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_call_re_investment_index
 
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..text
@@ -16810,10 +18777,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_clean_index_value_for_in
 
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Clean Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Clean Index Value For Integrity Index Weight: "..text
@@ -16844,10 +18824,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_sum_index_value_for_inte
 
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Sum Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Sum Index Value For Integrity Index Weight: "..text
@@ -16878,10 +18871,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_zero_re_investment_index
 
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..text
@@ -16940,10 +18946,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_accumulated_trading_val
 
 -- Display: Yesterdays Accumulated Trading Value
 koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Yesterdays Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Yesterdays Accumulated Trading Value: "..text
@@ -16973,8 +18992,20 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.size = 11
 
 -- Display: Yesterdays Closing Price
-koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.display = function(value)
-  return "Yesterdays Closing Price: "..value
+koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  return "Yesterdays Closing Price: "..text
 end
 
 -- Dissect: Yesterdays Closing Price
@@ -16984,7 +19015,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_018.yesterdays_closing_price.display(value, buffer, offset, packet, parent)
@@ -17025,10 +19056,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.yield_to_maturity.size = 13
 
 -- Display: Yield To Maturity
 koscom_mdcsrealtime_securitiesa_exture_v2_018.yield_to_maturity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.yield_to_maturity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.yield_to_maturity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yield To Maturity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yield To Maturity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Yield To Maturity: "..text.." (expected 6 places)"
   end
 
   return "Yield To Maturity: "..text
@@ -17059,10 +19103,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_re_investment_index_weight.si
 
 -- Display: Zero Re Investment Index Weight
 koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_re_investment_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_re_investment_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re Investment Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re Investment Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Zero Re Investment Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Zero Re Investment Index Weight: "..text
@@ -17093,10 +19150,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_krx.size =
 
 -- Display: Zero Re-Investment Index Krx
 koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re-Investment Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re-Investment Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Zero Re-Investment Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Zero Re-Investment Index Krx: "..text
@@ -17127,10 +19197,23 @@ koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_ktb.size =
 
 -- Display: Zero Re-Investment Index Ktb
 koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_018.zero_reinvestment_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re-Investment Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re-Investment Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Zero Re-Investment Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Zero Re-Investment Index Ktb: "..text

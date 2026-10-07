@@ -30,3 +30,14 @@ grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.lowercollar" Nyse.NyseEquities
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.auctionstatus" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.freezestatus" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.numextensions" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.ImbalanceMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.1.f/SequenceNumberResetMessage.pcap" \
+  -X "lua_script:Nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_1_f_Dissector.lua" \
+  -T json \
+  > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json.stderr \
+  || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json.stderr; exit 1; }
+
+grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sourcetime" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json
+grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sourcetimens" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json
+grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.productid" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json
+grep "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.channelid" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.1.f.SequenceNumberResetMessage.json

@@ -4,6 +4,13 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.Boe3.v1.1.20/ClientHeartbeat.pcap" \
+  -X "lua_script:Cboe/CfeFutures/BinaryOrderEntry/Cboe_CfeFutures_BinaryOrderEntry_Boe3_v1_1_20_Dissector.lua" \
+  -T json \
+  > Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ClientHeartbeat.json 2> Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ClientHeartbeat.json.stderr \
+  || { echo "--- tshark FAILED (ClientHeartbeat) ---"; cat Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ClientHeartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.Boe3.v1.1.20/QuoteUpdate.pcap" \
   -X "lua_script:Cboe/CfeFutures/BinaryOrderEntry/Cboe_CfeFutures_BinaryOrderEntry_Boe3_v1_1_20_Dissector.lua" \
   -T json \
@@ -33,3 +40,10 @@ grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.transactiontime" Cboe.CfeFut
 grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateid" Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdateAcknowledgement.json
 grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.requestreceivedtime" Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdateAcknowledgement.json
 grep "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotecnt" Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.QuoteUpdateAcknowledgement.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/CfeFutures.BinaryOrderEntry.Boe3.v1.1.20/ServerHeartbeat.pcap" \
+  -X "lua_script:Cboe/CfeFutures/BinaryOrderEntry/Cboe_CfeFutures_BinaryOrderEntry_Boe3_v1_1_20_Dissector.lua" \
+  -T json \
+  > Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ServerHeartbeat.json 2> Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ServerHeartbeat.json.stderr \
+  || { echo "--- tshark FAILED (ServerHeartbeat) ---"; cat Cboe.CfeFutures.BinaryOrderEntry.Boe3.v1.1.20.ServerHeartbeat.json.stderr; exit 1; }
+

@@ -17,6 +17,34 @@ grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortquantity" Cboe.CfeF
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.symbol" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
 grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.shortprice" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.AddOrderShortMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/DeleteOrderMessage.pcap" \
+  -X "lua_script:Cboe/CfeFutures/MulticastDepthOfBook/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
+  -T json \
+  > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.DeleteOrderMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.DeleteOrderMessage.json.stderr \
+  || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.DeleteOrderMessage.json.stderr; exit 1; }
+
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.timeoffset" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.DeleteOrderMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.orderid" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.DeleteOrderMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/FuturesInstrumentDefinitionMessage.pcap" \
+  -X "lua_script:Cboe/CfeFutures/MulticastDepthOfBook/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
+  -T json \
+  > Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json 2> Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json.stderr \
+  || { echo "--- tshark FAILED (FuturesInstrumentDefinitionMessage) ---"; cat Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json.stderr; exit 1; }
+
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.timeoffset" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.symbol" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.unittimestamp" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.reportsymbol" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.futuresflags" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.expirationdate" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.contractsize" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.listingstate" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.priceincrement" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.legcount" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.legoffset" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+grep "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.varianceblockoffset" Cboe.CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6.FuturesInstrumentDefinitionMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/CfeFutures.MulticastDepthOfBook.Pitch.v1.1.6/Heartbeat.pcap" \
   -X "lua_script:Cboe/CfeFutures/MulticastDepthOfBook/Cboe_CfeFutures_MulticastDepthOfBook_Pitch_v1_1_6_Dissector.lua" \
   -T json \

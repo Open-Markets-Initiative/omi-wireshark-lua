@@ -668,10 +668,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_ask_trading_value.size = 
 
 -- Display: Accumulated Ask Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_ask_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_ask_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Ask Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Ask Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Ask Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Ask Trading Value: "..text
@@ -730,10 +743,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_bid_trading_value.size = 
 
 -- Display: Accumulated Bid Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_bid_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_bid_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Bid Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Bid Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Bid Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Bid Trading Value: "..text
@@ -792,10 +818,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_trading_value.size = 22
 
 -- Display: Accumulated Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Trading Value: "..text
@@ -877,10 +916,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value
 
 -- Display: Aftermarket Accumulated Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Aftermarket Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Aftermarket Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Aftermarket Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Aftermarket Accumulated Trading Value: "..text
@@ -1036,10 +1088,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.s
 
 -- Display: Appraisal Ratio Of Substitute Price
 nextrade_nextrade_etpcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Appraisal Ratio Of Substitute Price: "..text.." (expected 6 places)"
   end
 
   return "Appraisal Ratio Of Substitute Price: "..text
@@ -1704,10 +1769,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_1.size = 22
 
 -- Display: Ask Trading Value 1
 nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_1.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 1: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 1: "..text
@@ -1738,10 +1816,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_2.size = 22
 
 -- Display: Ask Trading Value 2
 nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_2.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 2: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 2: "..text
@@ -1772,10 +1863,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_3.size = 22
 
 -- Display: Ask Trading Value 3
 nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_3.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_3.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_3.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 3: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 3: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 3: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 3: "..text
@@ -1806,10 +1910,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_4.size = 22
 
 -- Display: Ask Trading Value 4
 nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_4.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_4.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_4.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 4: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 4: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 4: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 4: "..text
@@ -1840,10 +1957,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_5.size = 22
 
 -- Display: Ask Trading Value 5
 nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_5.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_5.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.ask_trading_value_5.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Ask Trading Value 5: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Ask Trading Value 5: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Ask Trading Value 5: "..text.." (expected 3 places)"
   end
 
   return "Ask Trading Value 5: "..text
@@ -2722,10 +2852,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_1.size = 22
 
 -- Display: Bid Trading Value 1
 nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_1.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_1.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_1.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 1: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 1: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 1: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 1: "..text
@@ -2756,10 +2899,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_2.size = 22
 
 -- Display: Bid Trading Value 2
 nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_2.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_2.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_2.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 2: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 2: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 2: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 2: "..text
@@ -2790,10 +2946,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_3.size = 22
 
 -- Display: Bid Trading Value 3
 nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_3.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_3.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_3.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 3: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 3: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 3: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 3: "..text
@@ -2824,10 +2993,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_4.size = 22
 
 -- Display: Bid Trading Value 4
 nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_4.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_4.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_4.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 4: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 4: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 4: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 4: "..text
@@ -2858,10 +3040,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_5.size = 22
 
 -- Display: Bid Trading Value 5
 nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_5.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_5.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.bid_trading_value_5.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bid Trading Value 5: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bid Trading Value 5: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bid Trading Value 5: "..text.." (expected 3 places)"
   end
 
   return "Bid Trading Value 5: "..text
@@ -3225,10 +3420,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.capital.size = 22
 
 -- Display: Capital
 nextrade_nextrade_etpcommon_nxtascii_v2_12.capital.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.capital.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.capital.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Capital: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Capital: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Capital: "..text.." (expected 3 places)"
   end
 
   return "Capital: "..text
@@ -3593,10 +3801,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.covered_short_selling_trading_value.s
 
 -- Display: Covered Short Selling Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Covered Short Selling Trading Value: "..text
@@ -3821,10 +4042,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi
 
 -- Display: Disparate Ratio To Trigger Dynamic Vi
 nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Disparate Ratio To Trigger Dynamic Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Disparate Ratio To Trigger Dynamic Vi: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Disparate Ratio To Trigger Dynamic Vi: "..text.." (expected 6 places)"
   end
 
   return "Disparate Ratio To Trigger Dynamic Vi: "..text
@@ -3855,10 +4089,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.
 
 -- Display: Disparate Ratio To Trigger Static Vi
 nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Disparate Ratio To Trigger Static Vi: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Disparate Ratio To Trigger Static Vi: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Disparate Ratio To Trigger Static Vi: "..text.." (expected 6 places)"
   end
 
   return "Disparate Ratio To Trigger Static Vi: "..text
@@ -4014,10 +4261,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.etf_tracking_difference.size = 13
 
 -- Display: Etf Tracking Difference
 nextrade_nextrade_etpcommon_nxtascii_v2_12.etf_tracking_difference.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.etf_tracking_difference.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.etf_tracking_difference.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Etf Tracking Difference: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Etf Tracking Difference: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Etf Tracking Difference: "..text.." (expected 6 places)"
   end
 
   return "Etf Tracking Difference: "..text
@@ -4163,10 +4423,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.size = 13
 
 -- Display: Exercise Price Of Elw Or Bw
 nextrade_nextrade_etpcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Exercise Price Of Elw Or Bw: "..text.." (expected 3 places)"
   end
 
   return "Exercise Price Of Elw Or Bw: "..text
@@ -4289,10 +4562,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.extended_market_bid_ask_spread_value.
 
 -- Display: Extended Market Bid Ask Spread Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.extended_market_bid_ask_spread_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.extended_market_bid_ask_spread_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.extended_market_bid_ask_spread_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Extended Market Bid Ask Spread Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Extended Market Bid Ask Spread Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Extended Market Bid Ask Spread Value: "..text.." (expected 8 places)"
   end
 
   return "Extended Market Bid Ask Spread Value: "..text
@@ -5848,10 +6134,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.main_market_bid_ask_spread_value.size
 
 -- Display: Main Market Bid Ask Spread Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.main_market_bid_ask_spread_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.main_market_bid_ask_spread_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.main_market_bid_ask_spread_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Main Market Bid Ask Spread Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Main Market Bid Ask Spread Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Main Market Bid Ask Spread Value: "..text.." (expected 8 places)"
   end
 
   return "Main Market Bid Ask Spread Value: "..text
@@ -5882,10 +6181,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.
 
 -- Display: Mainmarket Accumulated Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Mainmarket Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Mainmarket Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Mainmarket Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Mainmarket Accumulated Trading Value: "..text
@@ -6133,10 +6445,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_bid_price.size = 22
 
 -- Display: Maximum Bid Price
 nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_bid_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_bid_price.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_bid_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Bid Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Bid Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Bid Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Bid Price: "..text
@@ -6167,10 +6492,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_order_price.size = 22
 
 -- Display: Maximum Order Price
 nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_order_price.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.maximum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Order Price: "..text
@@ -6594,10 +6932,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_ask_price.size = 22
 
 -- Display: Minimum Ask Price
 nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_ask_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_ask_price.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_ask_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Ask Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Ask Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Ask Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Ask Price: "..text
@@ -6628,10 +6979,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_order_price.size = 22
 
 -- Display: Minimum Order Price
 nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_order_price.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.minimum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Order Price: "..text
@@ -6884,10 +7248,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.par_value.size = 11
 
 -- Display: Par Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.par_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.par_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.par_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Par Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Par Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Par Value: "..text.." (expected 3 places)"
   end
 
   return "Par Value: "..text
@@ -6964,10 +7341,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.premarket_accumulated_trading_value.s
 
 -- Display: Premarket Accumulated Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.premarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Premarket Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Premarket Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Premarket Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Premarket Accumulated Trading Value: "..text
@@ -8380,10 +8770,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.upper_limit_quantity.size = 23
 
 -- Display: Upper Limit Quantity
 nextrade_nextrade_etpcommon_nxtascii_v2_12.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.upper_limit_quantity.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.upper_limit_quantity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Quantity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Quantity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Upper Limit Quantity: "..text.." (expected 3 places)"
   end
 
   return "Upper Limit Quantity: "..text
@@ -8414,10 +8817,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_sel
 
 -- Display: Uptick Rule Applied Covered Short Selling Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Uptick Rule Applied Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Uptick Rule Applied Covered Short Selling Trading Value: "..text
@@ -8476,10 +8892,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_s
 
 -- Display: Uptick Rule Unapplied Covered Short Selling Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Uptick Rule Unapplied Covered Short Selling Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Uptick Rule Unapplied Covered Short Selling Trading Value: "..text
@@ -8640,10 +9069,23 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.
 
 -- Display: Yesterdays Accumulated Trading Value
 nextrade_nextrade_etpcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.size):string())
+  local raw = buffer(offset, nextrade_nextrade_etpcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Yesterdays Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Yesterdays Accumulated Trading Value: "..text

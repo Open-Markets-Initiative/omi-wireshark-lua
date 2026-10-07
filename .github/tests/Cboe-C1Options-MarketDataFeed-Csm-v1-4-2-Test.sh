@@ -29,6 +29,13 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.securitytradingstatus" Cboe.C1Opt
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.pricetype" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/HeartbeatMessage.pcap" \
+  -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
+  -T json \
+  > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.HeartbeatMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.HeartbeatMessage.json.stderr \
+  || { echo "--- tshark FAILED (HeartbeatMessage) ---"; cat Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.HeartbeatMessage.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/MarketDataRefreshMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \

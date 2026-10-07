@@ -73,3 +73,11 @@ grep "b3.b3derivatives.binaryumdf.sbe.v1.8.blocklength" B3.B3Derivatives.BinaryU
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.numingroup" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.blocklength" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.numingroup" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/B3/B3Derivatives.BinaryUmdf.Sbe.v1.8/SequenceMessage.pcap" \
+  -X "lua_script:B3/B3Derivatives/BinaryUmdf/B3_B3Derivatives_BinaryUmdf_Sbe_v1_8_Dissector.lua" \
+  -T json \
+  > B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SequenceMessage.json 2> B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SequenceMessage.json.stderr \
+  || { echo "--- tshark FAILED (SequenceMessage) ---"; cat B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SequenceMessage.json.stderr; exit 1; }
+
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.nextseqno" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SequenceMessage.json

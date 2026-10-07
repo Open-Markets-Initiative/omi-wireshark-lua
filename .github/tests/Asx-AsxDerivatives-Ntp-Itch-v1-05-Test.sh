@@ -318,6 +318,14 @@ grep "asx.asxderivatives.ntp.itch.v1.05.side" Asx.AsxDerivatives.Ntp.Itch.v1.05.
 grep "asx.asxderivatives.ntp.itch.v1.05.orderid" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 grep "asx.asxderivatives.ntp.itch.v1.05.quantity" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/SecondsMessage.pcap" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -T json \
+  > Asx.AsxDerivatives.Ntp.Itch.v1.05.SecondsMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.SecondsMessage.json.stderr \
+  || { echo "--- tshark FAILED (SecondsMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.SecondsMessage.json.stderr; exit 1; }
+
+grep "asx.asxderivatives.ntp.itch.v1.05.second" Asx.AsxDerivatives.Ntp.Itch.v1.05.SecondsMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/TextMessage.pcap" \
   -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \

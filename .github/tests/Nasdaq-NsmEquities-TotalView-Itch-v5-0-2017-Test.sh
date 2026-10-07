@@ -253,3 +253,13 @@ grep "nasdaq.nsmequities.totalview.itch.v5.0.2017.stocklocate" Nasdaq.NsmEquitie
 grep "nasdaq.nsmequities.totalview.itch.v5.0.2017.trackingnumber" Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.SystemEventMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.2017.timestamp" Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.SystemEventMessage.json
 grep "nasdaq.nsmequities.totalview.itch.v5.0.2017.eventcode" Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.SystemEventMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Nasdaq/NsmEquities.TotalView.Itch.v5.0.2017/MultipleMessages.pcap" \
+  -X "lua_script:Nasdaq/NsmEquities/TotalView/Nasdaq_NsmEquities_TotalView_Itch_v5_0_2017_Dissector.lua" \
+  -T json \
+  > Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Multiplemessages.json 2> Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Multiplemessages.json.stderr; exit 1; }
+
+grep "nasdaq.nsmequities.totalview.itch.v5.0.2017." Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Multiplemessages.json
+
+[ "$(grep -c 'nasdaq.nsmequities.totalview.itch.v5.0.2017.' Nasdaq.NsmEquities.TotalView.Itch.v5.0.2017.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

@@ -58,6 +58,16 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.M
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.orderid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.quantity" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.OrderReducedMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/RegShoRestrictionMessage.pcap" \
+  -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  -T json \
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json.stderr \
+  || { echo "--- tshark FAILED (RegShoRestrictionMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json.stderr; exit 1; }
+
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.shortsalerestriction" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.RegShoRestrictionMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/SecurityTradingStatusMessage.pcap" \
   -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \

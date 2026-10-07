@@ -16,7 +16,7 @@ local koscom_mdcsrealtime_equityderivatives_exture_v2_020 = {}
 
 -- Koscom MdcsRealtime EquityDerivatives Exture 2.020 Fields
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_designated_number_for_an_issue = ProtoField.new("A Designated Number For An Issue", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.adesignatednumberforanissue", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.apricechangeagainstthepreviousday", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.a_price_change_against_the_previous_day = ProtoField.new("A Price Change Against The Previous Day", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.apricechangeagainstthepreviousday", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.abbreviated_issue_code = ProtoField.new("Abbreviated Issue Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.abbreviatedissuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.abbreviatedissuename", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.abbreviated_issue_name_in_en = ProtoField.new("Abbreviated Issue Name In En", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.abbreviatedissuenameinen", ftypes.STRING)
@@ -32,7 +32,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_issue_of_which
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.an_obligatory_time_interval_to_place_an_order = ProtoField.new("An Obligatory Time Interval To Place An Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.anobligatorytimeintervaltoplaceanorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.announcement_of_estimated_trading_price = ProtoField.new("Announcement Of Estimated Trading Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.announcementofestimatedtradingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.appraisal_ratio_of_substitute_price = ProtoField.new("Appraisal Ratio Of Substitute Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.appraisalratioofsubstituteprice", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.appraised_price = ProtoField.new("Appraised Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.appraisedprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.appraised_price = ProtoField.new("Appraised Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.appraisedprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.averageconvexity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.average_coupon_price = ProtoField.new("Average Coupon Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.averagecouponprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.average_current_yield = ProtoField.new("Average Current Yield", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.averagecurrentyield", ftypes.DOUBLE)
@@ -46,7 +46,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.average_ytm = Pro
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.baby_bonds_type_code = ProtoField.new("Baby Bonds Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.babybondstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.backdoor_listing = ProtoField.new("Backdoor Listing", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.backdoorlisting", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basedate", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.baseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_price = ProtoField.new("Base Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.baseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_price_change = ProtoField.new("Base Price Change", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basepricechange", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.base_time = ProtoField.new("Base Time", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basetime", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.basis_price = ProtoField.new("Basis Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.basisprice", ftypes.DOUBLE)
@@ -87,7 +87,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_price_tra
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.closingpricetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.conditioned_order_permission_type_code = ProtoField.new("Conditioned Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.conditionedorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.convexity", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.country_code = ProtoField.new("Country Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.countrycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.coupon_payment_date_type_code = ProtoField.new("Coupon Payment Date Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.couponpaymentdatetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.coupon_payment_timing_code = ProtoField.new("Coupon Payment Timing Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.couponpaymenttimingcode", ftypes.STRING)
@@ -107,7 +107,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.dividend_yield = 
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.dps = ProtoField.new("Dps", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.dps", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.dps_calculation = ProtoField.new("Dps Calculation", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.dpscalculation", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.duration = ProtoField.new("Duration", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.duration", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.endkeyword", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.end_keyword = ProtoField.new("End Keyword", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.endkeyword", ftypes.UINT8)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.eps = ProtoField.new("Eps", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.eps", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.eps_calculation = ProtoField.new("Eps Calculation", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.epscalculation", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.etf_replication_methods_type_code = ProtoField.new("Etf Replication Methods Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.etfreplicationmethodstypecode", ftypes.STRING)
@@ -130,7 +130,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.first_best_order_
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.futuresbasisprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.group_code = ProtoField.new("Group Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.groupcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.group_number = ProtoField.new("Group Number", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.groupnumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.highest_order_price = ProtoField.new("Highest Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.highestorderprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.highest_order_price = ProtoField.new("Highest Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.highestorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.index = ProtoField.new("Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.index", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.index_asset_classification_id_1 = ProtoField.new("Index Asset Classification Id 1", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.indexassetclassificationid1", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.index_asset_classification_id_2 = ProtoField.new("Index Asset Classification Id 2", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.indexassetclassificationid2", ftypes.STRING)
@@ -161,7 +161,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issue_for_adminis
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.issuedamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.issuedamountweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issuing_amount = ProtoField.new("Issuing Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.issuingamount", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.issuingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.issuing_price = ProtoField.new("Issuing Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.issuingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.korea_corporate_governance_stock_price_index_kogi = ProtoField.new("Korea Corporate Governance Stock Price Index Kogi", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.koreacorporategovernancestockpriceindexkogi", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.korea_valueup_index = ProtoField.new("Korea Valueup Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.koreavalueupindex", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.kosdaq = ProtoField.new("Kosdaq", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.kosdaq", ftypes.STRING)
@@ -184,8 +184,8 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.listing_date = Pr
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.loss_category = ProtoField.new("Loss Category", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.losscategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lot_size_afterhours_trading = ProtoField.new("Lot Size Afterhours Trading", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lotsizeafterhourstrading", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.low_liquidity = ProtoField.new("Low Liquidity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lowliquidity", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lowerlimitprice", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lowestorderprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lowerlimitprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lowestorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lp_end_date = ProtoField.new("Lp End Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lpenddate", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lp_order = ProtoField.new("Lp Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lporder", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.lp_start_date = ProtoField.new("Lp Start Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.lpstartdate", ftypes.STRING)
@@ -200,7 +200,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_inde
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_price_order_permission_type_code = ProtoField.new("Market Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketpriceorderpermissiontypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketvalue", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.marketvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maturity_date = ProtoField.new("Maturity Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maturitydate", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_bid_price = ProtoField.new("Maximum Bid Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumbidprice", ftypes.DOUBLE)
@@ -221,7 +221,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_amortiz
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_listed_shares = ProtoField.new("Number Of Listed Shares", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberoflistedshares", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_months_for_grace = ProtoField.new("Number Of Months For Grace", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofmonthsforgrace", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.numberofrepotradeperiods", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.openingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.openingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.otherstocktypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.par_value = ProtoField.new("Par Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.parvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.parvaluetypecode", ftypes.STRING)
@@ -272,11 +272,11 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spac_merger = Pro
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.spread_multiple_for_market_holidays = ProtoField.new("Spread Multiple For Market Holidays", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.spreadmultipleformarketholidays", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.stop_limit_price_order_permission_type_code = ProtoField.new("Stop Limit Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.stoplimitpriceorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.strip_bond_type_code = ProtoField.new("Strip Bond Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.stripbondtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.substitutepriceofsecurities", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.substitutepriceofsecurities", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.target_stock_isin_code = ProtoField.new("Target Stock Isin Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.targetstockisincode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tax_type_code = ProtoField.new("Tax Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.taxtypecode", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.thebestask", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.thebestbid", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.thebestask", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.thebestbid", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.the_establishment_date = ProtoField.new("The Establishment Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.theestablishmentdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.todays_high = ProtoField.new("Todays High", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.todayshigh", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.todays_low = ProtoField.new("Todays Low", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.todayslow", ftypes.DOUBLE)
@@ -286,7 +286,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_number_of_i
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalprofitindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tracking_index_leverage_inverse_type_code = ProtoField.new("Tracking Index Leverage Inverse Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trackingindexleverageinversetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trading_halt = ProtoField.new("Trading Halt", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.tradinghalt", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.tradingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.tradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.transmissiontime", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trearsury_stock_trading_method_type_code = ProtoField.new("Trearsury Stock Trading Method Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trearsurystocktradingmethodtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.treasury_stock_application_date = ProtoField.new("Treasury Stock Application Date", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.treasurystockapplicationdate", ftypes.STRING)
@@ -297,7 +297,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.treasury_stock_tr
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.unfaithful_disclosure = ProtoField.new("Unfaithful Disclosure", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.unfaithfuldisclosure", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.unit_of_volume_in_main_board = ProtoField.new("Unit Of Volume In Main Board", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.unitofvolumeinmainboard", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.upper_limit_of_bid_ask_spread = ProtoField.new("Upper Limit Of Bid Ask Spread", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.upperlimitofbidaskspread", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.upperlimitprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.upper_limit_price = ProtoField.new("Upper Limit Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.upperlimitprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.upper_limit_quantity = ProtoField.new("Upper Limit Quantity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.upperlimitquantity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
@@ -305,7 +305,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.weight_of_sum_ind
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_amount = ProtoField.new("Yesterdays Accumulated Trading Amount", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yesterdaysaccumulatedtradingamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_accumulated_trading_value = ProtoField.new("Yesterdays Accumulated Trading Value", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yesterdaysaccumulatedtradingvalue", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yesterdaysclosingprice", ftypes.STRING)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_closing_price = ProtoField.new("Yesterdays Closing Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yesterdaysclosingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yesterdays_closing_price_type_code = ProtoField.new("Yesterdays Closing Price Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yesterdaysclosingpricetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.yield_to_maturity = ProtoField.new("Yield To Maturity", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.yieldtomaturity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.zeroreinvestmentindexweight", ftypes.DOUBLE)
@@ -480,8 +480,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_p
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_previous_day.size = 11
 
 -- Display: A Price Change Against The Previous Day
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_previous_day.display = function(value)
-  return "A Price Change Against The Previous Day: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_previous_day.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "A Price Change Against The Previous Day: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "A Price Change Against The Previous Day: No Value"
+  end
+
+  return "A Price Change Against The Previous Day: "..text
 end
 
 -- Dissect: A Price Change Against The Previous Day
@@ -491,7 +503,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.a_price_change_against_the_previous_day.display(value, buffer, offset, packet, parent)
@@ -601,10 +613,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_cash.size = 26
 
 -- Display: Accumulated Cash
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_cash.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_cash.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_cash.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Cash: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Cash: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Accumulated Cash: "..text.." (expected 6 places)"
   end
 
   return "Accumulated Cash: "..text
@@ -663,10 +688,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_value.si
 
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Accumulated Trading Value: "..text
@@ -868,10 +906,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraisal_ratio_of_substitut
 
 -- Display: Appraisal Ratio Of Substitute Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraisal_ratio_of_substitute_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraisal_ratio_of_substitute_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraisal_ratio_of_substitute_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Appraisal Ratio Of Substitute Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Appraisal Ratio Of Substitute Price: "..text.." (expected 6 places)"
   end
 
   return "Appraisal Ratio Of Substitute Price: "..text
@@ -901,8 +952,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.size = 11
 
 -- Display: Appraised Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.display = function(value)
-  return "Appraised Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Appraised Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Appraised Price: No Value"
+  end
+
+  return "Appraised Price: "..text
 end
 
 -- Dissect: Appraised Price
@@ -912,7 +975,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.dissect = fu
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.appraised_price.display(value, buffer, offset, packet, parent)
@@ -930,10 +993,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_convexity.size = 16
 
 -- Display: Average Convexity
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_convexity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_convexity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_convexity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Convexity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Convexity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Convexity: "..text.." (expected 6 places)"
   end
 
   return "Average Convexity: "..text
@@ -964,10 +1040,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_coupon_price.size = 
 
 -- Display: Average Coupon Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_coupon_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_coupon_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_coupon_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Coupon Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Coupon Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Coupon Price: "..text.." (expected 6 places)"
   end
 
   return "Average Coupon Price: "..text
@@ -998,10 +1087,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_current_yield.size =
 
 -- Display: Average Current Yield
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_current_yield.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_current_yield.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_current_yield.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Current Yield: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Current Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Current Yield: "..text.." (expected 6 places)"
   end
 
   return "Average Current Yield: "..text
@@ -1032,10 +1134,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_duration.size = 16
 
 -- Display: Average Duration
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_duration.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_duration.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_duration.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Duration: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Duration: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Duration: "..text.." (expected 6 places)"
   end
 
   return "Average Duration: "..text
@@ -1066,10 +1181,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_forward_ytm.size = 7
 
 -- Display: Average Forward Ytm
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_forward_ytm.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_forward_ytm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Forward Ytm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Forward Ytm: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Average Forward Ytm: "..text.." (expected 3 places)"
   end
 
   return "Average Forward Ytm: "..text
@@ -1100,10 +1228,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_remaining_maturity_p
 
 -- Display: Average Remaining Maturity Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_remaining_maturity_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_remaining_maturity_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Remaining Maturity Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Remaining Maturity Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Remaining Maturity Price: "..text.." (expected 6 places)"
   end
 
   return "Average Remaining Maturity Price: "..text
@@ -1134,10 +1275,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_spread.size = 16
 
 -- Display: Average Spread
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_spread.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_spread.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_spread.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Spread: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Spread: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Spread: "..text.." (expected 6 places)"
   end
 
   return "Average Spread: "..text
@@ -1201,10 +1355,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_yld.size = 16
 
 -- Display: Average Yld
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_yld.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_yld.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_yld.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Yld: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Yld: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Average Yld: "..text.." (expected 6 places)"
   end
 
   return "Average Yld: "..text
@@ -1235,10 +1402,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_ytm.size = 7
 
 -- Display: Average Ytm
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_ytm.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_ytm.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.average_ytm.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Average Ytm: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Average Ytm: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Average Ytm: "..text.." (expected 3 places)"
   end
 
   return "Average Ytm: "..text
@@ -1341,8 +1521,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.size = 11
 
 -- Display: Base Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.display = function(value)
-  return "Base Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Base Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Base Price: No Value"
+  end
+
+  return "Base Price: "..text
 end
 
 -- Dissect: Base Price
@@ -1352,7 +1544,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.dissect = functio
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.base_price.display(value, buffer, offset, packet, parent)
@@ -1420,10 +1612,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.basis_price.size = 10
 
 -- Display: Basis Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.basis_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.basis_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.basis_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Basis Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Basis Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Basis Price: "..text.." (expected 2 places)"
   end
 
   return "Basis Price: "..text
@@ -1643,10 +1848,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_issuance_rate.size = 13
 
 -- Display: Bond Issuance Rate
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_issuance_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_issuance_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_issuance_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bond Issuance Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bond Issuance Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Bond Issuance Rate: "..text.." (expected 6 places)"
   end
 
   return "Bond Issuance Rate: "..text
@@ -1700,10 +1918,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.bps.size = 22
 
 -- Display: Bps
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.bps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.bps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.bps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Bps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Bps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Bps: "..text.." (expected 3 places)"
   end
 
   return "Bps: "..text
@@ -1991,10 +2222,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_re_investment_index_wei
 
 -- Display: Call Re Investment Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_re_investment_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_re_investment_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re Investment Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re Investment Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Call Re Investment Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Call Re Investment Index Weight: "..text
@@ -2025,10 +2269,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_krx.
 
 -- Display: Call Re-Investment Index Krx
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re-Investment Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re-Investment Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Call Re-Investment Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Call Re-Investment Index Krx: "..text
@@ -2059,10 +2316,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_ktb.
 
 -- Display: Call Re-Investment Index Ktb
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.call_reinvestment_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Call Re-Investment Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Call Re-Investment Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Call Re-Investment Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Call Re-Investment Index Ktb: "..text
@@ -2093,10 +2363,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.capital.size = 22
 
 -- Display: Capital
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.capital.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.capital.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.capital.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Capital: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Capital: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Capital: "..text.." (expected 3 places)"
   end
 
   return "Capital: "..text
@@ -2150,10 +2433,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.cash_inflow.size = 26
 
 -- Display: Cash Inflow
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.cash_inflow.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.cash_inflow.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.cash_inflow.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Cash Inflow: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Cash Inflow: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Cash Inflow: "..text.." (expected 6 places)"
   end
 
   return "Cash Inflow: "..text
@@ -2184,10 +2480,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price.size = 10
 
 -- Display: Clean Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Clean Price: "..text.." (expected 2 places)"
   end
 
   return "Clean Price: "..text
@@ -2218,10 +2527,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_krx.size =
 
 -- Display: Clean Price Index Krx
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Clean Price Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Clean Price Index Krx: "..text
@@ -2252,10 +2574,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_ktb.size =
 
 -- Display: Clean Price Index Ktb
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Clean Price Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Clean Price Index Ktb: "..text
@@ -2286,10 +2621,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_weight.siz
 
 -- Display: Clean Price Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.clean_price_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Clean Price Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Clean Price Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Clean Price Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Clean Price Index Weight: "..text
@@ -2440,10 +2788,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.convexity.size = 7
 
 -- Display: Convexity
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.convexity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.convexity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.convexity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Convexity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Convexity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Convexity: "..text.." (expected 3 places)"
   end
 
   return "Convexity: "..text
@@ -2473,8 +2834,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_s
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_securities_exercise_price.size = 11
 
 -- Display: Corporate Bonds Related To Securities Exercise Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_securities_exercise_price.display = function(value)
-  return "Corporate Bonds Related To Securities Exercise Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_securities_exercise_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_securities_exercise_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Corporate Bonds Related To Securities Exercise Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Corporate Bonds Related To Securities Exercise Price: No Value"
+  end
+
+  return "Corporate Bonds Related To Securities Exercise Price: "..text
 end
 
 -- Dissect: Corporate Bonds Related To Securities Exercise Price
@@ -2484,7 +2857,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_s
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_related_to_securities_exercise_price.display(value, buffer, offset, packet, parent)
@@ -2594,10 +2967,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.coupon_rate.size = 14
 
 -- Display: Coupon Rate
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.coupon_rate.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.coupon_rate.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.coupon_rate.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Coupon Rate: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Coupon Rate: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 5 then
+    return "Coupon Rate: "..text.." (expected 5 places)"
   end
 
   return "Coupon Rate: "..text
@@ -2894,10 +3280,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.dividend_yield.size = 13
 
 -- Display: Dividend Yield
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.dividend_yield.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.dividend_yield.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.dividend_yield.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Dividend Yield: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Dividend Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Dividend Yield: "..text.." (expected 6 places)"
   end
 
   return "Dividend Yield: "..text
@@ -2928,10 +3327,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.dps.size = 22
 
 -- Display: Dps
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.dps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.dps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.dps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Dps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Dps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Dps: "..text.." (expected 3 places)"
   end
 
   return "Dps: "..text
@@ -2985,10 +3397,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.duration.size = 7
 
 -- Display: Duration
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.duration.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.duration.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.duration.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Duration: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Duration: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Duration: "..text.." (expected 3 places)"
   end
 
   return "Duration: "..text
@@ -3019,14 +3444,18 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.end_keyword.size = 1
 
 -- Display: End Keyword
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.end_keyword.display = function(value)
-  return "End Keyword: "..value
+  if value == 255 then
+    return "End Keyword: End Of Message (255)"
+  end
+
+  return "End Keyword: Unknown("..value..")"
 end
 
 -- Dissect: End Keyword
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.end_keyword.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.end_keyword.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_020.text_encoding)
+  local value = range:uint()
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.end_keyword.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.end_keyword, range, value, display)
@@ -3042,10 +3471,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.eps.size = 22
 
 -- Display: Eps
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.eps.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.eps.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.eps.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Eps: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Eps: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Eps: "..text.." (expected 3 places)"
   end
 
   return "Eps: "..text
@@ -3122,10 +3564,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.etf_tracking_difference.size
 
 -- Display: Etf Tracking Difference
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.etf_tracking_difference.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.etf_tracking_difference.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.etf_tracking_difference.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Etf Tracking Difference: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Etf Tracking Difference: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Etf Tracking Difference: "..text.." (expected 6 places)"
   end
 
   return "Etf Tracking Difference: "..text
@@ -3271,10 +3726,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_price_of_elw_or_bw.
 
 -- Display: Exercise Price Of Elw Or Bw
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_price_of_elw_or_bw.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_price_of_elw_or_bw.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_price_of_elw_or_bw.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Price Of Elw Or Bw: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Exercise Price Of Elw Or Bw: "..text.." (expected 3 places)"
   end
 
   return "Exercise Price Of Elw Or Bw: "..text
@@ -3305,10 +3773,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_ratio.size = 7
 
 -- Display: Exercise Ratio
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_ratio.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_ratio.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.exercise_ratio.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Exercise Ratio: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Exercise Ratio: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Exercise Ratio: "..text.." (expected 2 places)"
   end
 
   return "Exercise Ratio: "..text
@@ -3528,10 +4009,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.futures_basis_price.size = 1
 
 -- Display: Futures Basis Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.futures_basis_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.futures_basis_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.futures_basis_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Futures Basis Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Futures Basis Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Futures Basis Price: "..text.." (expected 2 places)"
   end
 
   return "Futures Basis Price: "..text
@@ -3607,8 +4101,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.size = 11
 
 -- Display: Highest Order Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.display = function(value)
-  return "Highest Order Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Highest Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Highest Order Price: No Value"
+  end
+
+  return "Highest Order Price: "..text
 end
 
 -- Dissect: Highest Order Price
@@ -3618,7 +4124,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.dissect 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.highest_order_price.display(value, buffer, offset, packet, parent)
@@ -3636,10 +4142,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.index.size = 9
 
 -- Display: Index
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Index: "..text.." (expected 2 places)"
   end
 
   return "Index: "..text
@@ -3739,10 +4258,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_change_against_the_pre
 
 -- Display: Index Change Against The Previous Day
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_change_against_the_previous_day.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.index_change_against_the_previous_day.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Index Change Against The Previous Day: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Index Change Against The Previous Day: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 2 then
+    return "Index Change Against The Previous Day: "..text.." (expected 2 places)"
   end
 
   return "Index Change Against The Previous Day: "..text
@@ -4334,10 +4866,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount_weight.size = 
 
 -- Display: Issued Amount Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.issued_amount_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issued Amount Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Issued Amount Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Issued Amount Weight: "..text.." (expected 6 places)"
   end
 
   return "Issued Amount Weight: "..text
@@ -4368,10 +4913,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_amount.size = 22
 
 -- Display: Issuing Amount
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_amount.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_amount.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_amount.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issuing Amount: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Issuing Amount: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Issuing Amount: "..text.." (expected 3 places)"
   end
 
   return "Issuing Amount: "..text
@@ -4401,8 +4959,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.size = 11
 
 -- Display: Issuing Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.display = function(value)
-  return "Issuing Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Issuing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Issuing Price: No Value"
+  end
+
+  return "Issuing Price: "..text
 end
 
 -- Dissect: Issuing Price
@@ -4412,7 +4982,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.issuing_price.display(value, buffer, offset, packet, parent)
@@ -4826,10 +5396,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.listed_amount.size = 22
 
 -- Display: Listed Amount
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.listed_amount.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.listed_amount.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.listed_amount.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Listed Amount: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Listed Amount: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Listed Amount: "..text.." (expected 3 places)"
   end
 
   return "Listed Amount: "..text
@@ -4956,8 +5539,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.size = 11
 
 -- Display: Lower Limit Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.display = function(value)
-  return "Lower Limit Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lower Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lower Limit Price: No Value"
+  end
+
+  return "Lower Limit Price: "..text
 end
 
 -- Dissect: Lower Limit Price
@@ -4967,7 +5562,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.lower_limit_price.display(value, buffer, offset, packet, parent)
@@ -4984,8 +5579,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.size = 11
 
 -- Display: Lowest Order Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.display = function(value)
-  return "Lowest Order Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Lowest Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Lowest Order Price: No Value"
+  end
+
+  return "Lowest Order Price: "..text
 end
 
 -- Dissect: Lowest Order Price
@@ -4995,7 +5602,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.dissect =
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.lowest_order_price.display(value, buffer, offset, packet, parent)
@@ -5151,10 +5758,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_capitalization_weight
 
 -- Display: Market Capitalization Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_capitalization_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_capitalization_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Capitalization Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Capitalization Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Capitalization Weight: "..text.." (expected 6 places)"
   end
 
   return "Market Capitalization Weight: "..text
@@ -5254,10 +5874,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_krx.size 
 
 -- Display: Market Price Index Krx
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Price Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Market Price Index Krx: "..text
@@ -5288,10 +5921,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_ktb.size 
 
 -- Display: Market Price Index Ktb
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Market Price Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Market Price Index Ktb: "..text
@@ -5322,10 +5968,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_weight.si
 
 -- Display: Market Price Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_price_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Price Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Market Price Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Market Price Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Market Price Index Weight: "..text
@@ -5383,8 +6042,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.size = 11
 
 -- Display: Market Value
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.display = function(value)
-  return "Market Value: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Market Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Market Value: No Value"
+  end
+
+  return "Market Value: "..text
 end
 
 -- Dissect: Market Value
@@ -5394,7 +6065,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.market_value.display(value, buffer, offset, packet, parent)
@@ -5458,10 +6129,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_bid_price.size = 22
 
 -- Display: Maximum Bid Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_bid_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_bid_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_bid_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Bid Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Bid Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Bid Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Bid Price: "..text
@@ -5492,10 +6176,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_order_price.size = 2
 
 -- Display: Maximum Order Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_order_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Maximum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Maximum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Maximum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Maximum Order Price: "..text
@@ -5767,6 +6464,11 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number.size
 
 -- Display: Message Sequence Number
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Message Sequence Number: No Value"
+  end
+
   return "Message Sequence Number: "..value
 end
 
@@ -5774,12 +6476,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_020.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.message_sequence_number, range, value, display)
@@ -5823,10 +6520,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_ask_price.size = 22
 
 -- Display: Minimum Ask Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_ask_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_ask_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_ask_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Ask Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Ask Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Ask Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Ask Price: "..text
@@ -5857,10 +6567,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_price.size = 2
 
 -- Display: Minimum Order Price
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_price.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_price.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.minimum_order_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Minimum Order Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Minimum Order Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Minimum Order Price: "..text.." (expected 3 places)"
   end
 
   return "Minimum Order Price: "..text
@@ -6150,8 +6873,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.size = 11
 
 -- Display: Opening Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.display = function(value)
-  return "Opening Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Opening Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Opening Price: No Value"
+  end
+
+  return "Opening Price: "..text
 end
 
 -- Dissect: Opening Price
@@ -6161,7 +6896,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.opening_price.display(value, buffer, offset, packet, parent)
@@ -6202,10 +6937,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.par_value.size = 11
 
 -- Display: Par Value
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.par_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.par_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.par_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Par Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Par Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Par Value: "..text.." (expected 3 places)"
   end
 
   return "Par Value: "..text
@@ -6259,10 +7007,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.pbr.size = 13
 
 -- Display: Pbr
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.pbr.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.pbr.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.pbr.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Pbr: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Pbr: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Pbr: "..text.." (expected 6 places)"
   end
 
   return "Pbr: "..text
@@ -6293,10 +7054,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.per.size = 13
 
 -- Display: Per
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.per.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.per.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.per.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Per: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Per: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Per: "..text.." (expected 6 places)"
   end
 
   return "Per: "..text
@@ -6534,10 +7308,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.redemption_ratio_at_maturity
 
 -- Display: Redemption Ratio At Maturity
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.redemption_ratio_at_maturity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.redemption_ratio_at_maturity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.redemption_ratio_at_maturity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Redemption Ratio At Maturity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Redemption Ratio At Maturity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Redemption Ratio At Maturity: "..text.." (expected 6 places)"
   end
 
   return "Redemption Ratio At Maturity: "..text
@@ -6660,10 +7447,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.reinvest_call_cash.size = 26
 
 -- Display: Reinvest Call Cash
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.reinvest_call_cash.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.reinvest_call_cash.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Reinvest Call Cash: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Reinvest Call Cash: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Reinvest Call Cash: "..text.." (expected 6 places)"
   end
 
   return "Reinvest Call Cash: "..text
@@ -7443,8 +8243,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securiti
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securities.size = 11
 
 -- Display: Substitute Price Of Securities
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securities.display = function(value)
-  return "Substitute Price Of Securities: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securities.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securities.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Substitute Price Of Securities: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Substitute Price Of Securities: No Value"
+  end
+
+  return "Substitute Price Of Securities: "..text
 end
 
 -- Dissect: Substitute Price Of Securities
@@ -7454,7 +8266,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securiti
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.substitute_price_of_securities.display(value, buffer, offset, packet, parent)
@@ -7517,8 +8329,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.size = 11
 
 -- Display: The Best Ask
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.display = function(value)
-  return "The Best Ask: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Best Ask: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Best Ask: No Value"
+  end
+
+  return "The Best Ask: "..text
 end
 
 -- Dissect: The Best Ask
@@ -7528,7 +8352,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_ask.display(value, buffer, offset, packet, parent)
@@ -7545,8 +8369,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.size = 11
 
 -- Display: The Best Bid
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.display = function(value)
-  return "The Best Bid: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "The Best Bid: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "The Best Bid: No Value"
+  end
+
+  return "The Best Bid: "..text
 end
 
 -- Dissect: The Best Bid
@@ -7556,7 +8392,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.dissect = funct
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.the_best_bid.display(value, buffer, offset, packet, parent)
@@ -7597,10 +8433,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_high.size = 11
 
 -- Display: Todays High
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_high.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_high.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_high.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays High: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Todays High: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Todays High: "..text.." (expected 3 places)"
   end
 
   return "Todays High: "..text
@@ -7631,10 +8480,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_low.size = 11
 
 -- Display: Todays Low
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_low.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_low.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.todays_low.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Todays Low: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Todays Low: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Todays Low: "..text.." (expected 3 places)"
   end
 
   return "Todays Low: "..text
@@ -7665,10 +8527,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index.size = 
 
 -- Display: Total Earnings Index
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Earnings Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Earnings Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Total Earnings Index: "..text.." (expected 6 places)"
   end
 
   return "Total Earnings Index: "..text
@@ -7699,10 +8574,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index_weight.
 
 -- Display: Total Earnings Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_earnings_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Earnings Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Earnings Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Total Earnings Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Total Earnings Index Weight: "..text
@@ -7761,10 +8649,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.size = 11
 
 -- Display: Total Profit Index
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Total Profit Index: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Total Profit Index: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Total Profit Index: "..text.." (expected 4 places)"
   end
 
   return "Total Profit Index: "..text
@@ -7840,8 +8741,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.size = 11
 
 -- Display: Trading Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.display = function(value)
-  return "Trading Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Trading Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Trading Price: No Value"
+  end
+
+  return "Trading Price: "..text
 end
 
 -- Dissect: Trading Price
@@ -7851,7 +8764,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.dissect = func
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.trading_price.display(value, buffer, offset, packet, parent)
@@ -8085,10 +8998,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_of_bid_ask_sprea
 
 -- Display: Upper Limit Of Bid Ask Spread
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_of_bid_ask_spread.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_of_bid_ask_spread.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_of_bid_ask_spread.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Of Bid Ask Spread: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Of Bid Ask Spread: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 8 then
+    return "Upper Limit Of Bid Ask Spread: "..text.." (expected 8 places)"
   end
 
   return "Upper Limit Of Bid Ask Spread: "..text
@@ -8118,8 +9044,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price = {}
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.size = 11
 
 -- Display: Upper Limit Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.display = function(value)
-  return "Upper Limit Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Upper Limit Price: No Value"
+  end
+
+  return "Upper Limit Price: "..text
 end
 
 -- Dissect: Upper Limit Price
@@ -8129,7 +9067,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.dissect = 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_price.display(value, buffer, offset, packet, parent)
@@ -8147,10 +9085,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_quantity.size = 
 
 -- Display: Upper Limit Quantity
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_quantity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.upper_limit_quantity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Upper Limit Quantity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Upper Limit Quantity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Upper Limit Quantity: "..text.." (expected 3 places)"
   end
 
   return "Upper Limit Quantity: "..text
@@ -8181,10 +9132,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_call_re_investment
 
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Call Re Investment Index Value For Integrity Index Weight: "..text
@@ -8215,10 +9179,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_clean_index_value_
 
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_clean_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_clean_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Clean Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Clean Index Value For Integrity Index Weight: "..text
@@ -8249,10 +9226,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_sum_index_value_fo
 
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_sum_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_sum_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Sum Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Sum Index Value For Integrity Index Weight: "..text
@@ -8283,10 +9273,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_zero_re_investment
 
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: "..text
@@ -8345,10 +9348,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_tradi
 
 -- Display: Yesterdays Accumulated Trading Value
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_trading_value.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_accumulated_trading_value.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yesterdays Accumulated Trading Value: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 3 then
+    return "Yesterdays Accumulated Trading Value: "..text.." (expected 3 places)"
   end
 
   return "Yesterdays Accumulated Trading Value: "..text
@@ -8378,8 +9394,20 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price = {
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.size = 11
 
 -- Display: Yesterdays Closing Price
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.display = function(value)
-  return "Yesterdays Closing Price: "..value
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Yesterdays Closing Price: No Value"
+  end
+
+  return "Yesterdays Closing Price: "..text
 end
 
 -- Dissect: Yesterdays Closing Price
@@ -8389,7 +9417,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.dis
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.yesterdays_closing_price.display(value, buffer, offset, packet, parent)
@@ -8430,10 +9458,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.yield_to_maturity.size = 13
 
 -- Display: Yield To Maturity
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.yield_to_maturity.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.yield_to_maturity.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.yield_to_maturity.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Yield To Maturity: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Yield To Maturity: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Yield To Maturity: "..text.." (expected 6 places)"
   end
 
   return "Yield To Maturity: "..text
@@ -8464,10 +9505,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_re_investment_index_wei
 
 -- Display: Zero Re Investment Index Weight
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_re_investment_index_weight.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_re_investment_index_weight.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re Investment Index Weight: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re Investment Index Weight: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Zero Re Investment Index Weight: "..text.." (expected 6 places)"
   end
 
   return "Zero Re Investment Index Weight: "..text
@@ -8498,10 +9552,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_krx.
 
 -- Display: Zero Re-Investment Index Krx
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_krx.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_krx.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re-Investment Index Krx: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re-Investment Index Krx: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Zero Re-Investment Index Krx: "..text.." (expected 6 places)"
   end
 
   return "Zero Re-Investment Index Krx: "..text
@@ -8532,10 +9599,23 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_ktb.
 
 -- Display: Zero Re-Investment Index Ktb
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
-  local text = format_decimal_text(buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_ktb.size):string())
+  local raw = buffer(offset, koscom_mdcsrealtime_equityderivatives_exture_v2_020.zero_reinvestment_index_ktb.size):string()
+
+  if raw == string.rep("9", #raw) then
+    return "Zero Re-Investment Index Ktb: No Value"
+  end
+
+  local text = format_decimal_text(raw)
 
   if text == nil then
     return "Zero Re-Investment Index Ktb: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 4 then
+    return "Zero Re-Investment Index Ktb: "..text.." (expected 4 places)"
   end
 
   return "Zero Re-Investment Index Ktb: "..text
