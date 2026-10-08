@@ -7,21 +7,21 @@
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Okx][Okx.Exchange] | [Private][Okx.Okx.Private] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.Okx.Private.Sbe.v1.0.Dissector] | 9/30/2026 | 1824 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.Okx.Private.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [Private][Okx.OkxDigital.Private] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Private.Sbe.v1.0.Dissector] | 9/30/2026 | 1824 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Private.Sbe.v1.0.Url] - [url][Okx.OkxDigital.Private.Sbe.v1.0.Url] |
 
 
 ### Market Data
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Okx][Okx.Exchange] | [MarketData][Okx.Okx.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.Okx.MarketData.Sbe.v1.0.Dissector] | 11/6/2025 | 2261 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.Okx.MarketData.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [MarketData][Okx.OkxDigital.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.MarketData.Sbe.v1.0.Dissector] | 11/6/2025 | 2261 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.MarketData.Sbe.v1.0.Url] - [url][Okx.OkxDigital.MarketData.Sbe.v1.0.Url] |
 
 
 ### Order Entry
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Okx][Okx.Exchange] | [Trade][Okx.Okx.Trade] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.Okx.Trade.Sbe.v1.0.Dissector] | 9/30/2026 | 2883 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.Okx.Trade.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [Trade][Okx.OkxDigital.Trade] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Trade.Sbe.v1.0.Dissector] | 9/30/2026 | 2883 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Trade.Sbe.v1.0.Url] - [url][Okx.OkxDigital.Trade.Sbe.v1.0.Url] |
 
 
 <p align="center"><a href="https://www.okx.com/en-us" title="OKX Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a></p>
@@ -44,14 +44,17 @@
 [Omi.Okx.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Okx/Protocols "Okx Protocol Directory"
 [Omi.Okx.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Okx/Specifications "Okx Specifications Directory"
 [Omi.Encoding.Sbe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sbe.md "Sbe Encoding"
-[Okx.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Okx/Protocols/Okx "Okx Okx"
-[Okx.Okx.MarketData]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/Okx/MarketData.md "Market Data"
-[Okx.Okx.Private]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/Okx/Private.md "Private"
-[Okx.Okx.Trade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/Okx/Trade.md "Trade"
+[OkxDigital.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Okx/Protocols/OkxDigital "Okx OkxDigital"
+[Okx.OkxDigital.MarketData]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/OkxDigital/MarketData.md "Market Data"
+[Okx.OkxDigital.Private]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/OkxDigital/Private.md "Private"
+[Okx.OkxDigital.Trade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/OkxDigital/Trade.md "Trade"
 
-[Okx.Okx.MarketData.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/Okx/MarketData/Okx_Okx_MarketData_Sbe_v1_0_Dissector.lua "Okx Okx MarketData Sbe v1.0 Wireshark Dissector"
-[Okx.Okx.MarketData.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
-[Okx.Okx.Private.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/Okx/Private/Okx_Okx_Private_Sbe_v1_0_Dissector.lua "Okx Okx Private Sbe v1.0 Wireshark Dissector"
-[Okx.Okx.Private.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
-[Okx.Okx.Trade.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/Okx/Trade/Okx_Okx_Trade_Sbe_v1_0_Dissector.lua "Okx Okx Trade Sbe v1.0 Wireshark Dissector"
-[Okx.Okx.Trade.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.MarketData.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/MarketData/Okx_OkxDigital_MarketData_Sbe_v1_0_Dissector.lua "Okx OkxDigital MarketData Sbe v1.0 Wireshark Dissector"
+[Okx.OkxDigital.MarketData.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.MarketData.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_1_0.xml "OKX 1.0 Url"
+[Okx.OkxDigital.Private.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/Private/Okx_OkxDigital_Private_Sbe_v1_0_Dissector.lua "Okx OkxDigital Private Sbe v1.0 Wireshark Dissector"
+[Okx.OkxDigital.Private.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.Private.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_private_1_0.xml "OKX 1.0 Url"
+[Okx.OkxDigital.Trade.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/Trade/Okx_OkxDigital_Trade_Sbe_v1_0_Dissector.lua "Okx OkxDigital Trade Sbe v1.0 Wireshark Dissector"
+[Okx.OkxDigital.Trade.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.Trade.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_trade_1_0.xml "OKX 1.0 Url"
