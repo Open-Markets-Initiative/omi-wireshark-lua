@@ -3348,7 +3348,6 @@ function omi_nasdaq_iseoptions_topofmarket_glimpse_v2_1.dissector(buffer, packet
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_iseoptions_topofmarket_glimpse_v2_1, buffer(), omi_nasdaq_iseoptions_topofmarket_glimpse_v2_1.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_iseoptions_topofmarket_glimpse_v2_1.role(packet)
 
   if role == "initiator" then

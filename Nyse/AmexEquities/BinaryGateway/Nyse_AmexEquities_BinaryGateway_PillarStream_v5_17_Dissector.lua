@@ -31,7 +31,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.breach_action_requ
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.amexequities.binarygateway.pillarstream.v5.17.breachactionresponse", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.bulk_cancel_type = ProtoField.new("Bulk Cancel Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.bulkcanceltype", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.buy_dmm_available_qty = ProtoField.new("Buy Dmm Available Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.buydmmavailableqty", ftypes.UINT32)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.amexequities.binarygateway.pillarstream.v5.17.cancelinsteadofreprice", ftypes.UINT64, {[0]="Not Applicable", [1]="Cancel Instead Of Repricing Luld Only", [3]="Cancel Instead Of Repricing Any Reason"}, base.DEC, 0x0000000000000F00)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.amexequities.binarygateway.pillarstream.v5.17.cancelinsteadofreprice", ftypes.UINT64, {[0]="Not Applicable", [1]="Cancel Instead Of Repricing Luld Only", [3]="Cancel Instead Of Repricing Any Reason"}, base.DEC, 0x00000F0000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.amexequities.binarygateway.pillarstream.v5.17.cancelondisconnect", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.clordid", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.amexequities.binarygateway.pillarstream.v5.17.clearingnumber", ftypes.STRING)
@@ -49,8 +49,8 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.dmm_requested_qty 
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.amexequities.binarygateway.pillarstream.v5.17.dmmunitnum", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.effective_time = ProtoField.new("Effective Time", "nyse.amexequities.binarygateway.pillarstream.v5.17.effectivetime", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.end_seq = ProtoField.new("End Seq", "nyse.amexequities.binarygateway.pillarstream.v5.17.endseq", ftypes.UINT64)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x0000000000F00000)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x00000000000F0000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x00F0000000000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x000F000000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.binarygateway.pillarstream.v5.17.imbalanceside", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.amexequities.binarygateway.pillarstream.v5.17.imbalancevolume", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.interest_type = ProtoField.new("Interest Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contraside"}, base.DEC, 0x000000000E000000)
@@ -98,7 +98,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.open_on_trade_max_
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.amexequities.binarygateway.pillarstream.v5.17.optionalorderaddon", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.optional_routing_strategy_add_on = ProtoField.new("Optional Routing Strategy Add On", "nyse.amexequities.binarygateway.pillarstream.v5.17.optionalroutingstrategyaddon", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.amexequities.binarygateway.pillarstream.v5.17.optionalsettlementtypeaddon", ftypes.STRING)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ord_type = ProtoField.new("Ord Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.ordtype", ftypes.UINT64, {[1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged"}, base.DEC, 0x000000000F000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ord_type = ProtoField.new("Ord Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.ordtype", ftypes.UINT64, {[1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged"}, base.DEC, 0x0F00000000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.amexequities.binarygateway.pillarstream.v5.17.ordercapacity", ftypes.UINT64, {[1]="Agency", [2]="Principal", [3]="Riskless Principal", [4]="Error Account"}, base.DEC, 0x0000000001C00000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.order_id = ProtoField.new("Order Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.orderid", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.amexequities.binarygateway.pillarstream.v5.17.orderpriorityupdateacksubscription", ftypes.UINT8)
@@ -115,7 +115,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ppp_3 = ProtoField
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.amexequities.binarygateway.pillarstream.v5.17.preliquidityindicator", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.price = ProtoField.new("Price", "nyse.amexequities.binarygateway.pillarstream.v5.17.price", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.price_scale = ProtoField.new("Price Scale", "nyse.amexequities.binarygateway.pillarstream.v5.17.pricescale", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.amexequities.binarygateway.pillarstream.v5.17.proactiveiflocked", ftypes.UINT64, {[0]="No Proactive If Locked", [1]="Proactive Route", [2]="Proactive Trade Non Display"}, base.DEC, 0x000000000000001C)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.amexequities.binarygateway.pillarstream.v5.17.proactiveiflocked", ftypes.UINT64, {[0]="No Proactive If Locked", [1]="Proactive Route", [2]="Proactive Trade Non Display"}, base.DEC, 0x0000001C00000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.amexequities.binarygateway.pillarstream.v5.17.quotingmpv", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.amexequities.binarygateway.pillarstream.v5.17.rdseq", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.reason_code = ProtoField.new("Reason Code", "nyse.amexequities.binarygateway.pillarstream.v5.17.reasoncode", ftypes.UINT16)
@@ -145,11 +145,11 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.risk_range_id = Pr
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.amexequities.binarygateway.pillarstream.v5.17.riskusercrd", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.riskusertype", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.round_lot_size = ProtoField.new("Round Lot Size", "nyse.amexequities.binarygateway.pillarstream.v5.17.roundlotsize", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.routinginst", ftypes.UINT64, {[0]="None", [1]="Non Routable", [2]="Routable", [3]="Directed Primary", [4]="Directed Routable", [5]="Primary Until 0945", [6]="Primary After 1555", [7]="Primary Time Windows", [8]="Minimum Fill", [10]="Route To Ats"}, base.DEC, 0x000000000000F000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.routinginst", ftypes.UINT64, {[0]="None", [1]="Non Routable", [2]="Routable", [3]="Directed Primary", [4]="Directed Routable", [5]="Primary Until 0945", [6]="Primary After 1555", [7]="Primary Time Windows", [8]="Minimum Fill", [10]="Route To Ats"}, base.DEC, 0x0000F00000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.routing_strategy = ProtoField.new("Routing Strategy", "nyse.amexequities.binarygateway.pillarstream.v5.17.routingstrategy", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.amexequities.binarygateway.pillarstream.v5.17.rpimpv", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradeprevention", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_3 = ProtoField.new("Self Trade Type 3", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetype3", ftypes.UINT64, nil, base.DEC, 0x00000000000000E0)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_3 = ProtoField.new("Self Trade Type 3", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetype3", ftypes.UINT64, nil, base.DEC, 0x000000E000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_bits = ProtoField.new("Self Trade Type Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetypebits", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.selldmmavailableqty", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.amexequities.binarygateway.pillarstream.v5.17.sellindicator", ftypes.UINT8)
@@ -160,7 +160,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_type = Pro
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sess = ProtoField.new("Sess", "nyse.amexequities.binarygateway.pillarstream.v5.17.sess", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.settlementtype", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side = ProtoField.new("Side", "nyse.amexequities.binarygateway.pillarstream.v5.17.side", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0xF000000000000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.sideofunpairedqty", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.binarygateway.pillarstream.v5.17.ssrfilingprice", ftypes.DOUBLE)
@@ -179,7 +179,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_preferenc
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttlethreshold", ftypes.UINT16)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttlewindow", ftypes.UINT16)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.throttled = ProtoField.new("Throttled", "nyse.amexequities.binarygateway.pillarstream.v5.17.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.amexequities.binarygateway.pillarstream.v5.17.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000080000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.time_in_force = ProtoField.new("Time In Force", "nyse.amexequities.binarygateway.pillarstream.v5.17.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000380000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.time_limit = ProtoField.new("Time Limit", "nyse.amexequities.binarygateway.pillarstream.v5.17.timelimit", ftypes.INT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexequities.binarygateway.pillarstream.v5.17.timestamp", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.amexequities.binarygateway.pillarstream.v5.17.tradingmpv", ftypes.DOUBLE)
@@ -203,8 +203,10 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.working_away_from_
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.working_price = ProtoField.new("Working Price", "nyse.amexequities.binarygateway.pillarstream.v5.17.workingprice", ftypes.DOUBLE)
 
 -- Nyse AmexEquities BinaryGateway PillarStream 5.17 Framing
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.client_pillar_message = ProtoField.new("Client Pillar Message", "nyse.amexequities.binarygateway.pillarstream.v5.17.clientpillarmessage", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.msg_header = ProtoField.new("Msg Header", "nyse.amexequities.binarygateway.pillarstream.v5.17.msgheader", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.amexequities.binarygateway.pillarstream.v5.17.seqmsgheader", ftypes.STRING)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.amexequities.binarygateway.pillarstream.v5.17.serverpillarmessage", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.amexequities.binarygateway.pillarstream.v5.17.submsgheader", ftypes.STRING)
 
 -- Nyse AmexEquities BinaryGateway 5.17 Application Messages
@@ -243,6 +245,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.tg_end_message = P
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.trade_bust_correct_message = ProtoField.new("Trade Bust Correct Message", "nyse.amexequities.binarygateway.pillarstream.v5.17.tradebustcorrectmessage", ftypes.STRING)
 
 -- Nyse AmexEquities BinaryGateway 5.17 Session Messages
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.client_seq_msg = ProtoField.new("Client Seq Msg", "nyse.amexequities.binarygateway.pillarstream.v5.17.clientseqmsg", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.close = ProtoField.new("Close", "nyse.amexequities.binarygateway.pillarstream.v5.17.close", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.close_response = ProtoField.new("Close Response", "nyse.amexequities.binarygateway.pillarstream.v5.17.closeresponse", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexequities.binarygateway.pillarstream.v5.17.heartbeat", ftypes.STRING)
@@ -250,8 +253,20 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.login_message = Pr
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.login_response = ProtoField.new("Login Response", "nyse.amexequities.binarygateway.pillarstream.v5.17.loginresponse", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.open = ProtoField.new("Open", "nyse.amexequities.binarygateway.pillarstream.v5.17.open", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.open_response = ProtoField.new("Open Response", "nyse.amexequities.binarygateway.pillarstream.v5.17.openresponse", ftypes.STRING)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.amexequities.binarygateway.pillarstream.v5.17.seqmsg", ftypes.STRING)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.server_seq_msg = ProtoField.new("Server Seq Msg", "nyse.amexequities.binarygateway.pillarstream.v5.17.serverseqmsg", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.amexequities.binarygateway.pillarstream.v5.17.streamavail", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Nyse AmexEquities BinaryGateway PillarStream 5.17 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -266,6 +281,9 @@ show.session_messages = true
 show.headers = true
 
 -- Register Nyse AmexEquities BinaryGateway PillarStream 5.17 Show Options
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
@@ -5505,7 +5523,11 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.timestamp.size = 8
 
 -- Display: Timestamp
 nyse_amexequities_binarygateway_pillarstream_v5_17.timestamp.display = function(value)
-  return "Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -7079,7 +7101,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.execution_report_message.fiel
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -7624,7 +7646,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ackn
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
+  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -7633,7 +7655,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ackn
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 97 or seq_msg_length == 134
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -7642,7 +7664,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ackn
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -8237,6 +8259,633 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.equities_symbol_reference_dat
 
     return index
   end
+end
+
+-- Server Sequenced Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_sequenced_message = {}
+
+-- Dissect: Server Sequenced Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
+  -- Dissect Equities Symbol Reference Data Message
+  if seq_msg_type == 0x0232 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.equities_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Dmm Symbol Reference Data Message
+  if seq_msg_type == 0x0832 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.dmm_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Class Reference Data Message
+  if seq_msg_type == 0x0230 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Level Reference Data Message
+  if seq_msg_type == 0x0231 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mpid Configuration Message
+  if seq_msg_type == 0x0272 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.mpid_configuration_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mmid Configuration Message
+  if seq_msg_type == 0x0273 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.mmid_configuration_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Configuration Acknowledgement Message
+  if seq_msg_type == 0x0221 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order And Cancel Replace Acknowledgement Message
+  if seq_msg_type == 0x0260 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modify Cancel Request Acknowledgment And Urout Message
+  if seq_msg_type == 0x0271 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Priority Update Acknowledgment Message
+  if seq_msg_type == 0x0262 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Message
+  if seq_msg_type == 0x0290 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.execution_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Bust Correct Message
+  if seq_msg_type == 0x0292 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Application Layer Reject Message
+  if seq_msg_type == 0x0263 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.application_layer_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Subscription Acknowledgement Message
+  if seq_msg_type == 0x0347 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.symbol_subscription_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gt Begin Message
+  if seq_msg_type == 0x0349 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.gt_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gt End Message
+  if seq_msg_type == 0x0350 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.gt_end_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Price Data Message
+  if seq_msg_type == 0x0352 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.auction_price_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Request Message
+  if seq_msg_type == 0x0348 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.auction_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Manual Action Request Message
+  if seq_msg_type == 0x0353 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.manual_action_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Acknowledgement Message
+  if seq_msg_type == 0x0332 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Alert Message
+  if seq_msg_type == 0x0333 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.risk_control_alert_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Seq Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header = {}
+
+-- Size: Seq Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.size =
+  nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_type.size + 
+  nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_length.size
+
+-- Display: Seq Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 33 values
+  index, seq_msg_type = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, seq_msg_length = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seq Msg Id
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id = {}
+
+-- Size: Seq Msg Id
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.size =
+  nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.size + 
+  nyse_amexequities_binarygateway_pillarstream_v5_17.seq.size
+
+-- Display: Seq Msg Id
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Id
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Seq: u64
+  index, seq = nyse_amexequities_binarygateway_pillarstream_v5_17.seq.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Id
+nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header = {}
+
+-- Size: Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.size =
+  nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.size + 
+  nyse_amexequities_binarygateway_pillarstream_v5_17.msg_length.size
+
+-- Display: Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, msg_type = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, msg_length = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Msg Header
+nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.msg_header, buffer(offset, 0))
+    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg = {}
+
+-- Read runtime size of: Server Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Server Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.fields = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amexequities_binarygateway_pillarstream_v5_17.reserved_4.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nyse_amexequities_binarygateway_pillarstream_v5_17.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Seq Msg Type
+  local seq_msg_type = buffer(index - 4, 2):le_uint()
+
+  -- Server Sequenced Message: Runtime Type with 21 branches
+  index = nyse_amexequities_binarygateway_pillarstream_v5_17.server_sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
+
+  return index
+end
+
+-- Dissect: Server Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local size_of_server_seq_msg = nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.size(buffer, offset)
+  local index = offset + size_of_server_seq_msg
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.server_seq_msg, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+    parent:set_len(size_of_server_seq_msg)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+
+    return index
+  end
+end
+
+-- Close Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.close_response = {}
+
+-- Read runtime size of: Close Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Close Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Close Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Close Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.size(buffer, offset)
+  local index = offset + size_of_close_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.close_response, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
+  end
+end
+
+-- Open Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.open_response = {}
+
+-- Read runtime size of: Open Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Open Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Open Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_amexequities_binarygateway_pillarstream_v5_17.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.size(buffer, offset)
+  local index = offset + size_of_open_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.open_response, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
+  end
+end
+
+-- Heartbeat
+nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat = {}
+
+-- Read runtime size of: Heartbeat
+nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Heartbeat
+nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat
+nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat
+nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.size(buffer, offset)
+  local index = offset + size_of_heartbeat
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
+  end
+end
+
+-- Stream Avail
+nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail = {}
+
+-- Read runtime size of: Stream Avail
+nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Stream Avail
+nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Avail
+nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
+  index, next_seq = nyse_amexequities_binarygateway_pillarstream_v5_17.next_seq.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_amexequities_binarygateway_pillarstream_v5_17.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Avail
+nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.size(buffer, offset)
+  local index = offset + size_of_stream_avail
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
+  end
+end
+
+-- Login Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.login_response = {}
+
+-- Read runtime size of: Login Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Login Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Username: char(16)
+  index, username = nyse_amexequities_binarygateway_pillarstream_v5_17.username.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response
+nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.size(buffer, offset)
+  local index = offset + size_of_login_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.login_response, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
+  end
+end
+
+-- Server Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_message = {}
+
+-- Dissect: Server Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.server_seq_msg.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Pillar Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.size
+end
+
+-- Dissect Server Pillar Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Server Message: Runtime Type with 6 branches
+  index = nyse_amexequities_binarygateway_pillarstream_v5_17.server_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
 end
 
 -- Risk Action Request Message
@@ -8858,7 +9507,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_r
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
+  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -8867,7 +9516,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_r
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 97 or seq_msg_length == 134
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -8876,7 +9525,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_r
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_amexequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -8992,11 +9641,11 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.session_configuration_request
   end
 end
 
--- Sequenced Message
-nyse_amexequities_binarygateway_pillarstream_v5_17.sequenced_message = {}
+-- Client Sequenced Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_sequenced_message = {}
 
--- Dissect: Sequenced Message
-nyse_amexequities_binarygateway_pillarstream_v5_17.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
+-- Dissect: Client Sequenced Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
   -- Dissect Session Configuration Request Message
   if seq_msg_type == 0x0220 then
     return nyse_amexequities_binarygateway_pillarstream_v5_17.session_configuration_request_message.dissect(buffer, offset, packet, parent)
@@ -9045,246 +9694,30 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.sequenced_message.dissect = f
   if seq_msg_type == 0x0331 then
     return nyse_amexequities_binarygateway_pillarstream_v5_17.risk_action_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Equities Symbol Reference Data Message
-  if seq_msg_type == 0x0232 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.equities_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dmm Symbol Reference Data Message
-  if seq_msg_type == 0x0832 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.dmm_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Class Reference Data Message
-  if seq_msg_type == 0x0230 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Level Reference Data Message
-  if seq_msg_type == 0x0231 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mpid Configuration Message
-  if seq_msg_type == 0x0272 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.mpid_configuration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mmid Configuration Message
-  if seq_msg_type == 0x0273 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.mmid_configuration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Configuration Acknowledgement Message
-  if seq_msg_type == 0x0221 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order And Cancel Replace Acknowledgement Message
-  if seq_msg_type == 0x0260 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Modify Cancel Request Acknowledgment And Urout Message
-  if seq_msg_type == 0x0271 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Priority Update Acknowledgment Message
-  if seq_msg_type == 0x0262 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if seq_msg_type == 0x0290 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Correct Message
-  if seq_msg_type == 0x0292 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Layer Reject Message
-  if seq_msg_type == 0x0263 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.application_layer_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Subscription Acknowledgement Message
-  if seq_msg_type == 0x0347 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.symbol_subscription_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gt Begin Message
-  if seq_msg_type == 0x0349 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.gt_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gt End Message
-  if seq_msg_type == 0x0350 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.gt_end_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Price Data Message
-  if seq_msg_type == 0x0352 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.auction_price_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Auction Request Message
-  if seq_msg_type == 0x0348 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.auction_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Action Request Message
-  if seq_msg_type == 0x0353 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.manual_action_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Acknowledgement Message
-  if seq_msg_type == 0x0332 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Alert Message
-  if seq_msg_type == 0x0333 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.risk_control_alert_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Seq Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header = {}
+-- Client Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg = {}
 
--- Size: Seq Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.size =
-  nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_type.size + 
-  nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_length.size
-
--- Display: Seq Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 33 values
-  index, seq_msg_type = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_type.dissect(buffer, index, packet, parent)
-
-  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, seq_msg_length = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header, buffer(offset, 0))
-    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg Id
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id = {}
-
--- Size: Seq Msg Id
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.size =
-  nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.size + 
-  nyse_amexequities_binarygateway_pillarstream_v5_17.seq.size
-
--- Display: Seq Msg Id
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Id
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Seq: u64
-  index, seq = nyse_amexequities_binarygateway_pillarstream_v5_17.seq.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Id
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_id, buffer(offset, 0))
-    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header = {}
-
--- Size: Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.size =
-  nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.size + 
-  nyse_amexequities_binarygateway_pillarstream_v5_17.msg_length.size
-
--- Display: Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, msg_type = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.dissect(buffer, index, packet, parent)
-
-  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, msg_length = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Msg Header
-nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.msg_header, buffer(offset, 0))
-    local index = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg = {}
-
--- Read runtime size of: Seq Msg
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.size = function(buffer, offset)
+-- Read runtime size of: Client Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
 
--- Display: Seq Msg
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.display = function(packet, parent, length)
+-- Display: Client Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seq Msg
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.fields = function(buffer, offset, packet, parent, size_of_seq_msg)
+-- Dissect Fields: Client Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.fields = function(buffer, offset, packet, parent, size_of_client_seq_msg)
   local index = offset
 
   -- Msg Header: Struct of 2 fields
@@ -9305,85 +9738,29 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.fields = function(buf
   -- Dependency element: Seq Msg Type
   local seq_msg_type = buffer(index - 4, 2):le_uint()
 
-  -- Sequenced Message: Runtime Type with 33 branches
-  index = nyse_amexequities_binarygateway_pillarstream_v5_17.sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
+  -- Client Sequenced Message: Runtime Type with 12 branches
+  index = nyse_amexequities_binarygateway_pillarstream_v5_17.client_sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
 
   return index
 end
 
--- Dissect: Seq Msg
-nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
-  local size_of_seq_msg = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.size(buffer, offset)
-  local index = offset + size_of_seq_msg
+-- Dissect: Client Seq Msg
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_client_seq_msg)
+  local size_of_client_seq_msg = nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.size(buffer, offset)
+  local index = offset + size_of_client_seq_msg
 
   -- Optionally add group/struct element to protocol tree
   if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-    parent:set_len(size_of_seq_msg)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.display(buffer, packet, parent)
+    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.client_seq_msg, buffer(offset, 0))
+    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
+    parent:set_len(size_of_client_seq_msg)
+    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-    return index
-  end
-end
-
--- Close Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.close_response = {}
-
--- Read runtime size of: Close Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Close Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Close Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Close Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
-  local size_of_close_response = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.size(buffer, offset)
-  local index = offset + size_of_close_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.close_response, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-    parent:set_len(size_of_close_response)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
 
     return index
   end
@@ -9397,7 +9774,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.close.size = function(buffer,
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -9442,65 +9819,6 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.close.dissect = function(buff
   end
 end
 
--- Open Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.open_response = {}
-
--- Read runtime size of: Open Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Open Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_amexequities_binarygateway_pillarstream_v5_17.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
-  local size_of_open_response = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.size(buffer, offset)
-  local index = offset + size_of_open_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.open_response, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-    parent:set_len(size_of_open_response)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-    return index
-  end
-end
-
 -- Open
 nyse_amexequities_binarygateway_pillarstream_v5_17.open = {}
 
@@ -9509,7 +9827,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.open.size = function(buffer, 
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -9566,171 +9884,6 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.open.dissect = function(buffe
   end
 end
 
--- Heartbeat
-nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat = {}
-
--- Read runtime size of: Heartbeat
-nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Heartbeat
-nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat
-nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat
-nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local size_of_heartbeat = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.size(buffer, offset)
-  local index = offset + size_of_heartbeat
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.heartbeat, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-    parent:set_len(size_of_heartbeat)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-    return index
-  end
-end
-
--- Stream Avail
-nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail = {}
-
--- Read runtime size of: Stream Avail
-nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Stream Avail
-nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Avail
-nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
-  index, next_seq = nyse_amexequities_binarygateway_pillarstream_v5_17.next_seq.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_amexequities_binarygateway_pillarstream_v5_17.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Avail
-nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local size_of_stream_avail = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.size(buffer, offset)
-  local index = offset + size_of_stream_avail
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stream_avail, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-    parent:set_len(size_of_stream_avail)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-    return index
-  end
-end
-
--- Login Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.login_response = {}
-
--- Read runtime size of: Login Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Login Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Username: char(16)
-  index, username = nyse_amexequities_binarygateway_pillarstream_v5_17.username.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, status = nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Response
-nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
-  local size_of_login_response = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.size(buffer, offset)
-  local index = offset + size_of_login_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.login_response, buffer(offset, 0))
-    local current = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-    parent:set_len(size_of_login_response)
-    local display = nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-    return index
-  end
-end
-
 -- Login Message
 nyse_amexequities_binarygateway_pillarstream_v5_17.login_message = {}
 
@@ -9739,7 +9892,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.login_message.size = function
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -9793,32 +9946,14 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.login_message.dissect = funct
   end
 end
 
--- Pillar Stream Message
-nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message = {}
+-- Client Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_message = {}
 
--- Verify required size of Tcp packet
-nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.size
-end
-
--- Dissect Pillar Stream Message
-nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message.dissect = function(buffer, packet, parent)
-  local offset = 0
-
-  -- Dependency element: Msg Type
-  local msg_type = buffer(0, 2):le_uint()
-
+-- Dissect: Client Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
   if msg_type == 0x0201 then
     return nyse_amexequities_binarygateway_pillarstream_v5_17.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.stream_avail.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
   if msg_type == 0x0204 then
@@ -9828,24 +9963,37 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message.dissect
   if msg_type == 0x0205 then
     return nyse_amexequities_binarygateway_pillarstream_v5_17.open.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.open_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Close
   if msg_type == 0x0207 then
     return nyse_amexequities_binarygateway_pillarstream_v5_17.close.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seq Msg
+  -- Dissect Client Seq Msg
   if msg_type == 0x0905 then
-    return nyse_amexequities_binarygateway_pillarstream_v5_17.seq_msg.dissect(buffer, offset, packet, parent)
+    return nyse_amexequities_binarygateway_pillarstream_v5_17.client_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset
+end
+
+-- Client Pillar Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_amexequities_binarygateway_pillarstream_v5_17.msg_type.size
+end
+
+-- Dissect Client Pillar Message
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Client Message: Runtime Type with 5 branches
+  index = nyse_amexequities_binarygateway_pillarstream_v5_17.client_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
 end
 
 
@@ -9857,14 +10005,371 @@ end
 function omi_nyse_amexequities_binarygateway_pillarstream_v5_17.init()
 end
 
+-- Connection roles for Nyse AmexEquities BinaryGateway PillarStream 5.17: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nyse_amexequities_binarygateway_pillarstream_v5_17.role = function(packet)
+  if omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nyse_amexequities_binarygateway_pillarstream_v5_17.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nyse_amexequities_binarygateway_pillarstream_v5_17.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nyse AmexEquities BinaryGateway PillarStream 5.17
 function omi_nyse_amexequities_binarygateway_pillarstream_v5_17.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_binarygateway_pillarstream_v5_17.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17, buffer(), omi_nyse_amexequities_binarygateway_pillarstream_v5_17.description, "("..buffer:len().." Bytes)")
-  return nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message.dissect(buffer, packet, protocol)
+  local role = nyse_amexequities_binarygateway_pillarstream_v5_17.role(packet)
+  local dissect = role == "initiator" and nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.dissect or nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.dissect
+
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17, buffer(offset), omi_nyse_amexequities_binarygateway_pillarstream_v5_17.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Pillar Message: would its message dispatch accept this frame?
+nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Message
+  if msg_type == 0x0201 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open
+  if msg_type == 0x0205 then
+    return true
+  end
+
+  -- Close
+  if msg_type == 0x0207 then
+    return true
+  end
+
+  -- Client Seq Msg: carries the application messages, which tell this protocol from others sharing the session framing
+  if msg_type == 0x0905 then
+    if buffer:len() < 34 then
+      return false
+    end
+
+    local seq_msg_type = buffer(32, 2):le_uint()
+
+    -- Session Configuration Request Message
+    if seq_msg_type == 0x0220 then
+      return true
+    end
+
+    -- Sequenced Filler Message
+    if seq_msg_type == 0x0282 then
+      return true
+    end
+
+    -- New Order Single And Cancel Replace Request Message
+    if seq_msg_type == 0x0240 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if seq_msg_type == 0x0280 then
+      return true
+    end
+
+    -- Order Modify Request Message
+    if seq_msg_type == 0x0270 then
+      return true
+    end
+
+    -- Bulk Cancel Request Message
+    if seq_msg_type == 0x0281 then
+      return true
+    end
+
+    -- Symbol Subscription Request Message
+    if seq_msg_type == 0x0346 then
+      return true
+    end
+
+    -- Tg Begin Message
+    if seq_msg_type == 0x0343 then
+      return true
+    end
+
+    -- Tg End Message
+    if seq_msg_type == 0x0344 then
+      return true
+    end
+
+    -- Manual Action Response Message
+    if seq_msg_type == 0x0354 then
+      return true
+    end
+
+    -- Risk Limit Update Request Message
+    if seq_msg_type == 0x0330 then
+      return true
+    end
+
+    -- Risk Action Request Message
+    if seq_msg_type == 0x0331 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Pillar Message: would its message dispatch accept this frame?
+nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Response
+  if msg_type == 0x0202 then
+    return true
+  end
+
+  -- Stream Avail
+  if msg_type == 0x0203 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open Response
+  if msg_type == 0x0206 then
+    return true
+  end
+
+  -- Close Response
+  if msg_type == 0x0208 then
+    return true
+  end
+
+  -- Server Seq Msg: carries the application messages, which tell this protocol from others sharing the session framing
+  if msg_type == 0x0905 then
+    if buffer:len() < 34 then
+      return false
+    end
+
+    local seq_msg_type = buffer(32, 2):le_uint()
+
+    -- Equities Symbol Reference Data Message
+    if seq_msg_type == 0x0232 then
+      return true
+    end
+
+    -- Dmm Symbol Reference Data Message
+    if seq_msg_type == 0x0832 then
+      return true
+    end
+
+    -- Minimum Price Variant Class Reference Data Message
+    if seq_msg_type == 0x0230 then
+      return true
+    end
+
+    -- Minimum Price Variant Level Reference Data Message
+    if seq_msg_type == 0x0231 then
+      return true
+    end
+
+    -- Mpid Configuration Message
+    if seq_msg_type == 0x0272 then
+      return true
+    end
+
+    -- Mmid Configuration Message
+    if seq_msg_type == 0x0273 then
+      return true
+    end
+
+    -- Session Configuration Acknowledgement Message
+    if seq_msg_type == 0x0221 then
+      return true
+    end
+
+    -- Order And Cancel Replace Acknowledgement Message
+    if seq_msg_type == 0x0260 then
+      return true
+    end
+
+    -- Order Modify Cancel Request Acknowledgment And Urout Message
+    if seq_msg_type == 0x0271 then
+      return true
+    end
+
+    -- Order Priority Update Acknowledgment Message
+    if seq_msg_type == 0x0262 then
+      return true
+    end
+
+    -- Execution Report Message
+    if seq_msg_type == 0x0290 then
+      return true
+    end
+
+    -- Trade Bust Correct Message
+    if seq_msg_type == 0x0292 then
+      return true
+    end
+
+    -- Application Layer Reject Message
+    if seq_msg_type == 0x0263 then
+      return true
+    end
+
+    -- Symbol Subscription Acknowledgement Message
+    if seq_msg_type == 0x0347 then
+      return true
+    end
+
+    -- Gt Begin Message
+    if seq_msg_type == 0x0349 then
+      return true
+    end
+
+    -- Gt End Message
+    if seq_msg_type == 0x0350 then
+      return true
+    end
+
+    -- Auction Price Data Message
+    if seq_msg_type == 0x0352 then
+      return true
+    end
+
+    -- Auction Request Message
+    if seq_msg_type == 0x0348 then
+      return true
+    end
+
+    -- Manual Action Request Message
+    if seq_msg_type == 0x0353 then
+      return true
+    end
+
+    -- Risk Control Acknowledgement Message
+    if seq_msg_type == 0x0332 then
+      return true
+    end
+
+    -- Risk Control Alert Message
+    if seq_msg_type == 0x0333 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
 end
 
 
@@ -9873,9 +10378,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nyse AmexEquities BinaryGateway PillarStream 5.17 (Tcp)
-local function omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_heuristic(buffer, packet, parent)
+local function omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_amexequities_binarygateway_pillarstream_v5_17.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_amexequities_binarygateway_pillarstream_v5_17.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_amexequities_binarygateway_pillarstream_v5_17
@@ -9884,7 +10392,50 @@ local function omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_heuris
   return true
 end
 
--- Register Heuristic for Nyse AmexEquities BinaryGateway PillarStream 5.17
+-- Dissector Heuristic for Nyse AmexEquities BinaryGateway PillarStream 5.17 (Tcp)
+local function omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_amexequities_binarygateway_pillarstream_v5_17.server_pillar_message.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_amexequities_binarygateway_pillarstream_v5_17
+  omi_nyse_amexequities_binarygateway_pillarstream_v5_17.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse AmexEquities BinaryGateway PillarStream 5.17 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_heuristic(buffer, packet, parent)
+  local role = nyse_amexequities_binarygateway_pillarstream_v5_17.role(packet)
+  local initiator = omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_initiator_heuristic
+  local acceptor = omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nyse_amexequities_binarygateway_pillarstream_v5_17.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nyse_amexequities_binarygateway_pillarstream_v5_17.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nyse AmexEquities BinaryGateway PillarStream 5.17
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17:register_heuristic("tcp", omi_nyse_amexequities_binarygateway_pillarstream_v5_17_tcp_heuristic)
 
 -- Register Nyse AmexEquities BinaryGateway PillarStream 5.17 for Decode As

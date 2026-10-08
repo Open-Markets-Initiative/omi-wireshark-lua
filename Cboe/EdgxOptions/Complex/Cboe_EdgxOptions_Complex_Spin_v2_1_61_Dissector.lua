@@ -2286,9 +2286,26 @@ function omi_cboe_edgxoptions_complex_spin_v2_1_61.dissector(buffer, packet, par
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_complex_spin_v2_1_61.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61, buffer(), omi_cboe_edgxoptions_complex_spin_v2_1_61.description, "("..buffer:len().." Bytes)")
-  return cboe_edgxoptions_complex_spin_v2_1_61.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61, buffer(offset), omi_cboe_edgxoptions_complex_spin_v2_1_61.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(cboe_edgxoptions_complex_spin_v2_1_61.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

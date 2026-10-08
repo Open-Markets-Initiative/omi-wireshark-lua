@@ -4860,14 +4860,15 @@ function omi_miax_emeraldoptions_topofmarket_mach_v1_3.dissector(buffer, packet,
   -- Set protocol name
   packet.cols.protocol = omi_miax_emeraldoptions_topofmarket_mach_v1_3.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3, buffer(), omi_miax_emeraldoptions_topofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3, buffer(), omi_miax_emeraldoptions_topofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
     return miax_emeraldoptions_topofmarket_mach_v1_3.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3, buffer(), omi_miax_emeraldoptions_topofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
     return miax_emeraldoptions_topofmarket_mach_v1_3.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

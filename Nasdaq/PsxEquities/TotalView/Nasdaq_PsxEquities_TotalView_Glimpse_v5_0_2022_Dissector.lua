@@ -2985,7 +2985,6 @@ function omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.dissector(buffer, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022, buffer(), omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_psxequities_totalview_glimpse_v5_0_2022.role(packet)
 
   if role == "initiator" then

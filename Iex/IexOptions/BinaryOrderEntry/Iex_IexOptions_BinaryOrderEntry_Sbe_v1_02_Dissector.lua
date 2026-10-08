@@ -9181,7 +9181,6 @@ function omi_iex_iexoptions_binaryorderentry_sbe_v1_02.dissector(buffer, packet,
 
   -- Dissect protocol
   local protocol = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02, buffer(), omi_iex_iexoptions_binaryorderentry_sbe_v1_02.description, "("..buffer:len().." Bytes)")
-
   local role = iex_iexoptions_binaryorderentry_sbe_v1_02.role(packet)
 
   if role == "initiator" then

@@ -5132,10 +5132,9 @@ function omi_nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nomoptions_itto_itch_v4_0.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0, buffer(), omi_nasdaq_nomoptions_itto_itch_v4_0.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0, buffer(), omi_nasdaq_nomoptions_itto_itch_v4_0.description, "("..buffer:len().." Bytes)")
     local role = nasdaq_nomoptions_itto_itch_v4_0.role(packet)
 
     if role == "initiator" then
@@ -5146,6 +5145,8 @@ function omi_nasdaq_nomoptions_itto_itch_v4_0.dissector(buffer, packet, parent)
   end
 
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0, buffer(), omi_nasdaq_nomoptions_itto_itch_v4_0.description, "("..buffer:len().." Bytes)")
     return nasdaq_nomoptions_itto_itch_v4_0.packet.dissect(buffer, packet, protocol)
   end
 end

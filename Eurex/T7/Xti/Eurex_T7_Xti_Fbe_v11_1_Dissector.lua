@@ -28221,7 +28221,6 @@ function omi_eurex_t7_xti_fbe_v11_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_t7_xti_fbe_v11_1, buffer(), omi_eurex_t7_xti_fbe_v11_1.description, "("..buffer:len().." Bytes)")
-
   local role = eurex_t7_xti_fbe_v11_1.role(packet)
 
   if role == "initiator" then

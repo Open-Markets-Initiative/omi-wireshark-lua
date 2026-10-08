@@ -3391,10 +3391,9 @@ function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_jnx_jnxequities_pts_itch_v1_7.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_jnx_jnxequities_pts_itch_v1_7, buffer(), omi_jnx_jnxequities_pts_itch_v1_7.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_jnx_jnxequities_pts_itch_v1_7, buffer(), omi_jnx_jnxequities_pts_itch_v1_7.description, "("..buffer:len().." Bytes)")
     local role = jnx_jnxequities_pts_itch_v1_7.role(packet)
 
     if role == "initiator" then
@@ -3405,6 +3404,8 @@ function omi_jnx_jnxequities_pts_itch_v1_7.dissector(buffer, packet, parent)
   end
 
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_jnx_jnxequities_pts_itch_v1_7, buffer(), omi_jnx_jnxequities_pts_itch_v1_7.description, "("..buffer:len().." Bytes)")
     return jnx_jnxequities_pts_itch_v1_7.packet.dissect(buffer, packet, protocol)
   end
 end

@@ -3065,7 +3065,6 @@ function omi_sgx_titandt_depthofbook_glimpse_v1_4.dissector(buffer, packet, pare
 
   -- Dissect protocol
   local protocol = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4, buffer(), omi_sgx_titandt_depthofbook_glimpse_v1_4.description, "("..buffer:len().." Bytes)")
-
   local role = sgx_titandt_depthofbook_glimpse_v1_4.role(packet)
 
   if role == "initiator" then

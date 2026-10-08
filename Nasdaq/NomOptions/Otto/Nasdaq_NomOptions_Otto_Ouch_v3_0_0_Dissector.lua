@@ -8244,7 +8244,6 @@ function omi_nasdaq_nomoptions_otto_ouch_v3_0_0.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nomoptions_otto_ouch_v3_0_0, buffer(), omi_nasdaq_nomoptions_otto_ouch_v3_0_0.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_nomoptions_otto_ouch_v3_0_0.role(packet)
 
   if role == "initiator" then

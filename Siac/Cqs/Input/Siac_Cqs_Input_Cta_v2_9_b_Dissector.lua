@@ -5545,9 +5545,26 @@ function omi_siac_cqs_input_cta_v2_9_b.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_input_cta_v2_9_b.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_siac_cqs_input_cta_v2_9_b, buffer(), omi_siac_cqs_input_cta_v2_9_b.description, "("..buffer:len().." Bytes)")
-  return siac_cqs_input_cta_v2_9_b.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_siac_cqs_input_cta_v2_9_b, buffer(offset), omi_siac_cqs_input_cta_v2_9_b.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(siac_cqs_input_cta_v2_9_b.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

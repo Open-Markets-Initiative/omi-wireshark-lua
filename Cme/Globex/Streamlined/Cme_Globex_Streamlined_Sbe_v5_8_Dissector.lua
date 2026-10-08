@@ -12047,14 +12047,15 @@ function omi_cme_globex_streamlined_sbe_v5_8.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_cme_globex_streamlined_sbe_v5_8.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_cme_globex_streamlined_sbe_v5_8, buffer(), omi_cme_globex_streamlined_sbe_v5_8.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_cme_globex_streamlined_sbe_v5_8, buffer(), omi_cme_globex_streamlined_sbe_v5_8.description, "("..buffer:len().." Bytes)")
     return cme_globex_streamlined_sbe_v5_8.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_cme_globex_streamlined_sbe_v5_8, buffer(), omi_cme_globex_streamlined_sbe_v5_8.description, "("..buffer:len().." Bytes)")
     return cme_globex_streamlined_sbe_v5_8.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

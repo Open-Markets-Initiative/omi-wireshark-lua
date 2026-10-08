@@ -58,11 +58,14 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.username = ProtoFie
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.version = ProtoField.new("Version", "nyse.nyseequities.binarygateway.pillarstream.v5.8.version", ftypes.STRING)
 
 -- Nyse NyseEquities BinaryGateway PillarStream 5.8 Framing
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.client_pillar_message = ProtoField.new("Client Pillar Message", "nyse.nyseequities.binarygateway.pillarstream.v5.8.clientpillarmessage", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header = ProtoField.new("Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.msgheader", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsgheader", ftypes.STRING)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.nyseequities.binarygateway.pillarstream.v5.8.serverpillarmessage", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.submsgheader", ftypes.STRING)
 
 -- Nyse NyseEquities BinaryGateway 5.8 Session Messages
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.client_seq_msg = ProtoField.new("Client Seq Msg", "nyse.nyseequities.binarygateway.pillarstream.v5.8.clientseqmsg", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.close = ProtoField.new("Close", "nyse.nyseequities.binarygateway.pillarstream.v5.8.close", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.close_response = ProtoField.new("Close Response", "nyse.nyseequities.binarygateway.pillarstream.v5.8.closeresponse", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.binarygateway.pillarstream.v5.8.heartbeat", ftypes.STRING)
@@ -70,11 +73,23 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.login_message = Pro
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.login_response = ProtoField.new("Login Response", "nyse.nyseequities.binarygateway.pillarstream.v5.8.loginresponse", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.open = ProtoField.new("Open", "nyse.nyseequities.binarygateway.pillarstream.v5.8.open", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.open_response = ProtoField.new("Open Response", "nyse.nyseequities.binarygateway.pillarstream.v5.8.openresponse", ftypes.STRING)
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsg", ftypes.STRING)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.server_seq_msg = ProtoField.new("Server Seq Msg", "nyse.nyseequities.binarygateway.pillarstream.v5.8.serverseqmsg", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.nyseequities.binarygateway.pillarstream.v5.8.streamavail", ftypes.STRING)
 
 -- Nyse NyseEquities BinaryGateway 5.8 Application Messages
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.new_order_single_and_cancel_replace_request_message = ProtoField.new("New Order Single And Cancel Replace Request Message", "nyse.nyseequities.binarygateway.pillarstream.v5.8.newordersingleandcancelreplacerequestmessage", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Nyse NyseEquities BinaryGateway PillarStream 5.8 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -83,16 +98,19 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.new_order_single_an
 local show = {}
 
 -- Nyse NyseEquities BinaryGateway PillarStream 5.8 Element Dissection Options
+show.structs = true
 show.session_messages = true
 show.headers = true
 show.application_messages = true
-show.structs = true
 
 -- Register Nyse NyseEquities BinaryGateway PillarStream 5.8 Show Options
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs_changed()
@@ -1047,7 +1065,11 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.timestamp.size = 8
 
 -- Display: Timestamp
 nyse_nyseequities_binarygateway_pillarstream_v5_8.timestamp.display = function(value)
-  return "Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -1206,6 +1228,581 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nyse NyseEquities BinaryGateway PillarStream 5.8
 -----------------------------------------------------------------------
+
+-- Seq Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header = {}
+
+-- Size: Seq Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.size =
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_type.size + 
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_length.size
+
+-- Display: Seq Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 1 values
+  index, seq_msg_type = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, seq_msg_length = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id = {}
+
+-- Size: Stream Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.size =
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.sess.size + 
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.user.size
+
+-- Display: Stream Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Stream Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sess: 4 Byte Unsigned Fixed Width Integer
+  index, sess = nyse_nyseequities_binarygateway_pillarstream_v5_8.sess.dissect(buffer, index, packet, parent)
+
+  -- User: 4 Byte Unsigned Fixed Width Integer
+  index, user = nyse_nyseequities_binarygateway_pillarstream_v5_8.user.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_id, buffer(offset, 0))
+    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seq Msg Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id = {}
+
+-- Size: Seq Msg Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.size =
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.size + 
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq.size
+
+-- Display: Seq Msg Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Seq: u64
+  index, seq = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Id
+nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header = {}
+
+-- Size: Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.size =
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.size + 
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_length.size
+
+-- Display: Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, msg_type = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, msg_length = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Msg Header
+nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header, buffer(offset, 0))
+    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg = {}
+
+-- Read runtime size of: Server Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Server Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.fields = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: 4 Byte Unsigned Fixed Width Integer
+  index, reserved_4 = nyse_nyseequities_binarygateway_pillarstream_v5_8.reserved_4.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nyse_nyseequities_binarygateway_pillarstream_v5_8.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Server Sequenced Message
+  index, server_sequenced_message = nyse_nyseequities_binarygateway_pillarstream_v5_8.server_sequenced_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local size_of_server_seq_msg = nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.size(buffer, offset)
+  local index = offset + size_of_server_seq_msg
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.server_seq_msg, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+    parent:set_len(size_of_server_seq_msg)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+
+    return index
+  end
+end
+
+-- Close Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response = {}
+
+-- Read runtime size of: Close Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Close Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Close Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Close Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.size(buffer, offset)
+  local index = offset + size_of_close_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.close_response, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
+  end
+end
+
+-- Open Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response = {}
+
+-- Read runtime size of: Open Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Open Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Open Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_nyseequities_binarygateway_pillarstream_v5_8.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.size(buffer, offset)
+  local index = offset + size_of_open_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.open_response, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
+  end
+end
+
+-- Heartbeat
+nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat = {}
+
+-- Read runtime size of: Heartbeat
+nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Heartbeat
+nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat
+nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat
+nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.size(buffer, offset)
+  local index = offset + size_of_heartbeat
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
+  end
+end
+
+-- Stream Avail
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail = {}
+
+-- Read runtime size of: Stream Avail
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Stream Avail
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Avail
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
+  index, next_seq = nyse_nyseequities_binarygateway_pillarstream_v5_8.next_seq.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_nyseequities_binarygateway_pillarstream_v5_8.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Avail
+nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.size(buffer, offset)
+  local index = offset + size_of_stream_avail
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
+  end
+end
+
+-- Login Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response = {}
+
+-- Read runtime size of: Login Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Login Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Username: 16 Byte Ascii String
+  index, username = nyse_nyseequities_binarygateway_pillarstream_v5_8.username.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response
+nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.size(buffer, offset)
+  local index = offset + size_of_login_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.login_response, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
+  end
+end
+
+-- Server Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_message = {}
+
+-- Dissect: Server Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.server_seq_msg.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Pillar Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.size
+end
+
+-- Dissect Server Pillar Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Server Message: Runtime Type with 6 branches
+  index = nyse_nyseequities_binarygateway_pillarstream_v5_8.server_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
+end
 
 -- Sub Msg Header
 nyse_nyseequities_binarygateway_pillarstream_v5_8.sub_msg_header = {}
@@ -1407,11 +2004,11 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.new_order_single_and_cancel_re
   end
 end
 
--- Sequenced Message
-nyse_nyseequities_binarygateway_pillarstream_v5_8.sequenced_message = {}
+-- Client Sequenced Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_sequenced_message = {}
 
--- Dissect: Sequenced Message
-nyse_nyseequities_binarygateway_pillarstream_v5_8.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
+-- Dissect: Client Sequenced Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
   -- Dissect New Order Single And Cancel Replace Request Message
   if seq_msg_type == 0x0240 then
     return nyse_nyseequities_binarygateway_pillarstream_v5_8.new_order_single_and_cancel_replace_request_message.dissect(buffer, offset, packet, parent)
@@ -1420,202 +2017,26 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.sequenced_message.dissect = fu
   return offset
 end
 
--- Seq Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header = {}
+-- Client Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg = {}
 
--- Size: Seq Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.size =
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_type.size + 
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_length.size
-
--- Display: Seq Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, seq_msg_type = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_type.dissect(buffer, index, packet, parent)
-
-  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, seq_msg_length = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header, buffer(offset, 0))
-    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id = {}
-
--- Size: Stream Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.size =
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.sess.size + 
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.user.size
-
--- Display: Stream Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.display = function(buffer, offset, value, packet, parent)
-  return ""..value
-end
-
--- Dissect Fields: Stream Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sess: 4 Byte Unsigned Fixed Width Integer
-  index, sess = nyse_nyseequities_binarygateway_pillarstream_v5_8.sess.dissect(buffer, index, packet, parent)
-
-  -- User: 4 Byte Unsigned Fixed Width Integer
-  index, user = nyse_nyseequities_binarygateway_pillarstream_v5_8.user.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_id, buffer(offset, 0))
-    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, value
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id = {}
-
--- Size: Seq Msg Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.size =
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.size + 
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.seq.size
-
--- Display: Seq Msg Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Seq: u64
-  index, seq = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Id
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_id, buffer(offset, 0))
-    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header = {}
-
--- Size: Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.size =
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.size + 
-  nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_length.size
-
--- Display: Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, msg_type = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.dissect(buffer, index, packet, parent)
-
-  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, msg_length = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Msg Header
-nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header, buffer(offset, 0))
-    local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg = {}
-
--- Read runtime size of: Seq Msg
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.size = function(buffer, offset)
+-- Read runtime size of: Client Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
 
--- Display: Seq Msg
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.display = function(packet, parent, length)
+-- Display: Client Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seq Msg
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.fields = function(buffer, offset, packet, parent, size_of_seq_msg)
+-- Dissect Fields: Client Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.fields = function(buffer, offset, packet, parent, size_of_client_seq_msg)
   local index = offset
 
   -- Msg Header: Struct of 2 fields
@@ -1636,85 +2057,29 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.fields = function(buff
   -- Dependency element: Seq Msg Type
   local seq_msg_type = buffer(index - 4, 2):le_uint()
 
-  -- Sequenced Message: Runtime Type with 1 branches
-  index = nyse_nyseequities_binarygateway_pillarstream_v5_8.sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
+  -- Client Sequenced Message: Runtime Type with 1 branches
+  index = nyse_nyseequities_binarygateway_pillarstream_v5_8.client_sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
 
   return index
 end
 
--- Dissect: Seq Msg
-nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
-  local size_of_seq_msg = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.size(buffer, offset)
-  local index = offset + size_of_seq_msg
+-- Dissect: Client Seq Msg
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_client_seq_msg)
+  local size_of_client_seq_msg = nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.size(buffer, offset)
+  local index = offset + size_of_client_seq_msg
 
   -- Optionally add group/struct element to protocol tree
   if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-    parent:set_len(size_of_seq_msg)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.display(buffer, packet, parent)
+    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.client_seq_msg, buffer(offset, 0))
+    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
+    parent:set_len(size_of_client_seq_msg)
+    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-    return index
-  end
-end
-
--- Close Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response = {}
-
--- Read runtime size of: Close Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Close Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Close Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Close Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
-  local size_of_close_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.size(buffer, offset)
-  local index = offset + size_of_close_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.close_response, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-    parent:set_len(size_of_close_response)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
 
     return index
   end
@@ -1728,7 +2093,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.close.size = function(buffer, 
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -1773,65 +2138,6 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.close.dissect = function(buffe
   end
 end
 
--- Open Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response = {}
-
--- Read runtime size of: Open Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Open Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_nyseequities_binarygateway_pillarstream_v5_8.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
-  local size_of_open_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.size(buffer, offset)
-  local index = offset + size_of_open_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.open_response, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-    parent:set_len(size_of_open_response)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-    return index
-  end
-end
-
 -- Open
 nyse_nyseequities_binarygateway_pillarstream_v5_8.open = {}
 
@@ -1840,7 +2146,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.open.size = function(buffer, o
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -1897,171 +2203,6 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.open.dissect = function(buffer
   end
 end
 
--- Heartbeat
-nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat = {}
-
--- Read runtime size of: Heartbeat
-nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Heartbeat
-nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat
-nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat
-nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local size_of_heartbeat = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.size(buffer, offset)
-  local index = offset + size_of_heartbeat
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.heartbeat, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-    parent:set_len(size_of_heartbeat)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-    return index
-  end
-end
-
--- Stream Avail
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail = {}
-
--- Read runtime size of: Stream Avail
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Stream Avail
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Avail
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
-  index, next_seq = nyse_nyseequities_binarygateway_pillarstream_v5_8.next_seq.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_nyseequities_binarygateway_pillarstream_v5_8.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Avail
-nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local size_of_stream_avail = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.size(buffer, offset)
-  local index = offset + size_of_stream_avail
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_avail, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-    parent:set_len(size_of_stream_avail)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-    return index
-  end
-end
-
--- Login Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response = {}
-
--- Read runtime size of: Login Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Login Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Username: 16 Byte Ascii String
-  index, username = nyse_nyseequities_binarygateway_pillarstream_v5_8.username.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_nyseequities_binarygateway_pillarstream_v5_8.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Response
-nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
-  local size_of_login_response = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.size(buffer, offset)
-  local index = offset + size_of_login_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.login_response, buffer(offset, 0))
-    local current = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-    parent:set_len(size_of_login_response)
-    local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-    return index
-  end
-end
-
 -- Login Message
 nyse_nyseequities_binarygateway_pillarstream_v5_8.login_message = {}
 
@@ -2070,7 +2211,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.login_message.size = function(
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -2124,32 +2265,14 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.login_message.dissect = functi
   end
 end
 
--- Pillar Stream Message
-nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message = {}
+-- Client Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_message = {}
 
--- Verify required size of Tcp packet
-nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.size
-end
-
--- Dissect Pillar Stream Message
-nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message.dissect = function(buffer, packet, parent)
-  local offset = 0
-
-  -- Dependency element: Msg Type
-  local msg_type = buffer(0, 2):le_uint()
-
+-- Dissect: Client Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
   if msg_type == 0x0201 then
     return nyse_nyseequities_binarygateway_pillarstream_v5_8.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.stream_avail.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
   if msg_type == 0x0204 then
@@ -2159,24 +2282,37 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message.dissect 
   if msg_type == 0x0205 then
     return nyse_nyseequities_binarygateway_pillarstream_v5_8.open.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.open_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Close
   if msg_type == 0x0207 then
     return nyse_nyseequities_binarygateway_pillarstream_v5_8.close.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seq Msg
+  -- Dissect Client Seq Msg
   if msg_type == 0x0905 then
-    return nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.dissect(buffer, offset, packet, parent)
+    return nyse_nyseequities_binarygateway_pillarstream_v5_8.client_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset
+end
+
+-- Client Pillar Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_type.size
+end
+
+-- Dissect Client Pillar Message
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Client Message: Runtime Type with 5 branches
+  index = nyse_nyseequities_binarygateway_pillarstream_v5_8.client_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
 end
 
 
@@ -2188,14 +2324,205 @@ end
 function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.init()
 end
 
+-- Connection roles for Nyse NyseEquities BinaryGateway PillarStream 5.8: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nyse_nyseequities_binarygateway_pillarstream_v5_8.role = function(packet)
+  if omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nyse_nyseequities_binarygateway_pillarstream_v5_8.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nyse NyseEquities BinaryGateway PillarStream 5.8
 function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8, buffer(), omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.description, "("..buffer:len().." Bytes)")
-  return nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message.dissect(buffer, packet, protocol)
+  local role = nyse_nyseequities_binarygateway_pillarstream_v5_8.role(packet)
+  local dissect = role == "initiator" and nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.dissect or nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.dissect
+
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8, buffer(offset), omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Pillar Message: would its message dispatch accept this frame?
+nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Message
+  if msg_type == 0x0201 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open
+  if msg_type == 0x0205 then
+    return true
+  end
+
+  -- Close
+  if msg_type == 0x0207 then
+    return true
+  end
+
+  -- Client Seq Msg: carries the application messages, which tell this protocol from others sharing the session framing
+  if msg_type == 0x0905 then
+    if buffer:len() < 34 then
+      return false
+    end
+
+    local seq_msg_type = buffer(32, 2):le_uint()
+
+    -- New Order Single And Cancel Replace Request Message
+    if seq_msg_type == 0x0240 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Pillar Message: would its message dispatch accept this frame?
+nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Response
+  if msg_type == 0x0202 then
+    return true
+  end
+
+  -- Stream Avail
+  if msg_type == 0x0203 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open Response
+  if msg_type == 0x0206 then
+    return true
+  end
+
+  -- Close Response
+  if msg_type == 0x0208 then
+    return true
+  end
+
+  -- Server Seq Msg
+  if msg_type == 0x0905 then
+    return true
+  end
+
+  return false
 end
 
 
@@ -2204,9 +2531,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nyse NyseEquities BinaryGateway PillarStream 5.8 (Tcp)
-local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_heuristic(buffer, packet, parent)
+local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_nyseequities_binarygateway_pillarstream_v5_8.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_nyseequities_binarygateway_pillarstream_v5_8.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8
@@ -2215,7 +2545,50 @@ local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_heurist
   return true
 end
 
--- Register Heuristic for Nyse NyseEquities BinaryGateway PillarStream 5.8
+-- Dissector Heuristic for Nyse NyseEquities BinaryGateway PillarStream 5.8 (Tcp)
+local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_nyseequities_binarygateway_pillarstream_v5_8.server_pillar_message.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8
+  omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse NyseEquities BinaryGateway PillarStream 5.8 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_heuristic(buffer, packet, parent)
+  local role = nyse_nyseequities_binarygateway_pillarstream_v5_8.role(packet)
+  local initiator = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_initiator_heuristic
+  local acceptor = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nyse_nyseequities_binarygateway_pillarstream_v5_8.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nyse NyseEquities BinaryGateway PillarStream 5.8
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8:register_heuristic("tcp", omi_nyse_nyseequities_binarygateway_pillarstream_v5_8_tcp_heuristic)
 
 -- Register Nyse NyseEquities BinaryGateway PillarStream 5.8 for Decode As

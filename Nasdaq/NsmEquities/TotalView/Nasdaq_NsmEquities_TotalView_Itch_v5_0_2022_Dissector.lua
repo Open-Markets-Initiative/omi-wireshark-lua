@@ -5994,10 +5994,9 @@ function omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.dissector(buffer, packe
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022, buffer(), omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022, buffer(), omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.description, "("..buffer:len().." Bytes)")
     local role = nasdaq_nsmequities_totalview_itch_v5_0_2022.role(packet)
 
     if role == "initiator" then
@@ -6008,6 +6007,8 @@ function omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.dissector(buffer, packe
   end
 
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022, buffer(), omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.description, "("..buffer:len().." Bytes)")
     return nasdaq_nsmequities_totalview_itch_v5_0_2022.packet.dissect(buffer, packet, protocol)
   end
 end

@@ -2878,7 +2878,6 @@ function omi_cme_globex_sessionmgmt_sbe_v0_2.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2, buffer(), omi_cme_globex_sessionmgmt_sbe_v0_2.description, "("..buffer:len().." Bytes)")
-
   local role = cme_globex_sessionmgmt_sbe_v0_2.role(packet)
 
   if role == "initiator" then

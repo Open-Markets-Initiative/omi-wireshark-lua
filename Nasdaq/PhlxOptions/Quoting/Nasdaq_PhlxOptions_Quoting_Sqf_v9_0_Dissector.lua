@@ -8557,7 +8557,6 @@ function omi_nasdaq_phlxoptions_quoting_sqf_v9_0.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0, buffer(), omi_nasdaq_phlxoptions_quoting_sqf_v9_0.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_phlxoptions_quoting_sqf_v9_0.role(packet)
 
   if role == "initiator" then

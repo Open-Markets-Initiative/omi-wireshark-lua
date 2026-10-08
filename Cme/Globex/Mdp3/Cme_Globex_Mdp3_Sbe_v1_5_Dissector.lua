@@ -10877,14 +10877,15 @@ function omi_cme_globex_mdp3_sbe_v1_5.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_cme_globex_mdp3_sbe_v1_5.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_5, buffer(), omi_cme_globex_mdp3_sbe_v1_5.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_5, buffer(), omi_cme_globex_mdp3_sbe_v1_5.description, "("..buffer:len().." Bytes)")
     return cme_globex_mdp3_sbe_v1_5.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_5, buffer(), omi_cme_globex_mdp3_sbe_v1_5.description, "("..buffer:len().." Bytes)")
     local role = cme_globex_mdp3_sbe_v1_5.role(packet)
 
     if role == "initiator" then

@@ -3843,7 +3843,6 @@ function omi_nasdaq_psxequities_rash_asciirash_v1_1.dissector(buffer, packet, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_psxequities_rash_asciirash_v1_1, buffer(), omi_nasdaq_psxequities_rash_asciirash_v1_1.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_psxequities_rash_asciirash_v1_1.role(packet)
 
   if role == "initiator" then

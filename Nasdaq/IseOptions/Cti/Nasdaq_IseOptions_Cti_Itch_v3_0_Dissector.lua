@@ -5506,7 +5506,6 @@ function omi_nasdaq_iseoptions_cti_itch_v3_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_iseoptions_cti_itch_v3_0, buffer(), omi_nasdaq_iseoptions_cti_itch_v3_0.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_iseoptions_cti_itch_v3_0.role(packet)
 
   if role == "initiator" then

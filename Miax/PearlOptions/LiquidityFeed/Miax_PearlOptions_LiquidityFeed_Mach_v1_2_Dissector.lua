@@ -3586,14 +3586,15 @@ function omi_miax_pearloptions_liquidityfeed_mach_v1_2.dissector(buffer, packet,
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearloptions_liquidityfeed_mach_v1_2.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2, buffer(), omi_miax_pearloptions_liquidityfeed_mach_v1_2.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2, buffer(), omi_miax_pearloptions_liquidityfeed_mach_v1_2.description, "("..buffer:len().." Bytes)")
     return miax_pearloptions_liquidityfeed_mach_v1_2.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2, buffer(), omi_miax_pearloptions_liquidityfeed_mach_v1_2.description, "("..buffer:len().." Bytes)")
     return miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

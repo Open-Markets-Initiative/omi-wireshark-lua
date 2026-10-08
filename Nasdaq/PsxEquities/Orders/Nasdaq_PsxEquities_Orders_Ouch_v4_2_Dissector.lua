@@ -3509,7 +3509,6 @@ function omi_nasdaq_psxequities_orders_ouch_v4_2.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2, buffer(), omi_nasdaq_psxequities_orders_ouch_v4_2.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_psxequities_orders_ouch_v4_2.role(packet)
 
   if role == "initiator" then

@@ -10725,16 +10725,29 @@ function omi_memx_memxoptions_riskcontrol_sbe_v1_7.dissector(buffer, packet, par
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxoptions_riskcontrol_sbe_v1_7.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7, buffer(), omi_memx_memxoptions_riskcontrol_sbe_v1_7.description, "("..buffer:len().." Bytes)")
-
   local role = memx_memxoptions_riskcontrol_sbe_v1_7.role(packet)
+  local dissect = role == "initiator" and memx_memxoptions_riskcontrol_sbe_v1_7.client_packet.dissect or memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.dissect
 
-  if role == "initiator" then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.client_packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7, buffer(offset), omi_memx_memxoptions_riskcontrol_sbe_v1_7.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
   end
 
-  return memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.dissect(buffer, packet, protocol)
+  return offset
 end
 
 

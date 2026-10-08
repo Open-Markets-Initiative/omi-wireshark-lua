@@ -3803,10 +3803,9 @@ function omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.dissector(buffer, packet, 
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1, buffer(), omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1, buffer(), omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.description, "("..buffer:len().." Bytes)")
     local role = nasdaq_mrxoptions_spreadorders_itch_v2_1.role(packet)
 
     if role == "initiator" then
@@ -3817,6 +3816,8 @@ function omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.dissector(buffer, packet, 
   end
 
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1, buffer(), omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.description, "("..buffer:len().." Bytes)")
     return nasdaq_mrxoptions_spreadorders_itch_v2_1.packet.dissect(buffer, packet, protocol)
   end
 end

@@ -4889,9 +4889,26 @@ function omi_hkex_hkexderivatives_standardretrans_omd_v2_2.dissector(buffer, pac
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexderivatives_standardretrans_omd_v2_2.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_2, buffer(), omi_hkex_hkexderivatives_standardretrans_omd_v2_2.description, "("..buffer:len().." Bytes)")
-  return hkex_hkexderivatives_standardretrans_omd_v2_2.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_2, buffer(offset), omi_hkex_hkexderivatives_standardretrans_omd_v2_2.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(hkex_hkexderivatives_standardretrans_omd_v2_2.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

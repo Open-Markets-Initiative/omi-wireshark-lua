@@ -6816,9 +6816,26 @@ function omi_n24x_24xequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_n24x_24xequities_memo_sbe_v1_13.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_n24x_24xequities_memo_sbe_v1_13, buffer(), omi_n24x_24xequities_memo_sbe_v1_13.description, "("..buffer:len().." Bytes)")
-  return n24x_24xequities_memo_sbe_v1_13.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_n24x_24xequities_memo_sbe_v1_13, buffer(offset), omi_n24x_24xequities_memo_sbe_v1_13.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(n24x_24xequities_memo_sbe_v1_13.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

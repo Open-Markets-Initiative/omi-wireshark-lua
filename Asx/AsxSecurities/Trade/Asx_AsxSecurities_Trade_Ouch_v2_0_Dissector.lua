@@ -3184,7 +3184,6 @@ function omi_asx_asxsecurities_trade_ouch_v2_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_asx_asxsecurities_trade_ouch_v2_0, buffer(), omi_asx_asxsecurities_trade_ouch_v2_0.description, "("..buffer:len().." Bytes)")
-
   local role = asx_asxsecurities_trade_ouch_v2_0.role(packet)
 
   if role == "initiator" then

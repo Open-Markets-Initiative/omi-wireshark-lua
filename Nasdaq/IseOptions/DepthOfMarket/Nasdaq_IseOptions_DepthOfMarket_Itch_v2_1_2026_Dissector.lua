@@ -5014,10 +5014,9 @@ function omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.dissector(buffer, pa
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026, buffer(), omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026, buffer(), omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.description, "("..buffer:len().." Bytes)")
     local role = nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.role(packet)
 
     if role == "initiator" then
@@ -5028,6 +5027,8 @@ function omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.dissector(buffer, pa
   end
 
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026, buffer(), omi_nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.description, "("..buffer:len().." Bytes)")
     return nasdaq_iseoptions_depthofmarket_itch_v2_1_2026.packet.dissect(buffer, packet, protocol)
   end
 end

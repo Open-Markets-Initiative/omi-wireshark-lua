@@ -26791,7 +26791,6 @@ function omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.dissector(buff
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7, buffer(), omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_18_7.role(packet)
 
   if role == "initiator" then

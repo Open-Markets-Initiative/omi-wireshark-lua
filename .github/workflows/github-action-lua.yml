@@ -292,6 +292,9 @@ jobs:
       - name: Run Nyse NyseEquities BinaryGateway PillarStream 5.17 Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v5-17-Test.sh
 
+      - name: Run Nyse NyseEquities BinaryGateway PillarStream 6.0 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v6-0-Test.sh
+
       - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
 

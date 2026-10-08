@@ -3088,7 +3088,6 @@ function omi_jnx_jnxequities_pts_ouch_v1_11.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_jnx_jnxequities_pts_ouch_v1_11, buffer(), omi_jnx_jnxequities_pts_ouch_v1_11.description, "("..buffer:len().." Bytes)")
-
   local role = jnx_jnxequities_pts_ouch_v1_11.role(packet)
 
   if role == "initiator" then

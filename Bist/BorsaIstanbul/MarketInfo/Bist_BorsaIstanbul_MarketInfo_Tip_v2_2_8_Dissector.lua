@@ -11923,7 +11923,6 @@ function omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.dissector(buffer, packet, 
 
   -- Dissect protocol
   local protocol = parent:add(omi_bist_borsaistanbul_marketinfo_tip_v2_2_8, buffer(), omi_bist_borsaistanbul_marketinfo_tip_v2_2_8.description, "("..buffer:len().." Bytes)")
-
   local role = bist_borsaistanbul_marketinfo_tip_v2_2_8.role(packet)
 
   if role == "initiator" then

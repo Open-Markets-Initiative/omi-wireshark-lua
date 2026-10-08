@@ -3249,7 +3249,6 @@ function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.dissector(buff
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4, buffer(), omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.role(packet)
 
   if role == "initiator" then

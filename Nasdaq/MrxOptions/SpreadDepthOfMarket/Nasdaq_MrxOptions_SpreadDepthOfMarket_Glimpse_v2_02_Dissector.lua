@@ -2704,7 +2704,6 @@ function omi_nasdaq_mrxoptions_spreaddepthofmarket_glimpse_v2_02.dissector(buffe
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_mrxoptions_spreaddepthofmarket_glimpse_v2_02, buffer(), omi_nasdaq_mrxoptions_spreaddepthofmarket_glimpse_v2_02.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_mrxoptions_spreaddepthofmarket_glimpse_v2_02.role(packet)
 
   if role == "initiator" then

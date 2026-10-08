@@ -2582,15 +2582,33 @@ function omi_jpx_fseequities_marketbyorder_flex_v1_1.dissector(buffer, packet, p
   -- Set protocol name
   packet.cols.protocol = omi_jpx_fseequities_marketbyorder_flex_v1_1.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_jpx_fseequities_marketbyorder_flex_v1_1, buffer(), omi_jpx_fseequities_marketbyorder_flex_v1_1.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_jpx_fseequities_marketbyorder_flex_v1_1, buffer(), omi_jpx_fseequities_marketbyorder_flex_v1_1.description, "("..buffer:len().." Bytes)")
     return jpx_fseequities_marketbyorder_flex_v1_1.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
-    return jpx_fseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer, packet, protocol)
+    local length = buffer:len()
+    local offset = 0
+
+    -- Dissect each message the segment carries
+    while offset < length do
+      local protocol = parent:add(omi_jpx_fseequities_marketbyorder_flex_v1_1, buffer(offset), omi_jpx_fseequities_marketbyorder_flex_v1_1.description, "("..(length - offset).." Bytes)")
+      local ok, consumed = pcall(jpx_fseequities_marketbyorder_flex_v1_1.tcp_packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+      -- A message split across segments: let TCP reassemble it with the next one
+      if not ok or consumed == nil or consumed <= 0 then
+        packet.desegment_offset = offset
+        packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+        return length
+      end
+
+      protocol:set_len(consumed)
+      offset = offset + consumed
+    end
+
+    return offset
   end
 end
 

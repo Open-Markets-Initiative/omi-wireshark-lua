@@ -689,9 +689,26 @@ function omi_nse_nsecd_snapshot_binary_v6_8.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecd_snapshot_binary_v6_8.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nse_nsecd_snapshot_binary_v6_8, buffer(), omi_nse_nsecd_snapshot_binary_v6_8.description, "("..buffer:len().." Bytes)")
-  return nse_nsecd_snapshot_binary_v6_8.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nse_nsecd_snapshot_binary_v6_8, buffer(offset), omi_nse_nsecd_snapshot_binary_v6_8.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(nse_nsecd_snapshot_binary_v6_8.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

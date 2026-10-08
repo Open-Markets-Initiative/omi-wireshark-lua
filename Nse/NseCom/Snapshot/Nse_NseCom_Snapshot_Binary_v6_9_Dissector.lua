@@ -1283,16 +1283,29 @@ function omi_nse_nsecom_snapshot_binary_v6_9.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecom_snapshot_binary_v6_9.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nse_nsecom_snapshot_binary_v6_9, buffer(), omi_nse_nsecom_snapshot_binary_v6_9.description, "("..buffer:len().." Bytes)")
-
   local role = nse_nsecom_snapshot_binary_v6_9.role(packet)
+  local dissect = role == "initiator" and nse_nsecom_snapshot_binary_v6_9.client_packet.dissect or nse_nsecom_snapshot_binary_v6_9.packet.dissect
 
-  if role == "initiator" then
-    return nse_nsecom_snapshot_binary_v6_9.client_packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nse_nsecom_snapshot_binary_v6_9, buffer(offset), omi_nse_nsecom_snapshot_binary_v6_9.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
   end
 
-  return nse_nsecom_snapshot_binary_v6_9.packet.dissect(buffer, packet, protocol)
+  return offset
 end
 
 

@@ -4195,14 +4195,15 @@ function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.dissector(buffer, packet, pa
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_orderfeed_mach_v2_5_b.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b, buffer(), omi_miax_miaxoptions_orderfeed_mach_v2_5_b.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b, buffer(), omi_miax_miaxoptions_orderfeed_mach_v2_5_b.description, "("..buffer:len().." Bytes)")
     return miax_miaxoptions_orderfeed_mach_v2_5_b.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b, buffer(), omi_miax_miaxoptions_orderfeed_mach_v2_5_b.description, "("..buffer:len().." Bytes)")
     return miax_miaxoptions_orderfeed_mach_v2_5_b.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

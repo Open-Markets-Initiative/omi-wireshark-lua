@@ -2219,16 +2219,29 @@ function omi_nasdaq_psxequities_totalview_glimpse_v3_2.dissector(buffer, packet,
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_psxequities_totalview_glimpse_v3_2.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2, buffer(), omi_nasdaq_psxequities_totalview_glimpse_v3_2.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_psxequities_totalview_glimpse_v3_2.role(packet)
+  local dissect = role == "initiator" and nasdaq_psxequities_totalview_glimpse_v3_2.client_packet.dissect or nasdaq_psxequities_totalview_glimpse_v3_2.server_packet.dissect
 
-  if role == "initiator" then
-    return nasdaq_psxequities_totalview_glimpse_v3_2.client_packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2, buffer(offset), omi_nasdaq_psxequities_totalview_glimpse_v3_2.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
   end
 
-  return nasdaq_psxequities_totalview_glimpse_v3_2.server_packet.dissect(buffer, packet, protocol)
+  return offset
 end
 
 

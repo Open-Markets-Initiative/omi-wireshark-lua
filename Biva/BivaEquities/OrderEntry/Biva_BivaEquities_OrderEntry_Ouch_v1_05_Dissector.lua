@@ -2848,7 +2848,6 @@ function omi_biva_bivaequities_orderentry_ouch_v1_05.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05, buffer(), omi_biva_bivaequities_orderentry_ouch_v1_05.description, "("..buffer:len().." Bytes)")
-
   local role = biva_bivaequities_orderentry_ouch_v1_05.role(packet)
 
   if role == "initiator" then

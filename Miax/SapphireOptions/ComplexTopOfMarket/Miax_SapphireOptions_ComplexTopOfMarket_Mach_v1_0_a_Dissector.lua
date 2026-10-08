@@ -4635,14 +4635,15 @@ function omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.dissector(buffe
   -- Set protocol name
   packet.cols.protocol = omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a, buffer(), omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a, buffer(), omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.description, "("..buffer:len().." Bytes)")
     return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a, buffer(), omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.description, "("..buffer:len().." Bytes)")
     return miax_sapphireoptions_complextopofmarket_mach_v1_0_a.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

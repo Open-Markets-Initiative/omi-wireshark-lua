@@ -2970,9 +2970,26 @@ function omi_cboe_bzxoptions_complextop_spin_v1_1_54.dissector(buffer, packet, p
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxoptions_complextop_spin_v1_1_54.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_cboe_bzxoptions_complextop_spin_v1_1_54, buffer(), omi_cboe_bzxoptions_complextop_spin_v1_1_54.description, "("..buffer:len().." Bytes)")
-  return cboe_bzxoptions_complextop_spin_v1_1_54.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_cboe_bzxoptions_complextop_spin_v1_1_54, buffer(offset), omi_cboe_bzxoptions_complextop_spin_v1_1_54.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(cboe_bzxoptions_complextop_spin_v1_1_54.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

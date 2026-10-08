@@ -8380,7 +8380,6 @@ function omi_nasdaq_gemxoptions_otto_ouch_v3_0_0.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_gemxoptions_otto_ouch_v3_0_0, buffer(), omi_nasdaq_gemxoptions_otto_ouch_v3_0_0.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_gemxoptions_otto_ouch_v3_0_0.role(packet)
 
   if role == "initiator" then

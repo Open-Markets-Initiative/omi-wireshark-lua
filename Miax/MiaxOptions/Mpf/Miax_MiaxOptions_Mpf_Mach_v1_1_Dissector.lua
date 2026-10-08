@@ -2519,14 +2519,15 @@ function omi_miax_miaxoptions_mpf_mach_v1_1.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_mpf_mach_v1_1.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1, buffer(), omi_miax_miaxoptions_mpf_mach_v1_1.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1, buffer(), omi_miax_miaxoptions_mpf_mach_v1_1.description, "("..buffer:len().." Bytes)")
     return miax_miaxoptions_mpf_mach_v1_1.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1, buffer(), omi_miax_miaxoptions_mpf_mach_v1_1.description, "("..buffer:len().." Bytes)")
     return miax_miaxoptions_mpf_mach_v1_1.tcp_packet.dissect(buffer, packet, protocol)
   end
 end

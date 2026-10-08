@@ -3010,7 +3010,6 @@ function omi_nasdaq_phlxoptions_depthofmarket_glimpse_v2_1.dissector(buffer, pac
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_phlxoptions_depthofmarket_glimpse_v2_1, buffer(), omi_nasdaq_phlxoptions_depthofmarket_glimpse_v2_1.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_phlxoptions_depthofmarket_glimpse_v2_1.role(packet)
 
   if role == "initiator" then

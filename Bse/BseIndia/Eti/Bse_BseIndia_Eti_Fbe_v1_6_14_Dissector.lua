@@ -18710,7 +18710,6 @@ function omi_bse_bseindia_eti_fbe_v1_6_14.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_bse_bseindia_eti_fbe_v1_6_14, buffer(), omi_bse_bseindia_eti_fbe_v1_6_14.description, "("..buffer:len().." Bytes)")
-
   local role = bse_bseindia_eti_fbe_v1_6_14.role(packet)
 
   if role == "initiator" then

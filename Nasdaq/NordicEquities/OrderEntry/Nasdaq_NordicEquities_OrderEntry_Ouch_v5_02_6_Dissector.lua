@@ -6848,7 +6848,6 @@ function omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.dissector(buffer, pac
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6, buffer(), omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.description, "("..buffer:len().." Bytes)")
-
   local role = nasdaq_nordicequities_orderentry_ouch_v5_02_6.role(packet)
 
   if role == "initiator" then

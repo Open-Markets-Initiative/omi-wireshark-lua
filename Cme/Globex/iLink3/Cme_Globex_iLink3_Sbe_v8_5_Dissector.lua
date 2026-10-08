@@ -17440,7 +17440,6 @@ function omi_cme_globex_ilink3_sbe_v8_5.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_ilink3_sbe_v8_5, buffer(), omi_cme_globex_ilink3_sbe_v8_5.description, "("..buffer:len().." Bytes)")
-
   local role = cme_globex_ilink3_sbe_v8_5.role(packet)
 
   if role == "initiator" then

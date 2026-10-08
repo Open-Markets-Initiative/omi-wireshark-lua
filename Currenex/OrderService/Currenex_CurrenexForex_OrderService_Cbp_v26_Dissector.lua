@@ -2520,9 +2520,26 @@ function omi_currenex_currenexforex_orderservice_cbp_v26.dissector(buffer, packe
   -- Set protocol name
   packet.cols.protocol = omi_currenex_currenexforex_orderservice_cbp_v26.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26, buffer(), omi_currenex_currenexforex_orderservice_cbp_v26.description, "("..buffer:len().." Bytes)")
-  return currenex_currenexforex_orderservice_cbp_v26.packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26, buffer(offset), omi_currenex_currenexforex_orderservice_cbp_v26.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(currenex_currenexforex_orderservice_cbp_v26.packet.dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
 end
 
 

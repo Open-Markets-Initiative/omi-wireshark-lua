@@ -1730,7 +1730,6 @@ function omi_iex_iexoptions_session_sbe_v1_01.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_iex_iexoptions_session_sbe_v1_01, buffer(), omi_iex_iexoptions_session_sbe_v1_01.description, "("..buffer:len().." Bytes)")
-
   local role = iex_iexoptions_session_sbe_v1_01.role(packet)
 
   if role == "initiator" then

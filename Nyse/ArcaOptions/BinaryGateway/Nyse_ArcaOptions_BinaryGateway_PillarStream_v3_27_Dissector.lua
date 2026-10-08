@@ -222,8 +222,10 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.working_away_from_d
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.workingprice", ftypes.DOUBLE)
 
 -- Nyse ArcaOptions BinaryGateway PillarStream 3.27 Framing
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.client_pillar_message = ProtoField.new("Client Pillar Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.clientpillarmessage", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.msg_header = ProtoField.new("Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.msgheader", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seqmsgheader", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.server_pillar_message = ProtoField.new("Server Pillar Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.serverpillarmessage", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.submsgheader", ftypes.STRING)
 
 -- Nyse ArcaOptions BinaryGateway 3.27 Application Messages
@@ -260,6 +262,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.trade_bust_correct_
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.underlying_symbol_reference_data_message = ProtoField.new("Underlying Symbol Reference Data Message", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.underlyingsymbolreferencedatamessage", ftypes.STRING)
 
 -- Nyse ArcaOptions BinaryGateway 3.27 Session Messages
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.client_seq_msg = ProtoField.new("Client Seq Msg", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.clientseqmsg", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.close = ProtoField.new("Close", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.close", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.close_response = ProtoField.new("Close Response", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.closeresponse", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.heartbeat", ftypes.STRING)
@@ -267,13 +270,25 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.login_message = Pro
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.login_response = ProtoField.new("Login Response", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.loginresponse", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.open = ProtoField.new("Open", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.open", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.open_response = ProtoField.new("Open Response", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.openresponse", ftypes.STRING)
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.seqmsg", ftypes.STRING)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.server_seq_msg = ProtoField.new("Server Seq Msg", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.serverseqmsg", ftypes.STRING)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.streamavail", ftypes.STRING)
 
 -- Nyse ArcaOptions BinaryGateway PillarStream 3.27 Generated Fields
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.leg_group_index = ProtoField.new("Leg Group Index", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.leggroupindex", ftypes.UINT16)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_group_index = ProtoField.new("Quote Ack Group Index", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.quoteackgroupindex", ftypes.UINT16)
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.quote_ack_with_id_group_index = ProtoField.new("Quote Ack With Id Group Index", "nyse.arcaoptions.binarygateway.pillarstream.v3.27.quoteackwithidgroupindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaOptions BinaryGateway PillarStream 3.27 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -290,6 +305,9 @@ show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaOptions BinaryGateway PillarStream 3.27 Show Options
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
@@ -5793,7 +5811,11 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.size = 8
 
 -- Display: Timestamp
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.display = function(value)
-  return "Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -8530,6 +8552,621 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.underlying_symbol_reference_da
   end
 end
 
+-- Server Sequenced Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_sequenced_message = {}
+
+-- Dissect: Server Sequenced Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
+  -- Dissect Underlying Symbol Reference Data Message
+  if seq_msg_type == 0x0233 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.underlying_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Series Reference Data Message
+  if seq_msg_type == 0x0234 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.series_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Class Reference Data Message
+  if seq_msg_type == 0x0230 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Minimum Price Variant Level Reference Data Message
+  if seq_msg_type == 0x0231 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mpid Configuration Message
+  if seq_msg_type == 0x0272 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.mpid_configuration_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Market Maker Symbol Appointment Reference Data Message
+  if seq_msg_type == 0x0833 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.options_market_maker_symbol_appointment_reference_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Configuration Acknowledgement Message
+  if seq_msg_type == 0x0221 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order And Cancel Replace Acknowledgement Message
+  if seq_msg_type == 0x0269 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Acknowledgment Message
+  if seq_msg_type == 0x0294 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Acknowledgment With Details Message
+  if seq_msg_type == 0x0308 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_with_details_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
+  if seq_msg_type == 0x0278 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Priority Update Acknowledgment Message
+  if seq_msg_type == 0x0268 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Message
+  if seq_msg_type == 0x0295 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.execution_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Bust Correct Message
+  if seq_msg_type == 0x0293 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Application Layer Reject Message
+  if seq_msg_type == 0x0267 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.application_layer_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Acknowledgement Message
+  if seq_msg_type == 0x0332 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Alert Message
+  if seq_msg_type == 0x0333 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.risk_control_alert_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Series Request Acknowledgement Message
+  if seq_msg_type == 0x0358 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.complex_series_request_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Seq Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header = {}
+
+-- Size: Seq Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_type.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_length.size
+
+-- Display: Seq Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 31 values
+  index, seq_msg_type = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_type.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, seq_msg_length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_header, buffer(offset, 0))
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Seq Msg Id
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id = {}
+
+-- Size: Seq Msg Id
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq.size
+
+-- Display: Seq Msg Id
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Seq Msg Id
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Seq: 8 Byte Unsigned Fixed Width Integer
+  index, seq = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Seq Msg Id
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_id, buffer(offset, 0))
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header = {}
+
+-- Size: Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_length.size
+
+-- Display: Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, msg_type = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
+  index, msg_length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Msg Header
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.msg_header, buffer(offset, 0))
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg = {}
+
+-- Read runtime size of: Server Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Server Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.fields = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Id: Struct of 2 fields
+  index, seq_msg_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_arcaoptions_binarygateway_pillarstream_v3_27.reserved_4.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: 8 Byte Unsigned Fixed Width Integer
+  index, timestamp = nyse_arcaoptions_binarygateway_pillarstream_v3_27.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Seq Msg Header: Struct of 2 fields
+  index, seq_msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Seq Msg Type
+  local seq_msg_type = buffer(index - 4, 2):le_uint()
+
+  -- Server Sequenced Message: Runtime Type with 18 branches
+  index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
+
+  return index
+end
+
+-- Dissect: Server Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_server_seq_msg)
+  local size_of_server_seq_msg = nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.size(buffer, offset)
+  local index = offset + size_of_server_seq_msg
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.server_seq_msg, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+    parent:set_len(size_of_server_seq_msg)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.fields(buffer, offset, packet, parent, size_of_server_seq_msg)
+
+    return index
+  end
+end
+
+-- Close Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response = {}
+
+-- Read runtime size of: Close Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Close Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Close Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Close Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
+  local size_of_close_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.size(buffer, offset)
+  local index = offset + size_of_close_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.close_response, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    parent:set_len(size_of_close_response)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+
+    return index
+  end
+end
+
+-- Open Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response = {}
+
+-- Read runtime size of: Open Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Open Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Open Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_arcaoptions_binarygateway_pillarstream_v3_27.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Open Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
+  local size_of_open_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.size(buffer, offset)
+  local index = offset + size_of_open_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.open_response, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+    parent:set_len(size_of_open_response)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
+
+    return index
+  end
+end
+
+-- Heartbeat
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat = {}
+
+-- Read runtime size of: Heartbeat
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Heartbeat
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
+  local size_of_heartbeat = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.size(buffer, offset)
+  local index = offset + size_of_heartbeat
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.heartbeat, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+    parent:set_len(size_of_heartbeat)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
+
+    return index
+  end
+end
+
+-- Stream Avail
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail = {}
+
+-- Read runtime size of: Stream Avail
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Stream Avail
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Avail
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Stream Id: Struct of 2 fields
+  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
+
+  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
+  index, next_seq = nyse_arcaoptions_binarygateway_pillarstream_v3_27.next_seq.dissect(buffer, index, packet, parent)
+
+  -- Access: 1 Byte Unsigned Fixed Width Integer
+  index, access = nyse_arcaoptions_binarygateway_pillarstream_v3_27.access.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Avail
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
+  local size_of_stream_avail = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.size(buffer, offset)
+  local index = offset + size_of_stream_avail
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.stream_avail, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+    parent:set_len(size_of_stream_avail)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
+
+    return index
+  end
+end
+
+-- Login Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response = {}
+
+-- Read runtime size of: Login Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(offset + 2, 2):le_uint()
+
+  return msg_length
+end
+
+-- Display: Login Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
+  local index = offset
+
+  -- Msg Header: Struct of 2 fields
+  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
+
+  -- Username: char(16)
+  index, username = nyse_arcaoptions_binarygateway_pillarstream_v3_27.username.dissect(buffer, index, packet, parent)
+
+  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
+  local size_of_login_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.size(buffer, offset)
+  local index = offset + size_of_login_response
+
+  -- Optionally add group/struct element to protocol tree
+  if show.session_messages then
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.login_response, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+    parent:set_len(size_of_login_response)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
+
+    return index
+  end
+end
+
+-- Server Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_message = {}
+
+-- Dissect: Server Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_message.dissect = function(buffer, offset, packet, parent, msg_type)
+  -- Dissect Login Response
+  if msg_type == 0x0202 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Avail
+  if msg_type == 0x0203 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat
+  if msg_type == 0x0204 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Open Response
+  if msg_type == 0x0206 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Close Response
+  if msg_type == 0x0208 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Seq Msg
+  if msg_type == 0x0905 then
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_seq_msg.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Pillar Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.size
+end
+
+-- Dissect Server Pillar Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Server Message: Runtime Type with 6 branches
+  index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
+end
+
 -- Complex Series Leg Group
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.complex_series_leg_group = {}
 
@@ -9847,11 +10484,11 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.session_configuration_request_
   end
 end
 
--- Sequenced Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.sequenced_message = {}
+-- Client Sequenced Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_sequenced_message = {}
 
--- Dissect: Sequenced Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
+-- Dissect: Client Sequenced Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_sequenced_message.dissect = function(buffer, offset, packet, parent, seq_msg_type)
   -- Dissect Session Configuration Request Message
   if seq_msg_type == 0x0220 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_27.session_configuration_request_message.dissect(buffer, offset, packet, parent)
@@ -9904,234 +10541,30 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.sequenced_message.dissect = fu
   if seq_msg_type == 0x0357 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_27.new_complex_series_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Symbol Reference Data Message
-  if seq_msg_type == 0x0233 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.underlying_symbol_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Series Reference Data Message
-  if seq_msg_type == 0x0234 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.series_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Class Reference Data Message
-  if seq_msg_type == 0x0230 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.minimum_price_variant_class_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Minimum Price Variant Level Reference Data Message
-  if seq_msg_type == 0x0231 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.minimum_price_variant_level_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mpid Configuration Message
-  if seq_msg_type == 0x0272 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.mpid_configuration_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Options Market Maker Symbol Appointment Reference Data Message
-  if seq_msg_type == 0x0833 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.options_market_maker_symbol_appointment_reference_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Configuration Acknowledgement Message
-  if seq_msg_type == 0x0221 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order And Cancel Replace Acknowledgement Message
-  if seq_msg_type == 0x0269 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_and_cancel_replace_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Acknowledgment Message
-  if seq_msg_type == 0x0294 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Acknowledgment With Details Message
-  if seq_msg_type == 0x0308 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.bulk_quote_acknowledgment_with_details_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
-  if seq_msg_type == 0x0278 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_single_complex_modify_cancel_request_acknowledgment_and_urout_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Priority Update Acknowledgment Message
-  if seq_msg_type == 0x0268 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_priority_update_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if seq_msg_type == 0x0295 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Correct Message
-  if seq_msg_type == 0x0293 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Layer Reject Message
-  if seq_msg_type == 0x0267 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.application_layer_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Acknowledgement Message
-  if seq_msg_type == 0x0332 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.risk_control_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Alert Message
-  if seq_msg_type == 0x0333 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.risk_control_alert_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Complex Series Request Acknowledgement Message
-  if seq_msg_type == 0x0358 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.complex_series_request_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Seq Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header = {}
+-- Client Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg = {}
 
--- Size: Seq Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.size =
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_type.size + 
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_length.size
-
--- Display: Seq Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seq Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 31 values
-  index, seq_msg_type = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_type.dissect(buffer, index, packet, parent)
-
-  -- Seq Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, seq_msg_length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_header, buffer(offset, 0))
-    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg Id
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id = {}
-
--- Size: Seq Msg Id
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.size =
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.size + 
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq.size
-
--- Display: Seq Msg Id
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Seq Msg Id
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Seq: 8 Byte Unsigned Fixed Width Integer
-  index, seq = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Seq Msg Id
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg_id, buffer(offset, 0))
-    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg_id.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header = {}
-
--- Size: Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.size =
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.size + 
-  nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_length.size
-
--- Display: Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, msg_type = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.dissect(buffer, index, packet, parent)
-
-  -- Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, msg_length = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Msg Header
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.msg_header, buffer(offset, 0))
-    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Seq Msg
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg = {}
-
--- Read runtime size of: Seq Msg
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.size = function(buffer, offset)
+-- Read runtime size of: Client Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
 
--- Display: Seq Msg
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.display = function(packet, parent, length)
+-- Display: Client Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Seq Msg
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.fields = function(buffer, offset, packet, parent, size_of_seq_msg)
+-- Dissect Fields: Client Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.fields = function(buffer, offset, packet, parent, size_of_client_seq_msg)
   local index = offset
 
   -- Msg Header: Struct of 2 fields
@@ -10152,85 +10585,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.fields = function(buff
   -- Dependency element: Seq Msg Type
   local seq_msg_type = buffer(index - 4, 2):le_uint()
 
-  -- Sequenced Message: Runtime Type with 31 branches
-  index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
+  -- Client Sequenced Message: Runtime Type with 13 branches
+  index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_sequenced_message.dissect(buffer, index, packet, parent, seq_msg_type)
 
   return index
 end
 
--- Dissect: Seq Msg
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.dissect = function(buffer, offset, packet, parent, size_of_seq_msg)
-  local size_of_seq_msg = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.size(buffer, offset)
-  local index = offset + size_of_seq_msg
+-- Dissect: Client Seq Msg
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.dissect = function(buffer, offset, packet, parent, size_of_client_seq_msg)
+  local size_of_client_seq_msg = nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.size(buffer, offset)
+  local index = offset + size_of_client_seq_msg
 
   -- Optionally add group/struct element to protocol tree
   if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.seq_msg, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-    parent:set_len(size_of_seq_msg)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.display(buffer, packet, parent)
+    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.client_seq_msg, buffer(offset, 0))
+    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
+    parent:set_len(size_of_client_seq_msg)
+    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.fields(buffer, offset, packet, parent, size_of_seq_msg)
-
-    return index
-  end
-end
-
--- Close Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response = {}
-
--- Read runtime size of: Close Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Close Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Close Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields = function(buffer, offset, packet, parent, size_of_close_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Close Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.dissect = function(buffer, offset, packet, parent, size_of_close_response)
-  local size_of_close_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.size(buffer, offset)
-  local index = offset + size_of_close_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.close_response, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
-    parent:set_len(size_of_close_response)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.fields(buffer, offset, packet, parent, size_of_close_response)
+    nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.fields(buffer, offset, packet, parent, size_of_client_seq_msg)
 
     return index
   end
@@ -10244,7 +10621,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.close.size = function(buffer, 
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -10289,65 +10666,6 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.close.dissect = function(buffe
   end
 end
 
--- Open Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response = {}
-
--- Read runtime size of: Open Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Open Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Open Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields = function(buffer, offset, packet, parent, size_of_open_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_arcaoptions_binarygateway_pillarstream_v3_27.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Open Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.dissect = function(buffer, offset, packet, parent, size_of_open_response)
-  local size_of_open_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.size(buffer, offset)
-  local index = offset + size_of_open_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.open_response, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-    parent:set_len(size_of_open_response)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.fields(buffer, offset, packet, parent, size_of_open_response)
-
-    return index
-  end
-end
-
 -- Open
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.open = {}
 
@@ -10356,7 +10674,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.open.size = function(buffer, o
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -10413,171 +10731,6 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.open.dissect = function(buffer
   end
 end
 
--- Heartbeat
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat = {}
-
--- Read runtime size of: Heartbeat
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Heartbeat
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Heartbeat
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Heartbeat
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.dissect = function(buffer, offset, packet, parent, size_of_heartbeat)
-  local size_of_heartbeat = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.size(buffer, offset)
-  local index = offset + size_of_heartbeat
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.heartbeat, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-    parent:set_len(size_of_heartbeat)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.heartbeat.fields(buffer, offset, packet, parent, size_of_heartbeat)
-
-    return index
-  end
-end
-
--- Stream Avail
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail = {}
-
--- Read runtime size of: Stream Avail
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Stream Avail
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Avail
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stream Id: Struct of 2 fields
-  index, stream_id = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_id.dissect(buffer, index, packet, parent)
-
-  -- Next Seq: 8 Byte Unsigned Fixed Width Integer
-  index, next_seq = nyse_arcaoptions_binarygateway_pillarstream_v3_27.next_seq.dissect(buffer, index, packet, parent)
-
-  -- Access: 1 Byte Unsigned Fixed Width Integer
-  index, access = nyse_arcaoptions_binarygateway_pillarstream_v3_27.access.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Avail
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.dissect = function(buffer, offset, packet, parent, size_of_stream_avail)
-  local size_of_stream_avail = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.size(buffer, offset)
-  local index = offset + size_of_stream_avail
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.stream_avail, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-    parent:set_len(size_of_stream_avail)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.fields(buffer, offset, packet, parent, size_of_stream_avail)
-
-    return index
-  end
-end
-
--- Login Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response = {}
-
--- Read runtime size of: Login Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  return msg_length
-end
-
--- Display: Login Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields = function(buffer, offset, packet, parent, size_of_login_response)
-  local index = offset
-
-  -- Msg Header: Struct of 2 fields
-  index, msg_header = nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_header.dissect(buffer, index, packet, parent)
-
-  -- Username: char(16)
-  index, username = nyse_arcaoptions_binarygateway_pillarstream_v3_27.username.dissect(buffer, index, packet, parent)
-
-  -- Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, status = nyse_arcaoptions_binarygateway_pillarstream_v3_27.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Response
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.dissect = function(buffer, offset, packet, parent, size_of_login_response)
-  local size_of_login_response = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.size(buffer, offset)
-  local index = offset + size_of_login_response
-
-  -- Optionally add group/struct element to protocol tree
-  if show.session_messages then
-    parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.fields.login_response, buffer(offset, 0))
-    local current = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-    parent:set_len(size_of_login_response)
-    local display = nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.fields(buffer, offset, packet, parent, size_of_login_response)
-
-    return index
-  end
-end
-
 -- Login Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_message = {}
 
@@ -10586,7 +10739,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_message.size = function(
   local index = offset
 
   -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
+  local msg_length = buffer(offset + 2, 2):le_uint()
 
   return msg_length
 end
@@ -10640,32 +10793,14 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_message.dissect = functi
   end
 end
 
--- Pillar Stream Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message = {}
+-- Client Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_message = {}
 
--- Verify required size of Tcp packet
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.size
-end
-
--- Dissect Pillar Stream Message
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message.dissect = function(buffer, packet, parent)
-  local offset = 0
-
-  -- Dependency element: Msg Type
-  local msg_type = buffer(0, 2):le_uint()
-
+-- Dissect: Client Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_message.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Login Message
   if msg_type == 0x0201 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response
-  if msg_type == 0x0202 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.login_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Avail
-  if msg_type == 0x0203 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.stream_avail.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat
   if msg_type == 0x0204 then
@@ -10675,24 +10810,37 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message.dissect 
   if msg_type == 0x0205 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_27.open.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Open Response
-  if msg_type == 0x0206 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.open_response.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Close
   if msg_type == 0x0207 then
     return nyse_arcaoptions_binarygateway_pillarstream_v3_27.close.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Close Response
-  if msg_type == 0x0208 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.close_response.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Seq Msg
+  -- Dissect Client Seq Msg
   if msg_type == 0x0905 then
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.seq_msg.dissect(buffer, offset, packet, parent)
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_seq_msg.dissect(buffer, offset, packet, parent)
   end
 
   return offset
+end
+
+-- Client Pillar Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message = {}
+
+-- Verify required size of Tcp packet
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.requiredsize = function(buffer)
+  return buffer:len() >= nyse_arcaoptions_binarygateway_pillarstream_v3_27.msg_type.size
+end
+
+-- Dissect Client Pillar Message
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency element: Msg Type
+  local msg_type = buffer(index, 2):le_uint()
+
+  -- Client Message: Runtime Type with 5 branches
+  index = nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_message.dissect(buffer, index, packet, parent, msg_type)
+
+  return index
 end
 
 
@@ -10704,14 +10852,361 @@ end
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.init()
 end
 
+-- Connection roles for Nyse ArcaOptions BinaryGateway PillarStream 3.27: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.role = function(packet)
+  if omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nyse ArcaOptions BinaryGateway PillarStream 3.27
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27, buffer(), omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.description, "("..buffer:len().." Bytes)")
-  return nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message.dissect(buffer, packet, protocol)
+  local role = nyse_arcaoptions_binarygateway_pillarstream_v3_27.role(packet)
+  local dissect = role == "initiator" and nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.dissect or nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.dissect
+
+  local length = buffer:len()
+  local offset = 0
+
+  -- Dissect each message the segment carries
+  while offset < length do
+    local protocol = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27, buffer(offset), omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.description, "("..(length - offset).." Bytes)")
+    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+
+    -- A message split across segments: let TCP reassemble it with the next one
+    if not ok or consumed == nil or consumed <= 0 then
+      packet.desegment_offset = offset
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    protocol:set_len(consumed)
+    offset = offset + consumed
+  end
+
+  return offset
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Pillar Message: would its message dispatch accept this frame?
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Message
+  if msg_type == 0x0201 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open
+  if msg_type == 0x0205 then
+    return true
+  end
+
+  -- Close
+  if msg_type == 0x0207 then
+    return true
+  end
+
+  -- Client Seq Msg: carries the application messages, which tell this protocol from others sharing the session framing
+  if msg_type == 0x0905 then
+    if buffer:len() < 34 then
+      return false
+    end
+
+    local seq_msg_type = buffer(32, 2):le_uint()
+
+    -- Session Configuration Request Message
+    if seq_msg_type == 0x0220 then
+      return true
+    end
+
+    -- Sequenced Filler Message
+    if seq_msg_type == 0x0282 then
+      return true
+    end
+
+    -- New Order Message
+    if seq_msg_type == 0x0248 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if seq_msg_type == 0x0250 then
+      return true
+    end
+
+    -- Order Modify Request Message
+    if seq_msg_type == 0x0251 then
+      return true
+    end
+
+    -- New Bulk Quote Message
+    if seq_msg_type == 0x0243 then
+      return true
+    end
+
+    -- New Bulk Quote With Order Id Message
+    if seq_msg_type == 0x0259 then
+      return true
+    end
+
+    -- New Order Cross Message
+    if seq_msg_type == 0x0222 then
+      return true
+    end
+
+    -- Bulk Cancel Request Message
+    if seq_msg_type == 0x0223 then
+      return true
+    end
+
+    -- Bulk Cancel Request With Mp Sub Id Message
+    if seq_msg_type == 0x0224 then
+      return true
+    end
+
+    -- Risk Limit Update Request Message
+    if seq_msg_type == 0x0330 then
+      return true
+    end
+
+    -- Risk Action Request Message
+    if seq_msg_type == 0x0331 then
+      return true
+    end
+
+    -- New Complex Series Request Message
+    if seq_msg_type == 0x0357 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Pillar Message: would its message dispatch accept this frame?
+nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.fingerprint = function(buffer)
+  if buffer:len() < 2 then
+    return false
+  end
+
+  local msg_type = buffer(0, 2):le_uint()
+
+  -- Login Response
+  if msg_type == 0x0202 then
+    return true
+  end
+
+  -- Stream Avail
+  if msg_type == 0x0203 then
+    return true
+  end
+
+  -- Heartbeat
+  if msg_type == 0x0204 then
+    return true
+  end
+
+  -- Open Response
+  if msg_type == 0x0206 then
+    return true
+  end
+
+  -- Close Response
+  if msg_type == 0x0208 then
+    return true
+  end
+
+  -- Server Seq Msg: carries the application messages, which tell this protocol from others sharing the session framing
+  if msg_type == 0x0905 then
+    if buffer:len() < 34 then
+      return false
+    end
+
+    local seq_msg_type = buffer(32, 2):le_uint()
+
+    -- Underlying Symbol Reference Data Message
+    if seq_msg_type == 0x0233 then
+      return true
+    end
+
+    -- Series Reference Data Message
+    if seq_msg_type == 0x0234 then
+      return true
+    end
+
+    -- Minimum Price Variant Class Reference Data Message
+    if seq_msg_type == 0x0230 then
+      return true
+    end
+
+    -- Minimum Price Variant Level Reference Data Message
+    if seq_msg_type == 0x0231 then
+      return true
+    end
+
+    -- Mpid Configuration Message
+    if seq_msg_type == 0x0272 then
+      return true
+    end
+
+    -- Options Market Maker Symbol Appointment Reference Data Message
+    if seq_msg_type == 0x0833 then
+      return true
+    end
+
+    -- Session Configuration Acknowledgement Message
+    if seq_msg_type == 0x0221 then
+      return true
+    end
+
+    -- Order And Cancel Replace Acknowledgement Message
+    if seq_msg_type == 0x0269 then
+      return true
+    end
+
+    -- Bulk Quote Acknowledgment Message
+    if seq_msg_type == 0x0294 then
+      return true
+    end
+
+    -- Bulk Quote Acknowledgment With Details Message
+    if seq_msg_type == 0x0308 then
+      return true
+    end
+
+    -- Order Single Complex Modify Cancel Request Acknowledgment And Urout Message
+    if seq_msg_type == 0x0278 then
+      return true
+    end
+
+    -- Order Priority Update Acknowledgment Message
+    if seq_msg_type == 0x0268 then
+      return true
+    end
+
+    -- Execution Report Message
+    if seq_msg_type == 0x0295 then
+      return true
+    end
+
+    -- Trade Bust Correct Message
+    if seq_msg_type == 0x0293 then
+      return true
+    end
+
+    -- Application Layer Reject Message
+    if seq_msg_type == 0x0267 then
+      return true
+    end
+
+    -- Risk Control Acknowledgement Message
+    if seq_msg_type == 0x0332 then
+      return true
+    end
+
+    -- Risk Control Alert Message
+    if seq_msg_type == 0x0333 then
+      return true
+    end
+
+    -- Complex Series Request Acknowledgement Message
+    if seq_msg_type == 0x0358 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
 end
 
 
@@ -10720,9 +11215,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.27 (Tcp)
-local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_heuristic(buffer, packet, parent)
+local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_arcaoptions_binarygateway_pillarstream_v3_27.pillar_stream_message.requiredsize(buffer) then return false end
+  if not nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_arcaoptions_binarygateway_pillarstream_v3_27.client_pillar_message.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27
@@ -10731,7 +11229,50 @@ local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_heurist
   return true
 end
 
--- Register Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.27
+-- Dissector Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.27 (Tcp)
+local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_arcaoptions_binarygateway_pillarstream_v3_27.server_pillar_message.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27
+  omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse ArcaOptions BinaryGateway PillarStream 3.27 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_heuristic(buffer, packet, parent)
+  local role = nyse_arcaoptions_binarygateway_pillarstream_v3_27.role(packet)
+  local initiator = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_initiator_heuristic
+  local acceptor = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nyse_arcaoptions_binarygateway_pillarstream_v3_27.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nyse ArcaOptions BinaryGateway PillarStream 3.27
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27:register_heuristic("tcp", omi_nyse_arcaoptions_binarygateway_pillarstream_v3_27_tcp_heuristic)
 
 -- Register Nyse ArcaOptions BinaryGateway PillarStream 3.27 for Decode As

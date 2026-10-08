@@ -3714,7 +3714,6 @@ function omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.dissector(buffer, pac
 
   -- Dissect protocol
   local protocol = parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206, buffer(), omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.description, "("..buffer:len().." Bytes)")
-
   local role = bist_borsaistanbul_geniuminet_ouch_v2025_0206.role(packet)
 
   if role == "initiator" then

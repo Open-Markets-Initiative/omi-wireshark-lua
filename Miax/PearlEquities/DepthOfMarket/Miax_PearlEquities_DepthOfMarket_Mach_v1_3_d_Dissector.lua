@@ -3628,14 +3628,15 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.dissector(buffer, pack
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d, buffer(), omi_miax_pearlequities_depthofmarket_mach_v1_3_d.description, "("..buffer:len().." Bytes)")
-
   if packet.port_type == 3 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d, buffer(), omi_miax_pearlequities_depthofmarket_mach_v1_3_d.description, "("..buffer:len().." Bytes)")
     return miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 2 then
+    -- Dissect protocol
+    local protocol = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d, buffer(), omi_miax_pearlequities_depthofmarket_mach_v1_3_d.description, "("..buffer:len().." Bytes)")
     return miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect(buffer, packet, protocol)
   end
 end
