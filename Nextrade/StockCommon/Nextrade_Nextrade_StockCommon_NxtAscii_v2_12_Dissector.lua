@@ -675,11 +675,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_ask_trading_value.size 
 -- Display: Accumulated Ask Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_ask_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Ask Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -750,11 +745,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_bid_trading_value.size 
 -- Display: Accumulated Bid Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_bid_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Bid Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -825,11 +815,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_trading_value.size = 22
 -- Display: Accumulated Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -923,11 +908,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_val
 -- Display: Aftermarket Accumulated Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.aftermarket_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Aftermarket Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1067,11 +1047,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price
 -- Display: Appraisal Ratio Of Substitute Price
 nextrade_nextrade_stockcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.appraisal_ratio_of_substitute_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Appraisal Ratio Of Substitute Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1188,11 +1163,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_principal_trading_val
 -- Display: Arbitrage Ask Principal Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_principal_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_principal_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Arbitrage Ask Principal Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1263,11 +1233,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_value.s
 -- Display: Arbitrage Ask Trust Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_ask_trust_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Arbitrage Ask Trust Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1338,11 +1303,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_principal_trading_val
 -- Display: Arbitrage Bid Principal Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_principal_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_principal_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Arbitrage Bid Principal Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1413,11 +1373,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_trust_trading_value.s
 -- Display: Arbitrage Bid Trust Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_trust_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.arbitrage_bid_trust_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Arbitrage Bid Trust Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2048,11 +2003,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_1.size = 22
 -- Display: Ask Trading Value 1
 nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_1.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_1.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value 1: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2095,11 +2045,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_2.size = 22
 -- Display: Ask Trading Value 2
 nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_2.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_2.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value 2: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2142,11 +2087,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_3.size = 22
 -- Display: Ask Trading Value 3
 nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_3.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_3.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value 3: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2189,11 +2129,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_4.size = 22
 -- Display: Ask Trading Value 4
 nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_4.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_4.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value 4: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2236,11 +2171,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_5.size = 22
 -- Display: Ask Trading Value 5
 nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_5.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.ask_trading_value_5.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value 5: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3108,11 +3038,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_1.size = 22
 -- Display: Bid Trading Value 1
 nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_1.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_1.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value 1: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3155,11 +3080,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_2.size = 22
 -- Display: Bid Trading Value 2
 nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_2.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_2.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value 2: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3202,11 +3122,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_3.size = 22
 -- Display: Bid Trading Value 3
 nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_3.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_3.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value 3: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3249,11 +3164,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_4.size = 22
 -- Display: Bid Trading Value 4
 nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_4.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_4.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value 4: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3296,11 +3206,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_5.size = 22
 -- Display: Bid Trading Value 5
 nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_5.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.bid_trading_value_5.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value 5: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3659,11 +3564,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size = 22
 -- Display: Buyside Arbitrage Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_arbitrage_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Buyside Arbitrage Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3790,11 +3690,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size = 2
 -- Display: Buyside Nonarbitrage Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.buyside_nonarbitrage_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Buyside Nonarbitrage Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3938,11 +3833,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.capital.size = 22
 -- Display: Capital
 nextrade_nextrade_stockcommon_nxtascii_v2_12.capital.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.capital.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Capital: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4319,11 +4209,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.covered_short_selling_trading_value
 -- Display: Covered Short Selling Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4560,11 +4445,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_
 -- Display: Disparate Ratio To Trigger Dynamic Vi
 nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Disparate Ratio To Trigger Dynamic Vi: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4607,11 +4487,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_v
 -- Display: Disparate Ratio To Trigger Static Vi
 nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Disparate Ratio To Trigger Static Vi: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4779,11 +4654,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_tracking_difference.size = 13
 -- Display: Etf Tracking Difference
 nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_tracking_difference.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.etf_tracking_difference.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Etf Tracking Difference: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4941,11 +4811,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.size = 
 -- Display: Exercise Price Of Elw Or Bw
 nextrade_nextrade_stockcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.exercise_price_of_elw_or_bw.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Price Of Elw Or Bw: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5907,11 +5772,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_valu
 -- Display: Mainmarket Accumulated Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.mainmarket_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Mainmarket Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6605,11 +6465,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_principal_trading
 -- Display: Non Arbitrage Ask Principal Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_principal_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_principal_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Non Arbitrage Ask Principal Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6680,11 +6535,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_trust_trading_val
 -- Display: Non Arbitrage Ask Trust Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_trust_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_ask_trust_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Non Arbitrage Ask Trust Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6755,11 +6605,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_principal_trading
 -- Display: Non Arbitrage Bid Principal Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_principal_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_principal_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Non Arbitrage Bid Principal Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6830,11 +6675,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_trust_trading_val
 -- Display: Non Arbitrage Bid Trust Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_trust_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.non_arbitrage_bid_trust_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Non Arbitrage Bid Trust Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7259,11 +7099,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.par_value.size = 11
 -- Display: Par Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.par_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.par_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Par Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7352,11 +7187,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value
 -- Display: Premarket Accumulated Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.premarket_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Premarket Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7786,11 +7616,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size = 22
 -- Display: Sellside Arbitrage Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_arbitrage_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sellside Arbitrage Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7917,11 +7742,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size = 
 -- Display: Sellside Nonarbitrage Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.sellside_nonarbitrage_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sellside Nonarbitrage Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9112,11 +8932,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.upper_limit_quantity.size = 23
 -- Display: Upper Limit Quantity
 nextrade_nextrade_stockcommon_nxtascii_v2_12.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.upper_limit_quantity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Quantity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9159,11 +8974,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_s
 -- Display: Uptick Rule Applied Covered Short Selling Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_applied_covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9234,11 +9044,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short
 -- Display: Uptick Rule Unapplied Covered Short Selling Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9411,11 +9216,6 @@ nextrade_nextrade_stockcommon_nxtascii_v2_12.yesterdays_accumulated_trading_valu
 -- Display: Yesterdays Accumulated Trading Value
 nextrade_nextrade_stockcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_stockcommon_nxtascii_v2_12.yesterdays_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yesterdays Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then

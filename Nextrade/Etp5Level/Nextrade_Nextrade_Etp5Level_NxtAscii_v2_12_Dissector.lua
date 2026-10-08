@@ -334,11 +334,6 @@ nextrade_nextrade_etp5level_nxtascii_v2_12.accumulated_trading_value.size = 22
 -- Display: Accumulated Trading Value
 nextrade_nextrade_etp5level_nxtascii_v2_12.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_etp5level_nxtascii_v2_12.accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1229,11 +1224,6 @@ nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi
 -- Display: Disparate Ratio To Trigger Dynamic Vi
 nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_dynamic_vi.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Disparate Ratio To Trigger Dynamic Vi: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1276,11 +1266,6 @@ nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.
 -- Display: Disparate Ratio To Trigger Static Vi
 nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, nextrade_nextrade_etp5level_nxtascii_v2_12.disparate_ratio_to_trigger_static_vi.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Disparate Ratio To Trigger Static Vi: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
