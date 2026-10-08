@@ -30,7 +30,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.box = ProtoField.new("Box",
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.bundle = ProtoField.new("Bundle", "euronext.optiq.marketdatagateway.sbe.v4.2.bundle", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000400000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.butterfly = ProtoField.new("Butterfly", "euronext.optiq.marketdatagateway.sbe.v4.2.butterfly", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000002)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.butterfly_versus_underlying = ProtoField.new("Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.butterflyversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000002000000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.buy_write = ProtoField.new("Buy Write", "euronext.optiq.marketdatagateway.sbe.v4.2.buywrite", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000400)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.buy_write = ProtoField.new("Buy Write", "euronext.optiq.marketdatagateway.sbe.v4.2.buywrite", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000040000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.calendar_spread = ProtoField.new("Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v4.2.calendarspread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000010)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_bbo_only = ProtoField.new("Call Bbo Only", "euronext.optiq.marketdatagateway.sbe.v4.2.callbboonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_or_put_cabinet = ProtoField.new("Call Or Put Cabinet", "euronext.optiq.marketdatagateway.sbe.v4.2.callorputcabinet", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000004)
@@ -38,7 +38,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_or_put_calendar_spread
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_or_put_spread_versus_underlying = ProtoField.new("Call Or Put Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.callorputspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000008000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_put_diagonal_calendar_spread_versus_underlying = ProtoField.new("Call Put Diagonal Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.callputdiagonalcalendarspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000020000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_spread_versus_put_versus_underlying = ProtoField.new("Call Spread Versus Put Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.callspreadversusputversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000004000000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_spread_versus_sell_a_put = ProtoField.new("Call Spread Versus Sell A Put", "euronext.optiq.marketdatagateway.sbe.v4.2.callspreadversussellaput", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.call_spread_versus_sell_a_put = ProtoField.new("Call Spread Versus Sell A Put", "euronext.optiq.marketdatagateway.sbe.v4.2.callspreadversussellaput", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000200000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.cfi = ProtoField.new("Cfi", "euronext.optiq.marketdatagateway.sbe.v4.2.cfi", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.cfi_optional = ProtoField.new("Cfi Optional", "euronext.optiq.marketdatagateway.sbe.v4.2.cfioptional", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.change_type = ProtoField.new("Change Type", "euronext.optiq.marketdatagateway.sbe.v4.2.changetype", ftypes.UINT8)
@@ -50,10 +50,10 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.collar_expansion_factor = P
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.collar_max_unhalt_nb = ProtoField.new("Collar Max Unhalt Nb", "euronext.optiq.marketdatagateway.sbe.v4.2.collarmaxunhaltnb", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.collar_unhalt_delay = ProtoField.new("Collar Unhalt Delay", "euronext.optiq.marketdatagateway.sbe.v4.2.collarunhaltdelay", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.combo = ProtoField.new("Combo", "euronext.optiq.marketdatagateway.sbe.v4.2.combo", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000200)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.combo_versus_underlying = ProtoField.new("Combo Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.comboversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000002)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.combo_versus_underlying = ProtoField.new("Combo Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.comboversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000200000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatagateway.sbe.v4.2.compression", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.condor = ProtoField.new("Condor", "euronext.optiq.marketdatagateway.sbe.v4.2.condor", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000100000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.condorversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000200)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.condor_versus_underlying = ProtoField.new("Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.condorversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000020000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.confirmed_reference_level = ProtoField.new("Confirmed Reference Level", "euronext.optiq.marketdatagateway.sbe.v4.2.confirmedreferencelevel", ftypes.INT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.confirmed_reference_time = ProtoField.new("Confirmed Reference Time", "euronext.optiq.marketdatagateway.sbe.v4.2.confirmedreferencetime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.contract_emm_properties_group = ProtoField.new("Contract Emm Properties Group", "euronext.optiq.marketdatagateway.sbe.v4.2.contractemmpropertiesgroup", ftypes.STRING)
@@ -85,7 +85,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.derivatives_instrument_type
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.derivatives_market_model = ProtoField.new("Derivatives Market Model", "euronext.optiq.marketdatagateway.sbe.v4.2.derivativesmarketmodel", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.diagonal_calendar_spread = ProtoField.new("Diagonal Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v4.2.diagonalcalendarspread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000020)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.diagonal_straddle_calendar_spread = ProtoField.new("Diagonal Straddle Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v4.2.diagonalstraddlecalendarspread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000008000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.diagonal_straddle_calendar_spread_versus_underlying = ProtoField.new("Diagonal Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.diagonalstraddlecalendarspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000040)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.diagonal_straddle_calendar_spread_versus_underlying = ProtoField.new("Diagonal Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.diagonalstraddlecalendarspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000004000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.dividend_currency = ProtoField.new("Dividend Currency", "euronext.optiq.marketdatagateway.sbe.v4.2.dividendcurrency", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.dividend_payment_date = ProtoField.new("Dividend Payment Date", "euronext.optiq.marketdatagateway.sbe.v4.2.dividendpaymentdate", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.dividend_rate = ProtoField.new("Dividend Rate", "euronext.optiq.marketdatagateway.sbe.v4.2.dividendrate", ftypes.UINT64)
@@ -117,7 +117,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.event_time = ProtoField.new
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.event_time_optional = ProtoField.new("Event Time Optional", "euronext.optiq.marketdatagateway.sbe.v4.2.eventtimeoptional", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.ex_dividend_date = ProtoField.new("Ex Dividend Date", "euronext.optiq.marketdatagateway.sbe.v4.2.exdividenddate", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.exchange_code = ProtoField.new("Exchange Code", "euronext.optiq.marketdatagateway.sbe.v4.2.exchangecode", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.exchange_for_physical = ProtoField.new("Exchange For Physical", "euronext.optiq.marketdatagateway.sbe.v4.2.exchangeforphysical", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000008)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.exchange_for_physical = ProtoField.new("Exchange For Physical", "euronext.optiq.marketdatagateway.sbe.v4.2.exchangeforphysical", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000800000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.exer_style = ProtoField.new("Exer Style", "euronext.optiq.marketdatagateway.sbe.v4.2.exerstyle", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.expiry_cycle_type = ProtoField.new("Expiry Cycle Type", "euronext.optiq.marketdatagateway.sbe.v4.2.expirycycletype", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.expiry_date = ProtoField.new("Expiry Date", "euronext.optiq.marketdatagateway.sbe.v4.2.expirydate", ftypes.STRING)
@@ -156,9 +156,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.interest_payment_date = Pro
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.interest_payment_date_rep_group = ProtoField.new("Interest Payment Date Rep Group", "euronext.optiq.marketdatagateway.sbe.v4.2.interestpaymentdaterepgroup", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.interest_payment_date_rep_groups = ProtoField.new("Interest Payment Date Rep Groups", "euronext.optiq.marketdatagateway.sbe.v4.2.interestpaymentdaterepgroups", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_butterfly = ProtoField.new("Iron Butterfly", "euronext.optiq.marketdatagateway.sbe.v4.2.ironbutterfly", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000100)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_butterfly_versus_underlying = ProtoField.new("Iron Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.ironbutterflyversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000001)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_condor = ProtoField.new("Iron Condor", "euronext.optiq.marketdatagateway.sbe.v4.2.ironcondor", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000001000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_condor_versus_underlying = ProtoField.new("Iron Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.ironcondorversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000800)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_butterfly_versus_underlying = ProtoField.new("Iron Butterfly Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.ironbutterflyversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000100000000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_condor = ProtoField.new("Iron Condor", "euronext.optiq.marketdatagateway.sbe.v4.2.ironcondor", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000100000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.iron_condor_versus_underlying = ProtoField.new("Iron Condor Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.ironcondorversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000080000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.isin_code = ProtoField.new("Isin Code", "euronext.optiq.marketdatagateway.sbe.v4.2.isincode", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.isin_code_optional = ProtoField.new("Isin Code Optional", "euronext.optiq.marketdatagateway.sbe.v4.2.isincodeoptional", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.issue_date = ProtoField.new("Issue Date", "euronext.optiq.marketdatagateway.sbe.v4.2.issuedate", ftypes.UINT16)
@@ -312,9 +312,9 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.pricing_algorithm = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.product_code = ProtoField.new("Product Code", "euronext.optiq.marketdatagateway.sbe.v4.2.productcode", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatagateway.sbe.v4.2.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.publication_date_time = ProtoField.new("Publication Date Time", "euronext.optiq.marketdatagateway.sbe.v4.2.publicationdatetime", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_spread_versus_call_versus_underlying = ProtoField.new("Put Spread Versus Call Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.putspreadversuscallversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000020)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_spread_versus_sell_a_call = ProtoField.new("Put Spread Versus Sell A Call", "euronext.optiq.marketdatagateway.sbe.v4.2.putspreadversussellacall", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_straddle_versus_sell_a_call_or_a_put = ProtoField.new("Put Straddle Versus Sell A Call Or A Put", "euronext.optiq.marketdatagateway.sbe.v4.2.putstraddleversussellacalloraput", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000008000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_spread_versus_call_versus_underlying = ProtoField.new("Put Spread Versus Call Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.putspreadversuscallversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000002000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_spread_versus_sell_a_call = ProtoField.new("Put Spread Versus Sell A Call", "euronext.optiq.marketdatagateway.sbe.v4.2.putspreadversussellacall", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000400000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.put_straddle_versus_sell_a_call_or_a_put = ProtoField.new("Put Straddle Versus Sell A Call Or A Put", "euronext.optiq.marketdatagateway.sbe.v4.2.putstraddleversussellacalloraput", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000800000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.quantity = ProtoField.new("Quantity", "euronext.optiq.marketdatagateway.sbe.v4.2.quantity", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.quantity_decimals = ProtoField.new("Quantity Decimals", "euronext.optiq.marketdatagateway.sbe.v4.2.quantitydecimals", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.quantity_notation = ProtoField.new("Quantity Notation", "euronext.optiq.marketdatagateway.sbe.v4.2.quantitynotation", ftypes.STRING)
@@ -334,7 +334,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reference_spread_table_id =
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.repo_indicator = ProtoField.new("Repo Indicator", "euronext.optiq.marketdatagateway.sbe.v4.2.repoindicator", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.repo_settlement_date = ProtoField.new("Repo Settlement Date", "euronext.optiq.marketdatagateway.sbe.v4.2.reposettlementdate", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reserved_10 = ProtoField.new("Reserved 10", "euronext.optiq.marketdatagateway.sbe.v4.2.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v4.2.reserved16", ftypes.UINT64, nil, base.DEC, 0x00000000FFFF0000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v4.2.reserved16", ftypes.UINT64, nil, base.DEC, 0xFFFF000000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.marketdatagateway.sbe.v4.2.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v4.2.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v4.2.retransmissionendtime", ftypes.UINT64)
@@ -363,10 +363,10 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.stop_limit = ProtoField.new
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.stop_stop_loss = ProtoField.new("Stop Stop Loss", "euronext.optiq.marketdatagateway.sbe.v4.2.stopstoploss", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle = ProtoField.new("Straddle", "euronext.optiq.marketdatagateway.sbe.v4.2.straddle", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000040000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle_calendar_spread = ProtoField.new("Straddle Calendar Spread", "euronext.optiq.marketdatagateway.sbe.v4.2.straddlecalendarspread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle_calendar_spread_versus_underlying = ProtoField.new("Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.straddlecalendarspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000010)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle_versus_underlying = ProtoField.new("Straddle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.straddleversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000100)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle_calendar_spread_versus_underlying = ProtoField.new("Straddle Calendar Spread Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.straddlecalendarspreadversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000001000000000)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.straddle_versus_underlying = ProtoField.new("Straddle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.straddleversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000010000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strangle = ProtoField.new("Strangle", "euronext.optiq.marketdatagateway.sbe.v4.2.strangle", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000400)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strangle_versus_underlying = ProtoField.new("Strangle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.strangleversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000004)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strangle_versus_underlying = ProtoField.new("Strangle Versus Underlying", "euronext.optiq.marketdatagateway.sbe.v4.2.strangleversusunderlying", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000400000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strategy_authorized = ProtoField.new("Strategy Authorized", "euronext.optiq.marketdatagateway.sbe.v4.2.strategyauthorized", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strategy_code = ProtoField.new("Strategy Code", "euronext.optiq.marketdatagateway.sbe.v4.2.strategycode", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strategy_standing_data_group = ProtoField.new("Strategy Standing Data Group", "euronext.optiq.marketdatagateway.sbe.v4.2.strategystandingdatagroup", ftypes.STRING)
@@ -380,7 +380,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.strip = ProtoField.new("Str
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.suspended = ProtoField.new("Suspended", "euronext.optiq.marketdatagateway.sbe.v4.2.suspended", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.symbol_index = ProtoField.new("Symbol Index", "euronext.optiq.marketdatagateway.sbe.v4.2.symbolindex", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.symbol_index_optional = ProtoField.new("Symbol Index Optional", "euronext.optiq.marketdatagateway.sbe.v4.2.symbolindexoptional", ftypes.UINT32)
-omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.synthetic = ProtoField.new("Synthetic", "euronext.optiq.marketdatagateway.sbe.v4.2.synthetic", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080)
+omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.synthetic = ProtoField.new("Synthetic", "euronext.optiq.marketdatagateway.sbe.v4.2.synthetic", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000008000000000)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.tax_code = ProtoField.new("Tax Code", "euronext.optiq.marketdatagateway.sbe.v4.2.taxcode", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.tax_description_attaching_to_a_dividend = ProtoField.new("Tax Description Attaching To A Dividend", "euronext.optiq.marketdatagateway.sbe.v4.2.taxdescriptionattachingtoadividend", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_2.fields.technical_notification_type = ProtoField.new("Technical Notification Type", "euronext.optiq.marketdatagateway.sbe.v4.2.technicalnotificationtype", ftypes.UINT8)
@@ -14046,67 +14046,67 @@ euronext_optiq_marketdatagateway_sbe_v4_2.strategy_authorized.display = function
     flags[#flags + 1] = "Two By One Call Or Put Ratio Spread Versus Underlying"
   end
   -- Is Iron Butterfly Versus Underlying flag set?
-  if value:band(0x0000000000000001) ~= UInt64(0) then
+  if value:band(0x0000000100000000) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Butterfly Versus Underlying"
   end
   -- Is Combo Versus Underlying flag set?
-  if value:band(0x0000000000000002) ~= UInt64(0) then
+  if value:band(0x0000000200000000) ~= UInt64(0) then
     flags[#flags + 1] = "Combo Versus Underlying"
   end
   -- Is Strangle Versus Underlying flag set?
-  if value:band(0x0000000000000004) ~= UInt64(0) then
+  if value:band(0x0000000400000000) ~= UInt64(0) then
     flags[#flags + 1] = "Strangle Versus Underlying"
   end
   -- Is Exchange For Physical flag set?
-  if value:band(0x0000000000000008) ~= UInt64(0) then
+  if value:band(0x0000000800000000) ~= UInt64(0) then
     flags[#flags + 1] = "Exchange For Physical"
   end
   -- Is Straddle Calendar Spread Versus Underlying flag set?
-  if value:band(0x0000000000000010) ~= UInt64(0) then
+  if value:band(0x0000001000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle Calendar Spread Versus Underlying"
   end
   -- Is Put Spread Versus Call Versus Underlying flag set?
-  if value:band(0x0000000000000020) ~= UInt64(0) then
+  if value:band(0x0000002000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Put Spread Versus Call Versus Underlying"
   end
   -- Is Diagonal Straddle Calendar Spread Versus Underlying flag set?
-  if value:band(0x0000000000000040) ~= UInt64(0) then
+  if value:band(0x0000004000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Diagonal Straddle Calendar Spread Versus Underlying"
   end
   -- Is Synthetic flag set?
-  if value:band(0x0000000000000080) ~= UInt64(0) then
+  if value:band(0x0000008000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Synthetic"
   end
   -- Is Straddle Versus Underlying flag set?
-  if value:band(0x0000000000000100) ~= UInt64(0) then
+  if value:band(0x0000010000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Straddle Versus Underlying"
   end
   -- Is Condor Versus Underlying flag set?
-  if value:band(0x0000000000000200) ~= UInt64(0) then
+  if value:band(0x0000020000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Condor Versus Underlying"
   end
   -- Is Buy Write flag set?
-  if value:band(0x0000000000000400) ~= UInt64(0) then
+  if value:band(0x0000040000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Buy Write"
   end
   -- Is Iron Condor Versus Underlying flag set?
-  if value:band(0x0000000000000800) ~= UInt64(0) then
+  if value:band(0x0000080000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Condor Versus Underlying"
   end
   -- Is Iron Condor flag set?
-  if value:band(0x0000000000001000) ~= UInt64(0) then
+  if value:band(0x0000100000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Iron Condor"
   end
   -- Is Call Spread Versus Sell A Put flag set?
-  if value:band(0x0000000000002000) ~= UInt64(0) then
+  if value:band(0x0000200000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Call Spread Versus Sell A Put"
   end
   -- Is Put Spread Versus Sell A Call flag set?
-  if value:band(0x0000000000004000) ~= UInt64(0) then
+  if value:band(0x0000400000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Put Spread Versus Sell A Call"
   end
   -- Is Put Straddle Versus Sell A Call Or A Put flag set?
-  if value:band(0x0000000000008000) ~= UInt64(0) then
+  if value:band(0x0000800000000000) ~= UInt64(0) then
     flags[#flags + 1] = "Put Straddle Versus Sell A Call Or A Put"
   end
 
