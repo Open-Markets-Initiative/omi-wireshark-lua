@@ -678,11 +678,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_t
 -- Display: Accrued Interest Rate On Bank Holidays Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accrued_interest_rate_on_bank_holidays_type_code.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accrued Interest Rate On Bank Holidays Type Code: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -725,11 +720,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size = 22
 -- Display: Accumulated Ask Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_ask_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Ask Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -800,11 +790,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size = 22
 -- Display: Accumulated Bid Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_bid_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Bid Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -875,11 +860,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size = 26
 -- Display: Accumulated Cash
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Cash: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -922,11 +902,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size = 22
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -997,11 +972,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size = 13
 -- Display: Additional Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Additional Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1090,11 +1060,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size = 13
 -- Display: Applied Exchange Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.applied_exchange_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Applied Exchange Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1165,11 +1130,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.size = 11
 -- Display: Ask Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1233,11 +1193,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size = 22
 -- Display: Ask Level 1 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 1 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1280,11 +1235,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size = 13
 -- Display: Ask Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 1 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1327,11 +1277,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_price.size = 11
 -- Display: Ask Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1395,11 +1340,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size = 22
 -- Display: Ask Level 2 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 2 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1442,11 +1382,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size = 13
 -- Display: Ask Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_2_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 2 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1489,11 +1424,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_price.size = 11
 -- Display: Ask Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1557,11 +1487,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size = 22
 -- Display: Ask Level 3 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 3 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1604,11 +1529,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size = 13
 -- Display: Ask Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_3_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 3 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1651,11 +1571,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_price.size = 11
 -- Display: Ask Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1719,11 +1634,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size = 22
 -- Display: Ask Level 4 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 4 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1766,11 +1676,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size = 13
 -- Display: Ask Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_4_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 4 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1813,11 +1718,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_price.size = 11
 -- Display: Ask Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1881,11 +1781,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size = 22
 -- Display: Ask Level 5 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 5 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1928,11 +1823,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size = 13
 -- Display: Ask Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_5_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 5 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1975,11 +1865,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_price.size = 11
 -- Display: Ask Per Type Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2043,11 +1928,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size
 -- Display: Ask Per Type Level 1 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 1 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2090,11 +1970,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size = 13
 -- Display: Ask Per Type Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_1_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 1 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2137,11 +2012,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_price.size = 11
 -- Display: Ask Per Type Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2205,11 +2075,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size
 -- Display: Ask Per Type Level 2 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 2 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2252,11 +2117,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size = 13
 -- Display: Ask Per Type Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_2_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 2 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2299,11 +2159,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_price.size = 11
 -- Display: Ask Per Type Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2367,11 +2222,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size
 -- Display: Ask Per Type Level 3 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 3 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2414,11 +2264,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size = 13
 -- Display: Ask Per Type Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_3_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 3 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2461,11 +2306,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_price.size = 11
 -- Display: Ask Per Type Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2529,11 +2369,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size
 -- Display: Ask Per Type Level 4 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 4 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2576,11 +2411,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size = 13
 -- Display: Ask Per Type Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_4_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 4 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2623,11 +2453,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_price.size = 11
 -- Display: Ask Per Type Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2691,11 +2516,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size
 -- Display: Ask Per Type Level 5 Trading Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_trading_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 5 Trading Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2738,11 +2558,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size = 13
 -- Display: Ask Per Type Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.ask_per_type_level_5_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Per Type Level 5 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2864,11 +2679,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size = 16
 -- Display: Average Convexity
 koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Convexity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2911,11 +2721,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size = 16
 -- Display: Average Coupon Price
 koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_coupon_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Coupon Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2958,11 +2763,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size = 16
 -- Display: Average Current Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_current_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Current Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3005,11 +2805,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size = 16
 -- Display: Average Duration
 koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Duration: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3052,11 +2847,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size = 7
 -- Display: Average Forward Ytm
 koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_forward_ytm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Forward Ytm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3099,11 +2889,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size = 
 -- Display: Average Remaining Maturity Price
 koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_remaining_maturity_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Remaining Maturity Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3146,11 +2931,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size = 16
 -- Display: Average Spread
 koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_spread.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Spread: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3226,11 +3006,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size = 13
 -- Display: Average Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3273,11 +3048,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size = 16
 -- Display: Average Yld
 koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Yld: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3320,11 +3090,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size = 7
 -- Display: Average Ytm
 koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.average_ytm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Ytm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3440,11 +3205,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.base_price.size = 11
 -- Display: Base Price
 koscom_mdcsrealtime_bonda_exture_v2_018.base_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.base_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Base Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3507,11 +3267,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size = 10
 -- Display: Basis Price
 koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.basis_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Basis Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3628,11 +3383,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.size = 11
 -- Display: Bid Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3696,11 +3446,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size = 13
 -- Display: Bid Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 1 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3766,11 +3511,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_price.size = 11
 -- Display: Bid Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3834,11 +3574,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size = 13
 -- Display: Bid Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_2_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 2 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3904,11 +3639,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_price.size = 11
 -- Display: Bid Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3972,11 +3702,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size = 13
 -- Display: Bid Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_3_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 3 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4042,11 +3767,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_price.size = 11
 -- Display: Bid Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4110,11 +3830,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size = 13
 -- Display: Bid Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_4_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 4 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4180,11 +3895,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_price.size = 11
 -- Display: Bid Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4248,11 +3958,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size = 13
 -- Display: Bid Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_5_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 5 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4295,11 +4000,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_price.size = 11
 -- Display: Bid Per Type Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4363,11 +4063,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size = 13
 -- Display: Bid Per Type Level 1 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_1_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 1 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4410,11 +4105,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_price.size = 11
 -- Display: Bid Per Type Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4478,11 +4168,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size = 13
 -- Display: Bid Per Type Level 2 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_2_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 2 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4525,11 +4210,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_price.size = 11
 -- Display: Bid Per Type Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4593,11 +4273,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size = 13
 -- Display: Bid Per Type Level 3 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_3_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 3 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4640,11 +4315,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_price.size = 11
 -- Display: Bid Per Type Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4708,11 +4378,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size = 13
 -- Display: Bid Per Type Level 4 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_4_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 4 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4755,11 +4420,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_price.size = 11
 -- Display: Bid Per Type Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4823,11 +4483,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size = 13
 -- Display: Bid Per Type Level 5 Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bid_per_type_level_5_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Per Type Level 5 Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5091,6 +4746,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.size = 1
 
 -- Display: Bond Guaranteed Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Bond Guaranteed Type Code: No Value"
+  end
+
   return "Bond Guaranteed Type Code: "..value
 end
 
@@ -5098,7 +4758,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_guaranteed_type_code, range, value, display)
@@ -5138,11 +4806,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size = 13
 -- Display: Bond Issuance Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bond Issuance Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5276,6 +4939,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_sale_type_code.size = 1
 
 -- Display: Bond Sale Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_sale_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Bond Sale Type Code: No Value"
+  end
+
   return "Bond Sale Type Code: "..value
 end
 
@@ -5283,7 +4951,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_sale_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_sale_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_sale_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_sale_type_code, range, value, display)
@@ -5323,11 +4999,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size = 13
 -- Display: Bond Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.bond_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bond Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5470,11 +5141,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size = 1
 -- Display: Call Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re Investment Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5517,11 +5183,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size = 16
 -- Display: Call Re-Investment Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re-Investment Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5564,11 +5225,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size = 11
 -- Display: Call Re-Investment Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re-Investment Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5634,11 +5290,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size = 26
 -- Display: Cash Inflow
 koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.cash_inflow.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Cash Inflow: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5681,11 +5332,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size 
 -- Display: Category Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Category Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5756,11 +5402,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.size = 11
 -- Display: Category Opening Price
 koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Category Opening Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5796,11 +5437,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.size = 11
 -- Display: Category Todays High
 koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Category Todays High: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5836,11 +5472,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.size = 11
 -- Display: Category Todays Low
 koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Category Todays Low: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5876,11 +5507,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size = 10
 -- Display: Clean Price
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5923,11 +5549,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size = 16
 -- Display: Clean Price Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5970,11 +5591,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size = 11
 -- Display: Clean Price Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6017,11 +5633,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size = 16
 -- Display: Clean Price Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6064,11 +5675,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price.size = 11
 -- Display: Closing Price
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6103,6 +5709,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_type_code.size = 1
 
 -- Display: Closing Price Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Closing Price Type Code: No Value"
+  end
+
   return "Closing Price Type Code: "..value
 end
 
@@ -6110,7 +5721,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price_type_code, range, value, display)
@@ -6127,11 +5746,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size = 11
 -- Display: Closing Price With Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_with_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price With Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6174,11 +5788,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size = 13
 -- Display: Closing Price Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6221,11 +5830,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size = 13
 -- Display: Closing Price Yield Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.closing_price_yield_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price Yield Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6337,11 +5941,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size = 7
 -- Display: Convexity
 koscom_mdcsrealtime_bonda_exture_v2_018.convexity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Convexity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6384,11 +5983,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_related_to_securities_ex
 -- Display: Corporate Bonds Related To Securities Exercise Price
 koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_related_to_securities_exercise_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Corporate Bonds Related To Securities Exercise Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6423,6 +6017,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.size = 1
 
 -- Display: Coupon Payment Date Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Payment Date Type Code: No Value"
+  end
+
   return "Coupon Payment Date Type Code: "..value
 end
 
@@ -6430,7 +6029,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_date_type_code, range, value, display)
@@ -6446,6 +6053,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_ho
 
 -- Display: Coupon Payment Decision Code For Bank Holidays
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Payment Decision Code For Bank Holidays: No Value"
+  end
+
   return "Coupon Payment Decision Code For Bank Holidays: "..value
 end
 
@@ -6453,7 +6065,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_holidays.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_decision_code_for_bank_holidays, range, value, display)
@@ -6469,6 +6089,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size = 1
 
 -- Display: Coupon Payment Timing Code
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Payment Timing Code: No Value"
+  end
+
   return "Coupon Payment Timing Code: "..value
 end
 
@@ -6476,7 +6101,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_timing_code, range, value, display)
@@ -6492,6 +6125,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size = 2
 
 -- Display: Coupon Payment Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Coupon Payment Type Code: No Value"
+  end
+
   return "Coupon Payment Type Code: "..value
 end
 
@@ -6516,11 +6154,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size = 14
 -- Display: Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Coupon Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -6966,6 +6599,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.size =
 
 -- Display: Decimal Point Of Coupon Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Decimal Point Of Coupon Type Code: No Value"
+  end
+
   return "Decimal Point Of Coupon Type Code: "..value
 end
 
@@ -6973,7 +6611,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.decimal_point_of_coupon_type_code, range, value, display)
@@ -6990,11 +6636,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_best_bid_price.size = 11
 -- Display: Designated Best Bid Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_best_bid_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_best_bid_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Best Bid Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7053,11 +6694,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_price.size = 11
 -- Display: Designated Bid Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7144,11 +6780,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_price.size = 11
 -- Display: Designated Bid Level 10 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 10 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7235,11 +6866,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_price.size = 11
 -- Display: Designated Bid Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7326,11 +6952,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_price.size = 11
 -- Display: Designated Bid Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7417,11 +7038,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_price.size = 11
 -- Display: Designated Bid Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7508,11 +7124,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_price.size = 11
 -- Display: Designated Bid Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7599,11 +7210,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_price.size = 11
 -- Display: Designated Bid Level 6 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 6 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7690,11 +7296,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_price.size = 11
 -- Display: Designated Bid Level 7 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 7 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7781,11 +7382,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_price.size = 11
 -- Display: Designated Bid Level 8 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 8 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7872,11 +7468,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_price.size = 11
 -- Display: Designated Bid Level 9 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Designated Bid Level 9 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7986,11 +7577,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.duration.size = 7
 -- Display: Duration
 koscom_mdcsrealtime_bonda_exture_v2_018.duration.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.duration.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Duration: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8157,11 +7743,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size = 
 -- Display: Equitylinked Bond Exercise Price
 koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_exercise_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Equitylinked Bond Exercise Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8319,11 +7900,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size = 7
 -- Display: Exercise Ratio
 koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Ratio: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8389,11 +7965,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size = 22
 -- Display: Facility Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.facility_fund.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Facility Fund: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8551,11 +8122,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size = 10
 -- Display: Futures Basis Price
 koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Futures Basis Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8621,11 +8187,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size = 13
 -- Display: Guaranteed Rate For Payment
 koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Guaranteed Rate For Payment: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8714,11 +8275,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index.size = 9
 -- Display: Index
 koscom_mdcsrealtime_bonda_exture_v2_018.index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8761,11 +8317,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.si
 -- Display: Index Change Against The Previous Day
 koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Index Change Against The Previous Day: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8972,6 +8523,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.inscription_type_of_bond.size = 1
 
 -- Display: Inscription Type Of Bond
 koscom_mdcsrealtime_bonda_exture_v2_018.inscription_type_of_bond.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Inscription Type Of Bond: No Value"
+  end
+
   return "Inscription Type Of Bond: "..value
 end
 
@@ -8979,7 +8535,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.inscription_type_of_bond.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.inscription_type_of_bond.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.inscription_type_of_bond.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.inscription_type_of_bond, range, value, display)
@@ -9041,6 +8605,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.size = 1
 
 -- Display: Interest Payment
 koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Interest Payment: No Value"
+  end
+
   return "Interest Payment: "..value
 end
 
@@ -9048,7 +8617,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.interest_payment, range, value, display)
@@ -9323,11 +8900,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size = 16
 -- Display: Issued Amount Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issued_amount_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Issued Amount Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9393,11 +8965,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size = 22
 -- Display: Issuing Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Issuing Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9440,11 +9007,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size = 22
 -- Display: Level Payment Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.level_payment_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Level Payment Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9510,11 +9072,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size = 22
 -- Display: Listed Amount
 koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Listed Amount: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9580,11 +9137,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size = 22
 -- Display: Loan Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.loan_fund.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Loan Fund: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9627,11 +9179,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size = 14
 -- Display: Lower Limit Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.lower_limit_coupon_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Limit Coupon Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9674,11 +9221,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size = 22
 -- Display: Maintenance Fund
 koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maintenance_fund.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Maintenance Fund: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9721,11 +9263,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size = 16
 -- Display: Market Capitalization Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_capitalization_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Capitalization Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9791,11 +9328,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size = 16
 -- Display: Market Price Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9838,11 +9370,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size = 11
 -- Display: Market Price Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9885,11 +9412,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size = 16
 -- Display: Market Price Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9932,11 +9454,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_value.size = 11
 -- Display: Market Value
 koscom_mdcsrealtime_bonda_exture_v2_018.market_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9995,11 +9512,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size = 11
 -- Display: Maximum Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.maximum_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Maximum Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10041,6 +9553,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.mb_type_code.size = 1
 
 -- Display: Mb Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.mb_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mb Type Code: No Value"
+  end
+
   return "Mb Type Code: "..value
 end
 
@@ -10048,7 +9565,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.mb_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.mb_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.mb_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.mb_type_code, range, value, display)
@@ -10746,11 +10271,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.size = 11
 -- Display: Opening Price
 koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.opening_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Opening Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10832,11 +10352,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size = 22
 -- Display: Other Funds
 koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.other_funds.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Other Funds: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10902,11 +10417,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size = 11
 -- Display: Participating Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.participating_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Participating Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11017,6 +10527,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.pre_issue_sale_coupon_payment_type_code.
 
 -- Display: Pre Issue Sale Coupon Payment Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.pre_issue_sale_coupon_payment_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pre Issue Sale Coupon Payment Type Code: No Value"
+  end
+
   return "Pre Issue Sale Coupon Payment Type Code: "..value
 end
 
@@ -11024,7 +10539,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.pre_issue_sale_coupon_payment_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.pre_issue_sale_coupon_payment_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.pre_issue_sale_coupon_payment_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.pre_issue_sale_coupon_payment_type_code, range, value, display)
@@ -11064,11 +10587,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_
 -- Display: Principal Accrued Interest Rate On Bank Holidays Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_accrued_interest_rate_on_bank_holidays_type_code.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Principal Accrued Interest Rate On Bank Holidays Type Code: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11134,11 +10652,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size = 13
 -- Display: Principal Guranteed Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.principal_guranteed_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Principal Guranteed Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11180,6 +10693,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holida
 
 -- Display: Principal Payment Methods On Bank Holidays Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holidays_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Principal Payment Methods On Bank Holidays Type Code: No Value"
+  end
+
   return "Principal Payment Methods On Bank Holidays Type Code: "..value
 end
 
@@ -11187,7 +10705,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holidays_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holidays_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.principal_payment_methods_on_bank_holidays_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.principal_payment_methods_on_bank_holidays_type_code, range, value, display)
@@ -11414,6 +10940,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.redemption_priority_type_code.size = 1
 
 -- Display: Redemption Priority Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_priority_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Redemption Priority Type Code: No Value"
+  end
+
   return "Redemption Priority Type Code: "..value
 end
 
@@ -11421,7 +10952,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_priority_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.redemption_priority_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.redemption_priority_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.redemption_priority_type_code, range, value, display)
@@ -11438,11 +10977,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size = 13
 -- Display: Redemption Ratio At Maturity
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.redemption_ratio_at_maturity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Redemption Ratio At Maturity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11485,11 +11019,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size = 11
 -- Display: Reference Index For Issue Date
 koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reference_index_for_issue_date.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Reference Index For Issue Date: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11555,11 +11084,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size = 26
 -- Display: Reinvest Call Cash
 koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.reinvest_call_cash.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Reinvest Call Cash: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11928,11 +11452,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size = 
 -- Display: Report Market A Price With Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_a_price_with_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Report Market A Price With Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -11975,11 +11494,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size = 13
 -- Display: Report Market Yield Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.report_market_yield_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Report Market Yield Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12142,11 +11656,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size = 22
 -- Display: Rfq Accumulated Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.rfq_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Rfq Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12326,6 +11835,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.size = 2
 
 -- Display: Securitization Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Securitization Type Code: No Value"
+  end
+
   return "Securitization Type Code: "..value
 end
 
@@ -12534,11 +12048,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size = 13
 -- Display: Shortterm Yield
 koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.shortterm_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Shortterm Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12580,6 +12089,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.special_bond_issue_code.size = 3
 
 -- Display: Special Bond Issue Code
 koscom_mdcsrealtime_bonda_exture_v2_018.special_bond_issue_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Special Bond Issue Code: No Value"
+  end
+
   return "Special Bond Issue Code: "..value
 end
 
@@ -12604,11 +12118,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.spread.size = 10
 -- Display: Spread
 koscom_mdcsrealtime_bonda_exture_v2_018.spread.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.spread.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Spread: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12702,11 +12211,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size = 14
 -- Display: Stopout Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.stopout_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Stopout Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12748,6 +12252,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.strip_bond_type_code.size = 1
 
 -- Display: Strip Bond Type Code
 koscom_mdcsrealtime_bonda_exture_v2_018.strip_bond_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strip Bond Type Code: No Value"
+  end
+
   return "Strip Bond Type Code: "..value
 end
 
@@ -12755,7 +12264,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.strip_bond_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.strip_bond_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.strip_bond_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.strip_bond_type_code, range, value, display)
@@ -12772,11 +12289,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.substitute_price_of_securities.size = 11
 -- Display: Substitute Price Of Securities
 koscom_mdcsrealtime_bonda_exture_v2_018.substitute_price_of_securities.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.substitute_price_of_securities.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Substitute Price Of Securities: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12811,6 +12323,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.taxation.size = 1
 
 -- Display: Taxation
 koscom_mdcsrealtime_bonda_exture_v2_018.taxation.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Taxation: No Value"
+  end
+
   return "Taxation: "..value
 end
 
@@ -12818,7 +12335,15 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.taxation.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.taxation.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.taxation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.taxation, range, value, display)
@@ -12904,11 +12429,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.todays_high.size = 11
 -- Display: Todays High
 koscom_mdcsrealtime_bonda_exture_v2_018.todays_high.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.todays_high.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Todays High: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12944,11 +12464,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.todays_low.size = 11
 -- Display: Todays Low
 koscom_mdcsrealtime_bonda_exture_v2_018.todays_low.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.todays_low.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Todays Low: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -12984,11 +12499,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_price.size = 11
 -- Display: Total Bid Level 1 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Bid Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13052,11 +12562,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_price.size = 11
 -- Display: Total Bid Level 2 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Bid Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13120,11 +12625,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_price.size = 11
 -- Display: Total Bid Level 3 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Bid Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13188,11 +12688,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_price.size = 11
 -- Display: Total Bid Level 4 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Bid Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13256,11 +12751,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_price.size = 11
 -- Display: Total Bid Level 5 Price
 koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_bid_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Bid Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13324,11 +12814,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size = 16
 -- Display: Total Earnings Index
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Earnings Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13371,11 +12856,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size = 16
 -- Display: Total Earnings Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Earnings Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13446,11 +12926,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size = 11
 -- Display: Total Profit Index
 koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Profit Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13585,11 +13060,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_price.size = 11
 -- Display: Trading Price
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13625,11 +13095,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size = 22
 -- Display: Trading Value
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13769,11 +13234,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size = 22
 -- Display: Unstripped Balance
 koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.unstripped_balance.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Unstripped Balance: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13839,11 +13299,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size = 14
 -- Display: Upper Limit Coupon Rate
 koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.upper_limit_coupon_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Coupon Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13886,11 +13341,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13933,11 +13383,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrit
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -13980,11 +13425,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14027,11 +13467,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14074,11 +13509,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size = 13
 -- Display: Yield Opening Price
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yield Opening Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14121,11 +13551,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size = 13
 -- Display: Yield To Maturity
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_to_maturity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yield To Maturity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14168,11 +13593,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size = 13
 -- Display: Yield Todays High
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yield Todays High: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14215,11 +13635,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size = 13
 -- Display: Yield Todays Low
 koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yield Todays Low: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14262,11 +13677,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size = 1
 -- Display: Zero Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re Investment Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14309,11 +13719,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size = 16
 -- Display: Zero Re-Investment Index Krx
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re-Investment Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -14356,11 +13761,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size = 11
 -- Display: Zero Re-Investment Index Ktb
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re-Investment Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then

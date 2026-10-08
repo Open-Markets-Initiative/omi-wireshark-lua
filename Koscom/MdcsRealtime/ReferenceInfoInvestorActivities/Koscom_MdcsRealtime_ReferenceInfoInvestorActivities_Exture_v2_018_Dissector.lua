@@ -262,11 +262,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_as
 -- Display: Accumulated Ask Trading Value
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_ask_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_ask_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Ask Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -337,11 +332,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bi
 -- Display: Accumulated Bid Trading Value
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bid_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_bid_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Bid Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -412,11 +402,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_ca
 -- Display: Accumulated Cash
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_cash.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.accumulated_cash.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Cash: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -538,11 +523,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_convex
 -- Display: Average Convexity
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_convexity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_convexity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Convexity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -585,11 +565,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_coupon
 -- Display: Average Coupon Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_coupon_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_coupon_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Coupon Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -632,11 +607,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_curren
 -- Display: Average Current Yield
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_current_yield.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_current_yield.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Current Yield: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -679,11 +649,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_durati
 -- Display: Average Duration
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_duration.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_duration.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Duration: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -726,11 +691,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_forwar
 -- Display: Average Forward Ytm
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_forward_ytm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_forward_ytm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Forward Ytm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -773,11 +733,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_remain
 -- Display: Average Remaining Maturity Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_remaining_maturity_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_remaining_maturity_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Remaining Maturity Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -820,11 +775,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_spread
 -- Display: Average Spread
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_spread.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_spread.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Spread: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -900,11 +850,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_yld.si
 -- Display: Average Yld
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_yld.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_yld.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Yld: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -947,11 +892,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_ytm.si
 -- Display: Average Ytm
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_ytm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.average_ytm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Average Ytm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1048,11 +988,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.basis_price.si
 -- Display: Basis Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.basis_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.basis_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Basis Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1300,11 +1235,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_invest
 -- Display: Call Re Investment Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re Investment Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1347,11 +1277,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestm
 -- Display: Call Re-Investment Index Krx
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re-Investment Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1394,11 +1319,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestm
 -- Display: Call Re-Investment Index Ktb
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Re-Investment Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1441,11 +1361,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.cash_inflow.si
 -- Display: Cash Inflow
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.cash_inflow.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.cash_inflow.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Cash Inflow: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1488,11 +1403,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price.si
 -- Display: Clean Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1535,11 +1445,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
 -- Display: Clean Price Index Krx
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1582,11 +1487,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
 -- Display: Clean Price Index Ktb
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1629,11 +1529,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
 -- Display: Clean Price Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Clean Price Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1676,11 +1571,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.convexity.size
 -- Display: Convexity
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.convexity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.convexity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Convexity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1723,11 +1613,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.covered_short_
 -- Display: Covered Short Selling Trading Value
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1880,11 +1765,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.duration.size 
 -- Display: Duration
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.duration.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.duration.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Duration: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2000,11 +1880,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.futures_basis_
 -- Display: Futures Basis Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.futures_basis_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.futures_basis_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Futures Basis Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2070,11 +1945,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index.size = 9
 -- Display: Index
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2117,11 +1987,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_a
 -- Display: Index Change Against The Previous Day
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_against_the_previous_day.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_change_against_the_previous_day.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Index Change Against The Previous Day: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2380,11 +2245,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.issued_amount_
 -- Display: Issued Amount Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.issued_amount_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.issued_amount_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Issued Amount Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2427,11 +2287,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_capital
 -- Display: Market Capitalization Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_capitalization_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_capitalization_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Capitalization Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2474,11 +2329,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
 -- Display: Market Price Index Krx
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2521,11 +2371,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
 -- Display: Market Price Index Ktb
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2568,11 +2413,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
 -- Display: Market Price Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Market Price Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2804,11 +2644,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.reinvest_call_
 -- Display: Reinvest Call Cash
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.reinvest_call_cash.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.reinvest_call_cash.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Reinvest Call Cash: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2897,11 +2732,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings
 -- Display: Total Earnings Index
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Earnings Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2944,11 +2774,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings
 -- Display: Total Earnings Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Earnings Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2991,11 +2816,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_profit_i
 -- Display: Total Profit Index
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_profit_index.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_profit_index.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Profit Index: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3038,11 +2858,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.trading_price.
 -- Display: Trading Price
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3156,11 +2971,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_ap
 -- Display: Uptick Rule Applied Covered Short Selling Trading Value
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_applied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_applied_covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Uptick Rule Applied Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3231,11 +3041,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_un
 -- Display: Uptick Rule Unapplied Covered Short Selling Trading Value
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_unapplied_covered_short_selling_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.uptick_rule_unapplied_covered_short_selling_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Uptick Rule Unapplied Covered Short Selling Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3306,11 +3111,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_call
 -- Display: Weight Of Call Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_call_re_investment_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Call Re Investment Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3353,11 +3153,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_clea
 -- Display: Weight Of Clean Index Value For Integrity Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_clean_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Clean Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3400,11 +3195,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_sum_
 -- Display: Weight Of Sum Index Value For Integrity Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_sum_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Sum Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3447,11 +3237,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_zero
 -- Display: Weight Of Zero Re Investment Index Value For Integrity Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_zero_re_investment_index_value_for_integrity_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Weight Of Zero Re Investment Index Value For Integrity Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3494,11 +3279,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_invest
 -- Display: Zero Re Investment Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_weight.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_weight.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re Investment Index Weight: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3541,11 +3321,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestm
 -- Display: Zero Re-Investment Index Krx
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re-Investment Index Krx: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3588,11 +3363,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestm
 -- Display: Zero Re-Investment Index Ktb
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Zero Re-Investment Index Ktb: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then

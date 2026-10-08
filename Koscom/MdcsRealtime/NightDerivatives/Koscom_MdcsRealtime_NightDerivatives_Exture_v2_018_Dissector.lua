@@ -545,11 +545,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.accumulated_trading_value.siz
 -- Display: Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -620,11 +615,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.adjusted_base_price.size = 18
 -- Display: Adjusted Base Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.adjusted_base_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.adjusted_base_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Adjusted Base Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -763,6 +753,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_order_counts.size
 
 -- Display: Ask Level 1 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 1 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 1 Order Counts: "..value
 end
 
@@ -792,11 +786,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_price.size = 9
 -- Display: Ask Level 1 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -831,6 +820,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_volume.size = 9
 
 -- Display: Ask Level 1 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_1_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 1 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 1 Volume: "..value
 end
 
@@ -859,6 +852,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_order_counts.siz
 
 -- Display: Ask Level 10 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 10 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 10 Order Counts: "..value
 end
 
@@ -888,11 +885,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_price.size = 9
 -- Display: Ask Level 10 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 10 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -927,6 +919,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_volume.size = 9
 
 -- Display: Ask Level 10 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_10_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 10 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 10 Volume: "..value
 end
 
@@ -955,6 +951,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_order_counts.size
 
 -- Display: Ask Level 2 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 2 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 2 Order Counts: "..value
 end
 
@@ -984,11 +984,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_price.size = 9
 -- Display: Ask Level 2 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1023,6 +1018,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_volume.size = 9
 
 -- Display: Ask Level 2 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_2_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 2 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 2 Volume: "..value
 end
 
@@ -1051,6 +1050,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_order_counts.size
 
 -- Display: Ask Level 3 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 3 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 3 Order Counts: "..value
 end
 
@@ -1080,11 +1083,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_price.size = 9
 -- Display: Ask Level 3 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1119,6 +1117,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_volume.size = 9
 
 -- Display: Ask Level 3 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_3_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 3 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 3 Volume: "..value
 end
 
@@ -1147,6 +1149,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_order_counts.size
 
 -- Display: Ask Level 4 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 4 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 4 Order Counts: "..value
 end
 
@@ -1176,11 +1182,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_price.size = 9
 -- Display: Ask Level 4 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1215,6 +1216,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_volume.size = 9
 
 -- Display: Ask Level 4 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_4_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 4 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 4 Volume: "..value
 end
 
@@ -1243,6 +1248,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_order_counts.size
 
 -- Display: Ask Level 5 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 5 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 5 Order Counts: "..value
 end
 
@@ -1272,11 +1281,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_price.size = 9
 -- Display: Ask Level 5 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1311,6 +1315,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_volume.size = 9
 
 -- Display: Ask Level 5 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_5_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 5 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 5 Volume: "..value
 end
 
@@ -1339,6 +1347,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_order_counts.size
 
 -- Display: Ask Level 6 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 6 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 6 Order Counts: "..value
 end
 
@@ -1368,11 +1380,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_price.size = 9
 -- Display: Ask Level 6 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 6 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1407,6 +1414,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_volume.size = 9
 
 -- Display: Ask Level 6 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_6_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 6 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 6 Volume: "..value
 end
 
@@ -1435,6 +1446,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_order_counts.size
 
 -- Display: Ask Level 7 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 7 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 7 Order Counts: "..value
 end
 
@@ -1464,11 +1479,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_price.size = 9
 -- Display: Ask Level 7 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 7 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1503,6 +1513,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_volume.size = 9
 
 -- Display: Ask Level 7 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_7_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 7 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 7 Volume: "..value
 end
 
@@ -1531,6 +1545,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_order_counts.size
 
 -- Display: Ask Level 8 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 8 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 8 Order Counts: "..value
 end
 
@@ -1560,11 +1578,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_price.size = 9
 -- Display: Ask Level 8 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 8 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1599,6 +1612,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_volume.size = 9
 
 -- Display: Ask Level 8 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_8_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 8 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 8 Volume: "..value
 end
 
@@ -1627,6 +1644,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_order_counts.size
 
 -- Display: Ask Level 9 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_order_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Level 9 Order Counts: "..value.." (or more)"
+  end
+
   return "Ask Level 9 Order Counts: "..value
 end
 
@@ -1656,11 +1677,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_price.size = 9
 -- Display: Ask Level 9 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Level 9 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1695,6 +1711,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_volume.size = 9
 
 -- Display: Ask Level 9 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_level_9_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Level 9 Volume: "..value.." (or more)"
+  end
+
   return "Ask Level 9 Volume: "..value
 end
 
@@ -1723,6 +1743,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_price_valid_counts.size =
 
 -- Display: Ask Price Valid Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_price_valid_counts.display = function(value)
+  if value == 99999 then
+    return "Ask Price Valid Counts: "..value.." (or more)"
+  end
+
   return "Ask Price Valid Counts: "..value
 end
 
@@ -1751,6 +1775,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_total_volume.size = 9
 
 -- Display: Ask Total Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_total_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Total Volume: "..value.." (or more)"
+  end
+
   return "Ask Total Volume: "..value
 end
 
@@ -1780,11 +1808,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_trading_value.size = 22
 -- Display: Ask Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.ask_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Ask Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1855,11 +1878,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.atm.size = 11
 -- Display: Atm
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.atm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.atm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Atm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -1941,11 +1959,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price.size = 11
 -- Display: Base Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Base Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2027,11 +2040,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price_of_clearing_margin
 -- Display: Base Price Of Clearing Margins
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price_of_clearing_margins.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_price_of_clearing_margins.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Base Price Of Clearing Margins: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2143,11 +2151,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_theoretical_price.size =
 -- Display: Base Theoretical Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_theoretical_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.base_theoretical_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Base Theoretical Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2217,6 +2220,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_order_counts.size
 
 -- Display: Bid Level 1 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 1 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 1 Order Counts: "..value
 end
 
@@ -2246,11 +2253,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_price.size = 9
 -- Display: Bid Level 1 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 1 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2285,6 +2287,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_volume.size = 9
 
 -- Display: Bid Level 1 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_1_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 1 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 1 Volume: "..value
 end
 
@@ -2313,6 +2319,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_order_counts.siz
 
 -- Display: Bid Level 10 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 10 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 10 Order Counts: "..value
 end
 
@@ -2342,11 +2352,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_price.size = 9
 -- Display: Bid Level 10 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 10 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2381,6 +2386,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_volume.size = 9
 
 -- Display: Bid Level 10 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_10_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 10 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 10 Volume: "..value
 end
 
@@ -2409,6 +2418,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_order_counts.size
 
 -- Display: Bid Level 2 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 2 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 2 Order Counts: "..value
 end
 
@@ -2438,11 +2451,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_price.size = 9
 -- Display: Bid Level 2 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 2 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2477,6 +2485,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_volume.size = 9
 
 -- Display: Bid Level 2 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_2_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 2 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 2 Volume: "..value
 end
 
@@ -2505,6 +2517,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_order_counts.size
 
 -- Display: Bid Level 3 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 3 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 3 Order Counts: "..value
 end
 
@@ -2534,11 +2550,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_price.size = 9
 -- Display: Bid Level 3 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 3 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2573,6 +2584,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_volume.size = 9
 
 -- Display: Bid Level 3 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_3_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 3 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 3 Volume: "..value
 end
 
@@ -2601,6 +2616,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_order_counts.size
 
 -- Display: Bid Level 4 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 4 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 4 Order Counts: "..value
 end
 
@@ -2630,11 +2649,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_price.size = 9
 -- Display: Bid Level 4 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 4 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2669,6 +2683,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_volume.size = 9
 
 -- Display: Bid Level 4 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_4_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 4 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 4 Volume: "..value
 end
 
@@ -2697,6 +2715,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_order_counts.size
 
 -- Display: Bid Level 5 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 5 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 5 Order Counts: "..value
 end
 
@@ -2726,11 +2748,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_price.size = 9
 -- Display: Bid Level 5 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 5 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2765,6 +2782,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_volume.size = 9
 
 -- Display: Bid Level 5 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_5_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 5 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 5 Volume: "..value
 end
 
@@ -2793,6 +2814,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_order_counts.size
 
 -- Display: Bid Level 6 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 6 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 6 Order Counts: "..value
 end
 
@@ -2822,11 +2847,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_price.size = 9
 -- Display: Bid Level 6 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 6 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2861,6 +2881,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_volume.size = 9
 
 -- Display: Bid Level 6 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_6_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 6 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 6 Volume: "..value
 end
 
@@ -2889,6 +2913,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_order_counts.size
 
 -- Display: Bid Level 7 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 7 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 7 Order Counts: "..value
 end
 
@@ -2918,11 +2946,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_price.size = 9
 -- Display: Bid Level 7 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 7 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -2957,6 +2980,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_volume.size = 9
 
 -- Display: Bid Level 7 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_7_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 7 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 7 Volume: "..value
 end
 
@@ -2985,6 +3012,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_order_counts.size
 
 -- Display: Bid Level 8 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 8 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 8 Order Counts: "..value
 end
 
@@ -3014,11 +3045,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_price.size = 9
 -- Display: Bid Level 8 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 8 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3053,6 +3079,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_volume.size = 9
 
 -- Display: Bid Level 8 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_8_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 8 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 8 Volume: "..value
 end
 
@@ -3081,6 +3111,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_order_counts.size
 
 -- Display: Bid Level 9 Order Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_order_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Level 9 Order Counts: "..value.." (or more)"
+  end
+
   return "Bid Level 9 Order Counts: "..value
 end
 
@@ -3110,11 +3144,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_price.size = 9
 -- Display: Bid Level 9 Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Level 9 Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3149,6 +3178,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_volume.size = 9
 
 -- Display: Bid Level 9 Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_level_9_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Level 9 Volume: "..value.." (or more)"
+  end
+
   return "Bid Level 9 Volume: "..value
 end
 
@@ -3177,6 +3210,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_price_valid_counts.size =
 
 -- Display: Bid Price Valid Counts
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_price_valid_counts.display = function(value)
+  if value == 99999 then
+    return "Bid Price Valid Counts: "..value.." (or more)"
+  end
+
   return "Bid Price Valid Counts: "..value
 end
 
@@ -3205,6 +3242,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_total_volume.size = 9
 
 -- Display: Bid Total Volume
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_total_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Total Volume: "..value.." (or more)"
+  end
+
   return "Bid Total Volume: "..value
 end
 
@@ -3234,11 +3275,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_trading_value.size = 22
 -- Display: Bid Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bid_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bid Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3393,11 +3429,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.bis_yield_ratio.size = 9
 -- Display: Bis Yield Ratio
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.bis_yield_ratio.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.bis_yield_ratio.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Bis Yield Ratio: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3656,11 +3687,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.call_averaged_implied_volatil
 -- Display: Call Averaged Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.call_averaged_implied_volatility.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.call_averaged_implied_volatility.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Call Averaged Implied Volatility: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3703,11 +3729,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price.size = 9
 -- Display: Closing Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3743,11 +3764,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_of_underlying_a
 -- Display: Closing Price Of Underlying Asset
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_of_underlying_asset.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_of_underlying_asset.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Closing Price Of Underlying Asset: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3782,6 +3798,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.size 
 
 -- Display: Closing Price Type Code
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Closing Price Type Code: No Value"
+  end
+
   return "Closing Price Type Code: "..value
 end
 
@@ -3789,7 +3810,15 @@ end
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_018.text_encoding)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_018.text_encoding)
+  end
+
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_018.fields.closing_price_type_code, range, value, display)
@@ -3834,11 +3863,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.conversion_factor.size = 22
 -- Display: Conversion Factor
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.conversion_factor.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.conversion_factor.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Conversion Factor: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -3961,11 +3985,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.denominator_coefficient_of_ad
 -- Display: Denominator Coefficient Of Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.denominator_coefficient_of_adjustment.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.denominator_coefficient_of_adjustment.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Denominator Coefficient Of Adjustment: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4105,11 +4124,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.disparate_ratio.size = 13
 -- Display: Disparate Ratio
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.disparate_ratio.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.disparate_ratio.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Disparate Ratio: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4152,11 +4166,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.distant_month_contract_tradin
 -- Display: Distant Month Contract Trading Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.distant_month_contract_trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.distant_month_contract_trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Distant Month Contract Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4192,11 +4201,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.dividend_value_for_settlement
 -- Display: Dividend Value For Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.dividend_value_for_settlement_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.dividend_value_for_settlement_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Dividend Value For Settlement Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4285,11 +4289,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.efp_trading_value.size = 22
 -- Display: Efp Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.efp_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.efp_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Efp Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4410,11 +4409,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.estimated_trading_price.size 
 -- Display: Estimated Trading Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.estimated_trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.estimated_trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Estimated Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4478,11 +4472,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price.size = 18
 -- Display: Exercise Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4525,11 +4514,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_after_adjustme
 -- Display: Exercise Price After Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_after_adjustment.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_after_adjustment.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Price After Adjustment: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4572,11 +4556,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_before_adjustm
 -- Display: Exercise Price Before Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_before_adjustment.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_before_adjustment.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Price Before Adjustment: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4619,11 +4598,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_for_displaying
 -- Display: Exercise Price For Displaying Not For Trading
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_for_displaying_not_for_trading.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.exercise_price_for_displaying_not_for_trading.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Exercise Price For Displaying Not For Trading: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4711,7 +4685,20 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.final_ask_bid_type_code.size 
 
 -- Display: Final Ask Bid Type Code
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.final_ask_bid_type_code.display = function(value)
-  return "Final Ask Bid Type Code: "..value
+  if value == " " then
+    return "Final Ask Bid Type Code: Single Price (<whitespace>)"
+  end
+  if value == "0" then
+    return "Final Ask Bid Type Code: Not Applicable (0)"
+  end
+  if value == "1" then
+    return "Final Ask Bid Type Code: Ask (1)"
+  end
+  if value == "2" then
+    return "Final Ask Bid Type Code: Bid (2)"
+  end
+
+  return "Final Ask Bid Type Code: Unknown("..value..")"
 end
 
 -- Dissect: Final Ask Bid Type Code
@@ -4786,11 +4773,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_lowe
 -- Display: Futures Circuit Breakers Lower Limit Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_lower_limit_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_lower_limit_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Futures Circuit Breakers Lower Limit Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4826,11 +4808,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_uppe
 -- Display: Futures Circuit Breakers Upper Limit Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_upper_limit_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.futures_circuit_breakers_upper_limit_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Futures Circuit Breakers Upper Limit Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4889,11 +4866,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_lower_limit_price
 -- Display: Gap Between Lower Limit Price Of Dynamic Price And Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_lower_limit_price_of_dynamic_price_and_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Gap Between Lower Limit Price Of Dynamic Price And Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4929,11 +4901,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_upper_limit_price
 -- Display: Gap Between Upper Limit Price Of Dynamic Price And Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.gap_between_upper_limit_price_of_dynamic_price_and_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Gap Between Upper Limit Price Of Dynamic Price And Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -4969,11 +4936,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.historical_volatility_90_days
 -- Display: Historical Volatility 90 Days
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.historical_volatility_90_days.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.historical_volatility_90_days.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Historical Volatility 90 Days: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5016,11 +4978,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.implied_volatility.size = 11
 -- Display: Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.implied_volatility.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.implied_volatility.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Implied Volatility: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5109,11 +5066,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.interest_rate.size = 11
 -- Display: Interest Rate
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.interest_rate.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.interest_rate.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Interest Rate: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5575,11 +5527,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_of_dynamic_price_
 -- Display: Lower Limit Of Dynamic Price Range
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_of_dynamic_price_range.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_of_dynamic_price_range.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Limit Of Dynamic Price Range: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5615,11 +5562,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_price.size = 9
 -- Display: Lower Limit Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Limit Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5655,11 +5597,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity.size = 2
 -- Display: Lower Limit Quantity
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Limit Quantity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5702,11 +5639,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity_for_bloc
 -- Display: Lower Limit Quantity For Block Trade
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity_for_block_trade.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_limit_quantity_for_block_trade.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Limit Quantity For Block Trade: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5749,11 +5681,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_1_st_stage.
 -- Display: Lower Price Limit 1 St Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_1_st_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_1_st_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Price Limit 1 St Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5789,11 +5716,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_2_nd_stage.
 -- Display: Lower Price Limit 2 Nd Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_2_nd_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_2_nd_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Price Limit 2 Nd Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -5829,11 +5751,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_3_rd_stage.
 -- Display: Lower Price Limit 3 Rd Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_3_rd_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.lower_price_limit_3_rd_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Lower Price Limit 3 Rd Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7061,11 +6978,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.nearby_month_contract_trading
 -- Display: Nearby Month Contract Trading Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.nearby_month_contract_trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.nearby_month_contract_trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Nearby Month Contract Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7269,11 +7181,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.numerator_adjustment_of_coeff
 -- Display: Numerator Adjustment Of Coefficient
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.numerator_adjustment_of_coefficient.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.numerator_adjustment_of_coefficient.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Numerator Adjustment Of Coefficient: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7316,11 +7223,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.offset_rate_of_asset_group.si
 -- Display: Offset Rate Of Asset Group
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.offset_rate_of_asset_group.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.offset_rate_of_asset_group.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Offset Rate Of Asset Group: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7442,11 +7344,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.opening_price.size = 9
 -- Display: Opening Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.opening_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.opening_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Opening Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7505,11 +7402,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_adjusted_closin
 -- Display: Previous Days Adjusted Closing Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_adjusted_closing_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_adjusted_closing_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Adjusted Closing Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7552,11 +7444,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_ask.size =
 -- Display: Previous Days Best Ask
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_ask.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_ask.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Best Ask: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7592,11 +7479,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_bid.size =
 -- Display: Previous Days Best Bid
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_bid.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_best_bid.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Best Bid: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7632,11 +7514,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_bpmm.size = 23
 -- Display: Previous Days Bpmm
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_bpmm.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_bpmm.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Bpmm: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7679,11 +7556,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_high_price.size
 -- Display: Previous Days High Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_high_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_high_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days High Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7719,11 +7591,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_low_price.size 
 -- Display: Previous Days Low Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_low_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_low_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Low Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7787,11 +7654,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_opening_price.s
 -- Display: Previous Days Opening Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_opening_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_opening_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Opening Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7827,11 +7689,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_settlement_pric
 -- Display: Previous Days Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_settlement_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_settlement_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Settlement Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7874,11 +7731,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_total_accumulat
 -- Display: Previous Days Total Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_total_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_days_total_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Days Total Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -7949,11 +7801,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_price.size = 9
 -- Display: Previous Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.previous_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Previous Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8118,11 +7965,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.put_averaged_implied_volatili
 -- Display: Put Averaged Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.put_averaged_implied_volatility.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.put_averaged_implied_volatility.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Put Averaged Implied Volatility: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8193,11 +8035,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.representative_implied_volati
 -- Display: Representative Implied Volatility
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.representative_implied_volatility.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.representative_implied_volatility.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Representative Implied Volatility: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8286,11 +8123,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_delta.size = 20
 -- Display: Sensitivity Delta
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_delta.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_delta.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sensitivity Delta: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8333,11 +8165,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_gamma.size = 20
 -- Display: Sensitivity Gamma
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_gamma.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_gamma.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sensitivity Gamma: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8380,11 +8207,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_rho.size = 20
 -- Display: Sensitivity Rho
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_rho.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_rho.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sensitivity Rho: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8427,11 +8249,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_theta.size = 20
 -- Display: Sensitivity Theta
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_theta.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_theta.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sensitivity Theta: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8474,11 +8291,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_vega.size = 20
 -- Display: Sensitivity Vega
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_vega.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.sensitivity_vega.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Sensitivity Vega: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8595,11 +8407,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price.size = 18
 -- Display: Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Settlement Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8642,11 +8449,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price_after_exerci
 -- Display: Settlement Price After Exercising An Option
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price_after_exercising_an_option.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.settlement_price_after_exercising_an_option.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Settlement Price After Exercising An Option: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8735,11 +8537,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_ask_trading_value.size
 -- Display: Spread Ask Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_ask_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_ask_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Spread Ask Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -8810,11 +8607,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_bid_trading_value.size
 -- Display: Spread Bid Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_bid_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.spread_bid_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Spread Bid Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9212,11 +9004,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_in_a_year
 -- Display: The Highest Premium In A Year
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_in_a_year.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_in_a_year.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "The Highest Premium In A Year: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9252,11 +9039,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_of_the_li
 -- Display: The Highest Premium Of The Lifetime
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_of_the_lifetime.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_highest_premium_of_the_lifetime.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "The Highest Premium Of The Lifetime: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9292,11 +9074,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_last_settlement_price.siz
 -- Display: The Last Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_last_settlement_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_last_settlement_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "The Last Settlement Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9362,11 +9139,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_in_a_year.
 -- Display: The Lowest Premium In A Year
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_in_a_year.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_in_a_year.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "The Lowest Premium In A Year: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9402,11 +9174,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_of_the_lif
 -- Display: The Lowest Premium Of The Lifetime
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_of_the_lifetime.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.the_lowest_premium_of_the_lifetime.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "The Lowest Premium Of The Lifetime: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9465,11 +9232,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.theoretical_settlement_price.
 -- Display: Theoretical Settlement Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.theoretical_settlement_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.theoretical_settlement_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Theoretical Settlement Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9535,11 +9297,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_high.size = 9
 -- Display: Todays High
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_high.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_high.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Todays High: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9575,11 +9332,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_low.size = 9
 -- Display: Todays Low
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_low.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.todays_low.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Todays Low: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9615,11 +9367,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.total_accumulated_trading_val
 -- Display: Total Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.total_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.total_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Total Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9810,11 +9557,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier.size = 22
 -- Display: Trading Multiplier
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Multiplier: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9857,11 +9599,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_after_adju
 -- Display: Trading Multiplier After Adjustment Equity Options 10
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_after_adjustment_equity_options_10.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_after_adjustment_equity_options_10.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Multiplier After Adjustment Equity Options 10: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9904,11 +9641,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_before_adj
 -- Display: Trading Multiplier Before Adjustment
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_before_adjustment.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_multiplier_before_adjustment.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Multiplier Before Adjustment: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9951,11 +9683,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_price.size = 9
 -- Display: Trading Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -9991,11 +9718,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_unit.size = 22
 -- Display: Trading Unit
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_unit.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.trading_unit.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Trading Unit: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10204,11 +9926,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_of_dynamic_price_
 -- Display: Upper Limit Of Dynamic Price Range
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_of_dynamic_price_range.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_of_dynamic_price_range.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Of Dynamic Price Range: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10244,11 +9961,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_price.size = 9
 -- Display: Upper Limit Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10284,11 +9996,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity.size = 2
 -- Display: Upper Limit Quantity
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Quantity: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10331,11 +10038,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity_for_bloc
 -- Display: Upper Limit Quantity For Block Trade
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity_for_block_trade.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_limit_quantity_for_block_trade.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Limit Quantity For Block Trade: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10378,11 +10080,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_1_st_stage.
 -- Display: Upper Price Limit 1 St Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_1_st_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_1_st_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Price Limit 1 St Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10418,11 +10115,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_2_nd_stage.
 -- Display: Upper Price Limit 2 Nd Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_2_nd_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_2_nd_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Price Limit 2 Nd Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10458,11 +10150,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_3_rd_stage.
 -- Display: Upper Price Limit 3 Rd Stage
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_3_rd_stage.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.upper_price_limit_3_rd_stage.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Upper Price Limit 3 Rd Stage: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10526,11 +10213,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_accumulated_tradin
 -- Display: Yesterdays Accumulated Trading Value
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_accumulated_trading_value.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yesterdays Accumulated Trading Value: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
@@ -10573,11 +10255,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_closing_price.size
 -- Display: Yesterdays Closing Price
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_closing_price.display = function(value, buffer, offset, packet, parent)
   local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_018.yesterdays_closing_price.size):string()
-
-  if raw == string.rep("9", #raw) then
-    return "Yesterdays Closing Price: No Value"
-  end
-
   local text = format_decimal_text(raw)
 
   if text == nil then
