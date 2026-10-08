@@ -61,8 +61,6 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.financial_product = Prot
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.premiumretrans.omd.v2.2.grossoi", ftypes.INT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.premiumretrans.omd.v2.2.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.high_price = ProtoField.new("High Price", "hkex.hkexderivatives.premiumretrans.omd.v2.2.highprice", ftypes.INT64)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.implied_price = ProtoField.new("Implied Price", "hkex.hkexderivatives.premiumretrans.omd.v2.2.impliedprice", ftypes.INT64)
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.implied_quantity = ProtoField.new("Implied Quantity", "hkex.hkexderivatives.premiumretrans.omd.v2.2.impliedquantity", ftypes.UINT64)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.implied_volatility = ProtoField.new("Implied Volatility", "hkex.hkexderivatives.premiumretrans.omd.v2.2.impliedvolatility", ftypes.UINT32)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.info_type = ProtoField.new("Info Type", "hkex.hkexderivatives.premiumretrans.omd.v2.2.infotype", ftypes.UINT8)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.instrument_class_id = ProtoField.new("Instrument Class Id", "hkex.hkexderivatives.premiumretrans.omd.v2.2.instrumentclassid", ftypes.STRING)
@@ -150,7 +148,6 @@ omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.packet = ProtoField.new(
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.packet_header = ProtoField.new("Packet Header", "hkex.hkexderivatives.premiumretrans.omd.v2.2.packetheader", ftypes.STRING)
 
 -- Hkex HkexDerivatives PremiumRetrans 2.2 Application Messages
-omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.aggregate_implied_order = ProtoField.new("Aggregate Implied Order", "hkex.hkexderivatives.premiumretrans.omd.v2.2.aggregateimpliedorder", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.aggregate_order_book_update_message = ProtoField.new("Aggregate Order Book Update Message", "hkex.hkexderivatives.premiumretrans.omd.v2.2.aggregateorderbookupdatemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.calculated_opening_price_message = ProtoField.new("Calculated Opening Price Message", "hkex.hkexderivatives.premiumretrans.omd.v2.2.calculatedopeningpricemessage", ftypes.STRING)
 omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.class_definition = ProtoField.new("Class Definition", "hkex.hkexderivatives.premiumretrans.omd.v2.2.classdefinition", ftypes.STRING)
@@ -1320,52 +1317,6 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.high_price.dissect = function(buffe
   return offset + length, value
 end
 
--- Implied Price
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price = {}
-
--- Size: Implied Price
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.size = 8
-
--- Display: Implied Price
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.display = function(value)
-  return "Implied Price: "..value
-end
-
--- Dissect: Implied Price
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.implied_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Implied Quantity
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity = {}
-
--- Size: Implied Quantity
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.size = 8
-
--- Display: Implied Quantity
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.display = function(value)
-  return "Implied Quantity: "..value
-end
-
--- Dissect: Implied Quantity
-hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.implied_quantity, range, value, display)
-
-  return offset + length, value
-end
-
 -- Implied Volatility
 hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_volatility = {}
 
@@ -1976,9 +1927,6 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.msg_type.size = 2
 
 -- Display: Msg Type
 hkex_hkexderivatives_premiumretrans_omd_v2_2.msg_type.display = function(value)
-  if value == 337 then
-    return "Msg Type: Aggregate Implied Order (337)"
-  end
   if value == 353 then
     return "Msg Type: Aggregate Order Book Update Message (353)"
   end
@@ -5174,71 +5122,11 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_order_book_update_message
   end
 end
 
--- Aggregate Implied Order
-hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order = {}
-
--- Size: Aggregate Implied Order
-hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.size =
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.orderbook_id.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.side.size + 
-  hkex_hkexderivatives_premiumretrans_omd_v2_2.filler_1.size
-
--- Display: Aggregate Implied Order
-hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Aggregate Implied Order
-hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Orderbook Id: Uint32
-  index, orderbook_id = hkex_hkexderivatives_premiumretrans_omd_v2_2.orderbook_id.dissect(buffer, index, packet, parent)
-
-  -- Implied Price: Int64
-  index, implied_price = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_price.dissect(buffer, index, packet, parent)
-
-  -- Implied Quantity: Uint64
-  index, implied_quantity = hkex_hkexderivatives_premiumretrans_omd_v2_2.implied_quantity.dissect(buffer, index, packet, parent)
-
-  -- Side: Uint8
-  index, side = hkex_hkexderivatives_premiumretrans_omd_v2_2.side.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: String
-  index, filler_1 = hkex_hkexderivatives_premiumretrans_omd_v2_2.filler_1.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Aggregate Implied Order
-hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_hkex_hkexderivatives_premiumretrans_omd_v2_2.fields.aggregate_implied_order, buffer(offset, 0))
-    local index = hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Payload
 hkex_hkexderivatives_premiumretrans_omd_v2_2.payload = {}
 
 -- Dissect: Payload
 hkex_hkexderivatives_premiumretrans_omd_v2_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
-  -- Dissect Aggregate Implied Order
-  if msg_type == 337 then
-    return hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_implied_order.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Aggregate Order Book Update Message
   if msg_type == 353 then
     return hkex_hkexderivatives_premiumretrans_omd_v2_2.aggregate_order_book_update_message.dissect(buffer, offset, packet, parent)
@@ -5363,7 +5251,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.msg_header.fields = function(buffer
   -- Msg Size: 2 Byte Unsigned Fixed Width Integer
   index, msg_size = hkex_hkexderivatives_premiumretrans_omd_v2_2.msg_size.dissect(buffer, index, packet, parent)
 
-  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 26 values
+  -- Msg Type: 2 Byte Unsigned Fixed Width Integer Enum with 25 values
   index, msg_type = hkex_hkexderivatives_premiumretrans_omd_v2_2.msg_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -5411,7 +5299,7 @@ hkex_hkexderivatives_premiumretrans_omd_v2_2.message.fields = function(buffer, o
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 26 branches
+  -- Payload: Runtime Type with 25 branches
   index = hkex_hkexderivatives_premiumretrans_omd_v2_2.payload.dissect(buffer, index, packet, parent, msg_type)
 
   return index
