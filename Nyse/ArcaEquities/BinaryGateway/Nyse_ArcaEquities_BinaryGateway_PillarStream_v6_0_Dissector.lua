@@ -32,7 +32,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.breach_action_reque
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.breach_action_response = ProtoField.new("Breach Action Response", "nyse.arcaequities.binarygateway.pillarstream.v6.0.breachactionresponse", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.bulk_cancel_type = ProtoField.new("Bulk Cancel Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.bulkcanceltype", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.buy_dmm_available_qty = ProtoField.new("Buy Dmm Available Qty", "nyse.arcaequities.binarygateway.pillarstream.v6.0.buydmmavailableqty", ftypes.UINT32)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.arcaequities.binarygateway.pillarstream.v6.0.cancelinsteadofreprice", ftypes.UINT64, {[0]="Not Applicable", [1]="Cancel Instead Of Repricing Luld Only", [3]="Cancel Instead Of Repricing Any Reason"}, base.DEC, 0x0000000000000F00)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.arcaequities.binarygateway.pillarstream.v6.0.cancelinsteadofreprice", ftypes.UINT64, {[0]="Not Applicable", [1]="Cancel Instead Of Repricing Luld Only", [3]="Cancel Instead Of Repricing Any Reason"}, base.DEC, UInt64.fromhex('00000F0000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.arcaequities.binarygateway.pillarstream.v6.0.cancelondisconnect", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.arcaequities.binarygateway.pillarstream.v6.0.clordid", ftypes.UINT64)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.clearing_number = ProtoField.new("Clearing Number", "nyse.arcaequities.binarygateway.pillarstream.v6.0.clearingnumber", ftypes.STRING)
@@ -49,9 +49,9 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.dmm_requested_qty =
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.arcaequities.binarygateway.pillarstream.v6.0.dmmunitnum", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.effective_time = ProtoField.new("Effective Time", "nyse.arcaequities.binarygateway.pillarstream.v6.0.effectivetime", ftypes.UINT64)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.end_seq = ProtoField.new("End Seq", "nyse.arcaequities.binarygateway.pillarstream.v6.0.endseq", ftypes.UINT64)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x0000000000F00000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, UInt64.fromhex('00F0000000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.executed_trading_session = ProtoField.new("Executed Trading Session", "nyse.arcaequities.binarygateway.pillarstream.v6.0.executedtradingsession", ftypes.UINT8, {[0]="Not Applicable", [4]="Overnight"}, base.DEC, 0x07)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x00000000000F0000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, UInt64.fromhex('000F000000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.binarygateway.pillarstream.v6.0.imbalanceside", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.arcaequities.binarygateway.pillarstream.v6.0.imbalancevolume", ftypes.UINT32)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.interest_type = ProtoField.new("Interest Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contraside"}, base.DEC, 0x000000000E000000)
@@ -99,7 +99,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.open_on_trade_max_q
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.arcaequities.binarygateway.pillarstream.v6.0.optionalorderaddon", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.optional_routing_strategy_add_on = ProtoField.new("Optional Routing Strategy Add On", "nyse.arcaequities.binarygateway.pillarstream.v6.0.optionalroutingstrategyaddon", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.arcaequities.binarygateway.pillarstream.v6.0.optionalsettlementtypeaddon", ftypes.STRING)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.ord_type = ProtoField.new("Ord Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.ordtype", ftypes.UINT64, {[1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged"}, base.DEC, 0x000000000F000000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.ord_type = ProtoField.new("Ord Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.ordtype", ftypes.UINT64, {[1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged"}, base.DEC, UInt64.fromhex('0F00000000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.arcaequities.binarygateway.pillarstream.v6.0.ordercapacity", ftypes.UINT64, {[1]="Agency", [2]="Principal", [3]="Riskless Principal", [4]="Error Account"}, base.DEC, 0x0000000001C00000)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.order_id = ProtoField.new("Order Id", "nyse.arcaequities.binarygateway.pillarstream.v6.0.orderid", ftypes.UINT64)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.order_priority_update_ack_subscription = ProtoField.new("Order Priority Update Ack Subscription", "nyse.arcaequities.binarygateway.pillarstream.v6.0.orderpriorityupdateacksubscription", ftypes.UINT8)
@@ -116,7 +116,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.ppp_3 = ProtoField.
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.arcaequities.binarygateway.pillarstream.v6.0.preliquidityindicator", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.price = ProtoField.new("Price", "nyse.arcaequities.binarygateway.pillarstream.v6.0.price", ftypes.DOUBLE)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.price_scale = ProtoField.new("Price Scale", "nyse.arcaequities.binarygateway.pillarstream.v6.0.pricescale", ftypes.UINT8)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.arcaequities.binarygateway.pillarstream.v6.0.proactiveiflocked", ftypes.UINT64, {[0]="No Proactive If Locked", [1]="Proactive Route", [2]="Proactive Trade Non Display"}, base.DEC, 0x000000000000001C)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.arcaequities.binarygateway.pillarstream.v6.0.proactiveiflocked", ftypes.UINT64, {[0]="No Proactive If Locked", [1]="Proactive Route", [2]="Proactive Trade Non Display"}, base.DEC, UInt64.fromhex('0000001C00000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.arcaequities.binarygateway.pillarstream.v6.0.quotingmpv", ftypes.DOUBLE)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.rd_seq = ProtoField.new("Rd Seq", "nyse.arcaequities.binarygateway.pillarstream.v6.0.rdseq", ftypes.UINT64)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.binarygateway.pillarstream.v6.0.reasoncode", ftypes.UINT16)
@@ -147,11 +147,11 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.risk_range_id = Pro
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.arcaequities.binarygateway.pillarstream.v6.0.riskusercrd", ftypes.UINT32)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.riskusertype", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nyse.arcaequities.binarygateway.pillarstream.v6.0.roundlotsize", ftypes.UINT8)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.routinginst", ftypes.UINT64, {[0]="None", [1]="Non Routable", [2]="Routable", [3]="Directed Primary", [4]="Directed Routable", [5]="Primary Until 0945", [6]="Primary After 1555", [7]="Primary Time Windows", [8]="Minimum Fill", [10]="Route To Ats"}, base.DEC, 0x000000000000F000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.0.routinginst", ftypes.UINT64, {[0]="None", [1]="Non Routable", [2]="Routable", [3]="Directed Primary", [4]="Directed Routable", [5]="Primary Until 0945", [6]="Primary After 1555", [7]="Primary Time Windows", [8]="Minimum Fill", [10]="Route To Ats"}, base.DEC, UInt64.fromhex('0000F00000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.routing_strategy = ProtoField.new("Routing Strategy", "nyse.arcaequities.binarygateway.pillarstream.v6.0.routingstrategy", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.arcaequities.binarygateway.pillarstream.v6.0.rpimpv", ftypes.DOUBLE)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.arcaequities.binarygateway.pillarstream.v6.0.selftradeprevention", ftypes.UINT8)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.self_trade_type_3 = ProtoField.new("Self Trade Type 3", "nyse.arcaequities.binarygateway.pillarstream.v6.0.selftradetype3", ftypes.UINT64, nil, base.DEC, 0x00000000000000E0)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.self_trade_type_3 = ProtoField.new("Self Trade Type 3", "nyse.arcaequities.binarygateway.pillarstream.v6.0.selftradetype3", ftypes.UINT64, nil, base.DEC, UInt64.fromhex('000000E000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.self_trade_type_bits = ProtoField.new("Self Trade Type Bits", "nyse.arcaequities.binarygateway.pillarstream.v6.0.selftradetypebits", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.arcaequities.binarygateway.pillarstream.v6.0.selldmmavailableqty", ftypes.UINT32)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.arcaequities.binarygateway.pillarstream.v6.0.sellindicator", ftypes.UINT8)
@@ -162,7 +162,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.seq_msg_type = Prot
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.sess = ProtoField.new("Sess", "nyse.arcaequities.binarygateway.pillarstream.v6.0.sess", ftypes.UINT32)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.settlementtype", ftypes.STRING)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.side = ProtoField.new("Side", "nyse.arcaequities.binarygateway.pillarstream.v6.0.side", ftypes.UINT8)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.side_bits = ProtoField.new("Side Bits", "nyse.arcaequities.binarygateway.pillarstream.v6.0.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.side_bits = ProtoField.new("Side Bits", "nyse.arcaequities.binarygateway.pillarstream.v6.0.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, UInt64.fromhex('F000000000000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.arcaequities.binarygateway.pillarstream.v6.0.sideofunpairedqty", ftypes.UINT8)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.arcaequities.binarygateway.pillarstream.v6.0.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.binarygateway.pillarstream.v6.0.ssrfilingprice", ftypes.DOUBLE)
@@ -181,7 +181,7 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.throttle_preference
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.arcaequities.binarygateway.pillarstream.v6.0.throttlethreshold", ftypes.UINT16)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.arcaequities.binarygateway.pillarstream.v6.0.throttlewindow", ftypes.UINT16)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.throttled = ProtoField.new("Throttled", "nyse.arcaequities.binarygateway.pillarstream.v6.0.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01)
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arcaequities.binarygateway.pillarstream.v6.0.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000080000000)
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arcaequities.binarygateway.pillarstream.v6.0.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, UInt64.fromhex('0000000380000000'))
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.time_limit = ProtoField.new("Time Limit", "nyse.arcaequities.binarygateway.pillarstream.v6.0.timelimit", ftypes.INT32)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaequities.binarygateway.pillarstream.v6.0.timestamp", ftypes.UINT64)
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.arcaequities.binarygateway.pillarstream.v6.0.tradingmpv", ftypes.DOUBLE)
@@ -7108,7 +7108,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.execution_report_message.field
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0246
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -7653,7 +7653,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.order_and_cancel_replace_ackno
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
+  local optional_order_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0241
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -7662,7 +7662,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.order_and_cancel_replace_ackno
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
+  local optional_routing_strategy_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0261
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -7671,7 +7671,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.order_and_cancel_replace_ackno
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0246
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -8887,7 +8887,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.new_order_single_and_cancel_re
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
+  local optional_order_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0241
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -8896,7 +8896,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.new_order_single_and_cancel_re
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
+  local optional_routing_strategy_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0261
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -8905,7 +8905,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.new_order_single_and_cancel_re
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+  local optional_settlement_type_add_on_exists = index + 4 <= offset - 4 + seq_msg_length and buffer(index, 2):le_uint() == 0x0246
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_arcaequities_binarygateway_pillarstream_v6_0.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -9827,15 +9827,13 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message = {}
 
 -- Verify required size of Tcp packet
 nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.requiredsize = function(buffer)
-  return buffer:len() >= nyse_arcaequities_binarygateway_pillarstream_v6_0.msg_type.size
+  return buffer:len() >= nyse_arcaequities_binarygateway_pillarstream_v6_0.msg_header.size
 end
 
--- Dissect Pillar Stream Message
-nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.dissect = function(buffer, packet, parent)
-  local offset = 0
-
+-- Dissect Pillar Stream Message: one message at offset
+nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.message = function(buffer, offset, packet, parent)
   -- Dependency element: Msg Type
-  local msg_type = buffer(0, 2):le_uint()
+  local msg_type = buffer(offset, 2):le_uint()
 
   -- Dissect Login Message
   if msg_type == 0x0201 then
@@ -9877,6 +9875,60 @@ nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.dissect 
   return offset
 end
 
+-- Remaining Bytes For: Pillar Stream Message
+local pillar_stream_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nyse_arcaequities_binarygateway_pillarstream_v6_0.msg_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 2, 2):le_uint()
+
+  -- A length shorter than the header cannot advance; consume the rest of the payload
+  if current < nyse_arcaequities_binarygateway_pillarstream_v6_0.msg_header.size then
+    return remaining, remaining
+  end
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Dissect Pillar Stream Message: every message in the payload
+nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Pillar Stream Message
+  local end_of_payload = buffer:len()
+
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = pillar_stream_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.message(buffer, index, packet, parent)
+      index = index + size_of_message
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
 
 -----------------------------------------------------------------------
 -- Protocol Dissector and Components
@@ -9905,6 +9957,11 @@ end
 local function omi_nyse_arcaequities_binarygateway_pillarstream_v6_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not nyse_arcaequities_binarygateway_pillarstream_v6_0.pillar_stream_message.requiredsize(buffer) then return false end
+
+  -- Verify the first message has a known Msg Type and a plausible Msg Length
+  local msg_type = buffer(0, 2):le_uint()
+  if msg_type ~= 0x0905 and (msg_type < 0x0201 or msg_type > 0x0208) then return false end
+  if buffer(2, 2):le_uint() < 4 then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_arcaequities_binarygateway_pillarstream_v6_0
