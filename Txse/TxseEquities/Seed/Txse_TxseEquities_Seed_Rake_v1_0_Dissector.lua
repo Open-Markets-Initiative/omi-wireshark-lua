@@ -347,9 +347,11 @@ omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_ha
 omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.INT64)
 
 -- Txse TxseEquities Seed Rake 1.0 Framing
-omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.client_packet = ProtoField.new("Client Packet", "txse.txseequities.seed.rake.v1.0.clientpacket", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.client_rake_tcp_message = ProtoField.new("Client Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.clientraketcpmessage", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
-omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.server_packet = ProtoField.new("Server Packet", "txse.txseequities.seed.rake.v1.0.serverpacket", ftypes.STRING)
+omi_txse_txseequities_seed_rake_v1_0.fields.server_rake_tcp_message = ProtoField.new("Server Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.serverraketcpmessage", ftypes.STRING)
 
 -- Txse TxseEquities Seed 1.0 Application Messages
 omi_txse_txseequities_seed_rake_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "txse.txseequities.seed.rake.v1.0.cancelordermessage", ftypes.STRING)
@@ -379,6 +381,18 @@ omi_txse_txseequities_seed_rake_v1_0.fields.symbol_status_message = ProtoField.n
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
+-- Txse TxseEquities Seed Rake 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -390,6 +404,9 @@ show.structs = true
 show.headers = true
 
 -- Register Txse TxseEquities Seed Rake 1.0 Show Options
+omi_txse_txseequities_seed_rake_v1_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_txse_txseequities_seed_rake_v1_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_txse_txseequities_seed_rake_v1_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -10110,6 +10127,177 @@ txse_txseequities_seed_rake_v1_0.debug_message.dissect = function(buffer, offset
   end
 end
 
+-- Server Payload
+txse_txseequities_seed_rake_v1_0.server_payload = {}
+
+-- Dissect: Server Payload
+txse_txseequities_seed_rake_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+  -- Dissect Debug Message
+  if packet_type == 48 then
+    return txse_txseequities_seed_rake_v1_0.debug_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if packet_type == 52 then
+    return txse_txseequities_seed_rake_v1_0.end_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Response Message
+  if packet_type == 49 then
+    return txse_txseequities_seed_rake_v1_0.logon_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Tcp Sequenced Message
+  if packet_type == 50 then
+    return txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Rake Message Header
+txse_txseequities_seed_rake_v1_0.rake_message_header = {}
+
+-- Size: Rake Message Header
+txse_txseequities_seed_rake_v1_0.rake_message_header.size =
+  txse_txseequities_seed_rake_v1_0.message_length.size + 
+  txse_txseequities_seed_rake_v1_0.packet_type.size
+
+-- Display: Rake Message Header
+txse_txseequities_seed_rake_v1_0.rake_message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rake Message Header
+txse_txseequities_seed_rake_v1_0.rake_message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = txse_txseequities_seed_rake_v1_0.message_length.dissect(buffer, index, packet, parent)
+
+  -- Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  index, packet_type = txse_txseequities_seed_rake_v1_0.packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rake Message Header
+txse_txseequities_seed_rake_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header, buffer(offset, 0))
+    local index = txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = txse_txseequities_seed_rake_v1_0.rake_message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.server_rake_tcp_message = {}
+
+-- Display: Server Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields = function(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+  local index = offset
+
+  -- Rake Message Header: Struct of 2 fields
+  index, rake_message_header = txse_txseequities_seed_rake_v1_0.rake_message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Packet Type
+  local packet_type = buffer(index - 1, 1):le_uint()
+
+  -- Server Payload: Runtime Type with 4 branches
+  index = txse_txseequities_seed_rake_v1_0.server_payload.dissect(buffer, index, packet, parent, packet_type)
+
+  return index
+end
+
+-- Dissect: Server Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+  local index = offset + size_of_server_rake_tcp_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.server_rake_tcp_message, buffer(offset, 0))
+    local current = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+    parent:set_len(size_of_server_rake_tcp_message)
+    local display = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Rake Tcp Message
+local server_rake_tcp_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < txse_txseequities_seed_rake_v1_0.rake_message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+txse_txseequities_seed_rake_v1_0.server_packet = {}
+
+-- Verify required size of Tcp packet
+txse_txseequities_seed_rake_v1_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= txse_txseequities_seed_rake_v1_0.rake_message_header.size
+end
+
+-- Dissect Server Packet
+txse_txseequities_seed_rake_v1_0.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Rake Tcp Message
+  local end_of_payload = buffer:len()
+
+  -- Server Rake Tcp Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_rake_tcp_message = server_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_server_rake_tcp_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
 -- Mass Cancel Bit Fields
 txse_txseequities_seed_rake_v1_0.mass_cancel_bit_fields = {}
 
@@ -11850,11 +12038,11 @@ txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect = function(buffer,
   end
 end
 
--- Payload
-txse_txseequities_seed_rake_v1_0.payload = {}
+-- Client Payload
+txse_txseequities_seed_rake_v1_0.client_payload = {}
 
--- Dissect: Payload
-txse_txseequities_seed_rake_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Client Payload
+txse_txseequities_seed_rake_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Logon Request Packet
   if packet_type == 53 then
     return txse_txseequities_seed_rake_v1_0.logon_request_packet.dissect(buffer, offset, packet, parent)
@@ -11863,80 +12051,20 @@ txse_txseequities_seed_rake_v1_0.payload.dissect = function(buffer, offset, pack
   if packet_type == 54 then
     return txse_txseequities_seed_rake_v1_0.tcp_unsequenced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Debug Message
-  if packet_type == 48 then
-    return txse_txseequities_seed_rake_v1_0.debug_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect End Of Session Message
-  if packet_type == 52 then
-    return txse_txseequities_seed_rake_v1_0.end_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logon Response Message
-  if packet_type == 49 then
-    return txse_txseequities_seed_rake_v1_0.logon_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Tcp Sequenced Message
-  if packet_type == 50 then
-    return txse_txseequities_seed_rake_v1_0.tcp_sequenced_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Rake Message Header
-txse_txseequities_seed_rake_v1_0.rake_message_header = {}
+-- Client Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.client_rake_tcp_message = {}
 
--- Size: Rake Message Header
-txse_txseequities_seed_rake_v1_0.rake_message_header.size =
-  txse_txseequities_seed_rake_v1_0.message_length.size + 
-  txse_txseequities_seed_rake_v1_0.packet_type.size
-
--- Display: Rake Message Header
-txse_txseequities_seed_rake_v1_0.rake_message_header.display = function(packet, parent, length)
+-- Display: Client Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Rake Message Header
-txse_txseequities_seed_rake_v1_0.rake_message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = txse_txseequities_seed_rake_v1_0.message_length.dissect(buffer, index, packet, parent)
-
-  -- Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, packet_type = txse_txseequities_seed_rake_v1_0.packet_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Rake Message Header
-txse_txseequities_seed_rake_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header, buffer(offset, 0))
-    local index = txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = txse_txseequities_seed_rake_v1_0.rake_message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Rake Tcp Message
-txse_txseequities_seed_rake_v1_0.rake_tcp_message = {}
-
--- Display: Rake Tcp Message
-txse_txseequities_seed_rake_v1_0.rake_tcp_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Rake Tcp Message
-txse_txseequities_seed_rake_v1_0.rake_tcp_message.fields = function(buffer, offset, packet, parent, size_of_rake_tcp_message)
+-- Dissect Fields: Client Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields = function(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
   local index = offset
 
   -- Rake Message Header: Struct of 2 fields
@@ -11945,35 +12073,35 @@ txse_txseequities_seed_rake_v1_0.rake_tcp_message.fields = function(buffer, offs
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 6 branches
-  index = txse_txseequities_seed_rake_v1_0.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Client Payload: Runtime Type with 2 branches
+  index = txse_txseequities_seed_rake_v1_0.client_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
--- Dissect: Rake Tcp Message
-txse_txseequities_seed_rake_v1_0.rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_rake_tcp_message)
-  local index = offset + size_of_rake_tcp_message
+-- Dissect: Client Rake Tcp Message
+txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+  local index = offset + size_of_client_rake_tcp_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message, buffer(offset, 0))
-    local current = txse_txseequities_seed_rake_v1_0.rake_tcp_message.fields(buffer, offset, packet, parent, size_of_rake_tcp_message)
-    parent:set_len(size_of_rake_tcp_message)
-    local display = txse_txseequities_seed_rake_v1_0.rake_tcp_message.display(buffer, packet, parent)
+    parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.client_rake_tcp_message, buffer(offset, 0))
+    local current = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+    parent:set_len(size_of_client_rake_tcp_message)
+    local display = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_seed_rake_v1_0.rake_tcp_message.fields(buffer, offset, packet, parent, size_of_rake_tcp_message)
+    txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Rake Tcp Message
-local rake_tcp_message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Rake Tcp Message
+local client_rake_tcp_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -11993,29 +12121,29 @@ local rake_tcp_message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-txse_txseequities_seed_rake_v1_0.packet = {}
+-- Client Packet
+txse_txseequities_seed_rake_v1_0.client_packet = {}
 
 -- Verify required size of Tcp packet
-txse_txseequities_seed_rake_v1_0.packet.requiredsize = function(buffer)
+txse_txseequities_seed_rake_v1_0.client_packet.requiredsize = function(buffer)
   return buffer:len() >= txse_txseequities_seed_rake_v1_0.rake_message_header.size
 end
 
--- Dissect Packet
-txse_txseequities_seed_rake_v1_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+txse_txseequities_seed_rake_v1_0.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Rake Tcp Message
+  -- Dependency for Client Rake Tcp Message
   local end_of_payload = buffer:len()
 
-  -- Rake Tcp Message: Struct of 2 fields
+  -- Client Rake Tcp Message: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_rake_tcp_message = rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_rake_tcp_message = client_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = txse_txseequities_seed_rake_v1_0.rake_tcp_message.dissect(buffer, index, packet, parent, size_of_rake_tcp_message)
+      index = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_client_rake_tcp_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -12038,6 +12166,84 @@ end
 function omi_txse_txseequities_seed_rake_v1_0.init()
 end
 
+-- Connection roles for Txse TxseEquities Seed Rake 1.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+txse_txseequities_seed_rake_v1_0.role = function(packet)
+  if omi_txse_txseequities_seed_rake_v1_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_txse_txseequities_seed_rake_v1_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_txse_txseequities_seed_rake_v1_0.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_txse_txseequities_seed_rake_v1_0.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+txse_txseequities_seed_rake_v1_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Txse TxseEquities Seed Rake 1.0
 function omi_txse_txseequities_seed_rake_v1_0.dissector(buffer, packet, parent)
   -- Set protocol name
@@ -12045,7 +12251,106 @@ function omi_txse_txseequities_seed_rake_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_txse_txseequities_seed_rake_v1_0, buffer(), omi_txse_txseequities_seed_rake_v1_0.description, "("..buffer:len().." Bytes)")
-  return txse_txseequities_seed_rake_v1_0.packet.dissect(buffer, packet, protocol)
+  local role = txse_txseequities_seed_rake_v1_0.role(packet)
+
+  if role == "initiator" then
+    return txse_txseequities_seed_rake_v1_0.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return txse_txseequities_seed_rake_v1_0.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+txse_txseequities_seed_rake_v1_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local packet_type = buffer(2, 1):le_uint()
+
+  -- Logon Request Packet
+  if packet_type == 53 then
+    return true
+  end
+
+  -- Tcp Unsequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if packet_type == 54 then
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local message_type = buffer(3, 1):uint()
+
+    -- Limit Order Message
+    if message_type == 76 then
+      return true
+    end
+
+    -- Market Order Message
+    if message_type == 65 then
+      return true
+    end
+
+    -- Cancel Order Message
+    if message_type == 67 then
+      return true
+    end
+
+    -- Modify Order Message
+    if message_type == 77 then
+      return true
+    end
+
+    -- Replace Order Message
+    if message_type == 82 then
+      return true
+    end
+
+    -- Mass Cancel Message
+    if message_type == 86 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+txse_txseequities_seed_rake_v1_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 3 then
+    return false
+  end
+
+  local packet_type = buffer(2, 1):le_uint()
+
+  -- Debug Message
+  if packet_type == 48 then
+    return true
+  end
+
+  -- End Of Session Message
+  if packet_type == 52 then
+    return true
+  end
+
+  -- Logon Response Message
+  if packet_type == 49 then
+    return true
+  end
+
+  -- Tcp Sequenced Message
+  if packet_type == 50 then
+    return true
+  end
+
+  return false
 end
 
 
@@ -12054,9 +12359,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Txse TxseEquities Seed Rake 1.0 (Tcp)
-local function omi_txse_txseequities_seed_rake_v1_0_tcp_heuristic(buffer, packet, parent)
+local function omi_txse_txseequities_seed_rake_v1_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not txse_txseequities_seed_rake_v1_0.packet.requiredsize(buffer) then return false end
+  if not txse_txseequities_seed_rake_v1_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not txse_txseequities_seed_rake_v1_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_txse_txseequities_seed_rake_v1_0
@@ -12065,7 +12373,50 @@ local function omi_txse_txseequities_seed_rake_v1_0_tcp_heuristic(buffer, packet
   return true
 end
 
--- Register Heuristic for Txse TxseEquities Seed Rake 1.0
+-- Dissector Heuristic for Txse TxseEquities Seed Rake 1.0 (Tcp)
+local function omi_txse_txseequities_seed_rake_v1_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not txse_txseequities_seed_rake_v1_0.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not txse_txseequities_seed_rake_v1_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_txse_txseequities_seed_rake_v1_0
+  omi_txse_txseequities_seed_rake_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Txse TxseEquities Seed Rake 1.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_txse_txseequities_seed_rake_v1_0_tcp_heuristic(buffer, packet, parent)
+  local role = txse_txseequities_seed_rake_v1_0.role(packet)
+  local initiator = omi_txse_txseequities_seed_rake_v1_0_tcp_initiator_heuristic
+  local acceptor = omi_txse_txseequities_seed_rake_v1_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  txse_txseequities_seed_rake_v1_0.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  txse_txseequities_seed_rake_v1_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Txse TxseEquities Seed Rake 1.0
 omi_txse_txseequities_seed_rake_v1_0:register_heuristic("tcp", omi_txse_txseequities_seed_rake_v1_0_tcp_heuristic)
 
 -- Register Txse TxseEquities Seed Rake 1.0 for Decode As
