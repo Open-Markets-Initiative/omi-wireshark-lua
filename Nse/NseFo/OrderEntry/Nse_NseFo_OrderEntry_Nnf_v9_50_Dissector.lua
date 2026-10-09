@@ -417,9 +417,11 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.warning_percent = ProtoField.new("Warn
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ws_class_name = ProtoField.new("Ws Class Name", "nse.nsefo.orderentry.nnf.v9.50.wsclassname", ftypes.STRING)
 
 -- Nse NseFo OrderEntry Nnf 9.50 Framing
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.message = ProtoField.new("Message", "nse.nsefo.orderentry.nnf.v9.50.message", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.client_message = ProtoField.new("Client Message", "nse.nsefo.orderentry.nnf.v9.50.clientmessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.client_packet = ProtoField.new("Client Packet", "nse.nsefo.orderentry.nnf.v9.50.clientpacket", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_header = ProtoField.new("Message Header", "nse.nsefo.orderentry.nnf.v9.50.messageheader", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.packet = ProtoField.new("Packet", "nse.nsefo.orderentry.nnf.v9.50.packet", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.server_message = ProtoField.new("Server Message", "nse.nsefo.orderentry.nnf.v9.50.servermessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.server_packet = ProtoField.new("Server Packet", "nse.nsefo.orderentry.nnf.v9.50.serverpacket", ftypes.STRING)
 
 -- Nse NseFo OrderEntry 9.50 Application Messages
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.box_sign_off_message = ProtoField.new("Box Sign Off Message", "nse.nsefo.orderentry.nnf.v9.50.boxsignoffmessage", ftypes.STRING)
@@ -11077,50 +11079,6 @@ nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_confirm_message.dissect = fun
   end
 end
 
--- User Address Unlock Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message = {}
-
--- Size: User Address Unlock Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_70.size
-
--- Display: User Address Unlock Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Address Unlock Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 70: CHAR
-  index, reserved_70 = nse_nsefo_orderentry_nnf_v9_50.reserved_70.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Address Unlock Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_address_unlock_request_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- User Trade Modify Cancel Status Change Response Message
 nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_response_message = {}
 
@@ -11166,54 +11124,6 @@ nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_response_m
   else
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Trade Modify Cancel Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message = {}
-
--- Size: User Trade Modify Cancel Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.trd_mod_cxl_bit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_7.size
-
--- Display: User Trade Modify Cancel Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Trade Modify Cancel Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Trd Mod Cxl Bit: CHAR
-  index, trd_mod_cxl_bit = nse_nsefo_orderentry_nnf_v9_50.trd_mod_cxl_bit.dissect(buffer, index, packet, parent)
-
-  -- Reserved 7: CHAR
-  index, reserved_7 = nse_nsefo_orderentry_nnf_v9_50.reserved_7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Trade Modify Cancel Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_request_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -11265,386 +11175,6 @@ nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_response_message.di
   end
 end
 
--- Collateral User Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message = {}
-
--- Size: Collateral User Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.col_user_bit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_7.size
-
--- Display: Collateral User Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Collateral User Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Col User Bit: CHAR
-  index, col_user_bit = nse_nsefo_orderentry_nnf_v9_50.col_user_bit.dissect(buffer, index, packet, parent)
-
-  -- Reserved 7: CHAR
-  index, reserved_7 = nse_nsefo_orderentry_nnf_v9_50.reserved_7.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Collateral User Status Change Request Message
-nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.collateral_user_status_change_request_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Reset User Password Message
-nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message = {}
-
--- Size: Reset User Password Message
-nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_14.size
-
--- Display: Reset User Password Message
-nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Reset User Password Message
-nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 14: CHAR
-  index, reserved_14 = nse_nsefo_orderentry_nnf_v9_50.reserved_14.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Reset User Password Message
-nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reset_user_password_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Normal Order Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message = {}
-
--- Size: Normal Order Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.order_qty_limit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.order_val_limit.size
-
--- Display: Normal Order Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Normal Order Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Limit: DOUBLE
-  index, order_qty_limit = nse_nsefo_orderentry_nnf_v9_50.order_qty_limit.dissect(buffer, index, packet, parent)
-
-  -- Order Val Limit: DOUBLE
-  index, order_val_limit = nse_nsefo_orderentry_nnf_v9_50.order_val_limit.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Normal Order Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.normal_order_limit_update_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- User Limits
-nse_nsefo_orderentry_nnf_v9_50.user_limits = {}
-
--- Size: User Limits
-nse_nsefo_orderentry_nnf_v9_50.user_limits.size =
-  nse_nsefo_orderentry_nnf_v9_50.reserved_32.size + 
-  nse_nsefo_orderentry_nnf_v9_50.user_order_buy_value_limit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.user_order_sell_value_limit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size
-
--- Display: User Limits
-nse_nsefo_orderentry_nnf_v9_50.user_limits.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Limits
-nse_nsefo_orderentry_nnf_v9_50.user_limits.fields = function(buffer, offset, packet, parent, user_limits_index)
-  local index = offset
-
-  -- Implicit User Limits Index
-  if user_limits_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits_index, user_limits_index)
-    iteration:set_generated()
-  end
-
-  -- Reserved 32: CHAR
-  index, reserved_32 = nse_nsefo_orderentry_nnf_v9_50.reserved_32.dissect(buffer, index, packet, parent)
-
-  -- User Order Buy Value Limit: DOUBLE
-  index, user_order_buy_value_limit = nse_nsefo_orderentry_nnf_v9_50.user_order_buy_value_limit.dissect(buffer, index, packet, parent)
-
-  -- User Order Sell Value Limit: DOUBLE
-  index, user_order_sell_value_limit = nse_nsefo_orderentry_nnf_v9_50.user_order_sell_value_limit.dissect(buffer, index, packet, parent)
-
-  -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: User Limits
-nse_nsefo_orderentry_nnf_v9_50.user_limits.dissect = function(buffer, offset, packet, parent, user_limits_index)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.user_limits.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
-  end
-end
-
--- User Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message = {}
-
--- Size: User Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_26.size + 
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size + 
-  2 * nse_nsefo_orderentry_nnf_v9_50.user_limits.size
-
--- Display: User Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: User Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Branch Id: SHORT
-  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 26: CHAR
-  index, reserved_26 = nse_nsefo_orderentry_nnf_v9_50.reserved_26.dissect(buffer, index, packet, parent)
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
-
-  -- Array Of: User Limits
-  for user_limits_index = 1, 2 do
-    index, user_limits = nse_nsefo_orderentry_nnf_v9_50.user_limits.dissect(buffer, index, packet, parent, user_limits_index)
-  end
-
-  return index
-end
-
--- Dissect: User Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_order_value_limit_update_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Branch Limits
-nse_nsefo_orderentry_nnf_v9_50.branch_limits = {}
-
--- Size: Branch Limits
-nse_nsefo_orderentry_nnf_v9_50.branch_limits.size =
-  nse_nsefo_orderentry_nnf_v9_50.branch_buy_value_limit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.branch_sell_value_limit.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size
-
--- Display: Branch Limits
-nse_nsefo_orderentry_nnf_v9_50.branch_limits.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Branch Limits
-nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields = function(buffer, offset, packet, parent, branch_limits_index)
-  local index = offset
-
-  -- Implicit Branch Limits Index
-  if branch_limits_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits_index, branch_limits_index)
-    iteration:set_generated()
-  end
-
-  -- Branch Buy Value Limit: DOUBLE
-  index, branch_buy_value_limit = nse_nsefo_orderentry_nnf_v9_50.branch_buy_value_limit.dissect(buffer, index, packet, parent)
-
-  -- Branch Sell Value Limit: DOUBLE
-  index, branch_sell_value_limit = nse_nsefo_orderentry_nnf_v9_50.branch_sell_value_limit.dissect(buffer, index, packet, parent)
-
-  -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Branch Limits
-nse_nsefo_orderentry_nnf_v9_50.branch_limits.dissect = function(buffer, offset, packet, parent, branch_limits_index)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.branch_limits.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
-  end
-end
-
--- Branch Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message = {}
-
--- Size: Branch Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_25.size + 
-  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
-  2 * nse_nsefo_orderentry_nnf_v9_50.branch_limits.size
-
--- Display: Branch Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Branch Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 25: CHAR
-  index, reserved_25 = nse_nsefo_orderentry_nnf_v9_50.reserved_25.dissect(buffer, index, packet, parent)
-
-  -- Branch Id: SHORT
-  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
-
-  -- Array Of: Branch Limits
-  for branch_limits_index = 1, 2 do
-    index, branch_limits = nse_nsefo_orderentry_nnf_v9_50.branch_limits.dissect(buffer, index, packet, parent, branch_limits_index)
-  end
-
-  return index
-end
-
--- Dissect: Branch Order Value Limit Update Message
-nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_order_value_limit_update_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Contingency Broadcast Message
 nse_nsefo_orderentry_nnf_v9_50.contingency_broadcast_message = {}
 
@@ -11693,63 +11223,6 @@ nse_nsefo_orderentry_nnf_v9_50.contingency_broadcast_message.dissect = function(
   end
 end
 
--- Box Sign Off Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message = {}
-
--- Size: Box Sign Off Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.box_id.size
-
--- Display: Box Sign Off Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Box Sign Off Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Box Id: SHORT
-  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Box Sign Off Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.box_sign_off_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Heartbeat Message
-nse_nsefo_orderentry_nnf_v9_50.heartbeat_message = {}
-
--- Display: Heartbeat Message
-nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.display = function(packet, parent, length)
-  return "Heartbeat Message"
-end
-
-
--- Dissect: Heartbeat Message
-nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.dissect = function(buffer, offset, packet, parent)
-  local display = nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
 -- Box Sign On Request Out Message
 nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_out_message = {}
 
@@ -11794,58 +11267,6 @@ nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_out_message.dissect = functio
   end
 end
 
--- Box Sign On Request In Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message = {}
-
--- Size: Box Sign On Request In Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.box_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_5.size + 
-  nse_nsefo_orderentry_nnf_v9_50.session_key.size
-
--- Display: Box Sign On Request In Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Box Sign On Request In Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Box Id: SHORT
-  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 5: CHAR
-  index, reserved_5 = nse_nsefo_orderentry_nnf_v9_50.reserved_5.dissect(buffer, index, packet, parent)
-
-  -- Session Key: CHAR
-  index, session_key = nse_nsefo_orderentry_nnf_v9_50.session_key.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Box Sign On Request In Message
-nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.box_sign_on_request_in_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Secure Box Registration Response Out Message
 nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_response_out_message = {}
 
@@ -11861,46 +11282,6 @@ nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_response_out_message.diss
   packet.cols.info = display
 
   return offset
-end
-
--- Secure Box Registration Request In Message
-nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message = {}
-
--- Size: Secure Box Registration Request In Message
-nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.box_id.size
-
--- Display: Secure Box Registration Request In Message
-nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Secure Box Registration Request In Message
-nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Box Id: SHORT
-  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Secure Box Registration Request In Message
-nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.secure_box_registration_request_in_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Contracts Details
@@ -13851,6 +13232,2178 @@ nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect = function(buf
   end
 end
 
+-- Trailer Record Message
+nse_nsefo_orderentry_nnf_v9_50.trailer_record_message = {}
+
+-- Display: Trailer Record Message
+nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.display = function(packet, parent, length)
+  return "Trailer Record Message"
+end
+
+
+-- Dissect: Trailer Record Message
+nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Download Data
+nse_nsefo_orderentry_nnf_v9_50.message_download_data = {}
+
+-- Display: Message Download Data
+nse_nsefo_orderentry_nnf_v9_50.message_download_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Download Data
+nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields = function(buffer, offset, packet, parent, size_of_message_download_data)
+  local index = offset
+
+  -- Dependency for Download Payload
+  local end_of_payload = offset + size_of_message_download_data
+
+  -- Download Payload: 0 Byte
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, download_payload = nse_nsefo_orderentry_nnf_v9_50.download_payload.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Message Download Data
+nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect = function(buffer, offset, packet, parent, size_of_message_download_data)
+  local index = offset + size_of_message_download_data
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_download_data, buffer(offset, 0))
+    local current = nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
+    parent:set_len(size_of_message_download_data)
+    local display = nse_nsefo_orderentry_nnf_v9_50.message_download_data.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
+
+    return index
+  end
+end
+
+-- Inner Header
+nse_nsefo_orderentry_nnf_v9_50.inner_header = {}
+
+-- Size: Inner Header
+nse_nsefo_orderentry_nnf_v9_50.inner_header.size =
+  nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_log_time.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_error_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_message_length.size
+
+-- Display: Inner Header
+nse_nsefo_orderentry_nnf_v9_50.inner_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Inner Header
+nse_nsefo_orderentry_nnf_v9_50.inner_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inner Trader Id: LONG
+  index, inner_trader_id = nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.dissect(buffer, index, packet, parent)
+
+  -- Inner Log Time: LONG
+  index, inner_log_time = nse_nsefo_orderentry_nnf_v9_50.inner_log_time.dissect(buffer, index, packet, parent)
+
+  -- Inner Alpha Char: CHAR
+  index, inner_alpha_char = nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.dissect(buffer, index, packet, parent)
+
+  -- Inner Transaction Code: SHORT
+  index, inner_transaction_code = nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.dissect(buffer, index, packet, parent)
+
+  -- Inner Error Code: SHORT
+  index, inner_error_code = nse_nsefo_orderentry_nnf_v9_50.inner_error_code.dissect(buffer, index, packet, parent)
+
+  -- Inner Timestamp: LONG LONG
+  index, inner_timestamp = nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Inner Time Stamp 1: CHAR
+  index, inner_time_stamp_1 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.dissect(buffer, index, packet, parent)
+
+  -- Inner Time Stamp 2: CHAR
+  index, inner_time_stamp_2 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.dissect(buffer, index, packet, parent)
+
+  -- Inner Message Length: SHORT
+  index, inner_message_length = nse_nsefo_orderentry_nnf_v9_50.inner_message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Inner Header
+nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_header, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.inner_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.inner_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.inner_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message = {}
+
+-- Calculate size of: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
+
+  -- Parse runtime size of: Message Download Data
+  index = index + buffer(offset + index - 42, 2):int()
+
+  return index
+end
+
+-- Display: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inner Header: Struct of 9 fields
+  index, inner_header = nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 2, 2):int()
+
+  -- Runtime Size Of: Message Download Data
+  local size_of_message_download_data = message_length - 80
+
+  -- Message Download Data: Struct of 1 fields
+  index, message_download_data = nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect(buffer, index, packet, parent, size_of_message_download_data)
+
+  return index
+end
+
+-- Dissect: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.message_record_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message = {}
+
+-- Display: Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message.display = function(packet, parent, length)
+  return "Header Record Message"
+end
+
+
+-- Dissect: Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnf_v9_50.header_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data = {}
+
+-- Display: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields = function(buffer, offset, packet, parent, size_of_local_database_data)
+  local index = offset
+
+  -- Dependency for Data Payload
+  local end_of_payload = offset + size_of_local_database_data
+
+  -- Data Payload: 0 Byte
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, data_payload = nse_nsefo_orderentry_nnf_v9_50.data_payload.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect = function(buffer, offset, packet, parent, size_of_local_database_data)
+  local index = offset + size_of_local_database_data
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.local_database_data, buffer(offset, 0))
+    local current = nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
+    parent:set_len(size_of_local_database_data)
+    local display = nse_nsefo_orderentry_nnf_v9_50.local_database_data.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
+
+    return index
+  end
+end
+
+-- Update Local Database Data Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message = {}
+
+-- Calculate size of: Update Local Database Data Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
+
+  -- Parse runtime size of: Local Database Data
+  index = index + buffer(offset + index - 42, 2):int()
+
+  return index
+end
+
+-- Display: Update Local Database Data Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Update Local Database Data Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inner Header: Struct of 9 fields
+  index, inner_header = nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 2, 2):int()
+
+  -- Runtime Size Of: Local Database Data
+  local size_of_local_database_data = message_length - 80
+
+  -- Local Database Data: Struct of 1 fields
+  index, local_database_data = nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect(buffer, index, packet, parent, size_of_local_database_data)
+
+  return index
+end
+
+-- Dissect: Update Local Database Data Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_data_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Update Local Database Trailer Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message = {}
+
+-- Size: Update Local Database Trailer Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size
+
+-- Display: Update Local Database Trailer Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Update Local Database Trailer Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Update Local Database Trailer Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_trailer_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Update Local Database Header Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message = {}
+
+-- Size: Update Local Database Header Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size
+
+-- Display: Update Local Database Header Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Update Local Database Header Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Update Local Database Header Message
+nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_header_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail = {}
+
+-- Size: New Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.size =
+  nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.size + 
+  nse_nsefo_orderentry_nnf_v9_50.dynamic_cryptographic_iv.size + 
+  nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.size
+
+-- Display: New Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Static Cryptographic Iv: CHAR
+  index, static_cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.dissect(buffer, index, packet, parent)
+
+  -- Dynamic Cryptographic Iv: LONG LONG
+  index, dynamic_cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.dynamic_cryptographic_iv.dissect(buffer, index, packet, parent)
+
+  -- Cryptographic Additional Key: CHAR
+  index, cryptographic_additional_key = nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.new_encryption_tail, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Existing Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail = {}
+
+-- Size: Existing Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.size =
+  nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.size
+
+-- Display: Existing Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Existing Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Cryptographic Iv: CHAR
+  index, cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Existing Encryption Tail
+nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.existing_encryption_tail, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cryptographic Payload
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload = {}
+
+-- Dissect: Cryptographic Payload
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
+  -- Dissect Existing Encryption Tail
+  if message_length == 124 then
+    return nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Encryption Tail
+  if message_length == 136 then
+    return nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Cryptographic Tail
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail = {}
+
+-- Calculate size of: Cryptographic Tail
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Cryptographic Payload field
+  local cryptographic_payload_offset = offset + index
+  local cryptographic_payload_type = buffer(cryptographic_payload_offset - 70, 2):int()
+  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.size(buffer, cryptographic_payload_offset, cryptographic_payload_type)
+
+  return index
+end
+
+-- Display: Cryptographic Tail
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cryptographic Tail
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 70, 2):int()
+
+  -- Cryptographic Payload: Runtime Type with 2 branches
+  index = nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dissect(buffer, index, packet, parent, message_length)
+
+  return index
+end
+
+-- Dissect: Cryptographic Tail
+nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.cryptographic_tail, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Gateway Router Response Message
+nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message = {}
+
+-- Calculate size of: Gateway Router Response Message
+nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.box_id.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.broker_id.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.filler.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.ip_address.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.port.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.session_key.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_key.size
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Gateway Router Response Message
+nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gateway Router Response Message
+nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Box Id: SHORT
+  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Filler: CHAR
+  index, filler = nse_nsefo_orderentry_nnf_v9_50.filler.dissect(buffer, index, packet, parent)
+
+  -- Ip Address: CHAR
+  index, ip_address = nse_nsefo_orderentry_nnf_v9_50.ip_address.dissect(buffer, index, packet, parent)
+
+  -- Port: LONG
+  index, port = nse_nsefo_orderentry_nnf_v9_50.port.dissect(buffer, index, packet, parent)
+
+  -- Session Key: CHAR
+  index, session_key = nse_nsefo_orderentry_nnf_v9_50.session_key.dissect(buffer, index, packet, parent)
+
+  -- Cryptographic Key: CHAR
+  index, cryptographic_key = nse_nsefo_orderentry_nnf_v9_50.cryptographic_key.dissect(buffer, index, packet, parent)
+
+  -- Cryptographic Tail: Struct of 1 fields
+  index, cryptographic_tail = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gateway Router Response Message
+nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.gateway_router_response_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- St Stock Eligible Indicators
+nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators = {}
+
+-- Size: St Stock Eligible Indicators
+nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size = 2
+
+-- Display: St Stock Eligible Indicators
+nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Books Merged flag set?
+  if bit.band(value, 0x2000) ~= 0 then
+    flags[#flags + 1] = "Books Merged"
+  end
+  -- Is Minimum Fill flag set?
+  if bit.band(value, 0x4000) ~= 0 then
+    flags[#flags + 1] = "Minimum Fill"
+  end
+  -- Is Eligible Aon flag set?
+  if bit.band(value, 0x8000) ~= 0 then
+    flags[#flags + 1] = "Eligible Aon"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: St Stock Eligible Indicators
+nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.bits = function(range, value, packet, parent)
+
+  -- Reserved 113: 13 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_113, range, value)
+
+  -- Books Merged: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.books_merged, range, value)
+
+  -- Minimum Fill: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.minimum_fill, range, value)
+
+  -- Eligible Aon: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.eligible_aon, range, value)
+end
+
+-- Dissect: St Stock Eligible Indicators
+nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.dissect = function(buffer, offset, packet, parent)
+  local size = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size
+  local range = buffer(offset, size)
+  local value = range:uint()
+  local display = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.display(range, value, packet, parent)
+  local element = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_stock_eligible_indicators, range, display)
+
+  if show.structs then
+    nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- St Pl Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status = {}
+
+-- Size: St Pl Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.size =
+  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_normal.size + 
+  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_oddlot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_spot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_auction.size
+
+-- Display: St Pl Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: St Pl Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Pl Market Status Normal: SHORT
+  index, pl_market_status_normal = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_normal.dissect(buffer, index, packet, parent)
+
+  -- Pl Market Status Oddlot: SHORT
+  index, pl_market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_oddlot.dissect(buffer, index, packet, parent)
+
+  -- Pl Market Status Spot: SHORT
+  index, pl_market_status_spot = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_spot.dissect(buffer, index, packet, parent)
+
+  -- Pl Market Status Auction: SHORT
+  index, pl_market_status_auction = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_auction.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: St Pl Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_pl_market_status, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- St Ex Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status = {}
+
+-- Size: St Ex Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.size =
+  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_normal.size + 
+  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_oddlot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_spot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_auction.size
+
+-- Display: St Ex Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: St Ex Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Ex Market Status Normal: SHORT
+  index, ex_market_status_normal = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_normal.dissect(buffer, index, packet, parent)
+
+  -- Ex Market Status Oddlot: SHORT
+  index, ex_market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_oddlot.dissect(buffer, index, packet, parent)
+
+  -- Ex Market Status Spot: SHORT
+  index, ex_market_status_spot = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_spot.dissect(buffer, index, packet, parent)
+
+  -- Ex Market Status Auction: SHORT
+  index, ex_market_status_auction = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_auction.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: St Ex Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_ex_market_status, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- St Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_market_status = {}
+
+-- Size: St Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_market_status.size =
+  nse_nsefo_orderentry_nnf_v9_50.market_status_normal.size + 
+  nse_nsefo_orderentry_nnf_v9_50.market_status_oddlot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.market_status_spot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.market_status_auction.size
+
+-- Display: St Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_market_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: St Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Market Status Normal: SHORT
+  index, market_status_normal = nse_nsefo_orderentry_nnf_v9_50.market_status_normal.dissect(buffer, index, packet, parent)
+
+  -- Market Status Oddlot: SHORT
+  index, market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.market_status_oddlot.dissect(buffer, index, packet, parent)
+
+  -- Market Status Spot: SHORT
+  index, market_status_spot = nse_nsefo_orderentry_nnf_v9_50.market_status_spot.dissect(buffer, index, packet, parent)
+
+  -- Market Status Auction: SHORT
+  index, market_status_auction = nse_nsefo_orderentry_nnf_v9_50.market_status_auction.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: St Market Status
+nse_nsefo_orderentry_nnf_v9_50.st_market_status.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_market_status, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.st_market_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Information Out Message
+nse_nsefo_orderentry_nnf_v9_50.system_information_out_message = {}
+
+-- Size: System Information Out Message
+nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.st_market_status.size + 
+  nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.size + 
+  nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.size + 
+  nse_nsefo_orderentry_nnf_v9_50.update_portfolio.size + 
+  nse_nsefo_orderentry_nnf_v9_50.market_index.size + 
+  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_normal.size + 
+  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_spot.size + 
+  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_auction.size + 
+  nse_nsefo_orderentry_nnf_v9_50.competitor_period.size + 
+  nse_nsefo_orderentry_nnf_v9_50.solicitor_period.size + 
+  nse_nsefo_orderentry_nnf_v9_50.warning_percent.size + 
+  nse_nsefo_orderentry_nnf_v9_50.volume_freeze_percent.size + 
+  nse_nsefo_orderentry_nnf_v9_50.snap_quote_time.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size + 
+  nse_nsefo_orderentry_nnf_v9_50.board_lot_quantity.size + 
+  nse_nsefo_orderentry_nnf_v9_50.tick_size.size + 
+  nse_nsefo_orderentry_nnf_v9_50.maximum_gtc_days.size + 
+  nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size + 
+  nse_nsefo_orderentry_nnf_v9_50.disclosed_quantity_percent_allowed.size + 
+  nse_nsefo_orderentry_nnf_v9_50.risk_free_interest_rate.size
+
+-- Display: System Information Out Message
+nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Information Out Message
+nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- St Market Status: Struct of 4 fields
+  index, st_market_status = nse_nsefo_orderentry_nnf_v9_50.st_market_status.dissect(buffer, index, packet, parent)
+
+  -- St Ex Market Status: Struct of 4 fields
+  index, st_ex_market_status = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.dissect(buffer, index, packet, parent)
+
+  -- St Pl Market Status: Struct of 4 fields
+  index, st_pl_market_status = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.dissect(buffer, index, packet, parent)
+
+  -- Update Portfolio: CHAR
+  index, update_portfolio = nse_nsefo_orderentry_nnf_v9_50.update_portfolio.dissect(buffer, index, packet, parent)
+
+  -- Market Index: LONG
+  index, market_index = nse_nsefo_orderentry_nnf_v9_50.market_index.dissect(buffer, index, packet, parent)
+
+  -- Default Settlement Period Normal: SHORT
+  index, default_settlement_period_normal = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_normal.dissect(buffer, index, packet, parent)
+
+  -- Default Settlement Period Spot: SHORT
+  index, default_settlement_period_spot = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_spot.dissect(buffer, index, packet, parent)
+
+  -- Default Settlement Period Auction: SHORT
+  index, default_settlement_period_auction = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_auction.dissect(buffer, index, packet, parent)
+
+  -- Competitor Period: SHORT
+  index, competitor_period = nse_nsefo_orderentry_nnf_v9_50.competitor_period.dissect(buffer, index, packet, parent)
+
+  -- Solicitor Period: SHORT
+  index, solicitor_period = nse_nsefo_orderentry_nnf_v9_50.solicitor_period.dissect(buffer, index, packet, parent)
+
+  -- Warning Percent: SHORT
+  index, warning_percent = nse_nsefo_orderentry_nnf_v9_50.warning_percent.dissect(buffer, index, packet, parent)
+
+  -- Volume Freeze Percent: SHORT
+  index, volume_freeze_percent = nse_nsefo_orderentry_nnf_v9_50.volume_freeze_percent.dissect(buffer, index, packet, parent)
+
+  -- Snap Quote Time: SHORT
+  index, snap_quote_time = nse_nsefo_orderentry_nnf_v9_50.snap_quote_time.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Board Lot Quantity: LONG
+  index, board_lot_quantity = nse_nsefo_orderentry_nnf_v9_50.board_lot_quantity.dissect(buffer, index, packet, parent)
+
+  -- Tick Size: LONG
+  index, tick_size = nse_nsefo_orderentry_nnf_v9_50.tick_size.dissect(buffer, index, packet, parent)
+
+  -- Maximum Gtc Days: SHORT
+  index, maximum_gtc_days = nse_nsefo_orderentry_nnf_v9_50.maximum_gtc_days.dissect(buffer, index, packet, parent)
+
+  -- St Stock Eligible Indicators: Struct of 4 fields
+  index, st_stock_eligible_indicators = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.dissect(buffer, index, packet, parent)
+
+  -- Disclosed Quantity Percent Allowed: SHORT
+  index, disclosed_quantity_percent_allowed = nse_nsefo_orderentry_nnf_v9_50.disclosed_quantity_percent_allowed.dissect(buffer, index, packet, parent)
+
+  -- Risk Free Interest Rate: LONG
+  index, risk_free_interest_rate = nse_nsefo_orderentry_nnf_v9_50.risk_free_interest_rate.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Information Out Message
+nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.system_information_out_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sign Off Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message = {}
+
+-- Size: Sign Off Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_145.size
+
+-- Display: Sign Off Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sign Off Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 145: CHAR
+  index, reserved_145 = nse_nsefo_orderentry_nnf_v9_50.reserved_145.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sign Off Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sign_off_request_out_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- St Broker Eligibility Per Mkt
+nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt = {}
+
+-- Size: St Broker Eligibility Per Mkt
+nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size = 2
+
+-- Display: St Broker Eligibility Per Mkt
+nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Pre Open flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Pre Open"
+  end
+  -- Is Auction Market flag set?
+  if bit.band(value, 0x1000) ~= 0 then
+    flags[#flags + 1] = "Auction Market"
+  end
+  -- Is Spot Market flag set?
+  if bit.band(value, 0x2000) ~= 0 then
+    flags[#flags + 1] = "Spot Market"
+  end
+  -- Is Oddlot Market flag set?
+  if bit.band(value, 0x4000) ~= 0 then
+    flags[#flags + 1] = "Oddlot Market"
+  end
+  -- Is Normal Market flag set?
+  if bit.band(value, 0x8000) ~= 0 then
+    flags[#flags + 1] = "Normal Market"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: St Broker Eligibility Per Mkt
+nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.bits = function(range, value, packet, parent)
+
+  -- Pre Open: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.pre_open, range, value)
+
+  -- Reserved 212: 11 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_212, range, value)
+
+  -- Auction Market: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.auction_market, range, value)
+
+  -- Spot Market: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.spot_market, range, value)
+
+  -- Oddlot Market: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.oddlot_market, range, value)
+
+  -- Normal Market: 1 Bit
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.normal_market, range, value)
+end
+
+-- Dissect: St Broker Eligibility Per Mkt
+nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.dissect = function(buffer, offset, packet, parent)
+  local size = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size
+  local range = buffer(offset, size)
+  local value = range:uint()
+  local display = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.display(range, value, packet, parent)
+  local element = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_broker_eligibility_per_mkt, range, display)
+
+  if show.structs then
+    nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Sign On Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message = {}
+
+-- Size: Sign On Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_8.size + 
+  nse_nsefo_orderentry_nnf_v9_50.password.size + 
+  nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.size + 
+  nse_nsefo_orderentry_nnf_v9_50.new_password.size + 
+  nse_nsefo_orderentry_nnf_v9_50.trader_name.size + 
+  nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.size + 
+  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.version_number.size + 
+  nse_nsefo_orderentry_nnf_v9_50.end_time.size + 
+  nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.colour.size + 
+  nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.user_type.size + 
+  nse_nsefo_orderentry_nnf_v9_50.sequence_number.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_14.size + 
+  nse_nsefo_orderentry_nnf_v9_50.broker_status.size + 
+  nse_nsefo_orderentry_nnf_v9_50.show_index.size + 
+  nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size + 
+  nse_nsefo_orderentry_nnf_v9_50.member_type.size + 
+  nse_nsefo_orderentry_nnf_v9_50.clearing_status.size + 
+  nse_nsefo_orderentry_nnf_v9_50.broker_name.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size + 
+  nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.size + 
+  nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.size
+
+-- Display: Sign On Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sign On Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: CHAR
+  index, reserved_8 = nse_nsefo_orderentry_nnf_v9_50.reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Password: CHAR
+  index, password = nse_nsefo_orderentry_nnf_v9_50.password.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: CHAR
+  index, second_reserved_8 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- New Password: CHAR
+  index, new_password = nse_nsefo_orderentry_nnf_v9_50.new_password.dissect(buffer, index, packet, parent)
+
+  -- Trader Name: CHAR
+  index, trader_name = nse_nsefo_orderentry_nnf_v9_50.trader_name.dissect(buffer, index, packet, parent)
+
+  -- Last Password Change Date: LONG
+  index, last_password_change_date = nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.dissect(buffer, index, packet, parent)
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Branch Id: SHORT
+  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
+
+  -- Version Number: LONG
+  index, version_number = nse_nsefo_orderentry_nnf_v9_50.version_number.dissect(buffer, index, packet, parent)
+
+  -- End Time: LONG
+  index, end_time = nse_nsefo_orderentry_nnf_v9_50.end_time.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 1: CHAR
+  index, second_reserved_1 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Colour: CHAR
+  index, colour = nse_nsefo_orderentry_nnf_v9_50.colour.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 1: CHAR
+  index, third_reserved_1 = nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
+
+  -- User Type: SHORT
+  index, user_type = nse_nsefo_orderentry_nnf_v9_50.user_type.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: DOUBLE
+  index, sequence_number = nse_nsefo_orderentry_nnf_v9_50.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Reserved 14: CHAR
+  index, reserved_14 = nse_nsefo_orderentry_nnf_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+
+  -- Broker Status: CHAR
+  index, broker_status = nse_nsefo_orderentry_nnf_v9_50.broker_status.dissect(buffer, index, packet, parent)
+
+  -- Show Index: CHAR
+  index, show_index = nse_nsefo_orderentry_nnf_v9_50.show_index.dissect(buffer, index, packet, parent)
+
+  -- St Broker Eligibility Per Mkt: Struct of 6 fields
+  index, st_broker_eligibility_per_mkt = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.dissect(buffer, index, packet, parent)
+
+  -- Member Type: SHORT
+  index, member_type = nse_nsefo_orderentry_nnf_v9_50.member_type.dissect(buffer, index, packet, parent)
+
+  -- Clearing Status: CHAR
+  index, clearing_status = nse_nsefo_orderentry_nnf_v9_50.clearing_status.dissect(buffer, index, packet, parent)
+
+  -- Broker Name: CHAR
+  index, broker_name = nse_nsefo_orderentry_nnf_v9_50.broker_name.dissect(buffer, index, packet, parent)
+
+  -- Reserved 16: CHAR
+  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 16: CHAR
+  index, second_reserved_16 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 16: CHAR
+  index, third_reserved_16 = nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sign On Request Out Message
+nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sign_on_request_out_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message Payload
+nse_nsefo_orderentry_nnf_v9_50.server_message_payload = {}
+
+-- Dissect: Server Message Payload
+nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
+  -- Dissect Sign On Request Out Message
+  if transaction_code == 2301 then
+    return nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sign Off Request Out Message
+  if transaction_code == 2321 then
+    return nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect System Information Out Message
+  if transaction_code == 1601 then
+    return nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gateway Router Response Message
+  if transaction_code == 2401 then
+    return nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Update Local Database Header Message
+  if transaction_code == 7307 then
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Update Local Database Trailer Message
+  if transaction_code == 7308 then
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Update Local Database Data Message
+  if transaction_code == 7304 then
+    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Header Record Message
+  if transaction_code == 7011 then
+    return nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Message Record Message
+  if transaction_code == 7021 then
+    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trailer Record Message
+  if transaction_code == 7031 then
+    return nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2222 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2212 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2282 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2286 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2287 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Confirmation Message
+  if transaction_code == 2288 then
+    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Order Limit Update Message
+  if transaction_code == 5731 then
+    return nse_nsefo_orderentry_nnf_v9_50.user_order_limit_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Dealer Limit Update Message
+  if transaction_code == 5733 then
+    return nse_nsefo_orderentry_nnf_v9_50.dealer_limit_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spread Order Limit Update Message
+  if transaction_code == 5772 then
+    return nse_nsefo_orderentry_nnf_v9_50.spread_order_limit_update_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Control Message To Trader Message
+  if transaction_code == 5295 then
+    return nse_nsefo_orderentry_nnf_v9_50.control_message_to_trader_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Statistics Report Message
+  if transaction_code == 1833 then
+    return nse_nsefo_orderentry_nnf_v9_50.market_statistics_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Enhanced Market Statistics Report Message
+  if transaction_code == 11833 then
+    return nse_nsefo_orderentry_nnf_v9_50.enhanced_market_statistics_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Index Report Message
+  if transaction_code == 1836 then
+    return nse_nsefo_orderentry_nnf_v9_50.market_index_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Industry Index Report Message
+  if transaction_code == 1837 then
+    return nse_nsefo_orderentry_nnf_v9_50.industry_index_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sector Index Report Message
+  if transaction_code == 1838 then
+    return nse_nsefo_orderentry_nnf_v9_50.sector_index_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Spread Bhavcopy Message
+  if transaction_code == 1862 then
+    return nse_nsefo_orderentry_nnf_v9_50.spread_bhavcopy_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Global Indices Message
+  if transaction_code == 7732 then
+    return nse_nsefo_orderentry_nnf_v9_50.global_indices_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Global Contracts Message
+  if transaction_code == 7733 then
+    return nse_nsefo_orderentry_nnf_v9_50.global_contracts_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Secure Box Registration Response Out Message
+  if transaction_code == 23009 then
+    return nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_response_out_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Box Sign On Request Out Message
+  if transaction_code == 23001 then
+    return nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_out_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Contingency Broadcast Message
+  if transaction_code == 5294 then
+    return nse_nsefo_orderentry_nnf_v9_50.contingency_broadcast_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Collateral User Status Change Response Message
+  if transaction_code == 5745 then
+    return nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Trade Modify Cancel Status Change Response Message
+  if transaction_code == 5739 then
+    return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Address Unlock Confirm Message
+  if transaction_code == 5428 then
+    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_confirm_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Address Unlock Approve Message
+  if transaction_code == 5483 then
+    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_approve_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Giveup Confirmation Message
+  if transaction_code == 4506 then
+    return nse_nsefo_orderentry_nnf_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Giveup Confirmation Message
+  if transaction_code == 4507 then
+    return nse_nsefo_orderentry_nnf_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancellation Confirmation Message
+  if transaction_code == 2075 then
+    return nse_nsefo_orderentry_nnf_v9_50.order_cancellation_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+nse_nsefo_orderentry_nnf_v9_50.message_header = {}
+
+-- Size: Message Header
+nse_nsefo_orderentry_nnf_v9_50.message_header.size =
+  nse_nsefo_orderentry_nnf_v9_50.transaction_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.log_time.size + 
+  nse_nsefo_orderentry_nnf_v9_50.alpha_char.size + 
+  nse_nsefo_orderentry_nnf_v9_50.trader_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.error_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.header_timestamp.size + 
+  nse_nsefo_orderentry_nnf_v9_50.time_stamp_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.time_stamp_2.size + 
+  nse_nsefo_orderentry_nnf_v9_50.message_length.size
+
+-- Display: Message Header
+nse_nsefo_orderentry_nnf_v9_50.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nse_nsefo_orderentry_nnf_v9_50.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Transaction Code: SHORT
+  index, transaction_code = nse_nsefo_orderentry_nnf_v9_50.transaction_code.dissect(buffer, index, packet, parent)
+
+  -- Log Time: LONG
+  index, log_time = nse_nsefo_orderentry_nnf_v9_50.log_time.dissect(buffer, index, packet, parent)
+
+  -- Alpha Char: CHAR
+  index, alpha_char = nse_nsefo_orderentry_nnf_v9_50.alpha_char.dissect(buffer, index, packet, parent)
+
+  -- Trader Id: LONG
+  index, trader_id = nse_nsefo_orderentry_nnf_v9_50.trader_id.dissect(buffer, index, packet, parent)
+
+  -- Error Code: SHORT
+  index, error_code = nse_nsefo_orderentry_nnf_v9_50.error_code.dissect(buffer, index, packet, parent)
+
+  -- Header Timestamp: LONG LONG
+  index, header_timestamp = nse_nsefo_orderentry_nnf_v9_50.header_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Time Stamp 1: CHAR
+  index, time_stamp_1 = nse_nsefo_orderentry_nnf_v9_50.time_stamp_1.dissect(buffer, index, packet, parent)
+
+  -- Time Stamp 2: CHAR
+  index, time_stamp_2 = nse_nsefo_orderentry_nnf_v9_50.time_stamp_2.dissect(buffer, index, packet, parent)
+
+  -- Message Length: SHORT
+  index, message_length = nse_nsefo_orderentry_nnf_v9_50.message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nse_nsefo_orderentry_nnf_v9_50.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_header, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message
+nse_nsefo_orderentry_nnf_v9_50.server_message = {}
+
+-- Display: Server Message
+nse_nsefo_orderentry_nnf_v9_50.server_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message
+nse_nsefo_orderentry_nnf_v9_50.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nsefo_orderentry_nnf_v9_50.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Server Message Payload: Runtime Type with 32 branches
+  index = nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Server Message
+nse_nsefo_orderentry_nnf_v9_50.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
+  local index = offset + size_of_server_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.server_message, buffer(offset, 0))
+    local current = nse_nsefo_orderentry_nnf_v9_50.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    parent:set_len(size_of_server_message)
+    local display = nse_nsefo_orderentry_nnf_v9_50.server_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nse_nsefo_orderentry_nnf_v9_50.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Message
+local server_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nse_nsefo_orderentry_nnf_v9_50.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 38, 2):int()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+nse_nsefo_orderentry_nnf_v9_50.server_packet = {}
+
+-- Verify required size of Tcp packet
+nse_nsefo_orderentry_nnf_v9_50.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nse_nsefo_orderentry_nnf_v9_50.message_header.size
+end
+
+-- Dissect Server Packet
+nse_nsefo_orderentry_nnf_v9_50.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Message
+  local end_of_payload = buffer:len()
+
+  -- Server Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_message = server_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nse_nsefo_orderentry_nnf_v9_50.server_message.dissect(buffer, index, packet, parent, size_of_server_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- User Address Unlock Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message = {}
+
+-- Size: User Address Unlock Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_70.size
+
+-- Display: User Address Unlock Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Address Unlock Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 70: CHAR
+  index, reserved_70 = nse_nsefo_orderentry_nnf_v9_50.reserved_70.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Address Unlock Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_address_unlock_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Trade Modify Cancel Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message = {}
+
+-- Size: User Trade Modify Cancel Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.trd_mod_cxl_bit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_7.size
+
+-- Display: User Trade Modify Cancel Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Trade Modify Cancel Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Trd Mod Cxl Bit: CHAR
+  index, trd_mod_cxl_bit = nse_nsefo_orderentry_nnf_v9_50.trd_mod_cxl_bit.dissect(buffer, index, packet, parent)
+
+  -- Reserved 7: CHAR
+  index, reserved_7 = nse_nsefo_orderentry_nnf_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Trade Modify Cancel Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Collateral User Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message = {}
+
+-- Size: Collateral User Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.col_user_bit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_7.size
+
+-- Display: Collateral User Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Collateral User Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Col User Bit: CHAR
+  index, col_user_bit = nse_nsefo_orderentry_nnf_v9_50.col_user_bit.dissect(buffer, index, packet, parent)
+
+  -- Reserved 7: CHAR
+  index, reserved_7 = nse_nsefo_orderentry_nnf_v9_50.reserved_7.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Collateral User Status Change Request Message
+nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.collateral_user_status_change_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reset User Password Message
+nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message = {}
+
+-- Size: Reset User Password Message
+nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_14.size
+
+-- Display: Reset User Password Message
+nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reset User Password Message
+nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 14: CHAR
+  index, reserved_14 = nse_nsefo_orderentry_nnf_v9_50.reserved_14.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reset User Password Message
+nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reset_user_password_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.reset_user_password_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Normal Order Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message = {}
+
+-- Size: Normal Order Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.order_qty_limit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.order_val_limit.size
+
+-- Display: Normal Order Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Normal Order Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Order Qty Limit: DOUBLE
+  index, order_qty_limit = nse_nsefo_orderentry_nnf_v9_50.order_qty_limit.dissect(buffer, index, packet, parent)
+
+  -- Order Val Limit: DOUBLE
+  index, order_val_limit = nse_nsefo_orderentry_nnf_v9_50.order_val_limit.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Normal Order Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.normal_order_limit_update_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.normal_order_limit_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- User Limits
+nse_nsefo_orderentry_nnf_v9_50.user_limits = {}
+
+-- Size: User Limits
+nse_nsefo_orderentry_nnf_v9_50.user_limits.size =
+  nse_nsefo_orderentry_nnf_v9_50.reserved_32.size + 
+  nse_nsefo_orderentry_nnf_v9_50.user_order_buy_value_limit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.user_order_sell_value_limit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size
+
+-- Display: User Limits
+nse_nsefo_orderentry_nnf_v9_50.user_limits.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Limits
+nse_nsefo_orderentry_nnf_v9_50.user_limits.fields = function(buffer, offset, packet, parent, user_limits_index)
+  local index = offset
+
+  -- Implicit User Limits Index
+  if user_limits_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits_index, user_limits_index)
+    iteration:set_generated()
+  end
+
+  -- Reserved 32: CHAR
+  index, reserved_32 = nse_nsefo_orderentry_nnf_v9_50.reserved_32.dissect(buffer, index, packet, parent)
+
+  -- User Order Buy Value Limit: DOUBLE
+  index, user_order_buy_value_limit = nse_nsefo_orderentry_nnf_v9_50.user_order_buy_value_limit.dissect(buffer, index, packet, parent)
+
+  -- User Order Sell Value Limit: DOUBLE
+  index, user_order_sell_value_limit = nse_nsefo_orderentry_nnf_v9_50.user_order_sell_value_limit.dissect(buffer, index, packet, parent)
+
+  -- Reserved 16: CHAR
+  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: User Limits
+nse_nsefo_orderentry_nnf_v9_50.user_limits.dissect = function(buffer, offset, packet, parent, user_limits_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.user_limits.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.user_limits.fields(buffer, offset, packet, parent, user_limits_index)
+  end
+end
+
+-- User Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message = {}
+
+-- Size: User Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_26.size + 
+  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size + 
+  2 * nse_nsefo_orderentry_nnf_v9_50.user_limits.size
+
+-- Display: User Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: User Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Branch Id: SHORT
+  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 26: CHAR
+  index, reserved_26 = nse_nsefo_orderentry_nnf_v9_50.reserved_26.dissect(buffer, index, packet, parent)
+
+  -- User Id: LONG
+  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: CHAR
+  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Array Of: User Limits
+  for user_limits_index = 1, 2 do
+    index, user_limits = nse_nsefo_orderentry_nnf_v9_50.user_limits.dissect(buffer, index, packet, parent, user_limits_index)
+  end
+
+  return index
+end
+
+-- Dissect: User Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_order_value_limit_update_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.user_order_value_limit_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Branch Limits
+nse_nsefo_orderentry_nnf_v9_50.branch_limits = {}
+
+-- Size: Branch Limits
+nse_nsefo_orderentry_nnf_v9_50.branch_limits.size =
+  nse_nsefo_orderentry_nnf_v9_50.branch_buy_value_limit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.branch_sell_value_limit.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size
+
+-- Display: Branch Limits
+nse_nsefo_orderentry_nnf_v9_50.branch_limits.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Branch Limits
+nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields = function(buffer, offset, packet, parent, branch_limits_index)
+  local index = offset
+
+  -- Implicit Branch Limits Index
+  if branch_limits_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits_index, branch_limits_index)
+    iteration:set_generated()
+  end
+
+  -- Branch Buy Value Limit: DOUBLE
+  index, branch_buy_value_limit = nse_nsefo_orderentry_nnf_v9_50.branch_buy_value_limit.dissect(buffer, index, packet, parent)
+
+  -- Branch Sell Value Limit: DOUBLE
+  index, branch_sell_value_limit = nse_nsefo_orderentry_nnf_v9_50.branch_sell_value_limit.dissect(buffer, index, packet, parent)
+
+  -- Reserved 16: CHAR
+  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Branch Limits
+nse_nsefo_orderentry_nnf_v9_50.branch_limits.dissect = function(buffer, offset, packet, parent, branch_limits_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.branch_limits.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.branch_limits.fields(buffer, offset, packet, parent, branch_limits_index)
+  end
+end
+
+-- Branch Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message = {}
+
+-- Size: Branch Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_25.size + 
+  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
+  2 * nse_nsefo_orderentry_nnf_v9_50.branch_limits.size
+
+-- Display: Branch Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Branch Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 25: CHAR
+  index, reserved_25 = nse_nsefo_orderentry_nnf_v9_50.reserved_25.dissect(buffer, index, packet, parent)
+
+  -- Branch Id: SHORT
+  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
+
+  -- Array Of: Branch Limits
+  for branch_limits_index = 1, 2 do
+    index, branch_limits = nse_nsefo_orderentry_nnf_v9_50.branch_limits.dissect(buffer, index, packet, parent, branch_limits_index)
+  end
+
+  return index
+end
+
+-- Dissect: Branch Order Value Limit Update Message
+nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_order_value_limit_update_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.branch_order_value_limit_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Box Sign Off Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message = {}
+
+-- Size: Box Sign Off Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.box_id.size
+
+-- Display: Box Sign Off Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Box Sign Off Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Box Id: SHORT
+  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Box Sign Off Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.box_sign_off_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Message
+nse_nsefo_orderentry_nnf_v9_50.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnf_v9_50.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Box Sign On Request In Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message = {}
+
+-- Size: Box Sign On Request In Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.box_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_5.size + 
+  nse_nsefo_orderentry_nnf_v9_50.session_key.size
+
+-- Display: Box Sign On Request In Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Box Sign On Request In Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Box Id: SHORT
+  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
+
+  -- Broker Id: CHAR
+  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 5: CHAR
+  index, reserved_5 = nse_nsefo_orderentry_nnf_v9_50.reserved_5.dissect(buffer, index, packet, parent)
+
+  -- Session Key: CHAR
+  index, session_key = nse_nsefo_orderentry_nnf_v9_50.session_key.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Box Sign On Request In Message
+nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.box_sign_on_request_in_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Secure Box Registration Request In Message
+nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message = {}
+
+-- Size: Secure Box Registration Request In Message
+nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.box_id.size
+
+-- Display: Secure Box Registration Request In Message
+nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Secure Box Registration Request In Message
+nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Box Id: SHORT
+  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Secure Box Registration Request In Message
+nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.secure_box_registration_request_in_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Spread Order Entry Message
 nse_nsefo_orderentry_nnf_v9_50.spread_order_entry_message = {}
 
@@ -14327,318 +15880,6 @@ nse_nsefo_orderentry_nnf_v9_50.order_entry_request_message.dissect = function(bu
   end
 end
 
--- Trailer Record Message
-nse_nsefo_orderentry_nnf_v9_50.trailer_record_message = {}
-
--- Display: Trailer Record Message
-nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.display = function(packet, parent, length)
-  return "Trailer Record Message"
-end
-
-
--- Dissect: Trailer Record Message
-nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.dissect = function(buffer, offset, packet, parent)
-  local display = nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Message Download Data
-nse_nsefo_orderentry_nnf_v9_50.message_download_data = {}
-
--- Display: Message Download Data
-nse_nsefo_orderentry_nnf_v9_50.message_download_data.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Download Data
-nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields = function(buffer, offset, packet, parent, size_of_message_download_data)
-  local index = offset
-
-  -- Dependency for Download Payload
-  local end_of_payload = offset + size_of_message_download_data
-
-  -- Download Payload: 0 Byte
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, download_payload = nse_nsefo_orderentry_nnf_v9_50.download_payload.dissect(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Message Download Data
-nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect = function(buffer, offset, packet, parent, size_of_message_download_data)
-  local index = offset + size_of_message_download_data
-
-  -- Optionally add group/struct element to protocol tree
-  if show.structs then
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_download_data, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
-    parent:set_len(size_of_message_download_data)
-    local display = nse_nsefo_orderentry_nnf_v9_50.message_download_data.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
-
-    return index
-  end
-end
-
--- Inner Header
-nse_nsefo_orderentry_nnf_v9_50.inner_header = {}
-
--- Size: Inner Header
-nse_nsefo_orderentry_nnf_v9_50.inner_header.size =
-  nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_log_time.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_error_code.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.size + 
-  nse_nsefo_orderentry_nnf_v9_50.inner_message_length.size
-
--- Display: Inner Header
-nse_nsefo_orderentry_nnf_v9_50.inner_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Inner Header
-nse_nsefo_orderentry_nnf_v9_50.inner_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inner Trader Id: LONG
-  index, inner_trader_id = nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.dissect(buffer, index, packet, parent)
-
-  -- Inner Log Time: LONG
-  index, inner_log_time = nse_nsefo_orderentry_nnf_v9_50.inner_log_time.dissect(buffer, index, packet, parent)
-
-  -- Inner Alpha Char: CHAR
-  index, inner_alpha_char = nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.dissect(buffer, index, packet, parent)
-
-  -- Inner Transaction Code: SHORT
-  index, inner_transaction_code = nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.dissect(buffer, index, packet, parent)
-
-  -- Inner Error Code: SHORT
-  index, inner_error_code = nse_nsefo_orderentry_nnf_v9_50.inner_error_code.dissect(buffer, index, packet, parent)
-
-  -- Inner Timestamp: LONG LONG
-  index, inner_timestamp = nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Inner Time Stamp 1: CHAR
-  index, inner_time_stamp_1 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.dissect(buffer, index, packet, parent)
-
-  -- Inner Time Stamp 2: CHAR
-  index, inner_time_stamp_2 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.dissect(buffer, index, packet, parent)
-
-  -- Inner Message Length: SHORT
-  index, inner_message_length = nse_nsefo_orderentry_nnf_v9_50.inner_message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Inner Header
-nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_header, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.inner_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.inner_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.inner_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message = {}
-
--- Calculate size of: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
-
-  -- Parse runtime size of: Message Download Data
-  index = index + buffer(offset + index - 42, 2):int()
-
-  return index
-end
-
--- Display: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inner Header: Struct of 9 fields
-  index, inner_header = nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 2, 2):int()
-
-  -- Runtime Size Of: Message Download Data
-  local size_of_message_download_data = message_length - 80
-
-  -- Message Download Data: Struct of 1 fields
-  index, message_download_data = nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect(buffer, index, packet, parent, size_of_message_download_data)
-
-  return index
-end
-
--- Dissect: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.message_record_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message = {}
-
--- Display: Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message.display = function(packet, parent, length)
-  return "Header Record Message"
-end
-
-
--- Dissect: Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect = function(buffer, offset, packet, parent)
-  local display = nse_nsefo_orderentry_nnf_v9_50.header_record_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data = {}
-
--- Display: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields = function(buffer, offset, packet, parent, size_of_local_database_data)
-  local index = offset
-
-  -- Dependency for Data Payload
-  local end_of_payload = offset + size_of_local_database_data
-
-  -- Data Payload: 0 Byte
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, data_payload = nse_nsefo_orderentry_nnf_v9_50.data_payload.dissect(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect = function(buffer, offset, packet, parent, size_of_local_database_data)
-  local index = offset + size_of_local_database_data
-
-  -- Optionally add group/struct element to protocol tree
-  if show.structs then
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.local_database_data, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
-    parent:set_len(size_of_local_database_data)
-    local display = nse_nsefo_orderentry_nnf_v9_50.local_database_data.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
-
-    return index
-  end
-end
-
--- Update Local Database Data Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message = {}
-
--- Calculate size of: Update Local Database Data Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
-
-  -- Parse runtime size of: Local Database Data
-  index = index + buffer(offset + index - 42, 2):int()
-
-  return index
-end
-
--- Display: Update Local Database Data Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Update Local Database Data Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inner Header: Struct of 9 fields
-  index, inner_header = nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 2, 2):int()
-
-  -- Runtime Size Of: Local Database Data
-  local size_of_local_database_data = message_length - 80
-
-  -- Local Database Data: Struct of 1 fields
-  index, local_database_data = nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect(buffer, index, packet, parent, size_of_local_database_data)
-
-  return index
-end
-
--- Dissect: Update Local Database Data Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_data_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Download Request Message
 nse_nsefo_orderentry_nnf_v9_50.download_request_message = {}
 
@@ -14676,242 +15917,6 @@ nse_nsefo_orderentry_nnf_v9_50.download_request_message.dissect = function(buffe
   else
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnf_v9_50.download_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Update Local Database Trailer Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message = {}
-
--- Size: Update Local Database Trailer Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size
-
--- Display: Update Local Database Trailer Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Update Local Database Trailer Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Update Local Database Trailer Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_trailer_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Update Local Database Header Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message = {}
-
--- Size: Update Local Database Header Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size
-
--- Display: Update Local Database Header Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Update Local Database Header Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Update Local Database Header Message
-nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.update_local_database_header_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- St Pl Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status = {}
-
--- Size: St Pl Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.size =
-  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_normal.size + 
-  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_oddlot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_spot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.pl_market_status_auction.size
-
--- Display: St Pl Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: St Pl Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Pl Market Status Normal: SHORT
-  index, pl_market_status_normal = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_normal.dissect(buffer, index, packet, parent)
-
-  -- Pl Market Status Oddlot: SHORT
-  index, pl_market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_oddlot.dissect(buffer, index, packet, parent)
-
-  -- Pl Market Status Spot: SHORT
-  index, pl_market_status_spot = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_spot.dissect(buffer, index, packet, parent)
-
-  -- Pl Market Status Auction: SHORT
-  index, pl_market_status_auction = nse_nsefo_orderentry_nnf_v9_50.pl_market_status_auction.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: St Pl Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_pl_market_status, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.fields(buffer, offset, packet, parent)
-  end
-end
-
--- St Ex Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status = {}
-
--- Size: St Ex Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.size =
-  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_normal.size + 
-  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_oddlot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_spot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.ex_market_status_auction.size
-
--- Display: St Ex Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: St Ex Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Ex Market Status Normal: SHORT
-  index, ex_market_status_normal = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_normal.dissect(buffer, index, packet, parent)
-
-  -- Ex Market Status Oddlot: SHORT
-  index, ex_market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_oddlot.dissect(buffer, index, packet, parent)
-
-  -- Ex Market Status Spot: SHORT
-  index, ex_market_status_spot = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_spot.dissect(buffer, index, packet, parent)
-
-  -- Ex Market Status Auction: SHORT
-  index, ex_market_status_auction = nse_nsefo_orderentry_nnf_v9_50.ex_market_status_auction.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: St Ex Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_ex_market_status, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.fields(buffer, offset, packet, parent)
-  end
-end
-
--- St Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_market_status = {}
-
--- Size: St Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_market_status.size =
-  nse_nsefo_orderentry_nnf_v9_50.market_status_normal.size + 
-  nse_nsefo_orderentry_nnf_v9_50.market_status_oddlot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.market_status_spot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.market_status_auction.size
-
--- Display: St Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_market_status.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: St Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Market Status Normal: SHORT
-  index, market_status_normal = nse_nsefo_orderentry_nnf_v9_50.market_status_normal.dissect(buffer, index, packet, parent)
-
-  -- Market Status Oddlot: SHORT
-  index, market_status_oddlot = nse_nsefo_orderentry_nnf_v9_50.market_status_oddlot.dissect(buffer, index, packet, parent)
-
-  -- Market Status Spot: SHORT
-  index, market_status_spot = nse_nsefo_orderentry_nnf_v9_50.market_status_spot.dissect(buffer, index, packet, parent)
-
-  -- Market Status Auction: SHORT
-  index, market_status_auction = nse_nsefo_orderentry_nnf_v9_50.market_status_auction.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: St Market Status
-nse_nsefo_orderentry_nnf_v9_50.st_market_status.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_market_status, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.st_market_status.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.st_market_status.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15004,242 +16009,6 @@ nse_nsefo_orderentry_nnf_v9_50.sign_off_request_in_message.dissect = function(bu
   return offset
 end
 
--- New Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail = {}
-
--- Size: New Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.size =
-  nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.size + 
-  nse_nsefo_orderentry_nnf_v9_50.dynamic_cryptographic_iv.size + 
-  nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.size
-
--- Display: New Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: New Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Static Cryptographic Iv: CHAR
-  index, static_cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.static_cryptographic_iv.dissect(buffer, index, packet, parent)
-
-  -- Dynamic Cryptographic Iv: LONG LONG
-  index, dynamic_cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.dynamic_cryptographic_iv.dissect(buffer, index, packet, parent)
-
-  -- Cryptographic Additional Key: CHAR
-  index, cryptographic_additional_key = nse_nsefo_orderentry_nnf_v9_50.cryptographic_additional_key.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: New Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.new_encryption_tail, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Existing Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail = {}
-
--- Size: Existing Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.size =
-  nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.size
-
--- Display: Existing Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Existing Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Cryptographic Iv: CHAR
-  index, cryptographic_iv = nse_nsefo_orderentry_nnf_v9_50.cryptographic_iv.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Existing Encryption Tail
-nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.existing_encryption_tail, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Cryptographic Payload
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload = {}
-
--- Dissect: Cryptographic Payload
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dissect = function(buffer, offset, packet, parent, message_length)
-  -- Dissect Existing Encryption Tail
-  if message_length == 124 then
-    return nse_nsefo_orderentry_nnf_v9_50.existing_encryption_tail.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Encryption Tail
-  if message_length == 136 then
-    return nse_nsefo_orderentry_nnf_v9_50.new_encryption_tail.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Cryptographic Tail
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail = {}
-
--- Calculate size of: Cryptographic Tail
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.size = function(buffer, offset)
-  local index = 0
-
-  -- Calculate runtime size of Cryptographic Payload field
-  local cryptographic_payload_offset = offset + index
-  local cryptographic_payload_type = buffer(cryptographic_payload_offset - 70, 2):int()
-  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.size(buffer, cryptographic_payload_offset, cryptographic_payload_type)
-
-  return index
-end
-
--- Display: Cryptographic Tail
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Cryptographic Tail
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 70, 2):int()
-
-  -- Cryptographic Payload: Runtime Type with 2 branches
-  index = nse_nsefo_orderentry_nnf_v9_50.cryptographic_payload.dissect(buffer, index, packet, parent, message_length)
-
-  return index
-end
-
--- Dissect: Cryptographic Tail
-nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.cryptographic_tail, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Gateway Router Response Message
-nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message = {}
-
--- Calculate size of: Gateway Router Response Message
-nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.box_id.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.broker_id.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.filler.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.ip_address.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.port.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.session_key.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_key.size
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Gateway Router Response Message
-nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gateway Router Response Message
-nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Box Id: SHORT
-  index, box_id = nse_nsefo_orderentry_nnf_v9_50.box_id.dissect(buffer, index, packet, parent)
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Filler: CHAR
-  index, filler = nse_nsefo_orderentry_nnf_v9_50.filler.dissect(buffer, index, packet, parent)
-
-  -- Ip Address: CHAR
-  index, ip_address = nse_nsefo_orderentry_nnf_v9_50.ip_address.dissect(buffer, index, packet, parent)
-
-  -- Port: LONG
-  index, port = nse_nsefo_orderentry_nnf_v9_50.port.dissect(buffer, index, packet, parent)
-
-  -- Session Key: CHAR
-  index, session_key = nse_nsefo_orderentry_nnf_v9_50.session_key.dissect(buffer, index, packet, parent)
-
-  -- Cryptographic Key: CHAR
-  index, cryptographic_key = nse_nsefo_orderentry_nnf_v9_50.cryptographic_key.dissect(buffer, index, packet, parent)
-
-  -- Cryptographic Tail: Struct of 1 fields
-  index, cryptographic_tail = nse_nsefo_orderentry_nnf_v9_50.cryptographic_tail.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gateway Router Response Message
-nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.gateway_router_response_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Gateway Router Request Message
 nse_nsefo_orderentry_nnf_v9_50.gateway_router_request_message = {}
 
@@ -15288,179 +16057,6 @@ nse_nsefo_orderentry_nnf_v9_50.gateway_router_request_message.dissect = function
   end
 end
 
--- St Stock Eligible Indicators
-nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators = {}
-
--- Size: St Stock Eligible Indicators
-nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size = 2
-
--- Display: St Stock Eligible Indicators
-nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.display = function(range, value, packet, parent)
-  local flags = {}
-
-  -- Is Books Merged flag set?
-  if bit.band(value, 0x2000) ~= 0 then
-    flags[#flags + 1] = "Books Merged"
-  end
-  -- Is Minimum Fill flag set?
-  if bit.band(value, 0x4000) ~= 0 then
-    flags[#flags + 1] = "Minimum Fill"
-  end
-  -- Is Eligible Aon flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Eligible Aon"
-  end
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: St Stock Eligible Indicators
-nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.bits = function(range, value, packet, parent)
-
-  -- Reserved 113: 13 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_113, range, value)
-
-  -- Books Merged: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.books_merged, range, value)
-
-  -- Minimum Fill: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.minimum_fill, range, value)
-
-  -- Eligible Aon: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.eligible_aon, range, value)
-end
-
--- Dissect: St Stock Eligible Indicators
-nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.dissect = function(buffer, offset, packet, parent)
-  local size = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size
-  local range = buffer(offset, size)
-  local value = range:uint()
-  local display = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.display(range, value, packet, parent)
-  local element = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_stock_eligible_indicators, range, display)
-
-  if show.structs then
-    nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
--- System Information Out Message
-nse_nsefo_orderentry_nnf_v9_50.system_information_out_message = {}
-
--- Size: System Information Out Message
-nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.st_market_status.size + 
-  nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.size + 
-  nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.size + 
-  nse_nsefo_orderentry_nnf_v9_50.update_portfolio.size + 
-  nse_nsefo_orderentry_nnf_v9_50.market_index.size + 
-  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_normal.size + 
-  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_spot.size + 
-  nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_auction.size + 
-  nse_nsefo_orderentry_nnf_v9_50.competitor_period.size + 
-  nse_nsefo_orderentry_nnf_v9_50.solicitor_period.size + 
-  nse_nsefo_orderentry_nnf_v9_50.warning_percent.size + 
-  nse_nsefo_orderentry_nnf_v9_50.volume_freeze_percent.size + 
-  nse_nsefo_orderentry_nnf_v9_50.snap_quote_time.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_2.size + 
-  nse_nsefo_orderentry_nnf_v9_50.board_lot_quantity.size + 
-  nse_nsefo_orderentry_nnf_v9_50.tick_size.size + 
-  nse_nsefo_orderentry_nnf_v9_50.maximum_gtc_days.size + 
-  nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.size + 
-  nse_nsefo_orderentry_nnf_v9_50.disclosed_quantity_percent_allowed.size + 
-  nse_nsefo_orderentry_nnf_v9_50.risk_free_interest_rate.size
-
--- Display: System Information Out Message
-nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: System Information Out Message
-nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- St Market Status: Struct of 4 fields
-  index, st_market_status = nse_nsefo_orderentry_nnf_v9_50.st_market_status.dissect(buffer, index, packet, parent)
-
-  -- St Ex Market Status: Struct of 4 fields
-  index, st_ex_market_status = nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.dissect(buffer, index, packet, parent)
-
-  -- St Pl Market Status: Struct of 4 fields
-  index, st_pl_market_status = nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.dissect(buffer, index, packet, parent)
-
-  -- Update Portfolio: CHAR
-  index, update_portfolio = nse_nsefo_orderentry_nnf_v9_50.update_portfolio.dissect(buffer, index, packet, parent)
-
-  -- Market Index: LONG
-  index, market_index = nse_nsefo_orderentry_nnf_v9_50.market_index.dissect(buffer, index, packet, parent)
-
-  -- Default Settlement Period Normal: SHORT
-  index, default_settlement_period_normal = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_normal.dissect(buffer, index, packet, parent)
-
-  -- Default Settlement Period Spot: SHORT
-  index, default_settlement_period_spot = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_spot.dissect(buffer, index, packet, parent)
-
-  -- Default Settlement Period Auction: SHORT
-  index, default_settlement_period_auction = nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_auction.dissect(buffer, index, packet, parent)
-
-  -- Competitor Period: SHORT
-  index, competitor_period = nse_nsefo_orderentry_nnf_v9_50.competitor_period.dissect(buffer, index, packet, parent)
-
-  -- Solicitor Period: SHORT
-  index, solicitor_period = nse_nsefo_orderentry_nnf_v9_50.solicitor_period.dissect(buffer, index, packet, parent)
-
-  -- Warning Percent: SHORT
-  index, warning_percent = nse_nsefo_orderentry_nnf_v9_50.warning_percent.dissect(buffer, index, packet, parent)
-
-  -- Volume Freeze Percent: SHORT
-  index, volume_freeze_percent = nse_nsefo_orderentry_nnf_v9_50.volume_freeze_percent.dissect(buffer, index, packet, parent)
-
-  -- Snap Quote Time: SHORT
-  index, snap_quote_time = nse_nsefo_orderentry_nnf_v9_50.snap_quote_time.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: CHAR
-  index, reserved_2 = nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect(buffer, index, packet, parent)
-
-  -- Board Lot Quantity: LONG
-  index, board_lot_quantity = nse_nsefo_orderentry_nnf_v9_50.board_lot_quantity.dissect(buffer, index, packet, parent)
-
-  -- Tick Size: LONG
-  index, tick_size = nse_nsefo_orderentry_nnf_v9_50.tick_size.dissect(buffer, index, packet, parent)
-
-  -- Maximum Gtc Days: SHORT
-  index, maximum_gtc_days = nse_nsefo_orderentry_nnf_v9_50.maximum_gtc_days.dissect(buffer, index, packet, parent)
-
-  -- St Stock Eligible Indicators: Struct of 4 fields
-  index, st_stock_eligible_indicators = nse_nsefo_orderentry_nnf_v9_50.st_stock_eligible_indicators.dissect(buffer, index, packet, parent)
-
-  -- Disclosed Quantity Percent Allowed: SHORT
-  index, disclosed_quantity_percent_allowed = nse_nsefo_orderentry_nnf_v9_50.disclosed_quantity_percent_allowed.dissect(buffer, index, packet, parent)
-
-  -- Risk Free Interest Rate: LONG
-  index, risk_free_interest_rate = nse_nsefo_orderentry_nnf_v9_50.risk_free_interest_rate.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: System Information Out Message
-nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.system_information_out_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- System Information In Message
 nse_nsefo_orderentry_nnf_v9_50.system_information_in_message = {}
 
@@ -15498,265 +16094,6 @@ nse_nsefo_orderentry_nnf_v9_50.system_information_in_message.dissect = function(
   else
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnf_v9_50.system_information_in_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sign Off Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message = {}
-
--- Size: Sign Off Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_145.size
-
--- Display: Sign Off Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sign Off Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 145: CHAR
-  index, reserved_145 = nse_nsefo_orderentry_nnf_v9_50.reserved_145.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sign Off Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sign_off_request_out_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- St Broker Eligibility Per Mkt
-nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt = {}
-
--- Size: St Broker Eligibility Per Mkt
-nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size = 2
-
--- Display: St Broker Eligibility Per Mkt
-nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.display = function(range, value, packet, parent)
-  local flags = {}
-
-  -- Is Pre Open flag set?
-  if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Pre Open"
-  end
-  -- Is Auction Market flag set?
-  if bit.band(value, 0x1000) ~= 0 then
-    flags[#flags + 1] = "Auction Market"
-  end
-  -- Is Spot Market flag set?
-  if bit.band(value, 0x2000) ~= 0 then
-    flags[#flags + 1] = "Spot Market"
-  end
-  -- Is Oddlot Market flag set?
-  if bit.band(value, 0x4000) ~= 0 then
-    flags[#flags + 1] = "Oddlot Market"
-  end
-  -- Is Normal Market flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Normal Market"
-  end
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: St Broker Eligibility Per Mkt
-nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.bits = function(range, value, packet, parent)
-
-  -- Pre Open: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.pre_open, range, value)
-
-  -- Reserved 212: 11 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_212, range, value)
-
-  -- Auction Market: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.auction_market, range, value)
-
-  -- Spot Market: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.spot_market, range, value)
-
-  -- Oddlot Market: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.oddlot_market, range, value)
-
-  -- Normal Market: 1 Bit
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.normal_market, range, value)
-end
-
--- Dissect: St Broker Eligibility Per Mkt
-nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.dissect = function(buffer, offset, packet, parent)
-  local size = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size
-  local range = buffer(offset, size)
-  local value = range:uint()
-  local display = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.display(range, value, packet, parent)
-  local element = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.st_broker_eligibility_per_mkt, range, display)
-
-  if show.structs then
-    nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
--- Sign On Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message = {}
-
--- Size: Sign On Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.user_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_8.size + 
-  nse_nsefo_orderentry_nnf_v9_50.password.size + 
-  nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.size + 
-  nse_nsefo_orderentry_nnf_v9_50.new_password.size + 
-  nse_nsefo_orderentry_nnf_v9_50.trader_name.size + 
-  nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.size + 
-  nse_nsefo_orderentry_nnf_v9_50.broker_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.branch_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.version_number.size + 
-  nse_nsefo_orderentry_nnf_v9_50.end_time.size + 
-  nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.colour.size + 
-  nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.user_type.size + 
-  nse_nsefo_orderentry_nnf_v9_50.sequence_number.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_14.size + 
-  nse_nsefo_orderentry_nnf_v9_50.broker_status.size + 
-  nse_nsefo_orderentry_nnf_v9_50.show_index.size + 
-  nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.size + 
-  nse_nsefo_orderentry_nnf_v9_50.member_type.size + 
-  nse_nsefo_orderentry_nnf_v9_50.clearing_status.size + 
-  nse_nsefo_orderentry_nnf_v9_50.broker_name.size + 
-  nse_nsefo_orderentry_nnf_v9_50.reserved_16.size + 
-  nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.size + 
-  nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.size
-
--- Display: Sign On Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sign On Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- User Id: LONG
-  index, user_id = nse_nsefo_orderentry_nnf_v9_50.user_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 8: CHAR
-  index, reserved_8 = nse_nsefo_orderentry_nnf_v9_50.reserved_8.dissect(buffer, index, packet, parent)
-
-  -- Password: CHAR
-  index, password = nse_nsefo_orderentry_nnf_v9_50.password.dissect(buffer, index, packet, parent)
-
-  -- Second Reserved 8: CHAR
-  index, second_reserved_8 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.dissect(buffer, index, packet, parent)
-
-  -- New Password: CHAR
-  index, new_password = nse_nsefo_orderentry_nnf_v9_50.new_password.dissect(buffer, index, packet, parent)
-
-  -- Trader Name: CHAR
-  index, trader_name = nse_nsefo_orderentry_nnf_v9_50.trader_name.dissect(buffer, index, packet, parent)
-
-  -- Last Password Change Date: LONG
-  index, last_password_change_date = nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.dissect(buffer, index, packet, parent)
-
-  -- Broker Id: CHAR
-  index, broker_id = nse_nsefo_orderentry_nnf_v9_50.broker_id.dissect(buffer, index, packet, parent)
-
-  -- Reserved 1: CHAR
-  index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Branch Id: SHORT
-  index, branch_id = nse_nsefo_orderentry_nnf_v9_50.branch_id.dissect(buffer, index, packet, parent)
-
-  -- Version Number: LONG
-  index, version_number = nse_nsefo_orderentry_nnf_v9_50.version_number.dissect(buffer, index, packet, parent)
-
-  -- End Time: LONG
-  index, end_time = nse_nsefo_orderentry_nnf_v9_50.end_time.dissect(buffer, index, packet, parent)
-
-  -- Second Reserved 1: CHAR
-  index, second_reserved_1 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Colour: CHAR
-  index, colour = nse_nsefo_orderentry_nnf_v9_50.colour.dissect(buffer, index, packet, parent)
-
-  -- Third Reserved 1: CHAR
-  index, third_reserved_1 = nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.dissect(buffer, index, packet, parent)
-
-  -- User Type: SHORT
-  index, user_type = nse_nsefo_orderentry_nnf_v9_50.user_type.dissect(buffer, index, packet, parent)
-
-  -- Sequence Number: DOUBLE
-  index, sequence_number = nse_nsefo_orderentry_nnf_v9_50.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Reserved 14: CHAR
-  index, reserved_14 = nse_nsefo_orderentry_nnf_v9_50.reserved_14.dissect(buffer, index, packet, parent)
-
-  -- Broker Status: CHAR
-  index, broker_status = nse_nsefo_orderentry_nnf_v9_50.broker_status.dissect(buffer, index, packet, parent)
-
-  -- Show Index: CHAR
-  index, show_index = nse_nsefo_orderentry_nnf_v9_50.show_index.dissect(buffer, index, packet, parent)
-
-  -- St Broker Eligibility Per Mkt: Struct of 6 fields
-  index, st_broker_eligibility_per_mkt = nse_nsefo_orderentry_nnf_v9_50.st_broker_eligibility_per_mkt.dissect(buffer, index, packet, parent)
-
-  -- Member Type: SHORT
-  index, member_type = nse_nsefo_orderentry_nnf_v9_50.member_type.dissect(buffer, index, packet, parent)
-
-  -- Clearing Status: CHAR
-  index, clearing_status = nse_nsefo_orderentry_nnf_v9_50.clearing_status.dissect(buffer, index, packet, parent)
-
-  -- Broker Name: CHAR
-  index, broker_name = nse_nsefo_orderentry_nnf_v9_50.broker_name.dissect(buffer, index, packet, parent)
-
-  -- Reserved 16: CHAR
-  index, reserved_16 = nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect(buffer, index, packet, parent)
-
-  -- Second Reserved 16: CHAR
-  index, second_reserved_16 = nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.dissect(buffer, index, packet, parent)
-
-  -- Third Reserved 16: CHAR
-  index, third_reserved_16 = nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sign On Request Out Message
-nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sign_on_request_out_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15904,38 +16241,22 @@ nse_nsefo_orderentry_nnf_v9_50.sign_on_request_in_message.dissect = function(buf
   end
 end
 
--- Message Payload
-nse_nsefo_orderentry_nnf_v9_50.message_payload = {}
+-- Client Message Payload
+nse_nsefo_orderentry_nnf_v9_50.client_message_payload = {}
 
--- Dissect: Message Payload
-nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
+-- Dissect: Client Message Payload
+nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dissect = function(buffer, offset, packet, parent, transaction_code)
   -- Dissect Sign On Request In Message
   if transaction_code == 2300 then
     return nse_nsefo_orderentry_nnf_v9_50.sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign On Request Out Message
-  if transaction_code == 2301 then
-    return nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sign Off Request Out Message
-  if transaction_code == 2321 then
-    return nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect System Information In Message
   if transaction_code == 1600 then
     return nse_nsefo_orderentry_nnf_v9_50.system_information_in_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect System Information Out Message
-  if transaction_code == 1601 then
-    return nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Gateway Router Request Message
   if transaction_code == 2400 then
     return nse_nsefo_orderentry_nnf_v9_50.gateway_router_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Router Response Message
-  if transaction_code == 2401 then
-    return nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sign Off Request In Message
   if transaction_code == 2320 then
@@ -15945,33 +16266,9 @@ nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect = function(buffer, offset
   if transaction_code == 7300 then
     return nse_nsefo_orderentry_nnf_v9_50.update_local_database_in_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Update Local Database Header Message
-  if transaction_code == 7307 then
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Trailer Message
-  if transaction_code == 7308 then
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Download Request Message
   if transaction_code == 7000 then
     return nse_nsefo_orderentry_nnf_v9_50.download_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Update Local Database Data Message
-  if transaction_code == 7304 then
-    return nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Header Record Message
-  if transaction_code == 7011 then
-    return nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Message Record Message
-  if transaction_code == 7021 then
-    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trailer Record Message
-  if transaction_code == 7031 then
-    return nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Request Message
   if transaction_code == 2000 then
@@ -16137,93 +16434,13 @@ nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect = function(buffer, offset
   if transaction_code == 20416 then
     return nse_nsefo_orderentry_nnf_v9_50.spread_order_entry_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2222 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2212 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2282 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2286 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2287 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Confirmation Message
-  if transaction_code == 2288 then
-    return nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Order Limit Update Message
-  if transaction_code == 5731 then
-    return nse_nsefo_orderentry_nnf_v9_50.user_order_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Dealer Limit Update Message
-  if transaction_code == 5733 then
-    return nse_nsefo_orderentry_nnf_v9_50.dealer_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Order Limit Update Message
-  if transaction_code == 5772 then
-    return nse_nsefo_orderentry_nnf_v9_50.spread_order_limit_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Control Message To Trader Message
-  if transaction_code == 5295 then
-    return nse_nsefo_orderentry_nnf_v9_50.control_message_to_trader_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Statistics Report Message
-  if transaction_code == 1833 then
-    return nse_nsefo_orderentry_nnf_v9_50.market_statistics_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Enhanced Market Statistics Report Message
-  if transaction_code == 11833 then
-    return nse_nsefo_orderentry_nnf_v9_50.enhanced_market_statistics_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Index Report Message
-  if transaction_code == 1836 then
-    return nse_nsefo_orderentry_nnf_v9_50.market_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Industry Index Report Message
-  if transaction_code == 1837 then
-    return nse_nsefo_orderentry_nnf_v9_50.industry_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sector Index Report Message
-  if transaction_code == 1838 then
-    return nse_nsefo_orderentry_nnf_v9_50.sector_index_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Spread Bhavcopy Message
-  if transaction_code == 1862 then
-    return nse_nsefo_orderentry_nnf_v9_50.spread_bhavcopy_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Indices Message
-  if transaction_code == 7732 then
-    return nse_nsefo_orderentry_nnf_v9_50.global_indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Global Contracts Message
-  if transaction_code == 7733 then
-    return nse_nsefo_orderentry_nnf_v9_50.global_contracts_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Secure Box Registration Request In Message
   if transaction_code == 23008 then
     return nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_request_in_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Secure Box Registration Response Out Message
-  if transaction_code == 23009 then
-    return nse_nsefo_orderentry_nnf_v9_50.secure_box_registration_response_out_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Box Sign On Request In Message
   if transaction_code == 23000 then
     return nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Box Sign On Request Out Message
-  if transaction_code == 23001 then
-    return nse_nsefo_orderentry_nnf_v9_50.box_sign_on_request_out_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
   if transaction_code == 23506 then
@@ -16232,10 +16449,6 @@ nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect = function(buffer, offset
   -- Dissect Box Sign Off Message
   if transaction_code == 20322 then
     return nse_nsefo_orderentry_nnf_v9_50.box_sign_off_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Contingency Broadcast Message
-  if transaction_code == 5294 then
-    return nse_nsefo_orderentry_nnf_v9_50.contingency_broadcast_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Branch Order Value Limit Update Message
   if transaction_code == 5716 then
@@ -16257,128 +16470,28 @@ nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect = function(buffer, offset
   if transaction_code == 5744 then
     return nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Collateral User Status Change Response Message
-  if transaction_code == 5745 then
-    return nse_nsefo_orderentry_nnf_v9_50.collateral_user_status_change_response_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect User Trade Modify Cancel Status Change Request Message
   if transaction_code == 5738 then
     return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Trade Modify Cancel Status Change Response Message
-  if transaction_code == 5739 then
-    return nse_nsefo_orderentry_nnf_v9_50.user_trade_modify_cancel_status_change_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect User Address Unlock Request Message
   if transaction_code == 5427 then
     return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect User Address Unlock Confirm Message
-  if transaction_code == 5428 then
-    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_confirm_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect User Address Unlock Approve Message
-  if transaction_code == 5483 then
-    return nse_nsefo_orderentry_nnf_v9_50.user_address_unlock_approve_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Confirmation Message
-  if transaction_code == 4506 then
-    return nse_nsefo_orderentry_nnf_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Giveup Confirmation Message
-  if transaction_code == 4507 then
-    return nse_nsefo_orderentry_nnf_v9_50.giveup_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancellation Confirmation Message
-  if transaction_code == 2075 then
-    return nse_nsefo_orderentry_nnf_v9_50.order_cancellation_confirmation_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Message Header
-nse_nsefo_orderentry_nnf_v9_50.message_header = {}
+-- Client Message
+nse_nsefo_orderentry_nnf_v9_50.client_message = {}
 
--- Size: Message Header
-nse_nsefo_orderentry_nnf_v9_50.message_header.size =
-  nse_nsefo_orderentry_nnf_v9_50.transaction_code.size + 
-  nse_nsefo_orderentry_nnf_v9_50.log_time.size + 
-  nse_nsefo_orderentry_nnf_v9_50.alpha_char.size + 
-  nse_nsefo_orderentry_nnf_v9_50.trader_id.size + 
-  nse_nsefo_orderentry_nnf_v9_50.error_code.size + 
-  nse_nsefo_orderentry_nnf_v9_50.header_timestamp.size + 
-  nse_nsefo_orderentry_nnf_v9_50.time_stamp_1.size + 
-  nse_nsefo_orderentry_nnf_v9_50.time_stamp_2.size + 
-  nse_nsefo_orderentry_nnf_v9_50.message_length.size
-
--- Display: Message Header
-nse_nsefo_orderentry_nnf_v9_50.message_header.display = function(packet, parent, length)
+-- Display: Client Message
+nse_nsefo_orderentry_nnf_v9_50.client_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-nse_nsefo_orderentry_nnf_v9_50.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Transaction Code: SHORT
-  index, transaction_code = nse_nsefo_orderentry_nnf_v9_50.transaction_code.dissect(buffer, index, packet, parent)
-
-  -- Log Time: LONG
-  index, log_time = nse_nsefo_orderentry_nnf_v9_50.log_time.dissect(buffer, index, packet, parent)
-
-  -- Alpha Char: CHAR
-  index, alpha_char = nse_nsefo_orderentry_nnf_v9_50.alpha_char.dissect(buffer, index, packet, parent)
-
-  -- Trader Id: LONG
-  index, trader_id = nse_nsefo_orderentry_nnf_v9_50.trader_id.dissect(buffer, index, packet, parent)
-
-  -- Error Code: SHORT
-  index, error_code = nse_nsefo_orderentry_nnf_v9_50.error_code.dissect(buffer, index, packet, parent)
-
-  -- Header Timestamp: LONG LONG
-  index, header_timestamp = nse_nsefo_orderentry_nnf_v9_50.header_timestamp.dissect(buffer, index, packet, parent)
-
-  -- Time Stamp 1: CHAR
-  index, time_stamp_1 = nse_nsefo_orderentry_nnf_v9_50.time_stamp_1.dissect(buffer, index, packet, parent)
-
-  -- Time Stamp 2: CHAR
-  index, time_stamp_2 = nse_nsefo_orderentry_nnf_v9_50.time_stamp_2.dissect(buffer, index, packet, parent)
-
-  -- Message Length: SHORT
-  index, message_length = nse_nsefo_orderentry_nnf_v9_50.message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-nse_nsefo_orderentry_nnf_v9_50.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_header, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-nse_nsefo_orderentry_nnf_v9_50.message = {}
-
--- Display: Message
-nse_nsefo_orderentry_nnf_v9_50.message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message
-nse_nsefo_orderentry_nnf_v9_50.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Client Message
+nse_nsefo_orderentry_nnf_v9_50.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset
 
   -- Message Header: Struct of 9 fields
@@ -16387,35 +16500,35 @@ nse_nsefo_orderentry_nnf_v9_50.message.fields = function(buffer, offset, packet,
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Message Payload: Runtime Type with 58 branches
-  index = nse_nsefo_orderentry_nnf_v9_50.message_payload.dissect(buffer, index, packet, parent, transaction_code)
+  -- Client Message Payload: Runtime Type with 26 branches
+  index = nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
 end
 
--- Dissect: Message
-nse_nsefo_orderentry_nnf_v9_50.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Client Message
+nse_nsefo_orderentry_nnf_v9_50.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
+  local index = offset + size_of_client_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
-    parent:set_len(size_of_message)
-    local display = nse_nsefo_orderentry_nnf_v9_50.message.display(buffer, packet, parent)
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.client_message, buffer(offset, 0))
+    local current = nse_nsefo_orderentry_nnf_v9_50.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    parent:set_len(size_of_client_message)
+    local display = nse_nsefo_orderentry_nnf_v9_50.client_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
+    nse_nsefo_orderentry_nnf_v9_50.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Message
-local message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Message
+local client_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
@@ -16435,29 +16548,29 @@ local message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-nse_nsefo_orderentry_nnf_v9_50.packet = {}
+-- Client Packet
+nse_nsefo_orderentry_nnf_v9_50.client_packet = {}
 
 -- Verify required size of Tcp packet
-nse_nsefo_orderentry_nnf_v9_50.packet.requiredsize = function(buffer)
+nse_nsefo_orderentry_nnf_v9_50.client_packet.requiredsize = function(buffer)
   return buffer:len() >= nse_nsefo_orderentry_nnf_v9_50.message_header.size
 end
 
--- Dissect Packet
-nse_nsefo_orderentry_nnf_v9_50.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+nse_nsefo_orderentry_nnf_v9_50.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Message
+  -- Dependency for Client Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Client Message: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_message = client_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nse_nsefo_orderentry_nnf_v9_50.message.dissect(buffer, index, packet, parent, size_of_message)
+      index = nse_nsefo_orderentry_nnf_v9_50.client_message.dissect(buffer, index, packet, parent, size_of_client_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -16487,7 +16600,7 @@ function omi_nse_nsefo_orderentry_nnf_v9_50.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50, buffer(), omi_nse_nsefo_orderentry_nnf_v9_50.description, "("..buffer:len().." Bytes)")
-  return nse_nsefo_orderentry_nnf_v9_50.packet.dissect(buffer, packet, protocol)
+  return nse_nsefo_orderentry_nnf_v9_50.client_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -16498,7 +16611,7 @@ end
 -- Dissector Heuristic for Nse NseFo OrderEntry Nnf 9.50 (Tcp)
 local function omi_nse_nsefo_orderentry_nnf_v9_50_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nse_nsefo_orderentry_nnf_v9_50.packet.requiredsize(buffer) then return false end
+  if not nse_nsefo_orderentry_nnf_v9_50.client_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nse_nsefo_orderentry_nnf_v9_50
@@ -16507,7 +16620,19 @@ local function omi_nse_nsefo_orderentry_nnf_v9_50_tcp_heuristic(buffer, packet, 
   return true
 end
 
--- Register Heuristic for Nse NseFo OrderEntry Nnf 9.50
+-- Dissector Heuristic for Nse NseFo OrderEntry Nnf 9.50 (Tcp)
+local function omi_nse_nsefo_orderentry_nnf_v9_50_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nse_nsefo_orderentry_nnf_v9_50.server_packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nse_nsefo_orderentry_nnf_v9_50
+  omi_nse_nsefo_orderentry_nnf_v9_50.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristics for Nse NseFo OrderEntry Nnf 9.50
 omi_nse_nsefo_orderentry_nnf_v9_50:register_heuristic("tcp", omi_nse_nsefo_orderentry_nnf_v9_50_tcp_heuristic)
 
 -- Register Nse NseFo OrderEntry Nnf 9.50 for Decode As
