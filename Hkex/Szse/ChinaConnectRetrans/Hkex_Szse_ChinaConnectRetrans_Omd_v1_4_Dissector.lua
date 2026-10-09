@@ -2274,13 +2274,10 @@ function omi_hkex_szse_chinaconnectretrans_omd_v1_4.dissector(buffer, packet, pa
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_hkex_szse_chinaconnectretrans_omd_v1_4, buffer(offset), omi_hkex_szse_chinaconnectretrans_omd_v1_4.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(hkex_szse_chinaconnectretrans_omd_v1_4.packet.dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = hkex_szse_chinaconnectretrans_omd_v1_4.packet.dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)

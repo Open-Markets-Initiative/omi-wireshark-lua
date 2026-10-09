@@ -10936,7 +10936,10 @@ function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.dissector(buffer,
   packet.cols.protocol = omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.name
 
   local role = nyse_arcaoptions_binarygateway_pillarstream_v3_25.role(packet)
-  local dissect = role == "initiator" and nyse_arcaoptions_binarygateway_pillarstream_v3_25.client_pillar_message.dissect or nyse_arcaoptions_binarygateway_pillarstream_v3_25.server_pillar_message.dissect
+  local dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_25.server_pillar_message.dissect
+  if role == "initiator" then
+    dissect = nyse_arcaoptions_binarygateway_pillarstream_v3_25.client_pillar_message.dissect
+  end
 
   local length = buffer:len()
   local index = 0

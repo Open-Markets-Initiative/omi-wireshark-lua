@@ -961,13 +961,10 @@ function omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.dissector(buffer, packe
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14, buffer(offset), omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)

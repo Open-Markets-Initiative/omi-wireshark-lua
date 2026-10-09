@@ -10899,7 +10899,10 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.dissector(buffer,
   packet.cols.protocol = omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.name
 
   local role = nyse_amexoptions_binarygateway_pillarstream_v3_27.role(packet)
-  local dissect = role == "initiator" and nyse_amexoptions_binarygateway_pillarstream_v3_27.client_pillar_message.dissect or nyse_amexoptions_binarygateway_pillarstream_v3_27.server_pillar_message.dissect
+  local dissect = nyse_amexoptions_binarygateway_pillarstream_v3_27.server_pillar_message.dissect
+  if role == "initiator" then
+    dissect = nyse_amexoptions_binarygateway_pillarstream_v3_27.client_pillar_message.dissect
+  end
 
   local length = buffer:len()
   local index = 0

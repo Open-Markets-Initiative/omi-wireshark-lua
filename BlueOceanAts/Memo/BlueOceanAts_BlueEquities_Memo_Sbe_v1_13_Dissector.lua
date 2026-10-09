@@ -19,6 +19,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length = ProtoField.ne
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_short = ProtoField.new("Block Length Short", "blueoceanats.blueequities.memo.sbe.v1.13.blocklengthshort", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "blueoceanats.blueequities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.clientsbemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "blueoceanats.blueequities.memo.sbe.v1.13.clordid", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "blueoceanats.blueequities.memo.sbe.v1.13.count", ftypes.UINT32)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "blueoceanats.blueequities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
@@ -48,7 +49,10 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.leaves_qty = ProtoField.new(
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.link_id_optional = ProtoField.new("Link Id Optional", "blueoceanats.blueequities.memo.sbe.v1.13.linkidoptional", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.locate_broker_optional = ProtoField.new("Locate Broker Optional", "blueoceanats.blueequities.memo.sbe.v1.13.locatebrokeroptional", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.locate_reqd = ProtoField.new("Locate Reqd", "blueoceanats.blueequities.memo.sbe.v1.13.locatereqd", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_reject_code = ProtoField.new("Login Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectcode", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.lower_than_price = ProtoField.new("Lower Than Price", "blueoceanats.blueequities.memo.sbe.v1.13.lowerthanprice", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "blueoceanats.blueequities.memo.sbe.v1.13.masscancelrejectreason", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "blueoceanats.blueequities.memo.sbe.v1.13.maxsequencenumber", ftypes.UINT64)
@@ -78,7 +82,12 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.peg_price_type = ProtoField.
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.pending_message_count = ProtoField.new("Pending Message Count", "blueoceanats.blueequities.memo.sbe.v1.13.pendingmessagecount", ftypes.UINT32)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.price = ProtoField.new("Price", "blueoceanats.blueequities.memo.sbe.v1.13.price", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "blueoceanats.blueequities.memo.sbe.v1.13.repeatinggroupdimensions", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectcode", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "blueoceanats.blueequities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "blueoceanats.blueequities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "blueoceanats.blueequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
@@ -88,11 +97,18 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "blueoceanats.blueequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.13.sendingtime", ftypes.UINT64)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.serversbemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "blueoceanats.blueequities.memo.sbe.v1.13.sessionid", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.side = ProtoField.new("Side", "blueoceanats.blueequities.memo.sbe.v1.13.side", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.side_optional = ProtoField.new("Side Optional", "blueoceanats.blueequities.memo.sbe.v1.13.sideoptional", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "blueoceanats.blueequities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stp_group_id = ProtoField.new("Stp Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.stpgroupid", ftypes.UINT16)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectcode", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "blueoceanats.blueequities.memo.sbe.v1.13.supportedrequestmode", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.symbol = ProtoField.new("Symbol", "blueoceanats.blueequities.memo.sbe.v1.13.symbol", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "blueoceanats.blueequities.memo.sbe.v1.13.symbolsfx", ftypes.STRING)
@@ -104,13 +120,14 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.total_sequence_count = Proto
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "blueoceanats.blueequities.memo.sbe.v1.13.transacttime", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "blueoceanats.blueequities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "blueoceanats.blueequities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Framing
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.client_packet = ProtoField.new("Client Packet", "blueoceanats.blueequities.memo.sbe.v1.13.clientpacket", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.blueequities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.server_packet = ProtoField.new("Server Packet", "blueoceanats.blueequities.memo.sbe.v1.13.serverpacket", ftypes.STRING)
 
 -- BlueOceanAts BlueEquities Memo 1.13 Application Messages
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "blueoceanats.blueequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
@@ -133,25 +150,20 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_cancel_replace_request
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.ordercancelrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "blueoceanats.blueequities.memo.sbe.v1.13.pendingmasscancelmessage", ftypes.STRING)
 
--- BlueOceanAts BlueEquities Memo 1.13 Session Messages
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "blueoceanats.blueequities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
-
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Generated Fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- BlueOceanAts BlueEquities Memo Sbe 1.13 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -160,18 +172,19 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group_index = ProtoF
 local show = {}
 
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Element Dissection Options
-show.headers = true
 show.structs = true
+show.headers = true
 show.application_messages = true
-show.session_messages = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register BlueOceanAts BlueEquities Memo Sbe 1.13 Show Options
-omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -187,9 +200,6 @@ function omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs_changed()
   end
   if show.repeating_groups ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups then
     show.repeating_groups = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups
-  end
-  if show.session_messages ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages then
-    show.session_messages = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages
   end
   if show.structs ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs then
     show.structs = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs
@@ -1609,6 +1619,9 @@ blueoceanats_blueequities_memo_sbe_v1_13.message_type.size = 1
 
 -- Display: Message Type
 blueoceanats_blueequities_memo_sbe_v1_13.message_type.display = function(value)
+  if value == 0 then
+    return "Message Type: Heartbeat (0)"
+  end
   if value == 100 then
     return "Message Type: Login Request (100)"
   end
@@ -5409,6 +5422,713 @@ blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_new_message.di
   end
 end
 
+-- Server Payload
+blueoceanats_blueequities_memo_sbe_v1_13.server_payload = {}
+
+-- Dissect: Server Payload
+blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Execution Report Pending New Message
+  if template_id == 5 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_new_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report New Message
+  if template_id == 6 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_new_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Rejected Message
+  if template_id == 7 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Message
+  if template_id == 8 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Cancel Message
+  if template_id == 9 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Pending Mass Cancel Message
+  if template_id == 10 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.pending_mass_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Canceled Message
+  if template_id == 11 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_canceled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Done Message
+  if template_id == 12 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_done_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Pending Replace Message
+  if template_id == 13 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_replace_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Replaced Message
+  if template_id == 14 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_replaced_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Correction Message
+  if template_id == 15 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Trade Break Message
+  if template_id == 16 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_break_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Restatement Message
+  if template_id == 17 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_restatement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Reject Message
+  if template_id == 18 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Reject Message
+  if template_id == 20 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sbe Header
+blueoceanats_blueequities_memo_sbe_v1_13.sbe_header = {}
+
+-- Size: Sbe Header
+blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.block_length.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.template_id.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.schema_id.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.version.size
+
+-- Display: Sbe Header
+blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sbe Header
+blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  index, block_length = blueoceanats_blueequities_memo_sbe_v1_13.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 19 values
+  index, template_id = blueoceanats_blueequities_memo_sbe_v1_13.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  index, schema_id = blueoceanats_blueequities_memo_sbe_v1_13.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  index, version = blueoceanats_blueequities_memo_sbe_v1_13.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sbe Header
+blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message = {}
+
+-- Calculate size of: Server Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.size
+
+  -- Calculate runtime size of Server Payload field
+  local server_payload_offset = offset + index
+  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.server_payload.size(buffer, server_payload_offset, server_payload_type)
+
+  return index
+end
+
+-- Display: Server Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 4, 1):uint()
+
+  -- Server Payload: Runtime Type with 15 branches
+  index = blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.server_sbe_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message = {}
+
+-- Calculate size of: Sequenced Message
+blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Sequenced Message
+blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message
+blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Sbe Message: Struct of 2 fields
+  index, server_sbe_message = blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Message
+blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message = {}
+
+-- Size: Stream Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.total_sequence_count.size
+
+-- Display: Stream Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
+  index, total_sequence_count = blueoceanats_blueequities_memo_sbe_v1_13.total_sequence_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message = {}
+
+-- Size: Stream Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.stream_reject_code.size
+
+-- Display: Stream Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
+  index, stream_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.stream_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message = {}
+
+-- Size: Stream Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.max_sequence_number.size
+
+-- Display: Stream Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, max_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.max_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message = {}
+
+-- Size: Replay Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.message_count.size
+
+-- Display: Replay Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Count: 8 Byte Unsigned Fixed Width Integer
+  index, message_count = blueoceanats_blueequities_memo_sbe_v1_13.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Complete Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message = {}
+
+-- Size: Replay Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.replay_reject_code.size
+
+-- Display: Replay Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, replay_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.replay_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message = {}
+
+-- Size: Replay Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.pending_message_count.size
+
+-- Display: Replay Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
+  index, pending_message_count = blueoceanats_blueequities_memo_sbe_v1_13.pending_message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Begin Message
+blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Start Of Session Message
+blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message = {}
+
+-- Size: Start Of Session Message
+blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.session_id.size
+
+-- Display: Start Of Session Message
+blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Start Of Session Message
+blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 8 Byte Unsigned Fixed Width Integer
+  index, session_id = blueoceanats_blueequities_memo_sbe_v1_13.session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Session Message
+blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message = {}
+
+-- Size: Login Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.login_reject_code.size
+
+-- Display: Login Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, login_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.login_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message = {}
+
+-- Size: Login Accepted Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.supported_request_mode.size
+
+-- Display: Login Accepted Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
+  index, supported_request_mode = blueoceanats_blueequities_memo_sbe_v1_13.supported_request_mode.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Message
+blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Data
+blueoceanats_blueequities_memo_sbe_v1_13.server_data = {}
+
+-- Dissect: Server Data
+blueoceanats_blueequities_memo_sbe_v1_13.server_data.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Accepted Message
+  if message_type == 1 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Message
+  if message_type == 2 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session Message
+  if message_type == 3 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Begin Message
+  if message_type == 5 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Rejected Message
+  if message_type == 6 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 7 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Begin Message
+  if message_type == 8 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Rejected Message
+  if message_type == 9 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Complete Message
+  if message_type == 10 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message
+  if message_type == 11 then
+    return blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Common Header
+blueoceanats_blueequities_memo_sbe_v1_13.common_header = {}
+
+-- Size: Common Header
+blueoceanats_blueequities_memo_sbe_v1_13.common_header.size =
+  blueoceanats_blueequities_memo_sbe_v1_13.message_type.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.message_length.size
+
+-- Display: Common Header
+blueoceanats_blueequities_memo_sbe_v1_13.common_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Common Header
+blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  index, message_type = blueoceanats_blueequities_memo_sbe_v1_13.message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = blueoceanats_blueequities_memo_sbe_v1_13.message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Common Header
+blueoceanats_blueequities_memo_sbe_v1_13.common_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.common_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+blueoceanats_blueequities_memo_sbe_v1_13.server_packet = {}
+
+-- Verify required size of Tcp packet
+blueoceanats_blueequities_memo_sbe_v1_13.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= blueoceanats_blueequities_memo_sbe_v1_13.common_header.size
+end
+
+-- Dissect Server Packet
+blueoceanats_blueequities_memo_sbe_v1_13.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Common Header: Struct of 2 fields
+  index, common_header = blueoceanats_blueequities_memo_sbe_v1_13.common_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 3, 1):uint()
+
+  -- Server Data: Runtime Type with 10 branches
+  index = blueoceanats_blueequities_memo_sbe_v1_13.server_data.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
 -- Mass Cancel Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_request_message = {}
 
@@ -5798,11 +6518,11 @@ blueoceanats_blueequities_memo_sbe_v1_13.new_order_single_message.dissect = func
   end
 end
 
--- Payload
-blueoceanats_blueequities_memo_sbe_v1_13.payload = {}
+-- Client Payload
+blueoceanats_blueequities_memo_sbe_v1_13.client_payload = {}
 
--- Dissect: Payload
-blueoceanats_blueequities_memo_sbe_v1_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
   if template_id == 1 then
     return blueoceanats_blueequities_memo_sbe_v1_13.new_order_single_message.dissect(buffer, offset, packet, parent)
@@ -5819,132 +6539,34 @@ blueoceanats_blueequities_memo_sbe_v1_13.payload.dissect = function(buffer, offs
   if template_id == 4 then
     return blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Execution Report Pending New Message
-  if template_id == 5 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report New Message
-  if template_id == 6 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_new_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Rejected Message
-  if template_id == 7 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Message
-  if template_id == 8 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Cancel Message
-  if template_id == 9 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Pending Mass Cancel Message
-  if template_id == 10 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.pending_mass_cancel_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Canceled Message
-  if template_id == 11 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Done Message
-  if template_id == 12 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Pending Replace Message
-  if template_id == 13 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_pending_replace_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Replaced Message
-  if template_id == 14 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_replaced_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Correction Message
-  if template_id == 15 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Trade Break Message
-  if template_id == 16 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_trade_break_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Restatement Message
-  if template_id == 17 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.execution_report_restatement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Reject Message
-  if template_id == 18 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.order_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Reject Message
-  if template_id == 20 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.mass_cancel_reject_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Sbe Header
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_header = {}
+-- Client Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message = {}
 
--- Size: Sbe Header
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.block_length.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.template_id.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.schema_id.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.version.size
+-- Calculate size of: Client Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.size = function(buffer, offset)
+  local index = 0
 
--- Display: Sbe Header
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.display = function(packet, parent, length)
-  return ""
-end
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.size
 
--- Dissect Fields: Sbe Header
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = blueoceanats_blueequities_memo_sbe_v1_13.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 19 values
-  index, template_id = blueoceanats_blueequities_memo_sbe_v1_13.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = blueoceanats_blueequities_memo_sbe_v1_13.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = blueoceanats_blueequities_memo_sbe_v1_13.version.dissect(buffer, index, packet, parent)
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
 end
 
--- Dissect: Sbe Header
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sbe Message
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_message = {}
-
--- Display: Sbe Message
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.display = function(packet, parent, length)
+-- Display: Client Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sbe Message
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
+-- Dissect Fields: Client Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -5953,450 +6575,27 @@ blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.fields = function(buffer, o
   -- Dependency element: Template Id
   local template_id = buffer(index - 4, 1):uint()
 
-  -- Payload: Runtime Type with 19 branches
-  index = blueoceanats_blueequities_memo_sbe_v1_13.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 4 branches
+  index = blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
-  local index = offset + size_of_sbe_message
-
-  -- Optionally add group/struct element to protocol tree
+-- Dissect: Client Sbe Message
+blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_message, buffer(offset, 0))
-    local current = blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
-    parent:set_len(size_of_sbe_message)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
-
-    return index
-  end
-end
-
--- Sequenced Message
-blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message = {}
-
--- Calculate size of: Sequenced Message
-blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.size = function(buffer, offset)
-  local index = 0
-
-  -- Parse runtime size of: Sbe Message
-  index = index + buffer(offset + index - 0, 2):uint()
-
-  return index
-end
-
--- Display: Sequenced Message
-blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequenced Message
-blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Block Length
-  local block_length = buffer(index, 2):uint()
-
-  -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = block_length + 6
-
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
-
-  return index
-end
-
--- Dissect: Sequenced Message
-blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.client_sbe_message, buffer(offset, 0))
+    local index = blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.display(packet, parent, length)
+    local display = blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message = {}
-
--- Size: Stream Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.total_sequence_count.size
-
--- Display: Stream Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
-  index, total_sequence_count = blueoceanats_blueequities_memo_sbe_v1_13.total_sequence_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message = {}
-
--- Size: Stream Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.stream_reject_code.size
-
--- Display: Stream Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
-  index, stream_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.stream_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message = {}
-
--- Size: Stream Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.max_sequence_number.size
-
--- Display: Stream Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, max_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.max_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message = {}
-
--- Size: Replay Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.message_count.size
-
--- Display: Replay Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Count: 8 Byte Unsigned Fixed Width Integer
-  index, message_count = blueoceanats_blueequities_memo_sbe_v1_13.message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Complete Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message = {}
-
--- Size: Replay Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.replay_reject_code.size
-
--- Display: Replay Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, replay_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.replay_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message = {}
-
--- Size: Replay Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.pending_message_count.size
-
--- Display: Replay Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
-  index, pending_message_count = blueoceanats_blueequities_memo_sbe_v1_13.pending_message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Begin Message
-blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Session Message
-blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message = {}
-
--- Size: Start Of Session Message
-blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.session_id.size
-
--- Display: Start Of Session Message
-blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Session Message
-blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 8 Byte Unsigned Fixed Width Integer
-  index, session_id = blueoceanats_blueequities_memo_sbe_v1_13.session_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Session Message
-blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message = {}
-
--- Size: Login Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.login_reject_code.size
-
--- Display: Login Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, login_reject_code = blueoceanats_blueequities_memo_sbe_v1_13.login_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Rejected Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Accepted Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message = {}
-
--- Size: Login Accepted Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.supported_request_mode.size
-
--- Display: Login Accepted Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Accepted Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
-  index, supported_request_mode = blueoceanats_blueequities_memo_sbe_v1_13.supported_request_mode.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Accepted Message
-blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
+    return blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6407,8 +6606,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message = {}
 blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
-  -- Parse runtime size of: Sbe Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  index = index + blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.size(buffer, offset + index)
 
   return index
 end
@@ -6422,21 +6620,15 @@ end
 blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency element: Block Length
-  local block_length = buffer(index, 2):uint()
-
-  -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = block_length + 6
-
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = blueoceanats_blueequities_memo_sbe_v1_13.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
+  -- Client Sbe Message: Struct of 2 fields
+  index, client_sbe_message = blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unsequenced Message
 blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -6480,7 +6672,7 @@ end
 
 -- Dissect: Stream Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_request_message.fields(buffer, offset, packet, parent)
@@ -6520,7 +6712,7 @@ end
 
 -- Dissect: Replay All Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -6568,7 +6760,7 @@ end
 
 -- Dissect: Replay Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_request_message.fields(buffer, offset, packet, parent)
@@ -6612,7 +6804,7 @@ end
 
 -- Dissect: Login Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
+  if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.fields(buffer, offset, packet, parent)
@@ -6628,11 +6820,11 @@ blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.dissect = functio
   end
 end
 
--- Data
-blueoceanats_blueequities_memo_sbe_v1_13.data = {}
+-- Client Data
+blueoceanats_blueequities_memo_sbe_v1_13.client_data = {}
 
--- Dissect: Data
-blueoceanats_blueequities_memo_sbe_v1_13.data.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Client Data
+blueoceanats_blueequities_memo_sbe_v1_13.client_data.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 100 then
     return blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.dissect(buffer, offset, packet, parent)
@@ -6653,104 +6845,20 @@ blueoceanats_blueequities_memo_sbe_v1_13.data.dissect = function(buffer, offset,
   if message_type == 104 then
     return blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Common Header
-blueoceanats_blueequities_memo_sbe_v1_13.common_header = {}
-
--- Size: Common Header
-blueoceanats_blueequities_memo_sbe_v1_13.common_header.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.message_type.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.message_length.size
-
--- Display: Common Header
-blueoceanats_blueequities_memo_sbe_v1_13.common_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Common Header
-blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, message_type = blueoceanats_blueequities_memo_sbe_v1_13.message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = blueoceanats_blueequities_memo_sbe_v1_13.message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Common Header
-blueoceanats_blueequities_memo_sbe_v1_13.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
-    local index = blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = blueoceanats_blueequities_memo_sbe_v1_13.common_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return blueoceanats_blueequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Packet
-blueoceanats_blueequities_memo_sbe_v1_13.packet = {}
+-- Client Packet
+blueoceanats_blueequities_memo_sbe_v1_13.client_packet = {}
 
 -- Verify required size of Tcp packet
-blueoceanats_blueequities_memo_sbe_v1_13.packet.requiredsize = function(buffer)
+blueoceanats_blueequities_memo_sbe_v1_13.client_packet.requiredsize = function(buffer)
   return buffer:len() >= blueoceanats_blueequities_memo_sbe_v1_13.common_header.size
 end
 
--- Dissect Packet
-blueoceanats_blueequities_memo_sbe_v1_13.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+blueoceanats_blueequities_memo_sbe_v1_13.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Common Header: Struct of 2 fields
@@ -6759,8 +6867,8 @@ blueoceanats_blueequities_memo_sbe_v1_13.packet.dissect = function(buffer, packe
   -- Dependency element: Message Type
   local message_type = buffer(index - 3, 1):uint()
 
-  -- Data: Runtime Type with 15 branches
-  index = blueoceanats_blueequities_memo_sbe_v1_13.data.dissect(buffer, index, packet, parent, message_type)
+  -- Client Data: Runtime Type with 5 branches
+  index = blueoceanats_blueequities_memo_sbe_v1_13.client_data.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -6774,31 +6882,333 @@ end
 function omi_blueoceanats_blueequities_memo_sbe_v1_13.init()
 end
 
+-- Connection roles for BlueOceanAts BlueEquities Memo Sbe 1.13: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+blueoceanats_blueequities_memo_sbe_v1_13.role = function(packet)
+  if omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+blueoceanats_blueequities_memo_sbe_v1_13.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for BlueOceanAts BlueEquities Memo Sbe 1.13
 function omi_blueoceanats_blueequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_blueoceanats_blueequities_memo_sbe_v1_13.name
 
+  local role = blueoceanats_blueequities_memo_sbe_v1_13.role(packet)
+  local dissect = blueoceanats_blueequities_memo_sbe_v1_13.server_packet.dissect
+  if role == "initiator" then
+    dissect = blueoceanats_blueequities_memo_sbe_v1_13.client_packet.dissect
+  end
+
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13, buffer(offset), omi_blueoceanats_blueequities_memo_sbe_v1_13.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(blueoceanats_blueequities_memo_sbe_v1_13.packet.dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < blueoceanats_blueequities_memo_sbe_v1_13.common_header.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 1, 2):uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13, buffer(index, size), omi_blueoceanats_blueequities_memo_sbe_v1_13.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+blueoceanats_blueequities_memo_sbe_v1_13.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local message_type = buffer(0, 1):uint()
+
+  -- Login Request Message
+  if message_type == 100 then
+    return true
+  end
+
+  -- Replay Request Message
+  if message_type == 101 then
+    return true
+  end
+
+  -- Replay All Request Message
+  if message_type == 102 then
+    return true
+  end
+
+  -- Stream Request Message
+  if message_type == 103 then
+    return true
+  end
+
+  -- Unsequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == 104 then
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- New Order Single Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Order Cancel Replace Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Mass Cancel Request Message
+    if template_id == 4 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+blueoceanats_blueequities_memo_sbe_v1_13.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local message_type = buffer(0, 1):uint()
+
+  -- Login Accepted Message
+  if message_type == 1 then
+    return true
+  end
+
+  -- Login Rejected Message
+  if message_type == 2 then
+    return true
+  end
+
+  -- Start Of Session Message
+  if message_type == 3 then
+    return true
+  end
+
+  -- Replay Begin Message
+  if message_type == 5 then
+    return true
+  end
+
+  -- Replay Rejected Message
+  if message_type == 6 then
+    return true
+  end
+
+  -- Replay Complete Message
+  if message_type == 7 then
+    return true
+  end
+
+  -- Stream Begin Message
+  if message_type == 8 then
+    return true
+  end
+
+  -- Stream Rejected Message
+  if message_type == 9 then
+    return true
+  end
+
+  -- Stream Complete Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Sequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if message_type == 11 then
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- Execution Report Pending New Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Execution Report New Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Execution Report Rejected Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Execution Report Trade Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Execution Report Pending Cancel Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Pending Mass Cancel Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Execution Report Canceled Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Mass Cancel Done Message
+    if template_id == 12 then
+      return true
+    end
+
+    -- Execution Report Pending Replace Message
+    if template_id == 13 then
+      return true
+    end
+
+    -- Execution Report Replaced Message
+    if template_id == 14 then
+      return true
+    end
+
+    -- Execution Report Trade Correction Message
+    if template_id == 15 then
+      return true
+    end
+
+    -- Execution Report Trade Break Message
+    if template_id == 16 then
+      return true
+    end
+
+    -- Execution Report Restatement Message
+    if template_id == 17 then
+      return true
+    end
+
+    -- Order Cancel Reject Message
+    if template_id == 18 then
+      return true
+    end
+
+    -- Mass Cancel Reject Message
+    if template_id == 20 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
 end
 
 
@@ -6807,9 +7217,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for BlueOceanAts BlueEquities Memo Sbe 1.13 (Tcp)
-local function omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_heuristic(buffer, packet, parent)
+local function omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not blueoceanats_blueequities_memo_sbe_v1_13.packet.requiredsize(buffer) then return false end
+  if not blueoceanats_blueequities_memo_sbe_v1_13.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not blueoceanats_blueequities_memo_sbe_v1_13.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_blueoceanats_blueequities_memo_sbe_v1_13
@@ -6818,7 +7231,50 @@ local function omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_heuristic(buffer
   return true
 end
 
--- Register Heuristic for BlueOceanAts BlueEquities Memo Sbe 1.13
+-- Dissector Heuristic for BlueOceanAts BlueEquities Memo Sbe 1.13 (Tcp)
+local function omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not blueoceanats_blueequities_memo_sbe_v1_13.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not blueoceanats_blueequities_memo_sbe_v1_13.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_blueoceanats_blueequities_memo_sbe_v1_13
+  omi_blueoceanats_blueequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for BlueOceanAts BlueEquities Memo Sbe 1.13 (Tcp): apply the heuristic of the sender's connection role
+local function omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_heuristic(buffer, packet, parent)
+  local role = blueoceanats_blueequities_memo_sbe_v1_13.role(packet)
+  local initiator = omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_initiator_heuristic
+  local acceptor = omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  blueoceanats_blueequities_memo_sbe_v1_13.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  blueoceanats_blueequities_memo_sbe_v1_13.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for BlueOceanAts BlueEquities Memo Sbe 1.13
 omi_blueoceanats_blueequities_memo_sbe_v1_13:register_heuristic("tcp", omi_blueoceanats_blueequities_memo_sbe_v1_13_tcp_heuristic)
 
 -- Register BlueOceanAts BlueEquities Memo Sbe 1.13 for Decode As

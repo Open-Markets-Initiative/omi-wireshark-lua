@@ -10251,28 +10251,40 @@ function omi_box_boxoptions_solaorderentry_sail_v2_25.dissector(buffer, packet, 
   packet.cols.protocol = omi_box_boxoptions_solaorderentry_sail_v2_25.name
 
   local role = box_boxoptions_solaorderentry_sail_v2_25.role(packet)
-  local dissect = role == "initiator" and box_boxoptions_solaorderentry_sail_v2_25.firm_packet.dissect or box_boxoptions_solaorderentry_sail_v2_25.exchange_packet.dissect
+  local dissect = box_boxoptions_solaorderentry_sail_v2_25.exchange_packet.dissect
+  if role == "initiator" then
+    dissect = box_boxoptions_solaorderentry_sail_v2_25.firm_packet.dissect
+  end
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25, buffer(offset), omi_box_boxoptions_solaorderentry_sail_v2_25.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < box_boxoptions_solaorderentry_sail_v2_25.firm_packet.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index, 4):le_uint() + 5
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25, buffer(index, size), omi_box_boxoptions_solaorderentry_sail_v2_25.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

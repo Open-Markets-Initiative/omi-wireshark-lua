@@ -843,6 +843,9 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.exchange_code.display = function(value)
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
+  end
   if value == "L" then
     return "Exchange Code: Ltse (L)"
   end

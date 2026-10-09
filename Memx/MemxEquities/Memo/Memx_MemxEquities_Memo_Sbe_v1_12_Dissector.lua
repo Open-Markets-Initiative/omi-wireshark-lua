@@ -6414,28 +6414,40 @@ function omi_memx_memxequities_memo_sbe_v1_12.dissector(buffer, packet, parent)
   packet.cols.protocol = omi_memx_memxequities_memo_sbe_v1_12.name
 
   local role = memx_memxequities_memo_sbe_v1_12.role(packet)
-  local dissect = role == "initiator" and memx_memxequities_memo_sbe_v1_12.client_packet.dissect or memx_memxequities_memo_sbe_v1_12.server_packet.dissect
+  local dissect = memx_memxequities_memo_sbe_v1_12.server_packet.dissect
+  if role == "initiator" then
+    dissect = memx_memxequities_memo_sbe_v1_12.client_packet.dissect
+  end
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_memx_memxequities_memo_sbe_v1_12, buffer(offset), omi_memx_memxequities_memo_sbe_v1_12.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < memx_memxequities_memo_sbe_v1_12.common_header.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 1, 2):uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_memx_memxequities_memo_sbe_v1_12, buffer(index, size), omi_memx_memxequities_memo_sbe_v1_12.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

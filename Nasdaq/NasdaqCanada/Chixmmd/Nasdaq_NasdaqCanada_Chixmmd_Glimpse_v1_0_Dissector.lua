@@ -1941,7 +1941,10 @@ function omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.dissector(buffer, packet, 
   packet.cols.protocol = omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.name
 
   local role = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.role(packet)
-  local dissect = role == "initiator" and nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet.dissect or nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet.dissect
+  local dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet.dissect
+  if role == "initiator" then
+    dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet.dissect
+  end
 
   local length = buffer:len()
   local offset = 0
@@ -1949,13 +1952,10 @@ function omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.dissector(buffer, packet, 
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0, buffer(offset), omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)

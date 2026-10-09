@@ -25,6 +25,7 @@ omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.continuous_book_cleari
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.deliveryflag", ftypes.UINT8)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.endseqnum", ftypes.UINT32)
+omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.eth_eligible = ProtoField.new("Eth Eligible", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.etheligible", ftypes.UINT8)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.exchangecode", ftypes.STRING)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.freezestatus", ftypes.UINT8)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.full_refresh_header = ProtoField.new("Full Refresh Header", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.fullrefreshheader", ftypes.STRING)
@@ -34,6 +35,7 @@ omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.imbalance_side = Proto
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.indicativematchprice", ftypes.INT32)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.lastseqnum", ftypes.UINT32)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.late_close_eligible = ProtoField.new("Late Close Eligible", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.latecloseeligible", ftypes.UINT8)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.lot_size = ProtoField.new("Lot Size", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.lotsize", ftypes.UINT16)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.lowercollar", ftypes.UINT32)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.market_id = ProtoField.new("Market Id", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.marketid", ftypes.UINT16)
@@ -58,7 +60,6 @@ omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.product_id = ProtoFiel
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.referenceprice", ftypes.INT32)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.requestseqnum", ftypes.UINT32)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.reserved1", ftypes.BYTES)
-omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.reserved2", ftypes.BYTES)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.reserved4", ftypes.BYTES)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.imbalancesfeed.pillar.v2.2.o.roundlot", ftypes.STRING)
@@ -525,6 +526,29 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.end_seq_num.dissect = function(bu
   return offset + length, value
 end
 
+-- Eth Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible = {}
+
+-- Size: Eth Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.size = 1
+
+-- Display: Eth Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.display = function(value)
+  return "Eth Eligible: "..value
+end
+
+-- Dissect: Eth Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.eth_eligible, range, value, display)
+
+  return offset + length, value
+end
+
 -- Exchange Code
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.exchange_code = {}
 
@@ -535,6 +559,9 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.exchange_code.size = 1
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.exchange_code.display = function(value)
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
+  end
+  if value == "F" then
+    return "Exchange Code: Txse (F)"
   end
   if value == "L" then
     return "Exchange Code: Ltse (L)"
@@ -630,7 +657,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.halt_condition.display = function
     return "Halt Condition: Equipment Changeover (X)"
   end
   if value == "A" then
-    return "Halt Condition: Additional Information Requested (A)"
+    return "Halt Condition: Sip Outage Material Sip Latency Or Extraordinary Market Activity (A)"
   end
   if value == "C" then
     return "Halt Condition: Regulatory Concern (C)"
@@ -639,7 +666,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.halt_condition.display = function
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Component Prices Not Available (F)"
+    return "Halt Condition: Etf Iiv Etf Components Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -648,10 +675,10 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.halt_condition.display = function
     return "Halt Condition: New Security Offering (O)"
   end
   if value == "V" then
-    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+    return "Halt Condition: Primary Listing Exchange Discretionary Halt (V)"
   end
   if value == "6" then
-    return "Halt Condition: Suspend (6)"
+    return "Halt Condition: Suspend Operational Halt (6)"
   end
   if value == "1" then
     return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
@@ -803,6 +830,29 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.last_symbol_seq_num.dissect = fun
   return offset + length, value
 end
 
+-- Late Close Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible = {}
+
+-- Size: Late Close Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.size = 1
+
+-- Display: Late Close Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.display = function(value)
+  return "Late Close Eligible: "..value
+end
+
+-- Dissect: Late Close Eligible
+nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.late_close_eligible, range, value, display)
+
+  return offset + length, value
+end
+
 -- Lot Size
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.lot_size = {}
 
@@ -863,15 +913,6 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.market_id.display = function(valu
   if value == 3 then
     return "Market Id: Nyse Arca Equities (3)"
   end
-  if value == 4 then
-    return "Market Id: Nyse Arca Options (4)"
-  end
-  if value == 5 then
-    return "Market Id: Nyse Bonds (5)"
-  end
-  if value == 8 then
-    return "Market Id: Nyse American Options (8)"
-  end
   if value == 9 then
     return "Market Id: Nyse American Equities (9)"
   end
@@ -930,6 +971,9 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.market_state.size = 1
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.market_state.display = function(value)
   if value == "P" then
     return "Market State: Preopening (P)"
+  end
+  if value == "N" then
+    return "Market State: Overnight Session (N)"
   end
   if value == "E" then
     return "Market State: Early Session (E)"
@@ -1436,29 +1480,6 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_1.dissect = function(buf
   return offset + length, value
 end
 
--- Reserved 2
-nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2 = {}
-
--- Size: Reserved 2
-nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.size = 2
-
--- Display: Reserved 2
-nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_imbalancesfeed_pillar_v2_2_o.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 4
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_4 = {}
 
@@ -1574,7 +1595,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_status.display = functio
     return "Security Status: Resume (5)"
   end
   if value == "6" then
-    return "Security Status: Suspend (6)"
+    return "Security Status: Suspend Operational Halt (6)"
   end
   if value == "A" then
     return "Security Status: Short Sale Restriction Activated Day 1 (A)"
@@ -1590,6 +1611,9 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_status.display = functio
   end
   if value == "B" then
     return "Security Status: Begin Accepting Orders (B)"
+  end
+  if value == "N" then
+    return "Security Status: Overnight Session (N)"
   end
   if value == "E" then
     return "Security Status: Early Session (E)"
@@ -1634,7 +1658,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.size = 1
 -- Display: Security Type
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.display = function(value)
   if value == "A" then
-    return "Security Type: Adr (A)"
+    return "Security Type: American Depositary Receipts (A)"
   end
   if value == "C" then
     return "Security Type: Common Stock (C)"
@@ -1643,13 +1667,13 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.display = function(
     return "Security Type: Debentures (D)"
   end
   if value == "E" then
-    return "Security Type: Etf (E)"
+    return "Security Type: Exchange Traded Funds (E)"
   end
   if value == "F" then
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: Us Depositary Shares (H)"
+    return "Security Type: American Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
@@ -1658,7 +1682,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.display = function(
     return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Miscliquid Trust (M)"
+    return "Security Type: Other Blank (M)"
   end
   if value == "O" then
     return "Security Type: Ordinary Shares (O)"
@@ -1670,7 +1694,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.display = function(
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Shares Of Beneficiary Interest (S)"
+    return "Security Type: Shares Of Beneficial Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -1679,7 +1703,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.security_type.display = function(
     return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
-    return "Security Type: Warrant (W)"
+    return "Security Type: Warrants (W)"
   end
 
   return "Security Type: Unknown("..value..")"
@@ -1893,7 +1917,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.ssr_triggering_exchange_id.displa
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Tx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -1905,7 +1929,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.ssr_triggering_exchange_id.displa
     return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
-    return "Ssr Triggering Exchange Id: Miami Peral (H)"
+    return "Ssr Triggering Exchange Id: Miax Pearl (H)"
   end
   if value == "I" then
     return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
@@ -3295,7 +3319,8 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.symbol_index_mapping_message.size
   nyse_amexequities_imbalancesfeed_pillar_v2_2_o.round_lot.size + 
   nyse_amexequities_imbalancesfeed_pillar_v2_2_o.mpv.size + 
   nyse_amexequities_imbalancesfeed_pillar_v2_2_o.unit_of_trade.size + 
-  nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.size
+  nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.size + 
+  nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.size
 
 -- Display: Symbol Index Mapping Message
 nyse_amexequities_imbalancesfeed_pillar_v2_2_o.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -3351,8 +3376,11 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.symbol_index_mapping_message.fiel
   -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: Binary
-  index, reserved_2 = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.reserved_2.dissect(buffer, index, packet, parent)
+  -- Late Close Eligible: Binary
+  index, late_close_eligible = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.dissect(buffer, index, packet, parent)
+
+  -- Eth Eligible: Binary
+  index, eth_eligible = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.dissect(buffer, index, packet, parent)
 
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then

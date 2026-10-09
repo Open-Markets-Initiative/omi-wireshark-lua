@@ -1666,7 +1666,10 @@ function omi_nyse_options_streamprotocol_pillarstream_v1_6.dissector(buffer, pac
   packet.cols.protocol = omi_nyse_options_streamprotocol_pillarstream_v1_6.name
 
   local role = nyse_options_streamprotocol_pillarstream_v1_6.role(packet)
-  local dissect = role == "initiator" and nyse_options_streamprotocol_pillarstream_v1_6.client_pillar_message.dissect or nyse_options_streamprotocol_pillarstream_v1_6.server_pillar_message.dissect
+  local dissect = nyse_options_streamprotocol_pillarstream_v1_6.server_pillar_message.dissect
+  if role == "initiator" then
+    dissect = nyse_options_streamprotocol_pillarstream_v1_6.client_pillar_message.dissect
+  end
 
   local length = buffer:len()
   local index = 0

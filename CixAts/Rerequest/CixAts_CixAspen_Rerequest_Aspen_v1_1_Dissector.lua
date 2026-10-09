@@ -25,18 +25,6 @@ omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.packet = ProtoField.new("Packet"
 omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.rerequest_header = ProtoField.new("Rerequest Header", "cixats.cixaspen.rerequest.aspen.v1.1.rerequestheader", ftypes.STRING)
 
 -----------------------------------------------------------------------
--- CixAts CixAspen Rerequest Aspen 1.1 Formatting
------------------------------------------------------------------------
-
--- assumed connection role
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
-
-
------------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -47,9 +35,6 @@ show.structs = true
 show.headers = true
 
 -- Register CixAts CixAspen Rerequest Aspen 1.1 Show Options
-omi_cixats_cixaspen_rerequest_aspen_v1_1.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
-omi_cixats_cixaspen_rerequest_aspen_v1_1.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
-omi_cixats_cixaspen_rerequest_aspen_v1_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cixats_cixaspen_rerequest_aspen_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cixats_cixaspen_rerequest_aspen_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 

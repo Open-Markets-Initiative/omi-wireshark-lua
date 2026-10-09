@@ -982,6 +982,9 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.market_state.display =
   if value == "P" then
     return "Market State: Preopening (P)"
   end
+  if value == "N" then
+    return "Market State: Overnight Session (N)"
+  end
   if value == "E" then
     return "Market State: Early Session (E)"
   end
@@ -1577,6 +1580,9 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.security_status.displa
   end
   if value == "B" then
     return "Security Status: Begin Accepting Orders (B)"
+  end
+  if value == "N" then
+    return "Security Status: Overnight Session (N)"
   end
   if value == "E" then
     return "Security Status: Early Session (E)"

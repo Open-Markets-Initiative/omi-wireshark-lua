@@ -336,9 +336,6 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.exchange_code.display = function
   if value == "L" then
     return "Exchange Code: Ltse (L)"
   end
-  if value == "M" then
-    return "Exchange Code: Nyse Texas (M)"
-  end
   if value == "N" then
     return "Exchange Code: Nyse (N)"
   end
@@ -1625,9 +1622,6 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.ssr_triggering_exchange_id.displ
   end
   if value == "D" then
     return "Ssr Triggering Exchange Id: Finra (D)"
-  end
-  if value == "G" then
-    return "Ssr Triggering Exchange Id: N 24 X (G)"
   end
   if value == "H" then
     return "Ssr Triggering Exchange Id: Miami Peral (H)"

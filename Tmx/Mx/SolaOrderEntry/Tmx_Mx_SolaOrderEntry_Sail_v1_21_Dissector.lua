@@ -9522,28 +9522,40 @@ function omi_tmx_mx_solaorderentry_sail_v1_21.dissector(buffer, packet, parent)
   packet.cols.protocol = omi_tmx_mx_solaorderentry_sail_v1_21.name
 
   local role = tmx_mx_solaorderentry_sail_v1_21.role(packet)
-  local dissect = role == "initiator" and tmx_mx_solaorderentry_sail_v1_21.firm_packet.dissect or tmx_mx_solaorderentry_sail_v1_21.exchange_packet.dissect
+  local dissect = tmx_mx_solaorderentry_sail_v1_21.exchange_packet.dissect
+  if role == "initiator" then
+    dissect = tmx_mx_solaorderentry_sail_v1_21.firm_packet.dissect
+  end
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21, buffer(offset), omi_tmx_mx_solaorderentry_sail_v1_21.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < tmx_mx_solaorderentry_sail_v1_21.firm_packet.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index, 4):le_uint() + 5
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21, buffer(index, size), omi_tmx_mx_solaorderentry_sail_v1_21.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

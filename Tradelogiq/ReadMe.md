@@ -1,0 +1,74 @@
+[![Tradelogiq](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Images/Logo.png)](https://tradelogiq.com)
+
+
+## Tradelogiq Markets Inc.
+
+### Market Data
+
+| [Protocol][Omi.Tradelogiq.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Tradelogiq.Specifications] |
+| --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [MulticastLevel1][Tradelogiq.LynxAts.MulticastLevel1] | [Itch][Omi.Encoding.Itch] | [1.01][Tradelogiq.LynxAts.MulticastLevel1.Itch.v1.01.Dissector] | 1/30/2022 | 2258 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.LynxAts.MulticastLevel1.Itch.v1.01.Pdf] |
+| [MulticastLevel2][Tradelogiq.LynxAts.MulticastLevel2] | [Itch][Omi.Encoding.Itch] | [2.01][Tradelogiq.LynxAts.MulticastLevel2.Itch.v2.01.Dissector] | 1/13/2026 | 2973 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.LynxAts.MulticastLevel2.Itch.v2.01.Pdf] |
+| [SnapshotRecovery][Tradelogiq.LynxAts.SnapshotRecovery] | [Itch][Omi.Encoding.Itch] | [1.09][Tradelogiq.LynxAts.SnapshotRecovery.Itch.v1.09.Dissector] | 6/5/2025 | 2472 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.LynxAts.SnapshotRecovery.Itch.v1.09.Pdf] |
+| [TcpLevel1][Tradelogiq.LynxAts.TcpLevel1] | [Itch][Omi.Encoding.Itch] | [1.01][Tradelogiq.LynxAts.TcpLevel1.Itch.v1.01.Dissector] | 1/30/2022 | 2997 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.LynxAts.TcpLevel1.Itch.v1.01.Pdf] |
+| [TcpLevel2][Tradelogiq.LynxAts.TcpLevel2] | [Itch][Omi.Encoding.Itch] | [2.01][Tradelogiq.LynxAts.TcpLevel2.Itch.v2.01.Dissector] | 1/13/2026 | 3742 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.LynxAts.TcpLevel2.Itch.v2.01.Pdf] |
+| [MulticastLevel1][Tradelogiq.OmegaAts.MulticastLevel1] | [Itch][Omi.Encoding.Itch] | [1.01][Tradelogiq.OmegaAts.MulticastLevel1.Itch.v1.01.Dissector] | 1/30/2022 | 2258 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.OmegaAts.MulticastLevel1.Itch.v1.01.Pdf] |
+| [MulticastLevel2][Tradelogiq.OmegaAts.MulticastLevel2] | [Itch][Omi.Encoding.Itch] | [2.01][Tradelogiq.OmegaAts.MulticastLevel2.Itch.v2.01.Dissector] | 1/13/2026 | 2973 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.OmegaAts.MulticastLevel2.Itch.v2.01.Pdf] |
+| [SnapshotRecovery][Tradelogiq.OmegaAts.SnapshotRecovery] | [Itch][Omi.Encoding.Itch] | [1.09][Tradelogiq.OmegaAts.SnapshotRecovery.Itch.v1.09.Dissector] | 6/5/2025 | 2472 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.OmegaAts.SnapshotRecovery.Itch.v1.09.Pdf] |
+| [TcpLevel1][Tradelogiq.OmegaAts.TcpLevel1] | [Itch][Omi.Encoding.Itch] | [1.01][Tradelogiq.OmegaAts.TcpLevel1.Itch.v1.01.Dissector] | 1/30/2022 | 2997 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.OmegaAts.TcpLevel1.Itch.v1.01.Pdf] |
+| [TcpLevel2][Tradelogiq.OmegaAts.TcpLevel2] | [Itch][Omi.Encoding.Itch] | [2.01][Tradelogiq.OmegaAts.TcpLevel2.Itch.v2.01.Dissector] | 1/13/2026 | 3742 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tradelogiq.OmegaAts.TcpLevel2.Itch.v2.01.Pdf] |
+
+
+<p align="center"><a href="https://tradelogiq.com" title="Tradelogiq Markets Inc. Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/tradelogiq-markets-inc" title="Tradelogiq Markets Inc. on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
+
+
+[Omi.Glossary.Deployment]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Protocol Deployment"
+[Omi.Glossary.Deployment.Active]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Protocol is in active production"
+[Omi.Glossary.Deployment.Deprecated]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Protocol is no longer in active use"
+[Omi.Glossary.Deployment.Pending]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Protocol is not yet deployed to an active production environment"
+[Omi.Glossary.Deployment.Observability]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Protocol is carried for observability rather than trading"
+[Omi.Glossary.Deployment.Header]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Header only protocol provided for debugging"
+[Omi.Glossary.Deployment.Unknown]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Deployment.md "Deployment: Protocol deployment is unknown"
+[Omi.Glossary.Testing]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Protocol Testing Status"
+[Omi.Glossary.Testing.Verified]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data"
+[Omi.Glossary.Testing.Incomplete]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Testing Status: Protocol has been tested on live data but contains known issues"
+[Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
+[Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
+[Omi.Glossary.Testing.Unavailable]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Testing.md "Testing Status: Protocol does not state a testing status"
+[Omi.Encoding.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/ReadMe.md "Encoding Directory"
+[Omi.Tradelogiq.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tradelogiq/Protocols "Tradelogiq Protocol Directory"
+[Omi.Tradelogiq.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tradelogiq/Specifications "Tradelogiq Specifications Directory"
+[Omi.Encoding.Itch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Itch.md "Itch Encoding"
+[LynxAts.Ats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tradelogiq/Protocols/LynxAts "Tradelogiq LynxAts"
+[OmegaAts.Ats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tradelogiq/Protocols/OmegaAts "Tradelogiq OmegaAts"
+[Tradelogiq.LynxAts.MulticastLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/LynxAts/MulticastLevel1.md "Lynx Multicast Level 1"
+[Tradelogiq.LynxAts.MulticastLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/LynxAts/MulticastLevel2.md "Lynx Multicast Level 2"
+[Tradelogiq.LynxAts.SnapshotRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/LynxAts/SnapshotRecovery.md "Lynx Snapshot Recovery"
+[Tradelogiq.LynxAts.TcpLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/LynxAts/TcpLevel1.md "Lynx Tcp Level 1"
+[Tradelogiq.LynxAts.TcpLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/LynxAts/TcpLevel2.md "Lynx Tcp Level 2"
+[Tradelogiq.OmegaAts.MulticastLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/OmegaAts/MulticastLevel1.md "Omega Multicast Level 1"
+[Tradelogiq.OmegaAts.MulticastLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/OmegaAts/MulticastLevel2.md "Omega Multicast Level 2"
+[Tradelogiq.OmegaAts.SnapshotRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/OmegaAts/SnapshotRecovery.md "Omega Snapshot Recovery"
+[Tradelogiq.OmegaAts.TcpLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/OmegaAts/TcpLevel1.md "Omega Tcp Level 1"
+[Tradelogiq.OmegaAts.TcpLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Protocols/OmegaAts/TcpLevel2.md "Omega Tcp Level 2"
+
+[Tradelogiq.LynxAts.MulticastLevel1.Itch.v1.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/MulticastLevel1/Tradelogiq_LynxAts_MulticastLevel1_Itch_v1_01_Dissector.lua "Tradelogiq MulticastLevel1 Itch v1.01 Wireshark Dissector"
+[Tradelogiq.LynxAts.MulticastLevel1.Itch.v1.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level1/Tradelogiq.Equities.Level1.Itch.v1.01.pdf "Tradelogiq Markets Inc. 1.01 Pdf"
+[Tradelogiq.LynxAts.MulticastLevel2.Itch.v2.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/MulticastLevel2/Tradelogiq_LynxAts_MulticastLevel2_Itch_v2_01_Dissector.lua "Tradelogiq MulticastLevel2 Itch v2.01 Wireshark Dissector"
+[Tradelogiq.LynxAts.MulticastLevel2.Itch.v2.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level2/Tradelogiq.Equities.Level2.Itch.v2.01.pdf "Tradelogiq Markets Inc. 2.01 Pdf"
+[Tradelogiq.LynxAts.SnapshotRecovery.Itch.v1.09.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/SnapshotRecovery/Tradelogiq_LynxAts_SnapshotRecovery_Itch_v1_09_Dissector.lua "Tradelogiq SnapshotRecovery Itch v1.09 Wireshark Dissector"
+[Tradelogiq.LynxAts.SnapshotRecovery.Itch.v1.09.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/SnapshotRecovery/Tradelogiq.Equities.SnapshotRecovery.Itch.v1.09.pdf "Tradelogiq Markets Inc. 1.09 Pdf"
+[Tradelogiq.LynxAts.TcpLevel1.Itch.v1.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/TcpLevel1/Tradelogiq_LynxAts_TcpLevel1_Itch_v1_01_Dissector.lua "Tradelogiq TcpLevel1 Itch v1.01 Wireshark Dissector"
+[Tradelogiq.LynxAts.TcpLevel1.Itch.v1.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level1/Tradelogiq.Equities.Level1.Itch.v1.01.pdf "Tradelogiq Markets Inc. 1.01 Pdf"
+[Tradelogiq.LynxAts.TcpLevel2.Itch.v2.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/TcpLevel2/Tradelogiq_LynxAts_TcpLevel2_Itch_v2_01_Dissector.lua "Tradelogiq TcpLevel2 Itch v2.01 Wireshark Dissector"
+[Tradelogiq.LynxAts.TcpLevel2.Itch.v2.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level2/Tradelogiq.Equities.Level2.Itch.v2.01.pdf "Tradelogiq Markets Inc. 2.01 Pdf"
+[Tradelogiq.OmegaAts.MulticastLevel1.Itch.v1.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/MulticastLevel1/Tradelogiq_OmegaAts_MulticastLevel1_Itch_v1_01_Dissector.lua "Tradelogiq MulticastLevel1 Itch v1.01 Wireshark Dissector"
+[Tradelogiq.OmegaAts.MulticastLevel1.Itch.v1.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level1/Tradelogiq.Equities.Level1.Itch.v1.01.pdf "Tradelogiq Markets Inc. 1.01 Pdf"
+[Tradelogiq.OmegaAts.MulticastLevel2.Itch.v2.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/MulticastLevel2/Tradelogiq_OmegaAts_MulticastLevel2_Itch_v2_01_Dissector.lua "Tradelogiq MulticastLevel2 Itch v2.01 Wireshark Dissector"
+[Tradelogiq.OmegaAts.MulticastLevel2.Itch.v2.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level2/Tradelogiq.Equities.Level2.Itch.v2.01.pdf "Tradelogiq Markets Inc. 2.01 Pdf"
+[Tradelogiq.OmegaAts.SnapshotRecovery.Itch.v1.09.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/SnapshotRecovery/Tradelogiq_OmegaAts_SnapshotRecovery_Itch_v1_09_Dissector.lua "Tradelogiq SnapshotRecovery Itch v1.09 Wireshark Dissector"
+[Tradelogiq.OmegaAts.SnapshotRecovery.Itch.v1.09.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/SnapshotRecovery/Tradelogiq.Equities.SnapshotRecovery.Itch.v1.09.pdf "Tradelogiq Markets Inc. 1.09 Pdf"
+[Tradelogiq.OmegaAts.TcpLevel1.Itch.v1.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/TcpLevel1/Tradelogiq_OmegaAts_TcpLevel1_Itch_v1_01_Dissector.lua "Tradelogiq TcpLevel1 Itch v1.01 Wireshark Dissector"
+[Tradelogiq.OmegaAts.TcpLevel1.Itch.v1.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level1/Tradelogiq.Equities.Level1.Itch.v1.01.pdf "Tradelogiq Markets Inc. 1.01 Pdf"
+[Tradelogiq.OmegaAts.TcpLevel2.Itch.v2.01.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tradelogiq/TcpLevel2/Tradelogiq_OmegaAts_TcpLevel2_Itch_v2_01_Dissector.lua "Tradelogiq TcpLevel2 Itch v2.01 Wireshark Dissector"
+[Tradelogiq.OmegaAts.TcpLevel2.Itch.v2.01.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tradelogiq/Specifications/Equities/Level2/Tradelogiq.Equities.Level2.Itch.v2.01.pdf "Tradelogiq Markets Inc. 2.01 Pdf"

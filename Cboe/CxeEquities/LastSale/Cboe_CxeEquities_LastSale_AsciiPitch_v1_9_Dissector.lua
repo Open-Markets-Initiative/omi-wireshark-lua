@@ -2073,13 +2073,10 @@ function omi_cboe_cxeequities_lastsale_asciipitch_v1_9.dissector(buffer, packet,
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_cboe_cxeequities_lastsale_asciipitch_v1_9, buffer(offset), omi_cboe_cxeequities_lastsale_asciipitch_v1_9.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(cboe_cxeequities_lastsale_asciipitch_v1_9.packet.dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = cboe_cxeequities_lastsale_asciipitch_v1_9.packet.dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)

@@ -3713,7 +3713,10 @@ function omi_box_boxoptions_solatradereporting_atr_v4_5.dissector(buffer, packet
   packet.cols.protocol = omi_box_boxoptions_solatradereporting_atr_v4_5.name
 
   local role = box_boxoptions_solatradereporting_atr_v4_5.role(packet)
-  local dissect = role == "initiator" and box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect or box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect
+  local dissect = box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect
+  if role == "initiator" then
+    dissect = box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect
+  end
 
   local length = buffer:len()
   local offset = 0
@@ -3721,13 +3724,10 @@ function omi_box_boxoptions_solatradereporting_atr_v4_5.dissector(buffer, packet
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5, buffer(offset), omi_box_boxoptions_solatradereporting_atr_v4_5.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)

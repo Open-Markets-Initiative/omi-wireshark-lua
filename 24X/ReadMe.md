@@ -16,7 +16,7 @@
 
 | [Protocol][Omi.24X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.24X.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Memo][24X.24XEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][24X.24XEquities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 6895 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.24XEquities.Memo.Sbe.v1.13.Url] - [pdf][24X.24XEquities.Memo.Sbe.v1.13.Pdf] - [xml][24X.24XEquities.Memo.Sbe.v1.13.Xml] |
+| [Memo][24X.24XEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][24X.24XEquities.Memo.Sbe.v1.13.Dissector] | 9/1/2025 | 7351 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][24X.24XEquities.Memo.Sbe.v1.13.Url] - [pdf][24X.24XEquities.Memo.Sbe.v1.13.Pdf] - [xml][24X.24XEquities.Memo.Sbe.v1.13.Xml] |
 
 
 <p align="center"><a href="https://24exchange.com" title="24 National Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/24-exchange-ltd" title="24 National Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/24X_National_Exchange" title="24 National Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

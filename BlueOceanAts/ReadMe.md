@@ -23,7 +23,7 @@
 
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 6859 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf] - [xml][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf] |
+| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 7315 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf] - [xml][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml] - [pdf][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Pdf] |
 
 
 <p align="center"><a href="https://blueocean-tech.io/" title="Blue Ocean Technologies Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/blue-ocean-technologies-llc-an-overnight-trading-company" title="Blue Ocean Technologies on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>

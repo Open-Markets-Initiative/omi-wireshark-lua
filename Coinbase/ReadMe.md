@@ -42,7 +42,7 @@
 | [CoinbaseDerivatives][CoinbaseDerivatives.Exchange] | [OrdersApi][Coinbase.CoinbaseDerivatives.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.8][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Dissector] | 9/5/2025 | 5554 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Url] - [xml][Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Xml] |
 
 
-### Session
+### Protocols
 
 | Division | [Protocol][Omi.Coinbase.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Coinbase.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
@@ -74,7 +74,7 @@
 [Deribit.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Coinbase/Protocols/Deribit "Coinbase Deribit"
 [Coinbase.CoinbaseDerivatives.MarketDataApi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/MarketDataApi.md "Market Data Api"
 [Coinbase.CoinbaseDerivatives.OrdersApi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/OrdersApi.md "Orders Api"
-[Coinbase.CoinbaseDerivatives.Session]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/Session.md "Session Layer"
+[Coinbase.CoinbaseDerivatives.Session]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/CoinbaseDerivatives/Session.md ""
 [Coinbase.Deribit.MarketDataApi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/Deribit/MarketDataApi.md "Market Data Api"
 [Coinbase.Deribit.OrdersApi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Protocols/Deribit/OrdersApi.md "Orders Api"
 

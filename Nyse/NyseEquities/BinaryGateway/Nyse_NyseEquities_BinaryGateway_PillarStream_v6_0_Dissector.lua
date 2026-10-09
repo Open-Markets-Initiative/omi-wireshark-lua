@@ -10118,7 +10118,10 @@ function omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.dissector(buffer,
   packet.cols.protocol = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.name
 
   local role = nyse_nyseequities_binarygateway_pillarstream_v6_0.role(packet)
-  local dissect = role == "initiator" and nyse_nyseequities_binarygateway_pillarstream_v6_0.client_pillar_message.dissect or nyse_nyseequities_binarygateway_pillarstream_v6_0.server_pillar_message.dissect
+  local dissect = nyse_nyseequities_binarygateway_pillarstream_v6_0.server_pillar_message.dissect
+  if role == "initiator" then
+    dissect = nyse_nyseequities_binarygateway_pillarstream_v6_0.client_pillar_message.dissect
+  end
 
   local length = buffer:len()
   local index = 0

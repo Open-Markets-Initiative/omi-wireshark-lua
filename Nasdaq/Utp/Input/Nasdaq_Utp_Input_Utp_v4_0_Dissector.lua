@@ -7840,28 +7840,40 @@ function omi_nasdaq_utp_input_utp_v4_0.dissector(buffer, packet, parent)
   packet.cols.protocol = omi_nasdaq_utp_input_utp_v4_0.name
 
   local role = nasdaq_utp_input_utp_v4_0.role(packet)
-  local dissect = role == "initiator" and nasdaq_utp_input_utp_v4_0.client_packet.dissect or nasdaq_utp_input_utp_v4_0.server_packet.dissect
+  local dissect = nasdaq_utp_input_utp_v4_0.server_packet.dissect
+  if role == "initiator" then
+    dissect = nasdaq_utp_input_utp_v4_0.client_packet.dissect
+  end
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nasdaq_utp_input_utp_v4_0, buffer(offset), omi_nasdaq_utp_input_utp_v4_0.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nasdaq_utp_input_utp_v4_0.client_tcp_packet_header.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index, 2):uint() + 2
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nasdaq_utp_input_utp_v4_0, buffer(index, size), omi_nasdaq_utp_input_utp_v4_0.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

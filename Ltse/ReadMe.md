@@ -23,14 +23,14 @@
 
 | Division | [Protocol][Omi.Ltse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Ltse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [CommonHeader][Ltse.CommonHeader] | [Tcp][Omi.Encoding.Tcp] | [1.2][Ltse.CommonHeader.Tcp.v1.2.Dissector] | 12/13/2023 | 1625 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Ltse.CommonHeader.Tcp.v1.2.Url] |
+|  | [CommonHeader][Ltse.CommonHeader] | [Tcp][Omi.Encoding.Tcp] | [1.2][Ltse.CommonHeader.Tcp.v1.2.Dissector] | 12/13/2023 | 1622 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Ltse.CommonHeader.Tcp.v1.2.Url] |
 
 
 ### Order Entry
 
 | Division | [Protocol][Omi.Ltse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Ltse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [LtseEquities][LtseEquities.Exchange] | [Memo][Ltse.LtseEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.12][Ltse.LtseEquities.Memo.Sbe.v1.12.Dissector] | 12/13/2023 | 6306 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Ltse.LtseEquities.Memo.Sbe.v1.12.Url] - [pdf][Ltse.LtseEquities.Memo.Sbe.v1.12.Pdf] - [xml][Ltse.LtseEquities.Memo.Sbe.v1.12.Xml] |
+| [LtseEquities][LtseEquities.Exchange] | [Memo][Ltse.LtseEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.12][Ltse.LtseEquities.Memo.Sbe.v1.12.Dissector] | 12/13/2023 | 6762 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Ltse.LtseEquities.Memo.Sbe.v1.12.Url] - [pdf][Ltse.LtseEquities.Memo.Sbe.v1.12.Pdf] - [xml][Ltse.LtseEquities.Memo.Sbe.v1.12.Xml] |
 
 
 <p align="center"><a href="https://ltse.com" title="Long-Term Stock Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/ltse" title="Long-Term Stock Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Long-Term_Stock_Exchange" title="Long-Term Stock Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

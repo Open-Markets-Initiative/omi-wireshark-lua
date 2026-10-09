@@ -41,6 +41,7 @@ omi_nse_nsecm_recovery_binary_v6_8.fields.client_packet = ProtoField.new("Client
 omi_nse_nsecm_recovery_binary_v6_8.fields.message = ProtoField.new("Message", "nse.nsecm.recovery.binary.v6.8.message", ftypes.STRING)
 omi_nse_nsecm_recovery_binary_v6_8.fields.packet = ProtoField.new("Packet", "nse.nsecm.recovery.binary.v6.8.packet", ftypes.STRING)
 omi_nse_nsecm_recovery_binary_v6_8.fields.stream_header = ProtoField.new("Stream Header", "nse.nsecm.recovery.binary.v6.8.streamheader", ftypes.STRING)
+omi_nse_nsecm_recovery_binary_v6_8.fields.stream_packet = ProtoField.new("Stream Packet", "nse.nsecm.recovery.binary.v6.8.streampacket", ftypes.STRING)
 
 -- Nse NseCm Recovery 6.8 Application Messages
 omi_nse_nsecm_recovery_binary_v6_8.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsecm.recovery.binary.v6.8.heartbeatmessage", ftypes.STRING)
@@ -1534,6 +1535,69 @@ nse_nsecm_recovery_binary_v6_8.stream_header.dissect = function(buffer, offset, 
   end
 end
 
+-- Stream Packet
+nse_nsecm_recovery_binary_v6_8.stream_packet = {}
+
+-- Display: Stream Packet
+nse_nsecm_recovery_binary_v6_8.stream_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Packet
+nse_nsecm_recovery_binary_v6_8.stream_packet.fields = function(buffer, offset, packet, parent, size_of_stream_packet)
+  local index = offset
+
+  -- Stream Header: Struct of 3 fields
+  index, stream_header = nse_nsecm_recovery_binary_v6_8.stream_header.dissect(buffer, index, packet, parent)
+
+  -- Message: Struct of 2 fields
+  index, message = nse_nsecm_recovery_binary_v6_8.message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Packet
+nse_nsecm_recovery_binary_v6_8.stream_packet.dissect = function(buffer, offset, packet, parent, size_of_stream_packet)
+  local index = offset + size_of_stream_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsecm_recovery_binary_v6_8.fields.stream_packet, buffer(offset, 0))
+    local current = nse_nsecm_recovery_binary_v6_8.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+    parent:set_len(size_of_stream_packet)
+    local display = nse_nsecm_recovery_binary_v6_8.stream_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nse_nsecm_recovery_binary_v6_8.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Stream Packet
+local stream_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < nse_nsecm_recovery_binary_v6_8.stream_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_int()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Packet
 nse_nsecm_recovery_binary_v6_8.packet = {}
 
@@ -1546,11 +1610,26 @@ end
 nse_nsecm_recovery_binary_v6_8.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Stream Header: Struct of 3 fields
-  index, stream_header = nse_nsecm_recovery_binary_v6_8.stream_header.dissect(buffer, index, packet, parent)
+  -- Dependency for Stream Packet
+  local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
-  index, message = nse_nsecm_recovery_binary_v6_8.message.dissect(buffer, index, packet, parent)
+  -- Stream Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_stream_packet = stream_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = nse_nsecm_recovery_binary_v6_8.stream_packet.dissect(buffer, index, packet, parent, size_of_stream_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
 
   return index
 end
@@ -1647,29 +1726,15 @@ function omi_nse_nsecm_recovery_binary_v6_8.dissector(buffer, packet, parent)
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecm_recovery_binary_v6_8.name
 
+  -- Dissect protocol
+  local protocol = parent:add(omi_nse_nsecm_recovery_binary_v6_8, buffer(), omi_nse_nsecm_recovery_binary_v6_8.description, "("..buffer:len().." Bytes)")
   local role = nse_nsecm_recovery_binary_v6_8.role(packet)
-  local dissect = role == "initiator" and nse_nsecm_recovery_binary_v6_8.client_packet.dissect or nse_nsecm_recovery_binary_v6_8.packet.dissect
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nse_nsecm_recovery_binary_v6_8, buffer(offset), omi_nse_nsecm_recovery_binary_v6_8.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
-
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
+  if role == "initiator" then
+    return nse_nsecm_recovery_binary_v6_8.client_packet.dissect(buffer, packet, protocol)
   end
 
-  return offset
+  return nse_nsecm_recovery_binary_v6_8.packet.dissect(buffer, packet, protocol)
 end
 
 

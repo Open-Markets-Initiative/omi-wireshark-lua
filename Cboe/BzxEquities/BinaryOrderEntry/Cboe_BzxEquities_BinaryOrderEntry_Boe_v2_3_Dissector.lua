@@ -12860,13 +12860,10 @@ function omi_cboe_bzxequities_binaryorderentry_boe_v2_3.dissector(buffer, packet
   -- Dissect each message the segment carries
   while offset < length do
     local protocol = parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3, buffer(offset), omi_cboe_bzxequities_binaryorderentry_boe_v2_3.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(cboe_bzxequities_binaryorderentry_boe_v2_3.packet.dissect, buffer(offset):tvb(), packet, protocol)
+    local consumed = cboe_bzxequities_binaryorderentry_boe_v2_3.packet.dissect(buffer(offset):tvb(), packet, protocol)
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
-      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
-      return length
+    if consumed == nil or consumed <= 0 then
+      return offset
     end
 
     protocol:set_len(consumed)
