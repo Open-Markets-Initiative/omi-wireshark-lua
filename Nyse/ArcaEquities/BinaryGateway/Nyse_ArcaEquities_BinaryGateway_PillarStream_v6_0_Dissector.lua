@@ -10121,25 +10121,34 @@ function omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.dissector(buffer,
   local dissect = role == "initiator" and nyse_arcaequities_binarygateway_pillarstream_v6_0.client_pillar_message.dissect or nyse_arcaequities_binarygateway_pillarstream_v6_0.server_pillar_message.dissect
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v6_0, buffer(offset), omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nyse_arcaequities_binarygateway_pillarstream_v6_0.msg_header.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 2, 2):le_uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v6_0, buffer(index, size), omi_nyse_arcaequities_binarygateway_pillarstream_v6_0.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

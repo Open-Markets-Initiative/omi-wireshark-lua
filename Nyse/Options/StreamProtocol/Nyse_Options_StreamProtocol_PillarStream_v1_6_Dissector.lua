@@ -16,6 +16,7 @@ local nyse_options_streamprotocol_pillarstream_v1_6 = {}
 
 -- Nyse Options StreamProtocol PillarStream 1.6 Fields
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.access = ProtoField.new("Access", "nyse.options.streamprotocol.pillarstream.v1.6.access", ftypes.UINT8)
+omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.client_sequenced_message = ProtoField.new("Client Sequenced Message", "nyse.options.streamprotocol.pillarstream.v1.6.clientsequencedmessage", ftypes.BYTES)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.end_seq = ProtoField.new("End Seq", "nyse.options.streamprotocol.pillarstream.v1.6.endseq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.mic = ProtoField.new("Mic", "nyse.options.streamprotocol.pillarstream.v1.6.mic", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.mode = ProtoField.new("Mode", "nyse.options.streamprotocol.pillarstream.v1.6.mode", ftypes.UINT8)
@@ -28,6 +29,7 @@ omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq = ProtoField.new("S
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgid", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsglength", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgtype", ftypes.UINT16)
+omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.server_sequenced_message = ProtoField.new("Server Sequenced Message", "nyse.options.streamprotocol.pillarstream.v1.6.serversequencedmessage", ftypes.BYTES)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.sess = ProtoField.new("Sess", "nyse.options.streamprotocol.pillarstream.v1.6.sess", ftypes.UINT32)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.start_seq = ProtoField.new("Start Seq", "nyse.options.streamprotocol.pillarstream.v1.6.startseq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.status = ProtoField.new("Status", "nyse.options.streamprotocol.pillarstream.v1.6.status", ftypes.UINT8)
@@ -127,6 +129,25 @@ nyse_options_streamprotocol_pillarstream_v1_6.access.dissect = function(buffer, 
   parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.access, range, value, display)
 
   return offset + length, value
+end
+
+-- Client Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message = {}
+
+-- Display: Client Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message.display = function(value)
+  return "Client Sequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Client Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.client_sequenced_message, range, value, display)
+
+  return offset + size, value
 end
 
 -- End Seq
@@ -440,6 +461,25 @@ nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_type.dissect = function(bu
   parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_type, range, value, display)
 
   return offset + length, value
+end
+
+-- Server Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message = {}
+
+-- Display: Server Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message.display = function(value)
+  return "Server Sequenced Message: "..value
+end
+
+-- Dissect runtime sized field: Server Sequenced Message
+nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message.display(value, packet, parent, size)
+
+  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.server_sequenced_message, range, value, display)
+
+  return offset + size, value
 end
 
 -- Sess
@@ -864,8 +904,14 @@ nyse_options_streamprotocol_pillarstream_v1_6.server_seq_msg.fields = function(b
   -- Seq Msg Header: Struct of 2 fields
   index, seq_msg_header = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.dissect(buffer, index, packet, parent)
 
-  -- Server Sequenced Message
-  index, server_sequenced_message = nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message.dissect(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 2, 2):le_uint()
+
+  -- Runtime Size Of: Server Sequenced Message
+  local size_of_server_sequenced_message = seq_msg_length - 4
+
+  -- Server Sequenced Message: 0 Byte
+  index, server_sequenced_message = nyse_options_streamprotocol_pillarstream_v1_6.server_sequenced_message.dissect(buffer, index, packet, parent, size_of_server_sequenced_message)
 
   return index
 end
@@ -1263,8 +1309,14 @@ nyse_options_streamprotocol_pillarstream_v1_6.client_seq_msg.fields = function(b
   -- Seq Msg Header: Struct of 2 fields
   index, seq_msg_header = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.dissect(buffer, index, packet, parent)
 
-  -- Client Sequenced Message
-  index, client_sequenced_message = nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message.dissect(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 2, 2):le_uint()
+
+  -- Runtime Size Of: Client Sequenced Message
+  local size_of_client_sequenced_message = seq_msg_length - 4
+
+  -- Client Sequenced Message: 0 Byte
+  index, client_sequenced_message = nyse_options_streamprotocol_pillarstream_v1_6.client_sequenced_message.dissect(buffer, index, packet, parent, size_of_client_sequenced_message)
 
   return index
 end
@@ -1617,25 +1669,34 @@ function omi_nyse_options_streamprotocol_pillarstream_v1_6.dissector(buffer, pac
   local dissect = role == "initiator" and nyse_options_streamprotocol_pillarstream_v1_6.client_pillar_message.dissect or nyse_options_streamprotocol_pillarstream_v1_6.server_pillar_message.dissect
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6, buffer(offset), omi_nyse_options_streamprotocol_pillarstream_v1_6.description, "("..(length - offset).." Bytes)")
-    local ok, consumed = pcall(dissect, buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    -- A message split across segments: let TCP reassemble it with the next one
-    if not ok or consumed == nil or consumed <= 0 then
-      packet.desegment_offset = offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nyse_options_streamprotocol_pillarstream_v1_6.msg_header.size then
+      packet.desegment_offset = index
       packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
       return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 2, 2):le_uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6, buffer(index, size), omi_nyse_options_streamprotocol_pillarstream_v1_6.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 
