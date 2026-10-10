@@ -339,7 +339,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.ask_price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_3.ask_price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_3.ask_price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_3.ask_price_2.display(value, buffer, offset, packet, parent)
 
@@ -443,7 +443,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.bid_price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_3.bid_price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_3.bid_price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_3.bid_price_2.display(value, buffer, offset, packet, parent)
 
@@ -1194,7 +1194,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_3.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_3.price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_3.price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_3.price_2.display(value, buffer, offset, packet, parent)
 
@@ -3563,7 +3563,9 @@ nasdaq_nomoptions_bono_itch_v3_3.server_packet.dissect = function(buffer, packet
     local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_nomoptions_bono_itch_v3_3.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_soup_bin_tcp_packet):tvb()
+      index = nasdaq_nomoptions_bono_itch_v3_3.server_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_server_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -3883,7 +3885,9 @@ nasdaq_nomoptions_bono_itch_v3_3.client_packet.dissect = function(buffer, packet
     local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_nomoptions_bono_itch_v3_3.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_soup_bin_tcp_packet):tvb()
+      index = nasdaq_nomoptions_bono_itch_v3_3.client_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

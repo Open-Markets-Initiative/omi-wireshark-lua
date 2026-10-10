@@ -4427,7 +4427,9 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.tcp_packet.dissect = functio
     local available, size_of_sesm_tcp_packet = sesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_tcp_packet.dissect(buffer, index, packet, parent, size_of_sesm_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_sesm_tcp_packet):tvb()
+      index = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_tcp_packet.dissect(frame, index, packet, parent, size_of_sesm_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

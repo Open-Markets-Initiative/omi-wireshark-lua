@@ -8259,7 +8259,9 @@ coinbase_deribit_ordersapi_sbe_v0_1.packet.dissect = function(buffer, packet, pa
     local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = coinbase_deribit_ordersapi_sbe_v0_1.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_sbe_message):tvb()
+      index = coinbase_deribit_ordersapi_sbe_v0_1.sbe_message.dissect(frame, index, packet, parent, size_of_sbe_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

@@ -67,8 +67,10 @@ omi_box_boxoptions_solatradereporting_atr_v4_5.fields.username = ProtoField.new(
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.volume = ProtoField.new("Volume", "box.boxoptions.solatradereporting.atr.v4.5.volume", ftypes.STRING)
 
 -- Box BoxOptions SolaTradeReporting Atr 4.5 Framing
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_frame = ProtoField.new("Client Frame", "box.boxoptions.solatradereporting.atr.v4.5.clientframe", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_packet = ProtoField.new("Client Packet", "box.boxoptions.solatradereporting.atr.v4.5.clientpacket", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.message_header = ProtoField.new("Message Header", "box.boxoptions.solatradereporting.atr.v4.5.messageheader", ftypes.STRING)
+omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_frame = ProtoField.new("Server Frame", "box.boxoptions.solatradereporting.atr.v4.5.serverframe", ftypes.STRING)
 omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_packet = ProtoField.new("Server Packet", "box.boxoptions.solatradereporting.atr.v4.5.serverpacket", ftypes.STRING)
 
 -- Box BoxOptions SolaTradeReporting 4.5 Application Messages
@@ -2959,17 +2961,17 @@ box_boxoptions_solatradereporting_atr_v4_5.message_header.dissect = function(buf
   end
 end
 
--- Server Packet
-box_boxoptions_solatradereporting_atr_v4_5.server_packet = {}
+-- Server Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_frame = {}
 
--- Verify required size of Tcp packet
-box_boxoptions_solatradereporting_atr_v4_5.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= box_boxoptions_solatradereporting_atr_v4_5.message_header.size
+-- Display: Server Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_frame.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect Server Packet
-box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect = function(buffer, packet, parent)
-  local index = 0
+-- Dissect Fields: Server Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset
 
   -- Message Header: Struct of 7 fields
   index, message_header = box_boxoptions_solatradereporting_atr_v4_5.message_header.dissect(buffer, index, packet, parent)
@@ -2982,6 +2984,88 @@ box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect = function(buff
 
   -- End Of Text: A
   index, end_of_text = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Frame
+box_boxoptions_solatradereporting_atr_v4_5.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset + size_of_server_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.server_frame, buffer(offset, 0))
+    local current = box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    parent:set_len(size_of_server_frame)
+    local display = box_boxoptions_solatradereporting_atr_v4_5.server_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    box_boxoptions_solatradereporting_atr_v4_5.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Frame
+local server_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 3
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
+-- Server Packet
+box_boxoptions_solatradereporting_atr_v4_5.server_packet = {}
+
+-- Verify required size of Tcp packet
+box_boxoptions_solatradereporting_atr_v4_5.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= box_boxoptions_solatradereporting_atr_v4_5.message_header.size
+end
+
+-- Dissect Server Packet
+box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Frame
+  local end_of_payload = buffer:len()
+
+  -- Server Frame: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_frame):tvb()
+      index = box_boxoptions_solatradereporting_atr_v4_5.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
 
   return index
 end
@@ -3593,17 +3677,17 @@ box_boxoptions_solatradereporting_atr_v4_5.client_message.dissect = function(buf
   return offset
 end
 
--- Client Packet
-box_boxoptions_solatradereporting_atr_v4_5.client_packet = {}
+-- Client Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_frame = {}
 
--- Verify required size of Tcp packet
-box_boxoptions_solatradereporting_atr_v4_5.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= box_boxoptions_solatradereporting_atr_v4_5.message_header.size
+-- Display: Client Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_frame.display = function(packet, parent, length)
+  return ""
 end
 
--- Dissect Client Packet
-box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect = function(buffer, packet, parent)
-  local index = 0
+-- Dissect Fields: Client Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset
 
   -- Message Header: Struct of 7 fields
   index, message_header = box_boxoptions_solatradereporting_atr_v4_5.message_header.dissect(buffer, index, packet, parent)
@@ -3616,6 +3700,88 @@ box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect = function(buff
 
   -- End Of Text: A
   index, end_of_text = box_boxoptions_solatradereporting_atr_v4_5.end_of_text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Frame
+box_boxoptions_solatradereporting_atr_v4_5.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset + size_of_client_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.client_frame, buffer(offset, 0))
+    local current = box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    parent:set_len(size_of_client_frame)
+    local display = box_boxoptions_solatradereporting_atr_v4_5.client_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    box_boxoptions_solatradereporting_atr_v4_5.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Frame
+local client_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 3
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
+-- Client Packet
+box_boxoptions_solatradereporting_atr_v4_5.client_packet = {}
+
+-- Verify required size of Tcp packet
+box_boxoptions_solatradereporting_atr_v4_5.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= box_boxoptions_solatradereporting_atr_v4_5.message_header.size
+end
+
+-- Dissect Client Packet
+box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Frame
+  local end_of_payload = buffer:len()
+
+  -- Client Frame: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_frame):tvb()
+      index = box_boxoptions_solatradereporting_atr_v4_5.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
 
   return index
 end
@@ -3712,29 +3878,15 @@ function omi_box_boxoptions_solatradereporting_atr_v4_5.dissector(buffer, packet
   -- Set protocol name
   packet.cols.protocol = omi_box_boxoptions_solatradereporting_atr_v4_5.name
 
+  -- Dissect protocol
+  local protocol = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5, buffer(), omi_box_boxoptions_solatradereporting_atr_v4_5.description, "("..buffer:len().." Bytes)")
   local role = box_boxoptions_solatradereporting_atr_v4_5.role(packet)
-  local dissect = box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect
+
   if role == "initiator" then
-    dissect = box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect
+    return box_boxoptions_solatradereporting_atr_v4_5.client_packet.dissect(buffer, packet, protocol)
   end
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5, buffer(offset), omi_box_boxoptions_solatradereporting_atr_v4_5.description, "("..(length - offset).." Bytes)")
-    local consumed = dissect(buffer(offset):tvb(), packet, protocol)
-
-    if consumed == nil or consumed <= 0 then
-      return offset
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
-  end
-
-  return offset
+  return box_boxoptions_solatradereporting_atr_v4_5.server_packet.dissect(buffer, packet, protocol)
 end
 
 

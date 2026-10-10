@@ -2431,7 +2431,9 @@ jnx_jnxbonds_pts_ouch_v2_01.server_packet.dissect = function(buffer, packet, par
     local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = jnx_jnxbonds_pts_ouch_v2_01.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_soup_bin_tcp_packet):tvb()
+      index = jnx_jnxbonds_pts_ouch_v2_01.server_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_server_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -2966,7 +2968,9 @@ jnx_jnxbonds_pts_ouch_v2_01.client_packet.dissect = function(buffer, packet, par
     local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = jnx_jnxbonds_pts_ouch_v2_01.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_soup_bin_tcp_packet):tvb()
+      index = jnx_jnxbonds_pts_ouch_v2_01.client_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

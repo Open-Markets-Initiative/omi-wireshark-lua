@@ -3972,6 +3972,23 @@ jse_itac_basicnativetrading_ntgi_v4_05.reject_message.dissect = function(buffer,
   end
 end
 
+-- Heartbeat Message
+jse_itac_basicnativetrading_ntgi_v4_05.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+jse_itac_basicnativetrading_ntgi_v4_05.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+jse_itac_basicnativetrading_ntgi_v4_05.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = jse_itac_basicnativetrading_ntgi_v4_05.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Message
 jse_itac_basicnativetrading_ntgi_v4_05.logout_message = {}
 
@@ -4127,7 +4144,7 @@ jse_itac_basicnativetrading_ntgi_v4_05.payload.dissect = function(buffer, offset
   end
   -- Dissect Heartbeat Message
   if message_type == "0" then
-    return offset
+    return jse_itac_basicnativetrading_ntgi_v4_05.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == "3" then
@@ -4329,7 +4346,9 @@ jse_itac_basicnativetrading_ntgi_v4_05.packet.dissect = function(buffer, packet,
     local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = jse_itac_basicnativetrading_ntgi_v4_05.message.dissect(buffer, index, packet, parent, size_of_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_message):tvb()
+      index = jse_itac_basicnativetrading_ntgi_v4_05.message.dissect(frame, index, packet, parent, size_of_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

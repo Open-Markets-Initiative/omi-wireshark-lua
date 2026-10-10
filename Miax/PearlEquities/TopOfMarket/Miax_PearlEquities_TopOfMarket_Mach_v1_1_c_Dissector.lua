@@ -2655,7 +2655,9 @@ miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.dissect = function(buffer,
     local available, size_of_esesm_tcp_packet = esesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = miax_pearlequities_topofmarket_mach_v1_1_c.esesm_tcp_packet.dissect(buffer, index, packet, parent, size_of_esesm_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_esesm_tcp_packet):tvb()
+      index = miax_pearlequities_topofmarket_mach_v1_1_c.esesm_tcp_packet.dissect(frame, index, packet, parent, size_of_esesm_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

@@ -3158,6 +3158,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bbo_pillar_v2_5_b)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.5.b
+--   Since: 2.5
 --   Date: Monday, March 21, 2022
 --   Specification: NYSE_Pillar_BBO_Client_Specification.pdf
 --

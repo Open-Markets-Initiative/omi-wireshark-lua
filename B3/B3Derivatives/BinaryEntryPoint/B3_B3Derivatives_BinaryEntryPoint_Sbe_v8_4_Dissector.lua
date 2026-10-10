@@ -14949,7 +14949,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.packet.dissect = function(buffer, pac
     local available, size_of_simple_open_frame = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_open_frame.dissect(buffer, index, packet, parent, size_of_simple_open_frame)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_simple_open_frame):tvb()
+      index = b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_open_frame.dissect(frame, index, packet, parent, size_of_simple_open_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

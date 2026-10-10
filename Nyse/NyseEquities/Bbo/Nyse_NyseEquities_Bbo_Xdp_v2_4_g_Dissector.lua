@@ -3194,6 +3194,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bbo_xdp_v2_4_g)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.4.g
+--   Since: 2.4.d
 --   Date: Monday, January 29, 2018
 --   Specification: XDP_BBO_Client_Specification_V2.4c.pdf
 --

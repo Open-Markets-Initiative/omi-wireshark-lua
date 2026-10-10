@@ -27937,7 +27937,9 @@ eurex_t7_eti_fbe_v10_0.server_packet.dissect = function(buffer, packet, parent)
     local available, size_of_server_message = server_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_t7_eti_fbe_v10_0.server_message.dissect(buffer, index, packet, parent, size_of_server_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_message):tvb()
+      index = eurex_t7_eti_fbe_v10_0.server_message.dissect(frame, index, packet, parent, size_of_server_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -34593,7 +34595,9 @@ eurex_t7_eti_fbe_v10_0.client_packet.dissect = function(buffer, packet, parent)
     local available, size_of_client_message = client_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = eurex_t7_eti_fbe_v10_0.client_message.dissect(buffer, index, packet, parent, size_of_client_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_message):tvb()
+      index = eurex_t7_eti_fbe_v10_0.client_message.dissect(frame, index, packet, parent, size_of_client_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

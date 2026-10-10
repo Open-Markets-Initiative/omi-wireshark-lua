@@ -18,6 +18,7 @@ local nasdaq_utp_snapshot_utp_v3_0 = {}
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.snapshot.utp.v3.0.acceptedsession", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v3.0.actiontime", ftypes.UINT64)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_market_participant_identifier = ProtoField.new("Adf Market Participant Identifier", "nasdaq.utp.snapshot.utp.v3.0.adfmarketparticipantidentifier", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v3.0.adftimestamp", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utp.snapshot.utp.v3.0.administrativemessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utp.snapshot.utp.v3.0.administrativemessagetype", ftypes.STRING)
@@ -63,6 +64,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_bbo_indicator = ProtoField.new("Lul
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_national_bbo_indicator = ProtoField.new("Luld National Bbo Indicator", "nasdaq.utp.snapshot.utp.v3.0.luldnationalbboindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandeffectivetime", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utp.snapshot.utp.v3.0.luldpricebandindicator", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_id = ProtoField.new("Market Center Id", "nasdaq.utp.snapshot.utp.v3.0.marketcenterid", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utp.snapshot.utp.v3.0.marketcenteridentifier", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_originator = ProtoField.new("Market Center Originator", "nasdaq.utp.snapshot.utp.v3.0.marketcenteroriginator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utp.snapshot.utp.v3.0.markettier", ftypes.STRING)
@@ -83,6 +85,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.nbbo_quote_condition = ProtoField.new("N
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.new_issue_indicator = ProtoField.new("New Issue Indicator", "nasdaq.utp.snapshot.utp.v3.0.newissueindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.odd_lot_attachment_count = ProtoField.new("Odd Lot Attachment Count", "nasdaq.utp.snapshot.utp.v3.0.oddlotattachmentcount", ftypes.UINT16)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.odd_lot_attachment_type = ProtoField.new("Odd Lot Attachment Type", "nasdaq.utp.snapshot.utp.v3.0.oddlotattachmenttype", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.odd_lot_price = ProtoField.new("Odd Lot Price", "nasdaq.utp.snapshot.utp.v3.0.oddlotprice", ftypes.DOUBLE)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utp.snapshot.utp.v3.0.oldsymbol", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.utp.snapshot.utp.v3.0.packetlength", ftypes.UINT16)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.utp.snapshot.utp.v3.0.participanttoken", ftypes.UINT64)
@@ -99,7 +102,9 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.retail_interest_indicator = ProtoField.n
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.utp.snapshot.utp.v3.0.roundlotsize", ftypes.UINT16)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.sequencenumber", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.utp.snapshot.utp.v3.0.serverpackettype", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.shares_at_odd_lot_price = ProtoField.new("Shares At Odd Lot Price", "nasdaq.utp.snapshot.utp.v3.0.sharesatoddlotprice", ftypes.UINT16)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utp.snapshot.utp.v3.0.shortsalethresholdindicator", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.side = ProtoField.new("Side", "nasdaq.utp.snapshot.utp.v3.0.side", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_generated_update_flag = ProtoField.new("Sip Generated Update Flag", "nasdaq.utp.snapshot.utp.v3.0.sipgeneratedupdateflag", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v3.0.siptimestamp", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utp.snapshot.utp.v3.0.submarketcenterid", ftypes.STRING)
@@ -109,6 +114,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_code = ProtoField.new("Tr
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.tradingactionsequencenumber", ftypes.UINT32)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.utp.snapshot.utp.v3.0.tradingstate", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.utp.snapshot.utp.v3.0.username", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_adf_mpid_odd_lot_attachment = ProtoField.new("Utp Adf Mpid Odd Lot Attachment", "nasdaq.utp.snapshot.utp.v3.0.utpadfmpidoddlotattachment", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.version = ProtoField.new("Version", "nasdaq.utp.snapshot.utp.v3.0.version", ftypes.UINT8)
 
 -- Nasdaq Utp Snapshot Utp 3.0 Framing
@@ -147,6 +153,9 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.login_request_packet = ProtoField.new("L
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.utp.snapshot.utp.v3.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.utp.snapshot.utp.v3.0.serverheartbeatpacket", ftypes.BYTES)
 
+-- Nasdaq Utp Snapshot Utp 3.0 Generated Fields
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_adf_mpid_odd_lot_attachment_index = ProtoField.new("Utp Adf Mpid Odd Lot Attachment Index", "nasdaq.utp.snapshot.utp.v3.0.utpadfmpidoddlotattachmentindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Nasdaq Utp Snapshot Utp 3.0 Formatting
 -----------------------------------------------------------------------
@@ -170,6 +179,8 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.session_messages = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Nasdaq Utp Snapshot Utp 3.0 Show Options
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -179,6 +190,8 @@ omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs = Pref.bool("Show Structs", 
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()
@@ -190,11 +203,17 @@ function omi_nasdaq_utp_snapshot_utp_v3_0.prefs_changed()
   if show.headers ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_headers then
     show.headers = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_headers
   end
+  if show.repeating_groups ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_repeating_groups
+  end
   if show.session_messages ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_session_messages
   end
   if show.structs ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs then
     show.structs = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_structs
+  end
+  if show.indexes ~= omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes then
+    show.indexes = omi_nasdaq_utp_snapshot_utp_v3_0.prefs.show_indexes
   end
 end
 
@@ -293,6 +312,29 @@ nasdaq_utp_snapshot_utp_v3_0.action_time.dissect = function(buffer, offset, pack
   local display = nasdaq_utp_snapshot_utp_v3_0.action_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.action_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Adf Market Participant Identifier
+nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier = {}
+
+-- Size: Adf Market Participant Identifier
+nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.size = 4
+
+-- Display: Adf Market Participant Identifier
+nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.display = function(value)
+  return "Adf Market Participant Identifier: "..value
+end
+
+-- Dissect: Adf Market Participant Identifier
+nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.adf_market_participant_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -1691,6 +1733,29 @@ nasdaq_utp_snapshot_utp_v3_0.luld_price_band_indicator.dissect = function(buffer
   return offset + length, value
 end
 
+-- Market Center Id
+nasdaq_utp_snapshot_utp_v3_0.market_center_id = {}
+
+-- Size: Market Center Id
+nasdaq_utp_snapshot_utp_v3_0.market_center_id.size = 1
+
+-- Display: Market Center Id
+nasdaq_utp_snapshot_utp_v3_0.market_center_id.display = function(value)
+  return "Market Center Id: "..value
+end
+
+-- Dissect: Market Center Id
+nasdaq_utp_snapshot_utp_v3_0.market_center_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.market_center_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_snapshot_utp_v3_0.market_center_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Center Identifier
 nasdaq_utp_snapshot_utp_v3_0.market_center_identifier = {}
 
@@ -2253,6 +2318,35 @@ nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_type.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_price = {}
+
+-- Size: Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.size = 8
+
+-- Display: Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.display = function(value)
+  return "Odd Lot Price: "..value
+end
+
+-- Translate: Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.translate(raw)
+  local display = nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.odd_lot_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Old Symbol
 nasdaq_utp_snapshot_utp_v3_0.old_symbol = {}
 
@@ -2791,6 +2885,29 @@ nasdaq_utp_snapshot_utp_v3_0.server_packet_type.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Shares At Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price = {}
+
+-- Size: Shares At Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.size = 2
+
+-- Display: Shares At Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.display = function(value)
+  return "Shares At Odd Lot Price: "..value
+end
+
+-- Dissect: Shares At Odd Lot Price
+nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.shares_at_odd_lot_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Sale Threshold Indicator
 nasdaq_utp_snapshot_utp_v3_0.short_sale_threshold_indicator = {}
 
@@ -2820,6 +2937,36 @@ nasdaq_utp_snapshot_utp_v3_0.short_sale_threshold_indicator.dissect = function(b
   local display = nasdaq_utp_snapshot_utp_v3_0.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.short_sale_threshold_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_utp_snapshot_utp_v3_0.side = {}
+
+-- Size: Side
+nasdaq_utp_snapshot_utp_v3_0.side.size = 1
+
+-- Display: Side
+nasdaq_utp_snapshot_utp_v3_0.side.display = function(value)
+  if value == "B" then
+    return "Side: Update For The Bid Side (B)"
+  end
+  if value == "A" then
+    return "Side: Update For The Ask Side (A)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_utp_snapshot_utp_v3_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_snapshot_utp_v3_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -3265,6 +3412,68 @@ nasdaq_utp_snapshot_utp_v3_0.debug_packet.dissect = function(buffer, offset, pac
   end
 end
 
+-- Utp Adf Mpid Odd Lot Attachment
+nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment = {}
+
+-- Size: Utp Adf Mpid Odd Lot Attachment
+nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.size =
+  nasdaq_utp_snapshot_utp_v3_0.market_center_id.size + 
+  nasdaq_utp_snapshot_utp_v3_0.side.size + 
+  nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.size + 
+  nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.size + 
+  nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.size
+
+-- Display: Utp Adf Mpid Odd Lot Attachment
+nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Utp Adf Mpid Odd Lot Attachment
+nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.fields = function(buffer, offset, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+  local index = offset
+
+  -- Implicit Utp Adf Mpid Odd Lot Attachment Index
+  if utp_adf_mpid_odd_lot_attachment_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_adf_mpid_odd_lot_attachment_index, utp_adf_mpid_odd_lot_attachment_index)
+    iteration:set_generated()
+  end
+
+  -- Market Center Id: byte
+  index, market_center_id = nasdaq_utp_snapshot_utp_v3_0.market_center_id.dissect(buffer, index, packet, parent)
+
+  -- Side: byte
+  index, side = nasdaq_utp_snapshot_utp_v3_0.side.dissect(buffer, index, packet, parent)
+
+  -- Odd Lot Price: long
+  index, odd_lot_price = nasdaq_utp_snapshot_utp_v3_0.odd_lot_price.dissect(buffer, index, packet, parent)
+
+  -- Shares At Odd Lot Price: short
+  index, shares_at_odd_lot_price = nasdaq_utp_snapshot_utp_v3_0.shares_at_odd_lot_price.dissect(buffer, index, packet, parent)
+
+  -- Adf Market Participant Identifier: byte[]
+  index, adf_market_participant_identifier = nasdaq_utp_snapshot_utp_v3_0.adf_market_participant_identifier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Utp Adf Mpid Odd Lot Attachment
+nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.dissect = function(buffer, offset, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.utp_adf_mpid_odd_lot_attachment, buffer(offset, 0))
+    local index = nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.fields(buffer, offset, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.fields(buffer, offset, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+  end
+end
+
 -- Bolo Appendage Mpid Form
 nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form = {}
 
@@ -3336,20 +3545,50 @@ end
 -- Odd Lot Quote Message Long Form
 nasdaq_utp_snapshot_utp_v3_0.odd_lot_quote_message_long_form = {}
 
--- Size: Odd Lot Quote Message Long Form
-nasdaq_utp_snapshot_utp_v3_0.odd_lot_quote_message_long_form.size =
-  nasdaq_utp_snapshot_utp_v3_0.market_center_originator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sub_market_center_id.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size + 
-  nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size + 
-  nasdaq_utp_snapshot_utp_v3_0.participant_token.size + 
-  nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.size + 
-  nasdaq_utp_snapshot_utp_v3_0.symbol.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sip_generated_update_flag.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_type.size + 
-  nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.size
+-- Calculate size of: Odd Lot Quote Message Long Form
+nasdaq_utp_snapshot_utp_v3_0.odd_lot_quote_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.market_center_originator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sub_market_center_id.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.participant_token.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.adf_timestamp.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.symbol.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sip_generated_update_flag.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_type.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.size
+
+  local bolo_appendage_indicator = buffer(offset + 46, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.size
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 47, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local utp_adf_mpid_odd_lot_attachment_count = buffer(offset + 48, 2):uint()
+    index = index + utp_adf_mpid_odd_lot_attachment_count * 16
+
+  end
+
+  return index
+end
 
 -- Display: Odd Lot Quote Message Long Form
 nasdaq_utp_snapshot_utp_v3_0.odd_lot_quote_message_long_form.display = function(packet, parent, length)
@@ -3393,8 +3632,27 @@ nasdaq_utp_snapshot_utp_v3_0.odd_lot_quote_message_long_form.fields = function(b
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
-  -- Bolo Appendage Mpid Form: Struct of 8 fields
-  index, bolo_appendage_mpid_form = nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Utp Adf Mpid Odd Lot Attachment
+  local utp_adf_mpid_odd_lot_attachment = nil
+
+  local utp_adf_mpid_odd_lot_attachment_exists = odd_lot_attachment_type == "5"
+
+  if utp_adf_mpid_odd_lot_attachment_exists then
+
+    -- Repeating: Utp Adf Mpid Odd Lot Attachment
+    for utp_adf_mpid_odd_lot_attachment_index = 1, odd_lot_attachment_count do
+      index, utp_adf_mpid_odd_lot_attachment = nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.dissect(buffer, index, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+    end
+  end
 
   return index
 end
@@ -3528,32 +3786,84 @@ end
 -- Utp Combined Quote Message Long Form
 nasdaq_utp_snapshot_utp_v3_0.utp_combined_quote_message_long_form = {}
 
--- Size: Utp Combined Quote Message Long Form
-nasdaq_utp_snapshot_utp_v3_0.utp_combined_quote_message_long_form.size =
-  nasdaq_utp_snapshot_utp_v3_0.market_center_originator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sub_market_center_id.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size + 
-  nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size + 
-  nasdaq_utp_snapshot_utp_v3_0.participant_token.size + 
-  nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.size + 
-  nasdaq_utp_snapshot_utp_v3_0.symbol.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bid_price.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bid_size.size + 
-  nasdaq_utp_snapshot_utp_v3_0.ask_price.size + 
-  nasdaq_utp_snapshot_utp_v3_0.ask_size.size + 
-  nasdaq_utp_snapshot_utp_v3_0.quote_condition.size + 
-  nasdaq_utp_snapshot_utp_v3_0.sip_generated_update_flag.size + 
-  nasdaq_utp_snapshot_utp_v3_0.luld_bbo_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.retail_interest_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.nbbo_appendage_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.luld_national_bbo_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_indicator.size + 
-  nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_type.size + 
-  nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.size + 
-  nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.size + 
-  nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.size + 
-  nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.size
+-- Calculate size of: Utp Combined Quote Message Long Form
+nasdaq_utp_snapshot_utp_v3_0.utp_combined_quote_message_long_form.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.market_center_originator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sub_market_center_id.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sip_timestamp.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.timestamp_1.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.participant_token.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.finra_adf_timestamp.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.symbol.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.bid_price.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.bid_size.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.ask_price.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.ask_size.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.quote_condition.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.sip_generated_update_flag.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.luld_bbo_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.retail_interest_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.nbbo_appendage_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.luld_national_bbo_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_indicator.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_type.size
+
+  index = index + nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.size
+
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
+
+  if nbbo_appendage_indicator == "3" then
+    index = index + nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.size
+
+  end
+
+  local finra_adf_mpid_appendage_indicator = buffer(offset + 75, 1):string()
+
+  if finra_adf_mpid_appendage_indicator == "2" then
+    index = index + nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.size
+
+  end
+
+  local bolo_appendage_indicator = buffer(offset + 76, 1):string()
+
+  if bolo_appendage_indicator == "5" then
+    index = index + nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.size
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 77, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local utp_adf_mpid_odd_lot_attachment_count = buffer(offset + 78, 2):uint()
+    index = index + utp_adf_mpid_odd_lot_attachment_count * 16
+
+  end
+
+  return index
+end
 
 -- Display: Utp Combined Quote Message Long Form
 nasdaq_utp_snapshot_utp_v3_0.utp_combined_quote_message_long_form.display = function(packet, parent, length)
@@ -3627,14 +3937,45 @@ nasdaq_utp_snapshot_utp_v3_0.utp_combined_quote_message_long_form.fields = funct
   -- Odd Lot Attachment Count: short
   index, odd_lot_attachment_count = nasdaq_utp_snapshot_utp_v3_0.odd_lot_attachment_count.dissect(buffer, index, packet, parent)
 
-  -- National Bbo Appendage Longform: Struct of 7 fields
-  index, national_bbo_appendage_longform = nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: National Bbo Appendage Longform
+  local national_bbo_appendage_longform = nil
 
-  -- Finra Adf Mpid Appendage: Struct of 2 fields
-  index, finra_adf_mpid_appendage = nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.dissect(buffer, index, packet, parent)
+  local national_bbo_appendage_longform_exists = nbbo_appendage_indicator == "3"
 
-  -- Bolo Appendage Mpid Form: Struct of 8 fields
-  index, bolo_appendage_mpid_form = nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  if national_bbo_appendage_longform_exists then
+    index, national_bbo_appendage_longform = nasdaq_utp_snapshot_utp_v3_0.national_bbo_appendage_longform.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Finra Adf Mpid Appendage
+  local finra_adf_mpid_appendage = nil
+
+  local finra_adf_mpid_appendage_exists = finra_adf_mpid_appendage_indicator == "2"
+
+  if finra_adf_mpid_appendage_exists then
+    index, finra_adf_mpid_appendage = nasdaq_utp_snapshot_utp_v3_0.finra_adf_mpid_appendage.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bolo Appendage Mpid Form
+  local bolo_appendage_mpid_form = nil
+
+  local bolo_appendage_mpid_form_exists = bolo_appendage_indicator == "5"
+
+  if bolo_appendage_mpid_form_exists then
+    index, bolo_appendage_mpid_form = nasdaq_utp_snapshot_utp_v3_0.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Utp Adf Mpid Odd Lot Attachment
+  local utp_adf_mpid_odd_lot_attachment = nil
+
+  local utp_adf_mpid_odd_lot_attachment_exists = odd_lot_attachment_type == "5"
+
+  if utp_adf_mpid_odd_lot_attachment_exists then
+
+    -- Repeating: Utp Adf Mpid Odd Lot Attachment
+    for utp_adf_mpid_odd_lot_attachment_index = 1, odd_lot_attachment_count do
+      index, utp_adf_mpid_odd_lot_attachment = nasdaq_utp_snapshot_utp_v3_0.utp_adf_mpid_odd_lot_attachment.dissect(buffer, index, packet, parent, utp_adf_mpid_odd_lot_attachment_index)
+    end
+  end
 
   return index
 end

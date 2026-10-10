@@ -562,7 +562,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.translate(raw)
   local display = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
@@ -670,7 +670,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.limit_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.translate(raw)
   local display = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.display(value, buffer, offset, packet, parent)
 
@@ -1201,7 +1201,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_orders_itch_v1_9.price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_orders_itch_v1_9.price.translate(raw)
   local display = nasdaq_phlxoptions_orders_itch_v1_9.price.display(value, buffer, offset, packet, parent)
 

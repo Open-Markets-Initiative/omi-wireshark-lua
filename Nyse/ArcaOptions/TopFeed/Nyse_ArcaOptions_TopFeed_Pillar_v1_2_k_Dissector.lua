@@ -6075,6 +6075,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_topfeed_pillar_v1_2_k)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 1.2.k
+--   Since: 1.2.i
 --   Date: Friday, June 5, 2026
 --   Specification: PILLAR_TOP_Client_Specification.pdf
 --

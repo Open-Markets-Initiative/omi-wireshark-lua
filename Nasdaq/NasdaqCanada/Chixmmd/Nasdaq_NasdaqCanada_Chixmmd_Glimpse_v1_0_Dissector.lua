@@ -52,9 +52,11 @@ omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.unsequenced_message = ProtoF
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.username", ftypes.STRING)
 
 -- Nasdaq NasdaqCanada Chixmmd Glimpse 1.0 Framing
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.client_frame = ProtoField.new("Client Frame", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.clientframe", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.clientpacket", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.client_packet_header = ProtoField.new("Client Packet Header", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.clientpacketheader", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.sequencedmessageheader", ftypes.STRING)
+omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.server_frame = ProtoField.new("Server Frame", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.serverframe", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.serverpacket", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.nasdaqcanada.chixmmd.glimpse.v1.0.serverpacketheader", ftypes.STRING)
 
@@ -1629,6 +1631,77 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_header.dissect = function
   end
 end
 
+-- Server Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame = {}
+
+-- Display: Server Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset
+
+  -- Server Packet Header: Struct of 1 fields
+  index, server_packet_header = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Server Packet Type
+  local server_packet_type = buffer(index - 1, 1):string()
+
+  -- Server Payload: Runtime Type with 4 branches
+  index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
+
+  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  index, soup_lf = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.soup_lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset + size_of_server_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.server_frame, buffer(offset, 0))
+    local current = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    parent:set_len(size_of_server_frame)
+    local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Frame
+local server_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
 -- Server Packet
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet = {}
 
@@ -1641,22 +1714,27 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Server Packet
+  -- Dependency for Server Frame
   local end_of_payload = buffer:len()
 
+  -- Server Frame: Struct of 3 fields
   while index < end_of_payload do
 
-    -- Server Packet Header: Struct of 1 fields
-    index, server_packet_header = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet_header.dissect(buffer, index, packet, parent)
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Dependency element: Server Packet Type
-    local server_packet_type = buffer(index - 1, 1):string()
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_frame):tvb()
+      index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
 
-    -- Server Payload: Runtime Type with 4 branches
-    index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
-
-    -- Soup Lf: 1 Byte Fixed Width Integer Static
-    index, soup_lf = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.soup_lf.dissect(buffer, index, packet, parent)
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -1815,6 +1893,77 @@ nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_header.dissect = function
   end
 end
 
+-- Client Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame = {}
+
+-- Display: Client Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset
+
+  -- Client Packet Header: Struct of 1 fields
+  index, client_packet_header = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Client Packet Type
+  local client_packet_type = buffer(index - 1, 1):string()
+
+  -- Client Payload: Runtime Type with 3 branches
+  index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
+
+  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  index, soup_lf = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.soup_lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Frame
+nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset + size_of_client_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.fields.client_frame, buffer(offset, 0))
+    local current = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    parent:set_len(size_of_client_frame)
+    local display = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Frame
+local client_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
 -- Client Packet
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet = {}
 
@@ -1827,22 +1976,27 @@ end
 nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Client Packet
+  -- Dependency for Client Frame
   local end_of_payload = buffer:len()
 
+  -- Client Frame: Struct of 3 fields
   while index < end_of_payload do
 
-    -- Client Packet Header: Struct of 1 fields
-    index, client_packet_header = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet_header.dissect(buffer, index, packet, parent)
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Dependency element: Client Packet Type
-    local client_packet_type = buffer(index - 1, 1):string()
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_frame):tvb()
+      index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
 
-    -- Client Payload: Runtime Type with 3 branches
-    index = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
-
-    -- Soup Lf: 1 Byte Fixed Width Integer Static
-    index, soup_lf = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.soup_lf.dissect(buffer, index, packet, parent)
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -1940,29 +2094,15 @@ function omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.dissector(buffer, packet, 
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.name
 
+  -- Dissect protocol
+  local protocol = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0, buffer(), omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.description, "("..buffer:len().." Bytes)")
   local role = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.role(packet)
-  local dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet.dissect
+
   if role == "initiator" then
-    dissect = nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet.dissect
+    return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.client_packet.dissect(buffer, packet, protocol)
   end
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0, buffer(offset), omi_nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.description, "("..(length - offset).." Bytes)")
-    local consumed = dissect(buffer(offset):tvb(), packet, protocol)
-
-    if consumed == nil or consumed <= 0 then
-      return offset
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
-  end
-
-  return offset
+  return nasdaq_nasdaqcanada_chixmmd_glimpse_v1_0.server_packet.dissect(buffer, packet, protocol)
 end
 
 

@@ -5901,7 +5901,9 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.packet.dissect = function(buffe
     local available, size_of_tcp_unit = tcp_unit_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.tcp_unit.dissect(buffer, index, packet, parent, size_of_tcp_unit)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_tcp_unit):tvb()
+      index = lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.tcp_unit.dissect(frame, index, packet, parent, size_of_tcp_unit)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

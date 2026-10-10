@@ -636,7 +636,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.display(value, buffer, offset, packet, parent)
 
@@ -1072,7 +1072,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_iseoptions_orderfeed_itch_v1_1.price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.price.display(value, buffer, offset, packet, parent)
 
@@ -1101,7 +1101,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.display(value, buffer, offset, packet, parent)
 
@@ -1317,7 +1317,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.size
   local range = buffer(offset, length)
-  local raw = range:int64()
+  local raw = range:uint64()
   local value = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.translate(raw)
   local display = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.display(value, buffer, offset, packet, parent)
 

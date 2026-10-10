@@ -36,10 +36,12 @@ omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.status = ProtoF
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.symbolindex", ftypes.UINT32)
 
 -- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Framing
-omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message = ProtoField.new("Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.message", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.client_message = ProtoField.new("Client Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.clientmessage", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.client_packet = ProtoField.new("Client Packet", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.clientpacket", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.messageheader", ftypes.STRING)
-omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.packet", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.packetheader", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.server_message = ProtoField.new("Server Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.servermessage", ftypes.STRING)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.server_packet = ProtoField.new("Server Packet", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.serverpacket", ftypes.STRING)
 
 -- Nyse NyseEquities IntegratedFeedRequest 2.5.h Application Messages
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.heartbeatresponsemessage", ftypes.STRING)
@@ -49,7 +51,8 @@ omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.retransmission_
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.symbolindexmappingrequestmessage", ftypes.STRING)
 
 -- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Generated Fields
-omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.messageindex", ftypes.UINT16)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.client_message_index = ProtoField.new("Client Message Index", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.clientmessageindex", ftypes.UINT16)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.server_message_index = ProtoField.new("Server Message Index", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.servermessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Formatting
@@ -64,6 +67,13 @@ local absolute_time_base_enum = {
 -- 0=Local, 1=Utc
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.absolute_time_base = 0
 
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -72,14 +82,17 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.absolute_time_base = 0
 local show = {}
 
 -- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Element Dissection Options
-show.application_messages = true
 show.structs = true
+show.application_messages = true
 show.headers = true
 show.indexes = true
 
 -- Register Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Show Options
-omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -602,6 +615,328 @@ end
 -- Dissect Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h
 -----------------------------------------------------------------------
 
+-- Request Response Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message = {}
+
+-- Size: Request Response Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.size =
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_seq_num.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.begin_seq_num.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.end_seq_num.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.source_id.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.product_id.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.channel_id.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.status.size
+
+-- Display: Request Response Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Response Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Seq Num: Binary
+  index, request_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Status: ASCII
+  index, status = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Response Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload = {}
+
+-- Dissect: Server Payload
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Request Response Message
+  if message_type == 11 then
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header = {}
+
+-- Size: Message Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.size =
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_size.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_type.size
+
+-- Display: Message Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, message_type = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_header, buffer(offset, 0))
+    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message = {}
+
+-- Display: Server Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+  local index = offset
+
+  -- Implicit Server Message Index
+  if server_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.server_message_index, server_message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 2, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 1 branches
+  index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Server Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+  local index = offset + size_of_server_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.server_message, buffer(offset, 0))
+    local current = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    parent:set_len(size_of_server_message)
+    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+
+    return index
+  end
+end
+
+-- Send Time
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time = {}
+
+-- Size: Send Time
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size =
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seconds.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.nanoseconds.size
+
+-- Display: Send Time
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Binary
+  index, nanoseconds = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time
+    if nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header = {}
+
+-- Size: Packet Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.size =
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.pkt_size.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.delivery_flag.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.number_msgs.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seq_num.size + 
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size
+
+-- Display: Packet Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
+  index, pkt_size = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.pkt_size.dissect(buffer, index, packet, parent)
+
+  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, delivery_flag = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.delivery_flag.dissect(buffer, index, packet, parent)
+
+  -- Number Msgs: 1 Byte Unsigned Fixed Width Integer
+  index, number_msgs = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.number_msgs.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.packet_header, buffer(offset, 0))
+    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet = {}
+
+-- Verify required size of Tcp packet
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.size
+end
+
+-- Dissect Server Packet
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 5 fields
+  index, packet_header = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Server Message
+  local end_of_payload = buffer:len()
+
+  -- Server Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Server Message
+    index, server_message = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_message.dissect(buffer, index, packet, parent, message_size, server_message_index)
+  end
+
+  return index
+end
+
 -- Refresh Request Message
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.refresh_request_message = {}
 
@@ -750,70 +1085,6 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.heartbeat_response_message
   end
 end
 
--- Request Response Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message = {}
-
--- Size: Request Response Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.size =
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_seq_num.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.begin_seq_num.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.end_seq_num.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.source_id.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.product_id.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.channel_id.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.status.size
-
--- Display: Request Response Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Request Response Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Request Seq Num: Binary
-  index, request_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Begin Seq Num: Binary
-  index, begin_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.begin_seq_num.dissect(buffer, index, packet, parent)
-
-  -- End Seq Num: Binary
-  index, end_seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.end_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Source Id: ASCII
-  index, source_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.source_id.dissect(buffer, index, packet, parent)
-
-  -- Product Id: Binary
-  index, product_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.product_id.dissect(buffer, index, packet, parent)
-
-  -- Channel Id: Binary
-  index, channel_id = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Status: ASCII
-  index, status = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Request Response Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.request_response_message, buffer(offset, 0))
-    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Retransmission Request Message
 nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.retransmission_request_message = {}
 
@@ -870,18 +1141,14 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.retransmission_request_mes
   end
 end
 
--- Payload
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.payload = {}
+-- Client Payload
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload = {}
 
--- Dissect: Payload
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.payload.dissect = function(buffer, offset, packet, parent, message_type)
+-- Dissect: Client Payload
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dissect = function(buffer, offset, packet, parent, message_type)
   -- Dissect Retransmission Request Message
   if message_type == 10 then
     return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.retransmission_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Response Message
-  if message_type == 11 then
-    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.request_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Response Message
   if message_type == 12 then
@@ -899,65 +1166,21 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.payload.dissect = function
   return offset
 end
 
--- Message Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header = {}
+-- Client Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message = {}
 
--- Size: Message Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.size =
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_size.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_type.size
-
--- Display: Message Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.display = function(packet, parent, length)
+-- Display: Client Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
   local index = offset
 
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_size.dissect(buffer, index, packet, parent)
-
-  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, message_type = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_type.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_header, buffer(offset, 0))
-    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message = {}
-
--- Display: Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset
-
-  -- Implicit Message Index
-  if message_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_index, message_index)
+  -- Implicit Client Message Index
+  if client_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.client_message_index, client_message_index)
     iteration:set_generated()
   end
 
@@ -967,169 +1190,52 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.fields = function(
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
-  -- Payload: Runtime Type with 5 branches
-  index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.payload.dissect(buffer, index, packet, parent, message_type)
+  -- Client Payload: Runtime Type with 4 branches
+  index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_payload.dissect(buffer, index, packet, parent, message_type)
 
   return index
 end
 
--- Dissect: Message
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
-  local index = offset + size_of_message
+-- Dissect: Client Message
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+  local index = offset + size_of_client_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message, buffer(offset, 0))
-    local current = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
-    parent:set_len(size_of_message)
-    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.display(buffer, packet, parent)
+    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.client_message, buffer(offset, 0))
+    local current = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    parent:set_len(size_of_client_message)
+    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
 
     return index
   end
 end
 
--- Send Time
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time = {}
-
--- Size: Send Time
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size =
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seconds.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.nanoseconds.size
-
--- Display: Send Time
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.display = function(packet, parent, value)
-  -- Check null value
-  if value == nil then
-    return "No Value"
-
-  end
-
-  -- Parse unix nanosecond timestamp
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect Fields: Send Time
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: Binary
-  index, nanoseconds = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.nanoseconds.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
-
-  return index, send_time
-end
-
--- Dissect: Send Time
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- An absolute time item carries its value from the moment it is created,
-    -- so the parts are read here rather than taken from the fields below it
-    local seconds = buffer(offset, 4):le_uint()
-    local nanoseconds = buffer(offset + 4, 4):le_uint()
-    local length = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size
-    -- A field's absolute time base is fixed when it is declared, so the
-    -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time
-    if nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.absolute_time_base == 1 then field = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.send_time_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
-    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields(buffer, offset, packet, parent)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Packet Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header = {}
-
--- Size: Packet Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.size =
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.pkt_size.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.delivery_flag.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.number_msgs.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seq_num.size + 
-  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.size
-
--- Display: Packet Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Packet Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
-  index, pkt_size = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.pkt_size.dissect(buffer, index, packet, parent)
-
-  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, delivery_flag = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.delivery_flag.dissect(buffer, index, packet, parent)
-
-  -- Number Msgs: 1 Byte Unsigned Fixed Width Integer
-  index, number_msgs = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.number_msgs.dissect(buffer, index, packet, parent)
-
-  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, seq_num = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.seq_num.dissect(buffer, index, packet, parent)
-
-  -- Send Time: Struct of 2 fields
-  index, send_time = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.send_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Packet Header
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.packet_header, buffer(offset, 0))
-    local index = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Packet
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet = {}
+-- Client Packet
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet = {}
 
 -- Verify required size of Tcp packet
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet.requiredsize = function(buffer)
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.requiredsize = function(buffer)
   return buffer:len() >= nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.size
 end
 
--- Dissect Packet
-nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Client Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Client Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -1137,8 +1243,8 @@ nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet.dissect = function(
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.message.dissect(buffer, index, packet, parent, message_size, message_index)
+    -- Runtime Size Of: Client Message
+    index, client_message = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_message.dissect(buffer, index, packet, parent, message_size, client_message_index)
   end
 
   return index
@@ -1153,6 +1259,84 @@ end
 function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.init()
 end
 
+-- Connection roles for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.role = function(packet)
+  if omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h
 function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.dissector(buffer, packet, parent)
   -- Set protocol name
@@ -1160,7 +1344,65 @@ function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.dissector(buf
 
   -- Dissect protocol
   local protocol = parent:add(omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h, buffer(), omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.description, "("..buffer:len().." Bytes)")
-  return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet.dissect(buffer, packet, protocol)
+  local role = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.role(packet)
+
+  if role == "initiator" then
+    return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Retransmission Request Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Heartbeat Response Message
+  if message_type == 12 then
+    return true
+  end
+
+  -- Symbol Index Mapping Request Message
+  if message_type == 13 then
+    return true
+  end
+
+  -- Refresh Request Message
+  if message_type == 15 then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Request Response Message
+  if message_type == 11 then
+    return true
+  end
+
+  return false
 end
 
 
@@ -1169,9 +1411,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h (Tcp)
-local function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_heuristic(buffer, packet, parent)
+local function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.packet.requiredsize(buffer) then return false end
+  if not nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h
@@ -1180,7 +1425,50 @@ local function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_heu
   return true
 end
 
--- Register Heuristic for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h
+-- Dissector Heuristic for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h (Tcp)
+local function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h
+  omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h (Tcp): apply the heuristic of the sender's connection role
+local function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_heuristic(buffer, packet, parent)
+  local role = nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.role(packet)
+  local initiator = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_initiator_heuristic
+  local acceptor = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h:register_heuristic("tcp", omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h_tcp_heuristic)
 
 -- Register Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h for Decode As

@@ -16,6 +16,7 @@ local nasdaq_uqdf_output_utp_v3_0_c = {}
 
 -- Nasdaq Uqdf Output Utp 3.0.c Fields
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Time", "nasdaq.uqdf.output.utp.v3.0.c.actiontime", ftypes.UINT64)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_market_participant_identifier = ProtoField.new("Adf Market Participant Identifier", "nasdaq.uqdf.output.utp.v3.0.c.adfmarketparticipantidentifier", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.uqdf.output.utp.v3.0.c.adftimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.uqdf.output.utp.v3.0.c.administrativemessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.uqdf.output.utp.v3.0.c.administrativemessagetype", ftypes.STRING)
@@ -68,6 +69,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_ask_size = ProtoField.new
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_bid_price = ProtoField.new("Market Center Bid Price", "nasdaq.uqdf.output.utp.v3.0.c.marketcenterbidprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_bid_size = ProtoField.new("Market Center Bid Size", "nasdaq.uqdf.output.utp.v3.0.c.marketcenterbidsize", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap = ProtoField.new("Market Center Close Recap", "nasdaq.uqdf.output.utp.v3.0.c.marketcentercloserecap", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_id = ProtoField.new("Market Center Id", "nasdaq.uqdf.output.utp.v3.0.c.marketcenterid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.uqdf.output.utp.v3.0.c.marketcenteridentifier", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_originator = ProtoField.new("Market Center Originator", "nasdaq.uqdf.output.utp.v3.0.c.marketcenteroriginator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.uqdf.output.utp.v3.0.c.markettier", ftypes.STRING)
@@ -97,6 +99,11 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.nbbo_quote_condition = ProtoField.new("
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.number_of_market_center_attachments = ProtoField.new("Number Of Market Center Attachments", "nasdaq.uqdf.output.utp.v3.0.c.numberofmarketcenterattachments", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_attachment_count = ProtoField.new("Odd Lot Attachment Count", "nasdaq.uqdf.output.utp.v3.0.c.oddlotattachmentcount", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_attachment_type = ProtoField.new("Odd Lot Attachment Type", "nasdaq.uqdf.output.utp.v3.0.c.oddlotattachmenttype", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_adf_mpid_form = ProtoField.new("Odd Lot Price Level Attachment Adf Mpid Form", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentadfmpidform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_long_form = ProtoField.new("Odd Lot Price Level Attachment Long Form", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentlongform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_short_form = ProtoField.new("Odd Lot Price Level Attachment Short Form", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentshortform", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_long = ProtoField.new("Odd Lot Price Long", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelong", ftypes.DOUBLE)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_short = ProtoField.new("Odd Lot Price Short", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpriceshort", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.uqdf.output.utp.v3.0.c.oldsymbol", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.uqdf.output.utp.v3.0.c.participanttoken", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.protected_ask_price_long = ProtoField.new("Protected Ask Price Long", "nasdaq.uqdf.output.utp.v3.0.c.protectedaskpricelong", ftypes.DOUBLE)
@@ -116,7 +123,9 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.retail_interest_indicator = ProtoField.
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.uqdf.output.utp.v3.0.c.roundlotsize", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.sequencenumber", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.session = ProtoField.new("Session", "nasdaq.uqdf.output.utp.v3.0.c.session", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.shares_at_odd_lot_price = ProtoField.new("Shares At Odd Lot Price", "nasdaq.uqdf.output.utp.v3.0.c.sharesatoddlotprice", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.uqdf.output.utp.v3.0.c.shortsalethresholdindicator", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.side = ProtoField.new("Side", "nasdaq.uqdf.output.utp.v3.0.c.side", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_generated_update_flag = ProtoField.new("Sip Generated Update Flag", "nasdaq.uqdf.output.utp.v3.0.c.sipgeneratedupdateflag", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.uqdf.output.utp.v3.0.c.siptimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.special_condition = ProtoField.new("Special Condition", "nasdaq.uqdf.output.utp.v3.0.c.specialcondition", ftypes.STRING)
@@ -169,6 +178,9 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.heartbeat = ProtoField.new("Heartbeat",
 -- Nasdaq Uqdf Output Utp 3.0.c Generated Fields
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v3.0.c.marketcentercloserecapindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v3.0.c.messageindex", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_adf_mpid_form_index = ProtoField.new("Odd Lot Price Level Attachment Adf Mpid Form Index", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentadfmpidformindex", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_long_form_index = ProtoField.new("Odd Lot Price Level Attachment Long Form Index", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentlongformindex", ftypes.UINT16)
+omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_short_form_index = ProtoField.new("Odd Lot Price Level Attachment Short Form Index", "nasdaq.uqdf.output.utp.v3.0.c.oddlotpricelevelattachmentshortformindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.uqdf.output.utp.v3.0.c.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -261,6 +273,29 @@ nasdaq_uqdf_output_utp_v3_0_c.action_time.dissect = function(buffer, offset, pac
   local display = nasdaq_uqdf_output_utp_v3_0_c.action_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.action_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Adf Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier = {}
+
+-- Size: Adf Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.size = 4
+
+-- Display: Adf Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.display = function(value)
+  return "Adf Market Participant Identifier: "..value
+end
+
+-- Dissect: Adf Market Participant Identifier
+nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.adf_market_participant_identifier, range, value, display)
 
   return offset + length, value
 end
@@ -1758,6 +1793,29 @@ nasdaq_uqdf_output_utp_v3_0_c.market_center_bid_size.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Market Center Id
+nasdaq_uqdf_output_utp_v3_0_c.market_center_id = {}
+
+-- Size: Market Center Id
+nasdaq_uqdf_output_utp_v3_0_c.market_center_id.size = 1
+
+-- Display: Market Center Id
+nasdaq_uqdf_output_utp_v3_0_c.market_center_id.display = function(value)
+  return "Market Center Id: "..value
+end
+
+-- Dissect: Market Center Id
+nasdaq_uqdf_output_utp_v3_0_c.market_center_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.market_center_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.market_center_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Center Identifier
 nasdaq_uqdf_output_utp_v3_0_c.market_center_identifier = {}
 
@@ -2519,6 +2577,64 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_attachment_type.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Odd Lot Price Long
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long = {}
+
+-- Size: Odd Lot Price Long
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.size = 8
+
+-- Display: Odd Lot Price Long
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.display = function(value)
+  return "Odd Lot Price Long: "..value
+end
+
+-- Translate: Odd Lot Price Long
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Odd Lot Price Long
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Odd Lot Price Short
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short = {}
+
+-- Size: Odd Lot Price Short
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.size = 2
+
+-- Display: Odd Lot Price Short
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.display = function(value)
+  return "Odd Lot Price Short: "..value
+end
+
+-- Translate: Odd Lot Price Short
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Odd Lot Price Short
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.translate(raw)
+  local display = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_short, range, value, display)
+
+  return offset + length, value
+end
+
 -- Old Symbol
 nasdaq_uqdf_output_utp_v3_0_c.old_symbol = {}
 
@@ -3142,6 +3258,29 @@ nasdaq_uqdf_output_utp_v3_0_c.session.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Shares At Odd Lot Price
+nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price = {}
+
+-- Size: Shares At Odd Lot Price
+nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.size = 2
+
+-- Display: Shares At Odd Lot Price
+nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.display = function(value)
+  return "Shares At Odd Lot Price: "..value
+end
+
+-- Dissect: Shares At Odd Lot Price
+nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.shares_at_odd_lot_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Short Sale Threshold Indicator
 nasdaq_uqdf_output_utp_v3_0_c.short_sale_threshold_indicator = {}
 
@@ -3171,6 +3310,36 @@ nasdaq_uqdf_output_utp_v3_0_c.short_sale_threshold_indicator.dissect = function(
   local display = nasdaq_uqdf_output_utp_v3_0_c.short_sale_threshold_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.short_sale_threshold_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_uqdf_output_utp_v3_0_c.side = {}
+
+-- Size: Side
+nasdaq_uqdf_output_utp_v3_0_c.side.size = 1
+
+-- Display: Side
+nasdaq_uqdf_output_utp_v3_0_c.side.display = function(value)
+  if value == "B" then
+    return "Side: Update For The Bid Side (B)"
+  end
+  if value == "A" then
+    return "Side: Update For The Ask Side (A)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_uqdf_output_utp_v3_0_c.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v3_0_c.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_uqdf_output_utp_v3_0_c.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -4918,6 +5087,184 @@ nasdaq_uqdf_output_utp_v3_0_c.administrative_message.dissect = function(buffer, 
   end
 end
 
+-- Odd Lot Price Level Attachment Adf Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form = {}
+
+-- Size: Odd Lot Price Level Attachment Adf Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.market_center_id.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.side.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.size
+
+-- Display: Odd Lot Price Level Attachment Adf Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Odd Lot Price Level Attachment Adf Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.fields = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+  local index = offset
+
+  -- Implicit Odd Lot Price Level Attachment Adf Mpid Form Index
+  if odd_lot_price_level_attachment_adf_mpid_form_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_adf_mpid_form_index, odd_lot_price_level_attachment_adf_mpid_form_index)
+    iteration:set_generated()
+  end
+
+  -- Market Center Id: byte
+  index, market_center_id = nasdaq_uqdf_output_utp_v3_0_c.market_center_id.dissect(buffer, index, packet, parent)
+
+  -- Side: byte
+  index, side = nasdaq_uqdf_output_utp_v3_0_c.side.dissect(buffer, index, packet, parent)
+
+  -- Odd Lot Price Long: long
+  index, odd_lot_price_long = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.dissect(buffer, index, packet, parent)
+
+  -- Shares At Odd Lot Price: short
+  index, shares_at_odd_lot_price = nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.dissect(buffer, index, packet, parent)
+
+  -- Adf Market Participant Identifier: byte[]
+  index, adf_market_participant_identifier = nasdaq_uqdf_output_utp_v3_0_c.adf_market_participant_identifier.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Odd Lot Price Level Attachment Adf Mpid Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.dissect = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_adf_mpid_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+  end
+end
+
+-- Odd Lot Price Level Attachment Long Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form = {}
+
+-- Size: Odd Lot Price Level Attachment Long Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.market_center_id.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.side.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.size
+
+-- Display: Odd Lot Price Level Attachment Long Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Odd Lot Price Level Attachment Long Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.fields = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_long_form_index)
+  local index = offset
+
+  -- Implicit Odd Lot Price Level Attachment Long Form Index
+  if odd_lot_price_level_attachment_long_form_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_long_form_index, odd_lot_price_level_attachment_long_form_index)
+    iteration:set_generated()
+  end
+
+  -- Market Center Id: byte
+  index, market_center_id = nasdaq_uqdf_output_utp_v3_0_c.market_center_id.dissect(buffer, index, packet, parent)
+
+  -- Side: byte
+  index, side = nasdaq_uqdf_output_utp_v3_0_c.side.dissect(buffer, index, packet, parent)
+
+  -- Odd Lot Price Long: long
+  index, odd_lot_price_long = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_long.dissect(buffer, index, packet, parent)
+
+  -- Shares At Odd Lot Price: short
+  index, shares_at_odd_lot_price = nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Odd Lot Price Level Attachment Long Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.dissect = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_long_form_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_long_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_long_form_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_long_form_index)
+  end
+end
+
+-- Odd Lot Price Level Attachment Short Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form = {}
+
+-- Size: Odd Lot Price Level Attachment Short Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.size =
+  nasdaq_uqdf_output_utp_v3_0_c.market_center_id.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.side.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.size + 
+  nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.size
+
+-- Display: Odd Lot Price Level Attachment Short Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Odd Lot Price Level Attachment Short Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.fields = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_short_form_index)
+  local index = offset
+
+  -- Implicit Odd Lot Price Level Attachment Short Form Index
+  if odd_lot_price_level_attachment_short_form_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_short_form_index, odd_lot_price_level_attachment_short_form_index)
+    iteration:set_generated()
+  end
+
+  -- Market Center Id: byte
+  index, market_center_id = nasdaq_uqdf_output_utp_v3_0_c.market_center_id.dissect(buffer, index, packet, parent)
+
+  -- Side: byte
+  index, side = nasdaq_uqdf_output_utp_v3_0_c.side.dissect(buffer, index, packet, parent)
+
+  -- Odd Lot Price Short: short
+  index, odd_lot_price_short = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_short.dissect(buffer, index, packet, parent)
+
+  -- Shares At Odd Lot Price: short
+  index, shares_at_odd_lot_price = nasdaq_uqdf_output_utp_v3_0_c.shares_at_odd_lot_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Odd Lot Price Level Attachment Short Form
+nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.dissect = function(buffer, offset, packet, parent, odd_lot_price_level_attachment_short_form_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v3_0_c.fields.odd_lot_price_level_attachment_short_form, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_short_form_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.fields(buffer, offset, packet, parent, odd_lot_price_level_attachment_short_form_index)
+  end
+end
+
 -- Bolo Appendage Mpid Form
 nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form = {}
 
@@ -5156,6 +5503,33 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.size = fun
 
   end
 
+  local odd_lot_attachment_type = buffer(offset + 47, 1):string()
+
+  if odd_lot_attachment_type == "2" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_short_form_count = buffer(offset + 48, 2):uint()
+    index = index + odd_lot_price_level_attachment_short_form_count * 6
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 47, 1):string()
+
+  if odd_lot_attachment_type == "3" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_long_form_count = buffer(offset + 48, 2):uint()
+    index = index + odd_lot_price_level_attachment_long_form_count * 12
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 47, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_adf_mpid_form_count = buffer(offset + 48, 2):uint()
+    index = index + odd_lot_price_level_attachment_adf_mpid_form_count * 16
+
+  end
+
   return index
 end
 
@@ -5228,6 +5602,45 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_long_form_message.fields = f
     index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Odd Lot Price Level Attachment Short Form
+  local odd_lot_price_level_attachment_short_form = nil
+
+  local odd_lot_price_level_attachment_short_form_exists = odd_lot_attachment_type == "2"
+
+  if odd_lot_price_level_attachment_short_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Short Form
+    for odd_lot_price_level_attachment_short_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_short_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_short_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Long Form
+  local odd_lot_price_level_attachment_long_form = nil
+
+  local odd_lot_price_level_attachment_long_form_exists = odd_lot_attachment_type == "3"
+
+  if odd_lot_price_level_attachment_long_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Long Form
+    for odd_lot_price_level_attachment_long_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_long_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_long_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Adf Mpid Form
+  local odd_lot_price_level_attachment_adf_mpid_form = nil
+
+  local odd_lot_price_level_attachment_adf_mpid_form_exists = odd_lot_attachment_type == "5"
+
+  if odd_lot_price_level_attachment_adf_mpid_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Adf Mpid Form
+    for odd_lot_price_level_attachment_adf_mpid_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_adf_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+    end
+  end
+
   return index
 end
 
@@ -5294,6 +5707,33 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.size = fu
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 33, 1):string()
+
+  if odd_lot_attachment_type == "2" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_short_form_count = buffer(offset + 34, 2):uint()
+    index = index + odd_lot_price_level_attachment_short_form_count * 6
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 33, 1):string()
+
+  if odd_lot_attachment_type == "3" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_long_form_count = buffer(offset + 34, 2):uint()
+    index = index + odd_lot_price_level_attachment_long_form_count * 12
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 33, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_adf_mpid_form_count = buffer(offset + 34, 2):uint()
+    index = index + odd_lot_price_level_attachment_adf_mpid_form_count * 16
 
   end
 
@@ -5364,6 +5804,45 @@ nasdaq_uqdf_output_utp_v3_0_c.odd_lot_quote_message_short_form_message.fields = 
 
   if bolo_appendage_mpid_form_exists then
     index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Short Form
+  local odd_lot_price_level_attachment_short_form = nil
+
+  local odd_lot_price_level_attachment_short_form_exists = odd_lot_attachment_type == "2"
+
+  if odd_lot_price_level_attachment_short_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Short Form
+    for odd_lot_price_level_attachment_short_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_short_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_short_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Long Form
+  local odd_lot_price_level_attachment_long_form = nil
+
+  local odd_lot_price_level_attachment_long_form_exists = odd_lot_attachment_type == "3"
+
+  if odd_lot_price_level_attachment_long_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Long Form
+    for odd_lot_price_level_attachment_long_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_long_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_long_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Adf Mpid Form
+  local odd_lot_price_level_attachment_adf_mpid_form = nil
+
+  local odd_lot_price_level_attachment_adf_mpid_form_exists = odd_lot_attachment_type == "5"
+
+  if odd_lot_price_level_attachment_adf_mpid_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Adf Mpid Form
+    for odd_lot_price_level_attachment_adf_mpid_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_adf_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+    end
   end
 
   return index
@@ -5650,6 +6129,33 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.size = fu
 
   end
 
+  local odd_lot_attachment_type = buffer(offset + 77, 1):string()
+
+  if odd_lot_attachment_type == "2" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_short_form_count = buffer(offset + 78, 2):uint()
+    index = index + odd_lot_price_level_attachment_short_form_count * 6
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 77, 1):string()
+
+  if odd_lot_attachment_type == "3" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_long_form_count = buffer(offset + 78, 2):uint()
+    index = index + odd_lot_price_level_attachment_long_form_count * 12
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 77, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_adf_mpid_form_count = buffer(offset + 78, 2):uint()
+    index = index + odd_lot_price_level_attachment_adf_mpid_form_count * 16
+
+  end
+
   return index
 end
 
@@ -5779,6 +6285,45 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_long_form_message.fields = 
     index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Odd Lot Price Level Attachment Short Form
+  local odd_lot_price_level_attachment_short_form = nil
+
+  local odd_lot_price_level_attachment_short_form_exists = odd_lot_attachment_type == "2"
+
+  if odd_lot_price_level_attachment_short_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Short Form
+    for odd_lot_price_level_attachment_short_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_short_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_short_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Long Form
+  local odd_lot_price_level_attachment_long_form = nil
+
+  local odd_lot_price_level_attachment_long_form_exists = odd_lot_attachment_type == "3"
+
+  if odd_lot_price_level_attachment_long_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Long Form
+    for odd_lot_price_level_attachment_long_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_long_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_long_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Adf Mpid Form
+  local odd_lot_price_level_attachment_adf_mpid_form = nil
+
+  local odd_lot_price_level_attachment_adf_mpid_form_exists = odd_lot_attachment_type == "5"
+
+  if odd_lot_price_level_attachment_adf_mpid_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Adf Mpid Form
+    for odd_lot_price_level_attachment_adf_mpid_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_adf_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+    end
+  end
+
   return index
 end
 
@@ -5877,6 +6422,33 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.size = f
 
   if bolo_appendage_indicator == "5" then
     index = index + nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.size
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 46, 1):string()
+
+  if odd_lot_attachment_type == "2" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_short_form_count = buffer(offset + 47, 2):uint()
+    index = index + odd_lot_price_level_attachment_short_form_count * 6
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 46, 1):string()
+
+  if odd_lot_attachment_type == "3" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_long_form_count = buffer(offset + 47, 2):uint()
+    index = index + odd_lot_price_level_attachment_long_form_count * 12
+
+  end
+
+  local odd_lot_attachment_type = buffer(offset + 46, 1):string()
+
+  if odd_lot_attachment_type == "5" then
+    -- Calculate field size from count
+    local odd_lot_price_level_attachment_adf_mpid_form_count = buffer(offset + 47, 2):uint()
+    index = index + odd_lot_price_level_attachment_adf_mpid_form_count * 16
 
   end
 
@@ -5992,6 +6564,45 @@ nasdaq_uqdf_output_utp_v3_0_c.combined_quote_message_short_form_message.fields =
 
   if bolo_appendage_mpid_form_exists then
     index, bolo_appendage_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.bolo_appendage_mpid_form.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Short Form
+  local odd_lot_price_level_attachment_short_form = nil
+
+  local odd_lot_price_level_attachment_short_form_exists = odd_lot_attachment_type == "2"
+
+  if odd_lot_price_level_attachment_short_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Short Form
+    for odd_lot_price_level_attachment_short_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_short_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_short_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_short_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Long Form
+  local odd_lot_price_level_attachment_long_form = nil
+
+  local odd_lot_price_level_attachment_long_form_exists = odd_lot_attachment_type == "3"
+
+  if odd_lot_price_level_attachment_long_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Long Form
+    for odd_lot_price_level_attachment_long_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_long_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_long_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_long_form_index)
+    end
+  end
+
+  -- Runtime optional field: Odd Lot Price Level Attachment Adf Mpid Form
+  local odd_lot_price_level_attachment_adf_mpid_form = nil
+
+  local odd_lot_price_level_attachment_adf_mpid_form_exists = odd_lot_attachment_type == "5"
+
+  if odd_lot_price_level_attachment_adf_mpid_form_exists then
+
+    -- Repeating: Odd Lot Price Level Attachment Adf Mpid Form
+    for odd_lot_price_level_attachment_adf_mpid_form_index = 1, odd_lot_attachment_count do
+      index, odd_lot_price_level_attachment_adf_mpid_form = nasdaq_uqdf_output_utp_v3_0_c.odd_lot_price_level_attachment_adf_mpid_form.dissect(buffer, index, packet, parent, odd_lot_price_level_attachment_adf_mpid_form_index)
+    end
   end
 
   return index

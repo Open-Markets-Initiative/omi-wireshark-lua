@@ -20,8 +20,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted
 omi_nasdaq_utp_input_utp_v4_0.fields.action = ProtoField.new("Action", "nasdaq.utp.input.utp.v4.0.action", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.action_sequence = ProtoField.new("Action Sequence", "nasdaq.utp.input.utp.v4.0.actionsequence", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.input.utp.v4.0.actiontime", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_long = ProtoField.new("Ask Long", "nasdaq.utp.input.utp.v4.0.asklong", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_short = ProtoField.new("Ask Short", "nasdaq.utp.input.utp.v4.0.askshort", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_long = ProtoField.new("Ask Long", "nasdaq.utp.input.utp.v4.0.asklong", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_short = ProtoField.new("Ask Short", "nasdaq.utp.input.utp.v4.0.askshort", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.utp.input.utp.v4.0.asksizelong", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.utp.input.utp.v4.0.asksizeshort", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_ask = ProtoField.new("Bbo Ask", "nasdaq.utp.input.utp.v4.0.bboask", ftypes.UINT64)
@@ -34,8 +34,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.bbo_bid_price = ProtoField.new("Bbo Bid Pri
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_bid_size = ProtoField.new("Bbo Bid Size", "nasdaq.utp.input.utp.v4.0.bbobidsize", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_cond = ProtoField.new("Bbo Cond", "nasdaq.utp.input.utp.v4.0.bbocond", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "nasdaq.utp.input.utp.v4.0.bboindicator", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_long = ProtoField.new("Bid Long", "nasdaq.utp.input.utp.v4.0.bidlong", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_short = ProtoField.new("Bid Short", "nasdaq.utp.input.utp.v4.0.bidshort", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_long = ProtoField.new("Bid Long", "nasdaq.utp.input.utp.v4.0.bidlong", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_short = ProtoField.new("Bid Short", "nasdaq.utp.input.utp.v4.0.bidshort", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.utp.input.utp.v4.0.bidsizelong", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.utp.input.utp.v4.0.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.cancel_type = ProtoField.new("Cancel Type", "nasdaq.utp.input.utp.v4.0.canceltype", ftypes.STRING)
@@ -437,11 +437,17 @@ nasdaq_utp_input_utp_v4_0.ask_long.display = function(value)
   return "Ask Long: "..value
 end
 
+-- Translate: Ask Long
+nasdaq_utp_input_utp_v4_0.ask_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Ask Long
 nasdaq_utp_input_utp_v4_0.ask_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.ask_long.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = nasdaq_utp_input_utp_v4_0.ask_long.translate(raw)
   local display = nasdaq_utp_input_utp_v4_0.ask_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_long, range, value, display)
@@ -460,11 +466,17 @@ nasdaq_utp_input_utp_v4_0.ask_short.display = function(value)
   return "Ask Short: "..value
 end
 
+-- Translate: Ask Short
+nasdaq_utp_input_utp_v4_0.ask_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Short
 nasdaq_utp_input_utp_v4_0.ask_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.ask_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_utp_input_utp_v4_0.ask_short.translate(raw)
   local display = nasdaq_utp_input_utp_v4_0.ask_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_short, range, value, display)
@@ -806,11 +818,17 @@ nasdaq_utp_input_utp_v4_0.bid_long.display = function(value)
   return "Bid Long: "..value
 end
 
+-- Translate: Bid Long
+nasdaq_utp_input_utp_v4_0.bid_long.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Bid Long
 nasdaq_utp_input_utp_v4_0.bid_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.bid_long.size
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = nasdaq_utp_input_utp_v4_0.bid_long.translate(raw)
   local display = nasdaq_utp_input_utp_v4_0.bid_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_long, range, value, display)
@@ -829,11 +847,17 @@ nasdaq_utp_input_utp_v4_0.bid_short.display = function(value)
   return "Bid Short: "..value
 end
 
+-- Translate: Bid Short
+nasdaq_utp_input_utp_v4_0.bid_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Short
 nasdaq_utp_input_utp_v4_0.bid_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.bid_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_utp_input_utp_v4_0.bid_short.translate(raw)
   local display = nasdaq_utp_input_utp_v4_0.bid_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_short, range, value, display)

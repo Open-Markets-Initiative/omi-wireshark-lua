@@ -835,7 +835,9 @@ txse_txseequities_framing_tcp_v1_0.server_packet.dissect = function(buffer, pack
     local available, size_of_server_rake_tcp_message = server_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_server_rake_tcp_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_rake_tcp_message):tvb()
+      index = txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.dissect(frame, index, packet, parent, size_of_server_rake_tcp_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -1065,7 +1067,9 @@ txse_txseequities_framing_tcp_v1_0.client_packet.dissect = function(buffer, pack
     local available, size_of_client_rake_tcp_message = client_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_client_rake_tcp_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_rake_tcp_message):tvb()
+      index = txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.dissect(frame, index, packet, parent, size_of_client_rake_tcp_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

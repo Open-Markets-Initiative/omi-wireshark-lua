@@ -6251,8 +6251,14 @@ txse_txseequities_seed_rake_v1_0.self_match_prevented_message.fields = function(
   -- Leaves Qty: Int
   index, leaves_qty = txse_txseequities_seed_rake_v1_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: Enum
-  index, liquidity_indicator = txse_txseequities_seed_rake_v1_0.liquidity_indicator.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Liquidity Indicator
+  local liquidity_indicator = nil
+
+  local liquidity_indicator_exists = index < buffer:len()
+
+  if liquidity_indicator_exists then
+    index, liquidity_indicator = txse_txseequities_seed_rake_v1_0.liquidity_indicator.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -6489,8 +6495,14 @@ txse_txseequities_seed_rake_v1_0.order_executed_message.fields = function(buffer
   -- Leaves Qty: Int
   index, leaves_qty = txse_txseequities_seed_rake_v1_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Liquidity Indicator: Enum
-  index, liquidity_indicator = txse_txseequities_seed_rake_v1_0.liquidity_indicator.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Liquidity Indicator
+  local liquidity_indicator = nil
+
+  local liquidity_indicator_exists = index < buffer:len()
+
+  if liquidity_indicator_exists then
+    index, liquidity_indicator = txse_txseequities_seed_rake_v1_0.liquidity_indicator.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -9691,8 +9703,14 @@ txse_txseequities_seed_rake_v1_0.define_symbol_message.fields = function(buffer,
   -- Lot Size: Int
   index, lot_size = txse_txseequities_seed_rake_v1_0.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Listing Market: Enum
-  index, listing_market = txse_txseequities_seed_rake_v1_0.listing_market.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Listing Market
+  local listing_market = nil
+
+  local listing_market_exists = index < buffer:len()
+
+  if listing_market_exists then
+    index, listing_market = txse_txseequities_seed_rake_v1_0.listing_market.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -10284,7 +10302,9 @@ txse_txseequities_seed_rake_v1_0.server_packet.dissect = function(buffer, packet
     local available, size_of_server_rake_tcp_message = server_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_server_rake_tcp_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_rake_tcp_message):tvb()
+      index = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect(frame, index, packet, parent, size_of_server_rake_tcp_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -12143,7 +12163,9 @@ txse_txseequities_seed_rake_v1_0.client_packet.dissect = function(buffer, packet
     local available, size_of_client_rake_tcp_message = client_rake_tcp_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect(buffer, index, packet, parent, size_of_client_rake_tcp_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_rake_tcp_message):tvb()
+      index = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect(frame, index, packet, parent, size_of_client_rake_tcp_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

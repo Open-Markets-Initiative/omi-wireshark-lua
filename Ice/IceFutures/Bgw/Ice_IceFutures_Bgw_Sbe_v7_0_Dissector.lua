@@ -16138,7 +16138,9 @@ ice_icefutures_bgw_sbe_v7_0.packet.dissect = function(buffer, packet, parent)
     local available, size_of_simple_open_frame = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = ice_icefutures_bgw_sbe_v7_0.simple_open_frame.dissect(buffer, index, packet, parent, size_of_simple_open_frame)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_simple_open_frame):tvb()
+      index = ice_icefutures_bgw_sbe_v7_0.simple_open_frame.dissect(frame, index, packet, parent, size_of_simple_open_frame)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

@@ -372,7 +372,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.ask_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.ask_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.ask_price.display(value, buffer, offset, packet, parent)
 
@@ -526,7 +526,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.bid_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.bid_price.display(value, buffer, offset, packet, parent)
 
@@ -1006,7 +1006,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.explicit_strike_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.explicit_strike_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
@@ -1065,7 +1065,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.imbalance_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.imbalance_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.imbalance_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.imbalance_price.display(value, buffer, offset, packet, parent)
 
@@ -1735,7 +1735,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.price.display(value, buffer, offset, packet, parent)
 
@@ -2189,7 +2189,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_ask_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_ask_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_ask_price.display(value, buffer, offset, packet, parent)
 
@@ -2241,7 +2241,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_bid_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_bid_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_bid_price.display(value, buffer, offset, packet, parent)
 
@@ -2293,7 +2293,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_price.translate(raw)
   local display = nasdaq_phlxoptions_depthofmarket_itch_v1_7.short_price.display(value, buffer, offset, packet, parent)
 
@@ -5135,7 +5135,9 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_7.server_packet.dissect = function(buff
     local available, size_of_server_soup_bin_tcp_packet = server_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_phlxoptions_depthofmarket_itch_v1_7.server_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_server_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_soup_bin_tcp_packet):tvb()
+      index = nasdaq_phlxoptions_depthofmarket_itch_v1_7.server_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_server_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -5455,7 +5457,9 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_7.client_packet.dissect = function(buff
     local available, size_of_client_soup_bin_tcp_packet = client_soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nasdaq_phlxoptions_depthofmarket_itch_v1_7.client_soup_bin_tcp_packet.dissect(buffer, index, packet, parent, size_of_client_soup_bin_tcp_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_soup_bin_tcp_packet):tvb()
+      index = nasdaq_phlxoptions_depthofmarket_itch_v1_7.client_soup_bin_tcp_packet.dissect(frame, index, packet, parent, size_of_client_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

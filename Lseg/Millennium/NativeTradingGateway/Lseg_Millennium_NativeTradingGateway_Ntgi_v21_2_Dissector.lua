@@ -6004,6 +6004,23 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.reject_message.dissect = functio
   end
 end
 
+-- Heartbeat Message
+lseg_millennium_nativetradinggateway_ntgi_v21_2.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+lseg_millennium_nativetradinggateway_ntgi_v21_2.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+lseg_millennium_nativetradinggateway_ntgi_v21_2.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Message
 lseg_millennium_nativetradinggateway_ntgi_v21_2.logout_message = {}
 
@@ -6159,7 +6176,7 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.payload.dissect = function(buffe
   end
   -- Dissect Heartbeat Message
   if message_type == "0" then
-    return offset
+    return lseg_millennium_nativetradinggateway_ntgi_v21_2.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == "3" then
@@ -6373,7 +6390,9 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.packet.dissect = function(buffer
     local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = lseg_millennium_nativetradinggateway_ntgi_v21_2.message.dissect(buffer, index, packet, parent, size_of_message)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_message):tvb()
+      index = lseg_millennium_nativetradinggateway_ntgi_v21_2.message.dissect(frame, index, packet, parent, size_of_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

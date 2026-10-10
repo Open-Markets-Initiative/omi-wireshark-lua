@@ -4987,6 +4987,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 1.0.h
+--   Since: 1.0.b
 --   Date: Tuesday, November 18, 2025
 --   Specification: PILLAR_COMPLEX_Client_Specification.pdf
 --

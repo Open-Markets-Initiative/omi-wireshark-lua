@@ -64,10 +64,12 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.version = ProtoField.new("Version", "
 -- Cme Globex SessionMgmt Sbe 0.2 Framing
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_message = ProtoField.new("Client Message", "cme.globex.sessionmgmt.sbe.v0.2.clientmessage", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_packet = ProtoField.new("Client Packet", "cme.globex.sessionmgmt.sbe.v0.2.clientpacket", ftypes.STRING)
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_tcp_frame = ProtoField.new("Client Tcp Frame", "cme.globex.sessionmgmt.sbe.v0.2.clienttcpframe", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.clienttechnicalheader", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.message_header = ProtoField.new("Message Header", "cme.globex.sessionmgmt.sbe.v0.2.messageheader", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_message = ProtoField.new("Server Message", "cme.globex.sessionmgmt.sbe.v0.2.servermessage", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_packet = ProtoField.new("Server Packet", "cme.globex.sessionmgmt.sbe.v0.2.serverpacket", ftypes.STRING)
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.sessionmgmt.sbe.v0.2.servertcpframe", ftypes.STRING)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.sessionmgmt.sbe.v0.2.servertechnicalheader", ftypes.STRING)
 
 -- Cme Globex SessionMgmt 0.2 Application Messages
@@ -775,7 +777,11 @@ cme_globex_sessionmgmt_sbe_v0_2.sending_time.size = 8
 
 -- Display: Sending Time
 cme_globex_sessionmgmt_sbe_v0_2.sending_time.display = function(value)
-  return "Sending Time: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sending Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -1621,17 +1627,28 @@ end
 -- Server Message
 cme_globex_sessionmgmt_sbe_v0_2.server_message = {}
 
+-- Calculate size of: Server Message
+cme_globex_sessionmgmt_sbe_v0_2.server_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
+
+  -- Calculate runtime size of Server Payload field
+  local server_payload_offset = offset + index
+  local server_payload_type = buffer(server_payload_offset - 6, 2):le_uint()
+  index = index + cme_globex_sessionmgmt_sbe_v0_2.server_payload.size(buffer, server_payload_offset, server_payload_type)
+
+  return index
+end
+
 -- Display: Server Message
 cme_globex_sessionmgmt_sbe_v0_2.server_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Server Message
-cme_globex_sessionmgmt_sbe_v0_2.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message)
+cme_globex_sessionmgmt_sbe_v0_2.server_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
   index, message_header = cme_globex_sessionmgmt_sbe_v0_2.message_header.dissect(buffer, index, packet, parent)
@@ -1646,23 +1663,20 @@ cme_globex_sessionmgmt_sbe_v0_2.server_message.fields = function(buffer, offset,
 end
 
 -- Dissect: Server Message
-cme_globex_sessionmgmt_sbe_v0_2.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
-  local index = offset + size_of_server_message
-
-  -- Optionally add group/struct element to protocol tree
+cme_globex_sessionmgmt_sbe_v0_2.server_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_message, buffer(offset, 0))
-    local current = cme_globex_sessionmgmt_sbe_v0_2.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
-    parent:set_len(size_of_server_message)
-    local display = cme_globex_sessionmgmt_sbe_v0_2.server_message.display(buffer, packet, parent)
+    local index = cme_globex_sessionmgmt_sbe_v0_2.server_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_sessionmgmt_sbe_v0_2.server_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_sessionmgmt_sbe_v0_2.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
-
-    return index
+    return cme_globex_sessionmgmt_sbe_v0_2.server_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1673,7 +1687,8 @@ cme_globex_sessionmgmt_sbe_v0_2.server_technical_header = {}
 cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size =
   cme_globex_sessionmgmt_sbe_v0_2.encoding_type.size + 
   cme_globex_sessionmgmt_sbe_v0_2.message_sequence_number.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size
+  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size + 
+  cme_globex_sessionmgmt_sbe_v0_2.message_size.size
 
 -- Display: Server Technical Header
 cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.display = function(packet, parent, length)
@@ -1692,6 +1707,9 @@ cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.fields = function(buffer
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_globex_sessionmgmt_sbe_v0_2.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1714,34 +1732,102 @@ cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.dissect = function(buffe
   end
 end
 
+-- Server Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame = {}
+
+-- Display: Server Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
+  local index = offset
+
+  -- Server Technical Header: Struct of 4 fields
+  index, server_technical_header = cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.dissect(buffer, index, packet, parent)
+
+  -- Server Message: Struct of 2 fields
+  index, server_message = cme_globex_sessionmgmt_sbe_v0_2.server_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
+  local index = offset + size_of_server_tcp_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_tcp_frame, buffer(offset, 0))
+    local current = cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+    parent:set_len(size_of_server_tcp_frame)
+    local display = cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Tcp Frame
+local server_tcp_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 14, 2):le_uint() + 14
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Server Packet
 cme_globex_sessionmgmt_sbe_v0_2.server_packet = {}
 
 -- Verify required size of Tcp packet
 cme_globex_sessionmgmt_sbe_v0_2.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size + cme_globex_sessionmgmt_sbe_v0_2.message_size.size + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
+  return buffer:len() >= cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.size + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
 end
 
 -- Dissect Server Packet
 cme_globex_sessionmgmt_sbe_v0_2.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Server Technical Header: Struct of 3 fields
-  index, server_technical_header = cme_globex_sessionmgmt_sbe_v0_2.server_technical_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Server Message
+  -- Dependency for Server Tcp Frame
   local end_of_payload = buffer:len()
 
-  -- Server Message: Struct of 3 fields
-  local message_index = 0
+  -- Server Tcp Frame: Struct of 2 fields
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_tcp_frame = server_tcp_frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Server Message
-    index, server_message = cme_globex_sessionmgmt_sbe_v0_2.server_message.dissect(buffer, index, packet, parent, message_size)
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_tcp_frame):tvb()
+      index = cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.dissect(frame, index, packet, parent, size_of_server_tcp_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -2658,17 +2744,28 @@ end
 -- Client Message
 cme_globex_sessionmgmt_sbe_v0_2.client_message = {}
 
+-- Calculate size of: Client Message
+cme_globex_sessionmgmt_sbe_v0_2.client_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
+
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 6, 2):le_uint()
+  index = index + cme_globex_sessionmgmt_sbe_v0_2.client_payload.size(buffer, client_payload_offset, client_payload_type)
+
+  return index
+end
+
 -- Display: Client Message
 cme_globex_sessionmgmt_sbe_v0_2.client_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Client Message
-cme_globex_sessionmgmt_sbe_v0_2.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message)
+cme_globex_sessionmgmt_sbe_v0_2.client_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
   index, message_header = cme_globex_sessionmgmt_sbe_v0_2.message_header.dissect(buffer, index, packet, parent)
@@ -2683,23 +2780,20 @@ cme_globex_sessionmgmt_sbe_v0_2.client_message.fields = function(buffer, offset,
 end
 
 -- Dissect: Client Message
-cme_globex_sessionmgmt_sbe_v0_2.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
-  local index = offset + size_of_client_message
-
-  -- Optionally add group/struct element to protocol tree
+cme_globex_sessionmgmt_sbe_v0_2.client_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_message, buffer(offset, 0))
-    local current = cme_globex_sessionmgmt_sbe_v0_2.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
-    parent:set_len(size_of_client_message)
-    local display = cme_globex_sessionmgmt_sbe_v0_2.client_message.display(buffer, packet, parent)
+    local index = cme_globex_sessionmgmt_sbe_v0_2.client_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_sessionmgmt_sbe_v0_2.client_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_sessionmgmt_sbe_v0_2.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
-
-    return index
+    return cme_globex_sessionmgmt_sbe_v0_2.client_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2710,7 +2804,8 @@ cme_globex_sessionmgmt_sbe_v0_2.client_technical_header = {}
 cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size =
   cme_globex_sessionmgmt_sbe_v0_2.encoding_type.size + 
   cme_globex_sessionmgmt_sbe_v0_2.message_sequence_number.size + 
-  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size
+  cme_globex_sessionmgmt_sbe_v0_2.sending_time.size + 
+  cme_globex_sessionmgmt_sbe_v0_2.message_size.size
 
 -- Display: Client Technical Header
 cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.display = function(packet, parent, length)
@@ -2729,6 +2824,9 @@ cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.fields = function(buffer
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = cme_globex_sessionmgmt_sbe_v0_2.sending_time.dissect(buffer, index, packet, parent)
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = cme_globex_sessionmgmt_sbe_v0_2.message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2751,34 +2849,102 @@ cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.dissect = function(buffe
   end
 end
 
+-- Client Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame = {}
+
+-- Display: Client Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
+  local index = offset
+
+  -- Client Technical Header: Struct of 4 fields
+  index, client_technical_header = cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.dissect(buffer, index, packet, parent)
+
+  -- Client Message: Struct of 2 fields
+  index, client_message = cme_globex_sessionmgmt_sbe_v0_2.client_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Tcp Frame
+cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
+  local index = offset + size_of_client_tcp_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_tcp_frame, buffer(offset, 0))
+    local current = cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+    parent:set_len(size_of_client_tcp_frame)
+    local display = cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Tcp Frame
+local client_tcp_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 14, 2):le_uint() + 14
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Client Packet
 cme_globex_sessionmgmt_sbe_v0_2.client_packet = {}
 
 -- Verify required size of Tcp packet
 cme_globex_sessionmgmt_sbe_v0_2.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size + cme_globex_sessionmgmt_sbe_v0_2.message_size.size + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
+  return buffer:len() >= cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.size + cme_globex_sessionmgmt_sbe_v0_2.message_header.size
 end
 
 -- Dissect Client Packet
 cme_globex_sessionmgmt_sbe_v0_2.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Client Technical Header: Struct of 3 fields
-  index, client_technical_header = cme_globex_sessionmgmt_sbe_v0_2.client_technical_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Client Message
+  -- Dependency for Client Tcp Frame
   local end_of_payload = buffer:len()
 
-  -- Client Message: Struct of 3 fields
-  local message_index = 0
+  -- Client Tcp Frame: Struct of 2 fields
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_tcp_frame = client_tcp_frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Client Message
-    index, client_message = cme_globex_sessionmgmt_sbe_v0_2.client_message.dissect(buffer, index, packet, parent, message_size)
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_tcp_frame):tvb()
+      index = cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.dissect(frame, index, packet, parent, size_of_client_tcp_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index

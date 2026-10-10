@@ -292,7 +292,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.display(value, buffer, offset, packet, parent)
 
@@ -321,7 +321,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price_long.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price_long.display(value, buffer, offset, packet, parent)
 
@@ -547,7 +547,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.display(value, buffer, offset, packet, parent)
 
@@ -576,7 +576,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price_long.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price_long.display(value, buffer, offset, packet, parent)
 
@@ -1028,7 +1028,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.explicit_strike_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.explicit_strike_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
@@ -1087,7 +1087,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.display(value, buffer, offset, packet, parent)
 
@@ -1637,7 +1637,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.display(value, buffer, offset, packet, parent)
 
@@ -1666,7 +1666,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.display(value, buffer, offset, packet, parent)
 

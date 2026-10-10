@@ -11262,6 +11262,7 @@ tcp_table:add_for_decode_as(omi_nyse_amexoptions_binarygateway_pillarstream_v3_2
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 3.27
+--   Since: 3.24
 --   Date: Tuesday, July 21, 2026
 --   Specification: NYSE_Pillar_Options_Gateway_Binary_Protocol_Specification.pdf
 --

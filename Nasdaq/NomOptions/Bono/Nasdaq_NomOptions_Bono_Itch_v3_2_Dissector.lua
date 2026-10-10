@@ -235,7 +235,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_2.display(value, buffer, offset, packet, parent)
 
@@ -264,7 +264,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.ask_price_4.display(value, buffer, offset, packet, parent)
 
@@ -339,7 +339,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_2.display(value, buffer, offset, packet, parent)
 
@@ -368,7 +368,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.bid_price_4.display(value, buffer, offset, packet, parent)
 
@@ -911,7 +911,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.original_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.original_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.original_price.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.original_price.display(value, buffer, offset, packet, parent)
 
@@ -963,7 +963,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.price_2.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.price_2.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.price_2.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.price_2.display(value, buffer, offset, packet, parent)
 
@@ -992,7 +992,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.price_4.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.price_4.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.price_4.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.price_4.display(value, buffer, offset, packet, parent)
 
@@ -1244,7 +1244,7 @@ end
 nasdaq_nomoptions_bono_itch_v3_2.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_bono_itch_v3_2.strike_price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_nomoptions_bono_itch_v3_2.strike_price.translate(raw)
   local display = nasdaq_nomoptions_bono_itch_v3_2.strike_price.display(value, buffer, offset, packet, parent)
 

@@ -6448,6 +6448,7 @@ udp_table:add_for_decode_as(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 1.2.m
+--   Since: 1.2.f
 --   Date: Friday, June 5, 2026
 --   Specification: PILLAR_DEEP_Client_Specification.pdf
 --

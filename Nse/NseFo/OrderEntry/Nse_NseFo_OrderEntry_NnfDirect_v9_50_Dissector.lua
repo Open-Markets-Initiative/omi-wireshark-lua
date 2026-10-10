@@ -1619,7 +1619,9 @@ nse_nsefo_orderentry_nnfdirect_v9_50.packet.dissect = function(buffer, packet, p
     local available, size_of_direct_packet = direct_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nse_nsefo_orderentry_nnfdirect_v9_50.direct_packet.dissect(buffer, index, packet, parent, size_of_direct_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_direct_packet):tvb()
+      index = nse_nsefo_orderentry_nnfdirect_v9_50.direct_packet.dissect(frame, index, packet, parent, size_of_direct_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

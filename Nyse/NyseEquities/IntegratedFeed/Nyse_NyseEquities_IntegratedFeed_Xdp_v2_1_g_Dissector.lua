@@ -4940,6 +4940,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.1.g
+--   Since: 2.1.b
 --   Date: Monday, January 29, 2018
 --   Specification: XDP_Integrated_Feed_Client_Specification_v2.1g.pdf
 --

@@ -1620,7 +1620,9 @@ nse_nsecom_recovery_binary_v7_0.packet.dissect = function(buffer, packet, parent
     local available, size_of_stream_packet = stream_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = nse_nsecom_recovery_binary_v7_0.stream_packet.dissect(buffer, index, packet, parent, size_of_stream_packet)
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_stream_packet):tvb()
+      index = nse_nsecom_recovery_binary_v7_0.stream_packet.dissect(frame, index, packet, parent, size_of_stream_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index

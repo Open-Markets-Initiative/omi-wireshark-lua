@@ -2382,6 +2382,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_openbook_ultra_v2_1_k)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.1.k
+--   Since: 2.1
 --   Date: Thursday, July 25, 2024
 --   Specification: OpenBook_Ultra_Client_Specification.pdf
 --
