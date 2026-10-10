@@ -393,6 +393,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.wholesale_side = ProtoFiel
 omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.orderentrygateway.sbe.v5.21.wholesaletradetype", ftypes.UINT8)
 
 -- Euronext Optiq OrderEntryGateway Sbe 5.21 Framing
+omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.frame_header = ProtoField.new("Frame Header", "euronext.optiq.orderentrygateway.sbe.v5.21.frameheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v5.21.message", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v5.21.messageheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v5.21.packet", ftypes.STRING)
@@ -18767,24 +18768,48 @@ euronext_optiq_orderentrygateway_sbe_v5_21.message_header.dissect = function(buf
   end
 end
 
--- Message
-euronext_optiq_orderentrygateway_sbe_v5_21.message = {}
+-- Frame Header
+euronext_optiq_orderentrygateway_sbe_v5_21.frame_header = {}
 
--- Calculate size of: Message
-euronext_optiq_orderentrygateway_sbe_v5_21.message.size = function(buffer, offset)
-  local index = 0
+-- Size: Frame Header
+euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.size =
+  euronext_optiq_orderentrygateway_sbe_v5_21.frame.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_21.frame.size
+-- Display: Frame Header
+euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.display = function(packet, parent, length)
+  return ""
+end
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_21.message_header.size
+-- Dissect Fields: Frame Header
+euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
 
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + euronext_optiq_orderentrygateway_sbe_v5_21.payload.size(buffer, payload_offset, payload_type)
+  -- Frame: 2 Byte Unsigned Fixed Width Integer
+  index, frame = euronext_optiq_orderentrygateway_sbe_v5_21.frame.dissect(buffer, index, packet, parent)
 
   return index
 end
+
+-- Dissect: Frame Header
+euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.frame_header, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+euronext_optiq_orderentrygateway_sbe_v5_21.message = {}
 
 -- Display: Message
 euronext_optiq_orderentrygateway_sbe_v5_21.message.display = function(packet, parent, length)
@@ -18792,11 +18817,11 @@ euronext_optiq_orderentrygateway_sbe_v5_21.message.display = function(packet, pa
 end
 
 -- Dissect Fields: Message
-euronext_optiq_orderentrygateway_sbe_v5_21.message.fields = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v5_21.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
-  -- Frame: 2 Byte Unsigned Fixed Width Integer
-  index, frame = euronext_optiq_orderentrygateway_sbe_v5_21.frame.dissect(buffer, index, packet, parent)
+  -- Frame Header: Struct of 1 fields
+  index, frame_header = euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
   index, message_header = euronext_optiq_orderentrygateway_sbe_v5_21.message_header.dissect(buffer, index, packet, parent)
@@ -18811,21 +18836,45 @@ euronext_optiq_orderentrygateway_sbe_v5_21.message.fields = function(buffer, off
 end
 
 -- Dissect: Message
-euronext_optiq_orderentrygateway_sbe_v5_21.message.dissect = function(buffer, offset, packet, parent)
+euronext_optiq_orderentrygateway_sbe_v5_21.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_21.fields.message, buffer(offset, 0))
-    local index = euronext_optiq_orderentrygateway_sbe_v5_21.message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = euronext_optiq_orderentrygateway_sbe_v5_21.message.display(packet, parent, length)
+    local current = euronext_optiq_orderentrygateway_sbe_v5_21.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = euronext_optiq_orderentrygateway_sbe_v5_21.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return euronext_optiq_orderentrygateway_sbe_v5_21.message.fields(buffer, offset, packet, parent)
+    euronext_optiq_orderentrygateway_sbe_v5_21.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
 end
 
 -- Packet
@@ -18833,7 +18882,7 @@ euronext_optiq_orderentrygateway_sbe_v5_21.packet = {}
 
 -- Verify required size of Tcp packet
 euronext_optiq_orderentrygateway_sbe_v5_21.packet.requiredsize = function(buffer)
-  return buffer:len() >= euronext_optiq_orderentrygateway_sbe_v5_21.frame.size + euronext_optiq_orderentrygateway_sbe_v5_21.message_header.size
+  return buffer:len() >= euronext_optiq_orderentrygateway_sbe_v5_21.frame_header.size + euronext_optiq_orderentrygateway_sbe_v5_21.message_header.size
 end
 
 -- Dissect Packet
@@ -18844,10 +18893,23 @@ euronext_optiq_orderentrygateway_sbe_v5_21.packet.dissect = function(buffer, pac
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
-  local message_index = 0
   while index < end_of_payload do
-    message_index = message_index + 1
-    index, message = euronext_optiq_orderentrygateway_sbe_v5_21.message.dissect(buffer, index, packet, parent)
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_message):tvb()
+      index = euronext_optiq_orderentrygateway_sbe_v5_21.message.dissect(frame, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
