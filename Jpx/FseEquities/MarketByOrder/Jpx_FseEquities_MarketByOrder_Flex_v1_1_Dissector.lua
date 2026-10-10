@@ -2590,22 +2590,34 @@ function omi_jpx_fseequities_marketbyorder_flex_v1_1.dissector(buffer, packet, p
 
   if packet.port_type == 2 then
     local length = buffer:len()
-    local offset = 0
+    local index = 0
 
     -- Dissect each message the segment carries
-    while offset < length do
-      local protocol = parent:add(omi_jpx_fseequities_marketbyorder_flex_v1_1, buffer(offset), omi_jpx_fseequities_marketbyorder_flex_v1_1.description, "("..(length - offset).." Bytes)")
-      local consumed = jpx_fseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer(offset):tvb(), packet, protocol)
+    while index < length do
+      local remaining = length - index
 
-      if consumed == nil or consumed <= 0 then
-        return offset
+      -- The message length lives in the header: wait for the header before reading it
+      if remaining < jpx_fseequities_marketbyorder_flex_v1_1.tcp_packet_header.size then
+        packet.desegment_offset = index
+        packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+        return length
       end
 
-      protocol:set_len(consumed)
-      offset = offset + consumed
+      local size = buffer(index, 2):uint() + 2
+      -- A message split across segments: ask TCP for exactly the bytes still missing
+      if remaining < size then
+        packet.desegment_offset = index
+        packet.desegment_len = size - remaining
+        return length
+      end
+
+      local protocol = parent:add(omi_jpx_fseequities_marketbyorder_flex_v1_1, buffer(index, size), omi_jpx_fseequities_marketbyorder_flex_v1_1.description, "("..size.." Bytes)")
+      jpx_fseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer(index, size):tvb(), packet, protocol)
+      protocol:set_len(size)
+      index = index + size
     end
 
-    return offset
+    return index
   end
 end
 
