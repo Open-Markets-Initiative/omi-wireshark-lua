@@ -78,6 +78,7 @@ omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.time_message = ProtoFiel
 -- Cboe BzxOptions ComplexAuction Pitch 2.2.41 Generated Fields
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.bzxoptions.complexauction.pitch.v2.2.41.complexlegindex", ftypes.UINT16)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.message_index = ProtoField.new("Message Index", "cboe.bzxoptions.complexauction.pitch.v2.2.41.messageindex", ftypes.UINT16)
+omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.bzxoptions.complexauction.pitch.v2.2.41.messagesequencenumber", ftypes.UINT64)
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxoptions.complexauction.pitch.v2.2.41.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -113,6 +114,7 @@ show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe BzxOptions ComplexAuction Pitch 2.2.41 Show Options
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -120,6 +122,7 @@ omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_repeating_groups = P
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
@@ -143,6 +146,9 @@ function omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs_changed()
   end
   if show.indexes ~= omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_indexes then
     show.indexes = omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_sequences then
+    show.sequences = omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.show_sequences
   end
   if cboe_bzxoptions_complexauction_pitch_v2_2_41.format_timestamp ~= omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.format_timestamp then
     cboe_bzxoptions_complexauction_pitch_v2_2_41.format_timestamp = omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.prefs.format_timestamp
@@ -2048,6 +2054,12 @@ cboe_bzxoptions_complexauction_pitch_v2_2_41.message.fields = function(buffer, o
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_bzxoptions_complexauction_pitch_v2_2_41.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_bzxoptions_complexauction_pitch_v2_2_41.fields.message_sequence_number, UInt64.new(cboe_bzxoptions_complexauction_pitch_v2_2_41.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_bzxoptions_complexauction_pitch_v2_2_41.message_header.dissect(buffer, index, packet, parent)
 
@@ -2150,6 +2162,9 @@ cboe_bzxoptions_complexauction_pitch_v2_2_41.packet_header.fields = function(buf
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_bzxoptions_complexauction_pitch_v2_2_41.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_bzxoptions_complexauction_pitch_v2_2_41.packet_sequence = sequence
 
   return index
 end

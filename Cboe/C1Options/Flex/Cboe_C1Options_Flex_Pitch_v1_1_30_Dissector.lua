@@ -112,6 +112,7 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.trading_status_message = ProtoField
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.complex_flex_leg_index = ProtoField.new("Complex Flex Leg Index", "cboe.c1options.flex.pitch.v1.1.30.complexflexlegindex", ftypes.UINT16)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.dac_delta_index = ProtoField.new("Dac Delta Index", "cboe.c1options.flex.pitch.v1.1.30.dacdeltaindex", ftypes.UINT16)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.flex.pitch.v1.1.30.messageindex", ftypes.UINT16)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.c1options.flex.pitch.v1.1.30.messagesequencenumber", ftypes.UINT64)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.flex.pitch.v1.1.30.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -134,6 +135,7 @@ show.structs = true
 show.repeating_groups = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe C1Options Flex Pitch 1.1.30 Show Options
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -141,6 +143,7 @@ omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_structs = Pref.bool("Show Struc
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -161,6 +164,9 @@ function omi_cboe_c1options_flex_pitch_v1_1_30.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_sequences then
+    show.sequences = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_sequences
   end
   if cboe_c1options_flex_pitch_v1_1_30.format_timestamp ~= omi_cboe_c1options_flex_pitch_v1_1_30.prefs.format_timestamp then
     cboe_c1options_flex_pitch_v1_1_30.format_timestamp = omi_cboe_c1options_flex_pitch_v1_1_30.prefs.format_timestamp
@@ -3220,6 +3226,12 @@ cboe_c1options_flex_pitch_v1_1_30.message.fields = function(buffer, offset, pack
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_c1options_flex_pitch_v1_1_30.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_sequence_number, UInt64.new(cboe_c1options_flex_pitch_v1_1_30.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_c1options_flex_pitch_v1_1_30.message_header.dissect(buffer, index, packet, parent)
 
@@ -3322,6 +3334,9 @@ cboe_c1options_flex_pitch_v1_1_30.packet_header.fields = function(buffer, offset
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_c1options_flex_pitch_v1_1_30.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_c1options_flex_pitch_v1_1_30.packet_sequence = sequence
 
   return index
 end

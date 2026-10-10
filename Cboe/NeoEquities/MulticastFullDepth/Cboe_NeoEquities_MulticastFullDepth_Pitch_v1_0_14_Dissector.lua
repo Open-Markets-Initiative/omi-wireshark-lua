@@ -106,6 +106,7 @@ omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.unit_clear_message 
 
 -- Cboe NeoEquities MulticastFullDepth Pitch 1.0.14 Generated Fields
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.message_index = ProtoField.new("Message Index", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.messageindex", ftypes.UINT16)
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.neoequities.multicastfulldepth.pitch.v1.0.14.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -118,12 +119,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe NeoEquities MulticastFullDepth Pitch 1.0.14 Show Options
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs_changed()
@@ -140,6 +143,9 @@ function omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs_changed()
   end
   if show.indexes ~= omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_indexes then
     show.indexes = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_sequences then
+    show.sequences = omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.prefs.show_sequences
   end
 end
 
@@ -2873,6 +2879,12 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message.fields = function(buff
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_neoequities_multicastfulldepth_pitch_v1_0_14.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_neoequities_multicastfulldepth_pitch_v1_0_14.fields.message_sequence_number, UInt64.new(cboe_neoequities_multicastfulldepth_pitch_v1_0_14.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.message_header.dissect(buffer, index, packet, parent)
 
@@ -2975,6 +2987,9 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.packet_header.fields = functio
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_neoequities_multicastfulldepth_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_neoequities_multicastfulldepth_pitch_v1_0_14.packet_sequence = sequence
 
   return index
 end

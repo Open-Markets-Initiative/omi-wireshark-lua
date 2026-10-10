@@ -109,6 +109,7 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.unit_clear_message = ProtoFiel
 -- Cboe EdgxOptions Complex Pitch 2.1.61 Generated Fields
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.edgxoptions.complex.pitch.v2.1.61.complexlegindex", ftypes.UINT16)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.complex.pitch.v2.1.61.messageindex", ftypes.UINT16)
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.edgxoptions.complex.pitch.v2.1.61.messagesequencenumber", ftypes.UINT64)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.complex.pitch.v2.1.61.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -144,6 +145,7 @@ show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe EdgxOptions Complex Pitch 2.1.61 Show Options
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -151,6 +153,7 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_repeating_groups = Pref.bo
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
@@ -174,6 +177,9 @@ function omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs_changed()
   end
   if show.indexes ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_indexes then
     show.indexes = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_sequences then
+    show.sequences = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_sequences
   end
   if cboe_edgxoptions_complex_pitch_v2_1_61.format_timestamp ~= omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.format_timestamp then
     cboe_edgxoptions_complex_pitch_v2_1_61.format_timestamp = omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.format_timestamp
@@ -3502,6 +3508,12 @@ cboe_edgxoptions_complex_pitch_v2_1_61.message.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_edgxoptions_complex_pitch_v2_1_61.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.message_sequence_number, UInt64.new(cboe_edgxoptions_complex_pitch_v2_1_61.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_edgxoptions_complex_pitch_v2_1_61.message_header.dissect(buffer, index, packet, parent)
 
@@ -3604,6 +3616,9 @@ cboe_edgxoptions_complex_pitch_v2_1_61.packet_header.fields = function(buffer, o
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_edgxoptions_complex_pitch_v2_1_61.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_edgxoptions_complex_pitch_v2_1_61.packet_sequence = sequence
 
   return index
 end

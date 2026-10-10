@@ -91,6 +91,7 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.unit_clear_messa
 
 -- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.66 Generated Fields
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.message_index = ProtoField.new("Message Index", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.messageindex", ftypes.UINT16)
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.messagesequencenumber", ftypes.UINT64)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -125,12 +126,14 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.66 Show Options
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
@@ -151,6 +154,9 @@ function omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs_changed(
   end
   if show.indexes ~= omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_indexes then
     show.indexes = omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_sequences then
+    show.sequences = omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_sequences
   end
   if cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.format_timestamp ~= omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.format_timestamp then
     cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.format_timestamp = omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.prefs.format_timestamp
@@ -2686,6 +2692,12 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.message.fields = function(b
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.message_sequence_number, UInt64.new(cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.message_header.dissect(buffer, index, packet, parent)
 
@@ -2788,6 +2800,9 @@ cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.packet_header.fields = func
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.packet_sequence = sequence
 
   return index
 end

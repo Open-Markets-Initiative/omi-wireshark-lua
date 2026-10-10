@@ -115,6 +115,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_clear_message
 -- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Generated Fields
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.messageindex", ftypes.UINT16)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.messagesequencenumber", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -137,6 +138,7 @@ show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Show Options
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -144,6 +146,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_repeating_grou
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -164,6 +167,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_indexes then
     show.indexes = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_sequences then
+    show.sequences = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.show_sequences
   end
   if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.format_timestamp ~= omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.format_timestamp then
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.format_timestamp = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.prefs.format_timestamp
@@ -3444,6 +3450,12 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.message.fields = function(buf
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.message_sequence_number, UInt64.new(cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.message_header.dissect(buffer, index, packet, parent)
 
@@ -3546,6 +3558,9 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.packet_header.fields = functi
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.packet_sequence = sequence
 
   return index
 end

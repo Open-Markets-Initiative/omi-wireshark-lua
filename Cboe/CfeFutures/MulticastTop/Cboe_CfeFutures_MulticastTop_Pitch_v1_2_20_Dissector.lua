@@ -121,6 +121,7 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.unit_clear_message = Proto
 -- Cboe CfeFutures MulticastTop Pitch 1.2.20 Generated Fields
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicasttop.pitch.v1.2.20.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicasttop.pitch.v1.2.20.messageindex", ftypes.UINT16)
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.cfefutures.multicasttop.pitch.v1.2.20.messagesequencenumber", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -143,6 +144,7 @@ show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe CfeFutures MulticastTop Pitch 1.2.20 Show Options
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -150,6 +152,7 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_repeating_groups = Pre
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -170,6 +173,9 @@ function omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs_changed()
   end
   if show.indexes ~= omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_indexes then
     show.indexes = omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_sequences then
+    show.sequences = omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.show_sequences
   end
   if cboe_cfefutures_multicasttop_pitch_v1_2_20.format_timestamp ~= omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.format_timestamp then
     cboe_cfefutures_multicasttop_pitch_v1_2_20.format_timestamp = omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.prefs.format_timestamp
@@ -3498,6 +3504,12 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_cfefutures_multicasttop_pitch_v1_2_20.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.message_sequence_number, UInt64.new(cboe_cfefutures_multicasttop_pitch_v1_2_20.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_cfefutures_multicasttop_pitch_v1_2_20.message_header.dissect(buffer, index, packet, parent)
 
@@ -3600,6 +3612,9 @@ cboe_cfefutures_multicasttop_pitch_v1_2_20.packet_header.fields = function(buffe
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_cfefutures_multicasttop_pitch_v1_2_20.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_cfefutures_multicasttop_pitch_v1_2_20.packet_sequence = sequence
 
   return index
 end

@@ -67,6 +67,7 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trading_status_mes
 
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Generated Fields
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messageindex", ftypes.UINT16)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Formatting
@@ -97,12 +98,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Show Options
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -122,6 +125,9 @@ function omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs_changed()
   end
   if show.indexes ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_indexes then
     show.indexes = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_sequences then
+    show.sequences = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.show_sequences
   end
   if cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.timestamp_format ~= omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.timestamp_format then
     cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.timestamp_format = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.prefs.timestamp_format
@@ -1708,6 +1714,12 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message.fields = function(buf
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_sequence_number, UInt64.new(cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_header.dissect(buffer, index, packet, parent)
 
@@ -1810,6 +1822,9 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_header.fields = functi
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.packet_sequence = sequence
 
   return index
 end

@@ -163,6 +163,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_update_mes
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group_index = ProtoField.new("Leg Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.leggroupindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_index = ProtoField.new("Message Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.price_level_group_index = ProtoField.new("Price Level Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.pricelevelgroupindex", ftypes.UINT16)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagesequencenumber", ftypes.UINT64)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.timestamp = ProtoField.new("Timestamp", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -198,6 +199,7 @@ show.structs = true
 show.repeating_groups = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Show Options
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
@@ -205,6 +207,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_structs = Pr
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
@@ -228,6 +231,9 @@ function omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs_changed(
   end
   if show.indexes ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_indexes then
     show.indexes = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_sequences then
+    show.sequences = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_sequences
   end
   if cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.format_timestamp ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.format_timestamp then
     cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.format_timestamp = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.format_timestamp
@@ -5346,6 +5352,12 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message.fields = function(b
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_sequence_number, UInt64.new(cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_header.dissect(buffer, index, packet, parent)
 
@@ -5448,6 +5460,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.fields = func
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
   index, sequence = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_sequence = sequence
 
   return index
 end
