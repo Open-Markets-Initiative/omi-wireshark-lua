@@ -7689,102 +7689,6 @@ memx_memxoptions_memo_sbe_v1_8.server_packet.dissect = function(buffer, packet, 
   return index
 end
 
--- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = {}
-
--- Size: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.size =
-  memx_memxoptions_memo_sbe_v1_8.sending_time.size + 
-  memx_memxoptions_memo_sbe_v1_8.clordid.size + 
-  memx_memxoptions_memo_sbe_v1_8.efid_optional.size + 
-  memx_memxoptions_memo_sbe_v1_8.underlier_optional.size
-
--- Display: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_8.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_8.clordid.dissect(buffer, index, packet, parent)
-
-  -- Efid Optional: MassCancelRejectEFID
-  index, efid_optional = memx_memxoptions_memo_sbe_v1_8.efid_optional.dissect(buffer, index, packet, parent)
-
-  -- Underlier Optional: MassCancelRejectUnderlier
-  index, underlier_optional = memx_memxoptions_memo_sbe_v1_8.underlier_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_8.fields.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message = {}
-
--- Size: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.size =
-  memx_memxoptions_memo_sbe_v1_8.sending_time.size + 
-  memx_memxoptions_memo_sbe_v1_8.clordid.size
-
--- Display: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_8.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_8.clordid.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Mass Cancel Bulk Clear All Lockouts Request Message
-memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_8.fields.mass_cancel_bulk_clear_all_lockouts_request_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Requested Allocations Group
 memx_memxoptions_memo_sbe_v1_8.requested_allocations_group = {}
 
@@ -7986,6 +7890,102 @@ memx_memxoptions_memo_sbe_v1_8.allocation_instruction_message.dissect = function
   else
     -- Skip element, add fields directly
     return memx_memxoptions_memo_sbe_v1_8.allocation_instruction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message = {}
+
+-- Size: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.size =
+  memx_memxoptions_memo_sbe_v1_8.sending_time.size + 
+  memx_memxoptions_memo_sbe_v1_8.clordid.size + 
+  memx_memxoptions_memo_sbe_v1_8.efid_optional.size + 
+  memx_memxoptions_memo_sbe_v1_8.underlier_optional.size
+
+-- Display: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_8.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_8.clordid.dissect(buffer, index, packet, parent)
+
+  -- Efid Optional: MassCancelRejectEFID
+  index, efid_optional = memx_memxoptions_memo_sbe_v1_8.efid_optional.dissect(buffer, index, packet, parent)
+
+  -- Underlier Optional: MassCancelRejectUnderlier
+  index, underlier_optional = memx_memxoptions_memo_sbe_v1_8.underlier_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_8.fields.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message = {}
+
+-- Size: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.size =
+  memx_memxoptions_memo_sbe_v1_8.sending_time.size + 
+  memx_memxoptions_memo_sbe_v1_8.clordid.size
+
+-- Display: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_8.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_8.clordid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mass Cancel Bulk Clear All Lockouts Request Message
+memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_8.fields.mass_cancel_bulk_clear_all_lockouts_request_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9042,10 +9042,6 @@ memx_memxoptions_memo_sbe_v1_8.client_payload.dissect = function(buffer, offset,
   if template_id == 9 then
     return memx_memxoptions_memo_sbe_v1_8.mass_cancel_clear_lockout_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Allocation Instruction Message
-  if template_id == 10 then
-    return memx_memxoptions_memo_sbe_v1_8.allocation_instruction_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Mass Cancel Bulk Clear All Lockouts Request Message
   if template_id == 32 then
     return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_all_lockouts_request_message.dissect(buffer, offset, packet, parent)
@@ -9053,6 +9049,10 @@ memx_memxoptions_memo_sbe_v1_8.client_payload.dissect = function(buffer, offset,
   -- Dissect Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
   if template_id == 33 then
     return memx_memxoptions_memo_sbe_v1_8.mass_cancel_bulk_clear_lockouts_by_efid_or_underlier_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Allocation Instruction Message
+  if template_id == 10 then
+    return memx_memxoptions_memo_sbe_v1_8.allocation_instruction_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -9603,11 +9603,6 @@ memx_memxoptions_memo_sbe_v1_8.client_packet.fingerprint = function(buffer)
       return true
     end
 
-    -- Allocation Instruction Message
-    if template_id == 10 then
-      return true
-    end
-
     -- Mass Cancel Bulk Clear All Lockouts Request Message
     if template_id == 32 then
       return true
@@ -9615,6 +9610,11 @@ memx_memxoptions_memo_sbe_v1_8.client_packet.fingerprint = function(buffer)
 
     -- Mass Cancel Bulk Clear Lockouts By Efid Or Underlier Request Message
     if template_id == 33 then
+      return true
+    end
+
+    -- Allocation Instruction Message
+    if template_id == 10 then
       return true
     end
 

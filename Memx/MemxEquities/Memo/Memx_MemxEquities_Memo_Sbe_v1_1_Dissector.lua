@@ -89,6 +89,7 @@ omi_memx_memxequities_memo_sbe_v1_1.fields.sequenced_message = ProtoField.new("S
 omi_memx_memxequities_memo_sbe_v1_1.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxequities.memo.sbe.v1.1.serversbemessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.memo.sbe.v1.1.sessionid", ftypes.UINT64)
 omi_memx_memxequities_memo_sbe_v1_1.fields.side = ProtoField.new("Side", "memx.memxequities.memo.sbe.v1.1.side", ftypes.UINT8)
+omi_memx_memxequities_memo_sbe_v1_1.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.memxequities.memo.sbe.v1.1.startofsessionmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.stp_group_id = ProtoField.new("Stp Group Id", "memx.memxequities.memo.sbe.v1.1.stpgroupid", ftypes.UINT16)
 omi_memx_memxequities_memo_sbe_v1_1.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.memxequities.memo.sbe.v1.1.streambeginmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.memxequities.memo.sbe.v1.1.streamcompletemessage", ftypes.STRING)
@@ -2555,9 +2556,6 @@ memx_memxequities_memo_sbe_v1_1.supported_request_mode.display = function(value)
   if value == "R" then
     return "Supported Request Mode: Replay (R)"
   end
-  if value == "T" then
-    return "Supported Request Mode: Snapshot Mode (T)"
-  end
 
   return "Supported Request Mode: Unknown("..value..")"
 end
@@ -4796,6 +4794,46 @@ memx_memxequities_memo_sbe_v1_1.replay_begin_message.dissect = function(buffer, 
   end
 end
 
+-- Start Of Session Message
+memx_memxequities_memo_sbe_v1_1.start_of_session_message = {}
+
+-- Size: Start Of Session Message
+memx_memxequities_memo_sbe_v1_1.start_of_session_message.size =
+  memx_memxequities_memo_sbe_v1_1.session_id.size
+
+-- Display: Start Of Session Message
+memx_memxequities_memo_sbe_v1_1.start_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Start Of Session Message
+memx_memxequities_memo_sbe_v1_1.start_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 8 Byte Unsigned Fixed Width Integer
+  index, session_id = memx_memxequities_memo_sbe_v1_1.session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Session Message
+memx_memxequities_memo_sbe_v1_1.start_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxequities_memo_sbe_v1_1.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_memxequities_memo_sbe_v1_1.start_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxequities_memo_sbe_v1_1.start_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxequities_memo_sbe_v1_1.start_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Login Rejected Message
 memx_memxequities_memo_sbe_v1_1.login_rejected_message = {}
 
@@ -4852,7 +4890,7 @@ end
 memx_memxequities_memo_sbe_v1_1.login_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
+  -- Supported Request Mode: 1 Byte Ascii String Enum with 2 values
   index, supported_request_mode = memx_memxequities_memo_sbe_v1_1.supported_request_mode.dissect(buffer, index, packet, parent)
 
   return index
@@ -4888,6 +4926,10 @@ memx_memxequities_memo_sbe_v1_1.server_data.dissect = function(buffer, offset, p
   -- Dissect Login Rejected Message
   if message_type == 2 then
     return memx_memxequities_memo_sbe_v1_1.login_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session Message
+  if message_type == 3 then
+    return memx_memxequities_memo_sbe_v1_1.start_of_session_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Replay Begin Message
   if message_type == 5 then
@@ -4983,7 +5025,7 @@ memx_memxequities_memo_sbe_v1_1.server_packet.dissect = function(buffer, packet,
   -- Dependency element: Message Type
   local message_type = buffer(index - 3, 1):uint()
 
-  -- Server Data: Runtime Type with 9 branches
+  -- Server Data: Runtime Type with 10 branches
   index = memx_memxequities_memo_sbe_v1_1.server_data.dissect(buffer, index, packet, parent, message_type)
 
   return index
@@ -5895,6 +5937,11 @@ memx_memxequities_memo_sbe_v1_1.server_packet.fingerprint = function(buffer)
 
   -- Login Rejected Message
   if message_type == 2 then
+    return true
+  end
+
+  -- Start Of Session Message
+  if message_type == 3 then
     return true
   end
 
