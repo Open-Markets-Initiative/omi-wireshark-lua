@@ -43,6 +43,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_on_disconnect = Prot
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.clordid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.clearing_account = ProtoField.new("Clearing Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.clearingaccount", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.clearing_firm = ProtoField.new("Clearing Firm", "iex.iexoptions.binaryorderentry.sbe.v1.02.clearingfirm", ftypes.UINT32)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientsbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.closing_only = ProtoField.new("Closing Only", "iex.iexoptions.binaryorderentry.sbe.v1.02.closingonly", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_clearing_account = ProtoField.new("Contra Clearing Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.contraclearingaccount", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_clearing_firm = ProtoField.new("Contra Clearing Firm", "iex.iexoptions.binaryorderentry.sbe.v1.02.contraclearingfirm", ftypes.UINT32)
@@ -135,10 +136,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_optional = Pro
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status = ProtoField.new("Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatus", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_optional = ProtoField.new("Risk Control Status Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusoptional", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.routingfirmid", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.sequence", ftypes.UINT32)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serversbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_info_group_encoding = ProtoField.new("Session Info Group Encoding", "iex.iexoptions.binaryorderentry.sbe.v1.02.sessioninfogroupencoding", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.side = ProtoField.new("Side", "iex.iexoptions.binaryorderentry.sbe.v1.02.side", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.start_sequence = ProtoField.new("Start Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.startsequence", ftypes.UINT32)
@@ -213,8 +214,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_ref_data_message
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.unsolicited_modify_ack_message = ProtoField.new("Unsolicited Modify Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.unsolicitedmodifyackmessage", ftypes.STRING)
 
 -- Iex IexOptions BinaryOrderEntry 1.02 Schema Messages
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.business_message = ProtoField.new("Business Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.businessmessage", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_message = ProtoField.new("Session Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sessionmessage", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_business_message = ProtoField.new("Client Business Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientbusinessmessage", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_session_message = ProtoField.new("Client Session Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientsessionmessage", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_business_message = ProtoField.new("Server Business Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serverbusinessmessage", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serversessionmessage", ftypes.STRING)
 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Generated Fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index = ProtoField.new("Bulk Quote Ack Message quote Acks Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroupindex", ftypes.UINT16)
@@ -5629,142 +5632,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message.dissect = 
   end
 end
 
--- Risk Action Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message = {}
-
--- Size: Risk Action Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size
-
--- Display: Risk Action Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Risk Action Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Underlying Id Optional: InstrumentId
-  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Market Participant Id: MPID
-  index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: ClOrdId
-  index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Control: RiskControl
-  index, risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect(buffer, index, packet, parent)
-
-  -- Risk Action: RiskActionType
-  index, risk_action = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect(buffer, index, packet, parent)
-
-  -- Custom Group Id Optional: uint16
-  index, custom_group_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Risk Action Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_action_request_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Risk Limit Update Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message = {}
-
--- Size: Risk Limit Update Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size
-
--- Display: Risk Limit Update Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Risk Limit Update Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Underlying Id Optional: InstrumentId
-  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Market Participant Id: MPID
-  index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: ClOrdId
-  index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Control Optional: RiskControl
-  index, risk_control_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.dissect(buffer, index, packet, parent)
-
-  -- Risk Control Status Optional: RiskControlStatus
-  index, risk_control_status_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.dissect(buffer, index, packet, parent)
-
-  -- Time Limit: uint64
-  index, time_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.dissect(buffer, index, packet, parent)
-
-  -- Percentage Limit: Percentage
-  index, percentage_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.dissect(buffer, index, packet, parent)
-
-  -- Count Limit: uint32
-  index, count_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.dissect(buffer, index, packet, parent)
-
-  -- Ioc Attribution: IOCAttribution
-  index, ioc_attribution = iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.dissect(buffer, index, packet, parent)
-
-  -- Cust Capacity Weight Optional: uint8
-  index, cust_capacity_weight_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Risk Limit Update Request Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_limit_update_request_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Application Layer Reject Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message = {}
 
@@ -7212,6 +7079,967 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.dissect = function(b
   end
 end
 
+-- Server Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_payload = {}
+
+-- Dissect: Server Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Order Ack Message
+  if template_id == 101 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unsolicited Modify Ack Message
+  if template_id == 102 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancel Ack Message
+  if template_id == 103 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mass Cancel Ack Message
+  if template_id == 104 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Bulk Quote Ack Message
+  if template_id == 105 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect New Ioc Quote Ack Message
+  if template_id == 106 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Restated Message
+  if template_id == 107 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.quote_restated_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Quote Canceled Message
+  if template_id == 108 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.quote_canceled_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Purge Ack Message
+  if template_id == 109 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Report Message
+  if template_id == 110 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Bust Correct Message
+  if template_id == 111 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Application Layer Reject Message
+  if template_id == 112 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Underlying Ref Data Message
+  if template_id == 151 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Ref Data Message
+  if template_id == 152 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_ref_data_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mpid Configuration Acknowledgement Message
+  if template_id == 153 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Maker Symbol Appointment Message
+  if template_id == 154 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.market_maker_symbol_appointment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Configuration Acknowledgement Message
+  if template_id == 155 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Acknowledgment Message
+  if template_id == 156 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Control Alert Message
+  if template_id == 157 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_alert_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message = {}
+
+-- Calculate size of: Server Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Server Business Payload field
+  local server_business_payload_offset = offset + index
+  local server_business_payload_type = buffer(server_business_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_payload.size(buffer, server_business_payload_offset, server_business_payload_type)
+
+  return index
+end
+
+-- Display: Server Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Server Business Payload: Runtime Type with 19 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_business_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Subsession Leave Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message = {}
+
+-- Size: Subsession Leave Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.reason.size
+
+-- Display: Subsession Leave Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subsession Leave Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
+
+  -- Reason: Status
+  index, reason = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subsession Leave Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_leave_response_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Subsession Join Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message = {}
+
+-- Size: Subsession Join Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.status.size
+
+-- Display: Subsession Join Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subsession Join Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
+
+  -- Status: Status
+  index, status = iex_iexoptions_binaryorderentry_sbe_v1_02.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subsession Join Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_join_response_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message Header Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message = {}
+
+-- Size: Sequenced Message Header Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.sequence.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp.size
+
+-- Display: Sequenced Message Header Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message Header Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence: SequenceNumber
+  index, sequence = iex_iexoptions_binaryorderentry_sbe_v1_02.sequence.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Timestamp
+  index, timestamp = iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Message Header Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequenced_message_header_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Terminate Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message = {}
+
+-- Size: Terminate Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.reason.size
+
+-- Display: Terminate Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Terminate Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: Status
+  index, reason = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Terminate Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.terminate_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group = {}
+
+-- Size: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.joined.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.next_seq_no.size
+
+-- Display: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields = function(buffer, offset, packet, parent, sub_sessions_group_index)
+  local index = offset
+
+  -- Implicit Sub Sessions Group Index
+  if sub_sessions_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index, sub_sessions_group_index)
+    iteration:set_generated()
+  end
+
+  -- Subsession Type: Subsession
+  index, subsession_type = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.dissect(buffer, index, packet, parent)
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
+
+  -- Joined: Boolean
+  index, joined = iex_iexoptions_binaryorderentry_sbe_v1_02.joined.dissect(buffer, index, packet, parent)
+
+  -- Next Seq No: SequenceNumber
+  index, next_seq_no = iex_iexoptions_binaryorderentry_sbe_v1_02.next_seq_no.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect = function(buffer, offset, packet, parent, sub_sessions_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
+  end
+end
+
+-- Session Info Group Encoding
+iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding = {}
+
+-- Size: Session Info Group Encoding
+iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
+
+-- Display: Session Info Group Encoding
+iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Session Info Group Encoding
+iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint8
+  index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Session Info Group Encoding
+iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_info_group_encoding, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups = {}
+
+-- Calculate size of: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size
+
+  -- Calculate field size from count
+  local sub_sessions_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + sub_sessions_group_count * 14
+
+  return index
+end
+
+-- Display: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Info Group Encoding: Struct of 2 fields
+  index, session_info_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Sub Sessions Group
+  for sub_sessions_group_index = 1, num_in_group do
+    index, sub_sessions_group = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect(buffer, index, packet, parent, sub_sessions_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_groups, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Gateway Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message = {}
+
+-- Calculate size of: Gateway Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.size
+
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Gateway Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gateway Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Keep Alive: Boolean
+  index, keep_alive = iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.dissect(buffer, index, packet, parent)
+
+  -- Sub Sessions Groups: Struct of 2 fields
+  index, sub_sessions_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gateway Heartbeat Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message = {}
+
+-- Size: Login Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.logon_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.status.size
+
+-- Display: Login Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Logon Id: LogonId
+  index, logon_id = iex_iexoptions_binaryorderentry_sbe_v1_02.logon_id.dissect(buffer, index, packet, parent)
+
+  -- Status: Status
+  index, status = iex_iexoptions_binaryorderentry_sbe_v1_02.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_response_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_payload = {}
+
+-- Dissect: Server Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Login Response Message
+  if template_id == 2 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gateway Heartbeat Message
+  if template_id == 3 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Terminate Message
+  if template_id == 6 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message Header Message
+  if template_id == 7 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subsession Join Response Message
+  if template_id == 9 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subsession Leave Response Message
+  if template_id == 11 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message = {}
+
+-- Calculate size of: Server Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Server Session Payload field
+  local server_session_payload_offset = offset + index
+  local server_session_payload_type = buffer(server_session_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_payload.size(buffer, server_session_payload_offset, server_session_payload_type)
+
+  return index
+end
+
+-- Display: Server Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Server Session Payload: Runtime Type with 6 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_session_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_payload = {}
+
+-- Dissect: Server Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
+  -- Dissect Server Session Message
+  if schema_id == 20000 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Server Business Message
+  if schema_id == 20001 then
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+iex_iexoptions_binaryorderentry_sbe_v1_02.message_header = {}
+
+-- Size: Message Header
+iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.template_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.schema_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.version.size
+
+-- Display: Message Header
+iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: uint16
+  index, template_id = iex_iexoptions_binaryorderentry_sbe_v1_02.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: uint16
+  index, schema_id = iex_iexoptions_binaryorderentry_sbe_v1_02.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: uint16
+  index, version = iex_iexoptions_binaryorderentry_sbe_v1_02.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message = {}
+
+-- Display: Server Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields = function(buffer, offset, packet, parent, size_of_server_sbe_message)
+  local index = offset
+
+  -- Packet Length: uint16
+  index, packet_length = iex_iexoptions_binaryorderentry_sbe_v1_02.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Schema Id
+  local schema_id = buffer(index - 4, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 2 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_payload.dissect(buffer, index, packet, parent, schema_id)
+
+  return index
+end
+
+-- Dissect: Server Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_server_sbe_message)
+  local index = offset + size_of_server_sbe_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_sbe_message, buffer(offset, 0))
+    local current = iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    parent:set_len(size_of_server_sbe_message)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Sbe Message
+local server_sbe_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet = {}
+
+-- Verify required size of Tcp packet
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= iex_iexoptions_binaryorderentry_sbe_v1_02.packet_length.size + iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.size
+end
+
+-- Dissect Server Packet
+iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Sbe Message
+  local end_of_payload = buffer:len()
+
+  -- Server Sbe Message: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_sbe_message = server_sbe_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_sbe_message):tvb()
+      index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.dissect(frame, index, packet, parent, size_of_server_sbe_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- Risk Action Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message = {}
+
+-- Size: Risk Action Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size
+
+-- Display: Risk Action Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Risk Action Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Market Participant Id: MPID
+  index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: ClOrdId
+  index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Control: RiskControl
+  index, risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect(buffer, index, packet, parent)
+
+  -- Risk Action: RiskActionType
+  index, risk_action = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect(buffer, index, packet, parent)
+
+  -- Custom Group Id Optional: uint16
+  index, custom_group_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Risk Action Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_action_request_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Risk Limit Update Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message = {}
+
+-- Size: Risk Limit Update Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.size =
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size
+
+-- Display: Risk Limit Update Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Risk Limit Update Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Market Participant Id: MPID
+  index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: ClOrdId
+  index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Control Optional: RiskControl
+  index, risk_control_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.dissect(buffer, index, packet, parent)
+
+  -- Risk Control Status Optional: RiskControlStatus
+  index, risk_control_status_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.dissect(buffer, index, packet, parent)
+
+  -- Time Limit: uint64
+  index, time_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.dissect(buffer, index, packet, parent)
+
+  -- Percentage Limit: Percentage
+  index, percentage_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.dissect(buffer, index, packet, parent)
+
+  -- Count Limit: uint32
+  index, count_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.dissect(buffer, index, packet, parent)
+
+  -- Ioc Attribution: IOCAttribution
+  index, ioc_attribution = iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.dissect(buffer, index, packet, parent)
+
+  -- Cust Capacity Weight Optional: uint8
+  index, cust_capacity_weight_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Risk Limit Update Request Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_limit_update_request_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Purge Request Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group = {}
 
@@ -8010,11 +8838,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.dissect = fun
   end
 end
 
--- Business Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload = {}
+-- Client Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_payload = {}
 
--- Dissect: Business Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Business Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect New Order Single Message
   if template_id == 1 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.dissect(buffer, offset, packet, parent)
@@ -8039,54 +8867,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload.dissect = function(bu
   if template_id == 6 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Ack Message
-  if template_id == 101 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsolicited Modify Ack Message
-  if template_id == 102 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Cancel Ack Message
-  if template_id == 103 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mass Cancel Ack Message
-  if template_id == 104 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Bulk Quote Ack Message
-  if template_id == 105 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect New Ioc Quote Ack Message
-  if template_id == 106 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Restated Message
-  if template_id == 107 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.quote_restated_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Quote Canceled Message
-  if template_id == 108 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.quote_canceled_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Purge Ack Message
-  if template_id == 109 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Execution Report Message
-  if template_id == 110 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Trade Bust Correct Message
-  if template_id == 111 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.trade_bust_correct_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Application Layer Reject Message
-  if template_id == 112 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Risk Limit Update Request Message
   if template_id == 51 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.dissect(buffer, offset, packet, parent)
@@ -8095,130 +8875,58 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload.dissect = function(bu
   if template_id == 52 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Underlying Ref Data Message
-  if template_id == 151 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Instrument Ref Data Message
-  if template_id == 152 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_ref_data_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Mpid Configuration Acknowledgement Message
-  if template_id == 153 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Market Maker Symbol Appointment Message
-  if template_id == 154 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.market_maker_symbol_appointment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Session Configuration Acknowledgement Message
-  if template_id == 155 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_configuration_acknowledgement_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Acknowledgment Message
-  if template_id == 156 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Control Alert Message
-  if template_id == 157 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_alert_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Business Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_message = {}
+-- Client Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message = {}
 
--- Calculate size of: Business Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.size = function(buffer, offset)
+-- Calculate size of: Client Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.size = function(buffer, offset)
   local index = 0
 
-  -- Calculate runtime size of Business Payload field
-  local business_payload_offset = offset + index
-  local business_payload_type = buffer(business_payload_offset - 6, 2):le_uint()
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload.size(buffer, business_payload_offset, business_payload_type)
+  -- Calculate runtime size of Client Business Payload field
+  local client_business_payload_offset = offset + index
+  local client_business_payload_type = buffer(client_business_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_payload.size(buffer, client_business_payload_offset, client_business_payload_type)
 
   return index
 end
 
--- Display: Business Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.display = function(packet, parent, length)
+-- Display: Client Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Business Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Template Id
   local template_id = buffer(offset - 6, 2):le_uint()
 
-  -- Business Payload: Runtime Type with 27 branches
-  index = iex_iexoptions_binaryorderentry_sbe_v1_02.business_payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Business Payload: Runtime Type with 8 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Business Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Business Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.dissect = function(buffer, offset, packet, parent)
   if show.schema_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.business_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_business_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.display(packet, parent, length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Subsession Leave Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message = {}
-
--- Size: Subsession Leave Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.reason.size
-
--- Display: Subsession Leave Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subsession Leave Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
-
-  -- Reason: Status
-  index, reason = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subsession Leave Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_leave_response_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.fields(buffer, offset, packet, parent)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8259,50 +8967,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_message.dissect = fun
   else
     -- Skip element, add fields directly
     return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Subsession Join Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message = {}
-
--- Size: Subsession Join Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.status.size
-
--- Display: Subsession Join Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subsession Join Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
-
-  -- Status: Status
-  index, status = iex_iexoptions_binaryorderentry_sbe_v1_02.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subsession Join Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_join_response_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8354,94 +9018,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_message.dissect = func
   end
 end
 
--- Sequenced Message Header Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message = {}
-
--- Size: Sequenced Message Header Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.sequence.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp.size
-
--- Display: Sequenced Message Header Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequenced Message Header Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
-
-  -- Sequence: SequenceNumber
-  index, sequence = iex_iexoptions_binaryorderentry_sbe_v1_02.sequence.dissect(buffer, index, packet, parent)
-
-  -- Timestamp: Timestamp
-  index, timestamp = iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequenced Message Header Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequenced_message_header_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Terminate Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message = {}
-
--- Size: Terminate Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.reason.size
-
--- Display: Terminate Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Terminate Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Reason: Status
-  index, reason = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Terminate Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.terminate_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Logout Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message = {}
 
@@ -8474,259 +9050,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.dissect = fun
   packet.cols.info = display
 
   return offset
-end
-
--- Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group = {}
-
--- Size: Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.joined.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.next_seq_no.size
-
--- Display: Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields = function(buffer, offset, packet, parent, sub_sessions_group_index)
-  local index = offset
-
-  -- Implicit Sub Sessions Group Index
-  if sub_sessions_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index, sub_sessions_group_index)
-    iteration:set_generated()
-  end
-
-  -- Subsession Type: Subsession
-  index, subsession_type = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.dissect(buffer, index, packet, parent)
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.dissect(buffer, index, packet, parent)
-
-  -- Joined: Boolean
-  index, joined = iex_iexoptions_binaryorderentry_sbe_v1_02.joined.dissect(buffer, index, packet, parent)
-
-  -- Next Seq No: SequenceNumber
-  index, next_seq_no = iex_iexoptions_binaryorderentry_sbe_v1_02.next_seq_no.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect = function(buffer, offset, packet, parent, sub_sessions_group_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
-  end
-end
-
--- Session Info Group Encoding
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding = {}
-
--- Size: Session Info Group Encoding
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
-
--- Display: Session Info Group Encoding
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Session Info Group Encoding
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length Short: uint8
-  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
-
-  -- Num In Group: uint8
-  index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Session Info Group Encoding
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_info_group_encoding, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups = {}
-
--- Calculate size of: Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size
-
-  -- Calculate field size from count
-  local sub_sessions_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + sub_sessions_group_count * 14
-
-  return index
-end
-
--- Display: Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Info Group Encoding: Struct of 2 fields
-  index, session_info_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):uint()
-
-  -- Repeating: Sub Sessions Group
-  for sub_sessions_group_index = 1, num_in_group do
-    index, sub_sessions_group = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect(buffer, index, packet, parent, sub_sessions_group_index)
-  end
-
-  return index
-end
-
--- Dissect: Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_groups, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Gateway Heartbeat Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message = {}
-
--- Calculate size of: Gateway Heartbeat Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.size
-
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Gateway Heartbeat Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Gateway Heartbeat Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Keep Alive: Boolean
-  index, keep_alive = iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.dissect(buffer, index, packet, parent)
-
-  -- Sub Sessions Groups: Struct of 2 fields
-  index, sub_sessions_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Gateway Heartbeat Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message = {}
-
--- Size: Login Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.logon_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.status.size
-
--- Display: Login Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Logon Id: LogonId
-  index, logon_id = iex_iexoptions_binaryorderentry_sbe_v1_02.logon_id.dissect(buffer, index, packet, parent)
-
-  -- Status: Status
-  index, status = iex_iexoptions_binaryorderentry_sbe_v1_02.status.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Response Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_response_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.fields(buffer, offset, packet, parent)
-  end
 end
 
 -- Login Request Message
@@ -8773,22 +9096,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.login_request_message.dissect = functi
   end
 end
 
--- Session Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload = {}
+-- Client Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_payload = {}
 
--- Dissect: Session Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Session Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Login Request Message
   if template_id == 1 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.login_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Response Message
-  if template_id == 2 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.login_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Gateway Heartbeat Message
-  if template_id == 3 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat Message
   if template_id == 4 then
@@ -8798,10 +9113,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.dissect = function(buf
   if template_id == 5 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.logout_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Terminate Message
-  if template_id == 6 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.terminate_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Sequenced Message Header Message
   if template_id == 7 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
@@ -8810,152 +9121,92 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.dissect = function(buf
   if template_id == 8 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Subsession Join Response Message
-  if template_id == 9 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_join_response_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Subsession Leave Message
   if template_id == 10 then
     return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Subsession Leave Response Message
-  if template_id == 11 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_leave_response_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Session Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_message = {}
+-- Client Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message = {}
 
--- Calculate size of: Session Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.size = function(buffer, offset)
+-- Calculate size of: Client Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.size = function(buffer, offset)
   local index = 0
 
-  -- Calculate runtime size of Session Payload field
-  local session_payload_offset = offset + index
-  local session_payload_type = buffer(session_payload_offset - 6, 2):le_uint()
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.size(buffer, session_payload_offset, session_payload_type)
+  -- Calculate runtime size of Client Session Payload field
+  local client_session_payload_offset = offset + index
+  local client_session_payload_type = buffer(client_session_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_payload.size(buffer, client_session_payload_offset, client_session_payload_type)
 
   return index
 end
 
--- Display: Session Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.display = function(packet, parent, length)
+-- Display: Client Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Session Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Template Id
   local template_id = buffer(offset - 6, 2):le_uint()
 
-  -- Session Payload: Runtime Type with 11 branches
-  index = iex_iexoptions_binaryorderentry_sbe_v1_02.session_payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Session Payload: Runtime Type with 6 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Session Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Session Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.dissect = function(buffer, offset, packet, parent)
   if show.schema_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_message, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_session_message, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.display(packet, parent, length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.fields(buffer, offset, packet, parent)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.payload = {}
+-- Client Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_payload = {}
 
--- Dissect: Payload
-iex_iexoptions_binaryorderentry_sbe_v1_02.payload.dissect = function(buffer, offset, packet, parent, schema_id)
-  -- Dissect Session Message
+-- Dissect: Client Payload
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
+  -- Dissect Client Session Message
   if schema_id == 20000 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.session_message.dissect(buffer, offset, packet, parent)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Business Message
+  -- Dissect Client Business Message
   if schema_id == 20001 then
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.business_message.dissect(buffer, offset, packet, parent)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Message Header
-iex_iexoptions_binaryorderentry_sbe_v1_02.message_header = {}
+-- Client Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message = {}
 
--- Size: Message Header
-iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.template_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.schema_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.version.size
-
--- Display: Message Header
-iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.display = function(packet, parent, length)
+-- Display: Client Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message Header
-iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: uint16
-  index, template_id = iex_iexoptions_binaryorderentry_sbe_v1_02.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: uint16
-  index, schema_id = iex_iexoptions_binaryorderentry_sbe_v1_02.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: uint16
-  index, version = iex_iexoptions_binaryorderentry_sbe_v1_02.version.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header
-iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sbe Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message = {}
-
--- Display: Sbe Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sbe Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
+-- Dissect Fields: Client Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields = function(buffer, offset, packet, parent, size_of_client_sbe_message)
   local index = offset
 
   -- Packet Length: uint16
@@ -8967,40 +9218,40 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.fields = function(buffer, 
   -- Dependency element: Schema Id
   local schema_id = buffer(index - 4, 2):le_uint()
 
-  -- Payload: Runtime Type with 2 branches
-  index = iex_iexoptions_binaryorderentry_sbe_v1_02.payload.dissect(buffer, index, packet, parent, schema_id)
+  -- Client Payload: Runtime Type with 2 branches
+  index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_payload.dissect(buffer, index, packet, parent, schema_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
-  local index = offset + size_of_sbe_message
+-- Dissect: Client Sbe Message
+iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_client_sbe_message)
+  local index = offset + size_of_client_sbe_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
-    parent:set_len(size_of_sbe_message)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.display(buffer, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_sbe_message, buffer(offset, 0))
+    local current = iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    parent:set_len(size_of_client_sbe_message)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Sbe Message
-local sbe_message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Client Sbe Message
+local client_sbe_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.size then
+  if remaining < iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -9015,44 +9266,6 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Server Packet
-iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet = {}
-
--- Verify required size of Tcp packet
-iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= iex_iexoptions_binaryorderentry_sbe_v1_02.packet_length.size + iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.size
-end
-
--- Dissect Server Packet
-iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.dissect = function(buffer, packet, parent)
-  local index = 0
-
-  -- Dependency for Sbe Message
-  local end_of_payload = buffer:len()
-
-  -- Sbe Message: Struct of 3 fields
-  while index < end_of_payload do
-
-    -- Are minimum number of bytes are available?
-    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
-
-    if available > 0 then
-      -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_sbe_message):tvb()
-      index = iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.dissect(frame, index, packet, parent, size_of_sbe_message)
-    else
-      -- More bytes needed, so set packet information
-      packet.desegment_offset = index
-      packet.desegment_len = -(available)
-
-      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
-      return end_of_payload
-    end
-  end
-
-  return index
-end
-
 -- Client Packet
 iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet = {}
 
@@ -9065,19 +9278,19 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Sbe Message
+  -- Dependency for Client Sbe Message
   local end_of_payload = buffer:len()
 
-  -- Sbe Message: Struct of 3 fields
+  -- Client Sbe Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_sbe_message = client_sbe_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_sbe_message):tvb()
-      index = iex_iexoptions_binaryorderentry_sbe_v1_02.sbe_message.dissect(frame, index, packet, parent, size_of_sbe_message)
+      local frame = buffer(0, index + size_of_client_sbe_message):tvb()
+      index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.dissect(frame, index, packet, parent, size_of_client_sbe_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -9207,7 +9420,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
 
   local schema_id = buffer(6, 2):le_uint()
 
-  -- Session Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Client Session Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20000 then
     if buffer:len() < 6 then
       return false
@@ -9217,16 +9430,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
 
     -- Login Request Message
     if template_id == 1 then
-      return true
-    end
-
-    -- Login Response Message
-    if template_id == 2 then
-      return true
-    end
-
-    -- Gateway Heartbeat Message
-    if template_id == 3 then
       return true
     end
 
@@ -9240,11 +9443,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
       return true
     end
 
-    -- Terminate Message
-    if template_id == 6 then
-      return true
-    end
-
     -- Sequenced Message Header Message
     if template_id == 7 then
       return true
@@ -9255,25 +9453,15 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
       return true
     end
 
-    -- Subsession Join Response Message
-    if template_id == 9 then
-      return true
-    end
-
     -- Subsession Leave Message
     if template_id == 10 then
-      return true
-    end
-
-    -- Subsession Leave Response Message
-    if template_id == 11 then
       return true
     end
 
     return false
   end
 
-  -- Business Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Client Business Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20001 then
     if buffer:len() < 6 then
       return false
@@ -9311,66 +9499,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
       return true
     end
 
-    -- Order Ack Message
-    if template_id == 101 then
-      return true
-    end
-
-    -- Unsolicited Modify Ack Message
-    if template_id == 102 then
-      return true
-    end
-
-    -- Order Cancel Ack Message
-    if template_id == 103 then
-      return true
-    end
-
-    -- Mass Cancel Ack Message
-    if template_id == 104 then
-      return true
-    end
-
-    -- Bulk Quote Ack Message
-    if template_id == 105 then
-      return true
-    end
-
-    -- New Ioc Quote Ack Message
-    if template_id == 106 then
-      return true
-    end
-
-    -- Quote Restated Message
-    if template_id == 107 then
-      return true
-    end
-
-    -- Quote Canceled Message
-    if template_id == 108 then
-      return true
-    end
-
-    -- Purge Ack Message
-    if template_id == 109 then
-      return true
-    end
-
-    -- Execution Report Message
-    if template_id == 110 then
-      return true
-    end
-
-    -- Trade Bust Correct Message
-    if template_id == 111 then
-      return true
-    end
-
-    -- Application Layer Reject Message
-    if template_id == 112 then
-      return true
-    end
-
     -- Risk Limit Update Request Message
     if template_id == 51 then
       return true
@@ -9378,41 +9506,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_packet.fingerprint = function(b
 
     -- Risk Action Request Message
     if template_id == 52 then
-      return true
-    end
-
-    -- Underlying Ref Data Message
-    if template_id == 151 then
-      return true
-    end
-
-    -- Instrument Ref Data Message
-    if template_id == 152 then
-      return true
-    end
-
-    -- Mpid Configuration Acknowledgement Message
-    if template_id == 153 then
-      return true
-    end
-
-    -- Market Maker Symbol Appointment Message
-    if template_id == 154 then
-      return true
-    end
-
-    -- Session Configuration Acknowledgement Message
-    if template_id == 155 then
-      return true
-    end
-
-    -- Risk Control Acknowledgment Message
-    if template_id == 156 then
-      return true
-    end
-
-    -- Risk Control Alert Message
-    if template_id == 157 then
       return true
     end
 
@@ -9430,18 +9523,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.fingerprint = function(b
 
   local schema_id = buffer(6, 2):le_uint()
 
-  -- Session Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Server Session Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20000 then
     if buffer:len() < 6 then
       return false
     end
 
     local template_id = buffer(4, 2):le_uint()
-
-    -- Login Request Message
-    if template_id == 1 then
-      return true
-    end
 
     -- Login Response Message
     if template_id == 2 then
@@ -9450,16 +9538,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.fingerprint = function(b
 
     -- Gateway Heartbeat Message
     if template_id == 3 then
-      return true
-    end
-
-    -- Client Heartbeat Message
-    if template_id == 4 then
-      return true
-    end
-
-    -- Logout Request Message
-    if template_id == 5 then
       return true
     end
 
@@ -9473,18 +9551,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.fingerprint = function(b
       return true
     end
 
-    -- Subsession Join Message
-    if template_id == 8 then
-      return true
-    end
-
     -- Subsession Join Response Message
     if template_id == 9 then
-      return true
-    end
-
-    -- Subsession Leave Message
-    if template_id == 10 then
       return true
     end
 
@@ -9496,43 +9564,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.fingerprint = function(b
     return false
   end
 
-  -- Business Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Server Business Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20001 then
     if buffer:len() < 6 then
       return false
     end
 
     local template_id = buffer(4, 2):le_uint()
-
-    -- New Order Single Message
-    if template_id == 1 then
-      return true
-    end
-
-    -- Order Cancel Replace Request Message
-    if template_id == 2 then
-      return true
-    end
-
-    -- Order Cancel Request Message
-    if template_id == 3 then
-      return true
-    end
-
-    -- New Bulk Quote Message
-    if template_id == 4 then
-      return true
-    end
-
-    -- Mass Cancel Request Message
-    if template_id == 5 then
-      return true
-    end
-
-    -- Purge Request Message
-    if template_id == 6 then
-      return true
-    end
 
     -- Order Ack Message
     if template_id == 101 then
@@ -9591,16 +9629,6 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_packet.fingerprint = function(b
 
     -- Application Layer Reject Message
     if template_id == 112 then
-      return true
-    end
-
-    -- Risk Limit Update Request Message
-    if template_id == 51 then
-      return true
-    end
-
-    -- Risk Action Request Message
-    if template_id == 52 then
       return true
     end
 

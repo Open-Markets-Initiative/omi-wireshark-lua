@@ -17,6 +17,7 @@ local iex_iexoptions_session_sbe_v1_01 = {}
 -- Iex IexOptions Session Sbe 1.01 Fields
 omi_iex_iexoptions_session_sbe_v1_01.fields.block_length = ProtoField.new("Block Length", "iex.iexoptions.session.sbe.v1.01.blocklength", ftypes.UINT16)
 omi_iex_iexoptions_session_sbe_v1_01.fields.block_length_short = ProtoField.new("Block Length Short", "iex.iexoptions.session.sbe.v1.01.blocklengthshort", ftypes.UINT8)
+omi_iex_iexoptions_session_sbe_v1_01.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "iex.iexoptions.session.sbe.v1.01.clientsbemessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.end_sequence = ProtoField.new("End Sequence", "iex.iexoptions.session.sbe.v1.01.endsequence", ftypes.UINT32)
 omi_iex_iexoptions_session_sbe_v1_01.fields.joined = ProtoField.new("Joined", "iex.iexoptions.session.sbe.v1.01.joined", ftypes.UINT8)
 omi_iex_iexoptions_session_sbe_v1_01.fields.keep_alive = ProtoField.new("Keep Alive", "iex.iexoptions.session.sbe.v1.01.keepalive", ftypes.UINT8)
@@ -25,9 +26,9 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.next_seq_no = ProtoField.new("Next S
 omi_iex_iexoptions_session_sbe_v1_01.fields.num_in_group = ProtoField.new("Num In Group", "iex.iexoptions.session.sbe.v1.01.numingroup", ftypes.UINT8)
 omi_iex_iexoptions_session_sbe_v1_01.fields.packet_length = ProtoField.new("Packet Length", "iex.iexoptions.session.sbe.v1.01.packetlength", ftypes.UINT16)
 omi_iex_iexoptions_session_sbe_v1_01.fields.reason = ProtoField.new("Reason", "iex.iexoptions.session.sbe.v1.01.reason", ftypes.UINT8)
-omi_iex_iexoptions_session_sbe_v1_01.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.session.sbe.v1.01.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.session.sbe.v1.01.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_session_sbe_v1_01.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.session.sbe.v1.01.sequence", ftypes.UINT32)
+omi_iex_iexoptions_session_sbe_v1_01.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "iex.iexoptions.session.sbe.v1.01.serversbemessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.session_info_group_encoding = ProtoField.new("Session Info Group Encoding", "iex.iexoptions.session.sbe.v1.01.sessioninfogroupencoding", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.start_sequence = ProtoField.new("Start Sequence", "iex.iexoptions.session.sbe.v1.01.startsequence", ftypes.UINT32)
 omi_iex_iexoptions_session_sbe_v1_01.fields.status = ProtoField.new("Status", "iex.iexoptions.session.sbe.v1.01.status", ftypes.UINT8)
@@ -58,6 +59,10 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_message = ProtoFiel
 omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_response_message = ProtoField.new("Subsession Leave Response Message", "iex.iexoptions.session.sbe.v1.01.subsessionleaveresponsemessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.terminate_message = ProtoField.new("Terminate Message", "iex.iexoptions.session.sbe.v1.01.terminatemessage", ftypes.STRING)
 
+-- Iex IexOptions Session 1.01 Schema Messages
+omi_iex_iexoptions_session_sbe_v1_01.fields.client_session_message = ProtoField.new("Client Session Message", "iex.iexoptions.session.sbe.v1.01.clientsessionmessage", ftypes.STRING)
+omi_iex_iexoptions_session_sbe_v1_01.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.session.sbe.v1.01.serversessionmessage", ftypes.STRING)
+
 -- Iex IexOptions Session Sbe 1.01 Generated Fields
 omi_iex_iexoptions_session_sbe_v1_01.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.session.sbe.v1.01.subsessionsgroupindex", ftypes.UINT16)
 
@@ -81,6 +86,7 @@ local show = {}
 
 -- Iex IexOptions Session Sbe 1.01 Element Dissection Options
 show.structs = true
+show.schema_messages = true
 show.application_messages = true
 show.headers = true
 show.repeating_groups = true
@@ -91,6 +97,7 @@ omi_iex_iexoptions_session_sbe_v1_01.prefs.acceptor_port = Pref.uint("Acceptor P
 omi_iex_iexoptions_session_sbe_v1_01.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_iex_iexoptions_session_sbe_v1_01.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexoptions_session_sbe_v1_01.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
@@ -108,6 +115,9 @@ function omi_iex_iexoptions_session_sbe_v1_01.prefs_changed()
   end
   if show.repeating_groups ~= omi_iex_iexoptions_session_sbe_v1_01.prefs.show_repeating_groups then
     show.repeating_groups = omi_iex_iexoptions_session_sbe_v1_01.prefs.show_repeating_groups
+  end
+  if show.schema_messages ~= omi_iex_iexoptions_session_sbe_v1_01.prefs.show_schema_messages then
+    show.schema_messages = omi_iex_iexoptions_session_sbe_v1_01.prefs.show_schema_messages
   end
   if show.structs ~= omi_iex_iexoptions_session_sbe_v1_01.prefs.show_structs then
     show.structs = omi_iex_iexoptions_session_sbe_v1_01.prefs.show_structs
@@ -446,7 +456,7 @@ iex_iexoptions_session_sbe_v1_01.schema_id.size = 2
 -- Display: Schema Id
 iex_iexoptions_session_sbe_v1_01.schema_id.display = function(value)
   if value == 20000 then
-    return "Schema Id: SchemaId"
+    return "Schema Id: Session (20000)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -839,46 +849,6 @@ iex_iexoptions_session_sbe_v1_01.subsession_leave_response_message.dissect = fun
   end
 end
 
--- Subsession Leave Message
-iex_iexoptions_session_sbe_v1_01.subsession_leave_message = {}
-
--- Size: Subsession Leave Message
-iex_iexoptions_session_sbe_v1_01.subsession_leave_message.size =
-  iex_iexoptions_session_sbe_v1_01.subsession_id.size
-
--- Display: Subsession Leave Message
-iex_iexoptions_session_sbe_v1_01.subsession_leave_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subsession Leave Message
-iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_session_sbe_v1_01.subsession_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subsession Leave Message
-iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_message, buffer(offset, 0))
-    local index = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Subsession Join Response Message
 iex_iexoptions_session_sbe_v1_01.subsession_join_response_message = {}
 
@@ -920,54 +890,6 @@ iex_iexoptions_session_sbe_v1_01.subsession_join_response_message.dissect = func
   else
     -- Skip element, add fields directly
     return iex_iexoptions_session_sbe_v1_01.subsession_join_response_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Subsession Join Message
-iex_iexoptions_session_sbe_v1_01.subsession_join_message = {}
-
--- Size: Subsession Join Message
-iex_iexoptions_session_sbe_v1_01.subsession_join_message.size =
-  iex_iexoptions_session_sbe_v1_01.subsession_id.size + 
-  iex_iexoptions_session_sbe_v1_01.start_sequence.size + 
-  iex_iexoptions_session_sbe_v1_01.end_sequence.size
-
--- Display: Subsession Join Message
-iex_iexoptions_session_sbe_v1_01.subsession_join_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Subsession Join Message
-iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Subsession Id: SubsessionId
-  index, subsession_id = iex_iexoptions_session_sbe_v1_01.subsession_id.dissect(buffer, index, packet, parent)
-
-  -- Start Sequence: SequenceNumber
-  index, start_sequence = iex_iexoptions_session_sbe_v1_01.start_sequence.dissect(buffer, index, packet, parent)
-
-  -- End Sequence: SequenceNumber
-  index, end_sequence = iex_iexoptions_session_sbe_v1_01.end_sequence.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Subsession Join Message
-iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_join_message, buffer(offset, 0))
-    local index = iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_session_sbe_v1_01.subsession_join_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1057,40 +979,6 @@ iex_iexoptions_session_sbe_v1_01.terminate_message.dissect = function(buffer, of
     -- Skip element, add fields directly
     return iex_iexoptions_session_sbe_v1_01.terminate_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Logout Request Message
-iex_iexoptions_session_sbe_v1_01.logout_request_message = {}
-
--- Display: Logout Request Message
-iex_iexoptions_session_sbe_v1_01.logout_request_message.display = function(packet, parent, length)
-  return "Logout Request Message"
-end
-
-
--- Dissect: Logout Request Message
-iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect = function(buffer, offset, packet, parent)
-  local display = iex_iexoptions_session_sbe_v1_01.logout_request_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Client Heartbeat Message
-iex_iexoptions_session_sbe_v1_01.client_heartbeat_message = {}
-
--- Display: Client Heartbeat Message
-iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.display = function(packet, parent, length)
-  return "Client Heartbeat Message"
-end
-
-
--- Dissect: Client Heartbeat Message
-iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
-  local display = iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
 end
 
 -- Sub Sessions Group
@@ -1346,59 +1234,11 @@ iex_iexoptions_session_sbe_v1_01.login_response_message.dissect = function(buffe
   end
 end
 
--- Login Request Message
-iex_iexoptions_session_sbe_v1_01.login_request_message = {}
+-- Server Session Payload
+iex_iexoptions_session_sbe_v1_01.server_session_payload = {}
 
--- Size: Login Request Message
-iex_iexoptions_session_sbe_v1_01.login_request_message.size =
-  iex_iexoptions_session_sbe_v1_01.logon_id.size + 
-  iex_iexoptions_session_sbe_v1_01.token.size
-
--- Display: Login Request Message
-iex_iexoptions_session_sbe_v1_01.login_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Message
-iex_iexoptions_session_sbe_v1_01.login_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Logon Id: LogonId
-  index, logon_id = iex_iexoptions_session_sbe_v1_01.logon_id.dissect(buffer, index, packet, parent)
-
-  -- Token: Token
-  index, token = iex_iexoptions_session_sbe_v1_01.token.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Message
-iex_iexoptions_session_sbe_v1_01.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.login_request_message, buffer(offset, 0))
-    local index = iex_iexoptions_session_sbe_v1_01.login_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = iex_iexoptions_session_sbe_v1_01.login_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return iex_iexoptions_session_sbe_v1_01.login_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Payload
-iex_iexoptions_session_sbe_v1_01.payload = {}
-
--- Dissect: Payload
-iex_iexoptions_session_sbe_v1_01.payload.dissect = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Login Request Message
-  if template_id == 1 then
-    return iex_iexoptions_session_sbe_v1_01.login_request_message.dissect(buffer, offset, packet, parent)
-  end
+-- Dissect: Server Session Payload
+iex_iexoptions_session_sbe_v1_01.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Login Response Message
   if template_id == 2 then
     return iex_iexoptions_session_sbe_v1_01.login_response_message.dissect(buffer, offset, packet, parent)
@@ -1406,14 +1246,6 @@ iex_iexoptions_session_sbe_v1_01.payload.dissect = function(buffer, offset, pack
   -- Dissect Gateway Heartbeat Message
   if template_id == 3 then
     return iex_iexoptions_session_sbe_v1_01.gateway_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Client Heartbeat Message
-  if template_id == 4 then
-    return iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Logout Request Message
-  if template_id == 5 then
-    return iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Terminate Message
   if template_id == 6 then
@@ -1423,21 +1255,77 @@ iex_iexoptions_session_sbe_v1_01.payload.dissect = function(buffer, offset, pack
   if template_id == 7 then
     return iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Subsession Join Message
-  if template_id == 8 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Subsession Join Response Message
   if template_id == 9 then
     return iex_iexoptions_session_sbe_v1_01.subsession_join_response_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Subsession Leave Message
-  if template_id == 10 then
-    return iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Subsession Leave Response Message
   if template_id == 11 then
     return iex_iexoptions_session_sbe_v1_01.subsession_leave_response_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Session Message
+iex_iexoptions_session_sbe_v1_01.server_session_message = {}
+
+-- Calculate size of: Server Session Message
+iex_iexoptions_session_sbe_v1_01.server_session_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Server Session Payload field
+  local server_session_payload_offset = offset + index
+  local server_session_payload_type = buffer(server_session_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_session_sbe_v1_01.server_session_payload.size(buffer, server_session_payload_offset, server_session_payload_type)
+
+  return index
+end
+
+-- Display: Server Session Message
+iex_iexoptions_session_sbe_v1_01.server_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Session Message
+iex_iexoptions_session_sbe_v1_01.server_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Server Session Payload: Runtime Type with 6 branches
+  index = iex_iexoptions_session_sbe_v1_01.server_session_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Session Message
+iex_iexoptions_session_sbe_v1_01.server_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.server_session_message, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_01.server_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_session_sbe_v1_01.server_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_session_sbe_v1_01.server_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+iex_iexoptions_session_sbe_v1_01.server_payload = {}
+
+-- Dissect: Server Payload
+iex_iexoptions_session_sbe_v1_01.server_payload.dissect = function(buffer, offset, packet, parent, schema_id)
+  -- Dissect Server Session Message
+  if schema_id == 20000 then
+    return iex_iexoptions_session_sbe_v1_01.server_session_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -1495,16 +1383,16 @@ iex_iexoptions_session_sbe_v1_01.message_header.dissect = function(buffer, offse
   end
 end
 
--- Sbe Message
-iex_iexoptions_session_sbe_v1_01.sbe_message = {}
+-- Server Sbe Message
+iex_iexoptions_session_sbe_v1_01.server_sbe_message = {}
 
--- Display: Sbe Message
-iex_iexoptions_session_sbe_v1_01.sbe_message.display = function(packet, parent, length)
+-- Display: Server Sbe Message
+iex_iexoptions_session_sbe_v1_01.server_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sbe Message
-iex_iexoptions_session_sbe_v1_01.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
+-- Dissect Fields: Server Sbe Message
+iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields = function(buffer, offset, packet, parent, size_of_server_sbe_message)
   local index = offset
 
   -- Packet Length: uint16
@@ -1513,43 +1401,43 @@ iex_iexoptions_session_sbe_v1_01.sbe_message.fields = function(buffer, offset, p
   -- Message Header: Struct of 4 fields
   index, message_header = iex_iexoptions_session_sbe_v1_01.message_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Template Id
-  local template_id = buffer(index - 6, 2):le_uint()
+  -- Dependency element: Schema Id
+  local schema_id = buffer(index - 4, 2):le_uint()
 
-  -- Payload: Runtime Type with 11 branches
-  index = iex_iexoptions_session_sbe_v1_01.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Server Payload: Runtime Type with 1 branches
+  index = iex_iexoptions_session_sbe_v1_01.server_payload.dissect(buffer, index, packet, parent, schema_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-iex_iexoptions_session_sbe_v1_01.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
-  local index = offset + size_of_sbe_message
+-- Dissect: Server Sbe Message
+iex_iexoptions_session_sbe_v1_01.server_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_server_sbe_message)
+  local index = offset + size_of_server_sbe_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_session_sbe_v1_01.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
-    parent:set_len(size_of_sbe_message)
-    local display = iex_iexoptions_session_sbe_v1_01.sbe_message.display(buffer, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.server_sbe_message, buffer(offset, 0))
+    local current = iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    parent:set_len(size_of_server_sbe_message)
+    local display = iex_iexoptions_session_sbe_v1_01.server_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_session_sbe_v1_01.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
 
     return index
   end
 end
 
--- Remaining Bytes For: Sbe Message
-local sbe_message_bytes_remaining = function(buffer, index, available)
+-- Remaining Bytes For: Server Sbe Message
+local server_sbe_message_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < iex_iexoptions_session_sbe_v1_01.sbe_message.size then
+  if remaining < iex_iexoptions_session_sbe_v1_01.server_sbe_message.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -1576,19 +1464,19 @@ end
 iex_iexoptions_session_sbe_v1_01.server_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Sbe Message
+  -- Dependency for Server Sbe Message
   local end_of_payload = buffer:len()
 
-  -- Sbe Message: Struct of 3 fields
+  -- Server Sbe Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_server_sbe_message = server_sbe_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_sbe_message):tvb()
-      index = iex_iexoptions_session_sbe_v1_01.sbe_message.dissect(frame, index, packet, parent, size_of_sbe_message)
+      local frame = buffer(0, index + size_of_server_sbe_message):tvb()
+      index = iex_iexoptions_session_sbe_v1_01.server_sbe_message.dissect(frame, index, packet, parent, size_of_server_sbe_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -1600,6 +1488,338 @@ iex_iexoptions_session_sbe_v1_01.server_packet.dissect = function(buffer, packet
   end
 
   return index
+end
+
+-- Subsession Leave Message
+iex_iexoptions_session_sbe_v1_01.subsession_leave_message = {}
+
+-- Size: Subsession Leave Message
+iex_iexoptions_session_sbe_v1_01.subsession_leave_message.size =
+  iex_iexoptions_session_sbe_v1_01.subsession_id.size
+
+-- Display: Subsession Leave Message
+iex_iexoptions_session_sbe_v1_01.subsession_leave_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subsession Leave Message
+iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_session_sbe_v1_01.subsession_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subsession Leave Message
+iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_message, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_session_sbe_v1_01.subsession_leave_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_session_sbe_v1_01.subsession_leave_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Subsession Join Message
+iex_iexoptions_session_sbe_v1_01.subsession_join_message = {}
+
+-- Size: Subsession Join Message
+iex_iexoptions_session_sbe_v1_01.subsession_join_message.size =
+  iex_iexoptions_session_sbe_v1_01.subsession_id.size + 
+  iex_iexoptions_session_sbe_v1_01.start_sequence.size + 
+  iex_iexoptions_session_sbe_v1_01.end_sequence.size
+
+-- Display: Subsession Join Message
+iex_iexoptions_session_sbe_v1_01.subsession_join_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Subsession Join Message
+iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Subsession Id: SubsessionId
+  index, subsession_id = iex_iexoptions_session_sbe_v1_01.subsession_id.dissect(buffer, index, packet, parent)
+
+  -- Start Sequence: SequenceNumber
+  index, start_sequence = iex_iexoptions_session_sbe_v1_01.start_sequence.dissect(buffer, index, packet, parent)
+
+  -- End Sequence: SequenceNumber
+  index, end_sequence = iex_iexoptions_session_sbe_v1_01.end_sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Subsession Join Message
+iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_join_message, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_session_sbe_v1_01.subsession_join_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_session_sbe_v1_01.subsession_join_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Logout Request Message
+iex_iexoptions_session_sbe_v1_01.logout_request_message = {}
+
+-- Display: Logout Request Message
+iex_iexoptions_session_sbe_v1_01.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_session_sbe_v1_01.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Client Heartbeat Message
+iex_iexoptions_session_sbe_v1_01.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Login Request Message
+iex_iexoptions_session_sbe_v1_01.login_request_message = {}
+
+-- Size: Login Request Message
+iex_iexoptions_session_sbe_v1_01.login_request_message.size =
+  iex_iexoptions_session_sbe_v1_01.logon_id.size + 
+  iex_iexoptions_session_sbe_v1_01.token.size
+
+-- Display: Login Request Message
+iex_iexoptions_session_sbe_v1_01.login_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Message
+iex_iexoptions_session_sbe_v1_01.login_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Logon Id: LogonId
+  index, logon_id = iex_iexoptions_session_sbe_v1_01.logon_id.dissect(buffer, index, packet, parent)
+
+  -- Token: Token
+  index, token = iex_iexoptions_session_sbe_v1_01.token.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Message
+iex_iexoptions_session_sbe_v1_01.login_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.login_request_message, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_01.login_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_session_sbe_v1_01.login_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_session_sbe_v1_01.login_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Session Payload
+iex_iexoptions_session_sbe_v1_01.client_session_payload = {}
+
+-- Dissect: Client Session Payload
+iex_iexoptions_session_sbe_v1_01.client_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Login Request Message
+  if template_id == 1 then
+    return iex_iexoptions_session_sbe_v1_01.login_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Client Heartbeat Message
+  if template_id == 4 then
+    return iex_iexoptions_session_sbe_v1_01.client_heartbeat_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Request Message
+  if template_id == 5 then
+    return iex_iexoptions_session_sbe_v1_01.logout_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message Header Message
+  if template_id == 7 then
+    return iex_iexoptions_session_sbe_v1_01.sequenced_message_header_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subsession Join Message
+  if template_id == 8 then
+    return iex_iexoptions_session_sbe_v1_01.subsession_join_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Subsession Leave Message
+  if template_id == 10 then
+    return iex_iexoptions_session_sbe_v1_01.subsession_leave_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Session Message
+iex_iexoptions_session_sbe_v1_01.client_session_message = {}
+
+-- Calculate size of: Client Session Message
+iex_iexoptions_session_sbe_v1_01.client_session_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate runtime size of Client Session Payload field
+  local client_session_payload_offset = offset + index
+  local client_session_payload_type = buffer(client_session_payload_offset - 6, 2):le_uint()
+  index = index + iex_iexoptions_session_sbe_v1_01.client_session_payload.size(buffer, client_session_payload_offset, client_session_payload_type)
+
+  return index
+end
+
+-- Display: Client Session Message
+iex_iexoptions_session_sbe_v1_01.client_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Session Message
+iex_iexoptions_session_sbe_v1_01.client_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Template Id
+  local template_id = buffer(offset - 6, 2):le_uint()
+
+  -- Client Session Payload: Runtime Type with 6 branches
+  index = iex_iexoptions_session_sbe_v1_01.client_session_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Client Session Message
+iex_iexoptions_session_sbe_v1_01.client_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.schema_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.client_session_message, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_01.client_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_session_sbe_v1_01.client_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_session_sbe_v1_01.client_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+iex_iexoptions_session_sbe_v1_01.client_payload = {}
+
+-- Dissect: Client Payload
+iex_iexoptions_session_sbe_v1_01.client_payload.dissect = function(buffer, offset, packet, parent, schema_id)
+  -- Dissect Client Session Message
+  if schema_id == 20000 then
+    return iex_iexoptions_session_sbe_v1_01.client_session_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Sbe Message
+iex_iexoptions_session_sbe_v1_01.client_sbe_message = {}
+
+-- Display: Client Sbe Message
+iex_iexoptions_session_sbe_v1_01.client_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Sbe Message
+iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields = function(buffer, offset, packet, parent, size_of_client_sbe_message)
+  local index = offset
+
+  -- Packet Length: uint16
+  index, packet_length = iex_iexoptions_session_sbe_v1_01.packet_length.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 4 fields
+  index, message_header = iex_iexoptions_session_sbe_v1_01.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Schema Id
+  local schema_id = buffer(index - 4, 2):le_uint()
+
+  -- Client Payload: Runtime Type with 1 branches
+  index = iex_iexoptions_session_sbe_v1_01.client_payload.dissect(buffer, index, packet, parent, schema_id)
+
+  return index
+end
+
+-- Dissect: Client Sbe Message
+iex_iexoptions_session_sbe_v1_01.client_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_client_sbe_message)
+  local index = offset + size_of_client_sbe_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.client_sbe_message, buffer(offset, 0))
+    local current = iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    parent:set_len(size_of_client_sbe_message)
+    local display = iex_iexoptions_session_sbe_v1_01.client_sbe_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Sbe Message
+local client_sbe_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < iex_iexoptions_session_sbe_v1_01.client_sbe_message.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
 end
 
 -- Client Packet
@@ -1614,19 +1834,19 @@ end
 iex_iexoptions_session_sbe_v1_01.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Sbe Message
+  -- Dependency for Client Sbe Message
   local end_of_payload = buffer:len()
 
-  -- Sbe Message: Struct of 3 fields
+  -- Client Sbe Message: Struct of 3 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
-    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
+    local available, size_of_client_sbe_message = client_sbe_message_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
       -- Dissect this message within a buffer bounded to its own frame
-      local frame = buffer(0, index + size_of_sbe_message):tvb()
-      index = iex_iexoptions_session_sbe_v1_01.sbe_message.dissect(frame, index, packet, parent, size_of_sbe_message)
+      local frame = buffer(0, index + size_of_client_sbe_message):tvb()
+      index = iex_iexoptions_session_sbe_v1_01.client_sbe_message.dissect(frame, index, packet, parent, size_of_client_sbe_message)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -1750,65 +1970,51 @@ end
 
 -- Fingerprint of Client Packet: would its message dispatch accept this frame?
 iex_iexoptions_session_sbe_v1_01.client_packet.fingerprint = function(buffer)
-  if buffer:len() < 6 then
+  if buffer:len() < 8 then
     return false
   end
 
-  local template_id = buffer(4, 2):le_uint()
+  local schema_id = buffer(6, 2):le_uint()
 
-  -- Login Request Message
-  if template_id == 1 then
-    return true
-  end
+  -- Client Session Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 20000 then
+    if buffer:len() < 6 then
+      return false
+    end
 
-  -- Login Response Message
-  if template_id == 2 then
-    return true
-  end
+    local template_id = buffer(4, 2):le_uint()
 
-  -- Gateway Heartbeat Message
-  if template_id == 3 then
-    return true
-  end
+    -- Login Request Message
+    if template_id == 1 then
+      return true
+    end
 
-  -- Client Heartbeat Message
-  if template_id == 4 then
-    return true
-  end
+    -- Client Heartbeat Message
+    if template_id == 4 then
+      return true
+    end
 
-  -- Logout Request Message
-  if template_id == 5 then
-    return true
-  end
+    -- Logout Request Message
+    if template_id == 5 then
+      return true
+    end
 
-  -- Terminate Message
-  if template_id == 6 then
-    return true
-  end
+    -- Sequenced Message Header Message
+    if template_id == 7 then
+      return true
+    end
 
-  -- Sequenced Message Header Message
-  if template_id == 7 then
-    return true
-  end
+    -- Subsession Join Message
+    if template_id == 8 then
+      return true
+    end
 
-  -- Subsession Join Message
-  if template_id == 8 then
-    return true
-  end
+    -- Subsession Leave Message
+    if template_id == 10 then
+      return true
+    end
 
-  -- Subsession Join Response Message
-  if template_id == 9 then
-    return true
-  end
-
-  -- Subsession Leave Message
-  if template_id == 10 then
-    return true
-  end
-
-  -- Subsession Leave Response Message
-  if template_id == 11 then
-    return true
+    return false
   end
 
   return false
@@ -1816,65 +2022,51 @@ end
 
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 iex_iexoptions_session_sbe_v1_01.server_packet.fingerprint = function(buffer)
-  if buffer:len() < 6 then
+  if buffer:len() < 8 then
     return false
   end
 
-  local template_id = buffer(4, 2):le_uint()
+  local schema_id = buffer(6, 2):le_uint()
 
-  -- Login Request Message
-  if template_id == 1 then
-    return true
-  end
+  -- Server Session Message: carries the application messages, which tell this protocol from others sharing the session framing
+  if schema_id == 20000 then
+    if buffer:len() < 6 then
+      return false
+    end
 
-  -- Login Response Message
-  if template_id == 2 then
-    return true
-  end
+    local template_id = buffer(4, 2):le_uint()
 
-  -- Gateway Heartbeat Message
-  if template_id == 3 then
-    return true
-  end
+    -- Login Response Message
+    if template_id == 2 then
+      return true
+    end
 
-  -- Client Heartbeat Message
-  if template_id == 4 then
-    return true
-  end
+    -- Gateway Heartbeat Message
+    if template_id == 3 then
+      return true
+    end
 
-  -- Logout Request Message
-  if template_id == 5 then
-    return true
-  end
+    -- Terminate Message
+    if template_id == 6 then
+      return true
+    end
 
-  -- Terminate Message
-  if template_id == 6 then
-    return true
-  end
+    -- Sequenced Message Header Message
+    if template_id == 7 then
+      return true
+    end
 
-  -- Sequenced Message Header Message
-  if template_id == 7 then
-    return true
-  end
+    -- Subsession Join Response Message
+    if template_id == 9 then
+      return true
+    end
 
-  -- Subsession Join Message
-  if template_id == 8 then
-    return true
-  end
+    -- Subsession Leave Response Message
+    if template_id == 11 then
+      return true
+    end
 
-  -- Subsession Join Response Message
-  if template_id == 9 then
-    return true
-  end
-
-  -- Subsession Leave Message
-  if template_id == 10 then
-    return true
-  end
-
-  -- Subsession Leave Response Message
-  if template_id == 11 then
-    return true
+    return false
   end
 
   return false
@@ -1885,36 +2077,12 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Schema Id Field
-iex_iexoptions_session_sbe_v1_01.schema_id.client_packet_verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(6, 2):le_uint()
-
-  if value == 20000 then
-    return true
-  end
-
-  return false
-end
-
 -- Verify Version Field
 iex_iexoptions_session_sbe_v1_01.version.client_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
   if value == 0 then
-    return true
-  end
-
-  return false
-end
-
--- Verify Schema Id Field
-iex_iexoptions_session_sbe_v1_01.schema_id.server_packet_verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(6, 2):le_uint()
-
-  if value == 20000 then
     return true
   end
 
@@ -1938,9 +2106,6 @@ local function omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic(buff
   -- Verify packet length
   if not iex_iexoptions_session_sbe_v1_01.client_packet.requiredsize(buffer) then return false end
 
-  -- Verify Schema Id
-  if not iex_iexoptions_session_sbe_v1_01.schema_id.client_packet_verify(buffer) then return false end
-
   -- Verify Version
   if not iex_iexoptions_session_sbe_v1_01.version.client_packet_verify(buffer) then return false end
 
@@ -1958,9 +2123,6 @@ end
 local function omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_iexoptions_session_sbe_v1_01.server_packet.requiredsize(buffer) then return false end
-
-  -- Verify Schema Id
-  if not iex_iexoptions_session_sbe_v1_01.schema_id.server_packet_verify(buffer) then return false end
 
   -- Verify Version
   if not iex_iexoptions_session_sbe_v1_01.version.server_packet_verify(buffer) then return false end
