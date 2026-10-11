@@ -176,7 +176,6 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_krx 
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.commodities.exture.v2.018.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.commodities.exture.v2.018.maturitycode", ftypes.STRING)
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.commodities.exture.v2.018.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.commodities.exture.v2.018.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_value = ProtoField.new("Negotiated Block Trade Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedblocktradetradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_trading_volume = ProtoField.new("Negotiated Block Trade Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedblocktradetradingvolume", ftypes.STRING)
@@ -207,6 +206,7 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index = 
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.commodities.exture.v2.018.totalnumberofinstrumentsofthecontract", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.commodities.exture.v2.018.totalprofitindex", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.commodities.exture.v2.018.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.commodities.exture.v2.018.tradingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_halt = ProtoField.new("Trading Halt", "koscom.mdcsrealtime.commodities.exture.v2.018.tradinghalt", ftypes.STRING)
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_halt_reason_code = ProtoField.new("Trading Halt Reason Code", "koscom.mdcsrealtime.commodities.exture.v2.018.tradinghaltreasoncode", ftypes.STRING)
@@ -5450,129 +5450,6 @@ koscom_mdcsrealtime_commodities_exture_v2_018.maturity_code.dissect = function(b
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_commodities_exture_v2_018.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_commodities_exture_v2_018.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_commodities_exture_v2_018.message_code.display = function(value)
-  if value == "I2000" then
-    return "Message Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Message Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Message Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Message Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Message Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Message Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Message Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Message Code: Bond Index Krx Message (IG000)"
-  end
-  if value == "B601G" then
-    return "Message Code: Spot Gold Quote Message (B601G)"
-  end
-  if value == "A301G" then
-    return "Message Code: Spot Gold Order Filled Message (A301G)"
-  end
-  if value == "G701G" then
-    return "Message Code: Spot Gold Order Filled Plus Quote Message (G701G)"
-  end
-  if value == "R101G" then
-    return "Message Code: Spot Gold Market Operation Ts Plus Quote Message (R101G)"
-  end
-  if value == "B201G" then
-    return "Message Code: Spot Gold Snapshot Message (B201G)"
-  end
-  if value == "C401G" then
-    return "Message Code: Spot Gold Negotiated Trade Message (C401G)"
-  end
-  if value == "B601E" then
-    return "Message Code: Emissions Quote Message (B601E)"
-  end
-  if value == "A301E" then
-    return "Message Code: Emissions Order Filled Message (A301E)"
-  end
-  if value == "G701E" then
-    return "Message Code: Emissions Order Filled Plus Quote Message (G701E)"
-  end
-  if value == "R101E" then
-    return "Message Code: Emissions Market Operation Ts Plus Quote Message (R101E)"
-  end
-  if value == "B201E" then
-    return "Message Code: Emissions Snapshot Message (B201E)"
-  end
-  if value == "C401E" then
-    return "Message Code: Emissions Negotiated Trade Message (C401E)"
-  end
-  if value == "A401E" then
-    return "Message Code: Emissions Determination Of Base Price Message (A401E)"
-  end
-  if value == "AC01E" then
-    return "Message Code: Emissions Auction Results Message (AC01E)"
-  end
-  if value == "A001G" then
-    return "Message Code: Spot Gold Batch Data Message (A001G)"
-  end
-  if value == "A001E" then
-    return "Message Code: Emissions Batch Data Message (A001E)"
-  end
-  if value == "M200G" then
-    return "Message Code: External Gold Spot Closing Price Message (M200G)"
-  end
-  if value == "A701G" then
-    return "Message Code: Spot Gold Market Operation Ts Message (A701G)"
-  end
-  if value == "A601G" then
-    return "Message Code: Spot Gold Issue Closing Message (A601G)"
-  end
-  if value == "M401G" then
-    return "Message Code: Spot Gold Market Operation Schedule Message (M401G)"
-  end
-  if value == "A701E" then
-    return "Message Code: Emissions Market Operation Ts Message (A701E)"
-  end
-  if value == "A601E" then
-    return "Message Code: Emissions Issue Closing Message (A601E)"
-  end
-  if value == "M401E" then
-    return "Message Code: Emissions Market Operation Schedule Message (M401E)"
-  end
-  if value == "A501X" then
-    return "Message Code: Spot Gold Random End Message (A501X)"
-  end
-  if value == "A501G" then
-    return "Message Code: Spot Gold Random End Message (A501G)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_commodities_exture_v2_018.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_018.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_commodities_exture_v2_018.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 koscom_mdcsrealtime_commodities_exture_v2_018.message_sequence_number = {}
 
@@ -6515,6 +6392,129 @@ koscom_mdcsrealtime_commodities_exture_v2_018.total_profit_index.dissect = funct
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.total_profit_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.total_profit_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_commodities_exture_v2_018.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.display = function(value)
+  if value == "I2000" then
+    return "Tr Code: Polling Data Message (I2000)"
+  end
+  if value == "IA000" then
+    return "Tr Code: Krx Index Message (IA000)"
+  end
+  if value == "IB000" then
+    return "Tr Code: Krx Estimated Index Message (IB000)"
+  end
+  if value == "J2000" then
+    return "Tr Code: Global Index Message (J2000)"
+  end
+  if value == "J4000" then
+    return "Tr Code: Bond Prime Index Message (J4000)"
+  end
+  if value == "K1000" then
+    return "Tr Code: Bond Ktb Index Message (K1000)"
+  end
+  if value == "K8000" then
+    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
+  end
+  if value == "IG000" then
+    return "Tr Code: Bond Index Krx Message (IG000)"
+  end
+  if value == "B601G" then
+    return "Tr Code: Spot Gold Quote Message (B601G)"
+  end
+  if value == "A301G" then
+    return "Tr Code: Spot Gold Order Filled Message (A301G)"
+  end
+  if value == "G701G" then
+    return "Tr Code: Spot Gold Order Filled Plus Quote Message (G701G)"
+  end
+  if value == "R101G" then
+    return "Tr Code: Spot Gold Market Operation Ts Plus Quote Message (R101G)"
+  end
+  if value == "B201G" then
+    return "Tr Code: Spot Gold Snapshot Message (B201G)"
+  end
+  if value == "C401G" then
+    return "Tr Code: Spot Gold Negotiated Trade Message (C401G)"
+  end
+  if value == "B601E" then
+    return "Tr Code: Emissions Quote Message (B601E)"
+  end
+  if value == "A301E" then
+    return "Tr Code: Emissions Order Filled Message (A301E)"
+  end
+  if value == "G701E" then
+    return "Tr Code: Emissions Order Filled Plus Quote Message (G701E)"
+  end
+  if value == "R101E" then
+    return "Tr Code: Emissions Market Operation Ts Plus Quote Message (R101E)"
+  end
+  if value == "B201E" then
+    return "Tr Code: Emissions Snapshot Message (B201E)"
+  end
+  if value == "C401E" then
+    return "Tr Code: Emissions Negotiated Trade Message (C401E)"
+  end
+  if value == "A401E" then
+    return "Tr Code: Emissions Determination Of Base Price Message (A401E)"
+  end
+  if value == "AC01E" then
+    return "Tr Code: Emissions Auction Results Message (AC01E)"
+  end
+  if value == "A001G" then
+    return "Tr Code: Spot Gold Batch Data Message (A001G)"
+  end
+  if value == "A001E" then
+    return "Tr Code: Emissions Batch Data Message (A001E)"
+  end
+  if value == "M200G" then
+    return "Tr Code: External Gold Spot Closing Price Message (M200G)"
+  end
+  if value == "A701G" then
+    return "Tr Code: Spot Gold Market Operation Ts Message (A701G)"
+  end
+  if value == "A601G" then
+    return "Tr Code: Spot Gold Issue Closing Message (A601G)"
+  end
+  if value == "M401G" then
+    return "Tr Code: Spot Gold Market Operation Schedule Message (M401G)"
+  end
+  if value == "A701E" then
+    return "Tr Code: Emissions Market Operation Ts Message (A701E)"
+  end
+  if value == "A601E" then
+    return "Tr Code: Emissions Issue Closing Message (A601E)"
+  end
+  if value == "M401E" then
+    return "Tr Code: Emissions Market Operation Schedule Message (M401E)"
+  end
+  if value == "A501X" then
+    return "Tr Code: Spot Gold Random End Message (A501X)"
+  end
+  if value == "A501G" then
+    return "Tr Code: Spot Gold Random End Message (A501G)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -11455,137 +11455,137 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_commodities_exture_v2_018.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_commodities_exture_v2_018.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect Polling Data Message
-  if message_code == "I2000" then
+  if tr_code == "I2000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.polling_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Index Message
-  if message_code == "IA000" then
+  if tr_code == "IA000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.krx_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Estimated Index Message
-  if message_code == "IB000" then
+  if tr_code == "IB000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Index Message
-  if message_code == "J2000" then
+  if tr_code == "J2000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.global_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Prime Index Message
-  if message_code == "J4000" then
+  if tr_code == "J4000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.bond_prime_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Message
-  if message_code == "K1000" then
+  if tr_code == "K1000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Term Structure Message
-  if message_code == "K8000" then
+  if tr_code == "K8000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Index Krx Message
-  if message_code == "IG000" then
+  if tr_code == "IG000" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.bond_index_krx_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Quote Message
-  if message_code == "B601G" then
+  if tr_code == "B601G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Order Filled Message
-  if message_code == "A301G" then
+  if tr_code == "A301G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Order Filled Plus Quote Message
-  if message_code == "G701G" then
+  if tr_code == "G701G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Market Operation Ts Plus Quote Message
-  if message_code == "R101G" then
+  if tr_code == "R101G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_market_operation_ts_plus_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Snapshot Message
-  if message_code == "B201G" then
+  if tr_code == "B201G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_snapshot_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Negotiated Trade Message
-  if message_code == "C401G" then
+  if tr_code == "C401G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Quote Message
-  if message_code == "B601E" then
+  if tr_code == "B601E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Order Filled Message
-  if message_code == "A301E" then
+  if tr_code == "A301E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Order Filled Plus Quote Message
-  if message_code == "G701E" then
+  if tr_code == "G701E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_plus_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Market Operation Ts Plus Quote Message
-  if message_code == "R101E" then
+  if tr_code == "R101E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_market_operation_ts_plus_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Snapshot Message
-  if message_code == "B201E" then
+  if tr_code == "B201E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_snapshot_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Negotiated Trade Message
-  if message_code == "C401E" then
+  if tr_code == "C401E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Determination Of Base Price Message
-  if message_code == "A401E" then
+  if tr_code == "A401E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_determination_of_base_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Auction Results Message
-  if message_code == "AC01E" then
+  if tr_code == "AC01E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_auction_results_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Batch Data Message
-  if message_code == "A001G" then
+  if tr_code == "A001G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Batch Data Message
-  if message_code == "A001E" then
+  if tr_code == "A001E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect External Gold Spot Closing Price Message
-  if message_code == "M200G" then
+  if tr_code == "M200G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.external_gold_spot_closing_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Market Operation Ts Message
-  if message_code == "A701G" then
+  if tr_code == "A701G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Issue Closing Message
-  if message_code == "A601G" then
+  if tr_code == "A601G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Market Operation Schedule Message
-  if message_code == "M401G" then
+  if tr_code == "M401G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Market Operation Ts Message
-  if message_code == "A701E" then
+  if tr_code == "A701E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Issue Closing Message
-  if message_code == "A601E" then
+  if tr_code == "A601E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Emissions Market Operation Schedule Message
-  if message_code == "M401E" then
+  if tr_code == "M401E" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.emissions_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Random End Message
-  if message_code == "A501X" then
+  if tr_code == "A501X" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_random_end_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spot Gold Random End Message
-  if message_code == "A501G" then
+  if tr_code == "A501G" then
     return koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_random_end_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -11597,7 +11597,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_commodities_exture_v2_018.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_commodities_exture_v2_018.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.size
 end
 
 -- Dissect Packet
@@ -11609,11 +11609,11 @@ koscom_mdcsrealtime_commodities_exture_v2_018.packet.dissect = function(buffer, 
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_commodities_exture_v2_018.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_commodities_exture_v2_018.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 32 branches
-    index = koscom_mdcsrealtime_commodities_exture_v2_018.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_commodities_exture_v2_018.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index

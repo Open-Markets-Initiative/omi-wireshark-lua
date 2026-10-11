@@ -67,12 +67,12 @@ omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.market_price_index_krx
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.maturitycode", ftypes.STRING)
-omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.reinvestcallcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.totalearningsindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.totalprofitindex", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.transmissiontime", ftypes.STRING)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.weight_of_call_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Call Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.weightofcallreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
@@ -2060,54 +2060,6 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.maturity_code.dissect = function(
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.display = function(value)
-  if value == "I2000" then
-    return "Message Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Message Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Message Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Message Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Message Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Message Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Message Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Message Code: Bond Index Krx Message (IG000)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct3_exture_v1_39.text_encoding))
-  local display = koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_sequence_number = {}
 
@@ -2300,6 +2252,54 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.total_profit_index.dissect = func
   local display = koscom_mdcsrealtime_indexproduct3_exture_v1_39.total_profit_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.total_profit_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.display = function(value)
+  if value == "I2000" then
+    return "Tr Code: Polling Data Message (I2000)"
+  end
+  if value == "IA000" then
+    return "Tr Code: Krx Index Message (IA000)"
+  end
+  if value == "IB000" then
+    return "Tr Code: Krx Estimated Index Message (IB000)"
+  end
+  if value == "J2000" then
+    return "Tr Code: Global Index Message (J2000)"
+  end
+  if value == "J4000" then
+    return "Tr Code: Bond Prime Index Message (J4000)"
+  end
+  if value == "K1000" then
+    return "Tr Code: Bond Ktb Index Message (K1000)"
+  end
+  if value == "K8000" then
+    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
+  end
+  if value == "IG000" then
+    return "Tr Code: Bond Index Krx Message (IG000)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct3_exture_v1_39.text_encoding))
+  local display = koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -3338,37 +3338,37 @@ end
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect Polling Data Message
-  if message_code == "I2000" then
+  if tr_code == "I2000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.polling_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Index Message
-  if message_code == "IA000" then
+  if tr_code == "IA000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Estimated Index Message
-  if message_code == "IB000" then
+  if tr_code == "IB000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Index Message
-  if message_code == "J2000" then
+  if tr_code == "J2000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.global_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Prime Index Message
-  if message_code == "J4000" then
+  if tr_code == "J4000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_prime_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Message
-  if message_code == "K1000" then
+  if tr_code == "K1000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Term Structure Message
-  if message_code == "K8000" then
+  if tr_code == "K8000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Index Krx Message
-  if message_code == "IG000" then
+  if tr_code == "IG000" then
     return koscom_mdcsrealtime_indexproduct3_exture_v1_39.bond_index_krx_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3380,7 +3380,7 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_indexproduct3_exture_v1_39.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.size
 end
 
 -- Dissect Packet
@@ -3392,11 +3392,11 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.packet.dissect = function(buffer,
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_indexproduct3_exture_v1_39.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_indexproduct3_exture_v1_39.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 8 branches
-    index = koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_indexproduct3_exture_v1_39.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index

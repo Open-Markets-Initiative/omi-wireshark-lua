@@ -80,7 +80,6 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.mar
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.maturitycode", ftypes.STRING)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.reinvest_call_cash = ProtoField.new("Reinvest Call Cash", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.reinvestcallcash", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.security_group_id = ProtoField.new("Security Group Id", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.securitygroupid", ftypes.STRING)
@@ -88,6 +87,7 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.ses
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_earnings_index = ProtoField.new("Total Earnings Index", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.totalearningsindex", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.totalprofitindex", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.tradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.tradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.transmission_date = ProtoField.new("Transmission Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.020.transmissiondate", ftypes.STRING)
@@ -2469,144 +2469,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.maturity_code.
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.display = function(value)
-  if value == "I2000" then
-    return "Message Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Message Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Message Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Message Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Message Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Message Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Message Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Message Code: Bond Index Krx Message (IG000)"
-  end
-  if value == "C001S" then
-    return "Message Code: Securities Investor Activities Per Industry Message (C001S)"
-  end
-  if value == "C001Q" then
-    return "Message Code: Securities Investor Activities Per Industry Message (C001Q)"
-  end
-  if value == "C001X" then
-    return "Message Code: Securities Investor Activities Per Industry Message (C001X)"
-  end
-  if value == "C101S" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C101S)"
-  end
-  if value == "C102S" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C102S)"
-  end
-  if value == "C103S" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C103S)"
-  end
-  if value == "C104S" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C104S)"
-  end
-  if value == "C105S" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C105S)"
-  end
-  if value == "C101Q" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C101Q)"
-  end
-  if value == "C101X" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C101X)"
-  end
-  if value == "C101G" then
-    return "Message Code: Securities Investor Activities Per Issue Eod Message (C101G)"
-  end
-  if value == "IC02S" then
-    return "Message Code: Securities Investor Activities Per Commodities Message (IC02S)"
-  end
-  if value == "IC03S" then
-    return "Message Code: Securities Investor Activities Per Commodities Message (IC03S)"
-  end
-  if value == "IC04S" then
-    return "Message Code: Securities Investor Activities Per Commodities Message (IC04S)"
-  end
-  if value == "IC05S" then
-    return "Message Code: Securities Investor Activities Per Commodities Message (IC05S)"
-  end
-  if value == "IC01G" then
-    return "Message Code: Securities Investor Activities Per Commodities Message (IC01G)"
-  end
-  if value == "I801S" then
-    return "Message Code: Securities Short Selling Message (I801S)"
-  end
-  if value == "I803S" then
-    return "Message Code: Securities Short Selling Message (I803S)"
-  end
-  if value == "I804S" then
-    return "Message Code: Securities Short Selling Message (I804S)"
-  end
-  if value == "I805S" then
-    return "Message Code: Securities Short Selling Message (I805S)"
-  end
-  if value == "I801Q" then
-    return "Message Code: Securities Short Selling Message (I801Q)"
-  end
-  if value == "B001S" then
-    return "Message Code: Securities Treasury Stocks Traded Message (B001S)"
-  end
-  if value == "B001Q" then
-    return "Message Code: Securities Treasury Stocks Traded Message (B001Q)"
-  end
-  if value == "B001X" then
-    return "Message Code: Securities Treasury Stocks Traded Message (B001X)"
-  end
-  if value == "O401S" then
-    return "Message Code: Securities Buy In Volume Message (O401S)"
-  end
-  if value == "O402S" then
-    return "Message Code: Securities Buy In Volume Message (O402S)"
-  end
-  if value == "O403S" then
-    return "Message Code: Securities Buy In Volume Message (O403S)"
-  end
-  if value == "O404S" then
-    return "Message Code: Securities Buy In Volume Message (O404S)"
-  end
-  if value == "O401Q" then
-    return "Message Code: Securities Buy In Volume Message (O401Q)"
-  end
-  if value == "O401X" then
-    return "Message Code: Securities Buy In Volume Message (O401X)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_sequence_number = {}
 
@@ -2845,6 +2707,144 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_profit_i
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.total_profit_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.total_profit_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.display = function(value)
+  if value == "I2000" then
+    return "Tr Code: Polling Data Message (I2000)"
+  end
+  if value == "IA000" then
+    return "Tr Code: Krx Index Message (IA000)"
+  end
+  if value == "IB000" then
+    return "Tr Code: Krx Estimated Index Message (IB000)"
+  end
+  if value == "J2000" then
+    return "Tr Code: Global Index Message (J2000)"
+  end
+  if value == "J4000" then
+    return "Tr Code: Bond Prime Index Message (J4000)"
+  end
+  if value == "K1000" then
+    return "Tr Code: Bond Ktb Index Message (K1000)"
+  end
+  if value == "K8000" then
+    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
+  end
+  if value == "IG000" then
+    return "Tr Code: Bond Index Krx Message (IG000)"
+  end
+  if value == "C001S" then
+    return "Tr Code: Securities Investor Activities Per Industry Message (C001S)"
+  end
+  if value == "C001Q" then
+    return "Tr Code: Securities Investor Activities Per Industry Message (C001Q)"
+  end
+  if value == "C001X" then
+    return "Tr Code: Securities Investor Activities Per Industry Message (C001X)"
+  end
+  if value == "C101S" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101S)"
+  end
+  if value == "C102S" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C102S)"
+  end
+  if value == "C103S" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C103S)"
+  end
+  if value == "C104S" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C104S)"
+  end
+  if value == "C105S" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C105S)"
+  end
+  if value == "C101Q" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101Q)"
+  end
+  if value == "C101X" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101X)"
+  end
+  if value == "C101G" then
+    return "Tr Code: Securities Investor Activities Per Issue Eod Message (C101G)"
+  end
+  if value == "IC02S" then
+    return "Tr Code: Securities Investor Activities Per Commodities Message (IC02S)"
+  end
+  if value == "IC03S" then
+    return "Tr Code: Securities Investor Activities Per Commodities Message (IC03S)"
+  end
+  if value == "IC04S" then
+    return "Tr Code: Securities Investor Activities Per Commodities Message (IC04S)"
+  end
+  if value == "IC05S" then
+    return "Tr Code: Securities Investor Activities Per Commodities Message (IC05S)"
+  end
+  if value == "IC01G" then
+    return "Tr Code: Securities Investor Activities Per Commodities Message (IC01G)"
+  end
+  if value == "I801S" then
+    return "Tr Code: Securities Short Selling Message (I801S)"
+  end
+  if value == "I803S" then
+    return "Tr Code: Securities Short Selling Message (I803S)"
+  end
+  if value == "I804S" then
+    return "Tr Code: Securities Short Selling Message (I804S)"
+  end
+  if value == "I805S" then
+    return "Tr Code: Securities Short Selling Message (I805S)"
+  end
+  if value == "I801Q" then
+    return "Tr Code: Securities Short Selling Message (I801Q)"
+  end
+  if value == "B001S" then
+    return "Tr Code: Securities Treasury Stocks Traded Message (B001S)"
+  end
+  if value == "B001Q" then
+    return "Tr Code: Securities Treasury Stocks Traded Message (B001Q)"
+  end
+  if value == "B001X" then
+    return "Tr Code: Securities Treasury Stocks Traded Message (B001X)"
+  end
+  if value == "O401S" then
+    return "Tr Code: Securities Buy In Volume Message (O401S)"
+  end
+  if value == "O402S" then
+    return "Tr Code: Securities Buy In Volume Message (O402S)"
+  end
+  if value == "O403S" then
+    return "Tr Code: Securities Buy In Volume Message (O403S)"
+  end
+  if value == "O404S" then
+    return "Tr Code: Securities Buy In Volume Message (O404S)"
+  end
+  if value == "O401Q" then
+    return "Tr Code: Securities Buy In Volume Message (O401Q)"
+  end
+  if value == "O401X" then
+    return "Tr Code: Securities Buy In Volume Message (O401X)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.text_encoding))
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -4517,157 +4517,157 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect Polling Data Message
-  if message_code == "I2000" then
+  if tr_code == "I2000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.polling_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Index Message
-  if message_code == "IA000" then
+  if tr_code == "IA000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.krx_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Estimated Index Message
-  if message_code == "IB000" then
+  if tr_code == "IB000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Index Message
-  if message_code == "J2000" then
+  if tr_code == "J2000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.global_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Prime Index Message
-  if message_code == "J4000" then
+  if tr_code == "J4000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.bond_prime_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Message
-  if message_code == "K1000" then
+  if tr_code == "K1000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Term Structure Message
-  if message_code == "K8000" then
+  if tr_code == "K8000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Index Krx Message
-  if message_code == "IG000" then
+  if tr_code == "IG000" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.bond_index_krx_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Industry Message
-  if message_code == "C001S" then
+  if tr_code == "C001S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Industry Message
-  if message_code == "C001Q" then
+  if tr_code == "C001Q" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Industry Message
-  if message_code == "C001X" then
+  if tr_code == "C001X" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_industry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C101S" then
+  if tr_code == "C101S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C102S" then
+  if tr_code == "C102S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C103S" then
+  if tr_code == "C103S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C104S" then
+  if tr_code == "C104S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C105S" then
+  if tr_code == "C105S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C101Q" then
+  if tr_code == "C101Q" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C101X" then
+  if tr_code == "C101X" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Issue Eod Message
-  if message_code == "C101G" then
+  if tr_code == "C101G" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_issue_eod_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Commodities Message
-  if message_code == "IC02S" then
+  if tr_code == "IC02S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Commodities Message
-  if message_code == "IC03S" then
+  if tr_code == "IC03S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Commodities Message
-  if message_code == "IC04S" then
+  if tr_code == "IC04S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Commodities Message
-  if message_code == "IC05S" then
+  if tr_code == "IC05S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Investor Activities Per Commodities Message
-  if message_code == "IC01G" then
+  if tr_code == "IC01G" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_investor_activities_per_commodities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Short Selling Message
-  if message_code == "I801S" then
+  if tr_code == "I801S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_short_selling_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Short Selling Message
-  if message_code == "I803S" then
+  if tr_code == "I803S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_short_selling_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Short Selling Message
-  if message_code == "I804S" then
+  if tr_code == "I804S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_short_selling_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Short Selling Message
-  if message_code == "I805S" then
+  if tr_code == "I805S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_short_selling_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Short Selling Message
-  if message_code == "I801Q" then
+  if tr_code == "I801Q" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_short_selling_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Traded Message
-  if message_code == "B001S" then
+  if tr_code == "B001S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Traded Message
-  if message_code == "B001Q" then
+  if tr_code == "B001Q" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Traded Message
-  if message_code == "B001X" then
+  if tr_code == "B001X" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_treasury_stocks_traded_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O401S" then
+  if tr_code == "O401S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O402S" then
+  if tr_code == "O402S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O403S" then
+  if tr_code == "O403S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O404S" then
+  if tr_code == "O404S" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O401Q" then
+  if tr_code == "O401Q" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Buy In Volume Message
-  if message_code == "O401X" then
+  if tr_code == "O401X" then
     return koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.securities_buy_in_volume_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -4679,7 +4679,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.size
 end
 
 -- Dissect Packet
@@ -4691,11 +4691,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.packet.dissect
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 14 branches
-    index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_020.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index

@@ -206,7 +206,6 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maturity_date = P
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_bid_price = ProtoField.new("Maximum Bid Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumbidprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_order_price = ProtoField.new("Maximum Order Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumorderprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.maximum_volume_of_multiple_order = ProtoField.new("Maximum Volume Of Multiple Order", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.maximumvolumeofmultipleorder", ftypes.STRING)
-omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.mid_price_order_permission_type_code = ProtoField.new("Mid Price Order Permission Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.midpriceorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.minimum_ask_price = ProtoField.new("Minimum Ask Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.minimumaskprice", ftypes.DOUBLE)
@@ -284,6 +283,7 @@ omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_earnings_in
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_earnings_index_weight = ProtoField.new("Total Earnings Index Weight", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalearningsindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalnumberofinstrumentsofthecontract", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_profit_index = ProtoField.new("Total Profit Index", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.totalprofitindex", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tracking_index_leverage_inverse_type_code = ProtoField.new("Tracking Index Leverage Inverse Type Code", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.trackingindexleverageinversetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trading_halt = ProtoField.new("Trading Halt", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.tradinghalt", ftypes.STRING)
 omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.trading_price = ProtoField.new("Trading Price", "koscom.mdcsrealtime.equityderivatives.exture.v2.020.tradingprice", ftypes.DOUBLE)
@@ -6056,219 +6056,6 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.maximum_volume_of_multiple_o
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.display = function(value)
-  if value == "I2000" then
-    return "Message Code: Polling Data Message (I2000)"
-  end
-  if value == "IA000" then
-    return "Message Code: Krx Index Message (IA000)"
-  end
-  if value == "IB000" then
-    return "Message Code: Krx Estimated Index Message (IB000)"
-  end
-  if value == "J2000" then
-    return "Message Code: Global Index Message (J2000)"
-  end
-  if value == "J4000" then
-    return "Message Code: Bond Prime Index Message (J4000)"
-  end
-  if value == "K1000" then
-    return "Message Code: Bond Ktb Index Message (K1000)"
-  end
-  if value == "K8000" then
-    return "Message Code: Bond Ktb Index Term Structure Message (K8000)"
-  end
-  if value == "IG000" then
-    return "Message Code: Bond Index Krx Message (IG000)"
-  end
-  if value == "B201S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Message (B201S)"
-  end
-  if value == "B201Q" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kosdaq Message (B201Q)"
-  end
-  if value == "B202S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B202S)"
-  end
-  if value == "B203S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B203S)"
-  end
-  if value == "B204S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B204S)"
-  end
-  if value == "B205S" then
-    return "Message Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B205S)"
-  end
-  if value == "A001S" then
-    return "Message Code: Securities Equities Batch Data Message (A001S)"
-  end
-  if value == "A002S" then
-    return "Message Code: Securities Equities Batch Data Message (A002S)"
-  end
-  if value == "A003S" then
-    return "Message Code: Securities Equities Batch Data Message (A003S)"
-  end
-  if value == "A004S" then
-    return "Message Code: Securities Equities Batch Data Message (A004S)"
-  end
-  if value == "A005S" then
-    return "Message Code: Securities Equities Batch Data Message (A005S)"
-  end
-  if value == "A001Q" then
-    return "Message Code: Securities Equities Batch Data Message (A001Q)"
-  end
-  if value == "A001X" then
-    return "Message Code: Securities Equities Batch Data Message (A001X)"
-  end
-  if value == "I501S" then
-    return "Message Code: Securities Closing Date Message (I501S)"
-  end
-  if value == "I503S" then
-    return "Message Code: Securities Closing Date Message (I503S)"
-  end
-  if value == "I504S" then
-    return "Message Code: Securities Closing Date Message (I504S)"
-  end
-  if value == "I505S" then
-    return "Message Code: Securities Closing Date Message (I505S)"
-  end
-  if value == "I501Q" then
-    return "Message Code: Securities Closing Date Message (I501Q)"
-  end
-  if value == "I501X" then
-    return "Message Code: Securities Closing Date Message (I501X)"
-  end
-  if value == "I701S" then
-    return "Message Code: Securities Mm Lp Information Message (I701S)"
-  end
-  if value == "I702S" then
-    return "Message Code: Securities Mm Lp Information Message (I702S)"
-  end
-  if value == "I703S" then
-    return "Message Code: Securities Mm Lp Information Message (I703S)"
-  end
-  if value == "I704S" then
-    return "Message Code: Securities Mm Lp Information Message (I704S)"
-  end
-  if value == "I705S" then
-    return "Message Code: Securities Mm Lp Information Message (I705S)"
-  end
-  if value == "I701Q" then
-    return "Message Code: Securities Mm Lp Information Message (I701Q)"
-  end
-  if value == "I701X" then
-    return "Message Code: Securities Mm Lp Information Message (I701X)"
-  end
-  if value == "M900S" then
-    return "Message Code: Securities Member Information Message (M900S)"
-  end
-  if value == "M900Q" then
-    return "Message Code: Securities Member Information Message (M900Q)"
-  end
-  if value == "M900X" then
-    return "Message Code: Securities Member Information Message (M900X)"
-  end
-  if value == "A901S" then
-    return "Message Code: Securities Treasury Stocks Batch Message (A901S)"
-  end
-  if value == "A901Q" then
-    return "Message Code: Securities Treasury Stocks Batch Message (A901Q)"
-  end
-  if value == "A901X" then
-    return "Message Code: Securities Treasury Stocks Batch Message (A901X)"
-  end
-  if value == "CA01S" then
-    return "Message Code: Securities Equity Index Indicator Message (CA01S)"
-  end
-  if value == "CA01Q" then
-    return "Message Code: Securities Equity Index Indicator Message (CA01Q)"
-  end
-  if value == "P200S" then
-    return "Message Code: Securities Dividend Yield Per Industry Message (P200S)"
-  end
-  if value == "P200Q" then
-    return "Message Code: Securities Dividend Yield Per Industry Message (P200Q)"
-  end
-  if value == "A001B" then
-    return "Message Code: Bonds Batch Data Message (A001B)"
-  end
-  if value == "A001R" then
-    return "Message Code: Repo Batch Data Message (A001R)"
-  end
-  if value == "I601S" then
-    return "Message Code: Issue Event Message (I601S)"
-  end
-  if value == "I602S" then
-    return "Message Code: Issue Event Message (I602S)"
-  end
-  if value == "I603S" then
-    return "Message Code: Issue Event Message (I603S)"
-  end
-  if value == "I604S" then
-    return "Message Code: Issue Event Message (I604S)"
-  end
-  if value == "I605S" then
-    return "Message Code: Issue Event Message (I605S)"
-  end
-  if value == "I601Q" then
-    return "Message Code: Issue Event Message (I601Q)"
-  end
-  if value == "I601X" then
-    return "Message Code: Issue Event Message (I601X)"
-  end
-  if value == "I601B" then
-    return "Message Code: Issue Event Message (I601B)"
-  end
-  if value == "I601M" then
-    return "Message Code: Issue Event Message (I601M)"
-  end
-  if value == "I601K" then
-    return "Message Code: Issue Event Message (I601K)"
-  end
-  if value == "I601R" then
-    return "Message Code: Issue Event Message (I601R)"
-  end
-  if value == "F901B" then
-    return "Message Code: Corporate Bonds Reference Message (F901B)"
-  end
-  if value == "F901M" then
-    return "Message Code: Corporate Bonds Reference Message (F901M)"
-  end
-  if value == "BN01B" then
-    return "Message Code: Regular Bonds Installment Repayment Date Message (BN01B)"
-  end
-  if value == "CB01R" then
-    return "Message Code: Repo Classification Data Message (CB01R)"
-  end
-  if value == "S001R" then
-    return "Message Code: Repo Trade Availability Per Term Message (S001R)"
-  end
-  if value == "G300B" then
-    return "Message Code: Retail Bonds Type Code Message (G300B)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_sequence_number = {}
 
@@ -8448,6 +8235,219 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.dissect =
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.total_profit_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.total_profit_index, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.display = function(value)
+  if value == "I2000" then
+    return "Tr Code: Polling Data Message (I2000)"
+  end
+  if value == "IA000" then
+    return "Tr Code: Krx Index Message (IA000)"
+  end
+  if value == "IB000" then
+    return "Tr Code: Krx Estimated Index Message (IB000)"
+  end
+  if value == "J2000" then
+    return "Tr Code: Global Index Message (J2000)"
+  end
+  if value == "J4000" then
+    return "Tr Code: Bond Prime Index Message (J4000)"
+  end
+  if value == "K1000" then
+    return "Tr Code: Bond Ktb Index Message (K1000)"
+  end
+  if value == "K8000" then
+    return "Tr Code: Bond Ktb Index Term Structure Message (K8000)"
+  end
+  if value == "IG000" then
+    return "Tr Code: Bond Index Krx Message (IG000)"
+  end
+  if value == "B201S" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kospi Message (B201S)"
+  end
+  if value == "B201Q" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kosdaq Message (B201Q)"
+  end
+  if value == "B202S" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B202S)"
+  end
+  if value == "B203S" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B203S)"
+  end
+  if value == "B204S" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B204S)"
+  end
+  if value == "B205S" then
+    return "Tr Code: Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message (B205S)"
+  end
+  if value == "A001S" then
+    return "Tr Code: Securities Equities Batch Data Message (A001S)"
+  end
+  if value == "A002S" then
+    return "Tr Code: Securities Equities Batch Data Message (A002S)"
+  end
+  if value == "A003S" then
+    return "Tr Code: Securities Equities Batch Data Message (A003S)"
+  end
+  if value == "A004S" then
+    return "Tr Code: Securities Equities Batch Data Message (A004S)"
+  end
+  if value == "A005S" then
+    return "Tr Code: Securities Equities Batch Data Message (A005S)"
+  end
+  if value == "A001Q" then
+    return "Tr Code: Securities Equities Batch Data Message (A001Q)"
+  end
+  if value == "A001X" then
+    return "Tr Code: Securities Equities Batch Data Message (A001X)"
+  end
+  if value == "I501S" then
+    return "Tr Code: Securities Closing Date Message (I501S)"
+  end
+  if value == "I503S" then
+    return "Tr Code: Securities Closing Date Message (I503S)"
+  end
+  if value == "I504S" then
+    return "Tr Code: Securities Closing Date Message (I504S)"
+  end
+  if value == "I505S" then
+    return "Tr Code: Securities Closing Date Message (I505S)"
+  end
+  if value == "I501Q" then
+    return "Tr Code: Securities Closing Date Message (I501Q)"
+  end
+  if value == "I501X" then
+    return "Tr Code: Securities Closing Date Message (I501X)"
+  end
+  if value == "I701S" then
+    return "Tr Code: Securities Mm Lp Information Message (I701S)"
+  end
+  if value == "I702S" then
+    return "Tr Code: Securities Mm Lp Information Message (I702S)"
+  end
+  if value == "I703S" then
+    return "Tr Code: Securities Mm Lp Information Message (I703S)"
+  end
+  if value == "I704S" then
+    return "Tr Code: Securities Mm Lp Information Message (I704S)"
+  end
+  if value == "I705S" then
+    return "Tr Code: Securities Mm Lp Information Message (I705S)"
+  end
+  if value == "I701Q" then
+    return "Tr Code: Securities Mm Lp Information Message (I701Q)"
+  end
+  if value == "I701X" then
+    return "Tr Code: Securities Mm Lp Information Message (I701X)"
+  end
+  if value == "M900S" then
+    return "Tr Code: Securities Member Information Message (M900S)"
+  end
+  if value == "M900Q" then
+    return "Tr Code: Securities Member Information Message (M900Q)"
+  end
+  if value == "M900X" then
+    return "Tr Code: Securities Member Information Message (M900X)"
+  end
+  if value == "A901S" then
+    return "Tr Code: Securities Treasury Stocks Batch Message (A901S)"
+  end
+  if value == "A901Q" then
+    return "Tr Code: Securities Treasury Stocks Batch Message (A901Q)"
+  end
+  if value == "A901X" then
+    return "Tr Code: Securities Treasury Stocks Batch Message (A901X)"
+  end
+  if value == "CA01S" then
+    return "Tr Code: Securities Equity Index Indicator Message (CA01S)"
+  end
+  if value == "CA01Q" then
+    return "Tr Code: Securities Equity Index Indicator Message (CA01Q)"
+  end
+  if value == "P200S" then
+    return "Tr Code: Securities Dividend Yield Per Industry Message (P200S)"
+  end
+  if value == "P200Q" then
+    return "Tr Code: Securities Dividend Yield Per Industry Message (P200Q)"
+  end
+  if value == "A001B" then
+    return "Tr Code: Bonds Batch Data Message (A001B)"
+  end
+  if value == "A001R" then
+    return "Tr Code: Repo Batch Data Message (A001R)"
+  end
+  if value == "I601S" then
+    return "Tr Code: Issue Event Message (I601S)"
+  end
+  if value == "I602S" then
+    return "Tr Code: Issue Event Message (I602S)"
+  end
+  if value == "I603S" then
+    return "Tr Code: Issue Event Message (I603S)"
+  end
+  if value == "I604S" then
+    return "Tr Code: Issue Event Message (I604S)"
+  end
+  if value == "I605S" then
+    return "Tr Code: Issue Event Message (I605S)"
+  end
+  if value == "I601Q" then
+    return "Tr Code: Issue Event Message (I601Q)"
+  end
+  if value == "I601X" then
+    return "Tr Code: Issue Event Message (I601X)"
+  end
+  if value == "I601B" then
+    return "Tr Code: Issue Event Message (I601B)"
+  end
+  if value == "I601M" then
+    return "Tr Code: Issue Event Message (I601M)"
+  end
+  if value == "I601K" then
+    return "Tr Code: Issue Event Message (I601K)"
+  end
+  if value == "I601R" then
+    return "Tr Code: Issue Event Message (I601R)"
+  end
+  if value == "F901B" then
+    return "Tr Code: Corporate Bonds Reference Message (F901B)"
+  end
+  if value == "F901M" then
+    return "Tr Code: Corporate Bonds Reference Message (F901M)"
+  end
+  if value == "BN01B" then
+    return "Tr Code: Regular Bonds Installment Repayment Date Message (BN01B)"
+  end
+  if value == "CB01R" then
+    return "Tr Code: Repo Classification Data Message (CB01R)"
+  end
+  if value == "S001R" then
+    return "Tr Code: Repo Trade Availability Per Term Message (S001R)"
+  end
+  if value == "G300B" then
+    return "Tr Code: Retail Bonds Type Code Message (G300B)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_020.text_encoding))
+  local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -12089,257 +12089,257 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_equityderivatives_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_equityderivatives_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect Polling Data Message
-  if message_code == "I2000" then
+  if tr_code == "I2000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.polling_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Index Message
-  if message_code == "IA000" then
+  if tr_code == "IA000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.krx_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Krx Estimated Index Message
-  if message_code == "IB000" then
+  if tr_code == "IB000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.krx_estimated_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Index Message
-  if message_code == "J2000" then
+  if tr_code == "J2000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.global_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Prime Index Message
-  if message_code == "J4000" then
+  if tr_code == "J4000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_prime_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Message
-  if message_code == "K1000" then
+  if tr_code == "K1000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_ktb_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Ktb Index Term Structure Message
-  if message_code == "K8000" then
+  if tr_code == "K8000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_ktb_index_term_structure_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bond Index Krx Message
-  if message_code == "IG000" then
+  if tr_code == "IG000" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.bond_index_krx_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Message
-  if message_code == "B201S" then
+  if tr_code == "B201S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kospi_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kosdaq Message
-  if message_code == "B201Q" then
+  if tr_code == "B201Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kosdaq_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
-  if message_code == "B202S" then
+  if tr_code == "B202S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kospi_mm_lp_included_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
-  if message_code == "B203S" then
+  if tr_code == "B203S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kospi_mm_lp_included_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
-  if message_code == "B204S" then
+  if tr_code == "B204S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kospi_mm_lp_included_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Underlying Snapshot Kospi Mm Lp Included Message
-  if message_code == "B205S" then
+  if tr_code == "B205S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.equity_derivatives_underlying_snapshot_kospi_mm_lp_included_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A001S" then
+  if tr_code == "A001S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A002S" then
+  if tr_code == "A002S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A003S" then
+  if tr_code == "A003S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A004S" then
+  if tr_code == "A004S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A005S" then
+  if tr_code == "A005S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A001Q" then
+  if tr_code == "A001Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equities Batch Data Message
-  if message_code == "A001X" then
+  if tr_code == "A001X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equities_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I501S" then
+  if tr_code == "I501S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I503S" then
+  if tr_code == "I503S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I504S" then
+  if tr_code == "I504S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I505S" then
+  if tr_code == "I505S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I501Q" then
+  if tr_code == "I501Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Closing Date Message
-  if message_code == "I501X" then
+  if tr_code == "I501X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_closing_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I701S" then
+  if tr_code == "I701S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I702S" then
+  if tr_code == "I702S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I703S" then
+  if tr_code == "I703S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I704S" then
+  if tr_code == "I704S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I705S" then
+  if tr_code == "I705S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I701Q" then
+  if tr_code == "I701Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Mm Lp Information Message
-  if message_code == "I701X" then
+  if tr_code == "I701X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_mm_lp_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Member Information Message
-  if message_code == "M900S" then
+  if tr_code == "M900S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_member_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Member Information Message
-  if message_code == "M900Q" then
+  if tr_code == "M900Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_member_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Member Information Message
-  if message_code == "M900X" then
+  if tr_code == "M900X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_member_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Batch Message
-  if message_code == "A901S" then
+  if tr_code == "A901S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Batch Message
-  if message_code == "A901Q" then
+  if tr_code == "A901Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Treasury Stocks Batch Message
-  if message_code == "A901X" then
+  if tr_code == "A901X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_treasury_stocks_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equity Index Indicator Message
-  if message_code == "CA01S" then
+  if tr_code == "CA01S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equity_index_indicator_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Equity Index Indicator Message
-  if message_code == "CA01Q" then
+  if tr_code == "CA01Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_equity_index_indicator_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Dividend Yield Per Industry Message
-  if message_code == "P200S" then
+  if tr_code == "P200S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_dividend_yield_per_industry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Securities Dividend Yield Per Industry Message
-  if message_code == "P200Q" then
+  if tr_code == "P200Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.securities_dividend_yield_per_industry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Bonds Batch Data Message
-  if message_code == "A001B" then
+  if tr_code == "A001B" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.bonds_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Repo Batch Data Message
-  if message_code == "A001R" then
+  if tr_code == "A001R" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.repo_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601S" then
+  if tr_code == "I601S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I602S" then
+  if tr_code == "I602S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I603S" then
+  if tr_code == "I603S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I604S" then
+  if tr_code == "I604S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I605S" then
+  if tr_code == "I605S" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601Q" then
+  if tr_code == "I601Q" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601X" then
+  if tr_code == "I601X" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601B" then
+  if tr_code == "I601B" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601M" then
+  if tr_code == "I601M" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601K" then
+  if tr_code == "I601K" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Issue Event Message
-  if message_code == "I601R" then
+  if tr_code == "I601R" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.issue_event_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Corporate Bonds Reference Message
-  if message_code == "F901B" then
+  if tr_code == "F901B" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Corporate Bonds Reference Message
-  if message_code == "F901M" then
+  if tr_code == "F901M" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.corporate_bonds_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Regular Bonds Installment Repayment Date Message
-  if message_code == "BN01B" then
+  if tr_code == "BN01B" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.regular_bonds_installment_repayment_date_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Repo Classification Data Message
-  if message_code == "CB01R" then
+  if tr_code == "CB01R" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.repo_classification_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Repo Trade Availability Per Term Message
-  if message_code == "S001R" then
+  if tr_code == "S001R" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.repo_trade_availability_per_term_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retail Bonds Type Code Message
-  if message_code == "G300B" then
+  if tr_code == "G300B" then
     return koscom_mdcsrealtime_equityderivatives_exture_v2_020.retail_bonds_type_code_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -12351,7 +12351,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.size
 end
 
 -- Dissect Packet
@@ -12363,11 +12363,11 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.packet.dissect = function(bu
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_equityderivatives_exture_v2_020.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_equityderivatives_exture_v2_020.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 26 branches
-    index = koscom_mdcsrealtime_equityderivatives_exture_v2_020.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_equityderivatives_exture_v2_020.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index

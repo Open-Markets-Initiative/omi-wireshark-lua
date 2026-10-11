@@ -193,7 +193,6 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_id = ProtoF
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.marketoperationproductid", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.market_price_order_permission_type_code = ProtoField.new("Market Price Order Permission Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.marketpriceorderpermissiontypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.me_group_number = ProtoField.new("Me Group Number", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.megroupnumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.messagesequencenumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.nearby_month_contract_trading_price = ProtoField.new("Nearby Month Contract Trading Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.nearbymonthcontracttradingprice", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.number_of_issues_for_base_product = ProtoField.new("Number Of Issues For Base Product", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.numberofissuesforbaseproduct", ftypes.STRING)
@@ -275,6 +274,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.todays_low = Proto
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_accumulated_trading_value = ProtoField.new("Total Accumulated Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalaccumulatedtradingvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_accumulated_trading_volume = ProtoField.new("Total Accumulated Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalaccumulatedtradingvolume", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract = ProtoField.new("Total Number Of Instruments Of The Contract", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.totalnumberofinstrumentsofthecontract", ftypes.STRING)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_halt = ProtoField.new("Trading Halt", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradinghalt", ftypes.STRING)
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.trading_halt_reason_code = ProtoField.new("Trading Halt Reason Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tradinghaltreasoncode", ftypes.STRING)
@@ -5897,1050 +5897,6 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.me_group_number.dissect = fun
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display = function(value)
-  if value == "I2000" then
-    return "Message Code: Polling Data Message (I2000)"
-  end
-  if value == "B601V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B601V)"
-  end
-  if value == "B602V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B602V)"
-  end
-  if value == "B603V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B603V)"
-  end
-  if value == "B606V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B606V)"
-  end
-  if value == "B607V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B607V)"
-  end
-  if value == "B608V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B608V)"
-  end
-  if value == "B609V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B609V)"
-  end
-  if value == "B610V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B610V)"
-  end
-  if value == "B611V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B611V)"
-  end
-  if value == "B612V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B612V)"
-  end
-  if value == "B613V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B613V)"
-  end
-  if value == "B615V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B615V)"
-  end
-  if value == "B616V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B616V)"
-  end
-  if value == "B617V" then
-    return "Message Code: Derivatives Quote Five Levels Message (B617V)"
-  end
-  if value == "B604V" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B604V)"
-  end
-  if value == "B605V" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B605V)"
-  end
-  if value == "B618V" then
-    return "Message Code: Derivatives Quote Ten Levels Message (B618V)"
-  end
-  if value == "B201V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B201V)"
-  end
-  if value == "B202V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B202V)"
-  end
-  if value == "B203V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B203V)"
-  end
-  if value == "B206V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B206V)"
-  end
-  if value == "B207V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B207V)"
-  end
-  if value == "B208V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B208V)"
-  end
-  if value == "B209V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B209V)"
-  end
-  if value == "B210V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B210V)"
-  end
-  if value == "B211V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B211V)"
-  end
-  if value == "B212V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B212V)"
-  end
-  if value == "B213V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B213V)"
-  end
-  if value == "B215V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B215V)"
-  end
-  if value == "B216V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B216V)"
-  end
-  if value == "B217V" then
-    return "Message Code: Derivatives Snapshot Five Levels Message (B217V)"
-  end
-  if value == "B204V" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B204V)"
-  end
-  if value == "B205V" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B205V)"
-  end
-  if value == "B218V" then
-    return "Message Code: Derivatives Snapshot Ten Levels Message (B218V)"
-  end
-  if value == "A301V" then
-    return "Message Code: Derivatives Order Filled Message (A301V)"
-  end
-  if value == "A302V" then
-    return "Message Code: Derivatives Order Filled Message (A302V)"
-  end
-  if value == "A303V" then
-    return "Message Code: Derivatives Order Filled Message (A303V)"
-  end
-  if value == "A304V" then
-    return "Message Code: Derivatives Order Filled Message (A304V)"
-  end
-  if value == "A305V" then
-    return "Message Code: Derivatives Order Filled Message (A305V)"
-  end
-  if value == "A306V" then
-    return "Message Code: Derivatives Order Filled Message (A306V)"
-  end
-  if value == "A307V" then
-    return "Message Code: Derivatives Order Filled Message (A307V)"
-  end
-  if value == "A308V" then
-    return "Message Code: Derivatives Order Filled Message (A308V)"
-  end
-  if value == "A309V" then
-    return "Message Code: Derivatives Order Filled Message (A309V)"
-  end
-  if value == "A310V" then
-    return "Message Code: Derivatives Order Filled Message (A310V)"
-  end
-  if value == "A311V" then
-    return "Message Code: Derivatives Order Filled Message (A311V)"
-  end
-  if value == "A312V" then
-    return "Message Code: Derivatives Order Filled Message (A312V)"
-  end
-  if value == "A313V" then
-    return "Message Code: Derivatives Order Filled Message (A313V)"
-  end
-  if value == "A315V" then
-    return "Message Code: Derivatives Order Filled Message (A315V)"
-  end
-  if value == "A316V" then
-    return "Message Code: Derivatives Order Filled Message (A316V)"
-  end
-  if value == "A317V" then
-    return "Message Code: Derivatives Order Filled Message (A317V)"
-  end
-  if value == "A318V" then
-    return "Message Code: Derivatives Order Filled Message (A318V)"
-  end
-  if value == "G701V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G701V)"
-  end
-  if value == "G702V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G702V)"
-  end
-  if value == "G703V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G703V)"
-  end
-  if value == "G706V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G706V)"
-  end
-  if value == "G707V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G707V)"
-  end
-  if value == "G708V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G708V)"
-  end
-  if value == "G709V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G709V)"
-  end
-  if value == "G710V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G710V)"
-  end
-  if value == "G711V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G711V)"
-  end
-  if value == "G712V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G712V)"
-  end
-  if value == "G713V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G713V)"
-  end
-  if value == "G715V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G715V)"
-  end
-  if value == "G716V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G716V)"
-  end
-  if value == "G717V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Five Levels Message (G717V)"
-  end
-  if value == "G704V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G704V)"
-  end
-  if value == "G705V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G705V)"
-  end
-  if value == "G718V" then
-    return "Message Code: Derivatives Order Filled Plus Quote Ten Levels Message (G718V)"
-  end
-  if value == "R101V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R101V)"
-  end
-  if value == "R102V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R102V)"
-  end
-  if value == "R103V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R103V)"
-  end
-  if value == "R106V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R106V)"
-  end
-  if value == "R107V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R107V)"
-  end
-  if value == "R108V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R108V)"
-  end
-  if value == "R109V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R109V)"
-  end
-  if value == "R110V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R110V)"
-  end
-  if value == "R111V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R111V)"
-  end
-  if value == "R112V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R112V)"
-  end
-  if value == "R113V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R113V)"
-  end
-  if value == "R115V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R115V)"
-  end
-  if value == "R116V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R116V)"
-  end
-  if value == "R117V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R117V)"
-  end
-  if value == "R104V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R104V)"
-  end
-  if value == "R105V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R105V)"
-  end
-  if value == "R118V" then
-    return "Message Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R118V)"
-  end
-  if value == "C401V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C401V)"
-  end
-  if value == "C402V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C402V)"
-  end
-  if value == "C403V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C403V)"
-  end
-  if value == "C404V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C404V)"
-  end
-  if value == "C405V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C405V)"
-  end
-  if value == "C406V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C406V)"
-  end
-  if value == "C407V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C407V)"
-  end
-  if value == "C408V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C408V)"
-  end
-  if value == "C409V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C409V)"
-  end
-  if value == "C410V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C410V)"
-  end
-  if value == "C411V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C411V)"
-  end
-  if value == "C412V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C412V)"
-  end
-  if value == "C413V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C413V)"
-  end
-  if value == "C415V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C415V)"
-  end
-  if value == "C416V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C416V)"
-  end
-  if value == "C417V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C417V)"
-  end
-  if value == "C418V" then
-    return "Message Code: Derivatives Negotiated Trade Message (C418V)"
-  end
-  if value == "A701S" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701S)"
-  end
-  if value == "A702S" then
-    return "Message Code: Derivatives Market Operation Ts Message (A702S)"
-  end
-  if value == "A703S" then
-    return "Message Code: Derivatives Market Operation Ts Message (A703S)"
-  end
-  if value == "A704S" then
-    return "Message Code: Derivatives Market Operation Ts Message (A704S)"
-  end
-  if value == "A705S" then
-    return "Message Code: Derivatives Market Operation Ts Message (A705S)"
-  end
-  if value == "A701Q" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701Q)"
-  end
-  if value == "A701X" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701X)"
-  end
-  if value == "A701B" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701B)"
-  end
-  if value == "A701M" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701M)"
-  end
-  if value == "A701K" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701K)"
-  end
-  if value == "A701R" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701R)"
-  end
-  if value == "A701V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701V)"
-  end
-  if value == "A702V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A702V)"
-  end
-  if value == "A703V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A703V)"
-  end
-  if value == "A704V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A704V)"
-  end
-  if value == "A705V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A705V)"
-  end
-  if value == "A706V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A706V)"
-  end
-  if value == "A707V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A707V)"
-  end
-  if value == "A708V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A708V)"
-  end
-  if value == "A709V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A709V)"
-  end
-  if value == "A710V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A710V)"
-  end
-  if value == "A711V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A711V)"
-  end
-  if value == "A712V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A712V)"
-  end
-  if value == "A713V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A713V)"
-  end
-  if value == "A715V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A715V)"
-  end
-  if value == "A716V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A716V)"
-  end
-  if value == "A717V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A717V)"
-  end
-  if value == "A718V" then
-    return "Message Code: Derivatives Market Operation Ts Message (A718V)"
-  end
-  if value == "A701G" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701G)"
-  end
-  if value == "A701E" then
-    return "Message Code: Derivatives Market Operation Ts Message (A701E)"
-  end
-  if value == "A601V" then
-    return "Message Code: Derivatives Issue Closing Message (A601V)"
-  end
-  if value == "A602V" then
-    return "Message Code: Derivatives Issue Closing Message (A602V)"
-  end
-  if value == "A603V" then
-    return "Message Code: Derivatives Issue Closing Message (A603V)"
-  end
-  if value == "A604V" then
-    return "Message Code: Derivatives Issue Closing Message (A604V)"
-  end
-  if value == "A605V" then
-    return "Message Code: Derivatives Issue Closing Message (A605V)"
-  end
-  if value == "A606V" then
-    return "Message Code: Derivatives Issue Closing Message (A606V)"
-  end
-  if value == "A607V" then
-    return "Message Code: Derivatives Issue Closing Message (A607V)"
-  end
-  if value == "A608V" then
-    return "Message Code: Derivatives Issue Closing Message (A608V)"
-  end
-  if value == "A609V" then
-    return "Message Code: Derivatives Issue Closing Message (A609V)"
-  end
-  if value == "A610V" then
-    return "Message Code: Derivatives Issue Closing Message (A610V)"
-  end
-  if value == "A611V" then
-    return "Message Code: Derivatives Issue Closing Message (A611V)"
-  end
-  if value == "A612V" then
-    return "Message Code: Derivatives Issue Closing Message (A612V)"
-  end
-  if value == "A613V" then
-    return "Message Code: Derivatives Issue Closing Message (A613V)"
-  end
-  if value == "A615V" then
-    return "Message Code: Derivatives Issue Closing Message (A615V)"
-  end
-  if value == "A616V" then
-    return "Message Code: Derivatives Issue Closing Message (A616V)"
-  end
-  if value == "A617V" then
-    return "Message Code: Derivatives Issue Closing Message (A617V)"
-  end
-  if value == "A618V" then
-    return "Message Code: Derivatives Issue Closing Message (A618V)"
-  end
-  if value == "M401S" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401S)"
-  end
-  if value == "M402S" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M402S)"
-  end
-  if value == "M403S" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M403S)"
-  end
-  if value == "M404S" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M404S)"
-  end
-  if value == "M405S" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M405S)"
-  end
-  if value == "M401Q" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401Q)"
-  end
-  if value == "M401X" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401X)"
-  end
-  if value == "M401B" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401B)"
-  end
-  if value == "M401M" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401M)"
-  end
-  if value == "M401K" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401K)"
-  end
-  if value == "M401R" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401R)"
-  end
-  if value == "M401V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401V)"
-  end
-  if value == "M402V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M402V)"
-  end
-  if value == "M403V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M403V)"
-  end
-  if value == "M404V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M404V)"
-  end
-  if value == "M405V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M405V)"
-  end
-  if value == "M406V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M406V)"
-  end
-  if value == "M407V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M407V)"
-  end
-  if value == "M408V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M408V)"
-  end
-  if value == "M409V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M409V)"
-  end
-  if value == "M410V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M410V)"
-  end
-  if value == "M411V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M411V)"
-  end
-  if value == "M412V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M412V)"
-  end
-  if value == "M413V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M413V)"
-  end
-  if value == "M415V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M415V)"
-  end
-  if value == "M416V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M416V)"
-  end
-  if value == "M417V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M417V)"
-  end
-  if value == "M418V" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M418V)"
-  end
-  if value == "M401G" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401G)"
-  end
-  if value == "M401E" then
-    return "Message Code: Derivatives Market Operation Schedule Message (M401E)"
-  end
-  if value == "Q201V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q201V)"
-  end
-  if value == "Q202V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q202V)"
-  end
-  if value == "Q203V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q203V)"
-  end
-  if value == "Q204V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q204V)"
-  end
-  if value == "Q206V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q206V)"
-  end
-  if value == "Q208V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q208V)"
-  end
-  if value == "Q209V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q209V)"
-  end
-  if value == "Q210V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q210V)"
-  end
-  if value == "Q211V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q211V)"
-  end
-  if value == "Q212V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q212V)"
-  end
-  if value == "Q216V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q216V)"
-  end
-  if value == "Q217V" then
-    return "Message Code: Derivatives Dynamic Upper Lower Limit Message (Q217V)"
-  end
-  if value == "V101V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V101V)"
-  end
-  if value == "V102V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V102V)"
-  end
-  if value == "V103V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V103V)"
-  end
-  if value == "V104V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V104V)"
-  end
-  if value == "V105V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V105V)"
-  end
-  if value == "V108V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V108V)"
-  end
-  if value == "V109V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V109V)"
-  end
-  if value == "V111V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V111V)"
-  end
-  if value == "V112V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V112V)"
-  end
-  if value == "V113V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V113V)"
-  end
-  if value == "V115V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V115V)"
-  end
-  if value == "V116V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V116V)"
-  end
-  if value == "V117V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V117V)"
-  end
-  if value == "V118V" then
-    return "Message Code: Derivatives Price Limit Range Increase Message (V118V)"
-  end
-  if value == "O601S" then
-    return "Message Code: Derivatives Quantity Allocation Message (O601S)"
-  end
-  if value == "O603S" then
-    return "Message Code: Derivatives Quantity Allocation Message (O603S)"
-  end
-  if value == "O604S" then
-    return "Message Code: Derivatives Quantity Allocation Message (O604S)"
-  end
-  if value == "O605S" then
-    return "Message Code: Derivatives Quantity Allocation Message (O605S)"
-  end
-  if value == "O601Q" then
-    return "Message Code: Derivatives Quantity Allocation Message (O601Q)"
-  end
-  if value == "O601X" then
-    return "Message Code: Derivatives Quantity Allocation Message (O601X)"
-  end
-  if value == "O601V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O601V)"
-  end
-  if value == "O602V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O602V)"
-  end
-  if value == "O603V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O603V)"
-  end
-  if value == "O604V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O604V)"
-  end
-  if value == "O605V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O605V)"
-  end
-  if value == "O606V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O606V)"
-  end
-  if value == "O607V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O607V)"
-  end
-  if value == "O608V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O608V)"
-  end
-  if value == "O609V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O609V)"
-  end
-  if value == "O610V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O610V)"
-  end
-  if value == "O611V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O611V)"
-  end
-  if value == "O612V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O612V)"
-  end
-  if value == "O613V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O613V)"
-  end
-  if value == "O615V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O615V)"
-  end
-  if value == "O616V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O616V)"
-  end
-  if value == "O617V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O617V)"
-  end
-  if value == "O618V" then
-    return "Message Code: Derivatives Quantity Allocation Message (O618V)"
-  end
-  if value == "IF01S" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01S)"
-  end
-  if value == "IF02S" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF02S)"
-  end
-  if value == "IF03S" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF03S)"
-  end
-  if value == "IF04S" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF04S)"
-  end
-  if value == "IF05S" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF05S)"
-  end
-  if value == "IF01Q" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01Q)"
-  end
-  if value == "IF01V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF01V)"
-  end
-  if value == "IF02V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF02V)"
-  end
-  if value == "IF03V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF03V)"
-  end
-  if value == "IF04V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF04V)"
-  end
-  if value == "IF05V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF05V)"
-  end
-  if value == "IF06V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF06V)"
-  end
-  if value == "IF07V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF07V)"
-  end
-  if value == "IF08V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF08V)"
-  end
-  if value == "IF09V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF09V)"
-  end
-  if value == "IF10V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF10V)"
-  end
-  if value == "IF11V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF11V)"
-  end
-  if value == "IF12V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF12V)"
-  end
-  if value == "IF13V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF13V)"
-  end
-  if value == "IF15V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF15V)"
-  end
-  if value == "IF16V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF16V)"
-  end
-  if value == "IF17V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF17V)"
-  end
-  if value == "IF18V" then
-    return "Message Code: Derivatives Group Order Acceptance Halt Message (IF18V)"
-  end
-  if value == "A001V" then
-    return "Message Code: Derivatives Batch Data Message (A001V)"
-  end
-  if value == "A002V" then
-    return "Message Code: Derivatives Batch Data Message (A002V)"
-  end
-  if value == "A003V" then
-    return "Message Code: Derivatives Batch Data Message (A003V)"
-  end
-  if value == "A004V" then
-    return "Message Code: Derivatives Batch Data Message (A004V)"
-  end
-  if value == "A005V" then
-    return "Message Code: Derivatives Batch Data Message (A005V)"
-  end
-  if value == "A006V" then
-    return "Message Code: Derivatives Batch Data Message (A006V)"
-  end
-  if value == "A007V" then
-    return "Message Code: Derivatives Batch Data Message (A007V)"
-  end
-  if value == "A008V" then
-    return "Message Code: Derivatives Batch Data Message (A008V)"
-  end
-  if value == "A009V" then
-    return "Message Code: Derivatives Batch Data Message (A009V)"
-  end
-  if value == "A010V" then
-    return "Message Code: Derivatives Batch Data Message (A010V)"
-  end
-  if value == "A011V" then
-    return "Message Code: Derivatives Batch Data Message (A011V)"
-  end
-  if value == "A012V" then
-    return "Message Code: Derivatives Batch Data Message (A012V)"
-  end
-  if value == "A013V" then
-    return "Message Code: Derivatives Batch Data Message (A013V)"
-  end
-  if value == "A015V" then
-    return "Message Code: Derivatives Batch Data Message (A015V)"
-  end
-  if value == "A016V" then
-    return "Message Code: Derivatives Batch Data Message (A016V)"
-  end
-  if value == "A017V" then
-    return "Message Code: Derivatives Batch Data Message (A017V)"
-  end
-  if value == "A018V" then
-    return "Message Code: Derivatives Batch Data Message (A018V)"
-  end
-  if value == "H404V" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H404V)"
-  end
-  if value == "H405V" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H405V)"
-  end
-  if value == "H418V" then
-    return "Message Code: Equity Derivatives Adjustment Details Message (H418V)"
-  end
-  if value == "H606V" then
-    return "Message Code: Commodity Futures Settlement Reference Ktb Message (H606V)"
-  end
-  if value == "H101V" then
-    return "Message Code: Derivatives Investor Activities Message (H101V)"
-  end
-  if value == "H102V" then
-    return "Message Code: Derivatives Investor Activities Message (H102V)"
-  end
-  if value == "H103V" then
-    return "Message Code: Derivatives Investor Activities Message (H103V)"
-  end
-  if value == "H104V" then
-    return "Message Code: Derivatives Investor Activities Message (H104V)"
-  end
-  if value == "H105V" then
-    return "Message Code: Derivatives Investor Activities Message (H105V)"
-  end
-  if value == "H106V" then
-    return "Message Code: Derivatives Investor Activities Message (H106V)"
-  end
-  if value == "H107V" then
-    return "Message Code: Derivatives Investor Activities Message (H107V)"
-  end
-  if value == "H108V" then
-    return "Message Code: Derivatives Investor Activities Message (H108V)"
-  end
-  if value == "H109V" then
-    return "Message Code: Derivatives Investor Activities Message (H109V)"
-  end
-  if value == "H110V" then
-    return "Message Code: Derivatives Investor Activities Message (H110V)"
-  end
-  if value == "H111V" then
-    return "Message Code: Derivatives Investor Activities Message (H111V)"
-  end
-  if value == "H112V" then
-    return "Message Code: Derivatives Investor Activities Message (H112V)"
-  end
-  if value == "H113V" then
-    return "Message Code: Derivatives Investor Activities Message (H113V)"
-  end
-  if value == "H115V" then
-    return "Message Code: Derivatives Investor Activities Message (H115V)"
-  end
-  if value == "H116V" then
-    return "Message Code: Derivatives Investor Activities Message (H116V)"
-  end
-  if value == "H117V" then
-    return "Message Code: Derivatives Investor Activities Message (H117V)"
-  end
-  if value == "H118V" then
-    return "Message Code: Derivatives Investor Activities Message (H118V)"
-  end
-  if value == "H201V" then
-    return "Message Code: Derivatives Open Interest Message (H201V)"
-  end
-  if value == "H202V" then
-    return "Message Code: Derivatives Open Interest Message (H202V)"
-  end
-  if value == "H203V" then
-    return "Message Code: Derivatives Open Interest Message (H203V)"
-  end
-  if value == "H204V" then
-    return "Message Code: Derivatives Open Interest Message (H204V)"
-  end
-  if value == "H205V" then
-    return "Message Code: Derivatives Open Interest Message (H205V)"
-  end
-  if value == "H206V" then
-    return "Message Code: Derivatives Open Interest Message (H206V)"
-  end
-  if value == "H207V" then
-    return "Message Code: Derivatives Open Interest Message (H207V)"
-  end
-  if value == "H208V" then
-    return "Message Code: Derivatives Open Interest Message (H208V)"
-  end
-  if value == "H209V" then
-    return "Message Code: Derivatives Open Interest Message (H209V)"
-  end
-  if value == "H210V" then
-    return "Message Code: Derivatives Open Interest Message (H210V)"
-  end
-  if value == "H211V" then
-    return "Message Code: Derivatives Open Interest Message (H211V)"
-  end
-  if value == "H212V" then
-    return "Message Code: Derivatives Open Interest Message (H212V)"
-  end
-  if value == "H213V" then
-    return "Message Code: Derivatives Open Interest Message (H213V)"
-  end
-  if value == "H215V" then
-    return "Message Code: Derivatives Open Interest Message (H215V)"
-  end
-  if value == "H216V" then
-    return "Message Code: Derivatives Open Interest Message (H216V)"
-  end
-  if value == "H217V" then
-    return "Message Code: Derivatives Open Interest Message (H217V)"
-  end
-  if value == "H218V" then
-    return "Message Code: Derivatives Open Interest Message (H218V)"
-  end
-  if value == "H301V" then
-    return "Message Code: Futures Settled Price Message (H301V)"
-  end
-  if value == "H302V" then
-    return "Message Code: Futures Settled Price Message (H302V)"
-  end
-  if value == "H304V" then
-    return "Message Code: Futures Settled Price Message (H304V)"
-  end
-  if value == "H306V" then
-    return "Message Code: Futures Settled Price Message (H306V)"
-  end
-  if value == "H308V" then
-    return "Message Code: Futures Settled Price Message (H308V)"
-  end
-  if value == "H309V" then
-    return "Message Code: Futures Settled Price Message (H309V)"
-  end
-  if value == "H310V" then
-    return "Message Code: Futures Settled Price Message (H310V)"
-  end
-  if value == "H311V" then
-    return "Message Code: Futures Settled Price Message (H311V)"
-  end
-  if value == "H313V" then
-    return "Message Code: Futures Settled Price Message (H313V)"
-  end
-  if value == "ID03V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID03V)"
-  end
-  if value == "ID05V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID05V)"
-  end
-  if value == "ID07V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID07V)"
-  end
-  if value == "ID12V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID12V)"
-  end
-  if value == "ID15V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID15V)"
-  end
-  if value == "ID16V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID16V)"
-  end
-  if value == "ID17V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID17V)"
-  end
-  if value == "ID18V" then
-    return "Message Code: Options Base Price Of Clearing Margins Message (ID18V)"
-  end
-  if value == "P103V" then
-    return "Message Code: Options Implied Volatility Message (P103V)"
-  end
-  if value == "P112V" then
-    return "Message Code: Options Implied Volatility Message (P112V)"
-  end
-  if value == "P115V" then
-    return "Message Code: Options Implied Volatility Message (P115V)"
-  end
-  if value == "P116V" then
-    return "Message Code: Options Implied Volatility Message (P116V)"
-  end
-  if value == "P117V" then
-    return "Message Code: Options Implied Volatility Message (P117V)"
-  end
-  if value == "N703V" then
-    return "Message Code: Options Sensitivity Message (N703V)"
-  end
-  if value == "N705V" then
-    return "Message Code: Options Sensitivity Message (N705V)"
-  end
-  if value == "N707V" then
-    return "Message Code: Options Sensitivity Message (N707V)"
-  end
-  if value == "N712V" then
-    return "Message Code: Options Sensitivity Message (N712V)"
-  end
-  if value == "N715V" then
-    return "Message Code: Options Sensitivity Message (N715V)"
-  end
-  if value == "N716V" then
-    return "Message Code: Options Sensitivity Message (N716V)"
-  end
-  if value == "N717V" then
-    return "Message Code: Options Sensitivity Message (N717V)"
-  end
-  if value == "N718V" then
-    return "Message Code: Options Sensitivity Message (N718V)"
-  end
-  if value == "H506V" then
-    return "Message Code: Commodity Futures Spot Settlement Reference Message (H506V)"
-  end
-  if value == "H599V" then
-    return "Message Code: Commodity Futures Spot Settlement Reference Message (H599V)"
-  end
-  if value == "HA06V" then
-    return "Message Code: Daily Disclosed Rfr Message (HA06V)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_020.text_encoding))
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_sequence_number = {}
 
@@ -9452,6 +8408,1050 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_number_of_instruments_o
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.total_number_of_instruments_of_the_contract.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.total_number_of_instruments_of_the_contract, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.display = function(value)
+  if value == "I2000" then
+    return "Tr Code: Polling Data Message (I2000)"
+  end
+  if value == "B601V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B601V)"
+  end
+  if value == "B602V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B602V)"
+  end
+  if value == "B603V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B603V)"
+  end
+  if value == "B606V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B606V)"
+  end
+  if value == "B607V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B607V)"
+  end
+  if value == "B608V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B608V)"
+  end
+  if value == "B609V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B609V)"
+  end
+  if value == "B610V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B610V)"
+  end
+  if value == "B611V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B611V)"
+  end
+  if value == "B612V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B612V)"
+  end
+  if value == "B613V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B613V)"
+  end
+  if value == "B615V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B615V)"
+  end
+  if value == "B616V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B616V)"
+  end
+  if value == "B617V" then
+    return "Tr Code: Derivatives Quote Five Levels Message (B617V)"
+  end
+  if value == "B604V" then
+    return "Tr Code: Derivatives Quote Ten Levels Message (B604V)"
+  end
+  if value == "B605V" then
+    return "Tr Code: Derivatives Quote Ten Levels Message (B605V)"
+  end
+  if value == "B618V" then
+    return "Tr Code: Derivatives Quote Ten Levels Message (B618V)"
+  end
+  if value == "B201V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B201V)"
+  end
+  if value == "B202V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B202V)"
+  end
+  if value == "B203V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B203V)"
+  end
+  if value == "B206V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B206V)"
+  end
+  if value == "B207V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B207V)"
+  end
+  if value == "B208V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B208V)"
+  end
+  if value == "B209V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B209V)"
+  end
+  if value == "B210V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B210V)"
+  end
+  if value == "B211V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B211V)"
+  end
+  if value == "B212V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B212V)"
+  end
+  if value == "B213V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B213V)"
+  end
+  if value == "B215V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B215V)"
+  end
+  if value == "B216V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B216V)"
+  end
+  if value == "B217V" then
+    return "Tr Code: Derivatives Snapshot Five Levels Message (B217V)"
+  end
+  if value == "B204V" then
+    return "Tr Code: Derivatives Snapshot Ten Levels Message (B204V)"
+  end
+  if value == "B205V" then
+    return "Tr Code: Derivatives Snapshot Ten Levels Message (B205V)"
+  end
+  if value == "B218V" then
+    return "Tr Code: Derivatives Snapshot Ten Levels Message (B218V)"
+  end
+  if value == "A301V" then
+    return "Tr Code: Derivatives Order Filled Message (A301V)"
+  end
+  if value == "A302V" then
+    return "Tr Code: Derivatives Order Filled Message (A302V)"
+  end
+  if value == "A303V" then
+    return "Tr Code: Derivatives Order Filled Message (A303V)"
+  end
+  if value == "A304V" then
+    return "Tr Code: Derivatives Order Filled Message (A304V)"
+  end
+  if value == "A305V" then
+    return "Tr Code: Derivatives Order Filled Message (A305V)"
+  end
+  if value == "A306V" then
+    return "Tr Code: Derivatives Order Filled Message (A306V)"
+  end
+  if value == "A307V" then
+    return "Tr Code: Derivatives Order Filled Message (A307V)"
+  end
+  if value == "A308V" then
+    return "Tr Code: Derivatives Order Filled Message (A308V)"
+  end
+  if value == "A309V" then
+    return "Tr Code: Derivatives Order Filled Message (A309V)"
+  end
+  if value == "A310V" then
+    return "Tr Code: Derivatives Order Filled Message (A310V)"
+  end
+  if value == "A311V" then
+    return "Tr Code: Derivatives Order Filled Message (A311V)"
+  end
+  if value == "A312V" then
+    return "Tr Code: Derivatives Order Filled Message (A312V)"
+  end
+  if value == "A313V" then
+    return "Tr Code: Derivatives Order Filled Message (A313V)"
+  end
+  if value == "A315V" then
+    return "Tr Code: Derivatives Order Filled Message (A315V)"
+  end
+  if value == "A316V" then
+    return "Tr Code: Derivatives Order Filled Message (A316V)"
+  end
+  if value == "A317V" then
+    return "Tr Code: Derivatives Order Filled Message (A317V)"
+  end
+  if value == "A318V" then
+    return "Tr Code: Derivatives Order Filled Message (A318V)"
+  end
+  if value == "G701V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G701V)"
+  end
+  if value == "G702V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G702V)"
+  end
+  if value == "G703V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G703V)"
+  end
+  if value == "G706V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G706V)"
+  end
+  if value == "G707V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G707V)"
+  end
+  if value == "G708V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G708V)"
+  end
+  if value == "G709V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G709V)"
+  end
+  if value == "G710V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G710V)"
+  end
+  if value == "G711V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G711V)"
+  end
+  if value == "G712V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G712V)"
+  end
+  if value == "G713V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G713V)"
+  end
+  if value == "G715V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G715V)"
+  end
+  if value == "G716V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G716V)"
+  end
+  if value == "G717V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Five Levels Message (G717V)"
+  end
+  if value == "G704V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Ten Levels Message (G704V)"
+  end
+  if value == "G705V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Ten Levels Message (G705V)"
+  end
+  if value == "G718V" then
+    return "Tr Code: Derivatives Order Filled Plus Quote Ten Levels Message (G718V)"
+  end
+  if value == "R101V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R101V)"
+  end
+  if value == "R102V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R102V)"
+  end
+  if value == "R103V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R103V)"
+  end
+  if value == "R106V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R106V)"
+  end
+  if value == "R107V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R107V)"
+  end
+  if value == "R108V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R108V)"
+  end
+  if value == "R109V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R109V)"
+  end
+  if value == "R110V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R110V)"
+  end
+  if value == "R111V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R111V)"
+  end
+  if value == "R112V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R112V)"
+  end
+  if value == "R113V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R113V)"
+  end
+  if value == "R115V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R115V)"
+  end
+  if value == "R116V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R116V)"
+  end
+  if value == "R117V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Five Levels Message (R117V)"
+  end
+  if value == "R104V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R104V)"
+  end
+  if value == "R105V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R105V)"
+  end
+  if value == "R118V" then
+    return "Tr Code: Derivatives Market Operation Ts Plus Quote Ten Levels Message (R118V)"
+  end
+  if value == "C401V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C401V)"
+  end
+  if value == "C402V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C402V)"
+  end
+  if value == "C403V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C403V)"
+  end
+  if value == "C404V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C404V)"
+  end
+  if value == "C405V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C405V)"
+  end
+  if value == "C406V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C406V)"
+  end
+  if value == "C407V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C407V)"
+  end
+  if value == "C408V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C408V)"
+  end
+  if value == "C409V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C409V)"
+  end
+  if value == "C410V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C410V)"
+  end
+  if value == "C411V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C411V)"
+  end
+  if value == "C412V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C412V)"
+  end
+  if value == "C413V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C413V)"
+  end
+  if value == "C415V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C415V)"
+  end
+  if value == "C416V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C416V)"
+  end
+  if value == "C417V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C417V)"
+  end
+  if value == "C418V" then
+    return "Tr Code: Derivatives Negotiated Trade Message (C418V)"
+  end
+  if value == "A701S" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701S)"
+  end
+  if value == "A702S" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A702S)"
+  end
+  if value == "A703S" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A703S)"
+  end
+  if value == "A704S" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A704S)"
+  end
+  if value == "A705S" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A705S)"
+  end
+  if value == "A701Q" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701Q)"
+  end
+  if value == "A701X" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701X)"
+  end
+  if value == "A701B" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701B)"
+  end
+  if value == "A701M" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701M)"
+  end
+  if value == "A701K" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701K)"
+  end
+  if value == "A701R" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701R)"
+  end
+  if value == "A701V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701V)"
+  end
+  if value == "A702V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A702V)"
+  end
+  if value == "A703V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A703V)"
+  end
+  if value == "A704V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A704V)"
+  end
+  if value == "A705V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A705V)"
+  end
+  if value == "A706V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A706V)"
+  end
+  if value == "A707V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A707V)"
+  end
+  if value == "A708V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A708V)"
+  end
+  if value == "A709V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A709V)"
+  end
+  if value == "A710V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A710V)"
+  end
+  if value == "A711V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A711V)"
+  end
+  if value == "A712V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A712V)"
+  end
+  if value == "A713V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A713V)"
+  end
+  if value == "A715V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A715V)"
+  end
+  if value == "A716V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A716V)"
+  end
+  if value == "A717V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A717V)"
+  end
+  if value == "A718V" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A718V)"
+  end
+  if value == "A701G" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701G)"
+  end
+  if value == "A701E" then
+    return "Tr Code: Derivatives Market Operation Ts Message (A701E)"
+  end
+  if value == "A601V" then
+    return "Tr Code: Derivatives Issue Closing Message (A601V)"
+  end
+  if value == "A602V" then
+    return "Tr Code: Derivatives Issue Closing Message (A602V)"
+  end
+  if value == "A603V" then
+    return "Tr Code: Derivatives Issue Closing Message (A603V)"
+  end
+  if value == "A604V" then
+    return "Tr Code: Derivatives Issue Closing Message (A604V)"
+  end
+  if value == "A605V" then
+    return "Tr Code: Derivatives Issue Closing Message (A605V)"
+  end
+  if value == "A606V" then
+    return "Tr Code: Derivatives Issue Closing Message (A606V)"
+  end
+  if value == "A607V" then
+    return "Tr Code: Derivatives Issue Closing Message (A607V)"
+  end
+  if value == "A608V" then
+    return "Tr Code: Derivatives Issue Closing Message (A608V)"
+  end
+  if value == "A609V" then
+    return "Tr Code: Derivatives Issue Closing Message (A609V)"
+  end
+  if value == "A610V" then
+    return "Tr Code: Derivatives Issue Closing Message (A610V)"
+  end
+  if value == "A611V" then
+    return "Tr Code: Derivatives Issue Closing Message (A611V)"
+  end
+  if value == "A612V" then
+    return "Tr Code: Derivatives Issue Closing Message (A612V)"
+  end
+  if value == "A613V" then
+    return "Tr Code: Derivatives Issue Closing Message (A613V)"
+  end
+  if value == "A615V" then
+    return "Tr Code: Derivatives Issue Closing Message (A615V)"
+  end
+  if value == "A616V" then
+    return "Tr Code: Derivatives Issue Closing Message (A616V)"
+  end
+  if value == "A617V" then
+    return "Tr Code: Derivatives Issue Closing Message (A617V)"
+  end
+  if value == "A618V" then
+    return "Tr Code: Derivatives Issue Closing Message (A618V)"
+  end
+  if value == "M401S" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401S)"
+  end
+  if value == "M402S" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M402S)"
+  end
+  if value == "M403S" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M403S)"
+  end
+  if value == "M404S" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M404S)"
+  end
+  if value == "M405S" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M405S)"
+  end
+  if value == "M401Q" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401Q)"
+  end
+  if value == "M401X" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401X)"
+  end
+  if value == "M401B" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401B)"
+  end
+  if value == "M401M" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401M)"
+  end
+  if value == "M401K" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401K)"
+  end
+  if value == "M401R" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401R)"
+  end
+  if value == "M401V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401V)"
+  end
+  if value == "M402V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M402V)"
+  end
+  if value == "M403V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M403V)"
+  end
+  if value == "M404V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M404V)"
+  end
+  if value == "M405V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M405V)"
+  end
+  if value == "M406V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M406V)"
+  end
+  if value == "M407V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M407V)"
+  end
+  if value == "M408V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M408V)"
+  end
+  if value == "M409V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M409V)"
+  end
+  if value == "M410V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M410V)"
+  end
+  if value == "M411V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M411V)"
+  end
+  if value == "M412V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M412V)"
+  end
+  if value == "M413V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M413V)"
+  end
+  if value == "M415V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M415V)"
+  end
+  if value == "M416V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M416V)"
+  end
+  if value == "M417V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M417V)"
+  end
+  if value == "M418V" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M418V)"
+  end
+  if value == "M401G" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401G)"
+  end
+  if value == "M401E" then
+    return "Tr Code: Derivatives Market Operation Schedule Message (M401E)"
+  end
+  if value == "Q201V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q201V)"
+  end
+  if value == "Q202V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q202V)"
+  end
+  if value == "Q203V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q203V)"
+  end
+  if value == "Q204V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q204V)"
+  end
+  if value == "Q206V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q206V)"
+  end
+  if value == "Q208V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q208V)"
+  end
+  if value == "Q209V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q209V)"
+  end
+  if value == "Q210V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q210V)"
+  end
+  if value == "Q211V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q211V)"
+  end
+  if value == "Q212V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q212V)"
+  end
+  if value == "Q216V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q216V)"
+  end
+  if value == "Q217V" then
+    return "Tr Code: Derivatives Dynamic Upper Lower Limit Message (Q217V)"
+  end
+  if value == "V101V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V101V)"
+  end
+  if value == "V102V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V102V)"
+  end
+  if value == "V103V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V103V)"
+  end
+  if value == "V104V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V104V)"
+  end
+  if value == "V105V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V105V)"
+  end
+  if value == "V108V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V108V)"
+  end
+  if value == "V109V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V109V)"
+  end
+  if value == "V111V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V111V)"
+  end
+  if value == "V112V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V112V)"
+  end
+  if value == "V113V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V113V)"
+  end
+  if value == "V115V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V115V)"
+  end
+  if value == "V116V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V116V)"
+  end
+  if value == "V117V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V117V)"
+  end
+  if value == "V118V" then
+    return "Tr Code: Derivatives Price Limit Range Increase Message (V118V)"
+  end
+  if value == "O601S" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O601S)"
+  end
+  if value == "O603S" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O603S)"
+  end
+  if value == "O604S" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O604S)"
+  end
+  if value == "O605S" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O605S)"
+  end
+  if value == "O601Q" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O601Q)"
+  end
+  if value == "O601X" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O601X)"
+  end
+  if value == "O601V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O601V)"
+  end
+  if value == "O602V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O602V)"
+  end
+  if value == "O603V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O603V)"
+  end
+  if value == "O604V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O604V)"
+  end
+  if value == "O605V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O605V)"
+  end
+  if value == "O606V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O606V)"
+  end
+  if value == "O607V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O607V)"
+  end
+  if value == "O608V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O608V)"
+  end
+  if value == "O609V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O609V)"
+  end
+  if value == "O610V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O610V)"
+  end
+  if value == "O611V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O611V)"
+  end
+  if value == "O612V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O612V)"
+  end
+  if value == "O613V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O613V)"
+  end
+  if value == "O615V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O615V)"
+  end
+  if value == "O616V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O616V)"
+  end
+  if value == "O617V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O617V)"
+  end
+  if value == "O618V" then
+    return "Tr Code: Derivatives Quantity Allocation Message (O618V)"
+  end
+  if value == "IF01S" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF01S)"
+  end
+  if value == "IF02S" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF02S)"
+  end
+  if value == "IF03S" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF03S)"
+  end
+  if value == "IF04S" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF04S)"
+  end
+  if value == "IF05S" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF05S)"
+  end
+  if value == "IF01Q" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF01Q)"
+  end
+  if value == "IF01V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF01V)"
+  end
+  if value == "IF02V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF02V)"
+  end
+  if value == "IF03V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF03V)"
+  end
+  if value == "IF04V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF04V)"
+  end
+  if value == "IF05V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF05V)"
+  end
+  if value == "IF06V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF06V)"
+  end
+  if value == "IF07V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF07V)"
+  end
+  if value == "IF08V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF08V)"
+  end
+  if value == "IF09V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF09V)"
+  end
+  if value == "IF10V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF10V)"
+  end
+  if value == "IF11V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF11V)"
+  end
+  if value == "IF12V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF12V)"
+  end
+  if value == "IF13V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF13V)"
+  end
+  if value == "IF15V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF15V)"
+  end
+  if value == "IF16V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF16V)"
+  end
+  if value == "IF17V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF17V)"
+  end
+  if value == "IF18V" then
+    return "Tr Code: Derivatives Group Order Acceptance Halt Message (IF18V)"
+  end
+  if value == "A001V" then
+    return "Tr Code: Derivatives Batch Data Message (A001V)"
+  end
+  if value == "A002V" then
+    return "Tr Code: Derivatives Batch Data Message (A002V)"
+  end
+  if value == "A003V" then
+    return "Tr Code: Derivatives Batch Data Message (A003V)"
+  end
+  if value == "A004V" then
+    return "Tr Code: Derivatives Batch Data Message (A004V)"
+  end
+  if value == "A005V" then
+    return "Tr Code: Derivatives Batch Data Message (A005V)"
+  end
+  if value == "A006V" then
+    return "Tr Code: Derivatives Batch Data Message (A006V)"
+  end
+  if value == "A007V" then
+    return "Tr Code: Derivatives Batch Data Message (A007V)"
+  end
+  if value == "A008V" then
+    return "Tr Code: Derivatives Batch Data Message (A008V)"
+  end
+  if value == "A009V" then
+    return "Tr Code: Derivatives Batch Data Message (A009V)"
+  end
+  if value == "A010V" then
+    return "Tr Code: Derivatives Batch Data Message (A010V)"
+  end
+  if value == "A011V" then
+    return "Tr Code: Derivatives Batch Data Message (A011V)"
+  end
+  if value == "A012V" then
+    return "Tr Code: Derivatives Batch Data Message (A012V)"
+  end
+  if value == "A013V" then
+    return "Tr Code: Derivatives Batch Data Message (A013V)"
+  end
+  if value == "A015V" then
+    return "Tr Code: Derivatives Batch Data Message (A015V)"
+  end
+  if value == "A016V" then
+    return "Tr Code: Derivatives Batch Data Message (A016V)"
+  end
+  if value == "A017V" then
+    return "Tr Code: Derivatives Batch Data Message (A017V)"
+  end
+  if value == "A018V" then
+    return "Tr Code: Derivatives Batch Data Message (A018V)"
+  end
+  if value == "H404V" then
+    return "Tr Code: Equity Derivatives Adjustment Details Message (H404V)"
+  end
+  if value == "H405V" then
+    return "Tr Code: Equity Derivatives Adjustment Details Message (H405V)"
+  end
+  if value == "H418V" then
+    return "Tr Code: Equity Derivatives Adjustment Details Message (H418V)"
+  end
+  if value == "H606V" then
+    return "Tr Code: Commodity Futures Settlement Reference Ktb Message (H606V)"
+  end
+  if value == "H101V" then
+    return "Tr Code: Derivatives Investor Activities Message (H101V)"
+  end
+  if value == "H102V" then
+    return "Tr Code: Derivatives Investor Activities Message (H102V)"
+  end
+  if value == "H103V" then
+    return "Tr Code: Derivatives Investor Activities Message (H103V)"
+  end
+  if value == "H104V" then
+    return "Tr Code: Derivatives Investor Activities Message (H104V)"
+  end
+  if value == "H105V" then
+    return "Tr Code: Derivatives Investor Activities Message (H105V)"
+  end
+  if value == "H106V" then
+    return "Tr Code: Derivatives Investor Activities Message (H106V)"
+  end
+  if value == "H107V" then
+    return "Tr Code: Derivatives Investor Activities Message (H107V)"
+  end
+  if value == "H108V" then
+    return "Tr Code: Derivatives Investor Activities Message (H108V)"
+  end
+  if value == "H109V" then
+    return "Tr Code: Derivatives Investor Activities Message (H109V)"
+  end
+  if value == "H110V" then
+    return "Tr Code: Derivatives Investor Activities Message (H110V)"
+  end
+  if value == "H111V" then
+    return "Tr Code: Derivatives Investor Activities Message (H111V)"
+  end
+  if value == "H112V" then
+    return "Tr Code: Derivatives Investor Activities Message (H112V)"
+  end
+  if value == "H113V" then
+    return "Tr Code: Derivatives Investor Activities Message (H113V)"
+  end
+  if value == "H115V" then
+    return "Tr Code: Derivatives Investor Activities Message (H115V)"
+  end
+  if value == "H116V" then
+    return "Tr Code: Derivatives Investor Activities Message (H116V)"
+  end
+  if value == "H117V" then
+    return "Tr Code: Derivatives Investor Activities Message (H117V)"
+  end
+  if value == "H118V" then
+    return "Tr Code: Derivatives Investor Activities Message (H118V)"
+  end
+  if value == "H201V" then
+    return "Tr Code: Derivatives Open Interest Message (H201V)"
+  end
+  if value == "H202V" then
+    return "Tr Code: Derivatives Open Interest Message (H202V)"
+  end
+  if value == "H203V" then
+    return "Tr Code: Derivatives Open Interest Message (H203V)"
+  end
+  if value == "H204V" then
+    return "Tr Code: Derivatives Open Interest Message (H204V)"
+  end
+  if value == "H205V" then
+    return "Tr Code: Derivatives Open Interest Message (H205V)"
+  end
+  if value == "H206V" then
+    return "Tr Code: Derivatives Open Interest Message (H206V)"
+  end
+  if value == "H207V" then
+    return "Tr Code: Derivatives Open Interest Message (H207V)"
+  end
+  if value == "H208V" then
+    return "Tr Code: Derivatives Open Interest Message (H208V)"
+  end
+  if value == "H209V" then
+    return "Tr Code: Derivatives Open Interest Message (H209V)"
+  end
+  if value == "H210V" then
+    return "Tr Code: Derivatives Open Interest Message (H210V)"
+  end
+  if value == "H211V" then
+    return "Tr Code: Derivatives Open Interest Message (H211V)"
+  end
+  if value == "H212V" then
+    return "Tr Code: Derivatives Open Interest Message (H212V)"
+  end
+  if value == "H213V" then
+    return "Tr Code: Derivatives Open Interest Message (H213V)"
+  end
+  if value == "H215V" then
+    return "Tr Code: Derivatives Open Interest Message (H215V)"
+  end
+  if value == "H216V" then
+    return "Tr Code: Derivatives Open Interest Message (H216V)"
+  end
+  if value == "H217V" then
+    return "Tr Code: Derivatives Open Interest Message (H217V)"
+  end
+  if value == "H218V" then
+    return "Tr Code: Derivatives Open Interest Message (H218V)"
+  end
+  if value == "H301V" then
+    return "Tr Code: Futures Settled Price Message (H301V)"
+  end
+  if value == "H302V" then
+    return "Tr Code: Futures Settled Price Message (H302V)"
+  end
+  if value == "H304V" then
+    return "Tr Code: Futures Settled Price Message (H304V)"
+  end
+  if value == "H306V" then
+    return "Tr Code: Futures Settled Price Message (H306V)"
+  end
+  if value == "H308V" then
+    return "Tr Code: Futures Settled Price Message (H308V)"
+  end
+  if value == "H309V" then
+    return "Tr Code: Futures Settled Price Message (H309V)"
+  end
+  if value == "H310V" then
+    return "Tr Code: Futures Settled Price Message (H310V)"
+  end
+  if value == "H311V" then
+    return "Tr Code: Futures Settled Price Message (H311V)"
+  end
+  if value == "H313V" then
+    return "Tr Code: Futures Settled Price Message (H313V)"
+  end
+  if value == "ID03V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID03V)"
+  end
+  if value == "ID05V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID05V)"
+  end
+  if value == "ID07V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID07V)"
+  end
+  if value == "ID12V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID12V)"
+  end
+  if value == "ID15V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID15V)"
+  end
+  if value == "ID16V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID16V)"
+  end
+  if value == "ID17V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID17V)"
+  end
+  if value == "ID18V" then
+    return "Tr Code: Options Base Price Of Clearing Margins Message (ID18V)"
+  end
+  if value == "P103V" then
+    return "Tr Code: Options Implied Volatility Message (P103V)"
+  end
+  if value == "P112V" then
+    return "Tr Code: Options Implied Volatility Message (P112V)"
+  end
+  if value == "P115V" then
+    return "Tr Code: Options Implied Volatility Message (P115V)"
+  end
+  if value == "P116V" then
+    return "Tr Code: Options Implied Volatility Message (P116V)"
+  end
+  if value == "P117V" then
+    return "Tr Code: Options Implied Volatility Message (P117V)"
+  end
+  if value == "N703V" then
+    return "Tr Code: Options Sensitivity Message (N703V)"
+  end
+  if value == "N705V" then
+    return "Tr Code: Options Sensitivity Message (N705V)"
+  end
+  if value == "N707V" then
+    return "Tr Code: Options Sensitivity Message (N707V)"
+  end
+  if value == "N712V" then
+    return "Tr Code: Options Sensitivity Message (N712V)"
+  end
+  if value == "N715V" then
+    return "Tr Code: Options Sensitivity Message (N715V)"
+  end
+  if value == "N716V" then
+    return "Tr Code: Options Sensitivity Message (N716V)"
+  end
+  if value == "N717V" then
+    return "Tr Code: Options Sensitivity Message (N717V)"
+  end
+  if value == "N718V" then
+    return "Tr Code: Options Sensitivity Message (N718V)"
+  end
+  if value == "H506V" then
+    return "Tr Code: Commodity Futures Spot Settlement Reference Message (H506V)"
+  end
+  if value == "H599V" then
+    return "Tr Code: Commodity Futures Spot Settlement Reference Message (H599V)"
+  end
+  if value == "HA06V" then
+    return "Tr Code: Daily Disclosed Rfr Message (HA06V)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_nightderivatives_exture_v2_020.text_encoding))
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -14641,1365 +14641,1365 @@ end
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect Polling Data Message
-  if message_code == "I2000" then
+  if tr_code == "I2000" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.polling_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B601V" then
+  if tr_code == "B601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B602V" then
+  if tr_code == "B602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B603V" then
+  if tr_code == "B603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B606V" then
+  if tr_code == "B606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B607V" then
+  if tr_code == "B607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B608V" then
+  if tr_code == "B608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B609V" then
+  if tr_code == "B609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B610V" then
+  if tr_code == "B610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B611V" then
+  if tr_code == "B611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B612V" then
+  if tr_code == "B612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B613V" then
+  if tr_code == "B613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B615V" then
+  if tr_code == "B615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B616V" then
+  if tr_code == "B616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Five Levels Message
-  if message_code == "B617V" then
+  if tr_code == "B617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B604V" then
+  if tr_code == "B604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B605V" then
+  if tr_code == "B605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quote Ten Levels Message
-  if message_code == "B618V" then
+  if tr_code == "B618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B201V" then
+  if tr_code == "B201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B202V" then
+  if tr_code == "B202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B203V" then
+  if tr_code == "B203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B206V" then
+  if tr_code == "B206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B207V" then
+  if tr_code == "B207V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B208V" then
+  if tr_code == "B208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B209V" then
+  if tr_code == "B209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B210V" then
+  if tr_code == "B210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B211V" then
+  if tr_code == "B211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B212V" then
+  if tr_code == "B212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B213V" then
+  if tr_code == "B213V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B215V" then
+  if tr_code == "B215V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B216V" then
+  if tr_code == "B216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Five Levels Message
-  if message_code == "B217V" then
+  if tr_code == "B217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B204V" then
+  if tr_code == "B204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B205V" then
+  if tr_code == "B205V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Snapshot Ten Levels Message
-  if message_code == "B218V" then
+  if tr_code == "B218V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A301V" then
+  if tr_code == "A301V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A302V" then
+  if tr_code == "A302V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A303V" then
+  if tr_code == "A303V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A304V" then
+  if tr_code == "A304V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A305V" then
+  if tr_code == "A305V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A306V" then
+  if tr_code == "A306V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A307V" then
+  if tr_code == "A307V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A308V" then
+  if tr_code == "A308V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A309V" then
+  if tr_code == "A309V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A310V" then
+  if tr_code == "A310V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A311V" then
+  if tr_code == "A311V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A312V" then
+  if tr_code == "A312V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A313V" then
+  if tr_code == "A313V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A315V" then
+  if tr_code == "A315V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A316V" then
+  if tr_code == "A316V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A317V" then
+  if tr_code == "A317V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Message
-  if message_code == "A318V" then
+  if tr_code == "A318V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G701V" then
+  if tr_code == "G701V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G702V" then
+  if tr_code == "G702V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G703V" then
+  if tr_code == "G703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G706V" then
+  if tr_code == "G706V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G707V" then
+  if tr_code == "G707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G708V" then
+  if tr_code == "G708V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G709V" then
+  if tr_code == "G709V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G710V" then
+  if tr_code == "G710V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G711V" then
+  if tr_code == "G711V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G712V" then
+  if tr_code == "G712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G713V" then
+  if tr_code == "G713V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G715V" then
+  if tr_code == "G715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G716V" then
+  if tr_code == "G716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Five Levels Message
-  if message_code == "G717V" then
+  if tr_code == "G717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G704V" then
+  if tr_code == "G704V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G705V" then
+  if tr_code == "G705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Order Filled Plus Quote Ten Levels Message
-  if message_code == "G718V" then
+  if tr_code == "G718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R101V" then
+  if tr_code == "R101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R102V" then
+  if tr_code == "R102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R103V" then
+  if tr_code == "R103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R106V" then
+  if tr_code == "R106V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R107V" then
+  if tr_code == "R107V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R108V" then
+  if tr_code == "R108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R109V" then
+  if tr_code == "R109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R110V" then
+  if tr_code == "R110V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R111V" then
+  if tr_code == "R111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R112V" then
+  if tr_code == "R112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R113V" then
+  if tr_code == "R113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R115V" then
+  if tr_code == "R115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R116V" then
+  if tr_code == "R116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Five Levels Message
-  if message_code == "R117V" then
+  if tr_code == "R117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R104V" then
+  if tr_code == "R104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R105V" then
+  if tr_code == "R105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Plus Quote Ten Levels Message
-  if message_code == "R118V" then
+  if tr_code == "R118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C401V" then
+  if tr_code == "C401V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C402V" then
+  if tr_code == "C402V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C403V" then
+  if tr_code == "C403V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C404V" then
+  if tr_code == "C404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C405V" then
+  if tr_code == "C405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C406V" then
+  if tr_code == "C406V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C407V" then
+  if tr_code == "C407V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C408V" then
+  if tr_code == "C408V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C409V" then
+  if tr_code == "C409V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C410V" then
+  if tr_code == "C410V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C411V" then
+  if tr_code == "C411V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C412V" then
+  if tr_code == "C412V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C413V" then
+  if tr_code == "C413V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C415V" then
+  if tr_code == "C415V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C416V" then
+  if tr_code == "C416V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C417V" then
+  if tr_code == "C417V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Negotiated Trade Message
-  if message_code == "C418V" then
+  if tr_code == "C418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701S" then
+  if tr_code == "A701S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A702S" then
+  if tr_code == "A702S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A703S" then
+  if tr_code == "A703S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A704S" then
+  if tr_code == "A704S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A705S" then
+  if tr_code == "A705S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701Q" then
+  if tr_code == "A701Q" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701X" then
+  if tr_code == "A701X" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701B" then
+  if tr_code == "A701B" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701M" then
+  if tr_code == "A701M" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701K" then
+  if tr_code == "A701K" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701R" then
+  if tr_code == "A701R" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701V" then
+  if tr_code == "A701V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A702V" then
+  if tr_code == "A702V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A703V" then
+  if tr_code == "A703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A704V" then
+  if tr_code == "A704V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A705V" then
+  if tr_code == "A705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A706V" then
+  if tr_code == "A706V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A707V" then
+  if tr_code == "A707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A708V" then
+  if tr_code == "A708V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A709V" then
+  if tr_code == "A709V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A710V" then
+  if tr_code == "A710V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A711V" then
+  if tr_code == "A711V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A712V" then
+  if tr_code == "A712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A713V" then
+  if tr_code == "A713V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A715V" then
+  if tr_code == "A715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A716V" then
+  if tr_code == "A716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A717V" then
+  if tr_code == "A717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A718V" then
+  if tr_code == "A718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701G" then
+  if tr_code == "A701G" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Ts Message
-  if message_code == "A701E" then
+  if tr_code == "A701E" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A601V" then
+  if tr_code == "A601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A602V" then
+  if tr_code == "A602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A603V" then
+  if tr_code == "A603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A604V" then
+  if tr_code == "A604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A605V" then
+  if tr_code == "A605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A606V" then
+  if tr_code == "A606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A607V" then
+  if tr_code == "A607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A608V" then
+  if tr_code == "A608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A609V" then
+  if tr_code == "A609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A610V" then
+  if tr_code == "A610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A611V" then
+  if tr_code == "A611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A612V" then
+  if tr_code == "A612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A613V" then
+  if tr_code == "A613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A615V" then
+  if tr_code == "A615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A616V" then
+  if tr_code == "A616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A617V" then
+  if tr_code == "A617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Issue Closing Message
-  if message_code == "A618V" then
+  if tr_code == "A618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401S" then
+  if tr_code == "M401S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M402S" then
+  if tr_code == "M402S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M403S" then
+  if tr_code == "M403S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M404S" then
+  if tr_code == "M404S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M405S" then
+  if tr_code == "M405S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401Q" then
+  if tr_code == "M401Q" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401X" then
+  if tr_code == "M401X" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401B" then
+  if tr_code == "M401B" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401M" then
+  if tr_code == "M401M" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401K" then
+  if tr_code == "M401K" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401R" then
+  if tr_code == "M401R" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401V" then
+  if tr_code == "M401V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M402V" then
+  if tr_code == "M402V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M403V" then
+  if tr_code == "M403V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M404V" then
+  if tr_code == "M404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M405V" then
+  if tr_code == "M405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M406V" then
+  if tr_code == "M406V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M407V" then
+  if tr_code == "M407V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M408V" then
+  if tr_code == "M408V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M409V" then
+  if tr_code == "M409V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M410V" then
+  if tr_code == "M410V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M411V" then
+  if tr_code == "M411V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M412V" then
+  if tr_code == "M412V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M413V" then
+  if tr_code == "M413V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M415V" then
+  if tr_code == "M415V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M416V" then
+  if tr_code == "M416V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M417V" then
+  if tr_code == "M417V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M418V" then
+  if tr_code == "M418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401G" then
+  if tr_code == "M401G" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Market Operation Schedule Message
-  if message_code == "M401E" then
+  if tr_code == "M401E" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_schedule_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q201V" then
+  if tr_code == "Q201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q202V" then
+  if tr_code == "Q202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q203V" then
+  if tr_code == "Q203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q204V" then
+  if tr_code == "Q204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q206V" then
+  if tr_code == "Q206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q208V" then
+  if tr_code == "Q208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q209V" then
+  if tr_code == "Q209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q210V" then
+  if tr_code == "Q210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q211V" then
+  if tr_code == "Q211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q212V" then
+  if tr_code == "Q212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q216V" then
+  if tr_code == "Q216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Dynamic Upper Lower Limit Message
-  if message_code == "Q217V" then
+  if tr_code == "Q217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_dynamic_upper_lower_limit_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V101V" then
+  if tr_code == "V101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V102V" then
+  if tr_code == "V102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V103V" then
+  if tr_code == "V103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V104V" then
+  if tr_code == "V104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V105V" then
+  if tr_code == "V105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V108V" then
+  if tr_code == "V108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V109V" then
+  if tr_code == "V109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V111V" then
+  if tr_code == "V111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V112V" then
+  if tr_code == "V112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V113V" then
+  if tr_code == "V113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V115V" then
+  if tr_code == "V115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V116V" then
+  if tr_code == "V116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V117V" then
+  if tr_code == "V117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Price Limit Range Increase Message
-  if message_code == "V118V" then
+  if tr_code == "V118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_price_limit_range_increase_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O601S" then
+  if tr_code == "O601S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O603S" then
+  if tr_code == "O603S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O604S" then
+  if tr_code == "O604S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O605S" then
+  if tr_code == "O605S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O601Q" then
+  if tr_code == "O601Q" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O601X" then
+  if tr_code == "O601X" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O601V" then
+  if tr_code == "O601V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O602V" then
+  if tr_code == "O602V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O603V" then
+  if tr_code == "O603V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O604V" then
+  if tr_code == "O604V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O605V" then
+  if tr_code == "O605V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O606V" then
+  if tr_code == "O606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O607V" then
+  if tr_code == "O607V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O608V" then
+  if tr_code == "O608V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O609V" then
+  if tr_code == "O609V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O610V" then
+  if tr_code == "O610V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O611V" then
+  if tr_code == "O611V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O612V" then
+  if tr_code == "O612V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O613V" then
+  if tr_code == "O613V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O615V" then
+  if tr_code == "O615V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O616V" then
+  if tr_code == "O616V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O617V" then
+  if tr_code == "O617V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Quantity Allocation Message
-  if message_code == "O618V" then
+  if tr_code == "O618V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quantity_allocation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF01S" then
+  if tr_code == "IF01S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF02S" then
+  if tr_code == "IF02S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF03S" then
+  if tr_code == "IF03S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF04S" then
+  if tr_code == "IF04S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF05S" then
+  if tr_code == "IF05S" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF01Q" then
+  if tr_code == "IF01Q" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF01V" then
+  if tr_code == "IF01V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF02V" then
+  if tr_code == "IF02V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF03V" then
+  if tr_code == "IF03V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF04V" then
+  if tr_code == "IF04V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF05V" then
+  if tr_code == "IF05V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF06V" then
+  if tr_code == "IF06V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF07V" then
+  if tr_code == "IF07V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF08V" then
+  if tr_code == "IF08V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF09V" then
+  if tr_code == "IF09V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF10V" then
+  if tr_code == "IF10V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF11V" then
+  if tr_code == "IF11V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF12V" then
+  if tr_code == "IF12V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF13V" then
+  if tr_code == "IF13V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF15V" then
+  if tr_code == "IF15V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF16V" then
+  if tr_code == "IF16V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF17V" then
+  if tr_code == "IF17V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Group Order Acceptance Halt Message
-  if message_code == "IF18V" then
+  if tr_code == "IF18V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_group_order_acceptance_halt_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A001V" then
+  if tr_code == "A001V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A002V" then
+  if tr_code == "A002V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A003V" then
+  if tr_code == "A003V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A004V" then
+  if tr_code == "A004V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A005V" then
+  if tr_code == "A005V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A006V" then
+  if tr_code == "A006V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A007V" then
+  if tr_code == "A007V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A008V" then
+  if tr_code == "A008V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A009V" then
+  if tr_code == "A009V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A010V" then
+  if tr_code == "A010V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A011V" then
+  if tr_code == "A011V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A012V" then
+  if tr_code == "A012V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A013V" then
+  if tr_code == "A013V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A015V" then
+  if tr_code == "A015V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A016V" then
+  if tr_code == "A016V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A017V" then
+  if tr_code == "A017V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Batch Data Message
-  if message_code == "A018V" then
+  if tr_code == "A018V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_batch_data_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H404V" then
+  if tr_code == "H404V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H405V" then
+  if tr_code == "H405V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Equity Derivatives Adjustment Details Message
-  if message_code == "H418V" then
+  if tr_code == "H418V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.equity_derivatives_adjustment_details_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Settlement Reference Ktb Message
-  if message_code == "H606V" then
+  if tr_code == "H606V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_settlement_reference_ktb_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H101V" then
+  if tr_code == "H101V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H102V" then
+  if tr_code == "H102V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H103V" then
+  if tr_code == "H103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H104V" then
+  if tr_code == "H104V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H105V" then
+  if tr_code == "H105V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H106V" then
+  if tr_code == "H106V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H107V" then
+  if tr_code == "H107V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H108V" then
+  if tr_code == "H108V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H109V" then
+  if tr_code == "H109V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H110V" then
+  if tr_code == "H110V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H111V" then
+  if tr_code == "H111V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H112V" then
+  if tr_code == "H112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H113V" then
+  if tr_code == "H113V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H115V" then
+  if tr_code == "H115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H116V" then
+  if tr_code == "H116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H117V" then
+  if tr_code == "H117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Investor Activities Message
-  if message_code == "H118V" then
+  if tr_code == "H118V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_investor_activities_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H201V" then
+  if tr_code == "H201V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H202V" then
+  if tr_code == "H202V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H203V" then
+  if tr_code == "H203V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H204V" then
+  if tr_code == "H204V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H205V" then
+  if tr_code == "H205V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H206V" then
+  if tr_code == "H206V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H207V" then
+  if tr_code == "H207V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H208V" then
+  if tr_code == "H208V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H209V" then
+  if tr_code == "H209V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H210V" then
+  if tr_code == "H210V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H211V" then
+  if tr_code == "H211V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H212V" then
+  if tr_code == "H212V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H213V" then
+  if tr_code == "H213V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H215V" then
+  if tr_code == "H215V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H216V" then
+  if tr_code == "H216V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H217V" then
+  if tr_code == "H217V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Derivatives Open Interest Message
-  if message_code == "H218V" then
+  if tr_code == "H218V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_open_interest_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H301V" then
+  if tr_code == "H301V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H302V" then
+  if tr_code == "H302V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H304V" then
+  if tr_code == "H304V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H306V" then
+  if tr_code == "H306V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H308V" then
+  if tr_code == "H308V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H309V" then
+  if tr_code == "H309V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H310V" then
+  if tr_code == "H310V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H311V" then
+  if tr_code == "H311V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Futures Settled Price Message
-  if message_code == "H313V" then
+  if tr_code == "H313V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.futures_settled_price_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID03V" then
+  if tr_code == "ID03V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID05V" then
+  if tr_code == "ID05V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID07V" then
+  if tr_code == "ID07V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID12V" then
+  if tr_code == "ID12V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID15V" then
+  if tr_code == "ID15V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID16V" then
+  if tr_code == "ID16V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID17V" then
+  if tr_code == "ID17V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Base Price Of Clearing Margins Message
-  if message_code == "ID18V" then
+  if tr_code == "ID18V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_base_price_of_clearing_margins_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P103V" then
+  if tr_code == "P103V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P112V" then
+  if tr_code == "P112V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P115V" then
+  if tr_code == "P115V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P116V" then
+  if tr_code == "P116V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Implied Volatility Message
-  if message_code == "P117V" then
+  if tr_code == "P117V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_implied_volatility_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N703V" then
+  if tr_code == "N703V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N705V" then
+  if tr_code == "N705V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N707V" then
+  if tr_code == "N707V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N712V" then
+  if tr_code == "N712V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N715V" then
+  if tr_code == "N715V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N716V" then
+  if tr_code == "N716V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N717V" then
+  if tr_code == "N717V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Options Sensitivity Message
-  if message_code == "N718V" then
+  if tr_code == "N718V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.options_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Spot Settlement Reference Message
-  if message_code == "H506V" then
+  if tr_code == "H506V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_spot_settlement_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Commodity Futures Spot Settlement Reference Message
-  if message_code == "H599V" then
+  if tr_code == "H599V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.commodity_futures_spot_settlement_reference_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Daily Disclosed Rfr Message
-  if message_code == "HA06V" then
+  if tr_code == "HA06V" then
     return koscom_mdcsrealtime_nightderivatives_exture_v2_020.daily_disclosed_rfr_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -16011,7 +16011,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.size
 end
 
 -- Dissect Packet
@@ -16023,11 +16023,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.packet.dissect = function(buf
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_nightderivatives_exture_v2_020.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_nightderivatives_exture_v2_020.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 29 branches
-    index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index

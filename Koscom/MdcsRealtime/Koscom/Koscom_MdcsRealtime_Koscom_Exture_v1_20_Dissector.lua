@@ -126,7 +126,6 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.lower_limit_price_before_acti
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.market_base_rate = ProtoField.new("Market Base Rate", "koscom.mdcsrealtime.koscom.exture.v1.20.marketbaserate", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.market_data_type = ProtoField.new("Market Data Type", "koscom.mdcsrealtime.koscom.exture.v1.20.marketdatatype", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.market_price_index = ProtoField.new("Market Price Index", "koscom.mdcsrealtime.koscom.exture.v1.20.marketpriceindex", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.koscom.exture.v1.20.messagecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.name_of_counterparty = ProtoField.new("Name Of Counterparty", "koscom.mdcsrealtime.koscom.exture.v1.20.nameofcounterparty", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.net_assets_amount = ProtoField.new("Net Assets Amount", "koscom.mdcsrealtime.koscom.exture.v1.20.netassetsamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.number_of_freefloating_etf_shares = ProtoField.new("Number Of Freefloating Etf Shares", "koscom.mdcsrealtime.koscom.exture.v1.20.numberoffreefloatingetfshares", ftypes.STRING)
@@ -205,6 +204,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_remaining_quantity_of_a
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_remaining_quantity_of_bid = ProtoField.new("Total Remaining Quantity Of Bid", "koscom.mdcsrealtime.koscom.exture.v1.20.totalremainingquantityofbid", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_trading_accumulated_value = ProtoField.new("Total Trading Accumulated Value", "koscom.mdcsrealtime.koscom.exture.v1.20.totaltradingaccumulatedvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_trading_accumulated_volume = ProtoField.new("Total Trading Accumulated Volume", "koscom.mdcsrealtime.koscom.exture.v1.20.totaltradingaccumulatedvolume", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.tr_code = ProtoField.new("Tr Code", "koscom.mdcsrealtime.koscom.exture.v1.20.trcode", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.tracking_error = ProtoField.new("Tracking Error", "koscom.mdcsrealtime.koscom.exture.v1.20.trackingerror", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_category = ProtoField.new("Trading Category", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingcategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_date = ProtoField.new("Trading Date", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingdate", ftypes.STRING)
@@ -3554,138 +3554,6 @@ koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.dissect = function(bu
   return offset + length, value
 end
 
--- Message Code
-koscom_mdcsrealtime_koscom_exture_v1_20.message_code = {}
-
--- Size: Message Code
-koscom_mdcsrealtime_koscom_exture_v1_20.message_code.size = 5
-
--- Display: Message Code
-koscom_mdcsrealtime_koscom_exture_v1_20.message_code.display = function(value)
-  if value == "A6013" then
-    return "Message Code: K Otc Issue Closing Message (A6013)"
-  end
-  if value == "A7013" then
-    return "Message Code: K Otc Market Operation Message (A7013)"
-  end
-  if value == "G5013" then
-    return "Message Code: K Otc Market Action Message (G5013)"
-  end
-  if value == "A2013" then
-    return "Message Code: K Otc Quote Message (A2013)"
-  end
-  if value == "A3013" then
-    return "Message Code: K Otc Order Filled Message (A3013)"
-  end
-  if value == "J6077" then
-    return "Message Code: Otc Bond Traded Info Message (J6077)"
-  end
-  if value == "J7077" then
-    return "Message Code: Otc Bond Trades Per Institution Message (J7077)"
-  end
-  if value == "C1077" then
-    return "Message Code: Otc Bond Types Per Investor Message (C1077)"
-  end
-  if value == "L9077" then
-    return "Message Code: K Bond Message (L9077)"
-  end
-  if value == "E2000" then
-    return "Message Code: Mkf Index Message (E2000)"
-  end
-  if value == "O9000" then
-    return "Message Code: Mkf Index Jpy Message (O9000)"
-  end
-  if value == "P3000" then
-    return "Message Code: Wisefn Index Message (P3000)"
-  end
-  if value == "BP000" then
-    return "Message Code: Kis Index Message (BP000)"
-  end
-  if value == "K0000" then
-    return "Message Code: Mkf Bond Index Message (K0000)"
-  end
-  if value == "L6000" then
-    return "Message Code: Kis Bond Index Message (L6000)"
-  end
-  if value == "K6000" then
-    return "Message Code: Kebi Bond Index Message (K6000)"
-  end
-  if value == "Q6000" then
-    return "Message Code: Kabi Bond Index Message (Q6000)"
-  end
-  if value == "CE000" then
-    return "Message Code: Nicepni Bond Index Message (CE000)"
-  end
-  if value == "BV03S" then
-    return "Message Code: Domestic Etf Inav Message (BV03S)"
-  end
-  if value == "BW03S" then
-    return "Message Code: Domestic Etf Estimated Inav Message (BW03S)"
-  end
-  if value == "L503S" then
-    return "Message Code: Global Etf Inav Message (L503S)"
-  end
-  if value == "P603S" then
-    return "Message Code: Etf Tracking Error Message (P603S)"
-  end
-  if value == "P703S" then
-    return "Message Code: Global Etf Tracking Error Message (P703S)"
-  end
-  if value == "F803S" then
-    return "Message Code: Etp Pdf Message (F803S)"
-  end
-  if value == "M803S" then
-    return "Message Code: Etp Operator Information Message (M803S)"
-  end
-  if value == "M805S" then
-    return "Message Code: Etp Operator Information Message (M805S)"
-  end
-  if value == "M801Q" then
-    return "Message Code: Etp Operator Information Message (M801Q)"
-  end
-  if value == "N803S" then
-    return "Message Code: Etp Transfer Agent Batch Message (N803S)"
-  end
-  if value == "N805S" then
-    return "Message Code: Etp Transfer Agent Batch Message (N805S)"
-  end
-  if value == "N801Q" then
-    return "Message Code: Etp Transfer Agent Batch Message (N801Q)"
-  end
-  if value == "Q403S" then
-    return "Message Code: Etf Risk Appraisement Message (Q403S)"
-  end
-  if value == "Q503S" then
-    return "Message Code: Synthetic Etf Constituents Message (Q503S)"
-  end
-  if value == "C702S" then
-    return "Message Code: Elw Investment Indicator Sensitivity Message (C702S)"
-  end
-  if value == "S304S" then
-    return "Message Code: Etn Iiv Message (S304S)"
-  end
-  if value == "X404S" then
-    return "Message Code: Etn Disparate Ratio Message (X404S)"
-  end
-  if value == "CC000" then
-    return "Message Code: Loan Transaction Available Quantity Message (CC000)"
-  end
-
-  return "Message Code: Unknown("..value..")"
-end
-
--- Dissect: Message Code
-koscom_mdcsrealtime_koscom_exture_v1_20.message_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.message_code, range, value, display)
-
-  return offset + length, value
-end
-
 -- Name Of Counterparty
 koscom_mdcsrealtime_koscom_exture_v1_20.name_of_counterparty = {}
 
@@ -5923,6 +5791,138 @@ koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_volume.dissect
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.total_trading_accumulated_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.total_trading_accumulated_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tr Code
+koscom_mdcsrealtime_koscom_exture_v1_20.tr_code = {}
+
+-- Size: Tr Code
+koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.size = 5
+
+-- Display: Tr Code
+koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.display = function(value)
+  if value == "A6013" then
+    return "Tr Code: K Otc Issue Closing Message (A6013)"
+  end
+  if value == "A7013" then
+    return "Tr Code: K Otc Market Operation Message (A7013)"
+  end
+  if value == "G5013" then
+    return "Tr Code: K Otc Market Action Message (G5013)"
+  end
+  if value == "A2013" then
+    return "Tr Code: K Otc Quote Message (A2013)"
+  end
+  if value == "A3013" then
+    return "Tr Code: K Otc Order Filled Message (A3013)"
+  end
+  if value == "J6077" then
+    return "Tr Code: Otc Bond Traded Info Message (J6077)"
+  end
+  if value == "J7077" then
+    return "Tr Code: Otc Bond Trades Per Institution Message (J7077)"
+  end
+  if value == "C1077" then
+    return "Tr Code: Otc Bond Types Per Investor Message (C1077)"
+  end
+  if value == "L9077" then
+    return "Tr Code: K Bond Message (L9077)"
+  end
+  if value == "E2000" then
+    return "Tr Code: Mkf Index Message (E2000)"
+  end
+  if value == "O9000" then
+    return "Tr Code: Mkf Index Jpy Message (O9000)"
+  end
+  if value == "P3000" then
+    return "Tr Code: Wisefn Index Message (P3000)"
+  end
+  if value == "BP000" then
+    return "Tr Code: Kis Index Message (BP000)"
+  end
+  if value == "K0000" then
+    return "Tr Code: Mkf Bond Index Message (K0000)"
+  end
+  if value == "L6000" then
+    return "Tr Code: Kis Bond Index Message (L6000)"
+  end
+  if value == "K6000" then
+    return "Tr Code: Kebi Bond Index Message (K6000)"
+  end
+  if value == "Q6000" then
+    return "Tr Code: Kabi Bond Index Message (Q6000)"
+  end
+  if value == "CE000" then
+    return "Tr Code: Nicepni Bond Index Message (CE000)"
+  end
+  if value == "BV03S" then
+    return "Tr Code: Domestic Etf Inav Message (BV03S)"
+  end
+  if value == "BW03S" then
+    return "Tr Code: Domestic Etf Estimated Inav Message (BW03S)"
+  end
+  if value == "L503S" then
+    return "Tr Code: Global Etf Inav Message (L503S)"
+  end
+  if value == "P603S" then
+    return "Tr Code: Etf Tracking Error Message (P603S)"
+  end
+  if value == "P703S" then
+    return "Tr Code: Global Etf Tracking Error Message (P703S)"
+  end
+  if value == "F803S" then
+    return "Tr Code: Etp Pdf Message (F803S)"
+  end
+  if value == "M803S" then
+    return "Tr Code: Etp Operator Information Message (M803S)"
+  end
+  if value == "M805S" then
+    return "Tr Code: Etp Operator Information Message (M805S)"
+  end
+  if value == "M801Q" then
+    return "Tr Code: Etp Operator Information Message (M801Q)"
+  end
+  if value == "N803S" then
+    return "Tr Code: Etp Transfer Agent Batch Message (N803S)"
+  end
+  if value == "N805S" then
+    return "Tr Code: Etp Transfer Agent Batch Message (N805S)"
+  end
+  if value == "N801Q" then
+    return "Tr Code: Etp Transfer Agent Batch Message (N801Q)"
+  end
+  if value == "Q403S" then
+    return "Tr Code: Etf Risk Appraisement Message (Q403S)"
+  end
+  if value == "Q503S" then
+    return "Tr Code: Synthetic Etf Constituents Message (Q503S)"
+  end
+  if value == "C702S" then
+    return "Tr Code: Elw Investment Indicator Sensitivity Message (C702S)"
+  end
+  if value == "S304S" then
+    return "Tr Code: Etn Iiv Message (S304S)"
+  end
+  if value == "X404S" then
+    return "Tr Code: Etn Disparate Ratio Message (X404S)"
+  end
+  if value == "CC000" then
+    return "Tr Code: Loan Transaction Available Quantity Message (CC000)"
+  end
+
+  return "Tr Code: Unknown("..value..")"
+end
+
+-- Dissect: Tr Code
+koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.tr_code, range, value, display)
 
   return offset + length, value
 end
@@ -9122,149 +9122,149 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.payload = {}
 
 -- Dissect: Payload
-koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect = function(buffer, offset, packet, parent, message_code)
+koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect = function(buffer, offset, packet, parent, tr_code)
   -- Dissect K Otc Issue Closing Message
-  if message_code == "A6013" then
+  if tr_code == "A6013" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_issue_closing_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect K Otc Market Operation Message
-  if message_code == "A7013" then
+  if tr_code == "A7013" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_operation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect K Otc Market Action Message
-  if message_code == "G5013" then
+  if tr_code == "G5013" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_action_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect K Otc Quote Message
-  if message_code == "A2013" then
+  if tr_code == "A2013" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_quote_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect K Otc Order Filled Message
-  if message_code == "A3013" then
+  if tr_code == "A3013" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_order_filled_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Otc Bond Traded Info Message
-  if message_code == "J6077" then
+  if tr_code == "J6077" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_traded_info_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Otc Bond Trades Per Institution Message
-  if message_code == "J7077" then
+  if tr_code == "J7077" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_trades_per_institution_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Otc Bond Types Per Investor Message
-  if message_code == "C1077" then
+  if tr_code == "C1077" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_types_per_investor_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect K Bond Message
-  if message_code == "L9077" then
+  if tr_code == "L9077" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.k_bond_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mkf Index Message
-  if message_code == "E2000" then
+  if tr_code == "E2000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mkf Index Jpy Message
-  if message_code == "O9000" then
+  if tr_code == "O9000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_jpy_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Wisefn Index Message
-  if message_code == "P3000" then
+  if tr_code == "P3000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.wisefn_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Kis Index Message
-  if message_code == "BP000" then
+  if tr_code == "BP000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.kis_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mkf Bond Index Message
-  if message_code == "K0000" then
+  if tr_code == "K0000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.mkf_bond_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Kis Bond Index Message
-  if message_code == "L6000" then
+  if tr_code == "L6000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.kis_bond_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Kebi Bond Index Message
-  if message_code == "K6000" then
+  if tr_code == "K6000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.kebi_bond_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Kabi Bond Index Message
-  if message_code == "Q6000" then
+  if tr_code == "Q6000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Nicepni Bond Index Message
-  if message_code == "CE000" then
+  if tr_code == "CE000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.nicepni_bond_index_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Domestic Etf Inav Message
-  if message_code == "BV03S" then
+  if tr_code == "BV03S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.domestic_etf_inav_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Domestic Etf Estimated Inav Message
-  if message_code == "BW03S" then
+  if tr_code == "BW03S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.domestic_etf_estimated_inav_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Etf Inav Message
-  if message_code == "L503S" then
+  if tr_code == "L503S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.global_etf_inav_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etf Tracking Error Message
-  if message_code == "P603S" then
+  if tr_code == "P603S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etf_tracking_error_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Global Etf Tracking Error Message
-  if message_code == "P703S" then
+  if tr_code == "P703S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.global_etf_tracking_error_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Pdf Message
-  if message_code == "F803S" then
+  if tr_code == "F803S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_pdf_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Operator Information Message
-  if message_code == "M803S" then
+  if tr_code == "M803S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_operator_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Operator Information Message
-  if message_code == "M805S" then
+  if tr_code == "M805S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_operator_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Operator Information Message
-  if message_code == "M801Q" then
+  if tr_code == "M801Q" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_operator_information_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Transfer Agent Batch Message
-  if message_code == "N803S" then
+  if tr_code == "N803S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Transfer Agent Batch Message
-  if message_code == "N805S" then
+  if tr_code == "N805S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etp Transfer Agent Batch Message
-  if message_code == "N801Q" then
+  if tr_code == "N801Q" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etp_transfer_agent_batch_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etf Risk Appraisement Message
-  if message_code == "Q403S" then
+  if tr_code == "Q403S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etf_risk_appraisement_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Synthetic Etf Constituents Message
-  if message_code == "Q503S" then
+  if tr_code == "Q503S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.synthetic_etf_constituents_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Elw Investment Indicator Sensitivity Message
-  if message_code == "C702S" then
+  if tr_code == "C702S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.elw_investment_indicator_sensitivity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etn Iiv Message
-  if message_code == "S304S" then
+  if tr_code == "S304S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etn_iiv_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Etn Disparate Ratio Message
-  if message_code == "X404S" then
+  if tr_code == "X404S" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.etn_disparate_ratio_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Loan Transaction Available Quantity Message
-  if message_code == "CC000" then
+  if tr_code == "CC000" then
     return koscom_mdcsrealtime_koscom_exture_v1_20.loan_transaction_available_quantity_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -9276,7 +9276,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.packet = {}
 
 -- Verify required size of Udp packet
 koscom_mdcsrealtime_koscom_exture_v1_20.packet.requiredsize = function(buffer)
-  return buffer:len() >= koscom_mdcsrealtime_koscom_exture_v1_20.message_code.size
+  return buffer:len() >= koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.size
 end
 
 -- Dissect Packet
@@ -9288,11 +9288,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.packet.dissect = function(buffer, packet
 
   while index < end_of_payload do
 
-    -- Message Code: String
-    index, message_code = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.dissect(buffer, index, packet, parent)
+    -- Tr Code: String
+    index, tr_code = koscom_mdcsrealtime_koscom_exture_v1_20.tr_code.dissect(buffer, index, packet, parent)
 
     -- Payload: Runtime Type with 32 branches
-    index = koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect(buffer, index, packet, parent, message_code)
+    index = koscom_mdcsrealtime_koscom_exture_v1_20.payload.dissect(buffer, index, packet, parent, tr_code)
   end
 
   return index
