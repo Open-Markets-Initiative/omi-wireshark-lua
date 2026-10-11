@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1321 | 8,900,129 |
+| 1321 | 8,906,266 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing

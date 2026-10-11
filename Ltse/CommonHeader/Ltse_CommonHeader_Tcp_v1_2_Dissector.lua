@@ -1548,22 +1548,34 @@ function omi_ltse_commonheader_tcp_v1_2.dissector(buffer, packet, parent)
   packet.cols.protocol = omi_ltse_commonheader_tcp_v1_2.name
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_ltse_commonheader_tcp_v1_2, buffer(offset), omi_ltse_commonheader_tcp_v1_2.description, "("..(length - offset).." Bytes)")
-    local consumed = ltse_commonheader_tcp_v1_2.packet.dissect(buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    if consumed == nil or consumed <= 0 then
-      return offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < ltse_commonheader_tcp_v1_2.common_header.size then
+      packet.desegment_offset = index
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 1, 2):uint() + 3
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_ltse_commonheader_tcp_v1_2, buffer(index, size), omi_ltse_commonheader_tcp_v1_2.description, "("..size.." Bytes)")
+    ltse_commonheader_tcp_v1_2.packet.dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 

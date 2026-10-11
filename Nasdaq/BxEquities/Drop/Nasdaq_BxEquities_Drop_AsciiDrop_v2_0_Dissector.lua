@@ -35,6 +35,7 @@ omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.token = ProtoField.new("Token",
 omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.user = ProtoField.new("User", "nasdaq.bxequities.drop.asciidrop.v2.0.user", ftypes.STRING)
 
 -- Nasdaq BxEquities Drop AsciiDrop 2.0 Framing
+omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.frame = ProtoField.new("Frame", "nasdaq.bxequities.drop.asciidrop.v2.0.frame", ftypes.STRING)
 omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.line = ProtoField.new("Line", "nasdaq.bxequities.drop.asciidrop.v2.0.line", ftypes.STRING)
 omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.bxequities.drop.asciidrop.v2.0.messageheader", ftypes.STRING)
 
@@ -1247,6 +1248,80 @@ nasdaq_bxequities_drop_asciidrop_v2_0.message_header.dissect = function(buffer, 
   end
 end
 
+-- Frame
+nasdaq_bxequities_drop_asciidrop_v2_0.frame = {}
+
+-- Display: Frame
+nasdaq_bxequities_drop_asciidrop_v2_0.frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Frame
+nasdaq_bxequities_drop_asciidrop_v2_0.frame.fields = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = nasdaq_bxequities_drop_asciidrop_v2_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Message: Runtime Type with 4 branches
+  index = nasdaq_bxequities_drop_asciidrop_v2_0.message.dissect(buffer, index, packet, parent, message_type)
+
+  -- Cr: 1 Byte Fixed Width Integer Static
+  index, cr = nasdaq_bxequities_drop_asciidrop_v2_0.cr.dissect(buffer, index, packet, parent)
+
+  -- Lf: 1 Byte Fixed Width Integer Static
+  index, lf = nasdaq_bxequities_drop_asciidrop_v2_0.lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Frame
+nasdaq_bxequities_drop_asciidrop_v2_0.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset + size_of_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_bxequities_drop_asciidrop_v2_0.fields.frame, buffer(offset, 0))
+    local current = nasdaq_bxequities_drop_asciidrop_v2_0.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    parent:set_len(size_of_frame)
+    local display = nasdaq_bxequities_drop_asciidrop_v2_0.frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_bxequities_drop_asciidrop_v2_0.frame.fields(buffer, offset, packet, parent, size_of_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Frame
+local frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
 -- Line
 nasdaq_bxequities_drop_asciidrop_v2_0.line = {}
 
@@ -1259,25 +1334,27 @@ end
 nasdaq_bxequities_drop_asciidrop_v2_0.line.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Line
+  -- Dependency for Frame
   local end_of_payload = buffer:len()
 
+  -- Frame: Struct of 4 fields
   while index < end_of_payload do
 
-    -- Message Header: Struct of 3 fields
-    index, message_header = nasdaq_bxequities_drop_asciidrop_v2_0.message_header.dissect(buffer, index, packet, parent)
+    -- Are minimum number of bytes are available?
+    local available, size_of_frame = frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Dependency element: Message Type
-    local message_type = buffer(index - 1, 1):string()
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_frame):tvb()
+      index = nasdaq_bxequities_drop_asciidrop_v2_0.frame.dissect(frame, index, packet, parent, size_of_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
 
-    -- Message: Runtime Type with 4 branches
-    index = nasdaq_bxequities_drop_asciidrop_v2_0.message.dissect(buffer, index, packet, parent, message_type)
-
-    -- Cr: 1 Byte Fixed Width Integer Static
-    index, cr = nasdaq_bxequities_drop_asciidrop_v2_0.cr.dissect(buffer, index, packet, parent)
-
-    -- Lf: 1 Byte Fixed Width Integer Static
-    index, lf = nasdaq_bxequities_drop_asciidrop_v2_0.lf.dissect(buffer, index, packet, parent)
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -1297,23 +1374,9 @@ function omi_nasdaq_bxequities_drop_asciidrop_v2_0.dissector(buffer, packet, par
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_bxequities_drop_asciidrop_v2_0.name
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nasdaq_bxequities_drop_asciidrop_v2_0, buffer(offset), omi_nasdaq_bxequities_drop_asciidrop_v2_0.description, "("..(length - offset).." Bytes)")
-    local consumed = nasdaq_bxequities_drop_asciidrop_v2_0.line.dissect(buffer(offset):tvb(), packet, protocol)
-
-    if consumed == nil or consumed <= 0 then
-      return offset
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
-  end
-
-  return offset
+  -- Dissect protocol
+  local protocol = parent:add(omi_nasdaq_bxequities_drop_asciidrop_v2_0, buffer(), omi_nasdaq_bxequities_drop_asciidrop_v2_0.description, "("..buffer:len().." Bytes)")
+  return nasdaq_bxequities_drop_asciidrop_v2_0.line.dissect(buffer, packet, protocol)
 end
 
 
