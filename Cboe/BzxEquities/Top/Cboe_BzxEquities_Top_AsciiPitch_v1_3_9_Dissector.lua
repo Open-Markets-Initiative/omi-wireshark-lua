@@ -54,6 +54,7 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.top_lf = ProtoField.new("Top L
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.bzxequities.top.asciipitch.v1.3.9.username", ftypes.STRING)
 
 -- Cboe BzxEquities Top AsciiPitch 1.3.9 Framing
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.frame = ProtoField.new("Frame", "cboe.bzxequities.top.asciipitch.v1.3.9.frame", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 
 -- Cboe BzxEquities Top 1.3.9 Application Messages
@@ -2750,6 +2751,74 @@ cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect = function(buffer, offset
   return offset
 end
 
+-- Frame
+cboe_bzxequities_top_asciipitch_v1_3_9.frame = {}
+
+-- Display: Frame
+cboe_bzxequities_top_asciipitch_v1_3_9.frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Frame
+cboe_bzxequities_top_asciipitch_v1_3_9.frame.fields = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String Enum with 27 values
+  index, message_type = cboe_bzxequities_top_asciipitch_v1_3_9.message_type.dissect(buffer, index, packet, parent)
+
+  -- Payload: Runtime Type with 27 branches
+  index = cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect(buffer, index, packet, parent, message_type)
+
+  -- Top Lf: 1 Byte Fixed Width Integer Static
+  index, top_lf = cboe_bzxequities_top_asciipitch_v1_3_9.top_lf.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Frame
+cboe_bzxequities_top_asciipitch_v1_3_9.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset + size_of_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.frame, buffer(offset, 0))
+    local current = cboe_bzxequities_top_asciipitch_v1_3_9.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    parent:set_len(size_of_frame)
+    local display = cboe_bzxequities_top_asciipitch_v1_3_9.frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cboe_bzxequities_top_asciipitch_v1_3_9.frame.fields(buffer, offset, packet, parent, size_of_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Frame
+local frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- A message runs to the first terminator byte: scan for it
+  local terminator = 10
+  local current = 0
+  while current < remaining and buffer(index + current, 1):uint() ~= terminator do
+    current = current + 1
+  end
+
+  -- The terminator is not in the bytes available yet: ask for one more segment
+  if current >= remaining then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- The message includes the terminator byte it ends on
+  current = current + 1
+
+  return remaining, current
+end
+
 -- Packet
 cboe_bzxequities_top_asciipitch_v1_3_9.packet = {}
 
@@ -2762,19 +2831,27 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Frame
   local end_of_payload = buffer:len()
 
+  -- Frame: Struct of 3 fields
   while index < end_of_payload do
 
-    -- Message Type: 1 Byte Ascii String Enum with 27 values
-    index, message_type = cboe_bzxequities_top_asciipitch_v1_3_9.message_type.dissect(buffer, index, packet, parent)
+    -- Are minimum number of bytes are available?
+    local available, size_of_frame = frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Payload: Runtime Type with 27 branches
-    index = cboe_bzxequities_top_asciipitch_v1_3_9.payload.dissect(buffer, index, packet, parent, message_type)
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_frame):tvb()
+      index = cboe_bzxequities_top_asciipitch_v1_3_9.frame.dissect(frame, index, packet, parent, size_of_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
 
-    -- Top Lf: 1 Byte Fixed Width Integer Static
-    index, top_lf = cboe_bzxequities_top_asciipitch_v1_3_9.top_lf.dissect(buffer, index, packet, parent)
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -2794,23 +2871,9 @@ function omi_cboe_bzxequities_top_asciipitch_v1_3_9.dissector(buffer, packet, pa
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxequities_top_asciipitch_v1_3_9.name
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9, buffer(offset), omi_cboe_bzxequities_top_asciipitch_v1_3_9.description, "("..(length - offset).." Bytes)")
-    local consumed = cboe_bzxequities_top_asciipitch_v1_3_9.packet.dissect(buffer(offset):tvb(), packet, protocol)
-
-    if consumed == nil or consumed <= 0 then
-      return offset
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
-  end
-
-  return offset
+  -- Dissect protocol
+  local protocol = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9, buffer(), omi_cboe_bzxequities_top_asciipitch_v1_3_9.description, "("..buffer:len().." Bytes)")
+  return cboe_bzxequities_top_asciipitch_v1_3_9.packet.dissect(buffer, packet, protocol)
 end
 
 
