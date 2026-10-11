@@ -79,6 +79,7 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
 
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a Generated Fields
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.legdefinitionindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1369,8 +1370,14 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.display = function(packet
 end
 
 -- Dissect Fields: Leg Definition
-nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer, offset, packet, parent)
+nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer, offset, packet, parent, leg_definition_index)
   local index = offset
+
+  -- Implicit Leg Definition Index
+  if leg_definition_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_index.dissect(buffer, index, packet, parent)
@@ -1388,11 +1395,11 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer,
 end
 
 -- Dissect: Leg Definition
-nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent)
+nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
-    local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent)
+    local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.display(packet, parent, length)
@@ -1401,25 +1408,41 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent)
+    return nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
   end
 end
 
 -- Complex Symbol Definition Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message = {}
 
--- Size: Complex Symbol Definition Message
-nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.size =
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.no_of_legs.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.size + 
-  nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.size
+-- Calculate size of: Complex Symbol Definition Message
+nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.no_of_legs.size
+
+  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.size
+
+  -- Calculate field size from count
+  local leg_definition_count = buffer(offset + index - 4, 2):le_uint()
+  index = index + leg_definition_count * 8
+
+  return index
+end
 
 -- Display: Complex Symbol Definition Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.display = function(packet, parent, length)
@@ -1457,8 +1480,10 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.fields
   -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Leg Definition: Struct of 4 fields
-  index, leg_definition = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect(buffer, index, packet, parent)
+  -- Repeating: Leg Definition
+  for leg_definition_index = 1, no_of_legs do
+    index, leg_definition = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect(buffer, index, packet, parent, leg_definition_index)
+  end
 
   return index
 end

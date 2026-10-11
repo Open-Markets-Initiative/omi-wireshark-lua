@@ -1951,6 +1951,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_arcabook_pillar_v2_1)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.1
+--   Since: 1.10
 --   Date: Thursday, October 23, 2025
 --   Specification: ArcaBook_Client_Specification.pdf
 --

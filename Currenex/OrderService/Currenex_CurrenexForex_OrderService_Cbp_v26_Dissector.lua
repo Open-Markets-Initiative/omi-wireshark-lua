@@ -60,6 +60,7 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.type = ProtoField.new("Ty
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.orderservice.cbp.v26.userid", ftypes.STRING)
 
 -- Currenex CurrenexForex OrderService Cbp 26 Framing
+omi_currenex_currenexforex_orderservice_cbp_v26.fields.frame = ProtoField.new("Frame", "currenex.currenexforex.orderservice.cbp.v26.frame", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
 
@@ -90,14 +91,14 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.trade_pending = ProtoFiel
 local show = {}
 
 -- Currenex CurrenexForex OrderService Cbp 26 Element Dissection Options
+show.structs = true
 show.application_messages = true
 show.headers = true
-show.structs = true
 
 -- Register Currenex CurrenexForex OrderService Cbp 26 Show Options
+omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_currenex_currenexforex_orderservice_cbp_v26.prefs_changed()
@@ -2470,6 +2471,84 @@ currenex_currenexforex_orderservice_cbp_v26.message_header.dissect = function(bu
   end
 end
 
+-- Frame
+currenex_currenexforex_orderservice_cbp_v26.frame = {}
+
+-- Display: Frame
+currenex_currenexforex_orderservice_cbp_v26.frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Frame
+currenex_currenexforex_orderservice_cbp_v26.frame.fields = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset
+
+  -- Soh: 1 Byte Fixed Width Integer Static
+  index, soh = currenex_currenexforex_orderservice_cbp_v26.soh.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = currenex_currenexforex_orderservice_cbp_v26.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Message Body: Runtime Type with 18 branches
+  index = currenex_currenexforex_orderservice_cbp_v26.message_body.dissect(buffer, index, packet, parent, message_type)
+
+  -- Etx: 1 Byte Fixed Width Integer
+  index, etx = currenex_currenexforex_orderservice_cbp_v26.etx.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Frame
+currenex_currenexforex_orderservice_cbp_v26.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
+  local index = offset + size_of_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.frame, buffer(offset, 0))
+    local current = currenex_currenexforex_orderservice_cbp_v26.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    parent:set_len(size_of_frame)
+    local display = currenex_currenexforex_orderservice_cbp_v26.frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    currenex_currenexforex_orderservice_cbp_v26.frame.fields(buffer, offset, packet, parent, size_of_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Frame
+local frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- The dispatch key sizes the message: wait for it before reading
+  if remaining < 10 then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Each message's size is fixed per dispatch code
+  local sizes = { ["A"] = 55, ["B"] = 38, ["C"] = 15, ["E"] = 15, ["D"] = 46, ["L"] = 48, ["M"] = 26, ["N"] = 21, ["O"] = 21, ["P"] = 33, ["Q"] = 22, ["R"] = 26, ["T"] = 96, ["U"] = 44, ["V"] = 27, ["t"] = 45, ["2"] = 15, ["4"] = 16 }
+  local current = sizes[buffer(index + 9, 1):string()]
+
+  -- An unknown code cannot be framed: ask for more rather than mis-split the stream
+  if not current then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Packet
 currenex_currenexforex_orderservice_cbp_v26.packet = {}
 
@@ -2482,25 +2561,27 @@ end
 currenex_currenexforex_orderservice_cbp_v26.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Frame
   local end_of_payload = buffer:len()
 
+  -- Frame: Struct of 4 fields
   while index < end_of_payload do
 
-    -- Soh: 1 Byte Fixed Width Integer Static
-    index, soh = currenex_currenexforex_orderservice_cbp_v26.soh.dissect(buffer, index, packet, parent)
+    -- Are minimum number of bytes are available?
+    local available, size_of_frame = frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Message Header: Struct of 3 fields
-    index, message_header = currenex_currenexforex_orderservice_cbp_v26.message_header.dissect(buffer, index, packet, parent)
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_frame):tvb()
+      index = currenex_currenexforex_orderservice_cbp_v26.frame.dissect(frame, index, packet, parent, size_of_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
 
-    -- Dependency element: Message Type
-    local message_type = buffer(index - 1, 1):string()
-
-    -- Message Body: Runtime Type with 18 branches
-    index = currenex_currenexforex_orderservice_cbp_v26.message_body.dissect(buffer, index, packet, parent, message_type)
-
-    -- Etx: 1 Byte Fixed Width Integer
-    index, etx = currenex_currenexforex_orderservice_cbp_v26.etx.dissect(buffer, index, packet, parent)
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index
@@ -2520,23 +2601,9 @@ function omi_currenex_currenexforex_orderservice_cbp_v26.dissector(buffer, packe
   -- Set protocol name
   packet.cols.protocol = omi_currenex_currenexforex_orderservice_cbp_v26.name
 
-  local length = buffer:len()
-  local offset = 0
-
-  -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26, buffer(offset), omi_currenex_currenexforex_orderservice_cbp_v26.description, "("..(length - offset).." Bytes)")
-    local consumed = currenex_currenexforex_orderservice_cbp_v26.packet.dissect(buffer(offset):tvb(), packet, protocol)
-
-    if consumed == nil or consumed <= 0 then
-      return offset
-    end
-
-    protocol:set_len(consumed)
-    offset = offset + consumed
-  end
-
-  return offset
+  -- Dissect protocol
+  local protocol = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26, buffer(), omi_currenex_currenexforex_orderservice_cbp_v26.description, "("..buffer:len().." Bytes)")
+  return currenex_currenexforex_orderservice_cbp_v26.packet.dissect(buffer, packet, protocol)
 end
 
 

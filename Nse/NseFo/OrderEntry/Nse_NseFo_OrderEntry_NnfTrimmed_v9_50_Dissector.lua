@@ -2759,27 +2759,13 @@ end
 -- Message
 nse_nsefo_orderentry_nnftrimmed_v9_50.message = {}
 
--- Calculate size of: Message
-nse_nsefo_orderentry_nnftrimmed_v9_50.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nse_nsefo_orderentry_nnftrimmed_v9_50.transaction_code.size
-
-  -- Calculate runtime size of Message Payload field
-  local message_payload_offset = offset + index
-  local message_payload_type = buffer(message_payload_offset - 2, 2):int()
-  index = index + nse_nsefo_orderentry_nnftrimmed_v9_50.message_payload.size(buffer, message_payload_offset, message_payload_type)
-
-  return index
-end
-
 -- Display: Message
 nse_nsefo_orderentry_nnftrimmed_v9_50.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Transaction Code: SHORT
@@ -2792,21 +2778,51 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields = function(buffer, offset, 
 end
 
 -- Dissect: Message
-nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnftrimmed_v9_50.message.display(packet, parent, length)
+    local current = nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = nse_nsefo_orderentry_nnftrimmed_v9_50.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent)
+    nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- The dispatch key sizes the message: wait for it before reading
+  if remaining < 2 then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Each message's size is fixed per dispatch code
+  local sizes = { [20000] = 155, [20400] = 155, [20040] = 183, [20060] = 183, [20070] = 183, [20402] = 183, [20404] = 183, [20073] = 237, [20074] = 237, [20075] = 237, [20222] = 227, [20401] = 22, [20403] = 22, [20405] = 22, [20407] = 22, [20409] = 22, [20411] = 22, [20413] = 22, [20415] = 22, [20417] = 22 }
+  local current = sizes[buffer(index + 0, 2):int()]
+
+  -- An unknown code cannot be framed: ask for more rather than mis-split the stream
+  if not current then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
 end
 
 -- Packet
@@ -2825,10 +2841,23 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.packet.dissect = function(buffer, packet, 
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
-  local message_index = 0
   while index < end_of_payload do
-    message_index = message_index + 1
-    index, message = nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect(buffer, index, packet, parent)
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_message):tvb()
+      index = nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect(frame, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index

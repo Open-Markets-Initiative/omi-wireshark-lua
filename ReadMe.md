@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1327 | 8,900,980 |
+| 1331 | 8,932,943 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -351,7 +351,9 @@ Enjoy.
 [Hkex.HkexDerivatives.Standard]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/Standard.md "Orion Market Data Derivatives Standard"
 [Hkex.HkexDerivatives.StandardRefresh]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/StandardRefresh.md "Orion Market Data Derivatives Standard Refresh"
 [Hkex.HkexDerivatives.StandardRetrans]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/StandardRetrans.md "Orion Market Data Derivatives Standard Retransmission"
+[Hkex.HkexSecurities.Combined]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/Combined.md "Orion Market Data Cash Combined"
 [Hkex.HkexSecurities.CombinedRefresh]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/CombinedRefresh.md "Orion Market Data Cash Combined Refresh"
+[Hkex.HkexSecurities.CombinedRetrans]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/CombinedRetrans.md "Orion Market Data Cash Combined Retransmission"
 [Hkex.HkexSecurities.FullTick]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/FullTick.md "Orion Market Data Cash FullTick"
 [Hkex.HkexSecurities.FullTickRefresh]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/FullTickRefresh.md "Orion Market Data Cash FullTick Refresh"
 [Hkex.HkexSecurities.FullTickRetrans]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexSecurities/FullTickRetrans.md "Orion Market Data Cash FullTick Retransmission"

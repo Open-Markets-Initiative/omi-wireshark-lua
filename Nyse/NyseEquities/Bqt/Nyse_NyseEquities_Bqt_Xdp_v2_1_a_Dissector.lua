@@ -136,6 +136,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message = Proto
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.bqt.xdp.v2.1.a.symbolindexmappingrequestmessage", ftypes.STRING)
 
 -- Nyse NyseEquities Bqt Xdp 2.1.a Generated Fields
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close_price_index = ProtoField.new("Close Price Index", "nyse.nyseequities.bqt.xdp.v2.1.a.closepriceindex", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v2.1.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2955,8 +2956,14 @@ nyse_nyseequities_bqt_xdp_v2_1_a.close_price.display = function(packet, parent, 
 end
 
 -- Dissect Fields: Close Price
-nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, packet, parent)
+nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, packet, parent, close_price_index)
   local index = offset
+
+  -- Implicit Close Price Index
+  if close_price_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close_price_index, close_price_index)
+    iteration:set_generated()
+  end
 
   -- Market Id Of The Close: Binary
   index, market_id_of_the_close = nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.dissect(buffer, index, packet, parent)
@@ -2968,11 +2975,11 @@ nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields = function(buffer, offset, p
 end
 
 -- Dissect: Close Price
-nyse_nyseequities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, packet, parent)
+nyse_nyseequities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, packet, parent, close_price_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close_price, buffer(offset, 0))
-    local index = nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent)
+    local index = nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent, close_price_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_nyseequities_bqt_xdp_v2_1_a.close_price.display(packet, parent, length)
@@ -2981,27 +2988,45 @@ nyse_nyseequities_bqt_xdp_v2_1_a.close_price.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent)
+    return nyse_nyseequities_bqt_xdp_v2_1_a.close_price.fields(buffer, offset, packet, parent, close_price_index)
   end
 end
 
 -- Consolidated Stock Summary Message
 nyse_nyseequities_bqt_xdp_v2_1_a.consolidated_stock_summary_message = {}
 
--- Size: Consolidated Stock Summary Message
-nyse_nyseequities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size =
-  nyse_nyseequities_bqt_xdp_v2_1_a.source_time.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.source_time_ns.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.symbol_index.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.high_price.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.low_price.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.open.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.total_volume.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_high_price.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_low_price.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.number_of_close_prices.size + 
-  nyse_nyseequities_bqt_xdp_v2_1_a.close_price.size
+-- Calculate size of: Consolidated Stock Summary Message
+nyse_nyseequities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.source_time.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.source_time_ns.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.symbol_index.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.high_price.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.low_price.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.open.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.total_volume.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_high_price.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_low_price.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.size
+
+  index = index + nyse_nyseequities_bqt_xdp_v2_1_a.number_of_close_prices.size
+
+  -- Calculate field size from count
+  local close_price_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + close_price_count * 6
+
+  return index
+end
 
 -- Display: Consolidated Stock Summary Message
 nyse_nyseequities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.display = function(packet, parent, length)
@@ -3045,8 +3070,10 @@ nyse_nyseequities_bqt_xdp_v2_1_a.consolidated_stock_summary_message.fields = fun
   -- Number Of Close Prices: Binary
   index, number_of_close_prices = nyse_nyseequities_bqt_xdp_v2_1_a.number_of_close_prices.dissect(buffer, index, packet, parent)
 
-  -- Close Price: Struct of 2 fields
-  index, close_price = nyse_nyseequities_bqt_xdp_v2_1_a.close_price.dissect(buffer, index, packet, parent)
+  -- Repeating: Close Price
+  for close_price_index = 1, number_of_close_prices do
+    index, close_price = nyse_nyseequities_bqt_xdp_v2_1_a.close_price.dissect(buffer, index, packet, parent, close_price_index)
+  end
 
   return index
 end
