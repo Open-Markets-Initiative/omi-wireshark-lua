@@ -26,7 +26,6 @@ omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.cros
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.cross_type = ProtoField.new("Cross Type", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.crosstype", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.deliveryflag", ftypes.UINT8)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.endseqnum", ftypes.UINT32)
-omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.eth_eligible = ProtoField.new("Eth Eligible", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.etheligible", ftypes.UINT8)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.exchangecode", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.firm_id = ProtoField.new("Firm Id", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.firmid", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.freezestatus", ftypes.UINT8)
@@ -34,7 +33,6 @@ omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.halt
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.id = ProtoField.new("Id", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.id", ftypes.UINT32)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.imbalanceside", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.indicativematchprice", ftypes.INT32)
-omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.late_close_eligible = ProtoField.new("Late Close Eligible", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.latecloseeligible", ftypes.UINT8)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.lot_size = ProtoField.new("Lot Size", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.lotsize", ftypes.UINT16)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.lower_collar = ProtoField.new("Lower Collar", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.lowercollar", ftypes.INT32)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.market_id = ProtoField.new("Market Id", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.marketid", ftypes.UINT16)
@@ -63,6 +61,7 @@ omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.prin
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.product_id = ProtoField.new("Product Id", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.productid", ftypes.UINT8)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.referenceprice", ftypes.INT32)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.reserved1", ftypes.BYTES)
+omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.reserved2", ftypes.BYTES)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.reserved4", ftypes.BYTES)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.roundlot", ftypes.STRING)
 omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nationalequities.integratedfeedretransmission.pillar.v2.5.g.rpiindicator", ftypes.STRING)
@@ -601,36 +600,6 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.end_seq_num.dis
   return offset + length, value
 end
 
--- Eth Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible = {}
-
--- Size: Eth Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.size = 1
-
--- Display: Eth Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.display = function(value)
-  if value == 0 then
-    return "Eth Eligible: Not Eligible (0)"
-  end
-  if value == 1 then
-    return "Eth Eligible: Eligible (1)"
-  end
-
-  return "Eth Eligible: Unknown("..value..")"
-end
-
--- Dissect: Eth Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.eth_eligible, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exchange Code
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.exchange_code = {}
 
@@ -639,9 +608,6 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.exchange_code.s
 
 -- Display: Exchange Code
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.exchange_code.display = function(value)
-  if value == "F" then
-    return "Exchange Code: Txse (F)"
-  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -762,7 +728,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.halt_condition.
     return "Halt Condition: Equipment Changeover (X)"
   end
   if value == "A" then
-    return "Halt Condition: Sip Outage Material Sip Latency Or Extraordinary Market Activity (A)"
+    return "Halt Condition: Additional Information Requested (A)"
   end
   if value == "C" then
     return "Halt Condition: Regulatory Concern (C)"
@@ -771,7 +737,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.halt_condition.
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Iiv Etf Component Prices Not Available (F)"
+    return "Halt Condition: Etf Component Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -780,10 +746,10 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.halt_condition.
     return "Halt Condition: New Security Offering (O)"
   end
   if value == "V" then
-    return "Halt Condition: Primary Listing Exchange Discretionary Halt (V)"
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
   end
   if value == "6" then
-    return "Halt Condition: Suspend Operational Halt (6)"
+    return "Halt Condition: Suspend (6)"
   end
   if value == "1" then
     return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
@@ -889,36 +855,6 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.indicative_matc
   return offset + length, value
 end
 
--- Late Close Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible = {}
-
--- Size: Late Close Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.size = 1
-
--- Display: Late Close Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.display = function(value)
-  if value == 0 then
-    return "Late Close Eligible: Not Eligible (0)"
-  end
-  if value == 1 then
-    return "Late Close Eligible: Eligible (1)"
-  end
-
-  return "Late Close Eligible: Unknown("..value..")"
-end
-
--- Dissect: Late Close Eligible
-nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.late_close_eligible, range, value, display)
-
-  return offset + length, value
-end
-
 -- Lot Size
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.lot_size = {}
 
@@ -978,6 +914,15 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.market_id.displ
   end
   if value == 3 then
     return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
     return "Market Id: Nyse American Equities (9)"
@@ -1657,6 +1602,29 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_1.diss
   return offset + length, value
 end
 
+-- Reserved 2
+nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved 4
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_4 = {}
 
@@ -1785,7 +1753,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.security_status
     return "Security Status: Resume (5)"
   end
   if value == "6" then
-    return "Security Status: Suspend Operational Halt (6)"
+    return "Security Status: Suspend (6)"
   end
   if value == "A" then
     return "Security Status: Short Sale Restriction Activated Day 1 (A)"
@@ -2106,7 +2074,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.ssr_triggering_
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"
@@ -4165,8 +4133,7 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_ma
   nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.round_lot.size + 
   nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.mpv.size + 
   nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.unit_of_trade.size + 
-  nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.size + 
-  nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.size
+  nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.size
 
 -- Display: Symbol Index Mapping Message
 nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_mapping_message.display = function(packet, parent, length)
@@ -4222,11 +4189,8 @@ nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.symbol_index_ma
   -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Late Close Eligible: Binary
-  index, late_close_eligible = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.late_close_eligible.dissect(buffer, index, packet, parent)
-
-  -- Eth Eligible: Binary
-  index, eth_eligible = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.eth_eligible.dissect(buffer, index, packet, parent)
+  -- Reserved 2: Binary
+  index, reserved_2 = nyse_nationalequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.dissect(buffer, index, packet, parent)
 
   -- Cache Symbol Index Mapping Message record by symbol_index
   if show.records and not packet.visited then

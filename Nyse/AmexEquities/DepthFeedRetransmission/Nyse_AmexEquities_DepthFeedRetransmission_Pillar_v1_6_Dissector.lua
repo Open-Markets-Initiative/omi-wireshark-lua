@@ -511,9 +511,6 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_amexequities_depthfeedretransmission_pillar_v1_6.exchange_code.display = function(value)
-  if value == "F" then
-    return "Exchange Code: Txse (F)"
-  end
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -611,7 +608,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.halt_condition.display = f
     return "Halt Condition: Equipment Changeover (X)"
   end
   if value == "A" then
-    return "Halt Condition: Sip Outage Material Sip Latency Or Extraordinary Market Activity (A)"
+    return "Halt Condition: Additional Information Requested (A)"
   end
   if value == "C" then
     return "Halt Condition: Regulatory Concern (C)"
@@ -620,7 +617,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.halt_condition.display = f
     return "Halt Condition: Merger Effective (E)"
   end
   if value == "F" then
-    return "Halt Condition: Etf Iiv Etf Component Prices Not Available (F)"
+    return "Halt Condition: Etf Component Prices Not Available (F)"
   end
   if value == "N" then
     return "Halt Condition: Corporate Action (N)"
@@ -629,10 +626,10 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.halt_condition.display = f
     return "Halt Condition: New Security Offering (O)"
   end
   if value == "V" then
-    return "Halt Condition: Primary Listing Exchange Discretionary Halt (V)"
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
   end
   if value == "6" then
-    return "Halt Condition: Suspend Operational Halt (6)"
+    return "Halt Condition: Suspend (6)"
   end
   if value == "1" then
     return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
@@ -774,6 +771,15 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.market_id.display = functi
   end
   if value == 3 then
     return "Market Id: Nyse Arca (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
   end
   if value == 9 then
     return "Market Id: Nyse American (9)"
@@ -1469,7 +1475,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_status.display = 
     return "Security Status: Resume (5)"
   end
   if value == "6" then
-    return "Security Status: Suspend Operational Halt (6)"
+    return "Security Status: Suspend (6)"
   end
   if value == "A" then
     return "Security Status: Short Sale Restriction Activated Day 1 (A)"
@@ -1529,7 +1535,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.size = 1
 -- Display: Security Type
 nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.display = function(value)
   if value == "A" then
-    return "Security Type: American Depositary Receipts (A)"
+    return "Security Type: Adr (A)"
   end
   if value == "C" then
     return "Security Type: Common Stock (C)"
@@ -1538,13 +1544,13 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.display = fu
     return "Security Type: Debentures (D)"
   end
   if value == "E" then
-    return "Security Type: Exchange Traded Funds (E)"
+    return "Security Type: Etf (E)"
   end
   if value == "F" then
     return "Security Type: Foreign (F)"
   end
   if value == "H" then
-    return "Security Type: American Depositary Shares (H)"
+    return "Security Type: Us Depositary Shares (H)"
   end
   if value == "I" then
     return "Security Type: Units (I)"
@@ -1553,7 +1559,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.display = fu
     return "Security Type: Index Linked Notes (L)"
   end
   if value == "M" then
-    return "Security Type: Other Blank (M)"
+    return "Security Type: Miscliquid Trust (M)"
   end
   if value == "O" then
     return "Security Type: Ordinary Shares (O)"
@@ -1565,7 +1571,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.display = fu
     return "Security Type: Rights (R)"
   end
   if value == "S" then
-    return "Security Type: Shares Of Beneficial Interest (S)"
+    return "Security Type: Shares Of Beneficiary Interest (S)"
   end
   if value == "T" then
     return "Security Type: Test (T)"
@@ -1574,7 +1580,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.security_type.display = fu
     return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
-    return "Security Type: Warrants (W)"
+    return "Security Type: Warrant (W)"
   end
 
   return "Security Type: Unknown("..value..")"
@@ -1779,7 +1785,7 @@ nyse_amexequities_depthfeedretransmission_pillar_v1_6.ssr_triggering_exchange_id
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
   if value == "B" then
-    return "Ssr Triggering Exchange Id: Nasdaq Oms Tx (B)"
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
   end
   if value == "C" then
     return "Ssr Triggering Exchange Id: Nyse National (C)"

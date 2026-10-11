@@ -73,5 +73,4 @@ grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.priceresolution" Ny
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.roundlot" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.mpv" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.unitoftrade" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.latecloseeligible" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.etheligible" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
+grep "nyse.texasequities.integratedfeedrefresh.pillar.v2.5.g.reserved2" Nyse.TexasEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json

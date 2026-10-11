@@ -9542,6 +9542,8 @@ function omi_tmx_mx_solaorderentry_sail_v1_21.dissector(buffer, packet, parent)
     end
 
     local size = buffer(index, 4):le_uint() + 5
+    -- The frame is padded to a 4 byte boundary: round up so reassembly spans the pad
+    size = size + ((4 - size % 4) % 4)
     -- A message split across segments: ask TCP for exactly the bytes still missing
     if remaining < size then
       packet.desegment_offset = index

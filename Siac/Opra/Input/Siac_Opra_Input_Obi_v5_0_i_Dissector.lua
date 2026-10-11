@@ -3844,6 +3844,8 @@ function omi_siac_opra_input_obi_v5_0_i.dissector(buffer, packet, parent)
     end
 
     local size = buffer(index + 3, 2):uint() + 2
+    -- The frame is padded to a 2 byte boundary: round up so reassembly spans the pad
+    size = size + ((2 - size % 2) % 2)
     -- A message split across segments: ask TCP for exactly the bytes still missing
     if remaining < size then
       packet.desegment_offset = index

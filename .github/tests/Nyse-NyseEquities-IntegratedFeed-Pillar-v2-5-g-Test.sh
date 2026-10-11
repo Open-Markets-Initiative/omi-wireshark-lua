@@ -232,8 +232,7 @@ grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.priceresolution" Nyse.NyseE
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.roundlot" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.mpv" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.unitoftrade" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.latecloseeligible" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.etheligible" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
+grep "nyse.nyseequities.integratedfeed.pillar.v2.5.g.reserved2" Nyse.NyseEquities.IntegratedFeed.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Pillar.v2.5.g/MultipleMessages.pcap" \
   -X "lua_script:Nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Pillar_v2_5_g_Dissector.lua" \

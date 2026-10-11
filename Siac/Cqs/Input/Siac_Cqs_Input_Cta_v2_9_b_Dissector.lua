@@ -5560,6 +5560,8 @@ function omi_siac_cqs_input_cta_v2_9_b.dissector(buffer, packet, parent)
     end
 
     local size = buffer(index + 3, 2):uint() + 2
+    -- The frame is padded to a 2 byte boundary: round up so reassembly spans the pad
+    size = size + ((2 - size % 2) % 2)
     -- A message split across segments: ask TCP for exactly the bytes still missing
     if remaining < size then
       packet.desegment_offset = index

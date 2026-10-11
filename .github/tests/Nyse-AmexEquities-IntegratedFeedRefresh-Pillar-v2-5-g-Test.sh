@@ -103,5 +103,4 @@ grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.priceresolution" Nys
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.roundlot" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.mpv" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.unitoftrade" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.latecloseeligible" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
-grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.etheligible" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
+grep "nyse.amexequities.integratedfeedrefresh.pillar.v2.5.g.reserved2" Nyse.AmexEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
