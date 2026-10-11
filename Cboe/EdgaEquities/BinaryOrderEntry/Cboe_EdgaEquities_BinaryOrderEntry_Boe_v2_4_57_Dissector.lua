@@ -1536,6 +1536,9 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_equity_ex_destination = ProtoField.new("Order Restated Return Bitfield 22 Equity Ex Destination", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22equityexdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_floor_trade_time = ProtoField.new("Order Restated Return Bitfield 22 Floor Trade Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22floortradetime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_intra_firm_trade_ind = ProtoField.new("Order Restated Return Bitfield 22 Intra Firm Trade Ind", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22intrafirmtradeind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_128 = ProtoField.new("Order Restated Return Bitfield 22 Reserved 128", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_32 = ProtoField.new("Order Restated Return Bitfield 22 Reserved 32", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_64 = ProtoField.new("Order Restated Return Bitfield 22 Reserved 64", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield22reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_3 = ProtoField.new("Order Restated Return Bitfield 3", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield3", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_3_currency = ProtoField.new("Order Restated Return Bitfield 3 Currency", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield3currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_3_reserved_128 = ProtoField.new("Order Restated Return Bitfield 3 Reserved 128", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrestatedreturnbitfield3reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -20037,6 +20040,18 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_restated_return_bitfield_22
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Order Restated Return Bitfield 22 Intra Firm Trade Ind"
   end
+  -- Is Order Restated Return Bitfield 22 Reserved 32 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Order Restated Return Bitfield 22 Reserved 32"
+  end
+  -- Is Order Restated Return Bitfield 22 Reserved 64 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Order Restated Return Bitfield 22 Reserved 64"
+  end
+  -- Is Order Restated Return Bitfield 22 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Order Restated Return Bitfield 22 Reserved 128"
+  end
 
   return table.concat(flags, "|")
 end
@@ -20058,6 +20073,15 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_restated_return_bitfield_22
 
   -- Order Restated Return Bitfield 22 Intra Firm Trade Ind: 1 Bit
   parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_intra_firm_trade_ind, range, value)
+
+  -- Order Restated Return Bitfield 22 Reserved 32: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_32, range, value)
+
+  -- Order Restated Return Bitfield 22 Reserved 64: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_64, range, value)
+
+  -- Order Restated Return Bitfield 22 Reserved 128: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_restated_return_bitfield_22_reserved_128, range, value)
 end
 
 -- Dissect: Order Restated Return Bitfield 22
@@ -22222,7 +22246,7 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_restated_message.fields = f
 
   if order_restated_return_bitfield_22_exists then
 
-    -- Order Restated Return Bitfield 22: Struct of 5 fields
+    -- Order Restated Return Bitfield 22: Struct of 8 fields
     index, order_restated_return_bitfield_22 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_restated_return_bitfield_22.dissect(buffer, index, packet, parent)
   end
 

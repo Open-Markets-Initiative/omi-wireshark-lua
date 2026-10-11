@@ -351,6 +351,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_ac
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_equity_ex_destination = ProtoField.new("Complex Instrument Accepted Return Bitfield 21 Equity Ex Destination", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield21equityexdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_floor_trade_time = ProtoField.new("Complex Instrument Accepted Return Bitfield 21 Floor Trade Time", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield21floortradetime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_intra_firm_trade_ind = ProtoField.new("Complex Instrument Accepted Return Bitfield 21 Intra Firm Trade Ind", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield21intrafirmtradeind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_reserved_128 = ProtoField.new("Complex Instrument Accepted Return Bitfield 21 Reserved 128", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield21reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_reserved_64 = ProtoField.new("Complex Instrument Accepted Return Bitfield 21 Reserved 64", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield21reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_3 = ProtoField.new("Complex Instrument Accepted Return Bitfield 3", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield3", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_3_bid = ProtoField.new("Complex Instrument Accepted Return Bitfield 3 Bid", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield3bid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_3_large_size = ProtoField.new("Complex Instrument Accepted Return Bitfield 3 Large Size", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.complexinstrumentacceptedreturnbitfield3largesize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -1102,6 +1104,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_equity_ex_destination = ProtoField.new("Cross Order Rejected Return Bitfield 21 Equity Ex Destination", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield21equityexdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_floor_trade_time = ProtoField.new("Cross Order Rejected Return Bitfield 21 Floor Trade Time", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield21floortradetime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_intra_firm_trade_ind = ProtoField.new("Cross Order Rejected Return Bitfield 21 Intra Firm Trade Ind", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield21intrafirmtradeind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_reserved_128 = ProtoField.new("Cross Order Rejected Return Bitfield 21 Reserved 128", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield21reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_reserved_64 = ProtoField.new("Cross Order Rejected Return Bitfield 21 Reserved 64", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield21reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_3 = ProtoField.new("Cross Order Rejected Return Bitfield 3", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield3", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_3_bid = ProtoField.new("Cross Order Rejected Return Bitfield 3 Bid", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield3bid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_3_large_size = ProtoField.new("Cross Order Rejected Return Bitfield 3 Large Size", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.crossorderrejectedreturnbitfield3largesize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -13207,6 +13211,14 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_retu
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Complex Instrument Accepted Return Bitfield 21 Cmc Match Qty"
   end
+  -- Is Complex Instrument Accepted Return Bitfield 21 Reserved 64 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Complex Instrument Accepted Return Bitfield 21 Reserved 64"
+  end
+  -- Is Complex Instrument Accepted Return Bitfield 21 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Complex Instrument Accepted Return Bitfield 21 Reserved 128"
+  end
 
   return table.concat(flags, "|")
 end
@@ -13231,6 +13243,12 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_retu
 
   -- Complex Instrument Accepted Return Bitfield 21 Cmc Match Qty: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_cmc_match_qty, range, value)
+
+  -- Complex Instrument Accepted Return Bitfield 21 Reserved 64: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_reserved_64, range, value)
+
+  -- Complex Instrument Accepted Return Bitfield 21 Reserved 128: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.complex_instrument_accepted_return_bitfield_21_reserved_128, range, value)
 end
 
 -- Dissect: Complex Instrument Accepted Return Bitfield 21
@@ -15301,7 +15319,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_mess
 
   if complex_instrument_accepted_return_bitfield_21_exists then
 
-    -- Complex Instrument Accepted Return Bitfield 21: Struct of 6 fields
+    -- Complex Instrument Accepted Return Bitfield 21: Struct of 8 fields
     index, complex_instrument_accepted_return_bitfield_21 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
@@ -39870,6 +39888,14 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_return_bitf
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Cross Order Rejected Return Bitfield 21 Cmc Match Qty"
   end
+  -- Is Cross Order Rejected Return Bitfield 21 Reserved 64 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 21 Reserved 64"
+  end
+  -- Is Cross Order Rejected Return Bitfield 21 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Cross Order Rejected Return Bitfield 21 Reserved 128"
+  end
 
   return table.concat(flags, "|")
 end
@@ -39894,6 +39920,12 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_return_bitf
 
   -- Cross Order Rejected Return Bitfield 21 Cmc Match Qty: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_cmc_match_qty, range, value)
+
+  -- Cross Order Rejected Return Bitfield 21 Reserved 64: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_reserved_64, range, value)
+
+  -- Cross Order Rejected Return Bitfield 21 Reserved 128: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.cross_order_rejected_return_bitfield_21_reserved_128, range, value)
 end
 
 -- Dissect: Cross Order Rejected Return Bitfield 21
@@ -41958,7 +41990,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_message.fie
 
   if cross_order_rejected_return_bitfield_21_exists then
 
-    -- Cross Order Rejected Return Bitfield 21: Struct of 6 fields
+    -- Cross Order Rejected Return Bitfield 21: Struct of 8 fields
     index, cross_order_rejected_return_bitfield_21 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 

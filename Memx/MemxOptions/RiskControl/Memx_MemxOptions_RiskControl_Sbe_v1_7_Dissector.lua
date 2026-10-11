@@ -10811,7 +10811,7 @@ function omi_memx_memxoptions_riskcontrol_sbe_v1_7.dissector(buffer, packet, par
       return length
     end
 
-    local size = buffer(index + 1, 2):uint()
+    local size = buffer(index + 1, 2):uint() + 3
     -- A message split across segments: ask TCP for exactly the bytes still missing
     if remaining < size then
       packet.desegment_offset = index
