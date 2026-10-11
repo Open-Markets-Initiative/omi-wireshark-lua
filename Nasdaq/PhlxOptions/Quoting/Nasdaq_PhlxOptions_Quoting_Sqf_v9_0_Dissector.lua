@@ -1043,24 +1043,20 @@ end
 -- Debug Text
 nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text = {}
 
--- Size: Debug Text
-nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.size = 0
-
 -- Display: Debug Text
 nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Delta
@@ -6604,9 +6600,15 @@ end
 -- Debug Packet
 nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet.size =
-  nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet.display = function(packet, parent, length)
@@ -6617,8 +6619,14 @@ end
 nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
   -- Debug Text: 0 Byte Ascii String
-  index, debug_text = nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.dissect(buffer, index, packet, parent)
+  index, debug_text = nasdaq_phlxoptions_quoting_sqf_v9_0.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -8593,95 +8601,9 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.client_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Unsequenced Data Packet
   if client_packet_type == "U" then
-    if buffer:len() < 5 then
-      return false
-    end
-
-    local unsequenced_message_type = buffer(3, 2):string()
-
-    -- Notification Subscription Request Message
-    if unsequenced_message_type == "AB" then
-      return true
-    end
-
-    -- Add Complex Instrument Request Message
-    if unsequenced_message_type == "AC" then
-      return true
-    end
-
-    -- Mm Parameter Definition Request Message
-    if unsequenced_message_type == "AE" then
-      return true
-    end
-
-    -- Active Qp Self Replenishment Set Limit Message
-    if unsequenced_message_type == "AG" then
-      return true
-    end
-
-    -- Rapid Fire Config Request Message
-    if unsequenced_message_type == "AF" then
-      return true
-    end
-
-    -- Simple Quote Block Short Form Message
-    if unsequenced_message_type == "QA" then
-      return true
-    end
-
-    -- Simple Quote Block Short Form Detailed Message
-    if unsequenced_message_type == "Qa" then
-      return true
-    end
-
-    -- Simple Quote Block Long Form Message
-    if unsequenced_message_type == "QM" then
-      return true
-    end
-
-    -- Simple Quote Block Long Form Detailed Message
-    if unsequenced_message_type == "Qm" then
-      return true
-    end
-
-    -- Complex Quote Block Message
-    if unsequenced_message_type == "QD" then
-      return true
-    end
-
-    -- Complex Quote Block Detailed Message
-    if unsequenced_message_type == "Qd" then
-      return true
-    end
-
-    -- Underlying Purge Request Message
-    if unsequenced_message_type == "Pu" then
-      return true
-    end
-
-    -- Market Reentry Request Message
-    if unsequenced_message_type == "RU" then
-      return true
-    end
-
-    -- Active Qp Self Replenishment Request Reentry Message
-    if unsequenced_message_type == "RG" then
-      return true
-    end
-
-    -- Simple Msar Request Message
-    if unsequenced_message_type == "SB" then
-      return true
-    end
-
-    -- Complex Msar Request Message
-    if unsequenced_message_type == "SX" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Client Heartbeat Packet
@@ -8720,196 +8642,14 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 5 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(3, 2):string()
-
-    -- Msar Accept Message
-    if sequenced_message_type == "SA" then
-      return true
-    end
-
-    -- Msar Reject Message
-    if sequenced_message_type == "SR" then
-      return true
-    end
-
-    -- Complex Msar Accept Message
-    if sequenced_message_type == "SY" then
-      return true
-    end
-
-    -- Complex Msar Reject Message
-    if sequenced_message_type == "SN" then
-      return true
-    end
-
-    -- Underlying Permission Notification Message
-    if sequenced_message_type == "AP" then
-      return true
-    end
-
-    -- Mm Parameter Definition Notification Message
-    if sequenced_message_type == "AJ" then
-      return true
-    end
-
-    -- Rapid Fire Config Notification Message
-    if sequenced_message_type == "Af" then
-      return true
-    end
-
-    -- Active Qp Self Replenishment Parameter Definition Notification Message
-    if sequenced_message_type == "AK" then
-      return true
-    end
-
-    -- System Event Message
-    if sequenced_message_type == "AS" then
-      return true
-    end
-
-    -- Simple Instrument Directory Message
-    if sequenced_message_type == "AD" then
-      return true
-    end
-
-    -- Complex Instrument Directory Message
-    if sequenced_message_type == "AR" then
-      return true
-    end
-
-    -- Simple Instrument Trading Action Message
-    if sequenced_message_type == "AH" then
-      return true
-    end
-
-    -- Complex Instrument Trading Action Message
-    if sequenced_message_type == "AI" then
-      return true
-    end
-
-    -- Simple Quote Execution Notification Message
-    if sequenced_message_type == "NE" then
-      return true
-    end
-
-    -- Complex Quote Execution Notification Message
-    if sequenced_message_type == "NV" then
-      return true
-    end
-
-    -- Complex Quote Leg Execution Notification Message
-    if sequenced_message_type == "NW" then
-      return true
-    end
-
-    -- Simple Msar Notification Message
-    if sequenced_message_type == "NS" then
-      return true
-    end
-
-    -- Complex Msar Leg Notification Message
-    if sequenced_message_type == "NL" then
-      return true
-    end
-
-    -- Complex Msar Notification Message
-    if sequenced_message_type == "NX" then
-      return true
-    end
-
-    -- Opening Rotation Quote Spread Multiplier Notification Message
-    if sequenced_message_type == "AM" then
-      return true
-    end
-
-    return false
+    return true
   end
 
-  -- Server Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Server Unsequenced Data Packet
   if server_packet_type == "U" then
-    if buffer:len() < 5 then
-      return false
-    end
-
-    local server_unsequenced_message_type = buffer(3, 2):string()
-
-    -- Notification Subscription Reply Message
-    if server_unsequenced_message_type == "Ab" then
-      return true
-    end
-
-    -- Add Complex Instrument Reply Message
-    if server_unsequenced_message_type == "Ac" then
-      return true
-    end
-
-    -- Mm Parameter Definition Reply Message
-    if server_unsequenced_message_type == "Ae" then
-      return true
-    end
-
-    -- Active Qp Self Replenishment Set Limit Reply Message
-    if server_unsequenced_message_type == "Ag" then
-      return true
-    end
-
-    -- Rapid Fire Config Reply Message
-    if server_unsequenced_message_type == "AA" then
-      return true
-    end
-
-    -- Quote Block Reply Message
-    if server_unsequenced_message_type == "QS" then
-      return true
-    end
-
-    -- Detailed Quote Block Reply Message
-    if server_unsequenced_message_type == "Qs" then
-      return true
-    end
-
-    -- Underlying Purge Reply Message
-    if server_unsequenced_message_type == "Pr" then
-      return true
-    end
-
-    -- Market Reentry Reply Message
-    if server_unsequenced_message_type == "RR" then
-      return true
-    end
-
-    -- Active Qp Self Replenishment Request Reentry Reply Message
-    if server_unsequenced_message_type == "Rg" then
-      return true
-    end
-
-    -- Auction Notification Message
-    if server_unsequenced_message_type == "NA" then
-      return true
-    end
-
-    -- Instrument Purge Notification Message
-    if server_unsequenced_message_type == "ND" then
-      return true
-    end
-
-    -- Underlying Purge Notification Message
-    if server_unsequenced_message_type == "NU" then
-      return true
-    end
-
-    -- Market Reentry Notification Message
-    if server_unsequenced_message_type == "NR" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat Packet

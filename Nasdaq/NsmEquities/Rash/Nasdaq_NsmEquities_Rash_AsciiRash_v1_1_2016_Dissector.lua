@@ -596,24 +596,20 @@ end
 -- Debug Text
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text = {}
 
--- Size: Debug Text
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.size = 0
-
 -- Display: Debug Text
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_nsmequities_rash_asciirash_v1_1_2016.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Discretion Peg Difference
@@ -3173,9 +3169,15 @@ end
 -- Debug Packet
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.size =
-  nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.display = function(packet, parent, length)
@@ -3186,8 +3188,14 @@ end
 nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
   -- Debug Text: 0 Byte Ascii String
-  index, debug_text = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.dissect(buffer, index, packet, parent)
+  index, debug_text = nasdaq_nsmequities_rash_asciirash_v1_1_2016.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -4165,30 +4173,9 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.client_packet.fingerprint = function
     return true
   end
 
-  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Unsequenced Data Packet
   if client_packet_type == "U" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local unsequenced_message_type = buffer(3, 1):string()
-
-    -- Enter Order Message
-    if unsequenced_message_type == "O" then
-      return true
-    end
-
-    -- Enter Order Message With Cross Functionality
-    if unsequenced_message_type == "Q" then
-      return true
-    end
-
-    -- Cancel Order Message
-    if unsequenced_message_type == "X" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Client Heartbeat
@@ -4227,60 +4214,9 @@ nasdaq_nsmequities_rash_asciirash_v1_1_2016.server_packet.fingerprint = function
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 12 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(11, 1):string()
-
-    -- System Event Message
-    if sequenced_message_type == "S" then
-      return true
-    end
-
-    -- Accepted Order Message
-    if sequenced_message_type == "A" then
-      return true
-    end
-
-    -- Accepted Order Message With Cross Functionality
-    if sequenced_message_type == "R" then
-      return true
-    end
-
-    -- Canceled Order Message
-    if sequenced_message_type == "C" then
-      return true
-    end
-
-    -- Rejected Order Message
-    if sequenced_message_type == "J" then
-      return true
-    end
-
-    -- Executed Order Message
-    if sequenced_message_type == "E" then
-      return true
-    end
-
-    -- Broken Trade Message
-    if sequenced_message_type == "B" then
-      return true
-    end
-
-    -- Executed With Reference Price Message
-    if sequenced_message_type == "G" then
-      return true
-    end
-
-    -- Trade Correction Message
-    if sequenced_message_type == "F" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat
