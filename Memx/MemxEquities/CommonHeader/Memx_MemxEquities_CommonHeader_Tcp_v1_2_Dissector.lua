@@ -15,6 +15,7 @@ local memx_memxequities_commonheader_tcp_v1_2 = {}
 -----------------------------------------------------------------------
 
 -- Memx MemxEquities CommonHeader Tcp 1.2 Fields
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "memx.memxequities.commonheader.tcp.v1.2.clientsbemessage", ftypes.BYTES)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.count = ProtoField.new("Count", "memx.memxequities.commonheader.tcp.v1.2.count", ftypes.UINT32)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.memxequities.commonheader.tcp.v1.2.loginrejectcode", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "memx.memxequities.commonheader.tcp.v1.2.maxsequencenumber", ftypes.UINT64)
@@ -24,7 +25,7 @@ omi_memx_memxequities_commonheader_tcp_v1_2.fields.message_type = ProtoField.new
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.memxequities.commonheader.tcp.v1.2.nextsequencenumber", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.memxequities.commonheader.tcp.v1.2.pendingmessagecount", ftypes.UINT32)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.memxequities.commonheader.tcp.v1.2.replayrejectcode", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.commonheader.tcp.v1.2.sbemessage", ftypes.BYTES)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxequities.commonheader.tcp.v1.2.serversbemessage", ftypes.BYTES)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.commonheader.tcp.v1.2.sessionid", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.memxequities.commonheader.tcp.v1.2.streamrejectcode", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.memxequities.commonheader.tcp.v1.2.supportedrequestmode", ftypes.STRING)
@@ -104,6 +105,25 @@ end
 -----------------------------------------------------------------------
 -- Memx MemxEquities CommonHeader Tcp 1.2 Fields
 -----------------------------------------------------------------------
+
+-- Client Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.client_sbe_message = {}
+
+-- Display: Client Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.display = function(value)
+  return "Client Sbe Message: "..value
+end
+
+-- Dissect runtime sized field: Client Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.display(value, packet, parent, size)
+
+  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_sbe_message, range, value, display)
+
+  return offset + size, value
+end
 
 -- Count
 memx_memxequities_commonheader_tcp_v1_2.count = {}
@@ -390,21 +410,21 @@ memx_memxequities_commonheader_tcp_v1_2.replay_reject_code.dissect = function(bu
   return offset + length, value
 end
 
--- Sbe Message
-memx_memxequities_commonheader_tcp_v1_2.sbe_message = {}
+-- Server Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.server_sbe_message = {}
 
--- Display: Sbe Message
-memx_memxequities_commonheader_tcp_v1_2.sbe_message.display = function(value)
-  return "Sbe Message: "..value
+-- Display: Server Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.display = function(value)
+  return "Server Sbe Message: "..value
 end
 
--- Dissect runtime sized field: Sbe Message
-memx_memxequities_commonheader_tcp_v1_2.sbe_message.dissect = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Server Sbe Message
+memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = memx_memxequities_commonheader_tcp_v1_2.sbe_message.display(value, packet, parent, size)
+  local display = memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.display(value, packet, parent, size)
 
-  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.sbe_message, range, value, display)
+  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_sbe_message, range, value, display)
 
   return offset + size, value
 end
@@ -594,11 +614,11 @@ end
 memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields = function(buffer, offset, packet, parent, size_of_sequenced_message)
   local index = offset
 
-  -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = offset + size_of_sequenced_message - index
+  -- Runtime Size Of: Server Sbe Message
+  local size_of_server_sbe_message = offset + size_of_sequenced_message - index
 
-  -- Sbe Message: 0 Byte
-  index, sbe_message = memx_memxequities_commonheader_tcp_v1_2.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
+  -- Server Sbe Message: 0 Byte
+  index, server_sbe_message = memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.dissect(buffer, index, packet, parent, size_of_server_sbe_message)
 
   return index
 end
@@ -1132,11 +1152,11 @@ end
 memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields = function(buffer, offset, packet, parent, size_of_unsequenced_message)
   local index = offset
 
-  -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = offset + size_of_unsequenced_message - index
+  -- Runtime Size Of: Client Sbe Message
+  local size_of_client_sbe_message = offset + size_of_unsequenced_message - index
 
-  -- Sbe Message: 0 Byte
-  index, sbe_message = memx_memxequities_commonheader_tcp_v1_2.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
+  -- Client Sbe Message: 0 Byte
+  index, client_sbe_message = memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.dissect(buffer, index, packet, parent, size_of_client_sbe_message)
 
   return index
 end

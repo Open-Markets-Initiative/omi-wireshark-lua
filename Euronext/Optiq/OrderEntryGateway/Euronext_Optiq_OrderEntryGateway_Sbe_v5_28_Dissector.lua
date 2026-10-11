@@ -8704,9 +8704,8 @@ euronext_optiq_orderentrygateway_sbe_v5_28.not_used_groups.size = function(buffe
 
   index = index + euronext_optiq_orderentrygateway_sbe_v5_28.group_size_encoding.size
 
-  -- Calculate field size from count
-  local not_used_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + not_used_group_count * 0
+  -- Parse runtime size of: Not Used Group
+  index = index + buffer(offset + index - 2, 1):uint()
 
   return index
 end
@@ -8728,7 +8727,12 @@ euronext_optiq_orderentrygateway_sbe_v5_28.not_used_groups.fields = function(buf
 
   -- Repeating: Not Used Group
   for not_used_group_index = 1, num_in_group do
-    index, not_used_group = euronext_optiq_orderentrygateway_sbe_v5_28.not_used_group.dissect(buffer, index, packet, parent, not_used_group_index)
+
+    -- Dependency element: Block Length Short
+    local block_length_short = buffer(index - 2, 1):uint()
+
+    -- Runtime Size Of: Not Used Group
+    index, not_used_group = euronext_optiq_orderentrygateway_sbe_v5_28.not_used_group.dissect(buffer, index, packet, parent, block_length_short, not_used_group_index)
   end
 
   return index
@@ -9060,9 +9064,8 @@ euronext_optiq_orderentrygateway_sbe_v5_28.other_not_used_groups.size = function
 
   index = index + euronext_optiq_orderentrygateway_sbe_v5_28.group_size_encoding.size
 
-  -- Calculate field size from count
-  local other_not_used_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + other_not_used_group_count * 0
+  -- Parse runtime size of: Other Not Used Group
+  index = index + buffer(offset + index - 2, 1):uint()
 
   return index
 end
@@ -9084,7 +9087,12 @@ euronext_optiq_orderentrygateway_sbe_v5_28.other_not_used_groups.fields = functi
 
   -- Repeating: Other Not Used Group
   for other_not_used_group_index = 1, num_in_group do
-    index, other_not_used_group = euronext_optiq_orderentrygateway_sbe_v5_28.other_not_used_group.dissect(buffer, index, packet, parent, other_not_used_group_index)
+
+    -- Dependency element: Block Length Short
+    local block_length_short = buffer(index - 2, 1):uint()
+
+    -- Runtime Size Of: Other Not Used Group
+    index, other_not_used_group = euronext_optiq_orderentrygateway_sbe_v5_28.other_not_used_group.dissect(buffer, index, packet, parent, block_length_short, other_not_used_group_index)
   end
 
   return index

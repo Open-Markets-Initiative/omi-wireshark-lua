@@ -64,6 +64,7 @@ omi_cme_globex_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme
 omi_cme_globex_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.derived.sbe.v12.0.message", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.derived.sbe.v12.0.messageheader", ftypes.STRING)
+omi_cme_globex_derived_sbe_v12_0.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.globex.derived.sbe.v12.0.tcpframe", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.derived.sbe.v12.0.tcpmessage", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet", "cme.globex.derived.sbe.v12.0.tcppacket", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.derived.sbe.v12.0.technicalheader", ftypes.STRING)
@@ -1989,17 +1990,28 @@ end
 -- Tcp Message
 cme_globex_derived_sbe_v12_0.tcp_message = {}
 
+-- Calculate size of: Tcp Message
+cme_globex_derived_sbe_v12_0.tcp_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_derived_sbe_v12_0.message_header.size
+
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 6, 2):le_uint()
+  index = index + cme_globex_derived_sbe_v12_0.payload.size(buffer, payload_offset, payload_type)
+
+  return index
+end
+
 -- Display: Tcp Message
 cme_globex_derived_sbe_v12_0.tcp_message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Tcp Message
-cme_globex_derived_sbe_v12_0.tcp_message.fields = function(buffer, offset, packet, parent, size_of_tcp_message)
+cme_globex_derived_sbe_v12_0.tcp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, tcp_message_size = cme_globex_derived_sbe_v12_0.tcp_message_size.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
   index, message_header = cme_globex_derived_sbe_v12_0.message_header.dissect(buffer, index, packet, parent)
@@ -2014,23 +2026,20 @@ cme_globex_derived_sbe_v12_0.tcp_message.fields = function(buffer, offset, packe
 end
 
 -- Dissect: Tcp Message
-cme_globex_derived_sbe_v12_0.tcp_message.dissect = function(buffer, offset, packet, parent, size_of_tcp_message)
-  local index = offset + size_of_tcp_message
-
-  -- Optionally add group/struct element to protocol tree
+cme_globex_derived_sbe_v12_0.tcp_message.dissect = function(buffer, offset, packet, parent)
   if show.headers then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.tcp_message, buffer(offset, 0))
-    local current = cme_globex_derived_sbe_v12_0.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
-    parent:set_len(size_of_tcp_message)
-    local display = cme_globex_derived_sbe_v12_0.tcp_message.display(buffer, packet, parent)
+    local index = cme_globex_derived_sbe_v12_0.tcp_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_derived_sbe_v12_0.tcp_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_derived_sbe_v12_0.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
-
-    return index
+    return cme_globex_derived_sbe_v12_0.tcp_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2041,7 +2050,8 @@ cme_globex_derived_sbe_v12_0.technical_header = {}
 cme_globex_derived_sbe_v12_0.technical_header.size =
   cme_globex_derived_sbe_v12_0.encoding_type.size + 
   cme_globex_derived_sbe_v12_0.message_sequence_number.size + 
-  cme_globex_derived_sbe_v12_0.tcp_sending_time.size
+  cme_globex_derived_sbe_v12_0.tcp_sending_time.size + 
+  cme_globex_derived_sbe_v12_0.tcp_message_size.size
 
 -- Display: Technical Header
 cme_globex_derived_sbe_v12_0.technical_header.display = function(packet, parent, length)
@@ -2060,6 +2070,9 @@ cme_globex_derived_sbe_v12_0.technical_header.fields = function(buffer, offset, 
 
   -- Tcp Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, tcp_sending_time = cme_globex_derived_sbe_v12_0.tcp_sending_time.dissect(buffer, index, packet, parent)
+
+  -- Tcp Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, tcp_message_size = cme_globex_derived_sbe_v12_0.tcp_message_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2082,34 +2095,102 @@ cme_globex_derived_sbe_v12_0.technical_header.dissect = function(buffer, offset,
   end
 end
 
+-- Tcp Frame
+cme_globex_derived_sbe_v12_0.tcp_frame = {}
+
+-- Display: Tcp Frame
+cme_globex_derived_sbe_v12_0.tcp_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tcp Frame
+cme_globex_derived_sbe_v12_0.tcp_frame.fields = function(buffer, offset, packet, parent, size_of_tcp_frame)
+  local index = offset
+
+  -- Technical Header: Struct of 4 fields
+  index, technical_header = cme_globex_derived_sbe_v12_0.technical_header.dissect(buffer, index, packet, parent)
+
+  -- Tcp Message: Struct of 2 fields
+  index, tcp_message = cme_globex_derived_sbe_v12_0.tcp_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Tcp Frame
+cme_globex_derived_sbe_v12_0.tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_tcp_frame)
+  local index = offset + size_of_tcp_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.tcp_frame, buffer(offset, 0))
+    local current = cme_globex_derived_sbe_v12_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    parent:set_len(size_of_tcp_frame)
+    local display = cme_globex_derived_sbe_v12_0.tcp_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cme_globex_derived_sbe_v12_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Tcp Frame
+local tcp_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < cme_globex_derived_sbe_v12_0.technical_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 14, 2):le_uint() + 14
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Tcp Packet
 cme_globex_derived_sbe_v12_0.tcp_packet = {}
 
 -- Verify required size of Tcp packet
 cme_globex_derived_sbe_v12_0.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= cme_globex_derived_sbe_v12_0.technical_header.size + cme_globex_derived_sbe_v12_0.tcp_message_size.size + cme_globex_derived_sbe_v12_0.message_header.size
+  return buffer:len() >= cme_globex_derived_sbe_v12_0.technical_header.size + cme_globex_derived_sbe_v12_0.message_header.size
 end
 
 -- Dissect Tcp Packet
 cme_globex_derived_sbe_v12_0.tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Technical Header: Struct of 3 fields
-  index, technical_header = cme_globex_derived_sbe_v12_0.technical_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Tcp Message
+  -- Dependency for Tcp Frame
   local end_of_payload = buffer:len()
 
-  -- Tcp Message: Struct of 3 fields
-  local message_index = 0
+  -- Tcp Frame: Struct of 2 fields
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Tcp Message Size
-    local tcp_message_size = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_tcp_frame = tcp_frame_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Tcp Message
-    index, tcp_message = cme_globex_derived_sbe_v12_0.tcp_message.dissect(buffer, index, packet, parent, tcp_message_size)
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_tcp_frame):tvb()
+      index = cme_globex_derived_sbe_v12_0.tcp_frame.dissect(frame, index, packet, parent, size_of_tcp_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
   end
 
   return index

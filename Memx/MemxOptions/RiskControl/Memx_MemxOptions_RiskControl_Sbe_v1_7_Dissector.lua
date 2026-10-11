@@ -57,6 +57,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_cont
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_notional_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Max Notional Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleordermaxnotionalchangerequestclordid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierchangerequestclordid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional = ProtoField.new("Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierstateclordidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.client_sbe_message = ProtoField.new("Client Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.7.clientsbemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.clordid = ProtoField.new("ClOrdId", "memx.memxoptions.riskcontrol.sbe.v1.7.clordid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.count = ProtoField.new("Count", "memx.memxoptions.riskcontrol.sbe.v1.7.count", ftypes.UINT32)
@@ -122,6 +123,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.rule_type = ProtoField.new("Rul
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.riskcontrol.sbe.v1.7.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.riskcontrol.sbe.v1.7.sendcancels", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.7.sendingtime", ftypes.UINT64)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.7.serversbemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.riskcontrol.sbe.v1.7.sessionid", ftypes.UINT64)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.side = ProtoField.new("Side", "memx.memxoptions.riskcontrol.sbe.v1.7.side", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.memxoptions.riskcontrol.sbe.v1.7.streamrejectcode", ftypes.STRING)
@@ -176,7 +178,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.volume = ProtoField.new("Volume
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.client_packet = ProtoField.new("Client Packet", "memx.memxoptions.riskcontrol.sbe.v1.7.clientpacket", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.7.commonheader", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.riskcontrol.sbe.v1.7.sbeheader", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.7.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.server_packet = ProtoField.new("Server Packet", "memx.memxoptions.riskcontrol.sbe.v1.7.serverpacket", ftypes.STRING)
 
 -- Memx MemxOptions RiskControl 1.7 Application Messages
@@ -8112,6 +8113,793 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_state_message.dissec
   end
 end
 
+-- Server Payload
+memx_memxoptions_riskcontrol_sbe_v1_7.server_payload = {}
+
+-- Dissect: Server Payload
+memx_memxoptions_riskcontrol_sbe_v1_7.server_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Active Risk Threshold State Message
+  if template_id == 30 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Active Risk Threshold Change Rejected Message
+  if template_id == 31 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Active Risk Acknowledged Message
+  if template_id == 32 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledged_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Active Risk Acknowledge Rejected Message
+  if template_id == 33 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Active Risk Quantity Update Notification Message
+  if template_id == 34 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_quantity_update_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Volume Threshold State Message
+  if template_id == 35 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_volume_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Executed Notional Threshold State Message
+  if template_id == 36 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_executed_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Total Executions Threshold State Message
+  if template_id == 37 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_total_executions_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Percent Outstanding Contracts Threshold State Message
+  if template_id == 38 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_percent_outstanding_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Breach Count Threshold State Message
+  if template_id == 39 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_breach_count_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Manual Cp Breach Trigger Pending Message
+  if template_id == 40 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_pending_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Manual Cp Breach Trigger Done Message
+  if template_id == 41 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_done_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Threshold Update Rejected Message
+  if template_id == 42 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_threshold_update_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Passive Risk Threshold Notification Message
+  if template_id == 43 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.passive_risk_threshold_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Allow Iso Orders State Message
+  if template_id == 44 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_iso_orders_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Allow Orders In Crossed Market State Message
+  if template_id == 45 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_orders_in_crossed_market_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Max Notional Threshold State Message
+  if template_id == 46 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Max Contracts Threshold State Message
+  if template_id == 47 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Allow Market Orders State Message
+  if template_id == 66 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Order Restricted Underlier State Message
+  if template_id == 67 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Settings Query Done Message
+  if template_id == 48 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_done_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Risk Settings Query Rejected Message
+  if template_id == 49 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Manual Cp Breach Trigger Rejected Message
+  if template_id == 50 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Clear Rejected Message
+  if template_id == 51 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Cleared Message
+  if template_id == 52 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_cleared_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Clear All Accepted Message
+  if template_id == 53 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Clear All Rejected Message
+  if template_id == 69 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Clear All By Efid Or Underlier Accepted Message
+  if template_id == 54 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Breach Clear All By Efid Or Underlier Rejected Message
+  if template_id == 68 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Gross Notional Threshold State Message
+  if template_id == 60 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Market Order Gross Notional Threshold State Message
+  if template_id == 61 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Net Notional Threshold State Message
+  if template_id == 62 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Market Order Net Notional Threshold State Message
+  if template_id == 63 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Duplicate Order Threshold State Message
+  if template_id == 64 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_duplicate_order_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Cp Order Rate Threshold State Message
+  if template_id == 65 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_order_rate_threshold_state_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sbe Header
+memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header = {}
+
+-- Size: Sbe Header
+memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.block_length.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.template_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.schema_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.version.size
+
+-- Display: Sbe Header
+memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sbe Header
+memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: 2 Byte Unsigned Fixed Width Integer
+  index, block_length = memx_memxoptions_riskcontrol_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 60 values
+  index, template_id = memx_memxoptions_riskcontrol_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
+  index, schema_id = memx_memxoptions_riskcontrol_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  index, version = memx_memxoptions_riskcontrol_sbe_v1_7.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sbe Header
+memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message = {}
+
+-- Calculate size of: Server Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.size
+
+  -- Calculate runtime size of Server Payload field
+  local server_payload_offset = offset + index
+  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.server_payload.size(buffer, server_payload_offset, server_payload_type)
+
+  return index
+end
+
+-- Display: Server Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 4, 1):uint()
+
+  -- Server Payload: Runtime Type with 35 branches
+  index = memx_memxoptions_riskcontrol_sbe_v1_7.server_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.server_sbe_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message = {}
+
+-- Calculate size of: Sequenced Message
+memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Sequenced Message
+memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message
+memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Sbe Message: Struct of 2 fields
+  index, server_sbe_message = memx_memxoptions_riskcontrol_sbe_v1_7.server_sbe_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Message
+memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sequenced_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message = {}
+
+-- Size: Stream Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.total_sequence_count.size
+
+-- Display: Stream Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
+  index, total_sequence_count = memx_memxoptions_riskcontrol_sbe_v1_7.total_sequence_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_complete_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message = {}
+
+-- Size: Stream Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.stream_reject_code.size
+
+-- Display: Stream Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
+  index, stream_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.stream_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Stream Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message = {}
+
+-- Size: Stream Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.max_sequence_number.size
+
+-- Display: Stream Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stream Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, max_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.max_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stream Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_begin_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message = {}
+
+-- Size: Replay Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.message_count.size
+
+-- Display: Replay Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Count: 8 Byte Unsigned Fixed Width Integer
+  index, message_count = memx_memxoptions_riskcontrol_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Complete Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_complete_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message = {}
+
+-- Size: Replay Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.replay_reject_code.size
+
+-- Display: Replay Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, replay_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.replay_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Replay Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message = {}
+
+-- Size: Replay Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.pending_message_count.size
+
+-- Display: Replay Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Replay Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, next_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
+  index, pending_message_count = memx_memxoptions_riskcontrol_sbe_v1_7.pending_message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Replay Begin Message
+memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_begin_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Start Of Session Message
+memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message = {}
+
+-- Size: Start Of Session Message
+memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.session_id.size
+
+-- Display: Start Of Session Message
+memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Start Of Session Message
+memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Id: 8 Byte Unsigned Fixed Width Integer
+  index, session_id = memx_memxoptions_riskcontrol_sbe_v1_7.session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Session Message
+memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.start_of_session_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message = {}
+
+-- Size: Login Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.login_reject_code.size
+
+-- Display: Login Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
+  index, login_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.login_reject_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Rejected Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.login_rejected_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Accepted Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message = {}
+
+-- Size: Login Accepted Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.supported_request_mode.size
+
+-- Display: Login Accepted Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Accepted Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
+  index, supported_request_mode = memx_memxoptions_riskcontrol_sbe_v1_7.supported_request_mode.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Accepted Message
+memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.login_accepted_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Data
+memx_memxoptions_riskcontrol_sbe_v1_7.server_data = {}
+
+-- Dissect: Server Data
+memx_memxoptions_riskcontrol_sbe_v1_7.server_data.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Accepted Message
+  if message_type == 1 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Rejected Message
+  if message_type == 2 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session Message
+  if message_type == 3 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Begin Message
+  if message_type == 5 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Rejected Message
+  if message_type == 6 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Replay Complete Message
+  if message_type == 7 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Begin Message
+  if message_type == 8 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Rejected Message
+  if message_type == 9 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Stream Complete Message
+  if message_type == 10 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Sequenced Message
+  if message_type == 11 then
+    return memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Common Header
+memx_memxoptions_riskcontrol_sbe_v1_7.common_header = {}
+
+-- Size: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_7.common_header.size =
+  memx_memxoptions_riskcontrol_sbe_v1_7.message_type.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.message_length.size
+
+-- Display: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_7.common_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
+  index, message_type = memx_memxoptions_riskcontrol_sbe_v1_7.message_type.dissect(buffer, index, packet, parent)
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = memx_memxoptions_riskcontrol_sbe_v1_7.message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Common Header
+memx_memxoptions_riskcontrol_sbe_v1_7.common_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.common_header, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+memx_memxoptions_riskcontrol_sbe_v1_7.server_packet = {}
+
+-- Verify required size of Tcp packet
+memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= memx_memxoptions_riskcontrol_sbe_v1_7.common_header.size
+end
+
+-- Dissect Server Packet
+memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Common Header: Struct of 2 fields
+  index, common_header = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 3, 1):uint()
+
+  -- Server Data: Runtime Type with 10 branches
+  index = memx_memxoptions_riskcontrol_sbe_v1_7.server_data.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
 -- Active Risk Acknowledge All Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_message = {}
 
@@ -9472,11 +10260,11 @@ memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_message.dissect = func
   end
 end
 
--- Payload
-memx_memxoptions_riskcontrol_sbe_v1_7.payload = {}
+-- Client Payload
+memx_memxoptions_riskcontrol_sbe_v1_7.client_payload = {}
 
--- Dissect: Payload
-memx_memxoptions_riskcontrol_sbe_v1_7.payload.dissect = function(buffer, offset, packet, parent, template_id)
+-- Dissect: Client Payload
+memx_memxoptions_riskcontrol_sbe_v1_7.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Risk Settings Query Message
   if template_id == 1 then
     return memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_message.dissect(buffer, offset, packet, parent)
@@ -9577,226 +10365,34 @@ memx_memxoptions_riskcontrol_sbe_v1_7.payload.dissect = function(buffer, offset,
   if template_id == 26 then
     return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Active Risk Threshold State Message
-  if template_id == 30 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Threshold Change Rejected Message
-  if template_id == 31 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Acknowledged Message
-  if template_id == 32 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledged_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Acknowledge Rejected Message
-  if template_id == 33 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Active Risk Quantity Update Notification Message
-  if template_id == 34 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_quantity_update_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Volume Threshold State Message
-  if template_id == 35 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_volume_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Executed Notional Threshold State Message
-  if template_id == 36 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_executed_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Total Executions Threshold State Message
-  if template_id == 37 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_total_executions_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Percent Outstanding Contracts Threshold State Message
-  if template_id == 38 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_percent_outstanding_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Breach Count Threshold State Message
-  if template_id == 39 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_breach_count_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Pending Message
-  if template_id == 40 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_pending_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Done Message
-  if template_id == 41 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Threshold Update Rejected Message
-  if template_id == 42 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_threshold_update_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Passive Risk Threshold Notification Message
-  if template_id == 43 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.passive_risk_threshold_notification_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Iso Orders State Message
-  if template_id == 44 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_iso_orders_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Orders In Crossed Market State Message
-  if template_id == 45 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_orders_in_crossed_market_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Notional Threshold State Message
-  if template_id == 46 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Max Contracts Threshold State Message
-  if template_id == 47 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_contracts_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Allow Market Orders State Message
-  if template_id == 66 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Single Order Restricted Underlier State Message
-  if template_id == 67 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Settings Query Done Message
-  if template_id == 48 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_done_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Risk Settings Query Rejected Message
-  if template_id == 49 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Manual Cp Breach Trigger Rejected Message
-  if template_id == 50 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear Rejected Message
-  if template_id == 51 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Cleared Message
-  if template_id == 52 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_cleared_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear All Accepted Message
-  if template_id == 53 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear All Rejected Message
-  if template_id == 69 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear All By Efid Or Underlier Accepted Message
-  if template_id == 54 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Breach Clear All By Efid Or Underlier Rejected Message
-  if template_id == 68 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Gross Notional Threshold State Message
-  if template_id == 60 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Gross Notional Threshold State Message
-  if template_id == 61 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_gross_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Net Notional Threshold State Message
-  if template_id == 62 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Market Order Net Notional Threshold State Message
-  if template_id == 63 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_net_notional_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Duplicate Order Threshold State Message
-  if template_id == 64 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_duplicate_order_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Cp Order Rate Threshold State Message
-  if template_id == 65 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.cp_order_rate_threshold_state_message.dissect(buffer, offset, packet, parent)
-  end
 
   return offset
 end
 
--- Sbe Header
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header = {}
+-- Client Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message = {}
 
--- Size: Sbe Header
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.block_length.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.template_id.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.schema_id.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.version.size
-
--- Display: Sbe Header
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sbe Header
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: 2 Byte Unsigned Fixed Width Integer
-  index, block_length = memx_memxoptions_riskcontrol_sbe_v1_7.block_length.dissect(buffer, index, packet, parent)
-
-  -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 60 values
-  index, template_id = memx_memxoptions_riskcontrol_sbe_v1_7.template_id.dissect(buffer, index, packet, parent)
-
-  -- Schema Id: 1 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = memx_memxoptions_riskcontrol_sbe_v1_7.schema_id.dissect(buffer, index, packet, parent)
-
-  -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = memx_memxoptions_riskcontrol_sbe_v1_7.version.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sbe Header
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Sbe Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message = {}
-
--- Calculate size of: Sbe Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.size = function(buffer, offset)
+-- Calculate size of: Client Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.size = function(buffer, offset)
   local index = 0
 
   index = index + memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.size
 
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 4, 1):uint()
-  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.payload.size(buffer, payload_offset, payload_type)
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
 end
 
--- Display: Sbe Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.display = function(packet, parent, length)
+-- Display: Client Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sbe Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sbe Header: Struct of 4 fields
@@ -9805,558 +10401,28 @@ memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.fields = function(buffer, offs
   -- Dependency element: Template Id
   local template_id = buffer(index - 4, 1):uint()
 
-  -- Payload: Runtime Type with 60 branches
-  index = memx_memxoptions_riskcontrol_sbe_v1_7.payload.dissect(buffer, index, packet, parent, template_id)
+  -- Client Payload: Runtime Type with 25 branches
+  index = memx_memxoptions_riskcontrol_sbe_v1_7.client_payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
 end
 
--- Dissect: Sbe Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Sbe Message
+memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.client_sbe_message, buffer(offset, 0))
+    local index = memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.display(packet, parent, length)
+    local display = memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent)
+    return memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.fields(buffer, offset, packet, parent)
   end
-end
-
--- Sequenced Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message = {}
-
--- Calculate size of: Sequenced Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Sequenced Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Sequenced Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Sequenced Message
-memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sequenced_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message = {}
-
--- Size: Stream Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.total_sequence_count.size
-
--- Display: Stream Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Total Sequence Count: 8 Byte Unsigned Fixed Width Integer
-  index, total_sequence_count = memx_memxoptions_riskcontrol_sbe_v1_7.total_sequence_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_complete_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message = {}
-
--- Size: Stream Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.stream_reject_code.size
-
--- Display: Stream Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stream Reject Code: 1 Byte Ascii String Enum with 3 values
-  index, stream_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.stream_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Stream Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message = {}
-
--- Size: Stream Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.max_sequence_number.size
-
--- Display: Stream Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Stream Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Max Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, max_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.max_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Stream Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.stream_begin_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message = {}
-
--- Size: Replay Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.message_count.size
-
--- Display: Replay Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Count: 8 Byte Unsigned Fixed Width Integer
-  index, message_count = memx_memxoptions_riskcontrol_sbe_v1_7.message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Complete Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_complete_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message = {}
-
--- Size: Replay Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.replay_reject_code.size
-
--- Display: Replay Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Replay Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, replay_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.replay_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Replay Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message = {}
-
--- Size: Replay Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.pending_message_count.size
-
--- Display: Replay Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Replay Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Next Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, next_sequence_number = memx_memxoptions_riskcontrol_sbe_v1_7.next_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Pending Message Count: 4 Byte Unsigned Fixed Width Integer
-  index, pending_message_count = memx_memxoptions_riskcontrol_sbe_v1_7.pending_message_count.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Replay Begin Message
-memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.replay_begin_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Start Of Session Message
-memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message = {}
-
--- Size: Start Of Session Message
-memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.session_id.size
-
--- Display: Start Of Session Message
-memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Start Of Session Message
-memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Session Id: 8 Byte Unsigned Fixed Width Integer
-  index, session_id = memx_memxoptions_riskcontrol_sbe_v1_7.session_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Start Of Session Message
-memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.start_of_session_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message = {}
-
--- Size: Login Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.login_reject_code.size
-
--- Display: Login Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Login Reject Code: 1 Byte Ascii String Enum with 4 values
-  index, login_reject_code = memx_memxoptions_riskcontrol_sbe_v1_7.login_reject_code.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Rejected Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.login_rejected_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Accepted Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message = {}
-
--- Size: Login Accepted Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.supported_request_mode.size
-
--- Display: Login Accepted Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Accepted Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Supported Request Mode: 1 Byte Ascii String Enum with 3 values
-  index, supported_request_mode = memx_memxoptions_riskcontrol_sbe_v1_7.supported_request_mode.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Accepted Message
-memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.session_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.login_accepted_message, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Server Data
-memx_memxoptions_riskcontrol_sbe_v1_7.server_data = {}
-
--- Dissect: Server Data
-memx_memxoptions_riskcontrol_sbe_v1_7.server_data.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Login Accepted Message
-  if message_type == 1 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.login_accepted_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Login Rejected Message
-  if message_type == 2 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.login_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Start Of Session Message
-  if message_type == 3 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.start_of_session_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Begin Message
-  if message_type == 5 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Rejected Message
-  if message_type == 6 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Replay Complete Message
-  if message_type == 7 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.replay_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Begin Message
-  if message_type == 8 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_begin_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Rejected Message
-  if message_type == 9 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_rejected_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Stream Complete Message
-  if message_type == 10 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.stream_complete_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Sequenced Message
-  if message_type == 11 then
-    return memx_memxoptions_riskcontrol_sbe_v1_7.sequenced_message.dissect(buffer, offset, packet, parent)
-  end
-
-  return offset
-end
-
--- Common Header
-memx_memxoptions_riskcontrol_sbe_v1_7.common_header = {}
-
--- Size: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_7.common_header.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.message_type.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.message_length.size
-
--- Display: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_7.common_header.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 17 values
-  index, message_type = memx_memxoptions_riskcontrol_sbe_v1_7.message_type.dissect(buffer, index, packet, parent)
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = memx_memxoptions_riskcontrol_sbe_v1_7.message_length.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Common Header
-memx_memxoptions_riskcontrol_sbe_v1_7.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.common_header, buffer(offset, 0))
-    local index = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Server Packet
-memx_memxoptions_riskcontrol_sbe_v1_7.server_packet = {}
-
--- Verify required size of Tcp packet
-memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= memx_memxoptions_riskcontrol_sbe_v1_7.common_header.size
-end
-
--- Dissect Server Packet
-memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.dissect = function(buffer, packet, parent)
-  local index = 0
-
-  -- Common Header: Struct of 2 fields
-  index, common_header = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 3, 1):uint()
-
-  -- Server Data: Runtime Type with 10 branches
-  index = memx_memxoptions_riskcontrol_sbe_v1_7.server_data.dissect(buffer, index, packet, parent, message_type)
-
-  return index
 end
 
 -- Unsequenced Message
@@ -10366,7 +10432,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.unsequenced_message = {}
 memx_memxoptions_riskcontrol_sbe_v1_7.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.size(buffer, offset + index)
+  index = index + memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.size(buffer, offset + index)
 
   return index
 end
@@ -10380,8 +10446,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.unsequenced_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Message: Struct of 2 fields
-  index, sbe_message = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent)
+  -- Client Sbe Message: Struct of 2 fields
+  index, client_sbe_message = memx_memxoptions_riskcontrol_sbe_v1_7.client_sbe_message.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10928,181 +10994,6 @@ memx_memxoptions_riskcontrol_sbe_v1_7.client_packet.fingerprint = function(buffe
       return true
     end
 
-    -- Active Risk Threshold State Message
-    if template_id == 30 then
-      return true
-    end
-
-    -- Active Risk Threshold Change Rejected Message
-    if template_id == 31 then
-      return true
-    end
-
-    -- Active Risk Acknowledged Message
-    if template_id == 32 then
-      return true
-    end
-
-    -- Active Risk Acknowledge Rejected Message
-    if template_id == 33 then
-      return true
-    end
-
-    -- Active Risk Quantity Update Notification Message
-    if template_id == 34 then
-      return true
-    end
-
-    -- Cp Volume Threshold State Message
-    if template_id == 35 then
-      return true
-    end
-
-    -- Cp Executed Notional Threshold State Message
-    if template_id == 36 then
-      return true
-    end
-
-    -- Cp Total Executions Threshold State Message
-    if template_id == 37 then
-      return true
-    end
-
-    -- Cp Percent Outstanding Contracts Threshold State Message
-    if template_id == 38 then
-      return true
-    end
-
-    -- Cp Breach Count Threshold State Message
-    if template_id == 39 then
-      return true
-    end
-
-    -- Manual Cp Breach Trigger Pending Message
-    if template_id == 40 then
-      return true
-    end
-
-    -- Manual Cp Breach Trigger Done Message
-    if template_id == 41 then
-      return true
-    end
-
-    -- Risk Threshold Update Rejected Message
-    if template_id == 42 then
-      return true
-    end
-
-    -- Passive Risk Threshold Notification Message
-    if template_id == 43 then
-      return true
-    end
-
-    -- Single Order Allow Iso Orders State Message
-    if template_id == 44 then
-      return true
-    end
-
-    -- Single Order Allow Orders In Crossed Market State Message
-    if template_id == 45 then
-      return true
-    end
-
-    -- Single Order Max Notional Threshold State Message
-    if template_id == 46 then
-      return true
-    end
-
-    -- Single Order Max Contracts Threshold State Message
-    if template_id == 47 then
-      return true
-    end
-
-    -- Single Order Allow Market Orders State Message
-    if template_id == 66 then
-      return true
-    end
-
-    -- Single Order Restricted Underlier State Message
-    if template_id == 67 then
-      return true
-    end
-
-    -- Risk Settings Query Done Message
-    if template_id == 48 then
-      return true
-    end
-
-    -- Risk Settings Query Rejected Message
-    if template_id == 49 then
-      return true
-    end
-
-    -- Manual Cp Breach Trigger Rejected Message
-    if template_id == 50 then
-      return true
-    end
-
-    -- Breach Clear Rejected Message
-    if template_id == 51 then
-      return true
-    end
-
-    -- Breach Cleared Message
-    if template_id == 52 then
-      return true
-    end
-
-    -- Breach Clear All Accepted Message
-    if template_id == 53 then
-      return true
-    end
-
-    -- Breach Clear All Rejected Message
-    if template_id == 69 then
-      return true
-    end
-
-    -- Breach Clear All By Efid Or Underlier Accepted Message
-    if template_id == 54 then
-      return true
-    end
-
-    -- Breach Clear All By Efid Or Underlier Rejected Message
-    if template_id == 68 then
-      return true
-    end
-
-    -- Cp Gross Notional Threshold State Message
-    if template_id == 60 then
-      return true
-    end
-
-    -- Cp Market Order Gross Notional Threshold State Message
-    if template_id == 61 then
-      return true
-    end
-
-    -- Cp Net Notional Threshold State Message
-    if template_id == 62 then
-      return true
-    end
-
-    -- Cp Market Order Net Notional Threshold State Message
-    if template_id == 63 then
-      return true
-    end
-
-    -- Cp Duplicate Order Threshold State Message
-    if template_id == 64 then
-      return true
-    end
-
-    -- Cp Order Rate Threshold State Message
-    if template_id == 65 then
-      return true
-    end
-
     return false
   end
 
@@ -11169,131 +11060,6 @@ memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.fingerprint = function(buffe
     end
 
     local template_id = buffer(5, 1):uint()
-
-    -- Risk Settings Query Message
-    if template_id == 1 then
-      return true
-    end
-
-    -- Active Risk Threshold Change Request Message
-    if template_id == 2 then
-      return true
-    end
-
-    -- Active Risk Acknowledgement Request Message
-    if template_id == 3 then
-      return true
-    end
-
-    -- Cp Volume Threshold Change Request Message
-    if template_id == 4 then
-      return true
-    end
-
-    -- Cp Executed Notional Threshold Change Request Message
-    if template_id == 5 then
-      return true
-    end
-
-    -- Cp Total Executions Threshold Change Request Message
-    if template_id == 6 then
-      return true
-    end
-
-    -- Cp Percent Outstanding Contracts Threshold Change Request Message
-    if template_id == 7 then
-      return true
-    end
-
-    -- Cp Breach Count Threshold Change Request Message
-    if template_id == 8 then
-      return true
-    end
-
-    -- Manual Cp Breach Trigger Request Message
-    if template_id == 9 then
-      return true
-    end
-
-    -- Cp Clear Breach Request Message
-    if template_id == 10 then
-      return true
-    end
-
-    -- Single Order Allow Iso Orders Change Request Message
-    if template_id == 11 then
-      return true
-    end
-
-    -- Single Order Allow Orders In Crossed Market Change Request Message
-    if template_id == 12 then
-      return true
-    end
-
-    -- Single Order Max Notional Change Request Message
-    if template_id == 13 then
-      return true
-    end
-
-    -- Single Order Max Contracts Change Request Message
-    if template_id == 14 then
-      return true
-    end
-
-    -- Single Order Allow Market Orders Change Request Message
-    if template_id == 15 then
-      return true
-    end
-
-    -- Single Order Restricted Underlier Change Request Message
-    if template_id == 16 then
-      return true
-    end
-
-    -- Cp Gross Notional Threshold Change Request Message
-    if template_id == 18 then
-      return true
-    end
-
-    -- Cp Market Order Gross Notional Threshold Change Request Message
-    if template_id == 19 then
-      return true
-    end
-
-    -- Cp Net Notional Threshold Change Request Message
-    if template_id == 20 then
-      return true
-    end
-
-    -- Cp Market Order Net Notional Threshold Change Request Message
-    if template_id == 21 then
-      return true
-    end
-
-    -- Cp Duplicate Order Threshold Change Request Message
-    if template_id == 22 then
-      return true
-    end
-
-    -- Cp Order Rate Threshold Change Request Message
-    if template_id == 23 then
-      return true
-    end
-
-    -- Cp Clear All Breaches Request Message
-    if template_id == 24 then
-      return true
-    end
-
-    -- Cp Clear All Breaches By Efid Or Underlier Request Message
-    if template_id == 25 then
-      return true
-    end
-
-    -- Active Risk Acknowledge All Request Message
-    if template_id == 26 then
-      return true
-    end
 
     -- Active Risk Threshold State Message
     if template_id == 30 then
