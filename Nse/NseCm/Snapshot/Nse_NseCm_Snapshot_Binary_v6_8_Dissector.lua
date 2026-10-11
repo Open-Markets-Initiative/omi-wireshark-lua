@@ -690,22 +690,34 @@ function omi_nse_nsecm_snapshot_binary_v6_8.dissector(buffer, packet, parent)
   packet.cols.protocol = omi_nse_nsecm_snapshot_binary_v6_8.name
 
   local length = buffer:len()
-  local offset = 0
+  local index = 0
 
   -- Dissect each message the segment carries
-  while offset < length do
-    local protocol = parent:add(omi_nse_nsecm_snapshot_binary_v6_8, buffer(offset), omi_nse_nsecm_snapshot_binary_v6_8.description, "("..(length - offset).." Bytes)")
-    local consumed = nse_nsecm_snapshot_binary_v6_8.packet.dissect(buffer(offset):tvb(), packet, protocol)
+  while index < length do
+    local remaining = length - index
 
-    if consumed == nil or consumed <= 0 then
-      return offset
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nse_nsecm_snapshot_binary_v6_8.snapshot_header.size then
+      packet.desegment_offset = index
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
     end
 
-    protocol:set_len(consumed)
-    offset = offset + consumed
+    local size = buffer(index + 2, 4):le_int()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nse_nsecm_snapshot_binary_v6_8, buffer(index, size), omi_nse_nsecm_snapshot_binary_v6_8.description, "("..size.." Bytes)")
+    nse_nsecm_snapshot_binary_v6_8.packet.dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
   end
 
-  return offset
+  return index
 end
 
 
