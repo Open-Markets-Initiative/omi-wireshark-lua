@@ -919,13 +919,11 @@ nyse_arcaequities_depthfeedrequest_pillar_v1_7.server_packet.dissect = function(
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_7.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Server Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Number Msgs
+  local number_msgs = buffer(index - 13, 1):le_uint()
 
-  -- Server Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Server Message
+  for server_message_index = 1, number_msgs do
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
@@ -1232,13 +1230,11 @@ nyse_arcaequities_depthfeedrequest_pillar_v1_7.client_packet.dissect = function(
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_7.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Client Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Number Msgs
+  local number_msgs = buffer(index - 13, 1):le_uint()
 
-  -- Client Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Client Message
+  for client_message_index = 1, number_msgs do
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
@@ -1342,15 +1338,41 @@ function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.dissector(buffer, pa
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.name
 
-  -- Dissect protocol
-  local protocol = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7, buffer(), omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.description, "("..buffer:len().." Bytes)")
   local role = nyse_arcaequities_depthfeedrequest_pillar_v1_7.role(packet)
-
+  local dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_7.server_packet.dissect
   if role == "initiator" then
-    return nyse_arcaequities_depthfeedrequest_pillar_v1_7.client_packet.dissect(buffer, packet, protocol)
+    dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_7.client_packet.dissect
   end
 
-  return nyse_arcaequities_depthfeedrequest_pillar_v1_7.server_packet.dissect(buffer, packet, protocol)
+  local length = buffer:len()
+  local index = 0
+
+  -- Dissect each message the segment carries
+  while index < length do
+    local remaining = length - index
+
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nyse_arcaequities_depthfeedrequest_pillar_v1_7.packet_header.size then
+      packet.desegment_offset = index
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    local size = buffer(index, 2):le_uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7, buffer(index, size), omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
+  end
+
+  return index
 end
 
 

@@ -5639,7 +5639,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(quote_reject_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -5648,7 +5648,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(quote_reject_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -5657,7 +5657,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(quote_reject_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -5666,7 +5666,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(quote_reject_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -5675,7 +5675,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(quote_reject_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -5684,7 +5684,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(quote_reject_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -7661,7 +7661,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(quote_status_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -7670,7 +7670,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(quote_status_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -7679,7 +7679,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(quote_status_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -7688,7 +7688,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(quote_status_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -7697,7 +7697,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(quote_status_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -7706,7 +7706,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(quote_status_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -7715,7 +7715,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
   -- Runtime optional field: Text
   local text = nil
 
-  local text_exists = number_of_return_bitfields >= 7 and bit.band(quote_status_v_2_return_bitfield_7, 0x08) > 0
+  local text_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_7, 0x08), 3) > 0
 
   if text_exists then
     index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
@@ -9783,7 +9783,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -9792,7 +9792,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -9801,7 +9801,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -9810,7 +9810,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -9819,7 +9819,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -9828,7 +9828,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
@@ -9837,7 +9837,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
-  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x02) > 0
+  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x02), 1) > 0
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
@@ -9846,7 +9846,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
-  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x80) > 0
+  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x80), 7) > 0
 
   if last_mkt_exists then
     index, last_mkt = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_mkt.dissect(buffer, index, packet, parent)
@@ -9855,7 +9855,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Waiver Type
   local waiver_type = nil
 
-  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_decline_v_2_return_bitfield_10, 0x10) > 0
+  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_10, 0x10), 4) > 0
 
   if waiver_type_exists then
     index, waiver_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect(buffer, index, packet, parent)
@@ -9864,7 +9864,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
-  local price_formation_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_decline_v_2_return_bitfield_10, 0x40) > 0
+  local price_formation_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_10, 0x40), 6) > 0
 
   if price_formation_exists then
     index, price_formation = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect(buffer, index, packet, parent)
@@ -9873,7 +9873,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Algorithmic Indicator
   local algorithmic_indicator = nil
 
-  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_decline_v_2_return_bitfield_11, 0x10) > 0
+  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_11, 0x10), 4) > 0
 
   if algorithmic_indicator_exists then
     index, algorithmic_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect(buffer, index, packet, parent)
@@ -9882,7 +9882,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Deferral Reason
   local deferral_reason = nil
 
-  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_decline_v_2_return_bitfield_11, 0x20) > 0
+  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_11, 0x20), 5) > 0
 
   if deferral_reason_exists then
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
@@ -9891,7 +9891,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
-  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.band(trade_capture_report_decline_v_2_return_bitfield_19, 0x10) > 0
+  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_19, 0x10), 4) > 0
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
@@ -9909,7 +9909,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -9927,7 +9927,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Party Id
   local party_id = nil
 
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40) > 0
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40), 6) > 0
 
   if party_id_exists then
     index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
@@ -9936,7 +9936,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Runtime optional field: Party Role
   local party_role = nil
 
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80) > 0
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80), 7) > 0
 
   if party_role_exists then
     index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
@@ -12006,7 +12006,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -12015,7 +12015,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -12024,7 +12024,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -12033,7 +12033,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -12042,7 +12042,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -12051,7 +12051,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
@@ -12060,7 +12060,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
-  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x02) > 0
+  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x02), 1) > 0
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
@@ -12069,7 +12069,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Text
   local text = nil
 
-  local text_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x08) > 0
+  local text_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x08), 3) > 0
 
   if text_exists then
     index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
@@ -12078,7 +12078,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
-  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x80) > 0
+  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x80), 7) > 0
 
   if last_mkt_exists then
     index, last_mkt = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_mkt.dissect(buffer, index, packet, parent)
@@ -12087,7 +12087,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Order Category
   local order_category = nil
 
-  local order_category_exists = number_of_return_bitfields >= 9 and bit.band(trade_capture_confirm_v_2_return_bitfield_9, 0x08) > 0
+  local order_category_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_9, 0x08), 3) > 0
 
   if order_category_exists then
     index, order_category = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.dissect(buffer, index, packet, parent)
@@ -12096,7 +12096,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Waiver Type
   local waiver_type = nil
 
-  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_confirm_v_2_return_bitfield_10, 0x10) > 0
+  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_10, 0x10), 4) > 0
 
   if waiver_type_exists then
     index, waiver_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect(buffer, index, packet, parent)
@@ -12105,7 +12105,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
-  local price_formation_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_confirm_v_2_return_bitfield_10, 0x40) > 0
+  local price_formation_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_10, 0x40), 6) > 0
 
   if price_formation_exists then
     index, price_formation = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect(buffer, index, packet, parent)
@@ -12114,7 +12114,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Algorithmic Indicator
   local algorithmic_indicator = nil
 
-  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_confirm_v_2_return_bitfield_11, 0x10) > 0
+  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_11, 0x10), 4) > 0
 
   if algorithmic_indicator_exists then
     index, algorithmic_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect(buffer, index, packet, parent)
@@ -12123,7 +12123,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Deferral Reason
   local deferral_reason = nil
 
-  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_confirm_v_2_return_bitfield_11, 0x20) > 0
+  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_11, 0x20), 5) > 0
 
   if deferral_reason_exists then
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
@@ -12132,7 +12132,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Trade Publish Ind
   local trade_publish_ind = nil
 
-  local trade_publish_ind_exists = number_of_return_bitfields >= 15 and bit.band(trade_capture_confirm_v_2_return_bitfield_15, 0x10) > 0
+  local trade_publish_ind_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_15, 0x10), 4) > 0
 
   if trade_publish_ind_exists then
     index, trade_publish_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_ind.dissect(buffer, index, packet, parent)
@@ -12141,7 +12141,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Report Time
   local report_time = nil
 
-  local report_time_exists = number_of_return_bitfields >= 15 and bit.band(trade_capture_confirm_v_2_return_bitfield_15, 0x20) > 0
+  local report_time_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_15, 0x20), 5) > 0
 
   if report_time_exists then
     index, report_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.report_time.dissect(buffer, index, packet, parent)
@@ -12150,7 +12150,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
-  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.band(trade_capture_confirm_v_2_return_bitfield_19, 0x10) > 0
+  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_19, 0x10), 4) > 0
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
@@ -12168,7 +12168,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -12186,7 +12186,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Party Id
   local party_id = nil
 
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40) > 0
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40), 6) > 0
 
   if party_id_exists then
     index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
@@ -12195,7 +12195,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Runtime optional field: Party Role
   local party_role = nil
 
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80) > 0
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80), 7) > 0
 
   if party_role_exists then
     index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
@@ -14195,7 +14195,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -14204,7 +14204,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -14213,7 +14213,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -14222,7 +14222,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -14231,7 +14231,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -14240,7 +14240,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
@@ -14249,7 +14249,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
-  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x02) > 0
+  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x02), 1) > 0
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
@@ -14258,7 +14258,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
-  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x80) > 0
+  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x80), 7) > 0
 
   if last_mkt_exists then
     index, last_mkt = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_mkt.dissect(buffer, index, packet, parent)
@@ -14267,7 +14267,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Waiver Type
   local waiver_type = nil
 
-  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_reject_v_2_return_bitfield_10, 0x10) > 0
+  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_10, 0x10), 4) > 0
 
   if waiver_type_exists then
     index, waiver_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect(buffer, index, packet, parent)
@@ -14276,7 +14276,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
-  local price_formation_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_reject_v_2_return_bitfield_10, 0x40) > 0
+  local price_formation_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_10, 0x40), 6) > 0
 
   if price_formation_exists then
     index, price_formation = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect(buffer, index, packet, parent)
@@ -14285,7 +14285,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Algorithmic Indicator
   local algorithmic_indicator = nil
 
-  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_reject_v_2_return_bitfield_11, 0x10) > 0
+  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_11, 0x10), 4) > 0
 
   if algorithmic_indicator_exists then
     index, algorithmic_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect(buffer, index, packet, parent)
@@ -14294,7 +14294,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Deferral Reason
   local deferral_reason = nil
 
-  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_reject_v_2_return_bitfield_11, 0x20) > 0
+  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_11, 0x20), 5) > 0
 
   if deferral_reason_exists then
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
@@ -14303,7 +14303,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
-  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.band(trade_capture_report_reject_v_2_return_bitfield_19, 0x10) > 0
+  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_19, 0x10), 4) > 0
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
@@ -14321,7 +14321,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -14339,7 +14339,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Party Id
   local party_id = nil
 
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40) > 0
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40), 6) > 0
 
   if party_id_exists then
     index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
@@ -14348,7 +14348,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Runtime optional field: Party Role
   local party_role = nil
 
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80) > 0
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80), 7) > 0
 
   if party_role_exists then
     index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
@@ -16333,7 +16333,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x04) > 0
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -16342,7 +16342,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x08) > 0
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -16351,7 +16351,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x10) > 0
+  local security_id_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -16360,7 +16360,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x20) > 0
+  local security_exchange_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -16369,7 +16369,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -16378,7 +16378,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
@@ -16387,7 +16387,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
-  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_7, 0x02) > 0
+  local trade_report_type_return_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_7, 0x02), 1) > 0
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
@@ -16396,7 +16396,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
-  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_7, 0x80) > 0
+  local last_mkt_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_7, 0x80), 7) > 0
 
   if last_mkt_exists then
     index, last_mkt = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_mkt.dissect(buffer, index, packet, parent)
@@ -16405,7 +16405,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Trade Report Ref Id
   local trade_report_ref_id = nil
 
-  local trade_report_ref_id_exists = number_of_return_bitfields >= 8 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_8, 0x80) > 0
+  local trade_report_ref_id_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_8, 0x80), 7) > 0
 
   if trade_report_ref_id_exists then
     index, trade_report_ref_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_ref_id.dissect(buffer, index, packet, parent)
@@ -16414,7 +16414,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Order Category
   local order_category = nil
 
-  local order_category_exists = number_of_return_bitfields >= 9 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_9, 0x08) > 0
+  local order_category_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_9, 0x08), 3) > 0
 
   if order_category_exists then
     index, order_category = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.dissect(buffer, index, packet, parent)
@@ -16423,7 +16423,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Waiver Type
   local waiver_type = nil
 
-  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_10, 0x10) > 0
+  local waiver_type_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_10, 0x10), 4) > 0
 
   if waiver_type_exists then
     index, waiver_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect(buffer, index, packet, parent)
@@ -16432,7 +16432,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
-  local price_formation_exists = number_of_return_bitfields >= 10 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_10, 0x40) > 0
+  local price_formation_exists = number_of_return_bitfields >= 10 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_10, 0x40), 6) > 0
 
   if price_formation_exists then
     index, price_formation = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect(buffer, index, packet, parent)
@@ -16441,7 +16441,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Algorithmic Indicator
   local algorithmic_indicator = nil
 
-  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_11, 0x10) > 0
+  local algorithmic_indicator_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_11, 0x10), 4) > 0
 
   if algorithmic_indicator_exists then
     index, algorithmic_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect(buffer, index, packet, parent)
@@ -16450,7 +16450,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Deferral Reason
   local deferral_reason = nil
 
-  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_11, 0x20) > 0
+  local deferral_reason_exists = number_of_return_bitfields >= 11 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_11, 0x20), 5) > 0
 
   if deferral_reason_exists then
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
@@ -16459,7 +16459,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
-  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_19, 0x10) > 0
+  local intra_firm_trade_ind_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_19, 0x10), 4) > 0
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
@@ -16477,7 +16477,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
@@ -16495,7 +16495,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Party Id
   local party_id = nil
 
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40) > 0
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40), 6) > 0
 
   if party_id_exists then
     index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
@@ -16504,7 +16504,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Runtime optional field: Party Role
   local party_role = nil
 
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80) > 0
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80), 7) > 0
 
   if party_role_exists then
     index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
@@ -16736,7 +16736,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x20) > 0
+  local clearing_firm_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x20), 5) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -16754,7 +16754,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x02) > 0
+  local currency_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x02), 1) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -16763,7 +16763,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x04) > 0
+  local id_source_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x04), 2) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -16772,7 +16772,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x08) > 0
+  local security_id_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x08), 3) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -16781,7 +16781,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x10) > 0
+  local security_exchange_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x10), 4) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -16952,7 +16952,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_quote_v_2_bitfields >= 1 and bit.band(quote_v_2_bitfield_1, 0x02) > 0
+  local currency_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x02), 1) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -16961,7 +16961,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_quote_v_2_bitfields >= 1 and bit.band(quote_v_2_bitfield_1, 0x04) > 0
+  local id_source_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x04), 2) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -16970,7 +16970,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_quote_v_2_bitfields >= 1 and bit.band(quote_v_2_bitfield_1, 0x08) > 0
+  local security_id_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x08), 3) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -16979,7 +16979,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_quote_v_2_bitfields >= 1 and bit.band(quote_v_2_bitfield_1, 0x10) > 0
+  local security_exchange_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x10), 4) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -16988,7 +16988,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_quote_v_2_bitfields >= 1 and bit.band(quote_v_2_bitfield_1, 0x80) > 0
+  local clearing_firm_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x80), 7) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
@@ -17735,7 +17735,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Currency
   local currency = nil
 
-  local currency_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x04) > 0
+  local currency_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_1, 0x04), 2) > 0
 
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
@@ -17744,7 +17744,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Id Source
   local id_source = nil
 
-  local id_source_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x08) > 0
+  local id_source_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_1, 0x08), 3) > 0
 
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
@@ -17753,7 +17753,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Security Id
   local security_id = nil
 
-  local security_id_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x10) > 0
+  local security_id_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_1, 0x10), 4) > 0
 
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
@@ -17762,7 +17762,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
-  local security_exchange_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x20) > 0
+  local security_exchange_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_1, 0x20), 5) > 0
 
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
@@ -17771,7 +17771,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
-  local last_mkt_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x40) > 0
+  local last_mkt_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_1, 0x40), 6) > 0
 
   if last_mkt_exists then
     index, last_mkt = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_mkt.dissect(buffer, index, packet, parent)
@@ -17780,7 +17780,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Transaction Category
   local transaction_category = nil
 
-  local transaction_category_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x04) > 0
+  local transaction_category_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x04), 2) > 0
 
   if transaction_category_exists then
     index, transaction_category = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.dissect(buffer, index, packet, parent)
@@ -17789,7 +17789,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trade Time
   local trade_time = nil
 
-  local trade_time_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x08) > 0
+  local trade_time_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x08), 3) > 0
 
   if trade_time_exists then
     index, trade_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_time.dissect(buffer, index, packet, parent)
@@ -17798,7 +17798,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trade Report Trans Type
   local trade_report_trans_type = nil
 
-  local trade_report_trans_type_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x20) > 0
+  local trade_report_trans_type_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x20), 5) > 0
 
   if trade_report_trans_type_exists then
     index, trade_report_trans_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_trans_type.dissect(buffer, index, packet, parent)
@@ -17807,7 +17807,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trade Id
   local trade_id = nil
 
-  local trade_id_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x40) > 0
+  local trade_id_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x40), 6) > 0
 
   if trade_id_exists then
     index, trade_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_id.dissect(buffer, index, packet, parent)
@@ -17816,7 +17816,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Venue Type
   local venue_type = nil
 
-  local venue_type_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x80) > 0
+  local venue_type_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x80), 7) > 0
 
   if venue_type_exists then
     index, venue_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.dissect(buffer, index, packet, parent)
@@ -17834,7 +17834,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Match Type
   local match_type = nil
 
-  local match_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x02) > 0
+  local match_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x02), 1) > 0
 
   if match_type_exists then
     index, match_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.match_type.dissect(buffer, index, packet, parent)
@@ -17843,7 +17843,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trd Sub Type
   local trd_sub_type = nil
 
-  local trd_sub_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x04) > 0
+  local trd_sub_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x04), 2) > 0
 
   if trd_sub_type_exists then
     index, trd_sub_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_sub_type.dissect(buffer, index, packet, parent)
@@ -17852,7 +17852,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Secondary Trd Type
   local secondary_trd_type = nil
 
-  local secondary_trd_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x08) > 0
+  local secondary_trd_type_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x08), 3) > 0
 
   if secondary_trd_type_exists then
     index, secondary_trd_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.secondary_trd_type.dissect(buffer, index, packet, parent)
@@ -17861,7 +17861,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trade Price Condition
   local trade_price_condition = nil
 
-  local trade_price_condition_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x10) > 0
+  local trade_price_condition_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x10), 4) > 0
 
   if trade_price_condition_exists then
     index, trade_price_condition = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_price_condition.dissect(buffer, index, packet, parent)
@@ -17870,7 +17870,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Trade Publish Indicator
   local trade_publish_indicator = nil
 
-  local trade_publish_indicator_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x20) > 0
+  local trade_publish_indicator_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x20), 5) > 0
 
   if trade_publish_indicator_exists then
     index, trade_publish_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.dissect(buffer, index, packet, parent)
@@ -17879,7 +17879,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Large Size
   local large_size = nil
 
-  local large_size_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x40) > 0
+  local large_size_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x40), 6) > 0
 
   if large_size_exists then
     index, large_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.large_size.dissect(buffer, index, packet, parent)
@@ -17888,7 +17888,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Execution Method
   local execution_method = nil
 
-  local execution_method_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.band(trade_capture_report_v_2_bitfield_3, 0x80) > 0
+  local execution_method_exists = number_of_trade_capture_report_v_2_bitfields >= 3 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_3, 0x80), 7) > 0
 
   if execution_method_exists then
     index, execution_method = cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.dissect(buffer, index, packet, parent)
@@ -17897,7 +17897,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Gross Trade Amt
   local gross_trade_amt = nil
 
-  local gross_trade_amt_exists = number_of_trade_capture_report_v_2_bitfields >= 4 and bit.band(trade_capture_report_v_2_bitfield_4, 0x10) > 0
+  local gross_trade_amt_exists = number_of_trade_capture_report_v_2_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_4, 0x10), 4) > 0
 
   if gross_trade_amt_exists then
     index, gross_trade_amt = cboe_cboeeurope_tradereporting_boe_v2_0_40.gross_trade_amt.dissect(buffer, index, packet, parent)
@@ -17906,7 +17906,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Order Category
   local order_category = nil
 
-  local order_category_exists = number_of_trade_capture_report_v_2_bitfields >= 4 and bit.band(trade_capture_report_v_2_bitfield_4, 0x40) > 0
+  local order_category_exists = number_of_trade_capture_report_v_2_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_4, 0x40), 6) > 0
 
   if order_category_exists then
     index, order_category = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.dissect(buffer, index, packet, parent)
@@ -17915,7 +17915,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
-  local price_formation_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.band(trade_capture_report_v_2_bitfield_5, 0x02) > 0
+  local price_formation_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_5, 0x02), 1) > 0
 
   if price_formation_exists then
     index, price_formation = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect(buffer, index, packet, parent)
@@ -17924,7 +17924,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Algorithmic Indicator
   local algorithmic_indicator = nil
 
-  local algorithmic_indicator_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.band(trade_capture_report_v_2_bitfield_5, 0x04) > 0
+  local algorithmic_indicator_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_5, 0x04), 2) > 0
 
   if algorithmic_indicator_exists then
     index, algorithmic_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect(buffer, index, packet, parent)
@@ -17933,7 +17933,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Waiver Type
   local waiver_type = nil
 
-  local waiver_type_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.band(trade_capture_report_v_2_bitfield_5, 0x08) > 0
+  local waiver_type_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_5, 0x08), 3) > 0
 
   if waiver_type_exists then
     index, waiver_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect(buffer, index, packet, parent)
@@ -17942,7 +17942,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Deferral Reason
   local deferral_reason = nil
 
-  local deferral_reason_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.band(trade_capture_report_v_2_bitfield_5, 0x10) > 0
+  local deferral_reason_exists = number_of_trade_capture_report_v_2_bitfields >= 5 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_5, 0x10), 4) > 0
 
   if deferral_reason_exists then
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
@@ -17951,7 +17951,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
-  local intra_firm_trade_ind_exists = number_of_trade_capture_report_v_2_bitfields >= 6 and bit.band(trade_capture_report_v_2_bitfield_6, 0x10) > 0
+  local intra_firm_trade_ind_exists = number_of_trade_capture_report_v_2_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_6, 0x10), 4) > 0
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
@@ -17960,7 +17960,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Tertiary Trd Type
   local tertiary_trd_type = nil
 
-  local tertiary_trd_type_exists = number_of_trade_capture_report_v_2_bitfields >= 6 and bit.band(trade_capture_report_v_2_bitfield_6, 0x20) > 0
+  local tertiary_trd_type_exists = number_of_trade_capture_report_v_2_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_6, 0x20), 5) > 0
 
   if tertiary_trd_type_exists then
     index, tertiary_trd_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.tertiary_trd_type.dissect(buffer, index, packet, parent)
@@ -17969,7 +17969,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Account
   local account = nil
 
-  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x02) > 0
+  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x02), 1) > 0
 
   if account_exists then
     index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
@@ -17978,7 +17978,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Runtime optional field: Party Role
   local party_role = nil
 
-  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x10) > 0
+  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x10), 4) > 0
 
   if party_role_exists then
     index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)

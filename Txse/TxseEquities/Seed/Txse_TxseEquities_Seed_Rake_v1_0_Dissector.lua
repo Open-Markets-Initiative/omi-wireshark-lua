@@ -5856,21 +5856,21 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.size = function(bu
 
   local mass_cancel_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_rejected_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_sender_comp.size
 
   end
 
   local mass_cancel_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_rejected_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_member_group.size
 
   end
 
   local mass_cancel_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_rejected_presence_bits, 0x08) == 8 then
+  if bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x08), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_cl_ord_id.size
 
   end
@@ -5917,7 +5917,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.fields = function(
   -- Runtime optional field: Mass Cancel Rejected Sender Comp
   local mass_cancel_rejected_sender_comp = nil
 
-  local mass_cancel_rejected_sender_comp_exists = bit.band(mass_cancel_rejected_presence_bits, 0x02) == 2
+  local mass_cancel_rejected_sender_comp_exists = bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x02), 1) == 1
 
   if mass_cancel_rejected_sender_comp_exists then
     index, mass_cancel_rejected_sender_comp = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_sender_comp.dissect(buffer, index, packet, parent)
@@ -5926,7 +5926,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.fields = function(
   -- Runtime optional field: Mass Cancel Rejected Member Group
   local mass_cancel_rejected_member_group = nil
 
-  local mass_cancel_rejected_member_group_exists = bit.band(mass_cancel_rejected_presence_bits, 0x04) == 4
+  local mass_cancel_rejected_member_group_exists = bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x04), 2) == 1
 
   if mass_cancel_rejected_member_group_exists then
     index, mass_cancel_rejected_member_group = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_member_group.dissect(buffer, index, packet, parent)
@@ -5935,7 +5935,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_message.fields = function(
   -- Runtime optional field: Mass Cancel Rejected Cl Ord Id
   local mass_cancel_rejected_cl_ord_id = nil
 
-  local mass_cancel_rejected_cl_ord_id_exists = bit.band(mass_cancel_rejected_presence_bits, 0x08) == 8
+  local mass_cancel_rejected_cl_ord_id_exists = bit.rshift(bit.band(mass_cancel_rejected_presence_bits, 0x08), 3) == 1
 
   if mass_cancel_rejected_cl_ord_id_exists then
     index, mass_cancel_rejected_cl_ord_id = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
@@ -6097,21 +6097,21 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.size = function(bu
 
   local mass_cancel_accepted_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_accepted_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_sender_comp.size
 
   end
 
   local mass_cancel_accepted_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_accepted_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_member_group.size
 
   end
 
   local mass_cancel_accepted_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_accepted_presence_bits, 0x08) == 8 then
+  if bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x08), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_cl_ord_id.size
 
   end
@@ -6158,7 +6158,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.fields = function(
   -- Runtime optional field: Mass Cancel Accepted Sender Comp
   local mass_cancel_accepted_sender_comp = nil
 
-  local mass_cancel_accepted_sender_comp_exists = bit.band(mass_cancel_accepted_presence_bits, 0x02) == 2
+  local mass_cancel_accepted_sender_comp_exists = bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x02), 1) == 1
 
   if mass_cancel_accepted_sender_comp_exists then
     index, mass_cancel_accepted_sender_comp = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_sender_comp.dissect(buffer, index, packet, parent)
@@ -6167,7 +6167,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.fields = function(
   -- Runtime optional field: Mass Cancel Accepted Member Group
   local mass_cancel_accepted_member_group = nil
 
-  local mass_cancel_accepted_member_group_exists = bit.band(mass_cancel_accepted_presence_bits, 0x04) == 4
+  local mass_cancel_accepted_member_group_exists = bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x04), 2) == 1
 
   if mass_cancel_accepted_member_group_exists then
     index, mass_cancel_accepted_member_group = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_member_group.dissect(buffer, index, packet, parent)
@@ -6176,7 +6176,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_message.fields = function(
   -- Runtime optional field: Mass Cancel Accepted Cl Ord Id
   local mass_cancel_accepted_cl_ord_id = nil
 
-  local mass_cancel_accepted_cl_ord_id_exists = bit.band(mass_cancel_accepted_presence_bits, 0x08) == 8
+  local mass_cancel_accepted_cl_ord_id_exists = bit.rshift(bit.band(mass_cancel_accepted_presence_bits, 0x08), 3) == 1
 
   if mass_cancel_accepted_cl_ord_id_exists then
     index, mass_cancel_accepted_cl_ord_id = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
@@ -6364,14 +6364,14 @@ txse_txseequities_seed_rake_v1_0.order_restated_message.size = function(buffer, 
 
   local order_restated_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(order_restated_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(order_restated_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_restated_display_price.size
 
   end
 
   local order_restated_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(order_restated_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(order_restated_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.display_qty.size
 
   end
@@ -6415,7 +6415,7 @@ txse_txseequities_seed_rake_v1_0.order_restated_message.fields = function(buffer
   -- Runtime optional field: Order Restated Display Price
   local order_restated_display_price = nil
 
-  local order_restated_display_price_exists = bit.band(order_restated_presence_bits, 0x02) == 2
+  local order_restated_display_price_exists = bit.rshift(bit.band(order_restated_presence_bits, 0x02), 1) == 1
 
   if order_restated_display_price_exists then
     index, order_restated_display_price = txse_txseequities_seed_rake_v1_0.order_restated_display_price.dissect(buffer, index, packet, parent)
@@ -6424,7 +6424,7 @@ txse_txseequities_seed_rake_v1_0.order_restated_message.fields = function(buffer
   -- Runtime optional field: Display Qty
   local display_qty = nil
 
-  local display_qty_exists = bit.band(order_restated_presence_bits, 0x04) == 4
+  local display_qty_exists = bit.rshift(bit.band(order_restated_presence_bits, 0x04), 2) == 1
 
   if display_qty_exists then
     index, display_qty = txse_txseequities_seed_rake_v1_0.display_qty.dissect(buffer, index, packet, parent)
@@ -6712,49 +6712,49 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.size = function(buffer
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_order_qty.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_max_floor_qty.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0040) == 64 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_reference_price_target.size
 
   end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_rejected_presence_bits, 0x0080) == 128 then
+  if bit.rshift(bit.band(replace_rejected_presence_bits, 0x0080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_locate_broker.size
 
   end
@@ -6801,7 +6801,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Order Qty
   local replace_rejected_order_qty = nil
 
-  local replace_rejected_order_qty_exists = bit.band(replace_rejected_presence_bits, 0x0002) == 2
+  local replace_rejected_order_qty_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0002), 1) == 1
 
   if replace_rejected_order_qty_exists then
     index, replace_rejected_order_qty = txse_txseequities_seed_rake_v1_0.replace_rejected_order_qty.dissect(buffer, index, packet, parent)
@@ -6810,7 +6810,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Max Floor Qty
   local replace_rejected_max_floor_qty = nil
 
-  local replace_rejected_max_floor_qty_exists = bit.band(replace_rejected_presence_bits, 0x0004) == 4
+  local replace_rejected_max_floor_qty_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0004), 2) == 1
 
   if replace_rejected_max_floor_qty_exists then
     index, replace_rejected_max_floor_qty = txse_txseequities_seed_rake_v1_0.replace_rejected_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -6819,7 +6819,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Self Match Scope
   local replace_rejected_self_match_scope = nil
 
-  local replace_rejected_self_match_scope_exists = bit.band(replace_rejected_presence_bits, 0x0008) == 8
+  local replace_rejected_self_match_scope_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0008), 3) == 1
 
   if replace_rejected_self_match_scope_exists then
     index, replace_rejected_self_match_scope = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.dissect(buffer, index, packet, parent)
@@ -6828,7 +6828,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Self Match Instruction
   local replace_rejected_self_match_instruction = nil
 
-  local replace_rejected_self_match_instruction_exists = bit.band(replace_rejected_presence_bits, 0x0010) == 16
+  local replace_rejected_self_match_instruction_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0010), 4) == 1
 
   if replace_rejected_self_match_instruction_exists then
     index, replace_rejected_self_match_instruction = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -6837,7 +6837,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Price Slide Instruction
   local replace_rejected_price_slide_instruction = nil
 
-  local replace_rejected_price_slide_instruction_exists = bit.band(replace_rejected_presence_bits, 0x0020) == 32
+  local replace_rejected_price_slide_instruction_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0020), 5) == 1
 
   if replace_rejected_price_slide_instruction_exists then
     index, replace_rejected_price_slide_instruction = txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -6846,7 +6846,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Reference Price Target
   local replace_rejected_reference_price_target = nil
 
-  local replace_rejected_reference_price_target_exists = bit.band(replace_rejected_presence_bits, 0x0040) == 64
+  local replace_rejected_reference_price_target_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0040), 6) == 1
 
   if replace_rejected_reference_price_target_exists then
     index, replace_rejected_reference_price_target = txse_txseequities_seed_rake_v1_0.replace_rejected_reference_price_target.dissect(buffer, index, packet, parent)
@@ -6855,7 +6855,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
   -- Runtime optional field: Replace Rejected Locate Broker
   local replace_rejected_locate_broker = nil
 
-  local replace_rejected_locate_broker_exists = bit.band(replace_rejected_presence_bits, 0x0080) == 128
+  local replace_rejected_locate_broker_exists = bit.rshift(bit.band(replace_rejected_presence_bits, 0x0080), 7) == 1
 
   if replace_rejected_locate_broker_exists then
     index, replace_rejected_locate_broker = txse_txseequities_seed_rake_v1_0.replace_rejected_locate_broker.dissect(buffer, index, packet, parent)
@@ -7085,63 +7085,63 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.size = function(buffer, 
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_order_qty.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_max_floor_qty.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0040) == 64 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_reference_price_target.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0080) == 128 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_locate_broker.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0100) == 256 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0100), 8) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_rank_price.size
 
   end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(order_replaced_presence_bits, 0x0200) == 512 then
+  if bit.rshift(bit.band(order_replaced_presence_bits, 0x0200), 9) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_replaced_display_price.size
 
   end
@@ -7191,7 +7191,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Order Qty
   local order_replaced_order_qty = nil
 
-  local order_replaced_order_qty_exists = bit.band(order_replaced_presence_bits, 0x0002) == 2
+  local order_replaced_order_qty_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0002), 1) == 1
 
   if order_replaced_order_qty_exists then
     index, order_replaced_order_qty = txse_txseequities_seed_rake_v1_0.order_replaced_order_qty.dissect(buffer, index, packet, parent)
@@ -7200,7 +7200,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Max Floor Qty
   local order_replaced_max_floor_qty = nil
 
-  local order_replaced_max_floor_qty_exists = bit.band(order_replaced_presence_bits, 0x0004) == 4
+  local order_replaced_max_floor_qty_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0004), 2) == 1
 
   if order_replaced_max_floor_qty_exists then
     index, order_replaced_max_floor_qty = txse_txseequities_seed_rake_v1_0.order_replaced_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -7209,7 +7209,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Self Match Scope
   local order_replaced_self_match_scope = nil
 
-  local order_replaced_self_match_scope_exists = bit.band(order_replaced_presence_bits, 0x0008) == 8
+  local order_replaced_self_match_scope_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0008), 3) == 1
 
   if order_replaced_self_match_scope_exists then
     index, order_replaced_self_match_scope = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.dissect(buffer, index, packet, parent)
@@ -7218,7 +7218,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Self Match Instruction
   local order_replaced_self_match_instruction = nil
 
-  local order_replaced_self_match_instruction_exists = bit.band(order_replaced_presence_bits, 0x0010) == 16
+  local order_replaced_self_match_instruction_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0010), 4) == 1
 
   if order_replaced_self_match_instruction_exists then
     index, order_replaced_self_match_instruction = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -7227,7 +7227,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Price Slide Instruction
   local order_replaced_price_slide_instruction = nil
 
-  local order_replaced_price_slide_instruction_exists = bit.band(order_replaced_presence_bits, 0x0020) == 32
+  local order_replaced_price_slide_instruction_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0020), 5) == 1
 
   if order_replaced_price_slide_instruction_exists then
     index, order_replaced_price_slide_instruction = txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -7236,7 +7236,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Reference Price Target
   local order_replaced_reference_price_target = nil
 
-  local order_replaced_reference_price_target_exists = bit.band(order_replaced_presence_bits, 0x0040) == 64
+  local order_replaced_reference_price_target_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0040), 6) == 1
 
   if order_replaced_reference_price_target_exists then
     index, order_replaced_reference_price_target = txse_txseequities_seed_rake_v1_0.order_replaced_reference_price_target.dissect(buffer, index, packet, parent)
@@ -7245,7 +7245,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Locate Broker
   local order_replaced_locate_broker = nil
 
-  local order_replaced_locate_broker_exists = bit.band(order_replaced_presence_bits, 0x0080) == 128
+  local order_replaced_locate_broker_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0080), 7) == 1
 
   if order_replaced_locate_broker_exists then
     index, order_replaced_locate_broker = txse_txseequities_seed_rake_v1_0.order_replaced_locate_broker.dissect(buffer, index, packet, parent)
@@ -7254,7 +7254,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Rank Price
   local order_replaced_rank_price = nil
 
-  local order_replaced_rank_price_exists = bit.band(order_replaced_presence_bits, 0x0100) == 256
+  local order_replaced_rank_price_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0100), 8) == 1
 
   if order_replaced_rank_price_exists then
     index, order_replaced_rank_price = txse_txseequities_seed_rake_v1_0.order_replaced_rank_price.dissect(buffer, index, packet, parent)
@@ -7263,7 +7263,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
   -- Runtime optional field: Order Replaced Display Price
   local order_replaced_display_price = nil
 
-  local order_replaced_display_price_exists = bit.band(order_replaced_presence_bits, 0x0200) == 512
+  local order_replaced_display_price_exists = bit.rshift(bit.band(order_replaced_presence_bits, 0x0200), 9) == 1
 
   if order_replaced_display_price_exists then
     index, order_replaced_display_price = txse_txseequities_seed_rake_v1_0.order_replaced_display_price.dissect(buffer, index, packet, parent)
@@ -7419,14 +7419,14 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_message.size = function(buffer,
 
   local modify_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(modify_rejected_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(modify_rejected_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.size
 
   end
 
   local modify_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(modify_rejected_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(modify_rejected_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.modify_rejected_locate_broker.size
 
   end
@@ -7470,7 +7470,7 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_message.fields = function(buffe
   -- Runtime optional field: Modify Rejected Bit Fields
   local modify_rejected_bit_fields = nil
 
-  local modify_rejected_bit_fields_exists = bit.band(modify_rejected_presence_bits, 0x02) == 2
+  local modify_rejected_bit_fields_exists = bit.rshift(bit.band(modify_rejected_presence_bits, 0x02), 1) == 1
 
   if modify_rejected_bit_fields_exists then
 
@@ -7481,7 +7481,7 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_message.fields = function(buffe
   -- Runtime optional field: Modify Rejected Locate Broker
   local modify_rejected_locate_broker = nil
 
-  local modify_rejected_locate_broker_exists = bit.band(modify_rejected_presence_bits, 0x04) == 4
+  local modify_rejected_locate_broker_exists = bit.rshift(bit.band(modify_rejected_presence_bits, 0x04), 2) == 1
 
   if modify_rejected_locate_broker_exists then
     index, modify_rejected_locate_broker = txse_txseequities_seed_rake_v1_0.modify_rejected_locate_broker.dissect(buffer, index, packet, parent)
@@ -7639,14 +7639,14 @@ txse_txseequities_seed_rake_v1_0.order_modified_message.size = function(buffer, 
 
   local order_modified_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(order_modified_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(order_modified_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.size
 
   end
 
   local order_modified_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(order_modified_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(order_modified_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.order_modified_locate_broker.size
 
   end
@@ -7693,7 +7693,7 @@ txse_txseequities_seed_rake_v1_0.order_modified_message.fields = function(buffer
   -- Runtime optional field: Order Modified Bit Fields
   local order_modified_bit_fields = nil
 
-  local order_modified_bit_fields_exists = bit.band(order_modified_presence_bits, 0x02) == 2
+  local order_modified_bit_fields_exists = bit.rshift(bit.band(order_modified_presence_bits, 0x02), 1) == 1
 
   if order_modified_bit_fields_exists then
 
@@ -7704,7 +7704,7 @@ txse_txseequities_seed_rake_v1_0.order_modified_message.fields = function(buffer
   -- Runtime optional field: Order Modified Locate Broker
   local order_modified_locate_broker = nil
 
-  local order_modified_locate_broker_exists = bit.band(order_modified_presence_bits, 0x04) == 4
+  local order_modified_locate_broker_exists = bit.rshift(bit.band(order_modified_presence_bits, 0x04), 2) == 1
 
   if order_modified_locate_broker_exists then
     index, order_modified_locate_broker = txse_txseequities_seed_rake_v1_0.order_modified_locate_broker.dissect(buffer, index, packet, parent)
@@ -7991,35 +7991,35 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.size = function(b
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_rejected_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.size
 
   end
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_rejected_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_user_data.size
 
   end
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_rejected_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_mpid.size
 
   end
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_rejected_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_member_group.size
 
   end
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_rejected_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_locate_broker.size
 
   end
@@ -8069,7 +8069,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Runtime optional field: Market Order Rejected Self Match Instruction
   local market_order_rejected_self_match_instruction = nil
 
-  local market_order_rejected_self_match_instruction_exists = bit.band(market_order_rejected_presence_bits, 0x0002) == 2
+  local market_order_rejected_self_match_instruction_exists = bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0002), 1) == 1
 
   if market_order_rejected_self_match_instruction_exists then
     index, market_order_rejected_self_match_instruction = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -8078,7 +8078,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Runtime optional field: Market Order Rejected User Data
   local market_order_rejected_user_data = nil
 
-  local market_order_rejected_user_data_exists = bit.band(market_order_rejected_presence_bits, 0x0004) == 4
+  local market_order_rejected_user_data_exists = bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0004), 2) == 1
 
   if market_order_rejected_user_data_exists then
     index, market_order_rejected_user_data = txse_txseequities_seed_rake_v1_0.market_order_rejected_user_data.dissect(buffer, index, packet, parent)
@@ -8087,7 +8087,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Runtime optional field: Market Order Rejected Mpid
   local market_order_rejected_mpid = nil
 
-  local market_order_rejected_mpid_exists = bit.band(market_order_rejected_presence_bits, 0x0008) == 8
+  local market_order_rejected_mpid_exists = bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0008), 3) == 1
 
   if market_order_rejected_mpid_exists then
     index, market_order_rejected_mpid = txse_txseequities_seed_rake_v1_0.market_order_rejected_mpid.dissect(buffer, index, packet, parent)
@@ -8096,7 +8096,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Runtime optional field: Market Order Rejected Member Group
   local market_order_rejected_member_group = nil
 
-  local market_order_rejected_member_group_exists = bit.band(market_order_rejected_presence_bits, 0x0010) == 16
+  local market_order_rejected_member_group_exists = bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0010), 4) == 1
 
   if market_order_rejected_member_group_exists then
     index, market_order_rejected_member_group = txse_txseequities_seed_rake_v1_0.market_order_rejected_member_group.dissect(buffer, index, packet, parent)
@@ -8105,7 +8105,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Runtime optional field: Market Order Rejected Locate Broker
   local market_order_rejected_locate_broker = nil
 
-  local market_order_rejected_locate_broker_exists = bit.band(market_order_rejected_presence_bits, 0x0020) == 32
+  local market_order_rejected_locate_broker_exists = bit.rshift(bit.band(market_order_rejected_presence_bits, 0x0020), 5) == 1
 
   if market_order_rejected_locate_broker_exists then
     index, market_order_rejected_locate_broker = txse_txseequities_seed_rake_v1_0.market_order_rejected_locate_broker.dissect(buffer, index, packet, parent)
@@ -8292,35 +8292,35 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.size = function(b
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_accepted_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.size
 
   end
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_accepted_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_user_data.size
 
   end
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_accepted_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_mpid.size
 
   end
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_accepted_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_member_group.size
 
   end
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_accepted_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_locate_broker.size
 
   end
@@ -8370,7 +8370,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Runtime optional field: Market Order Accepted Self Match Instruction
   local market_order_accepted_self_match_instruction = nil
 
-  local market_order_accepted_self_match_instruction_exists = bit.band(market_order_accepted_presence_bits, 0x0002) == 2
+  local market_order_accepted_self_match_instruction_exists = bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0002), 1) == 1
 
   if market_order_accepted_self_match_instruction_exists then
     index, market_order_accepted_self_match_instruction = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -8379,7 +8379,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Runtime optional field: Market Order Accepted User Data
   local market_order_accepted_user_data = nil
 
-  local market_order_accepted_user_data_exists = bit.band(market_order_accepted_presence_bits, 0x0004) == 4
+  local market_order_accepted_user_data_exists = bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0004), 2) == 1
 
   if market_order_accepted_user_data_exists then
     index, market_order_accepted_user_data = txse_txseequities_seed_rake_v1_0.market_order_accepted_user_data.dissect(buffer, index, packet, parent)
@@ -8388,7 +8388,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Runtime optional field: Market Order Accepted Mpid
   local market_order_accepted_mpid = nil
 
-  local market_order_accepted_mpid_exists = bit.band(market_order_accepted_presence_bits, 0x0008) == 8
+  local market_order_accepted_mpid_exists = bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0008), 3) == 1
 
   if market_order_accepted_mpid_exists then
     index, market_order_accepted_mpid = txse_txseequities_seed_rake_v1_0.market_order_accepted_mpid.dissect(buffer, index, packet, parent)
@@ -8397,7 +8397,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Runtime optional field: Market Order Accepted Member Group
   local market_order_accepted_member_group = nil
 
-  local market_order_accepted_member_group_exists = bit.band(market_order_accepted_presence_bits, 0x0010) == 16
+  local market_order_accepted_member_group_exists = bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0010), 4) == 1
 
   if market_order_accepted_member_group_exists then
     index, market_order_accepted_member_group = txse_txseequities_seed_rake_v1_0.market_order_accepted_member_group.dissect(buffer, index, packet, parent)
@@ -8406,7 +8406,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Runtime optional field: Market Order Accepted Locate Broker
   local market_order_accepted_locate_broker = nil
 
-  local market_order_accepted_locate_broker_exists = bit.band(market_order_accepted_presence_bits, 0x0020) == 32
+  local market_order_accepted_locate_broker_exists = bit.rshift(bit.band(market_order_accepted_presence_bits, 0x0020), 5) == 1
 
   if market_order_accepted_locate_broker_exists then
     index, market_order_accepted_locate_broker = txse_txseequities_seed_rake_v1_0.market_order_accepted_locate_broker.dissect(buffer, index, packet, parent)
@@ -8672,84 +8672,84 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.size = function(bu
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000002) == 2 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000004) == 4 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000008) == 8 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_min_qty.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000010) == 16 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_floor_qty.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000020) == 32 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_replenish_qty_range.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000040) == 64 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_replenish_time_range.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000080) == 128 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_reference_price_target.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000100) == 256 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000100), 8) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000200) == 512 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000200), 9) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_user_data.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000400) == 1024 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000400), 10) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_mpid.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00000800) == 2048 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000800), 11) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_member_group.size
 
   end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_rejected_presence_bits, 0x00001000) == 4096 then
+  if bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00001000), 12) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_locate_broker.size
 
   end
@@ -8802,7 +8802,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Self Match Instruction
   local limit_order_rejected_self_match_instruction = nil
 
-  local limit_order_rejected_self_match_instruction_exists = bit.band(limit_order_rejected_presence_bits, 0x00000002) == 2
+  local limit_order_rejected_self_match_instruction_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000002), 1) == 1
 
   if limit_order_rejected_self_match_instruction_exists then
     index, limit_order_rejected_self_match_instruction = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -8811,7 +8811,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Price Slide Instruction
   local limit_order_rejected_price_slide_instruction = nil
 
-  local limit_order_rejected_price_slide_instruction_exists = bit.band(limit_order_rejected_presence_bits, 0x00000004) == 4
+  local limit_order_rejected_price_slide_instruction_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000004), 2) == 1
 
   if limit_order_rejected_price_slide_instruction_exists then
     index, limit_order_rejected_price_slide_instruction = txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -8820,7 +8820,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Min Qty
   local limit_order_rejected_min_qty = nil
 
-  local limit_order_rejected_min_qty_exists = bit.band(limit_order_rejected_presence_bits, 0x00000008) == 8
+  local limit_order_rejected_min_qty_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000008), 3) == 1
 
   if limit_order_rejected_min_qty_exists then
     index, limit_order_rejected_min_qty = txse_txseequities_seed_rake_v1_0.limit_order_rejected_min_qty.dissect(buffer, index, packet, parent)
@@ -8829,7 +8829,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Max Floor Qty
   local limit_order_rejected_max_floor_qty = nil
 
-  local limit_order_rejected_max_floor_qty_exists = bit.band(limit_order_rejected_presence_bits, 0x00000010) == 16
+  local limit_order_rejected_max_floor_qty_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000010), 4) == 1
 
   if limit_order_rejected_max_floor_qty_exists then
     index, limit_order_rejected_max_floor_qty = txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -8838,7 +8838,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Max Replenish Qty Range
   local limit_order_rejected_max_replenish_qty_range = nil
 
-  local limit_order_rejected_max_replenish_qty_range_exists = bit.band(limit_order_rejected_presence_bits, 0x00000020) == 32
+  local limit_order_rejected_max_replenish_qty_range_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000020), 5) == 1
 
   if limit_order_rejected_max_replenish_qty_range_exists then
     index, limit_order_rejected_max_replenish_qty_range = txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_replenish_qty_range.dissect(buffer, index, packet, parent)
@@ -8847,7 +8847,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Max Replenish Time Range
   local limit_order_rejected_max_replenish_time_range = nil
 
-  local limit_order_rejected_max_replenish_time_range_exists = bit.band(limit_order_rejected_presence_bits, 0x00000040) == 64
+  local limit_order_rejected_max_replenish_time_range_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000040), 6) == 1
 
   if limit_order_rejected_max_replenish_time_range_exists then
     index, limit_order_rejected_max_replenish_time_range = txse_txseequities_seed_rake_v1_0.limit_order_rejected_max_replenish_time_range.dissect(buffer, index, packet, parent)
@@ -8856,7 +8856,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Reference Price Target
   local limit_order_rejected_reference_price_target = nil
 
-  local limit_order_rejected_reference_price_target_exists = bit.band(limit_order_rejected_presence_bits, 0x00000080) == 128
+  local limit_order_rejected_reference_price_target_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000080), 7) == 1
 
   if limit_order_rejected_reference_price_target_exists then
     index, limit_order_rejected_reference_price_target = txse_txseequities_seed_rake_v1_0.limit_order_rejected_reference_price_target.dissect(buffer, index, packet, parent)
@@ -8865,7 +8865,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Expire Time
   local limit_order_rejected_expire_time = nil
 
-  local limit_order_rejected_expire_time_exists = bit.band(limit_order_rejected_presence_bits, 0x00000100) == 256
+  local limit_order_rejected_expire_time_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000100), 8) == 1
 
   if limit_order_rejected_expire_time_exists then
     index, limit_order_rejected_expire_time = txse_txseequities_seed_rake_v1_0.limit_order_rejected_expire_time.dissect(buffer, index, packet, parent)
@@ -8874,7 +8874,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected User Data
   local limit_order_rejected_user_data = nil
 
-  local limit_order_rejected_user_data_exists = bit.band(limit_order_rejected_presence_bits, 0x00000200) == 512
+  local limit_order_rejected_user_data_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000200), 9) == 1
 
   if limit_order_rejected_user_data_exists then
     index, limit_order_rejected_user_data = txse_txseequities_seed_rake_v1_0.limit_order_rejected_user_data.dissect(buffer, index, packet, parent)
@@ -8883,7 +8883,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Mpid
   local limit_order_rejected_mpid = nil
 
-  local limit_order_rejected_mpid_exists = bit.band(limit_order_rejected_presence_bits, 0x00000400) == 1024
+  local limit_order_rejected_mpid_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000400), 10) == 1
 
   if limit_order_rejected_mpid_exists then
     index, limit_order_rejected_mpid = txse_txseequities_seed_rake_v1_0.limit_order_rejected_mpid.dissect(buffer, index, packet, parent)
@@ -8892,7 +8892,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Member Group
   local limit_order_rejected_member_group = nil
 
-  local limit_order_rejected_member_group_exists = bit.band(limit_order_rejected_presence_bits, 0x00000800) == 2048
+  local limit_order_rejected_member_group_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00000800), 11) == 1
 
   if limit_order_rejected_member_group_exists then
     index, limit_order_rejected_member_group = txse_txseequities_seed_rake_v1_0.limit_order_rejected_member_group.dissect(buffer, index, packet, parent)
@@ -8901,7 +8901,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Runtime optional field: Limit Order Rejected Locate Broker
   local limit_order_rejected_locate_broker = nil
 
-  local limit_order_rejected_locate_broker_exists = bit.band(limit_order_rejected_presence_bits, 0x00001000) == 4096
+  local limit_order_rejected_locate_broker_exists = bit.rshift(bit.band(limit_order_rejected_presence_bits, 0x00001000), 12) == 1
 
   if limit_order_rejected_locate_broker_exists then
     index, limit_order_rejected_locate_broker = txse_txseequities_seed_rake_v1_0.limit_order_rejected_locate_broker.dissect(buffer, index, packet, parent)
@@ -9181,98 +9181,98 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.size = function(bu
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000002) == 2 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000004) == 4 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000008) == 8 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_min_qty.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000010) == 16 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_floor_qty.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000020) == 32 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_replenish_qty_range.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000040) == 64 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_replenish_time_range.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000080) == 128 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_reference_price_target.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000100) == 256 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000100), 8) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000200) == 512 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000200), 9) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_user_data.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000400) == 1024 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000400), 10) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_mpid.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00000800) == 2048 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000800), 11) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_member_group.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00001000) == 4096 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00001000), 12) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_locate_broker.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00002000) == 8192 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00002000), 13) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_rank_price.size
 
   end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_accepted_presence_bits, 0x00004000) == 16384 then
+  if bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00004000), 14) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_display_price.size
 
   end
@@ -9325,7 +9325,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Self Match Instruction
   local limit_order_accepted_self_match_instruction = nil
 
-  local limit_order_accepted_self_match_instruction_exists = bit.band(limit_order_accepted_presence_bits, 0x00000002) == 2
+  local limit_order_accepted_self_match_instruction_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000002), 1) == 1
 
   if limit_order_accepted_self_match_instruction_exists then
     index, limit_order_accepted_self_match_instruction = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -9334,7 +9334,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Price Slide Instruction
   local limit_order_accepted_price_slide_instruction = nil
 
-  local limit_order_accepted_price_slide_instruction_exists = bit.band(limit_order_accepted_presence_bits, 0x00000004) == 4
+  local limit_order_accepted_price_slide_instruction_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000004), 2) == 1
 
   if limit_order_accepted_price_slide_instruction_exists then
     index, limit_order_accepted_price_slide_instruction = txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -9343,7 +9343,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Min Qty
   local limit_order_accepted_min_qty = nil
 
-  local limit_order_accepted_min_qty_exists = bit.band(limit_order_accepted_presence_bits, 0x00000008) == 8
+  local limit_order_accepted_min_qty_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000008), 3) == 1
 
   if limit_order_accepted_min_qty_exists then
     index, limit_order_accepted_min_qty = txse_txseequities_seed_rake_v1_0.limit_order_accepted_min_qty.dissect(buffer, index, packet, parent)
@@ -9352,7 +9352,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Max Floor Qty
   local limit_order_accepted_max_floor_qty = nil
 
-  local limit_order_accepted_max_floor_qty_exists = bit.band(limit_order_accepted_presence_bits, 0x00000010) == 16
+  local limit_order_accepted_max_floor_qty_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000010), 4) == 1
 
   if limit_order_accepted_max_floor_qty_exists then
     index, limit_order_accepted_max_floor_qty = txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -9361,7 +9361,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Max Replenish Qty Range
   local limit_order_accepted_max_replenish_qty_range = nil
 
-  local limit_order_accepted_max_replenish_qty_range_exists = bit.band(limit_order_accepted_presence_bits, 0x00000020) == 32
+  local limit_order_accepted_max_replenish_qty_range_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000020), 5) == 1
 
   if limit_order_accepted_max_replenish_qty_range_exists then
     index, limit_order_accepted_max_replenish_qty_range = txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_replenish_qty_range.dissect(buffer, index, packet, parent)
@@ -9370,7 +9370,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Max Replenish Time Range
   local limit_order_accepted_max_replenish_time_range = nil
 
-  local limit_order_accepted_max_replenish_time_range_exists = bit.band(limit_order_accepted_presence_bits, 0x00000040) == 64
+  local limit_order_accepted_max_replenish_time_range_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000040), 6) == 1
 
   if limit_order_accepted_max_replenish_time_range_exists then
     index, limit_order_accepted_max_replenish_time_range = txse_txseequities_seed_rake_v1_0.limit_order_accepted_max_replenish_time_range.dissect(buffer, index, packet, parent)
@@ -9379,7 +9379,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Reference Price Target
   local limit_order_accepted_reference_price_target = nil
 
-  local limit_order_accepted_reference_price_target_exists = bit.band(limit_order_accepted_presence_bits, 0x00000080) == 128
+  local limit_order_accepted_reference_price_target_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000080), 7) == 1
 
   if limit_order_accepted_reference_price_target_exists then
     index, limit_order_accepted_reference_price_target = txse_txseequities_seed_rake_v1_0.limit_order_accepted_reference_price_target.dissect(buffer, index, packet, parent)
@@ -9388,7 +9388,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Expire Time
   local limit_order_accepted_expire_time = nil
 
-  local limit_order_accepted_expire_time_exists = bit.band(limit_order_accepted_presence_bits, 0x00000100) == 256
+  local limit_order_accepted_expire_time_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000100), 8) == 1
 
   if limit_order_accepted_expire_time_exists then
     index, limit_order_accepted_expire_time = txse_txseequities_seed_rake_v1_0.limit_order_accepted_expire_time.dissect(buffer, index, packet, parent)
@@ -9397,7 +9397,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted User Data
   local limit_order_accepted_user_data = nil
 
-  local limit_order_accepted_user_data_exists = bit.band(limit_order_accepted_presence_bits, 0x00000200) == 512
+  local limit_order_accepted_user_data_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000200), 9) == 1
 
   if limit_order_accepted_user_data_exists then
     index, limit_order_accepted_user_data = txse_txseequities_seed_rake_v1_0.limit_order_accepted_user_data.dissect(buffer, index, packet, parent)
@@ -9406,7 +9406,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Mpid
   local limit_order_accepted_mpid = nil
 
-  local limit_order_accepted_mpid_exists = bit.band(limit_order_accepted_presence_bits, 0x00000400) == 1024
+  local limit_order_accepted_mpid_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000400), 10) == 1
 
   if limit_order_accepted_mpid_exists then
     index, limit_order_accepted_mpid = txse_txseequities_seed_rake_v1_0.limit_order_accepted_mpid.dissect(buffer, index, packet, parent)
@@ -9415,7 +9415,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Member Group
   local limit_order_accepted_member_group = nil
 
-  local limit_order_accepted_member_group_exists = bit.band(limit_order_accepted_presence_bits, 0x00000800) == 2048
+  local limit_order_accepted_member_group_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00000800), 11) == 1
 
   if limit_order_accepted_member_group_exists then
     index, limit_order_accepted_member_group = txse_txseequities_seed_rake_v1_0.limit_order_accepted_member_group.dissect(buffer, index, packet, parent)
@@ -9424,7 +9424,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Locate Broker
   local limit_order_accepted_locate_broker = nil
 
-  local limit_order_accepted_locate_broker_exists = bit.band(limit_order_accepted_presence_bits, 0x00001000) == 4096
+  local limit_order_accepted_locate_broker_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00001000), 12) == 1
 
   if limit_order_accepted_locate_broker_exists then
     index, limit_order_accepted_locate_broker = txse_txseequities_seed_rake_v1_0.limit_order_accepted_locate_broker.dissect(buffer, index, packet, parent)
@@ -9433,7 +9433,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Rank Price
   local limit_order_accepted_rank_price = nil
 
-  local limit_order_accepted_rank_price_exists = bit.band(limit_order_accepted_presence_bits, 0x00002000) == 8192
+  local limit_order_accepted_rank_price_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00002000), 13) == 1
 
   if limit_order_accepted_rank_price_exists then
     index, limit_order_accepted_rank_price = txse_txseequities_seed_rake_v1_0.limit_order_accepted_rank_price.dissect(buffer, index, packet, parent)
@@ -9442,7 +9442,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Runtime optional field: Limit Order Accepted Display Price
   local limit_order_accepted_display_price = nil
 
-  local limit_order_accepted_display_price_exists = bit.band(limit_order_accepted_presence_bits, 0x00004000) == 16384
+  local limit_order_accepted_display_price_exists = bit.rshift(bit.band(limit_order_accepted_presence_bits, 0x00004000), 14) == 1
 
   if limit_order_accepted_display_price_exists then
     index, limit_order_accepted_display_price = txse_txseequities_seed_rake_v1_0.limit_order_accepted_display_price.dissect(buffer, index, packet, parent)
@@ -9545,7 +9545,7 @@ txse_txseequities_seed_rake_v1_0.symbol_status_message.size = function(buffer, o
 
   local symbol_status_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(symbol_status_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(symbol_status_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.size
 
   end
@@ -9589,7 +9589,7 @@ txse_txseequities_seed_rake_v1_0.symbol_status_message.fields = function(buffer,
   -- Runtime optional field: Symbol Status Regulatory Halt Reason
   local symbol_status_regulatory_halt_reason = nil
 
-  local symbol_status_regulatory_halt_reason_exists = bit.band(symbol_status_presence_bits, 0x02) == 2
+  local symbol_status_regulatory_halt_reason_exists = bit.rshift(bit.band(symbol_status_presence_bits, 0x02), 1) == 1
 
   if symbol_status_regulatory_halt_reason_exists then
     index, symbol_status_regulatory_halt_reason = txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.dissect(buffer, index, packet, parent)
@@ -9807,7 +9807,7 @@ txse_txseequities_seed_rake_v1_0.trading_session_status_message.size = function(
 
   local trading_session_status_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(trading_session_status_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(trading_session_status_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.size
 
   end
@@ -9848,7 +9848,7 @@ txse_txseequities_seed_rake_v1_0.trading_session_status_message.fields = functio
   -- Runtime optional field: Trading Session Status Regulatory Halt Reason
   local trading_session_status_regulatory_halt_reason = nil
 
-  local trading_session_status_regulatory_halt_reason_exists = bit.band(trading_session_status_presence_bits, 0x02) == 2
+  local trading_session_status_regulatory_halt_reason_exists = bit.rshift(bit.band(trading_session_status_presence_bits, 0x02), 1) == 1
 
   if trading_session_status_regulatory_halt_reason_exists then
     index, trading_session_status_regulatory_halt_reason = txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.dissect(buffer, index, packet, parent)
@@ -10449,21 +10449,21 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_message.size = function(buffer, off
 
   local mass_cancel_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(mass_cancel_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_sender_comp.size
 
   end
 
   local mass_cancel_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(mass_cancel_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_member_group.size
 
   end
 
   local mass_cancel_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(mass_cancel_presence_bits, 0x08) == 8 then
+  if bit.rshift(bit.band(mass_cancel_presence_bits, 0x08), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.mass_cancel_cl_ord_id.size
 
   end
@@ -10504,7 +10504,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_message.fields = function(buffer, o
   -- Runtime optional field: Mass Cancel Sender Comp
   local mass_cancel_sender_comp = nil
 
-  local mass_cancel_sender_comp_exists = bit.band(mass_cancel_presence_bits, 0x02) == 2
+  local mass_cancel_sender_comp_exists = bit.rshift(bit.band(mass_cancel_presence_bits, 0x02), 1) == 1
 
   if mass_cancel_sender_comp_exists then
     index, mass_cancel_sender_comp = txse_txseequities_seed_rake_v1_0.mass_cancel_sender_comp.dissect(buffer, index, packet, parent)
@@ -10513,7 +10513,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_message.fields = function(buffer, o
   -- Runtime optional field: Mass Cancel Member Group
   local mass_cancel_member_group = nil
 
-  local mass_cancel_member_group_exists = bit.band(mass_cancel_presence_bits, 0x04) == 4
+  local mass_cancel_member_group_exists = bit.rshift(bit.band(mass_cancel_presence_bits, 0x04), 2) == 1
 
   if mass_cancel_member_group_exists then
     index, mass_cancel_member_group = txse_txseequities_seed_rake_v1_0.mass_cancel_member_group.dissect(buffer, index, packet, parent)
@@ -10522,7 +10522,7 @@ txse_txseequities_seed_rake_v1_0.mass_cancel_message.fields = function(buffer, o
   -- Runtime optional field: Mass Cancel Cl Ord Id
   local mass_cancel_cl_ord_id = nil
 
-  local mass_cancel_cl_ord_id_exists = bit.band(mass_cancel_presence_bits, 0x08) == 8
+  local mass_cancel_cl_ord_id_exists = bit.rshift(bit.band(mass_cancel_presence_bits, 0x08), 3) == 1
 
   if mass_cancel_cl_ord_id_exists then
     index, mass_cancel_cl_ord_id = txse_txseequities_seed_rake_v1_0.mass_cancel_cl_ord_id.dissect(buffer, index, packet, parent)
@@ -10732,49 +10732,49 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.size = function(buffer, o
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_order_qty.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_max_floor_qty.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0040) == 64 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_reference_price_target.size
 
   end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(replace_order_presence_bits, 0x0080) == 128 then
+  if bit.rshift(bit.band(replace_order_presence_bits, 0x0080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.replace_order_locate_broker.size
 
   end
@@ -10815,7 +10815,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Order Qty
   local replace_order_order_qty = nil
 
-  local replace_order_order_qty_exists = bit.band(replace_order_presence_bits, 0x0002) == 2
+  local replace_order_order_qty_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0002), 1) == 1
 
   if replace_order_order_qty_exists then
     index, replace_order_order_qty = txse_txseequities_seed_rake_v1_0.replace_order_order_qty.dissect(buffer, index, packet, parent)
@@ -10824,7 +10824,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Max Floor Qty
   local replace_order_max_floor_qty = nil
 
-  local replace_order_max_floor_qty_exists = bit.band(replace_order_presence_bits, 0x0004) == 4
+  local replace_order_max_floor_qty_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0004), 2) == 1
 
   if replace_order_max_floor_qty_exists then
     index, replace_order_max_floor_qty = txse_txseequities_seed_rake_v1_0.replace_order_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -10833,7 +10833,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Self Match Scope
   local replace_order_self_match_scope = nil
 
-  local replace_order_self_match_scope_exists = bit.band(replace_order_presence_bits, 0x0008) == 8
+  local replace_order_self_match_scope_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0008), 3) == 1
 
   if replace_order_self_match_scope_exists then
     index, replace_order_self_match_scope = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.dissect(buffer, index, packet, parent)
@@ -10842,7 +10842,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Self Match Instruction
   local replace_order_self_match_instruction = nil
 
-  local replace_order_self_match_instruction_exists = bit.band(replace_order_presence_bits, 0x0010) == 16
+  local replace_order_self_match_instruction_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0010), 4) == 1
 
   if replace_order_self_match_instruction_exists then
     index, replace_order_self_match_instruction = txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -10851,7 +10851,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Price Slide Instruction
   local replace_order_price_slide_instruction = nil
 
-  local replace_order_price_slide_instruction_exists = bit.band(replace_order_presence_bits, 0x0020) == 32
+  local replace_order_price_slide_instruction_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0020), 5) == 1
 
   if replace_order_price_slide_instruction_exists then
     index, replace_order_price_slide_instruction = txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -10860,7 +10860,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Reference Price Target
   local replace_order_reference_price_target = nil
 
-  local replace_order_reference_price_target_exists = bit.band(replace_order_presence_bits, 0x0040) == 64
+  local replace_order_reference_price_target_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0040), 6) == 1
 
   if replace_order_reference_price_target_exists then
     index, replace_order_reference_price_target = txse_txseequities_seed_rake_v1_0.replace_order_reference_price_target.dissect(buffer, index, packet, parent)
@@ -10869,7 +10869,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
   -- Runtime optional field: Replace Order Locate Broker
   local replace_order_locate_broker = nil
 
-  local replace_order_locate_broker_exists = bit.band(replace_order_presence_bits, 0x0080) == 128
+  local replace_order_locate_broker_exists = bit.rshift(bit.band(replace_order_presence_bits, 0x0080), 7) == 1
 
   if replace_order_locate_broker_exists then
     index, replace_order_locate_broker = txse_txseequities_seed_rake_v1_0.replace_order_locate_broker.dissect(buffer, index, packet, parent)
@@ -11021,14 +11021,14 @@ txse_txseequities_seed_rake_v1_0.modify_order_message.size = function(buffer, of
 
   local modify_order_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(modify_order_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(modify_order_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.size
 
   end
 
   local modify_order_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(modify_order_presence_bits, 0x04) == 4 then
+  if bit.rshift(bit.band(modify_order_presence_bits, 0x04), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.modify_order_locate_broker.size
 
   end
@@ -11066,7 +11066,7 @@ txse_txseequities_seed_rake_v1_0.modify_order_message.fields = function(buffer, 
   -- Runtime optional field: Modify Order Bit Fields
   local modify_order_bit_fields = nil
 
-  local modify_order_bit_fields_exists = bit.band(modify_order_presence_bits, 0x02) == 2
+  local modify_order_bit_fields_exists = bit.rshift(bit.band(modify_order_presence_bits, 0x02), 1) == 1
 
   if modify_order_bit_fields_exists then
 
@@ -11077,7 +11077,7 @@ txse_txseequities_seed_rake_v1_0.modify_order_message.fields = function(buffer, 
   -- Runtime optional field: Modify Order Locate Broker
   local modify_order_locate_broker = nil
 
-  local modify_order_locate_broker_exists = bit.band(modify_order_presence_bits, 0x04) == 4
+  local modify_order_locate_broker_exists = bit.rshift(bit.band(modify_order_presence_bits, 0x04), 2) == 1
 
   if modify_order_locate_broker_exists then
     index, modify_order_locate_broker = txse_txseequities_seed_rake_v1_0.modify_order_locate_broker.dissect(buffer, index, packet, parent)
@@ -11300,35 +11300,35 @@ txse_txseequities_seed_rake_v1_0.market_order_message.size = function(buffer, of
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_presence_bits, 0x0002) == 2 then
+  if bit.rshift(bit.band(market_order_presence_bits, 0x0002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.size
 
   end
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_presence_bits, 0x0004) == 4 then
+  if bit.rshift(bit.band(market_order_presence_bits, 0x0004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_user_data.size
 
   end
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_presence_bits, 0x0008) == 8 then
+  if bit.rshift(bit.band(market_order_presence_bits, 0x0008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_mpid.size
 
   end
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_presence_bits, 0x0010) == 16 then
+  if bit.rshift(bit.band(market_order_presence_bits, 0x0010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_member_group.size
 
   end
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
-  if bit.band(market_order_presence_bits, 0x0020) == 32 then
+  if bit.rshift(bit.band(market_order_presence_bits, 0x0020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.market_order_locate_broker.size
 
   end
@@ -11372,7 +11372,7 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Runtime optional field: Market Order Self Match Instruction
   local market_order_self_match_instruction = nil
 
-  local market_order_self_match_instruction_exists = bit.band(market_order_presence_bits, 0x0002) == 2
+  local market_order_self_match_instruction_exists = bit.rshift(bit.band(market_order_presence_bits, 0x0002), 1) == 1
 
   if market_order_self_match_instruction_exists then
     index, market_order_self_match_instruction = txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -11381,7 +11381,7 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Runtime optional field: Market Order User Data
   local market_order_user_data = nil
 
-  local market_order_user_data_exists = bit.band(market_order_presence_bits, 0x0004) == 4
+  local market_order_user_data_exists = bit.rshift(bit.band(market_order_presence_bits, 0x0004), 2) == 1
 
   if market_order_user_data_exists then
     index, market_order_user_data = txse_txseequities_seed_rake_v1_0.market_order_user_data.dissect(buffer, index, packet, parent)
@@ -11390,7 +11390,7 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Runtime optional field: Market Order Mpid
   local market_order_mpid = nil
 
-  local market_order_mpid_exists = bit.band(market_order_presence_bits, 0x0008) == 8
+  local market_order_mpid_exists = bit.rshift(bit.band(market_order_presence_bits, 0x0008), 3) == 1
 
   if market_order_mpid_exists then
     index, market_order_mpid = txse_txseequities_seed_rake_v1_0.market_order_mpid.dissect(buffer, index, packet, parent)
@@ -11399,7 +11399,7 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Runtime optional field: Market Order Member Group
   local market_order_member_group = nil
 
-  local market_order_member_group_exists = bit.band(market_order_presence_bits, 0x0010) == 16
+  local market_order_member_group_exists = bit.rshift(bit.band(market_order_presence_bits, 0x0010), 4) == 1
 
   if market_order_member_group_exists then
     index, market_order_member_group = txse_txseequities_seed_rake_v1_0.market_order_member_group.dissect(buffer, index, packet, parent)
@@ -11408,7 +11408,7 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Runtime optional field: Market Order Locate Broker
   local market_order_locate_broker = nil
 
-  local market_order_locate_broker_exists = bit.band(market_order_presence_bits, 0x0020) == 32
+  local market_order_locate_broker_exists = bit.rshift(bit.band(market_order_presence_bits, 0x0020), 5) == 1
 
   if market_order_locate_broker_exists then
     index, market_order_locate_broker = txse_txseequities_seed_rake_v1_0.market_order_locate_broker.dissect(buffer, index, packet, parent)
@@ -11670,84 +11670,84 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.size = function(buffer, off
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000002) == 2 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000002), 1) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000004) == 4 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000004), 2) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000008) == 8 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000008), 3) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_min_qty.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000010) == 16 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000010), 4) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_max_floor_qty.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000020) == 32 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000020), 5) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_max_replenish_qty_range.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000040) == 64 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000040), 6) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_max_replenish_time_range.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000080) == 128 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000080), 7) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_reference_price_target.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000100) == 256 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000100), 8) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_expire_time.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000200) == 512 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000200), 9) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_user_data.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000400) == 1024 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000400), 10) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_mpid.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00000800) == 2048 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00000800), 11) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_member_group.size
 
   end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
-  if bit.band(limit_order_presence_bits, 0x00001000) == 4096 then
+  if bit.rshift(bit.band(limit_order_presence_bits, 0x00001000), 12) == 1 then
     index = index + txse_txseequities_seed_rake_v1_0.limit_order_locate_broker.size
 
   end
@@ -11794,7 +11794,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Self Match Instruction
   local limit_order_self_match_instruction = nil
 
-  local limit_order_self_match_instruction_exists = bit.band(limit_order_presence_bits, 0x00000002) == 2
+  local limit_order_self_match_instruction_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000002), 1) == 1
 
   if limit_order_self_match_instruction_exists then
     index, limit_order_self_match_instruction = txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.dissect(buffer, index, packet, parent)
@@ -11803,7 +11803,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Price Slide Instruction
   local limit_order_price_slide_instruction = nil
 
-  local limit_order_price_slide_instruction_exists = bit.band(limit_order_presence_bits, 0x00000004) == 4
+  local limit_order_price_slide_instruction_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000004), 2) == 1
 
   if limit_order_price_slide_instruction_exists then
     index, limit_order_price_slide_instruction = txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.dissect(buffer, index, packet, parent)
@@ -11812,7 +11812,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Min Qty
   local limit_order_min_qty = nil
 
-  local limit_order_min_qty_exists = bit.band(limit_order_presence_bits, 0x00000008) == 8
+  local limit_order_min_qty_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000008), 3) == 1
 
   if limit_order_min_qty_exists then
     index, limit_order_min_qty = txse_txseequities_seed_rake_v1_0.limit_order_min_qty.dissect(buffer, index, packet, parent)
@@ -11821,7 +11821,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Max Floor Qty
   local limit_order_max_floor_qty = nil
 
-  local limit_order_max_floor_qty_exists = bit.band(limit_order_presence_bits, 0x00000010) == 16
+  local limit_order_max_floor_qty_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000010), 4) == 1
 
   if limit_order_max_floor_qty_exists then
     index, limit_order_max_floor_qty = txse_txseequities_seed_rake_v1_0.limit_order_max_floor_qty.dissect(buffer, index, packet, parent)
@@ -11830,7 +11830,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Max Replenish Qty Range
   local limit_order_max_replenish_qty_range = nil
 
-  local limit_order_max_replenish_qty_range_exists = bit.band(limit_order_presence_bits, 0x00000020) == 32
+  local limit_order_max_replenish_qty_range_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000020), 5) == 1
 
   if limit_order_max_replenish_qty_range_exists then
     index, limit_order_max_replenish_qty_range = txse_txseequities_seed_rake_v1_0.limit_order_max_replenish_qty_range.dissect(buffer, index, packet, parent)
@@ -11839,7 +11839,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Max Replenish Time Range
   local limit_order_max_replenish_time_range = nil
 
-  local limit_order_max_replenish_time_range_exists = bit.band(limit_order_presence_bits, 0x00000040) == 64
+  local limit_order_max_replenish_time_range_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000040), 6) == 1
 
   if limit_order_max_replenish_time_range_exists then
     index, limit_order_max_replenish_time_range = txse_txseequities_seed_rake_v1_0.limit_order_max_replenish_time_range.dissect(buffer, index, packet, parent)
@@ -11848,7 +11848,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Reference Price Target
   local limit_order_reference_price_target = nil
 
-  local limit_order_reference_price_target_exists = bit.band(limit_order_presence_bits, 0x00000080) == 128
+  local limit_order_reference_price_target_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000080), 7) == 1
 
   if limit_order_reference_price_target_exists then
     index, limit_order_reference_price_target = txse_txseequities_seed_rake_v1_0.limit_order_reference_price_target.dissect(buffer, index, packet, parent)
@@ -11857,7 +11857,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Expire Time
   local limit_order_expire_time = nil
 
-  local limit_order_expire_time_exists = bit.band(limit_order_presence_bits, 0x00000100) == 256
+  local limit_order_expire_time_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000100), 8) == 1
 
   if limit_order_expire_time_exists then
     index, limit_order_expire_time = txse_txseequities_seed_rake_v1_0.limit_order_expire_time.dissect(buffer, index, packet, parent)
@@ -11866,7 +11866,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order User Data
   local limit_order_user_data = nil
 
-  local limit_order_user_data_exists = bit.band(limit_order_presence_bits, 0x00000200) == 512
+  local limit_order_user_data_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000200), 9) == 1
 
   if limit_order_user_data_exists then
     index, limit_order_user_data = txse_txseequities_seed_rake_v1_0.limit_order_user_data.dissect(buffer, index, packet, parent)
@@ -11875,7 +11875,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Mpid
   local limit_order_mpid = nil
 
-  local limit_order_mpid_exists = bit.band(limit_order_presence_bits, 0x00000400) == 1024
+  local limit_order_mpid_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000400), 10) == 1
 
   if limit_order_mpid_exists then
     index, limit_order_mpid = txse_txseequities_seed_rake_v1_0.limit_order_mpid.dissect(buffer, index, packet, parent)
@@ -11884,7 +11884,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Member Group
   local limit_order_member_group = nil
 
-  local limit_order_member_group_exists = bit.band(limit_order_presence_bits, 0x00000800) == 2048
+  local limit_order_member_group_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00000800), 11) == 1
 
   if limit_order_member_group_exists then
     index, limit_order_member_group = txse_txseequities_seed_rake_v1_0.limit_order_member_group.dissect(buffer, index, packet, parent)
@@ -11893,7 +11893,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Runtime optional field: Limit Order Locate Broker
   local limit_order_locate_broker = nil
 
-  local limit_order_locate_broker_exists = bit.band(limit_order_presence_bits, 0x00001000) == 4096
+  local limit_order_locate_broker_exists = bit.rshift(bit.band(limit_order_presence_bits, 0x00001000), 12) == 1
 
   if limit_order_locate_broker_exists then
     index, limit_order_locate_broker = txse_txseequities_seed_rake_v1_0.limit_order_locate_broker.dissect(buffer, index, packet, parent)

@@ -1952,7 +1952,7 @@ txse_txseequities_bale_rake_v1_0.symbol_status_message.size = function(buffer, o
 
   local symbol_status_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(symbol_status_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(symbol_status_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.size
 
   end
@@ -1996,7 +1996,7 @@ txse_txseequities_bale_rake_v1_0.symbol_status_message.fields = function(buffer,
   -- Runtime optional field: Symbol Status Regulatory Halt Reason
   local symbol_status_regulatory_halt_reason = nil
 
-  local symbol_status_regulatory_halt_reason_exists = bit.band(symbol_status_presence_bits, 0x02) == 2
+  local symbol_status_regulatory_halt_reason_exists = bit.rshift(bit.band(symbol_status_presence_bits, 0x02), 1) == 1
 
   if symbol_status_regulatory_halt_reason_exists then
     index, symbol_status_regulatory_halt_reason = txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.dissect(buffer, index, packet, parent)
@@ -2208,7 +2208,7 @@ txse_txseequities_bale_rake_v1_0.trading_session_status_message.size = function(
 
   local trading_session_status_presence_bits = buffer(offset + 0, 1):le_uint()
 
-  if bit.band(trading_session_status_presence_bits, 0x02) == 2 then
+  if bit.rshift(bit.band(trading_session_status_presence_bits, 0x02), 1) == 1 then
     index = index + txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.size
 
   end
@@ -2249,7 +2249,7 @@ txse_txseequities_bale_rake_v1_0.trading_session_status_message.fields = functio
   -- Runtime optional field: Trading Session Status Regulatory Halt Reason
   local trading_session_status_regulatory_halt_reason = nil
 
-  local trading_session_status_regulatory_halt_reason_exists = bit.band(trading_session_status_presence_bits, 0x02) == 2
+  local trading_session_status_regulatory_halt_reason_exists = bit.rshift(bit.band(trading_session_status_presence_bits, 0x02), 1) == 1
 
   if trading_session_status_regulatory_halt_reason_exists then
     index, trading_session_status_regulatory_halt_reason = txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.dissect(buffer, index, packet, parent)

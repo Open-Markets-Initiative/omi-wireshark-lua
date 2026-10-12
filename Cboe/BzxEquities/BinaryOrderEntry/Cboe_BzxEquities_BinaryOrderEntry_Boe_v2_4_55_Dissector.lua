@@ -5314,7 +5314,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_rejected_message.fields = fu
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
 
-  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.band(return_bitfield_15, 0x08) > 0
+  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x08), 3) > 0
 
   if mass_cancel_id_exists then
     index, mass_cancel_id = cboe_bzxequities_binaryorderentry_boe_v2_4_55.mass_cancel_id.dissect(buffer, index, packet, parent)
@@ -5689,7 +5689,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.trade_cancel_or_correct_message.fi
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -5698,7 +5698,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.trade_cancel_or_correct_message.fi
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -6014,7 +6014,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -6023,7 +6023,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -6032,7 +6032,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -6041,7 +6041,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -6050,7 +6050,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -6059,7 +6059,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -6077,7 +6077,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -6086,7 +6086,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -6104,7 +6104,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -6113,7 +6113,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -6122,7 +6122,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -6131,7 +6131,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -6140,7 +6140,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -6149,7 +6149,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -6158,7 +6158,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -6167,7 +6167,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -6176,7 +6176,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -6194,7 +6194,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -6203,7 +6203,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -6212,7 +6212,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -6221,7 +6221,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -6230,7 +6230,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -6239,7 +6239,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -6248,7 +6248,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Cross Trade Flag
   local cross_trade_flag = nil
 
-  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x08) > 0
+  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x08), 3) > 0
 
   if cross_trade_flag_exists then
     index, cross_trade_flag = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cross_trade_flag.dissect(buffer, index, packet, parent)
@@ -6257,7 +6257,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_execution_message.fields = f
   -- Runtime optional field: Locate Broker
   local locate_broker = nil
 
-  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x40) > 0
+  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x40), 6) > 0
 
   if locate_broker_exists then
     index, locate_broker = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_broker.dissect(buffer, index, packet, parent)
@@ -6549,7 +6549,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -6558,7 +6558,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -6567,7 +6567,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -6576,7 +6576,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -6585,7 +6585,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -6594,7 +6594,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -6612,7 +6612,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -6621,7 +6621,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -6630,7 +6630,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -6639,7 +6639,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_rejected_message.fields = f
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -6928,7 +6928,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -6937,7 +6937,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -6946,7 +6946,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -6955,7 +6955,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -6964,7 +6964,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -6973,7 +6973,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -6991,7 +6991,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -7000,7 +7000,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -7018,7 +7018,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -7027,7 +7027,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -7036,7 +7036,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -7045,7 +7045,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -7054,7 +7054,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -7063,7 +7063,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -7072,7 +7072,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -7090,7 +7090,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Leaves Qty
   local leaves_qty = nil
 
-  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x02) > 0
+  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x02), 1) > 0
 
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.leaves_qty.dissect(buffer, index, packet, parent)
@@ -7099,7 +7099,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Last Shares
   local last_shares = nil
 
-  local last_shares_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x04) > 0
+  local last_shares_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x04), 2) > 0
 
   if last_shares_exists then
     index, last_shares = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_shares.dissect(buffer, index, packet, parent)
@@ -7108,7 +7108,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Last Px
   local last_px = nil
 
-  local last_px_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x08) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x08), 3) > 0
 
   if last_px_exists then
     index, last_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_px.dissect(buffer, index, packet, parent)
@@ -7117,7 +7117,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Display Price
   local display_price = nil
 
-  local display_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x10) > 0
+  local display_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x10), 4) > 0
 
   if display_price_exists then
     index, display_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_price.dissect(buffer, index, packet, parent)
@@ -7126,7 +7126,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Working Price
   local working_price = nil
 
-  local working_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x20) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x20), 5) > 0
 
   if working_price_exists then
     index, working_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.working_price.dissect(buffer, index, packet, parent)
@@ -7135,7 +7135,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Base Liquidity Indicator
   local base_liquidity_indicator = nil
 
-  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x40) > 0
+  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x40), 6) > 0
 
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.base_liquidity_indicator.dissect(buffer, index, packet, parent)
@@ -7144,7 +7144,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Expire Time
   local expire_time = nil
 
-  local expire_time_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x80) > 0
+  local expire_time_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x80), 7) > 0
 
   if expire_time_exists then
     index, expire_time = cboe_bzxequities_binaryorderentry_boe_v2_4_55.expire_time.dissect(buffer, index, packet, parent)
@@ -7162,7 +7162,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -7171,7 +7171,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -7180,7 +7180,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -7189,7 +7189,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -7198,7 +7198,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -7207,7 +7207,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -7216,7 +7216,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -7225,7 +7225,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -7234,7 +7234,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_cancelled_message.fields = f
   -- Runtime optional field: Cross Trade Flag
   local cross_trade_flag = nil
 
-  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x08) > 0
+  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x08), 3) > 0
 
   if cross_trade_flag_exists then
     index, cross_trade_flag = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cross_trade_flag.dissect(buffer, index, packet, parent)
@@ -7800,7 +7800,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -7809,7 +7809,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -7818,7 +7818,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -7827,7 +7827,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -7836,7 +7836,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -7845,7 +7845,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -7863,7 +7863,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -7872,7 +7872,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -7890,7 +7890,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -7899,7 +7899,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -7908,7 +7908,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -7917,7 +7917,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -7926,7 +7926,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -7935,7 +7935,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -7944,7 +7944,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -7962,7 +7962,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Leaves Qty
   local leaves_qty = nil
 
-  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x02) > 0
+  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x02), 1) > 0
 
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.leaves_qty.dissect(buffer, index, packet, parent)
@@ -7971,7 +7971,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Last Shares
   local last_shares = nil
 
-  local last_shares_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x04) > 0
+  local last_shares_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x04), 2) > 0
 
   if last_shares_exists then
     index, last_shares = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_shares.dissect(buffer, index, packet, parent)
@@ -7980,7 +7980,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Last Px
   local last_px = nil
 
-  local last_px_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x08) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x08), 3) > 0
 
   if last_px_exists then
     index, last_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_px.dissect(buffer, index, packet, parent)
@@ -7989,7 +7989,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Display Price
   local display_price = nil
 
-  local display_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x10) > 0
+  local display_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x10), 4) > 0
 
   if display_price_exists then
     index, display_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_price.dissect(buffer, index, packet, parent)
@@ -7998,7 +7998,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Working Price
   local working_price = nil
 
-  local working_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x20) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x20), 5) > 0
 
   if working_price_exists then
     index, working_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.working_price.dissect(buffer, index, packet, parent)
@@ -8007,7 +8007,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Base Liquidity Indicator
   local base_liquidity_indicator = nil
 
-  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x40) > 0
+  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x40), 6) > 0
 
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.base_liquidity_indicator.dissect(buffer, index, packet, parent)
@@ -8016,7 +8016,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Expire Time
   local expire_time = nil
 
-  local expire_time_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x80) > 0
+  local expire_time_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x80), 7) > 0
 
   if expire_time_exists then
     index, expire_time = cboe_bzxequities_binaryorderentry_boe_v2_4_55.expire_time.dissect(buffer, index, packet, parent)
@@ -8034,7 +8034,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -8043,7 +8043,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -8052,7 +8052,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -8061,7 +8061,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -8070,7 +8070,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -8079,7 +8079,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -8088,7 +8088,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -8097,7 +8097,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -8106,7 +8106,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Cmc Match Qty
   local cmc_match_qty = nil
 
-  local cmc_match_qty_exists = number_of_return_bitfields >= 19 and bit.band(return_bitfield_19, 0x20) > 0
+  local cmc_match_qty_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(return_bitfield_19, 0x20), 5) > 0
 
   if cmc_match_qty_exists then
     index, cmc_match_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cmc_match_qty.dissect(buffer, index, packet, parent)
@@ -8115,7 +8115,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_restated_message.fields = fu
   -- Runtime optional field: Step Up Amount
   local step_up_amount = nil
 
-  local step_up_amount_exists = number_of_return_bitfields >= 19 and bit.band(return_bitfield_19, 0x40) > 0
+  local step_up_amount_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(return_bitfield_19, 0x40), 6) > 0
 
   if step_up_amount_exists then
     index, step_up_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.step_up_amount.dissect(buffer, index, packet, parent)
@@ -8404,7 +8404,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -8413,7 +8413,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -8422,7 +8422,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -8431,7 +8431,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -8440,7 +8440,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -8449,7 +8449,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -8467,7 +8467,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -8485,7 +8485,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -8494,7 +8494,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -8503,7 +8503,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -8512,7 +8512,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -8521,7 +8521,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -8530,7 +8530,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -8539,7 +8539,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -8557,7 +8557,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Leaves Qty
   local leaves_qty = nil
 
-  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x02) > 0
+  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x02), 1) > 0
 
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.leaves_qty.dissect(buffer, index, packet, parent)
@@ -8566,7 +8566,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Last Shares
   local last_shares = nil
 
-  local last_shares_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x04) > 0
+  local last_shares_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x04), 2) > 0
 
   if last_shares_exists then
     index, last_shares = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_shares.dissect(buffer, index, packet, parent)
@@ -8575,7 +8575,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Last Px
   local last_px = nil
 
-  local last_px_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x08) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x08), 3) > 0
 
   if last_px_exists then
     index, last_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_px.dissect(buffer, index, packet, parent)
@@ -8584,7 +8584,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Display Price
   local display_price = nil
 
-  local display_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x10) > 0
+  local display_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x10), 4) > 0
 
   if display_price_exists then
     index, display_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_price.dissect(buffer, index, packet, parent)
@@ -8593,7 +8593,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Working Price
   local working_price = nil
 
-  local working_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x20) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x20), 5) > 0
 
   if working_price_exists then
     index, working_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.working_price.dissect(buffer, index, packet, parent)
@@ -8602,7 +8602,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Base Liquidity Indicator
   local base_liquidity_indicator = nil
 
-  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x40) > 0
+  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x40), 6) > 0
 
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.base_liquidity_indicator.dissect(buffer, index, packet, parent)
@@ -8611,7 +8611,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Expire Time
   local expire_time = nil
 
-  local expire_time_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x80) > 0
+  local expire_time_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x80), 7) > 0
 
   if expire_time_exists then
     index, expire_time = cboe_bzxequities_binaryorderentry_boe_v2_4_55.expire_time.dissect(buffer, index, packet, parent)
@@ -8629,7 +8629,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -8638,7 +8638,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -8647,7 +8647,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -8656,7 +8656,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -8665,7 +8665,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -8674,7 +8674,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -8683,7 +8683,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -8692,7 +8692,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -8701,7 +8701,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Cross Trade Flag
   local cross_trade_flag = nil
 
-  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x08) > 0
+  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x08), 3) > 0
 
   if cross_trade_flag_exists then
     index, cross_trade_flag = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cross_trade_flag.dissect(buffer, index, packet, parent)
@@ -8710,7 +8710,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_modified_message.fields = fu
   -- Runtime optional field: Locate Broker
   local locate_broker = nil
 
-  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x40) > 0
+  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x40), 6) > 0
 
   if locate_broker_exists then
     index, locate_broker = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_broker.dissect(buffer, index, packet, parent)
@@ -9002,7 +9002,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -9011,7 +9011,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -9020,7 +9020,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -9029,7 +9029,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -9038,7 +9038,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -9047,7 +9047,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -9065,7 +9065,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -9074,7 +9074,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -9092,7 +9092,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -9101,7 +9101,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -9110,7 +9110,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -9119,7 +9119,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -9128,7 +9128,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -9137,7 +9137,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -9146,7 +9146,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -9164,7 +9164,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -9173,7 +9173,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -9182,7 +9182,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -9191,7 +9191,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -9200,7 +9200,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -9209,7 +9209,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -9218,7 +9218,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -9227,7 +9227,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_rejected_message.fields = fu
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -9516,7 +9516,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x02) > 0
+  local peg_difference_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x02), 1) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -9525,7 +9525,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -9534,7 +9534,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -9543,7 +9543,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -9552,7 +9552,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -9561,7 +9561,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -9579,7 +9579,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -9588,7 +9588,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.band(return_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -9606,7 +9606,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
-  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x02) > 0
+  local clearing_firm_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x02), 1) > 0
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_firm.dissect(buffer, index, packet, parent)
@@ -9615,7 +9615,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x04) > 0
+  local clearing_account_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x04), 2) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -9624,7 +9624,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x08) > 0
+  local display_indicator_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x08), 3) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -9633,7 +9633,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x10) > 0
+  local max_floor_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x10), 4) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -9642,7 +9642,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x20) > 0
+  local discretion_amount_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x20), 5) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -9651,7 +9651,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -9660,7 +9660,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x80) > 0
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x80), 7) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -9678,7 +9678,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Leaves Qty
   local leaves_qty = nil
 
-  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x02) > 0
+  local leaves_qty_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x02), 1) > 0
 
   if leaves_qty_exists then
     index, leaves_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.leaves_qty.dissect(buffer, index, packet, parent)
@@ -9687,7 +9687,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Last Shares
   local last_shares = nil
 
-  local last_shares_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x04) > 0
+  local last_shares_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x04), 2) > 0
 
   if last_shares_exists then
     index, last_shares = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_shares.dissect(buffer, index, packet, parent)
@@ -9696,7 +9696,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Last Px
   local last_px = nil
 
-  local last_px_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x08) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x08), 3) > 0
 
   if last_px_exists then
     index, last_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.last_px.dissect(buffer, index, packet, parent)
@@ -9705,7 +9705,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Display Price
   local display_price = nil
 
-  local display_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x10) > 0
+  local display_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x10), 4) > 0
 
   if display_price_exists then
     index, display_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_price.dissect(buffer, index, packet, parent)
@@ -9714,7 +9714,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Working Price
   local working_price = nil
 
-  local working_price_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x20) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x20), 5) > 0
 
   if working_price_exists then
     index, working_price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.working_price.dissect(buffer, index, packet, parent)
@@ -9723,7 +9723,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Base Liquidity Indicator
   local base_liquidity_indicator = nil
 
-  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x40) > 0
+  local base_liquidity_indicator_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x40), 6) > 0
 
   if base_liquidity_indicator_exists then
     index, base_liquidity_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.base_liquidity_indicator.dissect(buffer, index, packet, parent)
@@ -9732,7 +9732,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Expire Time
   local expire_time = nil
 
-  local expire_time_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x80) > 0
+  local expire_time_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(return_bitfield_5, 0x80), 7) > 0
 
   if expire_time_exists then
     index, expire_time = cboe_bzxequities_binaryorderentry_boe_v2_4_55.expire_time.dissect(buffer, index, packet, parent)
@@ -9750,7 +9750,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x08) > 0
+  local attributed_quote_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x08), 3) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -9759,7 +9759,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.band(return_bitfield_6, 0x10) > 0
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(return_bitfield_6, 0x10), 4) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -9777,7 +9777,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x02) > 0
+  local echo_text_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x02), 1) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -9786,7 +9786,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x04) > 0
+  local stop_px_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x04), 2) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -9795,7 +9795,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x08) > 0
+  local routing_inst_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x08), 3) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -9804,7 +9804,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x10) > 0
+  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -9813,7 +9813,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x20) > 0
+  local route_delivery_method_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x20), 5) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -9822,7 +9822,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x40) > 0
+  local ex_destination_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x40), 6) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -9831,7 +9831,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Cross Trade Flag
   local cross_trade_flag = nil
 
-  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x08) > 0
+  local cross_trade_flag_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x08), 3) > 0
 
   if cross_trade_flag_exists then
     index, cross_trade_flag = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cross_trade_flag.dissect(buffer, index, packet, parent)
@@ -9840,7 +9840,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Locate Broker
   local locate_broker = nil
 
-  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.band(return_bitfield_18, 0x40) > 0
+  local locate_broker_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(return_bitfield_18, 0x40), 6) > 0
 
   if locate_broker_exists then
     index, locate_broker = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_broker.dissect(buffer, index, packet, parent)
@@ -9849,7 +9849,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Cmc Sessions
   local cmc_sessions = nil
 
-  local cmc_sessions_exists = number_of_return_bitfields >= 19 and bit.band(return_bitfield_19, 0x08) > 0
+  local cmc_sessions_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(return_bitfield_19, 0x08), 3) > 0
 
   if cmc_sessions_exists then
     index, cmc_sessions = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cmc_sessions.dissect(buffer, index, packet, parent)
@@ -9858,7 +9858,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_acknowledgment_message.field
   -- Runtime optional field: Step Up Amount
   local step_up_amount = nil
 
-  local step_up_amount_exists = number_of_return_bitfields >= 19 and bit.band(return_bitfield_19, 0x40) > 0
+  local step_up_amount_exists = number_of_return_bitfields >= 19 and bit.rshift(bit.band(return_bitfield_19, 0x40), 6) > 0
 
   if step_up_amount_exists then
     index, step_up_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.step_up_amount.dissect(buffer, index, packet, parent)
@@ -10129,7 +10129,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.fields = func
   -- Runtime optional field: Mass Cancel Inst
   local mass_cancel_inst = nil
 
-  local mass_cancel_inst_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x04) > 0
+  local mass_cancel_inst_exists = number_of_purge_orders_bitfields >= 1 and bit.rshift(bit.band(purge_orders_bitfield_1, 0x04), 2) > 0
 
   if mass_cancel_inst_exists then
     index, mass_cancel_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.mass_cancel_inst.dissect(buffer, index, packet, parent)
@@ -10138,7 +10138,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.fields = func
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
 
-  local mass_cancel_id_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x10) > 0
+  local mass_cancel_id_exists = number_of_purge_orders_bitfields >= 1 and bit.rshift(bit.band(purge_orders_bitfield_1, 0x10), 4) > 0
 
   if mass_cancel_id_exists then
     index, mass_cancel_id = cboe_bzxequities_binaryorderentry_boe_v2_4_55.mass_cancel_id.dissect(buffer, index, packet, parent)
@@ -10156,7 +10156,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.fields = func
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_purge_orders_bitfields >= 2 and bit.band(purge_orders_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_purge_orders_bitfields >= 2 and bit.rshift(bit.band(purge_orders_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -10165,7 +10165,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.purge_orders_message.fields = func
   -- Runtime optional field: Matching Unit
   local matching_unit = nil
 
-  local matching_unit_exists = number_of_purge_orders_bitfields >= 2 and bit.band(purge_orders_bitfield_2, 0x80) > 0
+  local matching_unit_exists = number_of_purge_orders_bitfields >= 2 and bit.rshift(bit.band(purge_orders_bitfield_2, 0x80), 7) > 0
 
   if matching_unit_exists then
     index, matching_unit = cboe_bzxequities_binaryorderentry_boe_v2_4_55.matching_unit.dissect(buffer, index, packet, parent)
@@ -10439,7 +10439,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Order Qty
   local order_qty = nil
 
-  local order_qty_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x04) > 0
+  local order_qty_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x04), 2) > 0
 
   if order_qty_exists then
     index, order_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.order_qty.dissect(buffer, index, packet, parent)
@@ -10448,7 +10448,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x08) > 0
+  local price_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x08), 3) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -10457,7 +10457,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -10466,7 +10466,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Cancel Orig On Reject
   local cancel_orig_on_reject = nil
 
-  local cancel_orig_on_reject_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x20) > 0
+  local cancel_orig_on_reject_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x20), 5) > 0
 
   if cancel_orig_on_reject_exists then
     index, cancel_orig_on_reject = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
@@ -10475,7 +10475,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x40) > 0
+  local exec_inst_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x40), 6) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -10484,7 +10484,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Side
   local side = nil
 
-  local side_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x80) > 0
+  local side_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x80), 7) > 0
 
   if side_exists then
     index, side = cboe_bzxequities_binaryorderentry_boe_v2_4_55.side.dissect(buffer, index, packet, parent)
@@ -10502,7 +10502,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_modify_order_bitfields >= 2 and bit.band(modify_order_bitfield_2, 0x02) > 0
+  local stop_px_exists = number_of_modify_order_bitfields >= 2 and bit.rshift(bit.band(modify_order_bitfield_2, 0x02), 1) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -10511,7 +10511,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.modify_order_message.fields = func
   -- Runtime optional field: Locate Broker
   local locate_broker = nil
 
-  local locate_broker_exists = number_of_modify_order_bitfields >= 2 and bit.band(modify_order_bitfield_2, 0x80) > 0
+  local locate_broker_exists = number_of_modify_order_bitfields >= 2 and bit.rshift(bit.band(modify_order_bitfield_2, 0x80), 7) > 0
 
   if locate_broker_exists then
     index, locate_broker = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_broker.dissect(buffer, index, packet, parent)
@@ -11850,7 +11850,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
 
-  local clearing_account_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x02) > 0
+  local clearing_account_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x02), 1) > 0
 
   if clearing_account_exists then
     index, clearing_account = cboe_bzxequities_binaryorderentry_boe_v2_4_55.clearing_account.dissect(buffer, index, packet, parent)
@@ -11859,7 +11859,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Price
   local price = nil
 
-  local price_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x04) > 0
+  local price_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x04), 2) > 0
 
   if price_exists then
     index, price = cboe_bzxequities_binaryorderentry_boe_v2_4_55.price.dissect(buffer, index, packet, parent)
@@ -11868,7 +11868,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
-  local exec_inst_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x08) > 0
+  local exec_inst_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x08), 3) > 0
 
   if exec_inst_exists then
     index, exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.exec_inst.dissect(buffer, index, packet, parent)
@@ -11877,7 +11877,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
-  local ord_type_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x10) > 0
+  local ord_type_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x10), 4) > 0
 
   if ord_type_exists then
     index, ord_type = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ord_type.dissect(buffer, index, packet, parent)
@@ -11886,7 +11886,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
-  local time_in_force_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x20) > 0
+  local time_in_force_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x20), 5) > 0
 
   if time_in_force_exists then
     index, time_in_force = cboe_bzxequities_binaryorderentry_boe_v2_4_55.time_in_force.dissect(buffer, index, packet, parent)
@@ -11895,7 +11895,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
-  local min_qty_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x40) > 0
+  local min_qty_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x40), 6) > 0
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_4_55.min_qty.dissect(buffer, index, packet, parent)
@@ -11904,7 +11904,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Max Floor
   local max_floor = nil
 
-  local max_floor_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x80) > 0
+  local max_floor_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x80), 7) > 0
 
   if max_floor_exists then
     index, max_floor = cboe_bzxequities_binaryorderentry_boe_v2_4_55.max_floor.dissect(buffer, index, packet, parent)
@@ -11922,7 +11922,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Symbol Sfx
   local symbol_sfx = nil
 
-  local symbol_sfx_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x02) > 0
+  local symbol_sfx_exists = number_of_new_order_bitfields >= 2 and bit.rshift(bit.band(new_order_bitfield_2, 0x02), 1) > 0
 
   if symbol_sfx_exists then
     index, symbol_sfx = cboe_bzxequities_binaryorderentry_boe_v2_4_55.symbol_sfx.dissect(buffer, index, packet, parent)
@@ -11931,7 +11931,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Capacity
   local capacity = nil
 
-  local capacity_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x40) > 0
+  local capacity_exists = number_of_new_order_bitfields >= 2 and bit.rshift(bit.band(new_order_bitfield_2, 0x40), 6) > 0
 
   if capacity_exists then
     index, capacity = cboe_bzxequities_binaryorderentry_boe_v2_4_55.capacity.dissect(buffer, index, packet, parent)
@@ -11940,7 +11940,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Routing Inst
   local routing_inst = nil
 
-  local routing_inst_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x80) > 0
+  local routing_inst_exists = number_of_new_order_bitfields >= 2 and bit.rshift(bit.band(new_order_bitfield_2, 0x80), 7) > 0
 
   if routing_inst_exists then
     index, routing_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.routing_inst.dissect(buffer, index, packet, parent)
@@ -11958,7 +11958,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Display Indicator
   local display_indicator = nil
 
-  local display_indicator_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x02) > 0
+  local display_indicator_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x02), 1) > 0
 
   if display_indicator_exists then
     index, display_indicator = cboe_bzxequities_binaryorderentry_boe_v2_4_55.display_indicator.dissect(buffer, index, packet, parent)
@@ -11967,7 +11967,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Discretion Amount
   local discretion_amount = nil
 
-  local discretion_amount_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x08) > 0
+  local discretion_amount_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x08), 3) > 0
 
   if discretion_amount_exists then
     index, discretion_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect(buffer, index, packet, parent)
@@ -11976,7 +11976,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Peg Difference
   local peg_difference = nil
 
-  local peg_difference_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x10) > 0
+  local peg_difference_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x10), 4) > 0
 
   if peg_difference_exists then
     index, peg_difference = cboe_bzxequities_binaryorderentry_boe_v2_4_55.peg_difference.dissect(buffer, index, packet, parent)
@@ -11985,7 +11985,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
-  local prevent_match_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x20) > 0
+  local prevent_match_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x20), 5) > 0
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxequities_binaryorderentry_boe_v2_4_55.prevent_match.dissect(buffer, index, packet, parent)
@@ -11994,7 +11994,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Locate Reqd
   local locate_reqd = nil
 
-  local locate_reqd_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x40) > 0
+  local locate_reqd_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x40), 6) > 0
 
   if locate_reqd_exists then
     index, locate_reqd = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_reqd.dissect(buffer, index, packet, parent)
@@ -12003,7 +12003,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Expire Time
   local expire_time = nil
 
-  local expire_time_exists = number_of_new_order_bitfields >= 3 and bit.band(new_order_bitfield_3, 0x80) > 0
+  local expire_time_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x80), 7) > 0
 
   if expire_time_exists then
     index, expire_time = cboe_bzxequities_binaryorderentry_boe_v2_4_55.expire_time.dissect(buffer, index, packet, parent)
@@ -12012,7 +12012,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Risk Reset
   local risk_reset = nil
 
-  local risk_reset_exists = number_of_new_order_bitfields >= 4 and bit.band(new_order_bitfield_4, 0x08) > 0
+  local risk_reset_exists = number_of_new_order_bitfields >= 4 and bit.rshift(bit.band(new_order_bitfield_4, 0x08), 3) > 0
 
   if risk_reset_exists then
     index, risk_reset = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_reset.dissect(buffer, index, packet, parent)
@@ -12021,7 +12021,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
-  local attributed_quote_exists = number_of_new_order_bitfields >= 5 and bit.band(new_order_bitfield_5, 0x02) > 0
+  local attributed_quote_exists = number_of_new_order_bitfields >= 5 and bit.rshift(bit.band(new_order_bitfield_5, 0x02), 1) > 0
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxequities_binaryorderentry_boe_v2_4_55.attributed_quote.dissect(buffer, index, packet, parent)
@@ -12030,7 +12030,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Ext Exec Inst
   local ext_exec_inst = nil
 
-  local ext_exec_inst_exists = number_of_new_order_bitfields >= 5 and bit.band(new_order_bitfield_5, 0x08) > 0
+  local ext_exec_inst_exists = number_of_new_order_bitfields >= 5 and bit.rshift(bit.band(new_order_bitfield_5, 0x08), 3) > 0
 
   if ext_exec_inst_exists then
     index, ext_exec_inst = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ext_exec_inst.dissect(buffer, index, packet, parent)
@@ -12048,7 +12048,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Stop Px
   local stop_px = nil
 
-  local stop_px_exists = number_of_new_order_bitfields >= 6 and bit.band(new_order_bitfield_6, 0x02) > 0
+  local stop_px_exists = number_of_new_order_bitfields >= 6 and bit.rshift(bit.band(new_order_bitfield_6, 0x02), 1) > 0
 
   if stop_px_exists then
     index, stop_px = cboe_bzxequities_binaryorderentry_boe_v2_4_55.stop_px.dissect(buffer, index, packet, parent)
@@ -12057,7 +12057,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Rout Strategy
   local rout_strategy = nil
 
-  local rout_strategy_exists = number_of_new_order_bitfields >= 6 and bit.band(new_order_bitfield_6, 0x04) > 0
+  local rout_strategy_exists = number_of_new_order_bitfields >= 6 and bit.rshift(bit.band(new_order_bitfield_6, 0x04), 2) > 0
 
   if rout_strategy_exists then
     index, rout_strategy = cboe_bzxequities_binaryorderentry_boe_v2_4_55.rout_strategy.dissect(buffer, index, packet, parent)
@@ -12066,7 +12066,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Route Delivery Method
   local route_delivery_method = nil
 
-  local route_delivery_method_exists = number_of_new_order_bitfields >= 6 and bit.band(new_order_bitfield_6, 0x08) > 0
+  local route_delivery_method_exists = number_of_new_order_bitfields >= 6 and bit.rshift(bit.band(new_order_bitfield_6, 0x08), 3) > 0
 
   if route_delivery_method_exists then
     index, route_delivery_method = cboe_bzxequities_binaryorderentry_boe_v2_4_55.route_delivery_method.dissect(buffer, index, packet, parent)
@@ -12075,7 +12075,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Ex Destination
   local ex_destination = nil
 
-  local ex_destination_exists = number_of_new_order_bitfields >= 6 and bit.band(new_order_bitfield_6, 0x10) > 0
+  local ex_destination_exists = number_of_new_order_bitfields >= 6 and bit.rshift(bit.band(new_order_bitfield_6, 0x10), 4) > 0
 
   if ex_destination_exists then
     index, ex_destination = cboe_bzxequities_binaryorderentry_boe_v2_4_55.ex_destination.dissect(buffer, index, packet, parent)
@@ -12084,7 +12084,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
-  local echo_text_exists = number_of_new_order_bitfields >= 6 and bit.band(new_order_bitfield_6, 0x20) > 0
+  local echo_text_exists = number_of_new_order_bitfields >= 6 and bit.rshift(bit.band(new_order_bitfield_6, 0x20), 5) > 0
 
   if echo_text_exists then
     index, echo_text = cboe_bzxequities_binaryorderentry_boe_v2_4_55.echo_text.dissect(buffer, index, packet, parent)
@@ -12093,7 +12093,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Risk Group Id
   local risk_group_id = nil
 
-  local risk_group_id_exists = number_of_new_order_bitfields >= 7 and bit.band(new_order_bitfield_7, 0x02) > 0
+  local risk_group_id_exists = number_of_new_order_bitfields >= 7 and bit.rshift(bit.band(new_order_bitfield_7, 0x02), 1) > 0
 
   if risk_group_id_exists then
     index, risk_group_id = cboe_bzxequities_binaryorderentry_boe_v2_4_55.risk_group_id.dissect(buffer, index, packet, parent)
@@ -12102,7 +12102,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Cross Trade Flag
   local cross_trade_flag = nil
 
-  local cross_trade_flag_exists = number_of_new_order_bitfields >= 9 and bit.band(new_order_bitfield_9, 0x40) > 0
+  local cross_trade_flag_exists = number_of_new_order_bitfields >= 9 and bit.rshift(bit.band(new_order_bitfield_9, 0x40), 6) > 0
 
   if cross_trade_flag_exists then
     index, cross_trade_flag = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cross_trade_flag.dissect(buffer, index, packet, parent)
@@ -12111,7 +12111,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Locate Broker
   local locate_broker = nil
 
-  local locate_broker_exists = number_of_new_order_bitfields >= 10 and bit.band(new_order_bitfield_10, 0x02) > 0
+  local locate_broker_exists = number_of_new_order_bitfields >= 10 and bit.rshift(bit.band(new_order_bitfield_10, 0x02), 1) > 0
 
   if locate_broker_exists then
     index, locate_broker = cboe_bzxequities_binaryorderentry_boe_v2_4_55.locate_broker.dissect(buffer, index, packet, parent)
@@ -12120,7 +12120,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Cmc Sessions
   local cmc_sessions = nil
 
-  local cmc_sessions_exists = number_of_new_order_bitfields >= 10 and bit.band(new_order_bitfield_10, 0x04) > 0
+  local cmc_sessions_exists = number_of_new_order_bitfields >= 10 and bit.rshift(bit.band(new_order_bitfield_10, 0x04), 2) > 0
 
   if cmc_sessions_exists then
     index, cmc_sessions = cboe_bzxequities_binaryorderentry_boe_v2_4_55.cmc_sessions.dissect(buffer, index, packet, parent)
@@ -12129,7 +12129,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_55.new_order_message.fields = functio
   -- Runtime optional field: Step Up Amount
   local step_up_amount = nil
 
-  local step_up_amount_exists = number_of_new_order_bitfields >= 10 and bit.band(new_order_bitfield_10, 0x08) > 0
+  local step_up_amount_exists = number_of_new_order_bitfields >= 10 and bit.rshift(bit.band(new_order_bitfield_10, 0x08), 3) > 0
 
   if step_up_amount_exists then
     index, step_up_amount = cboe_bzxequities_binaryorderentry_boe_v2_4_55.step_up_amount.dissect(buffer, index, packet, parent)
