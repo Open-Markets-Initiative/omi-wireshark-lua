@@ -9520,7 +9520,7 @@ udp_table:add_for_decode_as(omi_b3_b3derivatives_binaryumdf_sbe_v2_2)
 --   Organization: Brasil, Bolsa, Balcão
 --   Version: 2.2
 --   Date: Friday, July 18, 2025
---   Specification: BinaryUMDF-MessageReference-v.2.1.0-enUS.pdf
+--   Specification: BinaryUMDF-MessageReference-v.2.2.0-enUS.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

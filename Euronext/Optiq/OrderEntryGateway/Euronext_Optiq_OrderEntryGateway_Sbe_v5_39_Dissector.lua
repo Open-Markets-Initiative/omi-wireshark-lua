@@ -19132,7 +19132,6 @@ tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v5_39)
 --   Version: 5.39
 --   Date: Thursday, October 24, 2024
 --   Specification: Optiq OEG SBE Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.39.0 +TC
---   Specification: Optiq OEG SBE Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.38.0 + TC
 --
 -- Script:
 --   Generator: 1.5.0.0

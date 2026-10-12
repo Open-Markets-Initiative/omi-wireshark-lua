@@ -25854,7 +25854,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v9_1)
 --   Organization: Eurex Exchange
 --   Version: 9.1
 --   Date: Tuesday, April 6, 2021
---   Specification: T7_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_v.9.0-D0001.pdf
+--   Specification: T7_Enhanced_Trading_Interface_-_Cash_Message_Reference_v.9.1-C0002.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

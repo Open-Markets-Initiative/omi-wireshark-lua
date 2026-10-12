@@ -5010,8 +5010,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_ntxoptions_cti_itch_v2_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Tuesday, January 23, 2024
---   Specification: soupbintcp.pdf
 --   Specification: 0299-Q24_BX-Options-Clearing-Trade-Interface-V2.1.pdf
+--   Specification: soupbintcp.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

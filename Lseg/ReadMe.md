@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Lseg.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Lseg.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Millennium][Millennium.Platform] | [UdpUnitHeader][Lseg.Millennium.UdpUnitHeader] | [Mitch][Omi.Encoding.Mitch] | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 489 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
+| [Millennium][Millennium.Platform] | [UdpUnitHeader][Lseg.Millennium.UdpUnitHeader] | [Mitch][Omi.Encoding.Mitch] | [1.0][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector] | 1/1/2018 | 489 | [Header][Omi.Glossary.Deployment.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url] - [pdf][Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf] |
 
 
 ### Market Data
@@ -209,7 +209,6 @@
 [Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Pdf]: https://docs.londonstockexchange.com/sites/default/files/documents/mit203-native-trading-gateway-specification-issue-21-2.pdf "London Stock Exchange 21.2 Pdf"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Millennium/UdpUnitHeader/Lseg_Millennium_UdpUnitHeader_Mitch_v1_0_Dissector.lua "Lseg Millennium UdpUnitHeader Mitch v1.0 Wireshark Dissector"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://www.londonstockexchange.com/resources/trade-resources "London Stock Exchange 1.0 Url"
-[Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Url]: https://docs.londonstockexchange.com/sites/default/files/documents/mit303issue119.pdf "London Stock Exchange 1.0 Url"
 [Lseg.Millennium.UdpUnitHeader.Mitch.v1.0.Pdf]: https://docs.londonstockexchange.com/sites/default/files/documents/mit303issue119.pdf "London Stock Exchange 1.0 Pdf"
 [Lseg.TradeEcho.Level2Incremental.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/TradeEcho/Level2Incremental/Lseg_TradeEcho_Level2Incremental_Gtp_v24_4_Dissector.lua "Lseg TradeEcho Level2Incremental Gtp v24.4 Wireshark Dissector"
 [Lseg.TradeEcho.Level2Incremental.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"

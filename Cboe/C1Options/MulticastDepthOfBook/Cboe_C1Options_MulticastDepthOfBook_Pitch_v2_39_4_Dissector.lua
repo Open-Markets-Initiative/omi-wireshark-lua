@@ -3381,7 +3381,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.39.4
 --   Date: Tuesday, August 21, 2018
---   Specification: US_EQUITIES_OPTIONS_MULTICAST_PITCH_SPECIFICATION.pdf
+--   Specification: BATS_US_EQUITIES_OPTIONS_MULTICAST_PITCH_SPECIFICATION.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

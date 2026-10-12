@@ -7102,7 +7102,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet = {}
 
 -- Verify required size of Udp packet
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet.requiredsize = function(buffer)
-  return buffer:len() >= szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_header.size
+  return buffer:len() >= szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.protocol.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.version.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.header_size.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.sender_id.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.mddp_market_id.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.channel.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.seq_num.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.msg_count.size + szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.flag.size
 end
 
 -- Dissect Packet

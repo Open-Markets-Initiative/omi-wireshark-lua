@@ -1905,7 +1905,7 @@ tcp_table:add_for_decode_as(omi_nse_nsecom_recovery_binary_v7_1)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 7.1
 --   Date: Tuesday, September 1, 2026
---   Specification: MTBT_CUR_NNF_PROTOCOL_7.1_20260902170936.pdf
+--   Specification: MTBT_CO_NNF_PROTOCOL_7.1_20260902170905.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
