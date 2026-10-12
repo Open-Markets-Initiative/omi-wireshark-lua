@@ -35,4 +35,4 @@
 
 [Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Imperative/DepthOfBook/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua "Imperative DepthOfBook Aspen v1.11 Wireshark Dissector"
 [Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Url]: https://www.imperativex.com/market-data "Imperative Execution 1.11 Url"
-[Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Imperative/Specifications/IntelligentCross/DepthOfBook/Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.pdf "Imperative Execution 1.11 Pdf"
+[Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Pdf]: http://iqx.imperativex.com/IntelligentCrossMarketDataFeedSpec.v.1.11.pdf "Imperative Execution 1.11 Pdf"

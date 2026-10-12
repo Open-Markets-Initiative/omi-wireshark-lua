@@ -359,6 +359,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.auction_type.size =
 
 -- Display: Auction Type
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "O" then
     return "Auction Type: Early Opening Auction (O)"
   end
@@ -385,7 +390,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.auction_type, range, value, display)
@@ -493,6 +506,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.cross_type.size = 1
 
 -- Display: Cross Type
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.cross_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Type: No Value"
+  end
+
   if value == "E" then
     return "Cross Type: Market Center Early Opening Auction (E)"
   end
@@ -513,7 +531,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.cross_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.cross_type, range, value, display)
@@ -639,6 +665,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.exchange_code.size 
 
 -- Display: Exchange Code
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "F" then
     return "Exchange Code: Txse (F)"
   end
@@ -674,7 +705,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.exchange_code, range, value, display)
@@ -743,6 +782,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.halt_condition.size
 
 -- Display: Halt Condition
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   if value == "~" then
     return "Halt Condition: Security Not Delayedhalted (~)"
   end
@@ -802,7 +846,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.halt_condition, range, value, display)
@@ -841,6 +893,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_side.size
 
 -- Display: Imbalance Side
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Imbalance Side: No Value"
+  end
+
   if value == "B" then
     return "Imbalance Side: Buy Side (B)"
   end
@@ -858,7 +915,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.imbalance_side, range, value, display)
@@ -1035,6 +1100,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.size =
 
 -- Display: Market State
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market State: No Value"
+  end
+
   if value == "P" then
     return "Market State: Preopening (P)"
   end
@@ -1061,7 +1131,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.market_state, range, value, display)
@@ -1691,6 +1769,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.round_lot.size = 1
 
 -- Display: Round Lot
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.round_lot.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Round Lot: No Value"
+  end
+
   if value == "Y" then
     return "Round Lot: Yes (Y)"
   end
@@ -1705,7 +1788,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.round_lot.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.round_lot.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.round_lot, range, value, display)
@@ -1721,6 +1812,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.rpi_indicator.size 
 
 -- Display: Rpi Indicator
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.rpi_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Rpi Indicator: No Value"
+  end
+
   if value == " " then
     return "Rpi Indicator: No Retail Interest Default (<whitespace>)"
   end
@@ -1741,7 +1837,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.rpi_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.rpi_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.rpi_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.rpi_indicator, range, value, display)
@@ -1781,6 +1885,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.siz
 
 -- Display: Security Status
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "4" then
     return "Security Status: Trading Halt (4)"
   end
@@ -1834,7 +1943,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.security_status, range, value, display)
@@ -1850,6 +1967,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_type.size 
 
 -- Display: Security Type
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -1906,7 +2028,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.security_type, range, value, display)
@@ -1945,6 +2075,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.session_state.size 
 
 -- Display: Session State
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.session_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Session State: No Value"
+  end
+
   return "Session State: "..value
 end
 
@@ -1952,7 +2087,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.session_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.session_state, range, value, display)
@@ -1968,6 +2111,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.side.size = 1
 
 -- Display: Side
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -1982,7 +2130,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.side, range, value, display)
@@ -2078,6 +2234,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_state.size = 1
 
 -- Display: Ssr State
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr State: No Value"
+  end
+
   if value == "~" then
     return "Ssr State: No Short Sale Restriction In Effect (~)"
   end
@@ -2092,7 +2253,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.ssr_state, range, value, display)
@@ -2108,6 +2277,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_triggering_exch
 
 -- Display: Ssr Triggering Exchange Id
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_triggering_exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr Triggering Exchange Id: No Value"
+  end
+
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -2182,7 +2356,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.ssr_triggering_exchange_id, range, value, display)
@@ -2422,6 +2604,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_1.size =
 
 -- Display: Trade Cond 1
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 1: No Value"
+  end
+
   if value == "@" then
     return "Trade Cond 1: Regular Sale (@)"
   end
@@ -2436,7 +2623,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.trade_cond_1, range, value, display)
@@ -2452,6 +2647,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_2.size =
 
 -- Display: Trade Cond 2
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 2: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 2: Na (<whitespace>)"
   end
@@ -2478,7 +2678,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.trade_cond_2, range, value, display)
@@ -2494,6 +2702,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_3.size =
 
 -- Display: Trade Cond 3
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_3.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 3: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 3: Na (<whitespace>)"
   end
@@ -2514,7 +2727,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_3.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_3.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.trade_cond_3, range, value, display)
@@ -2530,6 +2751,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_4.size =
 
 -- Display: Trade Cond 4
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 4: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 4: Na (<whitespace>)"
   end
@@ -2547,7 +2773,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.trade_cond_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.trade_cond_4, range, value, display)
@@ -2632,6 +2866,11 @@ nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.unpaired_side.size 
 
 -- Display: Unpaired Side
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.unpaired_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Unpaired Side: No Value"
+  end
+
   if value == "B" then
     return "Unpaired Side: Buy Side (B)"
   end
@@ -2649,7 +2888,15 @@ end
 nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.unpaired_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.unpaired_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.unpaired_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeedretransmission_pillar_v2_5_h.fields.unpaired_side, range, value, display)

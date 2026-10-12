@@ -66,7 +66,7 @@
 [Biva.BivaEquities.News.Itch.v1.12.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Biva/Specifications/ "Bolsa Institucional de Valores 1.12 Pdf"
 [Biva.BivaEquities.OrderEntry.Ouch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Biva/BivaEquities/OrderEntry/Biva_BivaEquities_OrderEntry_Ouch_v1_05_Dissector.lua "Biva BivaEquities OrderEntry Ouch v1.05 Wireshark Dissector"
 [Biva.BivaEquities.OrderEntry.Ouch.v1.05.Url]: https://www.biva.mx/en/web/portal-en/technology "Bolsa Institucional de Valores 1.05 Url"
-[Biva.BivaEquities.OrderEntry.Ouch.v1.05.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Biva/Specifications/ "Bolsa Institucional de Valores 1.05 Pdf"
+[Biva.BivaEquities.OrderEntry.Ouch.v1.05.Pdf]: https://www.biva.mx/en/web/portal-en/technology "Bolsa Institucional de Valores 1.05 Pdf"
 [Biva.BivaEquities.TotalView.Glimpse.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Biva/BivaEquities/TotalView/Biva_BivaEquities_TotalView_Glimpse_v1_12_Dissector.lua "Biva BivaEquities TotalView Glimpse v1.12 Wireshark Dissector"
 [Biva.BivaEquities.TotalView.Glimpse.v1.12.Url]: https://www.biva.mx/en/web/portal-en/technology "Bolsa Institucional de Valores 1.12 Url"
 [Biva.BivaEquities.TotalView.Glimpse.v1.12.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Biva/Specifications/ "Bolsa Institucional de Valores 1.12 Pdf"

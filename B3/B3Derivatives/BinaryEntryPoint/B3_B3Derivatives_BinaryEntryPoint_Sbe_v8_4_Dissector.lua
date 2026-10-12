@@ -5880,7 +5880,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.padding.size = 1
 -- Display: Padding
 b3_b3derivatives_binaryentrypoint_sbe_v8_4.padding.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Padding: No Value"
   end
 

@@ -1102,7 +1102,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.size = 1
 -- Display: Partition Id
 lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Partition Id: No Value"
   end
 

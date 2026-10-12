@@ -1613,7 +1613,7 @@ box_boxoptions_solaorderentry_sail_v2_25.iml_handling.size = 1
 -- Display: Iml Handling
 box_boxoptions_solaorderentry_sail_v2_25.iml_handling.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Iml Handling: No Value"
   end
 
@@ -3144,7 +3144,7 @@ box_boxoptions_solaorderentry_sail_v2_25.pound_sign.size = 1
 -- Display: Pound Sign
 box_boxoptions_solaorderentry_sail_v2_25.pound_sign.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Pound Sign: No Value"
   end
 

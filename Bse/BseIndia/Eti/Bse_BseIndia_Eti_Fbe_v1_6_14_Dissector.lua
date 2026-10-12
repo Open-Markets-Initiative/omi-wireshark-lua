@@ -1791,7 +1791,7 @@ bse_bseindia_eti_fbe_v1_6_14.cust_order_handling_inst.size = 1
 -- Display: Cust Order Handling Inst
 bse_bseindia_eti_fbe_v1_6_14.cust_order_handling_inst.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Cust Order Handling Inst: No Value"
   end
 
@@ -1922,7 +1922,7 @@ bse_bseindia_eti_fbe_v1_6_14.delta_qty_flag.size = 1
 -- Display: Delta Qty Flag
 bse_bseindia_eti_fbe_v1_6_14.delta_qty_flag.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Delta Qty Flag: No Value"
   end
 
@@ -3436,7 +3436,7 @@ bse_bseindia_eti_fbe_v1_6_14.leg_position_effect.size = 1
 -- Display: Leg Position Effect
 bse_bseindia_eti_fbe_v1_6_14.leg_position_effect.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Leg Position Effect: No Value"
   end
 
@@ -5654,7 +5654,7 @@ bse_bseindia_eti_fbe_v1_6_14.position_effect.size = 1
 -- Display: Position Effect
 bse_bseindia_eti_fbe_v1_6_14.position_effect.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Position Effect: No Value"
   end
 

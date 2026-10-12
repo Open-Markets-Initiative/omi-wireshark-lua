@@ -628,7 +628,7 @@ cme_globex_brokertecust_sbe_v10_1.security_alt_id_source.size = 1
 -- Display: Security Alt Id Source
 cme_globex_brokertecust_sbe_v10_1.security_alt_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Security Alt Id Source: No Value"
   end
 
@@ -806,7 +806,7 @@ cme_globex_brokertecust_sbe_v10_1.trade_condition.size = 1
 -- Display: Trade Condition
 cme_globex_brokertecust_sbe_v10_1.trade_condition.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Trade Condition: No Value"
   end
 

@@ -635,6 +635,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_amexequities_openbook_ultra_v2_1_b.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == " " then
     return "Quote Condition: No Special Quote Condition (<whitespace>)"
   end
@@ -649,7 +654,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.quote_condition, range, value, display)
@@ -665,6 +678,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.reason_code.size = 1
 
 -- Display: Reason Code
 nyse_amexequities_openbook_ultra_v2_1_b.reason_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reason Code: No Value"
+  end
+
   if value == "O" then
     return "Reason Code: New Orderadditional Interest Added (O)"
   end
@@ -685,7 +703,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.reason_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.reason_code, range, value, display)
@@ -701,6 +727,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.size = 1
 
 -- Display: Reject Reason
 nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reject Reason: No Value"
+  end
+
   if value == "0" then
     return "Reject Reason: Request Accepted (0)"
   end
@@ -730,7 +761,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.reject_reason, range, value, display)
@@ -815,6 +854,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.side.size = 1
 
 -- Display: Side
 nyse_amexequities_openbook_ultra_v2_1_b.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -829,7 +873,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.side, range, value, display)
@@ -976,6 +1028,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.status.size = 1
 
 -- Display: Status
 nyse_amexequities_openbook_ultra_v2_1_b.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "A" then
     return "Status: Accepted (A)"
   end
@@ -990,7 +1047,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.status, range, value, display)
@@ -1153,6 +1218,11 @@ nyse_amexequities_openbook_ultra_v2_1_b.trading_status.size = 1
 
 -- Display: Trading Status
 nyse_amexequities_openbook_ultra_v2_1_b.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "P" then
     return "Trading Status: Pre Opening (P)"
   end
@@ -1185,7 +1255,15 @@ end
 nyse_amexequities_openbook_ultra_v2_1_b.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbook_ultra_v2_1_b.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexequities_openbook_ultra_v2_1_b.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_b.fields.trading_status, range, value, display)

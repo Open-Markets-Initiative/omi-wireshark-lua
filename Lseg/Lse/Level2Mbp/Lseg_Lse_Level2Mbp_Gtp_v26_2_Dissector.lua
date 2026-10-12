@@ -909,7 +909,7 @@ lseg_lse_level2mbp_gtp_v26_2.partition_id.size = 1
 -- Display: Partition Id
 lseg_lse_level2mbp_gtp_v26_2.partition_id.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Partition Id: No Value"
   end
 

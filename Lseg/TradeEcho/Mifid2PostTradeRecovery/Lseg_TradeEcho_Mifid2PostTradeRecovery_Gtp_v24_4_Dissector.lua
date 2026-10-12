@@ -350,7 +350,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.algorithmic_indicator.size = 1
 -- Display: Algorithmic Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.algorithmic_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Algorithmic Indicator: No Value"
   end
 
@@ -414,7 +414,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.auction_type.size = 1
 -- Display: Auction Type
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.auction_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Auction Type: No Value"
   end
 
@@ -651,7 +651,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.closing_price_indicator.size = 
 -- Display: Closing Price Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Closing Price Indicator: No Value"
   end
 
@@ -850,7 +850,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.deferral_enrichment_type.size =
 -- Display: Deferral Enrichment Type
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.deferral_enrichment_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Deferral Enrichment Type: No Value"
   end
 
@@ -914,7 +914,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.duplicative_indicator.size = 1
 -- Display: Duplicative Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.duplicative_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Duplicative Indicator: No Value"
   end
 
@@ -1307,7 +1307,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.imbalance_direction.size = 1
 -- Display: Imbalance Direction
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.imbalance_direction.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Imbalance Direction: No Value"
   end
 
@@ -2406,7 +2406,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.off_book_automated_indicator.si
 -- Display: Off Book Automated Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.off_book_automated_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Off Book Automated Indicator: No Value"
   end
 
@@ -2500,7 +2500,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.opening_price_indicator.size = 
 -- Display: Opening Price Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.opening_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Price Indicator: No Value"
   end
 
@@ -2594,7 +2594,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.post_trade_deferral_reason.size
 -- Display: Post Trade Deferral Reason
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.post_trade_deferral_reason.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Post Trade Deferral Reason: No Value"
   end
 
@@ -2715,7 +2715,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_formation_indicator.size 
 -- Display: Price Formation Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.price_formation_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Price Formation Indicator: No Value"
   end
 
@@ -3030,7 +3030,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.reference_price_indicator.size 
 -- Display: Reference Price Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.reference_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Reference Price Indicator: No Value"
   end
 
@@ -3477,7 +3477,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.special_dividend_indicator.size
 -- Display: Special Dividend Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.special_dividend_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Special Dividend Indicator: No Value"
   end
 

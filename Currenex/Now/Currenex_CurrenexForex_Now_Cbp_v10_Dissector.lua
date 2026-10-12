@@ -141,7 +141,7 @@ currenex_currenexforex_now_cbp_v10.activity_indicator.size = 1
 -- Display: Activity Indicator
 currenex_currenexforex_now_cbp_v10.activity_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Activity Indicator: No Value"
   end
 
@@ -463,7 +463,7 @@ currenex_currenexforex_now_cbp_v10.paid_given_indicator.size = 1
 -- Display: Paid Given Indicator
 currenex_currenexforex_now_cbp_v10.paid_given_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Paid Given Indicator: No Value"
   end
 
@@ -626,7 +626,7 @@ currenex_currenexforex_now_cbp_v10.reject_msg_type.size = 1
 -- Display: Reject Msg Type
 currenex_currenexforex_now_cbp_v10.reject_msg_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Reject Msg Type: No Value"
   end
 
@@ -731,7 +731,7 @@ currenex_currenexforex_now_cbp_v10.size_indicator.size = 1
 -- Display: Size Indicator
 currenex_currenexforex_now_cbp_v10.size_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Size Indicator: No Value"
   end
 
@@ -810,7 +810,7 @@ currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.size 
 -- Display: Subscribe To Now Mid Activity Indicator
 currenex_currenexforex_now_cbp_v10.subscribe_to_now_mid_activity_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Subscribe To Now Mid Activity Indicator: No Value"
   end
 
@@ -869,7 +869,7 @@ currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.s
 -- Display: Subscribe To Nowwamr With Confidence Factor
 currenex_currenexforex_now_cbp_v10.subscribe_to_nowwamr_with_confidence_factor.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Subscribe To Nowwamr With Confidence Factor: No Value"
   end
 
@@ -997,7 +997,7 @@ currenex_currenexforex_now_cbp_v10.type.size = 1
 -- Display: Type
 currenex_currenexforex_now_cbp_v10.type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Type: No Value"
   end
 

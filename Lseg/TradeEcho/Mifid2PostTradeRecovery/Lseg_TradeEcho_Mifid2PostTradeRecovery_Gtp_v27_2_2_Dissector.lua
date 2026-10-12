@@ -433,7 +433,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.auction_type.size = 1
 -- Display: Auction Type
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.auction_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Auction Type: No Value"
   end
 
@@ -670,7 +670,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.closing_price_indicator.size 
 -- Display: Closing Price Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Closing Price Indicator: No Value"
   end
 
@@ -1528,7 +1528,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.imbalance_direction.size = 1
 -- Display: Imbalance Direction
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.imbalance_direction.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Imbalance Direction: No Value"
   end
 
@@ -2849,7 +2849,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.opening_price_indicator.size 
 -- Display: Opening Price Indicator
 lseg_tradeecho_mifid2posttraderecovery_gtp_v27_2_2.opening_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Price Indicator: No Value"
   end
 

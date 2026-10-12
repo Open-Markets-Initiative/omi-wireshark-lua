@@ -1084,7 +1084,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.opening_closing_price_indicator.size 
 -- Display: Opening Closing Price Indicator
 lseg_turquoise_level2incremental_gtp_v26_3.opening_closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Closing Price Indicator: No Value"
   end
 
@@ -1221,7 +1221,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.partition_id.size = 1
 -- Display: Partition Id
 lseg_turquoise_level2incremental_gtp_v26_3.partition_id.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Partition Id: No Value"
   end
 

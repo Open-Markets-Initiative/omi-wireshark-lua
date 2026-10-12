@@ -1058,7 +1058,7 @@ lseg_turquoise_level2incremental_gtp_v24_4.opening_closing_price_indicator.size 
 -- Display: Opening Closing Price Indicator
 lseg_turquoise_level2incremental_gtp_v24_4.opening_closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Closing Price Indicator: No Value"
   end
 
@@ -1596,7 +1596,7 @@ lseg_turquoise_level2incremental_gtp_v24_4.side.size = 1
 -- Display: Side
 lseg_turquoise_level2incremental_gtp_v24_4.side.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Side: No Value"
   end
 

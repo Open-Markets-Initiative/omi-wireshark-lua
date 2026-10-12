@@ -919,7 +919,7 @@ lseg_turquoise_replay_gtp_v24_4.deferral_enrichment_type.size = 1
 -- Display: Deferral Enrichment Type
 lseg_turquoise_replay_gtp_v24_4.deferral_enrichment_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Deferral Enrichment Type: No Value"
   end
 
@@ -2176,7 +2176,7 @@ lseg_turquoise_replay_gtp_v24_4.opening_closing_price_indicator.size = 1
 -- Display: Opening Closing Price Indicator
 lseg_turquoise_replay_gtp_v24_4.opening_closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Closing Price Indicator: No Value"
   end
 
@@ -3304,7 +3304,7 @@ lseg_turquoise_replay_gtp_v24_4.side.size = 1
 -- Display: Side
 lseg_turquoise_replay_gtp_v24_4.side.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Side: No Value"
   end
 

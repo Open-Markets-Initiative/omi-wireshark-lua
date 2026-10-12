@@ -3749,19 +3749,18 @@ miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.size =
   miax_pearlequities_expressorders_meo_v2_7.highest_sequence_number.size
 
 -- Display: Matching Engine Status
-miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.display = function(packet, parent, value, length)
+  -- Check if struct has text
+  if value == nil or value == '' then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Matching Engine Status
 miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.fields = function(buffer, offset, packet, parent, matching_engine_status_index)
   local index = offset
-
-  -- Implicit Matching Engine Status Index
-  if matching_engine_status_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7.fields.matching_engine_status_index, matching_engine_status_index)
-    iteration:set_generated()
-  end
 
   -- Login Status: 1 Byte Ascii String Enum with 8 values
   index, login_status = miax_pearlequities_expressorders_meo_v2_7.login_status.dissect(buffer, index, packet, parent)
@@ -3772,7 +3771,19 @@ miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.fields = functi
   -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, highest_sequence_number = miax_pearlequities_expressorders_meo_v2_7.highest_sequence_number.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Struct text: the bytes the fields covered, trimmed at the first null
+  local matching_engine_status = ''
+  if index > offset then
+    local text = buffer(offset, index - offset)
+    local tail = buffer(index - 1, 1):uint()
+    if tail == 0 then
+      matching_engine_status = text:stringz()
+    else
+      matching_engine_status = text:string()
+    end
+  end
+
+  return index, matching_engine_status
 end
 
 -- Dissect: Matching Engine Status
@@ -3780,13 +3791,13 @@ miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.dissect = funct
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7.fields.matching_engine_status, buffer(offset, 0))
-    local index = miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+    local index, value = miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
     local length = index - offset
     parent:set_len(length)
-    local display = miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.display(packet, parent, length)
+    local display = miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return miax_pearlequities_expressorders_meo_v2_7.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)

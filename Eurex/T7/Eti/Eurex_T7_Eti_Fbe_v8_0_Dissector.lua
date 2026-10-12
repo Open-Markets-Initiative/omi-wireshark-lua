@@ -2232,7 +2232,7 @@ eurex_t7_eti_fbe_v8_0.cust_order_handling_inst.size = 1
 -- Display: Cust Order Handling Inst
 eurex_t7_eti_fbe_v8_0.cust_order_handling_inst.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Cust Order Handling Inst: No Value"
   end
 

@@ -239,6 +239,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.size = 1
 
 -- Display: Auction Type
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "O" then
     return "Auction Type: Early Opening (O)"
   end
@@ -262,7 +267,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.auction_type, range, value, display)
@@ -473,6 +486,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   return "Exchange Code: "..value
 end
 
@@ -480,7 +498,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.exchange_code, range, value, display)
@@ -526,6 +552,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   return "Halt Condition: "..value
 end
 
@@ -533,7 +564,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.halt_condition, range, value, display)
@@ -549,6 +588,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Imbalance Side: No Value"
+  end
+
   if value == " " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
@@ -566,7 +610,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.imbalance_side, range, value, display)
@@ -743,6 +795,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.market_state.size = 1
 
 -- Display: Market State
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.market_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market State: No Value"
+  end
+
   return "Market State: "..value
 end
 
@@ -750,7 +807,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.market_state, range, value, display)
@@ -1309,6 +1374,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.round_lot.size = 1
 
 -- Display: Round Lot
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.round_lot.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Round Lot: No Value"
+  end
+
   return "Round Lot: "..value
 end
 
@@ -1316,7 +1386,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.round_lot.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.round_lot.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.round_lot, range, value, display)
@@ -1356,6 +1434,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status.size = 1
 
 -- Display: Security Status
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   return "Security Status: "..value
 end
 
@@ -1363,7 +1446,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_status, range, value, display)
@@ -1379,6 +1470,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.size = 1
 
 -- Display: Security Type
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   return "Security Type: "..value
 end
 
@@ -1386,7 +1482,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_type, range, value, display)
@@ -1425,6 +1529,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.session_state.size = 1
 
 -- Display: Session State
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.session_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Session State: No Value"
+  end
+
   return "Session State: "..value
 end
 
@@ -1432,7 +1541,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.session_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.session_state, range, value, display)
@@ -1448,6 +1565,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.size = 1
 
 -- Display: Significant Imbalance
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Significant Imbalance: No Value"
+  end
+
   if value == " " then
     return "Significant Imbalance: Not Applicable (<whitespace>)"
   end
@@ -1462,7 +1584,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.significant_imbalance, range, value, display)
@@ -1586,6 +1716,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_state.size = 1
 
 -- Display: Ssr State
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr State: No Value"
+  end
+
   return "Ssr State: "..value
 end
 
@@ -1593,7 +1728,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_state, range, value, display)
@@ -1609,6 +1752,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr Triggering Exchange Id: No Value"
+  end
+
   return "Ssr Triggering Exchange Id: "..value
 end
 
@@ -1616,7 +1764,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_triggering_exchange_id, range, value, display)
@@ -1655,6 +1811,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.status.size = 1
 
 -- Display: Status
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   return "Status: "..value
 end
 
@@ -1662,7 +1823,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.status, range, value, display)
@@ -1911,6 +2080,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.unpaired_side.size = 1
 
 -- Display: Unpaired Side
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.unpaired_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Unpaired Side: No Value"
+  end
+
   if value == " " then
     return "Unpaired Side: Not Applicable (<whitespace>)"
   end
@@ -1928,7 +2102,15 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.unpaired_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.unpaired_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.unpaired_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.unpaired_side, range, value, display)

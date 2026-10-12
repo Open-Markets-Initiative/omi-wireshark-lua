@@ -1614,7 +1614,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_headeronly_esesm_v1_0_a)
 --   Organization: Miami International Holdings
 --   Version: 1.0.a
 --   Date: Friday, June 26, 2020
---   Specification: tcp_session_mgmt_esesm_v1.0.a.pdf
+--   Specification: TcpSessionMgmt_eSesM_v1.0.a.updated.pdf.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -278,6 +278,11 @@ nyse_nysebonds_quote_pdp_v1_2_a.exchange_id.size = 1
 
 -- Display: Exchange Id
 nyse_nysebonds_quote_pdp_v1_2_a.exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Id: No Value"
+  end
+
   if value == "N" then
     return "Exchange Id: Nyse (N)"
   end
@@ -292,7 +297,15 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_quote_pdp_v1_2_a.exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.exchange_id, range, value, display)
@@ -409,6 +422,11 @@ nyse_nysebonds_quote_pdp_v1_2_a.flat_pricing.size = 1
 
 -- Display: Flat Pricing
 nyse_nysebonds_quote_pdp_v1_2_a.flat_pricing.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Flat Pricing: No Value"
+  end
+
   if value == "F" then
     return "Flat Pricing: Flat Pricing Is In Effect (F)"
   end
@@ -420,7 +438,15 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.flat_pricing.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.flat_pricing.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_quote_pdp_v1_2_a.flat_pricing.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.flat_pricing, range, value, display)
@@ -616,6 +642,11 @@ nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "A" then
     return "Quote Condition: Slow On Ask Side (A)"
   end
@@ -657,7 +688,15 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_quote_pdp_v1_2_a.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.quote_condition, range, value, display)
@@ -719,6 +758,11 @@ nyse_nysebonds_quote_pdp_v1_2_a.security_type.size = 1
 
 -- Display: Security Type
 nyse_nysebonds_quote_pdp_v1_2_a.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "F" then
     return "Security Type: Fixed Income Bonds (F)"
   end
@@ -730,7 +774,15 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_quote_pdp_v1_2_a.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_quote_pdp_v1_2_a.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.security_type, range, value, display)

@@ -4409,8 +4409,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.size = function(buffer, off
 end
 
 -- Display: Data
-coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Data
@@ -4445,7 +4445,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.dissect = function(buffer, 
     local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return coinbase_coinbasederivatives_ordersapi_sbe_v1_8.data.fields(buffer, offset, packet, parent)

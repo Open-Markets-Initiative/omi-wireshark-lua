@@ -544,6 +544,11 @@ nyse_texasequities_depthfeedrequest_pillar_v1_6.status.size = 1
 
 -- Display: Status
 nyse_texasequities_depthfeedrequest_pillar_v1_6.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "0" then
     return "Status: Message Was Accepted (0)"
   end
@@ -579,7 +584,15 @@ end
 nyse_texasequities_depthfeedrequest_pillar_v1_6.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_depthfeedrequest_pillar_v1_6.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_texasequities_depthfeedrequest_pillar_v1_6.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.fields.status, range, value, display)

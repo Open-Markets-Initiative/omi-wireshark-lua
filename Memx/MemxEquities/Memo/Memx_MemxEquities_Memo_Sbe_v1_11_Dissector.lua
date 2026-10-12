@@ -1334,7 +1334,7 @@ memx_memxequities_memo_sbe_v1_11.locate_reqd.size = 1
 -- Display: Locate Reqd
 memx_memxequities_memo_sbe_v1_11.locate_reqd.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Locate Reqd: No Value"
   end
 
@@ -2692,7 +2692,7 @@ memx_memxequities_memo_sbe_v1_11.security_group.size = 1
 -- Display: Security Group
 memx_memxequities_memo_sbe_v1_11.security_group.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Security Group: No Value"
   end
 

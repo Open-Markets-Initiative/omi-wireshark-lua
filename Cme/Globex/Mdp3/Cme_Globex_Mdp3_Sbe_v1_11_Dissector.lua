@@ -2144,7 +2144,7 @@ cme_globex_mdp3_sbe_v1_11.match_algorithm.size = 1
 -- Display: Match Algorithm
 cme_globex_mdp3_sbe_v1_11.match_algorithm.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Match Algorithm: No Value"
   end
 
@@ -6494,7 +6494,7 @@ cme_globex_mdp3_sbe_v1_11.user_defined_instrument.size = 1
 -- Display: User Defined Instrument
 cme_globex_mdp3_sbe_v1_11.user_defined_instrument.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "User Defined Instrument: No Value"
   end
 

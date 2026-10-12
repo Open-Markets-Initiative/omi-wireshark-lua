@@ -4858,7 +4858,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.bond_guaranteed_type_code.size = 1
 -- Display: Bond Guaranteed Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.bond_guaranteed_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Bond Guaranteed Type Code: No Value"
   end
 
@@ -6182,7 +6182,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.closing_price_type_code.size = 1
 -- Display: Closing Price Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.closing_price_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Closing Price Type Code: No Value"
   end
 
@@ -6416,7 +6416,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.coupon_payment_date_type_code.size
 -- Display: Coupon Payment Date Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.coupon_payment_date_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Coupon Payment Date Type Code: No Value"
   end
 
@@ -6452,7 +6452,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.coupon_payment_timing_code.size = 
 -- Display: Coupon Payment Timing Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.coupon_payment_timing_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Coupon Payment Timing Code: No Value"
   end
 
@@ -6837,7 +6837,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.decimal_point_of_coupon_type_code.
 -- Display: Decimal Point Of Coupon Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.decimal_point_of_coupon_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Decimal Point Of Coupon Type Code: No Value"
   end
 
@@ -9313,7 +9313,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.interest_payment.size = 1
 -- Display: Interest Payment
 koscom_mdcsrealtime_securitiesb_exture_v2_020.interest_payment.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Interest Payment: No Value"
   end
 
@@ -13538,7 +13538,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.pre_issue_sale_coupon_payment_type
 -- Display: Pre Issue Sale Coupon Payment Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.pre_issue_sale_coupon_payment_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Pre Issue Sale Coupon Payment Type Code: No Value"
   end
 
@@ -15118,7 +15118,7 @@ koscom_mdcsrealtime_securitiesb_exture_v2_020.strip_bond_type_code.size = 1
 -- Display: Strip Bond Type Code
 koscom_mdcsrealtime_securitiesb_exture_v2_020.strip_bond_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Strip Bond Type Code: No Value"
   end
 

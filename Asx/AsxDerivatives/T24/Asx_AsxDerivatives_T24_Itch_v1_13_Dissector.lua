@@ -5456,8 +5456,13 @@ asx_asxderivatives_t24_itch_v1_13.session.size =
   asx_asxderivatives_t24_itch_v1_13.trading_service.size
 
 -- Display: Session
-asx_asxderivatives_t24_itch_v1_13.session.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+asx_asxderivatives_t24_itch_v1_13.session.display = function(packet, parent, value, length)
+  -- Check if struct has text
+  if value == nil or value == '' then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Session
@@ -5476,7 +5481,19 @@ asx_asxderivatives_t24_itch_v1_13.session.fields = function(buffer, offset, pack
   -- Trading Service: 3 Byte Ascii String
   index, trading_service = asx_asxderivatives_t24_itch_v1_13.trading_service.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Struct text: the bytes the fields covered, trimmed at the first null
+  local session = ''
+  if index > offset then
+    local text = buffer(offset, index - offset)
+    local tail = buffer(index - 1, 1):uint()
+    if tail == 0 then
+      session = text:stringz()
+    else
+      session = text:string()
+    end
+  end
+
+  return index, session
 end
 
 -- Dissect: Session
@@ -5484,13 +5501,13 @@ asx_asxderivatives_t24_itch_v1_13.session.dissect = function(buffer, offset, pac
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.session, buffer(offset, 0))
-    local index = asx_asxderivatives_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
+    local index, value = asx_asxderivatives_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = asx_asxderivatives_t24_itch_v1_13.session.display(packet, parent, length)
+    local display = asx_asxderivatives_t24_itch_v1_13.session.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return asx_asxderivatives_t24_itch_v1_13.session.fields(buffer, offset, packet, parent)

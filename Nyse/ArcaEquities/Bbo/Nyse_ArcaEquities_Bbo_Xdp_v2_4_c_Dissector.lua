@@ -412,6 +412,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -447,7 +452,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.exchange_code, range, value, display)
@@ -463,6 +476,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   if value == "~" then
     return "Halt Condition: Security Not Delayedhalted (~)"
   end
@@ -507,7 +525,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.halt_condition, range, value, display)
@@ -663,6 +689,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.market_state.size = 1
 
 -- Display: Market State
 nyse_arcaequities_bbo_xdp_v2_4_c.market_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market State: No Value"
+  end
+
   return "Market State: "..value
 end
 
@@ -670,7 +701,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.market_state, range, value, display)
@@ -1051,6 +1090,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "C" then
     return "Quote Condition: Closing (C)"
   end
@@ -1071,7 +1115,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.quote_condition, range, value, display)
@@ -1206,6 +1258,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.size = 1
 
 -- Display: Round Lot
 nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Round Lot: No Value"
+  end
+
   return "Round Lot: "..value
 end
 
@@ -1213,7 +1270,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.round_lot, range, value, display)
@@ -1229,6 +1294,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Rpi Indicator: No Value"
+  end
+
   if value == " " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
@@ -1249,7 +1319,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.rpi_indicator, range, value, display)
@@ -1289,6 +1367,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.security_status.size = 1
 
 -- Display: Security Status
 nyse_arcaequities_bbo_xdp_v2_4_c.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "3" then
     return "Security Status: Opening Delay (3)"
   end
@@ -1345,7 +1428,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status, range, value, display)
@@ -1361,6 +1452,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.security_type.size = 1
 
 -- Display: Security Type
 nyse_arcaequities_bbo_xdp_v2_4_c.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -1417,7 +1513,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_type, range, value, display)
@@ -1456,6 +1560,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.session_state.size = 1
 
 -- Display: Session State
 nyse_arcaequities_bbo_xdp_v2_4_c.session_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Session State: No Value"
+  end
+
   return "Session State: "..value
 end
 
@@ -1463,7 +1572,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.session_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.session_state, range, value, display)
@@ -1564,6 +1681,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.size = 1
 
 -- Display: Ssr State
 nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr State: No Value"
+  end
+
   return "Ssr State: "..value
 end
 
@@ -1571,7 +1693,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_state, range, value, display)
@@ -1587,6 +1717,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
 nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr Triggering Exchange Id: No Value"
+  end
+
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -1652,7 +1787,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_triggering_exchange_id, range, value, display)
@@ -1691,6 +1834,11 @@ nyse_arcaequities_bbo_xdp_v2_4_c.status.size = 1
 
 -- Display: Status
 nyse_arcaequities_bbo_xdp_v2_4_c.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   return "Status: "..value
 end
 
@@ -1698,7 +1846,15 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_bbo_xdp_v2_4_c.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_bbo_xdp_v2_4_c.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.status, range, value, display)

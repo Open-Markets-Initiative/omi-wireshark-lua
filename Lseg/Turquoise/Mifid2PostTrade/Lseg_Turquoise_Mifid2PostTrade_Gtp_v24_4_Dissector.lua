@@ -257,7 +257,7 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.size = 1
 -- Display: Auction Type
 lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Auction Type: No Value"
   end
 

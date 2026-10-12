@@ -5029,7 +5029,7 @@ cme_globex_ilink3_sbe_v8_6.party_id_source.size = 1
 -- Display: Party Id Source
 cme_globex_ilink3_sbe_v8_6.party_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Party Id Source: No Value"
   end
 
@@ -5820,7 +5820,7 @@ cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.size = 1
 -- Display: Requesting Party Id Source
 cme_globex_ilink3_sbe_v8_6.requesting_party_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Requesting Party Id Source: No Value"
   end
 
@@ -5856,7 +5856,7 @@ cme_globex_ilink3_sbe_v8_6.requesting_party_role.size = 1
 -- Display: Requesting Party Role
 cme_globex_ilink3_sbe_v8_6.requesting_party_role.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Requesting Party Role: No Value"
   end
 
@@ -7703,7 +7703,7 @@ cme_globex_ilink3_sbe_v8_6.unsolicited_cancel_type.size = 1
 -- Display: Unsolicited Cancel Type
 cme_globex_ilink3_sbe_v8_6.unsolicited_cancel_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Unsolicited Cancel Type: No Value"
   end
 

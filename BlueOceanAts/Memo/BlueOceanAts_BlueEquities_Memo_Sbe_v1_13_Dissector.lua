@@ -1377,7 +1377,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.locate_reqd.size = 1
 -- Display: Locate Reqd
 blueoceanats_blueequities_memo_sbe_v1_13.locate_reqd.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Locate Reqd: No Value"
   end
 
@@ -2425,7 +2425,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.party_id_source.size = 1
 -- Display: Party Id Source
 blueoceanats_blueequities_memo_sbe_v1_13.party_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Party Id Source: No Value"
   end
 
@@ -2827,7 +2827,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.security_group.size = 1
 -- Display: Security Group
 blueoceanats_blueequities_memo_sbe_v1_13.security_group.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Security Group: No Value"
   end
 

@@ -275,6 +275,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.anonymous.size = 1
 
 -- Display: Anonymous
 cboe_neoequities_orderentry_boe3_v1_0_19.anonymous.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Anonymous: No Value"
+  end
+
   if value == "Y" then
     return "Anonymous: Yes (Y)"
   end
@@ -289,7 +294,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.anonymous.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.anonymous.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.anonymous.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.anonymous, range, value, display)
@@ -305,6 +318,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.base_liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Base Liquidity Indicator: No Value"
+  end
+
   if value == "A" then
     return "Base Liquidity Indicator: Trade Added Liquidity (A)"
   end
@@ -322,7 +340,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.base_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.base_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.base_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.base_liquidity_indicator, range, value, display)
@@ -674,6 +700,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangemeant_indicator.
 
 -- Display: Buy Lei Routing Arrangemeant Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangemeant_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Buy Lei Routing Arrangemeant Indicator: No Value"
+  end
+
   if value == "N" then
     return "Buy Lei Routing Arrangemeant Indicator: No (N)"
   end
@@ -688,7 +719,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangemeant_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangemeant_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangemeant_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.buy_lei_routing_arrangemeant_indicator, range, value, display)
@@ -704,6 +743,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangement_indicator.s
 
 -- Display: Buy Lei Routing Arrangement Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangement_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Buy Lei Routing Arrangement Indicator: No Value"
+  end
+
   if value == "N" then
     return "Buy Lei Routing Arrangement Indicator: No (N)"
   end
@@ -718,7 +762,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangement_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangement_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_routing_arrangement_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.buy_lei_routing_arrangement_indicator, range, value, display)
@@ -734,6 +786,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_account_type.size = 1
 
 -- Display: Buy Umir Account Type
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_account_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Buy Umir Account Type: No Value"
+  end
+
   if value == "I" then
     return "Buy Umir Account Type: Inventory (I)"
   end
@@ -766,7 +823,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_account_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_account_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.buy_umir_account_type, range, value, display)
@@ -782,6 +847,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_regulation_id.size = 1
 
 -- Display: Buy Umir Regulation Id
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_regulation_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Buy Umir Regulation Id: No Value"
+  end
+
   if value == "S" then
     return "Buy Umir Regulation Id: Significant Shareholder (S)"
   end
@@ -796,7 +866,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_regulation_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_regulation_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.buy_umir_regulation_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.buy_umir_regulation_id, range, value, display)
@@ -812,6 +890,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.bypass.size = 1
 
 -- Display: Bypass
 cboe_neoequities_orderentry_boe3_v1_0_19.bypass.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Bypass: No Value"
+  end
+
   if value == "Y" then
     return "Bypass: Yes (Y)"
   end
@@ -826,7 +909,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.bypass.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.bypass.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.bypass.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.bypass, range, value, display)
@@ -842,6 +933,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_orig_on_reject.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Orig On Reject: No Value"
+  end
+
   if value == "N" then
     return "Cancel Orig On Reject: Leave Original Order Alone (N)"
   end
@@ -883,6 +979,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reason: No Value"
+  end
+
   if value == "A" then
     return "Cancel Reason: Admin (A)"
   end
@@ -942,7 +1043,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.cancel_reason, range, value, display)
@@ -958,6 +1067,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Cancel Reject Reason: Admin (A)"
   end
@@ -1017,7 +1131,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.cancel_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.cancel_reject_reason, range, value, display)
@@ -1209,6 +1331,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cross_side.size = 1
 
 -- Display: Cross Side
 cboe_neoequities_orderentry_boe3_v1_0_19.cross_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Side: No Value"
+  end
+
   if value == "8" then
     return "Cross Side: Cross (8)"
   end
@@ -1223,7 +1350,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.cross_side.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.cross_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.cross_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.cross_side, range, value, display)
@@ -1239,6 +1374,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cross_type.size = 1
 
 -- Display: Cross Type
 cboe_neoequities_orderentry_boe3_v1_0_19.cross_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Type: No Value"
+  end
+
   if value == "B" then
     return "Cross Type: Basis (B)"
   end
@@ -1268,7 +1408,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.cross_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.cross_type, range, value, display)
@@ -1346,6 +1494,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.display_indicator.size = 1
 
 -- Display: Display Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.display_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Display Indicator: No Value"
+  end
+
   if value == "V" then
     return "Display Indicator: Visible (V)"
   end
@@ -1360,7 +1513,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.display_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.display_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.display_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.display_indicator, range, value, display)
@@ -1376,6 +1537,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.size = 1
 
 -- Display: Ex Destination
 cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ex Destination: No Value"
+  end
+
   if value == "C" then
     return "Ex Destination: Crossing Facility (C)"
   end
@@ -1399,7 +1565,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.ex_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.ex_destination, range, value, display)
@@ -1507,6 +1681,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exec_inst.size = 1
 
 -- Display: Exec Inst
 cboe_neoequities_orderentry_boe3_v1_0_19.exec_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Inst: No Value"
+  end
+
   if value == "M" then
     return "Exec Inst: Trade At The Pnbbo Midpoint Only (M)"
   end
@@ -1740,6 +1919,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.handling_inst.size = 1
 
 -- Display: Handling Inst
 cboe_neoequities_orderentry_boe3_v1_0_19.handling_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Handling Inst: No Value"
+  end
+
   if value == "1" then
     return "Handling Inst: Direct Action Order Dao (1)"
   end
@@ -1757,7 +1941,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.handling_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.handling_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.handling_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.handling_inst, range, value, display)
@@ -1773,6 +1965,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.size = 1
 
 -- Display: Is Self Trade
 cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Is Self Trade: No Value"
+  end
+
   if value == "Y" then
     return "Is Self Trade: Broker Executed A Selftrade Using No Trade Feat T Suppress From Tape (Y)"
   end
@@ -1787,7 +1984,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.is_self_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.is_self_trade, range, value, display)
@@ -2012,6 +2217,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.lei_routing_arrangement_indicator.size 
 
 -- Display: Lei Routing Arrangement Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.lei_routing_arrangement_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Lei Routing Arrangement Indicator: No Value"
+  end
+
   if value == "N" then
     return "Lei Routing Arrangement Indicator: No (N)"
   end
@@ -2026,7 +2236,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.lei_routing_arrangement_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.lei_routing_arrangement_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.lei_routing_arrangement_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_routing_arrangement_indicator, range, value, display)
@@ -2234,6 +2452,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.matching_state_participation.size = 1
 
 -- Display: Matching State Participation
 cboe_neoequities_orderentry_boe3_v1_0_19.matching_state_participation.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Matching State Participation: No Value"
+  end
+
   if value == "1" then
     return "Matching State Participation: Active Orders Only (1)"
   end
@@ -2251,7 +2474,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.matching_state_participation.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.matching_state_participation.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.matching_state_participation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_state_participation, range, value, display)
@@ -2336,6 +2567,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_neoequities_orderentry_boe3_v1_0_19.modify_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Modify Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Modify Reject Reason: Admin (A)"
   end
@@ -2395,7 +2631,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.modify_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.modify_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.modify_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.modify_reject_reason, range, value, display)
@@ -2411,6 +2655,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.ncib.size = 1
 
 -- Display: Ncib
 cboe_neoequities_orderentry_boe3_v1_0_19.ncib.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ncib: No Value"
+  end
+
   if value == "Y" then
     return "Ncib: Yes (Y)"
   end
@@ -2425,7 +2674,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.ncib.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.ncib.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.ncib.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.ncib, range, value, display)
@@ -2441,6 +2698,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.no_trade_feat.size = 1
 
 -- Display: No Trade Feat
 cboe_neoequities_orderentry_boe3_v1_0_19.no_trade_feat.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "No Trade Feat: No Value"
+  end
+
   if value == "T" then
     return "No Trade Feat: Suppress From Tape (T)"
   end
@@ -2464,7 +2726,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.no_trade_feat.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.no_trade_feat.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.no_trade_feat.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.no_trade_feat, range, value, display)
@@ -2519,6 +2789,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.non_resident.size = 1
 
 -- Display: Non Resident
 cboe_neoequities_orderentry_boe3_v1_0_19.non_resident.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Non Resident: No Value"
+  end
+
   if value == "Y" then
     return "Non Resident: Yes (Y)"
   end
@@ -2533,7 +2808,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.non_resident.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.non_resident.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.non_resident.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.non_resident, range, value, display)
@@ -2572,6 +2855,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.ord_type.size = 1
 
 -- Display: Ord Type
 cboe_neoequities_orderentry_boe3_v1_0_19.ord_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -2595,7 +2883,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.ord_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.ord_type, range, value, display)
@@ -2657,6 +2953,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_neoequities_orderentry_boe3_v1_0_19.order_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Order Reject Reason: Admin (A)"
   end
@@ -2716,7 +3017,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.order_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.order_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.order_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.order_reject_reason, range, value, display)
@@ -2868,6 +3177,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.principal_trade.size = 1
 
 -- Display: Principal Trade
 cboe_neoequities_orderentry_boe3_v1_0_19.principal_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Principal Trade: No Value"
+  end
+
   if value == "Y" then
     return "Principal Trade: Broker Executed A Principal Trade (Y)"
   end
@@ -2882,7 +3196,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.principal_trade.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.principal_trade.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.principal_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.principal_trade, range, value, display)
@@ -2898,6 +3220,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.program_trade.size = 1
 
 -- Display: Program Trade
 cboe_neoequities_orderentry_boe3_v1_0_19.program_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Program Trade: No Value"
+  end
+
   if value == "Y" then
     return "Program Trade: Yes (Y)"
   end
@@ -2912,7 +3239,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.program_trade.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.program_trade.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.program_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.program_trade, range, value, display)
@@ -3007,6 +3342,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.size = 1
 
 -- Display: Restatement Reason
 cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Restatement Reason: No Value"
+  end
+
   if value == "L" then
     return "Restatement Reason: Reload Iceberg Display Size Refreshed (L)"
   end
@@ -3027,7 +3367,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.restatement_reason, range, value, display)
@@ -3043,6 +3391,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.routing_inst.size = 1
 
 -- Display: Routing Inst
 cboe_neoequities_orderentry_boe3_v1_0_19.routing_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Routing Inst: No Value"
+  end
+
   if value == "P" then
     return "Routing Inst: Post Only Cancel (P)"
   end
@@ -3057,7 +3410,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.routing_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.routing_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.routing_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.routing_inst, range, value, display)
@@ -3347,6 +3708,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_routing_arrangement_indicator.
 
 -- Display: Sell Lei Routing Arrangement Indicator
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_routing_arrangement_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sell Lei Routing Arrangement Indicator: No Value"
+  end
+
   if value == "N" then
     return "Sell Lei Routing Arrangement Indicator: No (N)"
   end
@@ -3361,7 +3727,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_routing_arrangement_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_routing_arrangement_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_routing_arrangement_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.sell_lei_routing_arrangement_indicator, range, value, display)
@@ -3377,6 +3751,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_account_type.size = 1
 
 -- Display: Sell Umir Account Type
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_account_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sell Umir Account Type: No Value"
+  end
+
   if value == "I" then
     return "Sell Umir Account Type: Inventory (I)"
   end
@@ -3409,7 +3788,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_account_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_account_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.sell_umir_account_type, range, value, display)
@@ -3425,6 +3812,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_regulation_id.size = 1
 
 -- Display: Sell Umir Regulation Id
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_regulation_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sell Umir Regulation Id: No Value"
+  end
+
   if value == "S" then
     return "Sell Umir Regulation Id: Significant Shareholder (S)"
   end
@@ -3439,7 +3831,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_regulation_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_regulation_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.sell_umir_regulation_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.sell_umir_regulation_id, range, value, display)
@@ -3589,6 +3989,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.short_marking_exempt.size = 1
 
 -- Display: Short Marking Exempt
 cboe_neoequities_orderentry_boe3_v1_0_19.short_marking_exempt.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Short Marking Exempt: No Value"
+  end
+
   if value == "0" then
     return "Short Marking Exempt: Short Market Exempt (0)"
   end
@@ -3636,6 +4041,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.side.size = 1
 
 -- Display: Side
 cboe_neoequities_orderentry_boe3_v1_0_19.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -3653,7 +4063,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.side.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.side, range, value, display)
@@ -3799,6 +4217,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.time_in_force.size = 1
 
 -- Display: Time In Force
 cboe_neoequities_orderentry_boe3_v1_0_19.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -3831,7 +4254,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.time_in_force, range, value, display)
@@ -3920,6 +4351,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.umir_account_type.size = 1
 
 -- Display: Umir Account Type
 cboe_neoequities_orderentry_boe3_v1_0_19.umir_account_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Umir Account Type: No Value"
+  end
+
   if value == "I" then
     return "Umir Account Type: Inventory (I)"
   end
@@ -3952,7 +4388,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.umir_account_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.umir_account_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.umir_account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_account_type, range, value, display)
@@ -3968,6 +4412,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.umir_regulation_id.size = 1
 
 -- Display: Umir Regulation Id
 cboe_neoequities_orderentry_boe3_v1_0_19.umir_regulation_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Umir Regulation Id: No Value"
+  end
+
   if value == "S" then
     return "Umir Regulation Id: Significant Shareholder (S)"
   end
@@ -3982,7 +4431,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.umir_regulation_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.umir_regulation_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.umir_regulation_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_regulation_id, range, value, display)
@@ -4060,6 +4517,11 @@ cboe_neoequities_orderentry_boe3_v1_0_19.wash_trade.size = 1
 
 -- Display: Wash Trade
 cboe_neoequities_orderentry_boe3_v1_0_19.wash_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Wash Trade: No Value"
+  end
+
   if value == "Y" then
     return "Wash Trade: Broker Executed A Wash Trade (Y)"
   end
@@ -4074,7 +4536,15 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.wash_trade.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.wash_trade.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.wash_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.wash_trade, range, value, display)

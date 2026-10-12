@@ -679,8 +679,8 @@ tmx_tsx_globalfx_gfx_v1_0.offer_price.size =
   tmx_tsx_globalfx_gfx_v1_0.offer_price_exponent.size
 
 -- Display: Offer Price
-tmx_tsx_globalfx_gfx_v1_0.offer_price.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+tmx_tsx_globalfx_gfx_v1_0.offer_price.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Offer Price
@@ -707,7 +707,7 @@ tmx_tsx_globalfx_gfx_v1_0.offer_price.dissect = function(buffer, offset, packet,
     local display = tmx_tsx_globalfx_gfx_v1_0.offer_price.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return tmx_tsx_globalfx_gfx_v1_0.offer_price.fields(buffer, offset, packet, parent)
@@ -723,8 +723,8 @@ tmx_tsx_globalfx_gfx_v1_0.bid_price.size =
   tmx_tsx_globalfx_gfx_v1_0.bid_price_exponent.size
 
 -- Display: Bid Price
-tmx_tsx_globalfx_gfx_v1_0.bid_price.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+tmx_tsx_globalfx_gfx_v1_0.bid_price.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Bid Price
@@ -751,7 +751,7 @@ tmx_tsx_globalfx_gfx_v1_0.bid_price.dissect = function(buffer, offset, packet, p
     local display = tmx_tsx_globalfx_gfx_v1_0.bid_price.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return tmx_tsx_globalfx_gfx_v1_0.bid_price.fields(buffer, offset, packet, parent)

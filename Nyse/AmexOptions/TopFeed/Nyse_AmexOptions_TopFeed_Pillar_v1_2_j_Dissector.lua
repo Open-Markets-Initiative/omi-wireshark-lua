@@ -445,6 +445,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.auction_type.size = 1
 
 -- Display: Auction Type
 nyse_amexoptions_topfeed_pillar_v1_2_j.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "M" then
     return "Auction Type: Core Opening Auction (M)"
   end
@@ -459,7 +464,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.auction_type, range, value, display)
@@ -567,6 +580,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.capacity.size = 1
 
 -- Display: Capacity
 nyse_amexoptions_topfeed_pillar_v1_2_j.capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Capacity: No Value"
+  end
+
   if value == " " then
     return "Capacity: Na (<whitespace>)"
   end
@@ -596,7 +614,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.capacity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.capacity, range, value, display)
@@ -658,6 +684,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.closing_only_indicator.size = 1
 
 -- Display: Closing Only Indicator
 nyse_amexoptions_topfeed_pillar_v1_2_j.closing_only_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Closing Only Indicator: No Value"
+  end
+
   if value == "0" then
     return "Closing Only Indicator: Standard Series (0)"
   end
@@ -672,7 +703,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.closing_only_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.closing_only_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.closing_only_indicator, range, value, display)
@@ -837,6 +876,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_amexoptions_topfeed_pillar_v1_2_j.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -872,7 +916,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.exchange_code, range, value, display)
@@ -888,6 +940,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_amexoptions_topfeed_pillar_v1_2_j.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   if value == "~" then
     return "Halt Condition: Security Not Delayedhalted (~)"
   end
@@ -947,7 +1004,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.halt_condition, range, value, display)
@@ -1009,6 +1074,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_amexoptions_topfeed_pillar_v1_2_j.imbalance_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Imbalance Side: No Value"
+  end
+
   if value == "B" then
     return "Imbalance Side: Buy Side (B)"
   end
@@ -1026,7 +1096,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.imbalance_side, range, value, display)
@@ -1134,6 +1212,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.leg_security_type.size = 1
 
 -- Display: Leg Security Type
 nyse_amexoptions_topfeed_pillar_v1_2_j.leg_security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Security Type: No Value"
+  end
+
   if value == "O" then
     return "Leg Security Type: Options Series Leg (O)"
   end
@@ -1151,7 +1234,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.leg_security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.leg_security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.leg_security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.leg_security_type, range, value, display)
@@ -1167,6 +1258,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.leg_side.size = 1
 
 -- Display: Leg Side
 nyse_amexoptions_topfeed_pillar_v1_2_j.leg_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Side: No Value"
+  end
+
   if value == "B" then
     return "Leg Side: Buy (B)"
   end
@@ -1181,7 +1277,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.leg_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.leg_side, range, value, display)
@@ -1334,6 +1438,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.market_state.size = 1
 
 -- Display: Market State
 nyse_amexoptions_topfeed_pillar_v1_2_j.market_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market State: No Value"
+  end
+
   if value == "P" then
     return "Market State: Preopening (P)"
   end
@@ -1357,7 +1466,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.market_state, range, value, display)
@@ -1679,6 +1796,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_halt_condition.size = 1
 
 -- Display: Options Status Halt Condition
 nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Options Status Halt Condition: No Value"
+  end
+
   if value == "~" then
     return "Options Status Halt Condition: Series Not Delayedhalted (~)"
   end
@@ -1693,7 +1815,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.options_status_halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.options_status_halt_condition, range, value, display)
@@ -2035,6 +2165,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_amexoptions_topfeed_pillar_v1_2_j.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -2049,7 +2184,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.quote_condition, range, value, display)
@@ -2184,6 +2327,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.rfq_status.size = 1
 
 -- Display: Rfq Status
 nyse_amexoptions_topfeed_pillar_v1_2_j.rfq_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Rfq Status: No Value"
+  end
+
   if value == "O" then
     return "Rfq Status: Start Of Rfq Auction (O)"
   end
@@ -2198,7 +2346,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.rfq_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.rfq_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.rfq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.rfq_status, range, value, display)
@@ -2214,6 +2370,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.round_lot.size = 1
 
 -- Display: Round Lot
 nyse_amexoptions_topfeed_pillar_v1_2_j.round_lot.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Round Lot: No Value"
+  end
+
   if value == "Y" then
     return "Round Lot: Yes (Y)"
   end
@@ -2228,7 +2389,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.round_lot.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.round_lot.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.round_lot, range, value, display)
@@ -2337,6 +2506,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.security_status.size = 1
 
 -- Display: Security Status
 nyse_amexoptions_topfeed_pillar_v1_2_j.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "4" then
     return "Security Status: Trading Halt (4)"
   end
@@ -2387,7 +2561,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.security_status, range, value, display)
@@ -2403,6 +2585,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.security_type.size = 1
 
 -- Display: Security Type
 nyse_amexoptions_topfeed_pillar_v1_2_j.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "A" then
     return "Security Type: American Depositary Receipts (A)"
   end
@@ -2459,7 +2646,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.security_type, range, value, display)
@@ -2578,6 +2773,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.series_status.size = 1
 
 -- Display: Series Status
 nyse_amexoptions_topfeed_pillar_v1_2_j.series_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Series Status: No Value"
+  end
+
   if value == "4" then
     return "Series Status: Trading Halt (4)"
   end
@@ -2607,7 +2807,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.series_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.series_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.series_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.series_status, range, value, display)
@@ -2656,6 +2864,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.session_state.size = 1
 
 -- Display: Session State
 nyse_amexoptions_topfeed_pillar_v1_2_j.session_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Session State: No Value"
+  end
+
   return "Session State: "..value
 end
 
@@ -2663,7 +2876,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.session_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.session_state, range, value, display)
@@ -2679,6 +2900,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.side.size = 1
 
 -- Display: Side
 nyse_amexoptions_topfeed_pillar_v1_2_j.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -2693,7 +2919,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.side, range, value, display)
@@ -2794,6 +3028,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_state.size = 1
 
 -- Display: Ssr State
 nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr State: No Value"
+  end
+
   if value == "~" then
     return "Ssr State: No Short Sale Restriction In Effect (~)"
   end
@@ -2808,7 +3047,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.ssr_state, range, value, display)
@@ -2824,6 +3071,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
 nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr Triggering Exchange Id: No Value"
+  end
+
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -2901,7 +3153,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.ssr_triggering_exchange_id, range, value, display)
@@ -2940,6 +3200,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.status.size = 1
 
 -- Display: Status
 nyse_amexoptions_topfeed_pillar_v1_2_j.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "0" then
     return "Status: Message Was Accepted (0)"
   end
@@ -2975,7 +3240,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.status, range, value, display)
@@ -3309,6 +3582,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_1.size = 1
 
 -- Display: Trade Cond 1
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 1: No Value"
+  end
+
   if value == "a" then
     return "Trade Cond 1: Outright Series Cube Order Trade (a)"
   end
@@ -3368,7 +3646,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.trade_cond_1, range, value, display)
@@ -3384,6 +3670,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_2.size = 1
 
 -- Display: Trade Cond 2
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 2: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 2: Na (<whitespace>)"
   end
@@ -3401,7 +3692,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.trade_cond_2, range, value, display)
@@ -3417,6 +3716,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_4.size = 1
 
 -- Display: Trade Cond 4
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_4.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 4: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 4: Na (<whitespace>)"
   end
@@ -3431,7 +3735,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.trade_cond_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.trade_cond_4, range, value, display)
@@ -3470,6 +3782,11 @@ nyse_amexoptions_topfeed_pillar_v1_2_j.type.size = 1
 
 -- Display: Type
 nyse_amexoptions_topfeed_pillar_v1_2_j.type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Type: No Value"
+  end
+
   if value == "B" then
     return "Type: Bold Outright Only (B)"
   end
@@ -3496,7 +3813,15 @@ end
 nyse_amexoptions_topfeed_pillar_v1_2_j.type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_topfeed_pillar_v1_2_j.type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_topfeed_pillar_v1_2_j.type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.type, range, value, display)

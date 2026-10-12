@@ -500,7 +500,7 @@ tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.size = 1
 -- Display: Anti Wash Instruction
 tmx_mx_solaorderentry_sail_v1_21.anti_wash_instruction.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Anti Wash Instruction: No Value"
   end
 
@@ -3514,7 +3514,7 @@ tmx_mx_solaorderentry_sail_v1_21.quantity_term.size = 1
 -- Display: Quantity Term
 tmx_mx_solaorderentry_sail_v1_21.quantity_term.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Quantity Term: No Value"
   end
 
@@ -3874,7 +3874,7 @@ tmx_mx_solaorderentry_sail_v1_21.special_price_term.size = 1
 -- Display: Special Price Term
 tmx_mx_solaorderentry_sail_v1_21.special_price_term.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Special Price Term: No Value"
   end
 

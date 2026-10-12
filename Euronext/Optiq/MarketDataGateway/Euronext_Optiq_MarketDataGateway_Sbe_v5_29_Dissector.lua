@@ -10090,7 +10090,7 @@ euronext_optiq_marketdatagateway_sbe_v5_29.settlement_method.size = 1
 -- Display: Settlement Method
 euronext_optiq_marketdatagateway_sbe_v5_29.settlement_method.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Settlement Method: No Value"
   end
 
@@ -18719,6 +18719,7 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v5_29)
 --   Version: 5.29
 --   Date: Wednesday, October 25, 2023
 --   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.29.0 +TC
+--   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.28.0 + TC
 --
 -- Script:
 --   Generator: 1.5.0.0

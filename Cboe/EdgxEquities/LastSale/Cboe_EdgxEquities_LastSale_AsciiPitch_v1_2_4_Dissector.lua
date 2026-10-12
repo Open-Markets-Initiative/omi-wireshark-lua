@@ -600,24 +600,20 @@ end
 -- Unsequenced Message
 cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message = {}
 
--- Size: Unsequenced Message
-cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.size = 0
-
 -- Display: Unsequenced Message
 cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.display = function(value)
   return "Unsequenced Message: "..value
 end
 
--- Dissect: Unsequenced Message
-cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Unsequenced Message
+cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.display(value, packet, parent, size)
 
   parent:add(omi_cboe_edgxequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_message, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Username
@@ -651,9 +647,15 @@ end
 -- Unsequenced Data Packet
 cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet = {}
 
--- Size: Unsequenced Data Packet
-cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.size =
-  cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.size
+-- Calculate size of: Unsequenced Data Packet
+cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Unsequenced Message
+  index = index + (buffer:len() - (offset + index))
+
+  return index
+end
 
 -- Display: Unsequenced Data Packet
 cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.display = function(packet, parent, length)
@@ -664,8 +666,11 @@ end
 cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = buffer:len() - index
+
   -- Unsequenced Message: 0 Byte
-  index, unsequenced_message = cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.dissect(buffer, index, packet, parent)
+  index, unsequenced_message = cboe_edgxequities_lastsale_asciipitch_v1_2_4.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
 
   return index
 end

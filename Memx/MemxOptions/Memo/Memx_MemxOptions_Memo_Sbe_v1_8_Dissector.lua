@@ -2026,7 +2026,7 @@ memx_memxoptions_memo_sbe_v1_8.nested_party_id_source.size = 1
 -- Display: Nested Party Id Source
 memx_memxoptions_memo_sbe_v1_8.nested_party_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Nested Party Id Source: No Value"
   end
 
@@ -2939,7 +2939,7 @@ memx_memxoptions_memo_sbe_v1_8.party_id_source.size = 1
 -- Display: Party Id Source
 memx_memxoptions_memo_sbe_v1_8.party_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Party Id Source: No Value"
   end
 

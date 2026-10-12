@@ -168,6 +168,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.auction_type.size = 1
 
 -- Display: Auction Type
 nyse_arcaequities_arcabook_pillar_v2_1.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "O" then
     return "Auction Type: Early Opening Auction (O)"
   end
@@ -188,7 +193,15 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_arcabook_pillar_v2_1.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.auction_type, range, value, display)
@@ -330,6 +343,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Imbalance Side: No Value"
+  end
+
   return "Imbalance Side: "..value
 end
 
@@ -337,7 +355,15 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_arcabook_pillar_v2_1.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.imbalance_side, range, value, display)
@@ -708,6 +734,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.side.size = 1
 
 -- Display: Side
 nyse_arcaequities_arcabook_pillar_v2_1.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -722,7 +753,15 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaequities_arcabook_pillar_v2_1.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side, range, value, display)

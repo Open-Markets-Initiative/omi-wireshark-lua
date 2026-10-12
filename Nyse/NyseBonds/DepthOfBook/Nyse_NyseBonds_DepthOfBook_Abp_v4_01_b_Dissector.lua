@@ -188,6 +188,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.auction_type.size = 1
 
 -- Display: Auction Type
 nyse_nysebonds_depthofbook_abp_v4_01_b.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "O" then
     return "Auction Type: Open (O)"
   end
@@ -208,7 +213,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.auction_type, range, value, display)
@@ -247,6 +260,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.buy_sell_indicator.size = 1
 
 -- Display: Buy Sell Indicator
 nyse_nysebonds_depthofbook_abp_v4_01_b.buy_sell_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Buy Sell Indicator: No Value"
+  end
+
   if value == "B" then
     return "Buy Sell Indicator: Buy Order (B)"
   end
@@ -261,7 +279,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.buy_sell_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.buy_sell_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.buy_sell_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.buy_sell_indicator, range, value, display)
@@ -385,6 +411,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.event_code.size = 1
 
 -- Display: Event Code
 nyse_nysebonds_depthofbook_abp_v4_01_b.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "C" then
     return "Event Code: Clear Book (C)"
   end
@@ -405,7 +436,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.event_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.event_code, range, value, display)
@@ -421,6 +460,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_nysebonds_depthofbook_abp_v4_01_b.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "N" then
     return "Exchange Code: Nyse Listed Bond (N)"
   end
@@ -432,7 +476,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.exchange_code, range, value, display)
@@ -448,6 +500,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.flat_pricing.size = 1
 
 -- Display: Flat Pricing
 nyse_nysebonds_depthofbook_abp_v4_01_b.flat_pricing.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Flat Pricing: No Value"
+  end
+
   if value == "F" then
     return "Flat Pricing: Flat Pricing Is In Effect (F)"
   end
@@ -459,7 +516,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.flat_pricing.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.flat_pricing.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.flat_pricing.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.flat_pricing, range, value, display)
@@ -851,6 +916,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.padding_ascii_1.size = 1
 
 -- Display: Padding Ascii 1
 nyse_nysebonds_depthofbook_abp_v4_01_b.padding_ascii_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Padding Ascii 1: No Value"
+  end
+
   return "Padding Ascii 1: "..value
 end
 
@@ -858,7 +928,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.padding_ascii_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.padding_ascii_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.padding_ascii_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.padding_ascii_1, range, value, display)
@@ -998,6 +1076,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.price_scale_code.size = 1
 
 -- Display: Price Scale Code
 nyse_nysebonds_depthofbook_abp_v4_01_b.price_scale_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Scale Code: No Value"
+  end
+
   if value == "0" then
     return "Price Scale Code: No Division (0)"
   end
@@ -1027,7 +1110,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.price_scale_code, range, value, display)
@@ -1128,6 +1219,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.reject_code.size = 1
 
 -- Display: Reject Code
 nyse_nysebonds_depthofbook_abp_v4_01_b.reject_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reject Code: No Value"
+  end
+
   if value == "A" then
     return "Reject Code: Not Authorized (A)"
   end
@@ -1151,7 +1247,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.reject_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.reject_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.reject_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.reject_code, range, value, display)
@@ -1217,6 +1321,11 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.system_code.size = 1
 
 -- Display: System Code
 nyse_nysebonds_depthofbook_abp_v4_01_b.system_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "System Code: No Value"
+  end
+
   if value == "F" then
     return "System Code: Bonds (F)"
   end
@@ -1228,7 +1337,15 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.system_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_depthofbook_abp_v4_01_b.system_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_depthofbook_abp_v4_01_b.system_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.system_code, range, value, display)

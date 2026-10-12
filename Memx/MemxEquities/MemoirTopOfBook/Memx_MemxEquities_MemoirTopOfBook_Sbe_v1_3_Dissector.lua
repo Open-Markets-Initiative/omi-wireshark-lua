@@ -2034,7 +2034,7 @@ udp_table:add_for_decode_as(omi_memx_memxequities_memoirtopofbook_sbe_v1_3)
 --   Organization: The Members Exchange
 --   Version: 1.3
 --   Date: Monday, April 5, 2021
---   Specification: MEMOIR Top of Book Feed-v1_3.pdf
+--   Specification: MEMOIR Last Sale Feed-v1_3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

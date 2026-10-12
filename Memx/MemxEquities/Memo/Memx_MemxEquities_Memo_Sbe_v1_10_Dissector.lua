@@ -1333,7 +1333,7 @@ memx_memxequities_memo_sbe_v1_10.locate_reqd.size = 1
 -- Display: Locate Reqd
 memx_memxequities_memo_sbe_v1_10.locate_reqd.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Locate Reqd: No Value"
   end
 

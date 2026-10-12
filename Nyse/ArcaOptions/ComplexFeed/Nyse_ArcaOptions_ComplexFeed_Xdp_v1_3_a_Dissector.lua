@@ -420,6 +420,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   return "Halt Condition: "..value
 end
 
@@ -427,7 +432,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
@@ -466,6 +479,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_security_type.size = 1
 
 -- Display: Leg Security Type
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Security Type: No Value"
+  end
+
   if value == "O" then
     return "Leg Security Type: Options Series Leg (O)"
   end
@@ -480,7 +498,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.leg_security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
@@ -762,6 +788,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -785,7 +816,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
@@ -871,6 +910,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.size = 1
 
 -- Display: Security Status
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "L" then
     return "Security Status: Light Up A Dark Series (L)"
   end
@@ -903,7 +947,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.security_status, range, value, display)
@@ -942,6 +994,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.side.size = 1
 
 -- Display: Side
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -956,7 +1013,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.side, range, value, display)
@@ -1133,6 +1198,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.size = 1
 
 -- Display: Trade Cond 1
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 1: No Value"
+  end
+
   if value == " " then
     return "Trade Cond 1: Regular Trade (<whitespace>)"
   end
@@ -1153,7 +1223,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
@@ -1169,6 +1247,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_2.size = 1
 
 -- Display: Trade Cond 2
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Cond 2: No Value"
+  end
+
   return "Trade Cond 2: "..value
 end
 
@@ -1176,7 +1259,15 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)

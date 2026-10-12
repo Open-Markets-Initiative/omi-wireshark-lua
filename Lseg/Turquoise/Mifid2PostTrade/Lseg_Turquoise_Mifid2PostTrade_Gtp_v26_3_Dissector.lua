@@ -412,7 +412,7 @@ lseg_turquoise_mifid2posttrade_gtp_v26_3.deferral_enrichment_type.size = 1
 -- Display: Deferral Enrichment Type
 lseg_turquoise_mifid2posttrade_gtp_v26_3.deferral_enrichment_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Deferral Enrichment Type: No Value"
   end
 
@@ -1223,7 +1223,7 @@ lseg_turquoise_mifid2posttrade_gtp_v26_3.partition_id.size = 1
 -- Display: Partition Id
 lseg_turquoise_mifid2posttrade_gtp_v26_3.partition_id.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Partition Id: No Value"
   end
 

@@ -637,7 +637,7 @@ ice_icefutures_mdf_impact_v1_1_34.aon.size = 1
 -- Display: Aon
 ice_icefutures_mdf_impact_v1_1_34.aon.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Aon: No Value"
   end
 
@@ -1037,7 +1037,7 @@ ice_icefutures_mdf_impact_v1_1_34.deal_price_denominator.size = 1
 -- Display: Deal Price Denominator
 ice_icefutures_mdf_impact_v1_1_34.deal_price_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Deal Price Denominator: No Value"
   end
 
@@ -1373,7 +1373,7 @@ ice_icefutures_mdf_impact_v1_1_34.event_type.size = 1
 -- Display: Event Type
 ice_icefutures_mdf_impact_v1_1_34.event_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Event Type: No Value"
   end
 
@@ -1497,7 +1497,7 @@ ice_icefutures_mdf_impact_v1_1_34.flex_allowed.size = 1
 -- Display: Flex Allowed
 ice_icefutures_mdf_impact_v1_1_34.flex_allowed.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Flex Allowed: No Value"
   end
 
@@ -1681,7 +1681,7 @@ ice_icefutures_mdf_impact_v1_1_34.has_pre_open_volume.size = 1
 -- Display: Has Pre Open Volume
 ice_icefutures_mdf_impact_v1_1_34.has_pre_open_volume.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Has Pre Open Volume: No Value"
   end
 
@@ -1895,7 +1895,7 @@ ice_icefutures_mdf_impact_v1_1_34.hedge_price_denominator.size = 1
 -- Display: Hedge Price Denominator
 ice_icefutures_mdf_impact_v1_1_34.hedge_price_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Hedge Price Denominator: No Value"
   end
 
@@ -1931,7 +1931,7 @@ ice_icefutures_mdf_impact_v1_1_34.hedge_security_type.size = 1
 -- Display: Hedge Security Type
 ice_icefutures_mdf_impact_v1_1_34.hedge_security_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Hedge Security Type: No Value"
   end
 
@@ -2430,7 +2430,7 @@ ice_icefutures_mdf_impact_v1_1_34.is_adjusted_trade.size = 1
 -- Display: Is Adjusted Trade
 ice_icefutures_mdf_impact_v1_1_34.is_adjusted_trade.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Is Adjusted Trade: No Value"
   end
 
@@ -2595,7 +2595,7 @@ ice_icefutures_mdf_impact_v1_1_34.is_implied.size = 1
 -- Display: Is Implied
 ice_icefutures_mdf_impact_v1_1_34.is_implied.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Is Implied: No Value"
   end
 
@@ -2631,7 +2631,7 @@ ice_icefutures_mdf_impact_v1_1_34.is_implied_spread_at_market_open.size = 1
 -- Display: Is Implied Spread At Market Open
 ice_icefutures_mdf_impact_v1_1_34.is_implied_spread_at_market_open.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Is Implied Spread At Market Open: No Value"
   end
 
@@ -2710,7 +2710,7 @@ ice_icefutures_mdf_impact_v1_1_34.is_rfq.size = 1
 -- Display: Is Rfq
 ice_icefutures_mdf_impact_v1_1_34.is_rfq.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Is Rfq: No Value"
   end
 
@@ -4511,7 +4511,7 @@ ice_icefutures_mdf_impact_v1_1_34.num_decimals_options_price.size = 1
 -- Display: Num Decimals Options Price
 ice_icefutures_mdf_impact_v1_1_34.num_decimals_options_price.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Num Decimals Options Price: No Value"
   end
 
@@ -4593,7 +4593,7 @@ ice_icefutures_mdf_impact_v1_1_34.num_decimals_strike_price.size = 1
 -- Display: Num Decimals Strike Price
 ice_icefutures_mdf_impact_v1_1_34.num_decimals_strike_price.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Num Decimals Strike Price: No Value"
   end
 
@@ -4836,7 +4836,7 @@ ice_icefutures_mdf_impact_v1_1_34.off_exchange_increment_qty_denominator.size = 
 -- Display: Off Exchange Increment Qty Denominator
 ice_icefutures_mdf_impact_v1_1_34.off_exchange_increment_qty_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Off Exchange Increment Qty Denominator: No Value"
   end
 
@@ -5419,7 +5419,7 @@ ice_icefutures_mdf_impact_v1_1_34.order_price_denominator.size = 1
 -- Display: Order Price Denominator
 ice_icefutures_mdf_impact_v1_1_34.order_price_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Order Price Denominator: No Value"
   end
 
@@ -6393,7 +6393,7 @@ ice_icefutures_mdf_impact_v1_1_34.settle_price_denominator.size = 1
 -- Display: Settle Price Denominator
 ice_icefutures_mdf_impact_v1_1_34.settle_price_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Settle Price Denominator: No Value"
   end
 
@@ -7445,7 +7445,7 @@ ice_icefutures_mdf_impact_v1_1_34.unit_qty_denominator.size = 1
 -- Display: Unit Qty Denominator
 ice_icefutures_mdf_impact_v1_1_34.unit_qty_denominator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Unit Qty Denominator: No Value"
   end
 

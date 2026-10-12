@@ -545,7 +545,7 @@ currenex_currenexforex_esp_cbp_v9.reject_msg_type.size = 1
 -- Display: Reject Msg Type
 currenex_currenexforex_esp_cbp_v9.reject_msg_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Reject Msg Type: No Value"
   end
 

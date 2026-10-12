@@ -979,7 +979,7 @@ lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.size = 1
 -- Display: Opening Closing Price Indicator
 lseg_turquoise_level1_gtp_v24_4.opening_closing_price_indicator.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Opening Closing Price Indicator: No Value"
   end
 

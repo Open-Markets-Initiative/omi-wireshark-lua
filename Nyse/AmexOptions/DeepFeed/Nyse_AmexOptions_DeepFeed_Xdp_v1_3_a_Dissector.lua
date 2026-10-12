@@ -245,6 +245,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "N" then
     return "Exchange Code: Nyse (N)"
   end
@@ -271,7 +276,15 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
@@ -402,6 +415,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   return "Halt Condition: "..value
 end
 
@@ -409,7 +427,15 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
@@ -809,6 +835,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -832,7 +863,15 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
@@ -1056,6 +1095,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.size = 1
 
 -- Display: Security Status
 nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "L" then
     return "Security Status: Light Up A Dark Series (L)"
   end
@@ -1088,7 +1132,15 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.security_status, range, value, display)
@@ -1104,6 +1156,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.size = 1
 
 -- Display: Security Type
 nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -1160,7 +1217,15 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.security_type, range, value, display)

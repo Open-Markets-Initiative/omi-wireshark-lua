@@ -369,6 +369,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.acknowledgement_style.size = 1
 
 -- Display: Acknowledgement Style
 cboe_c1options_binaryorderentry_boe3_v1_0_10.acknowledgement_style.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Acknowledgement Style: No Value"
+  end
+
   return "Acknowledgement Style: "..value
 end
 
@@ -376,7 +381,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.acknowledgement_style.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.acknowledgement_style.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.acknowledgement_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.acknowledgement_style, range, value, display)
@@ -461,6 +474,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.attributed_quote.size = 1
 
 -- Display: Attributed Quote
 cboe_c1options_binaryorderentry_boe3_v1_0_10.attributed_quote.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Attributed Quote: No Value"
+  end
+
   if value == "N" then
     return "Attributed Quote: Do Not Attribute Firm Executing Broker Id To This Order (N)"
   end
@@ -481,7 +499,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.attributed_quote.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.attributed_quote.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.attributed_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.attributed_quote, range, value, display)
@@ -520,6 +546,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.auto_match.size = 1
 
 -- Display: Auto Match
 cboe_c1options_binaryorderentry_boe3_v1_0_10.auto_match.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auto Match: No Value"
+  end
+
   if value == "0" then
     return "Auto Match: Disabled Default (0)"
   end
@@ -537,7 +568,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.auto_match.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.auto_match.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.auto_match.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.auto_match, range, value, display)
@@ -582,6 +621,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
 cboe_c1options_binaryorderentry_boe3_v1_0_10.base_liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Base Liquidity Indicator: No Value"
+  end
+
   if value == "A" then
     return "Base Liquidity Indicator: Added Liquidity (A)"
   end
@@ -602,7 +646,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.base_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.base_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.base_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.base_liquidity_indicator, range, value, display)
@@ -618,6 +670,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_orig_on_reject.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Orig On Reject: No Value"
+  end
+
   if value == "N" then
     return "Cancel Orig On Reject: Leave Original Order Alone (N)"
   end
@@ -632,7 +689,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_orig_on_reject.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_orig_on_reject.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_orig_on_reject.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cancel_orig_on_reject, range, value, display)
@@ -648,6 +713,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reason: No Value"
+  end
+
   return "Cancel Reason: "..value
 end
 
@@ -655,7 +725,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cancel_reason, range, value, display)
@@ -671,6 +749,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reject Reason: No Value"
+  end
+
   return "Cancel Reject Reason: "..value
 end
 
@@ -678,7 +761,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cancel_reject_reason, range, value, display)
@@ -694,6 +785,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_sub_reason.size = 1
 
 -- Display: Cancel Sub Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_sub_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Sub Reason: No Value"
+  end
+
   return "Cancel Sub Reason: "..value
 end
 
@@ -701,7 +797,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_sub_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_sub_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cancel_sub_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cancel_sub_reason, range, value, display)
@@ -740,6 +844,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.capacity.size = 1
 
 -- Display: Capacity
 cboe_c1options_binaryorderentry_boe3_v1_0_10.capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Capacity: No Value"
+  end
+
   if value == "C" then
     return "Capacity: Customer (C)"
   end
@@ -772,7 +881,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.capacity.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.capacity, range, value, display)
@@ -946,6 +1063,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.clearing_firm_filter.size = 1
 
 -- Display: Clearing Firm Filter
 cboe_c1options_binaryorderentry_boe3_v1_0_10.clearing_firm_filter.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Clearing Firm Filter: No Value"
+  end
+
   return "Clearing Firm Filter: "..value
 end
 
@@ -953,7 +1075,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.clearing_firm_filter.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.clearing_firm_filter.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.clearing_firm_filter.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.clearing_firm_filter, range, value, display)
@@ -1093,6 +1223,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.combo_order.size = 1
 
 -- Display: Combo Order
 cboe_c1options_binaryorderentry_boe3_v1_0_10.combo_order.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Combo Order: No Value"
+  end
+
   if value == "N" then
     return "Combo Order: No (N)"
   end
@@ -1107,7 +1242,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.combo_order.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.combo_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.combo_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.combo_order, range, value, display)
@@ -1123,6 +1266,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.compression.size = 1
 
 -- Display: Compression
 cboe_c1options_binaryorderentry_boe3_v1_0_10.compression.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Compression: No Value"
+  end
+
   if value == "N" then
     return "Compression: No (N)"
   end
@@ -1137,7 +1285,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.compression.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.compression.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.compression.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.compression, range, value, display)
@@ -1192,6 +1348,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.contra_capacity.size = 1
 
 -- Display: Contra Capacity
 cboe_c1options_binaryorderentry_boe3_v1_0_10.contra_capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Contra Capacity: No Value"
+  end
+
   return "Contra Capacity: "..value
 end
 
@@ -1199,7 +1360,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.contra_capacity.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.contra_capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.contra_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.contra_capacity, range, value, display)
@@ -1300,6 +1469,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_exclusion_indicator.size = 1
 
 -- Display: Cross Exclusion Indicator
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_exclusion_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Exclusion Indicator: No Value"
+  end
+
   if value == "N" then
     return "Cross Exclusion Indicator: Contracts Were Executed In Auction Against Contra Party (N)"
   end
@@ -1314,7 +1488,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_exclusion_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_exclusion_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_exclusion_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cross_exclusion_indicator, range, value, display)
@@ -1408,6 +1590,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_prioritization.size = 1
 
 -- Display: Cross Prioritization
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_prioritization.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Prioritization: No Value"
+  end
+
   if value == "1" then
     return "Cross Prioritization: Buy (1)"
   end
@@ -1422,7 +1609,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_prioritization.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_prioritization.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_prioritization.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cross_prioritization, range, value, display)
@@ -1438,6 +1633,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_type.size = 1
 
 -- Display: Cross Type
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cross Type: No Value"
+  end
+
   if value == "1" then
     return "Cross Type: Aim (1)"
   end
@@ -1458,7 +1658,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.cross_type, range, value, display)
@@ -1543,6 +1751,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.display_indicator.size = 1
 
 -- Display: Display Indicator
 cboe_c1options_binaryorderentry_boe3_v1_0_10.display_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Display Indicator: No Value"
+  end
+
   if value == "V" then
     return "Display Indicator: Default (V)"
   end
@@ -1569,7 +1782,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.display_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.display_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.display_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.display_indicator, range, value, display)
@@ -1705,6 +1926,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_ex_destination.size = 1
 
 -- Display: Equity Ex Destination
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_ex_destination.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Equity Ex Destination: No Value"
+  end
+
   if value == "C" then
     return "Equity Ex Destination: Cowen Default (C)"
   end
@@ -1728,7 +1954,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_ex_destination.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_ex_destination.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_ex_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.equity_ex_destination, range, value, display)
@@ -1744,6 +1978,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_leg_short_sell.size = 1
 
 -- Display: Equity Leg Short Sell
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_leg_short_sell.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Equity Leg Short Sell: No Value"
+  end
+
   if value == "5" then
     return "Equity Leg Short Sell: Sell Short (5)"
   end
@@ -1758,7 +1997,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_leg_short_sell.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_leg_short_sell.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_leg_short_sell.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.equity_leg_short_sell, range, value, display)
@@ -1904,6 +2151,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_trade_venue.size = 1
 
 -- Display: Equity Trade Venue
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_trade_venue.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Equity Trade Venue: No Value"
+  end
+
   if value == "A" then
     return "Equity Trade Venue: Nyse American (A)"
   end
@@ -1951,7 +2203,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_trade_venue.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_trade_venue.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.equity_trade_venue.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.equity_trade_venue, range, value, display)
@@ -1994,6 +2254,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.ex_destination.size = 1
 
 -- Display: Ex Destination
 cboe_c1options_binaryorderentry_boe3_v1_0_10.ex_destination.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ex Destination: No Value"
+  end
+
   if value == "A" then
     return "Ex Destination: Nyse Arca (A)"
   end
@@ -2056,7 +2321,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.ex_destination.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.ex_destination.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.ex_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.ex_destination, range, value, display)
@@ -2212,6 +2485,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.exec_inst.size = 1
 
 -- Display: Exec Inst
 cboe_c1options_binaryorderentry_boe3_v1_0_10.exec_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Inst: No Value"
+  end
+
   if value == "1" then
     return "Exec Inst: Not Held (1)"
   end
@@ -2232,7 +2510,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.exec_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.exec_inst, range, value, display)
@@ -2451,6 +2737,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.floor_routing_inst.size = 1
 
 -- Display: Floor Routing Inst
 cboe_c1options_binaryorderentry_boe3_v1_0_10.floor_routing_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Floor Routing Inst: No Value"
+  end
+
   if value == "D" then
     return "Floor Routing Inst: Direct Do Not Attempt To Process Electronically (D)"
   end
@@ -2471,7 +2762,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.floor_routing_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.floor_routing_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.floor_routing_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.floor_routing_inst, range, value, display)
@@ -2631,6 +2930,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.gtc_order_filter.size = 1
 
 -- Display: Gtc Order Filter
 cboe_c1options_binaryorderentry_boe3_v1_0_10.gtc_order_filter.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Gtc Order Filter: No Value"
+  end
+
   return "Gtc Order Filter: "..value
 end
 
@@ -2638,7 +2942,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.gtc_order_filter.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.gtc_order_filter.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.gtc_order_filter.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.gtc_order_filter, range, value, display)
@@ -2654,6 +2966,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.held.size = 1
 
 -- Display: Held
 cboe_c1options_binaryorderentry_boe3_v1_0_10.held.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Held: No Value"
+  end
+
   if value == "N" then
     return "Held: Mark Order As Not Held (N)"
   end
@@ -2668,7 +2985,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.held.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.held.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.held.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.held, range, value, display)
@@ -2746,6 +3071,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.instrument_type_filter.size = 1
 
 -- Display: Instrument Type Filter
 cboe_c1options_binaryorderentry_boe3_v1_0_10.instrument_type_filter.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Instrument Type Filter: No Value"
+  end
+
   return "Instrument Type Filter: "..value
 end
 
@@ -2753,7 +3083,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.instrument_type_filter.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.instrument_type_filter.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.instrument_type_filter.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.instrument_type_filter, range, value, display)
@@ -2769,6 +3107,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.last_priority.size = 1
 
 -- Display: Last Priority
 cboe_c1options_binaryorderentry_boe3_v1_0_10.last_priority.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Last Priority: No Value"
+  end
+
   if value == "0" then
     return "Last Priority: Disabled (0)"
   end
@@ -2783,7 +3126,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.last_priority.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.last_priority.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.last_priority.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.last_priority, range, value, display)
@@ -2897,6 +3248,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.leg_position_effect.size = 1
 
 -- Display: Leg Position Effect
 cboe_c1options_binaryorderentry_boe3_v1_0_10.leg_position_effect.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Leg Position Effect: No Value"
+  end
+
   if value == "O" then
     return "Leg Position Effect: Open (O)"
   end
@@ -2914,7 +3270,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.leg_position_effect.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.leg_position_effect.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.leg_position_effect.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.leg_position_effect, range, value, display)
@@ -2930,6 +3294,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.lockout_instruction.size = 1
 
 -- Display: Lockout Instruction
 cboe_c1options_binaryorderentry_boe3_v1_0_10.lockout_instruction.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Lockout Instruction: No Value"
+  end
+
   return "Lockout Instruction: "..value
 end
 
@@ -2937,7 +3306,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.lockout_instruction.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.lockout_instruction.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.lockout_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.lockout_instruction, range, value, display)
@@ -3195,6 +3572,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_lockout.size = 1
 
 -- Display: Mass Cancel Lockout
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_lockout.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mass Cancel Lockout: No Value"
+  end
+
   if value == "Y" then
     return "Mass Cancel Lockout: Lockout (Y)"
   end
@@ -3209,7 +3591,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_lockout.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_lockout.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_lockout.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.mass_cancel_lockout, range, value, display)
@@ -3225,6 +3615,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_reject_reason.size = 1
 
 -- Display: Mass Cancel Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mass Cancel Reject Reason: No Value"
+  end
+
   return "Mass Cancel Reject Reason: "..value
 end
 
@@ -3232,7 +3627,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.mass_cancel_reject_reason, range, value, display)
@@ -3363,6 +3766,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.modify_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Modify Reject Reason: No Value"
+  end
+
   return "Modify Reject Reason: "..value
 end
 
@@ -3370,7 +3778,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.modify_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.modify_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.modify_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.modify_reject_reason, range, value, display)
@@ -3386,6 +3802,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.mtp_modifier.size = 1
 
 -- Display: Mtp Modifier
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mtp_modifier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Mtp Modifier: No Value"
+  end
+
   return "Mtp Modifier: "..value
 end
 
@@ -3393,7 +3814,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.mtp_modifier.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.mtp_modifier.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.mtp_modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.mtp_modifier, range, value, display)
@@ -3409,6 +3838,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.multileg_reporting_type.size = 1
 
 -- Display: Multileg Reporting Type
 cboe_c1options_binaryorderentry_boe3_v1_0_10.multileg_reporting_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Multileg Reporting Type: No Value"
+  end
+
   if value == "1" then
     return "Multileg Reporting Type: Singleleg Instrument (1)"
   end
@@ -3429,7 +3863,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.multileg_reporting_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.multileg_reporting_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.multileg_reporting_type, range, value, display)
@@ -3491,6 +3933,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.open_close.size = 1
 
 -- Display: Open Close
 cboe_c1options_binaryorderentry_boe3_v1_0_10.open_close.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Open Close: No Value"
+  end
+
   if value == "O" then
     return "Open Close: Open (O)"
   end
@@ -3508,7 +3955,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.open_close.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.open_close.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.open_close, range, value, display)
@@ -3524,6 +3979,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.ord_type.size = 1
 
 -- Display: Ord Type
 cboe_c1options_binaryorderentry_boe3_v1_0_10.ord_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -3544,7 +4004,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.ord_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.ord_type, range, value, display)
@@ -3668,6 +4136,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Reject Reason: No Value"
+  end
+
   return "Order Reject Reason: "..value
 end
 
@@ -3675,7 +4148,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.order_reject_reason, range, value, display)
@@ -3691,6 +4172,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.order_restatement_reason.size = 1
 
 -- Display: Order Restatement Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_restatement_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Restatement Reason: No Value"
+  end
+
   if value == "E" then
     return "Order Restatement Reason: Reduction Of Ord Qty Due To Equity Leg Reject (E)"
   end
@@ -3726,7 +4212,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.order_restatement_reason, range, value, display)
@@ -3742,6 +4236,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.order_router_subsidy.size = 1
 
 -- Display: Order Router Subsidy
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_router_subsidy.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Router Subsidy: No Value"
+  end
+
   if value == "N" then
     return "Order Router Subsidy: No (N)"
   end
@@ -3756,7 +4255,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.order_router_subsidy.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_router_subsidy.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.order_router_subsidy.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.order_router_subsidy, range, value, display)
@@ -3877,6 +4384,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.posting_instruction.size = 1
 
 -- Display: Posting Instruction
 cboe_c1options_binaryorderentry_boe3_v1_0_10.posting_instruction.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Posting Instruction: No Value"
+  end
+
   if value == "P" then
     return "Posting Instruction: Post Only (P)"
   end
@@ -3900,7 +4412,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.posting_instruction.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.posting_instruction.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.posting_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.posting_instruction, range, value, display)
@@ -3974,6 +4494,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.price_type.size = 1
 
 -- Display: Price Type
 cboe_c1options_binaryorderentry_boe3_v1_0_10.price_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Type: No Value"
+  end
+
   if value == "0" then
     return "Price Type: Fixed Cabinet Trade Price (0)"
   end
@@ -3991,7 +4516,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.price_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.price_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.price_type, range, value, display)
@@ -4007,6 +4540,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.purge_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Purge Reject Reason: No Value"
+  end
+
   return "Purge Reject Reason: "..value
 end
 
@@ -4014,7 +4552,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.purge_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.purge_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.purge_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.purge_reject_reason, range, value, display)
@@ -4030,6 +4576,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.put_or_call.size = 1
 
 -- Display: Put Or Call
 cboe_c1options_binaryorderentry_boe3_v1_0_10.put_or_call.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Put Or Call: No Value"
+  end
+
   if value == "0" then
     return "Put Or Call: Put (0)"
   end
@@ -4044,7 +4595,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.put_or_call, range, value, display)
@@ -4083,6 +4642,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Reject Reason: No Value"
+  end
+
   return "Quote Reject Reason: "..value
 end
 
@@ -4090,7 +4654,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.quote_reject_reason, range, value, display)
@@ -4106,6 +4678,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_sub_reason.size = 1
 
 -- Display: Quote Reject Sub Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_sub_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Reject Sub Reason: No Value"
+  end
+
   return "Quote Reject Sub Reason: "..value
 end
 
@@ -4113,7 +4690,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_sub_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_sub_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_reject_sub_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.quote_reject_sub_reason, range, value, display)
@@ -4129,6 +4714,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_result.size = 1
 
 -- Display: Quote Result
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_result.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Result: No Value"
+  end
+
   if value == "A" then
     return "Quote Result: New Quote (A)"
   end
@@ -4200,7 +4790,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_result.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_result.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.quote_result, range, value, display)
@@ -4216,6 +4814,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_symbol.size = 1
 
 -- Display: Quote Symbol
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Symbol: No Value"
+  end
+
   return "Quote Symbol: "..value
 end
 
@@ -4223,7 +4826,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_symbol.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.quote_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.quote_symbol, range, value, display)
@@ -4407,6 +5018,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.restatement_reason.size = 1
 
 -- Display: Restatement Reason
 cboe_c1options_binaryorderentry_boe3_v1_0_10.restatement_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Restatement Reason: No Value"
+  end
+
   if value == "Q" then
     return "Restatement Reason: Liquidity (Q)"
   end
@@ -4421,7 +5037,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.restatement_reason, range, value, display)
@@ -4476,6 +5100,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.risk_reset_result.size = 1
 
 -- Display: Risk Reset Result
 cboe_c1options_binaryorderentry_boe3_v1_0_10.risk_reset_result.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Risk Reset Result: No Value"
+  end
+
   if value == " " then
     return "Risk Reset Result: Ignored (<whitespace>)"
   end
@@ -4520,7 +5149,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.risk_reset_result.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.risk_reset_result.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.risk_reset_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.risk_reset_result, range, value, display)
@@ -4868,6 +5505,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.sender_location_id.size = 1
 
 -- Display: Sender Location Id
 cboe_c1options_binaryorderentry_boe3_v1_0_10.sender_location_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sender Location Id: No Value"
+  end
+
   if value == "F" then
     return "Sender Location Id: Floor (F)"
   end
@@ -4882,7 +5524,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.sender_location_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.sender_location_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.sender_location_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.sender_location_id, range, value, display)
@@ -4921,6 +5571,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.session_eligibility.size = 1
 
 -- Display: Session Eligibility
 cboe_c1options_binaryorderentry_boe3_v1_0_10.session_eligibility.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Session Eligibility: No Value"
+  end
+
   if value == "R" then
     return "Session Eligibility: Order Participates In Regular Trading Hours (R)"
   end
@@ -4938,7 +5593,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.session_eligibility.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.session_eligibility.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.session_eligibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.session_eligibility, range, value, display)
@@ -5032,6 +5695,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.side.size = 1
 
 -- Display: Side
 cboe_c1options_binaryorderentry_boe3_v1_0_10.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -5052,7 +5720,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.side.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.side, range, value, display)
@@ -5068,6 +5744,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.size_modifier.size = 1
 
 -- Display: Size Modifier
 cboe_c1options_binaryorderentry_boe3_v1_0_10.size_modifier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Size Modifier: No Value"
+  end
+
   if value == "R" then
     return "Size Modifier: Reduce Outstanding Size Of Quote By The Order Qty Provided (R)"
   end
@@ -5181,6 +5862,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.strategy_id.size = 1
 
 -- Display: Strategy Id
 cboe_c1options_binaryorderentry_boe3_v1_0_10.strategy_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Strategy Id: No Value"
+  end
+
   if value == "C" then
     return "Strategy Id: Conversion (C)"
   end
@@ -5204,7 +5890,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.strategy_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.strategy_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.strategy_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.strategy_id, range, value, display)
@@ -5249,6 +5943,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_c1options_binaryorderentry_boe3_v1_0_10.sub_liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sub Liquidity Indicator: No Value"
+  end
+
   if value == "S" then
     return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
   end
@@ -5448,6 +6147,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.tied_hedge.size = 1
 
 -- Display: Tied Hedge
 cboe_c1options_binaryorderentry_boe3_v1_0_10.tied_hedge.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Tied Hedge: No Value"
+  end
+
   if value == "N" then
     return "Tied Hedge: No (N)"
   end
@@ -5462,7 +6166,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.tied_hedge.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.tied_hedge.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.tied_hedge.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.tied_hedge, range, value, display)
@@ -5478,6 +6190,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.time_in_force.size = 1
 
 -- Display: Time In Force
 cboe_c1options_binaryorderentry_boe3_v1_0_10.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -5507,7 +6224,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.time_in_force, range, value, display)
@@ -5546,6 +6271,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.trade_through_alert_type.size = 1
 
 -- Display: Trade Through Alert Type
 cboe_c1options_binaryorderentry_boe3_v1_0_10.trade_through_alert_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Through Alert Type: No Value"
+  end
+
   if value == "0" then
     return "Trade Through Alert Type: No Trade Through (0)"
   end
@@ -5572,7 +6302,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.trade_through_alert_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.trade_through_alert_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.trade_through_alert_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.trade_through_alert_type, range, value, display)
@@ -5588,6 +6326,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.trading_group_id.size = 1
 
 -- Display: Trading Group Id
 cboe_c1options_binaryorderentry_boe3_v1_0_10.trading_group_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Group Id: No Value"
+  end
+
   return "Trading Group Id: "..value
 end
 
@@ -5595,7 +6338,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.trading_group_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.trading_group_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.trading_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.trading_group_id, range, value, display)
@@ -5638,6 +6389,11 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.unique_id_level.size = 1
 
 -- Display: Unique Id Level
 cboe_c1options_binaryorderentry_boe3_v1_0_10.unique_id_level.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Unique Id Level: No Value"
+  end
+
   return "Unique Id Level: "..value
 end
 
@@ -5645,7 +6401,15 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_0_10.unique_id_level.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe3_v1_0_10.unique_id_level.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_c1options_binaryorderentry_boe3_v1_0_10.unique_id_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.unique_id_level, range, value, display)

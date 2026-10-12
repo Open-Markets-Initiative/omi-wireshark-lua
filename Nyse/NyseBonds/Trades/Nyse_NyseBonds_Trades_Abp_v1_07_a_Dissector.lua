@@ -362,6 +362,11 @@ nyse_nysebonds_trades_abp_v1_07_a.event_code.size = 1
 
 -- Display: Event Code
 nyse_nysebonds_trades_abp_v1_07_a.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "B" then
     return "Event Code: Trade Bust (B)"
   end
@@ -376,7 +381,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.event_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.event_code, range, value, display)
@@ -392,6 +405,11 @@ nyse_nysebonds_trades_abp_v1_07_a.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_nysebonds_trades_abp_v1_07_a.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "N" then
     return "Exchange Code: Nyse Listed Bond (N)"
   end
@@ -403,7 +421,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.exchange_code, range, value, display)
@@ -664,6 +690,11 @@ nyse_nysebonds_trades_abp_v1_07_a.padding_ascii_1.size = 1
 
 -- Display: Padding Ascii 1
 nyse_nysebonds_trades_abp_v1_07_a.padding_ascii_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Padding Ascii 1: No Value"
+  end
+
   return "Padding Ascii 1: "..value
 end
 
@@ -671,7 +702,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.padding_ascii_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.padding_ascii_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.padding_ascii_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.padding_ascii_1, range, value, display)
@@ -811,6 +850,11 @@ nyse_nysebonds_trades_abp_v1_07_a.price_scale_code.size = 1
 
 -- Display: Price Scale Code
 nyse_nysebonds_trades_abp_v1_07_a.price_scale_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Scale Code: No Value"
+  end
+
   if value == "0" then
     return "Price Scale Code: No Division (0)"
   end
@@ -840,7 +884,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.price_scale_code, range, value, display)
@@ -879,6 +931,11 @@ nyse_nysebonds_trades_abp_v1_07_a.reject_code.size = 1
 
 -- Display: Reject Code
 nyse_nysebonds_trades_abp_v1_07_a.reject_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reject Code: No Value"
+  end
+
   if value == "A" then
     return "Reject Code: Not Authorized (A)"
   end
@@ -902,7 +959,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.reject_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.reject_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.reject_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.reject_code, range, value, display)
@@ -968,6 +1033,11 @@ nyse_nysebonds_trades_abp_v1_07_a.system_code.size = 1
 
 -- Display: System Code
 nyse_nysebonds_trades_abp_v1_07_a.system_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "System Code: No Value"
+  end
+
   if value == "F" then
     return "System Code: Bonds Trading Platform (F)"
   end
@@ -979,7 +1049,15 @@ end
 nyse_nysebonds_trades_abp_v1_07_a.system_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nysebonds_trades_abp_v1_07_a.system_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nysebonds_trades_abp_v1_07_a.system_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nysebonds_trades_abp_v1_07_a.fields.system_code, range, value, display)

@@ -719,7 +719,7 @@ iex_iexoptions_marketdata_sbe_v1_03.exchange_code.size = 1
 -- Display: Exchange Code
 iex_iexoptions_marketdata_sbe_v1_03.exchange_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Exchange Code: No Value"
   end
 
@@ -1748,7 +1748,7 @@ iex_iexoptions_marketdata_sbe_v1_03.trade_condition.size = 1
 -- Display: Trade Condition
 iex_iexoptions_marketdata_sbe_v1_03.trade_condition.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Trade Condition: No Value"
   end
 
@@ -2227,8 +2227,8 @@ iex_iexoptions_marketdata_sbe_v1_03.message.size = function(buffer, offset)
 end
 
 -- Display: Message
-iex_iexoptions_marketdata_sbe_v1_03.message.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+iex_iexoptions_marketdata_sbe_v1_03.message.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Message
@@ -2263,7 +2263,7 @@ iex_iexoptions_marketdata_sbe_v1_03.message.dissect = function(buffer, offset, p
     local display = iex_iexoptions_marketdata_sbe_v1_03.message.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return iex_iexoptions_marketdata_sbe_v1_03.message.fields(buffer, offset, packet, parent)
@@ -4034,6 +4034,7 @@ udp_table:add_for_decode_as(omi_iex_iexoptions_marketdata_sbe_v1_03)
 --   Organization: Investors Exchange
 --   Version: 1.03
 --   Date: Monday, June 1, 2026
+--   Specification: IEX Binary Options Protocol Specification
 --   Specification: IEX Options Market Data Transport Protocol Specification
 --
 -- Script:

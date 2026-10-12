@@ -1319,6 +1319,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.size = 1
 
 -- Display: Algorithmic Indicator
 cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Algorithmic Indicator: No Value"
+  end
+
   if value == "N" then
     return "Algorithmic Indicator: No Algorithm Was Involved (N)"
   end
@@ -1333,7 +1338,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.algorithmic_indicator, range, value, display)
@@ -1349,6 +1362,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size = 1
 
 -- Display: Capacity
 cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Capacity: No Value"
+  end
+
   if value == "A" then
     return "Capacity: Agency (A)"
   end
@@ -1366,7 +1384,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.capacity, range, value, display)
@@ -1382,6 +1408,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.size = 1
 
 -- Display: Central Counterparty
 cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Central Counterparty: No Value"
+  end
+
   return "Central Counterparty: "..value
 end
 
@@ -1389,7 +1420,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.central_counterparty, range, value, display)
@@ -1522,6 +1561,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.size = 1
 
 -- Display: Deferral Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Deferral Reason: No Value"
+  end
+
   if value == "-" then
     return "Deferral Reason: No Deferral Reason (-)"
   end
@@ -1554,7 +1598,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.deferral_reason, range, value, display)
@@ -1570,6 +1622,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.size = 1
 
 -- Display: Execution Method
 cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Execution Method: No Value"
+  end
+
   if value == "A" then
     return "Execution Method: Automated (A)"
   end
@@ -1587,7 +1644,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.execution_method, range, value, display)
@@ -1671,6 +1736,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.size = 1
 
 -- Display: Id Source
 cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Id Source: No Value"
+  end
+
   if value == "4" then
     return "Id Source: Isin (4)"
   end
@@ -1685,7 +1755,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.id_source, range, value, display)
@@ -1701,6 +1779,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.size = 1
 
 -- Display: Intra Firm Trade Ind
 cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Intra Firm Trade Ind: No Value"
+  end
+
   if value == "N" then
     return "Intra Firm Trade Ind: Not An Intragroup Transaction (N)"
   end
@@ -1715,7 +1798,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.intra_firm_trade_ind, range, value, display)
@@ -1868,6 +1959,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.size = 1
 
 -- Display: Login Response Status
 cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Login Response Status: No Value"
+  end
+
   if value == "A" then
     return "Login Response Status: Login Accepted (A)"
   end
@@ -1903,7 +1999,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.login_response_status, range, value, display)
@@ -1958,6 +2062,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.size = 1
 
 -- Display: Logout Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Logout Reason: No Value"
+  end
+
   if value == "U" then
     return "Logout Reason: User Requested (U)"
   end
@@ -1978,7 +2087,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.logout_reason, range, value, display)
@@ -2529,6 +2646,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.size = 1
 
 -- Display: Party Role
 cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Party Role: No Value"
+  end
+
   return "Party Role: "..value
 end
 
@@ -2536,7 +2658,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.party_role, range, value, display)
@@ -2591,6 +2721,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.size = 1
 
 -- Display: Price Formation
 cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Formation: No Value"
+  end
+
   if value == "J" then
     return "Price Formation: Trade Not Contributing To The Price Discovery Process (J)"
   end
@@ -2605,7 +2740,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.price_formation, range, value, display)
@@ -2660,6 +2803,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.size = 1
 
 -- Display: Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reason: No Value"
+  end
+
   if value == "A" then
     return "Reason: Admin (A)"
   end
@@ -2677,7 +2825,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.reason, range, value, display)
@@ -2906,6 +3062,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size = 1
 
 -- Display: Side
 cboe_cboeeurope_tradereporting_boe_v2_0_40.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -2923,7 +3084,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.side, range, value, display)
@@ -2962,6 +3131,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.status.size = 1
 
 -- Display: Status
 cboe_cboeeurope_tradereporting_boe_v2_0_40.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "0" then
     return "Status: Accepted In Response To A Quote Message (0)"
   end
@@ -2976,7 +3150,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.status.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.status, range, value, display)
@@ -3414,6 +3596,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.size = 1
 
 -- Display: Transaction Category
 cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Transaction Category: No Value"
+  end
+
   if value == "P" then
     return "Transaction Category: Regular Trade (P)"
   end
@@ -3440,7 +3627,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.transaction_category, range, value, display)
@@ -3591,6 +3786,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.size = 1
 
 -- Display: Venue Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Venue Type: No Value"
+  end
+
   if value == "O" then
     return "Venue Type: Off Book (O)"
   end
@@ -3623,7 +3823,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.venue_type, range, value, display)
@@ -3639,6 +3847,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.size = 1
 
 -- Display: Waiver Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Waiver Type: No Value"
+  end
+
   if value == "-" then
     return "Waiver Type: No Waiver Type (-)"
   end
@@ -3677,7 +3890,15 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.waiver_type, range, value, display)

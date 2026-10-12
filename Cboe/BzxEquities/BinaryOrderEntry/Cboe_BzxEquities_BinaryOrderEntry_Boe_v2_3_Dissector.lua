@@ -505,6 +505,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.attributed_quote.size = 1
 
 -- Display: Attributed Quote
 cboe_bzxequities_binaryorderentry_boe_v2_3.attributed_quote.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Attributed Quote: No Value"
+  end
+
   if value == "N" then
     return "Attributed Quote: Do Not Attribute Firm Mpid (N)"
   end
@@ -522,7 +527,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.attributed_quote.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.attributed_quote.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.attributed_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.attributed_quote, range, value, display)
@@ -538,6 +551,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
 cboe_bzxequities_binaryorderentry_boe_v2_3.base_liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Base Liquidity Indicator: No Value"
+  end
+
   if value == "A" then
     return "Base Liquidity Indicator: Added Liquidity (A)"
   end
@@ -558,7 +576,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.base_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.base_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.base_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.base_liquidity_indicator, range, value, display)
@@ -574,6 +600,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_orig_on_reject.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Orig On Reject: No Value"
+  end
+
   return "Cancel Orig On Reject: "..value
 end
 
@@ -581,7 +612,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_orig_on_reject.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_orig_on_reject.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_orig_on_reject.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_orig_on_reject, range, value, display)
@@ -597,6 +636,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reason: No Value"
+  end
+
   if value == "A" then
     return "Cancel Reason: Admin (A)"
   end
@@ -701,7 +745,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_reason, range, value, display)
@@ -717,6 +769,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Cancel Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Cancel Reject Reason: Admin (A)"
   end
@@ -821,7 +878,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.cancel_reject_reason, range, value, display)
@@ -860,6 +925,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.capacity.size = 1
 
 -- Display: Capacity
 cboe_bzxequities_binaryorderentry_boe_v2_3.capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Capacity: No Value"
+  end
+
   if value == "A" then
     return "Capacity: Agency (A)"
   end
@@ -877,7 +947,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.capacity.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.capacity, range, value, display)
@@ -1147,6 +1225,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.display_indicator.size = 1
 
 -- Display: Display Indicator
 cboe_bzxequities_binaryorderentry_boe_v2_3.display_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Display Indicator: No Value"
+  end
+
   if value == "V" then
     return "Display Indicator: Determined By Port Level Setting (V)"
   end
@@ -1188,7 +1271,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.display_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.display_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.display_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.display_indicator, range, value, display)
@@ -1295,6 +1386,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.ex_destination.size = 1
 
 -- Display: Ex Destination
 cboe_bzxequities_binaryorderentry_boe_v2_3.ex_destination.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ex Destination: No Value"
+  end
+
   if value == "A" then
     return "Ex Destination: Nyse American (A)"
   end
@@ -1348,7 +1444,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.ex_destination.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.ex_destination.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.ex_destination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.ex_destination, range, value, display)
@@ -1387,6 +1491,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.exec_inst.size = 1
 
 -- Display: Exec Inst
 cboe_bzxequities_binaryorderentry_boe_v2_3.exec_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exec Inst: No Value"
+  end
+
   if value == "f" then
     return "Exec Inst: Intermarket Sweep (f)"
   end
@@ -1431,7 +1540,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.exec_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.exec_inst, range, value, display)
@@ -1497,6 +1614,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.ext_exec_inst.size = 1
 
 -- Display: Ext Exec Inst
 cboe_bzxequities_binaryorderentry_boe_v2_3.ext_exec_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ext Exec Inst: No Value"
+  end
+
   if value == "N" then
     return "Ext Exec Inst: None (N)"
   end
@@ -1511,7 +1633,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.ext_exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.ext_exec_inst.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.ext_exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.ext_exec_inst, range, value, display)
@@ -1664,6 +1794,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.locate_reqd.size = 1
 
 -- Display: Locate Reqd
 cboe_bzxequities_binaryorderentry_boe_v2_3.locate_reqd.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Locate Reqd: No Value"
+  end
+
   return "Locate Reqd: "..value
 end
 
@@ -1671,7 +1806,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.locate_reqd.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.locate_reqd.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.locate_reqd.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.locate_reqd, range, value, display)
@@ -1687,6 +1830,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_status.size = 1
 
 -- Display: Login Response Status
 cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Login Response Status: No Value"
+  end
+
   if value == "A" then
     return "Login Response Status: Login Accepted (A)"
   end
@@ -1722,7 +1870,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_status.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.login_response_status, range, value, display)
@@ -1777,6 +1933,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.logout_reason.size = 1
 
 -- Display: Logout Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.logout_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Logout Reason: No Value"
+  end
+
   if value == "U" then
     return "Logout Reason: User Requested (U)"
   end
@@ -1797,7 +1958,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.logout_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.logout_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.logout_reason, range, value, display)
@@ -2112,6 +2281,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.modify_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Modify Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Modify Reject Reason: Admin (A)"
   end
@@ -2216,7 +2390,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.modify_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.modify_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.modify_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.modify_reject_reason, range, value, display)
@@ -2423,6 +2605,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.ord_type.size = 1
 
 -- Display: Ord Type
 cboe_bzxequities_binaryorderentry_boe_v2_3.ord_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ord Type: No Value"
+  end
+
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -2446,7 +2633,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.ord_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.ord_type, range, value, display)
@@ -2508,6 +2703,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.order_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Order Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Order Reject Reason: Admin (A)"
   end
@@ -2612,7 +2812,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.order_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.order_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.order_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.order_reject_reason, range, value, display)
@@ -2876,6 +3084,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.purge_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Purge Reject Reason: No Value"
+  end
+
   if value == "A" then
     return "Purge Reject Reason: Admin (A)"
   end
@@ -2980,7 +3193,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.purge_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.purge_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.purge_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.purge_reject_reason, range, value, display)
@@ -3019,6 +3240,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.restatement_reason.size = 1
 
 -- Display: Restatement Reason
 cboe_bzxequities_binaryorderentry_boe_v2_3.restatement_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Restatement Reason: No Value"
+  end
+
   if value == "C" then
     return "Restatement Reason: Cboe Market Close (C)"
   end
@@ -3048,7 +3274,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.restatement_reason, range, value, display)
@@ -3305,6 +3539,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.side.size = 1
 
 -- Display: Side
 cboe_bzxequities_binaryorderentry_boe_v2_3.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -3325,7 +3564,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.side.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.side, range, value, display)
@@ -3393,6 +3640,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_bzxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Sub Liquidity Indicator: No Value"
+  end
+
   if value == "E" then
     return "Sub Liquidity Indicator: Trade Added Rpi Liquidity (E)"
   end
@@ -3422,7 +3674,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.sub_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.sub_liquidity_indicator, range, value, display)
@@ -3555,6 +3815,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.time_in_force.size = 1
 
 -- Display: Time In Force
 cboe_bzxequities_binaryorderentry_boe_v2_3.time_in_force.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Time In Force: No Value"
+  end
+
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -3599,7 +3864,15 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.time_in_force, range, value, display)

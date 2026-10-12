@@ -8067,7 +8067,7 @@ euronext_optiq_marketdatagateway_sbe_v3_0.settlement_method.size = 1
 -- Display: Settlement Method
 euronext_optiq_marketdatagateway_sbe_v3_0.settlement_method.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Settlement Method: No Value"
   end
 

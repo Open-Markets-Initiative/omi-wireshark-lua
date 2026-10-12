@@ -2060,7 +2060,7 @@ cme_globex_streamlined_sbe_v5_8.md_entry_type.size = 1
 -- Display: Md Entry Type
 cme_globex_streamlined_sbe_v5_8.md_entry_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Md Entry Type: No Value"
   end
 
@@ -2311,7 +2311,7 @@ cme_globex_streamlined_sbe_v5_8.md_update_action_char.size = 1
 -- Display: Md Update Action Char
 cme_globex_streamlined_sbe_v5_8.md_update_action_char.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Md Update Action Char: No Value"
   end
 
@@ -2976,7 +2976,7 @@ cme_globex_streamlined_sbe_v5_8.quote_condition.size = 1
 -- Display: Quote Condition
 cme_globex_streamlined_sbe_v5_8.quote_condition.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Quote Condition: No Value"
   end
 
@@ -3586,7 +3586,7 @@ cme_globex_streamlined_sbe_v5_8.security_alt_id_source.size = 1
 -- Display: Security Alt Id Source
 cme_globex_streamlined_sbe_v5_8.security_alt_id_source.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Security Alt Id Source: No Value"
   end
 
@@ -3622,7 +3622,7 @@ cme_globex_streamlined_sbe_v5_8.security_alt_id_source_optional.size = 1
 -- Display: Security Alt Id Source Optional
 cme_globex_streamlined_sbe_v5_8.security_alt_id_source_optional.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Security Alt Id Source Optional: No Value"
   end
 
@@ -4918,7 +4918,7 @@ cme_globex_streamlined_sbe_v5_8.user_defined_instrument.size = 1
 -- Display: User Defined Instrument
 cme_globex_streamlined_sbe_v5_8.user_defined_instrument.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "User Defined Instrument: No Value"
   end
 

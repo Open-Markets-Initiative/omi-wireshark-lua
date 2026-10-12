@@ -3049,8 +3049,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.size =
   nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm_value.size
 
 -- Display: Firm
-nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.display = function(packet, parent, value, length)
+  -- Check if struct has text
+  if value == nil or value == '' then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Firm
@@ -3060,7 +3065,19 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.fields = function(buffer, off
   -- Firm Value: Alpha
   index, firm_value = nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm_value.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Struct text: the bytes the fields covered, trimmed at the first null
+  local firm = ''
+  if index > offset then
+    local text = buffer(offset, index - offset)
+    local tail = buffer(index - 1, 1):uint()
+    if tail == 0 then
+      firm = text:stringz()
+    else
+      firm = text:string()
+    end
+  end
+
+  return index, firm
 end
 
 -- Dissect: Firm
@@ -3068,13 +3085,13 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.dissect = function(buffer, of
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.firm, buffer(offset, 0))
-    local index = nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.fields(buffer, offset, packet, parent)
+    local index, value = nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.display(packet, parent, length)
+    local display = nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return nasdaq_nordicequities_orderentry_ouch_v5_02_6.firm.fields(buffer, offset, packet, parent)
@@ -3157,8 +3174,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.si
   nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number_value.size
 
 -- Display: Original Order Reference Number
-nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Original Order Reference Number
@@ -3182,7 +3199,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.di
     local display = nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_reference_number.fields(buffer, offset, packet, parent)
@@ -3197,8 +3214,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.size =
   nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date_value.size
 
 -- Display: Original Order Entry Date
-nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.display = function(packet, parent, length)
+  return ""
 end
 
 -- Dissect Fields: Original Order Entry Date
@@ -3222,7 +3239,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.dissect 
     local display = nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.display(packet, parent, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return nasdaq_nordicequities_orderentry_ouch_v5_02_6.original_order_entry_date.fields(buffer, offset, packet, parent)

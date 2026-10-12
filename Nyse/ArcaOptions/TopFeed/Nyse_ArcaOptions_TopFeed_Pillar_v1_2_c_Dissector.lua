@@ -382,6 +382,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.size = 1
 
 -- Display: Auction Type
 nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "O" then
     return "Auction Type: Opening (O)"
   end
@@ -396,7 +401,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.auction_type, range, value, display)
@@ -504,6 +517,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.capacity.size = 1
 
 -- Display: Capacity
 nyse_arcaoptions_topfeed_pillar_v1_2_c.capacity.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Capacity: No Value"
+  end
+
   if value == " " then
     return "Capacity: Not Specified (<whitespace>)"
   end
@@ -530,7 +548,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.capacity.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.capacity.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.capacity, range, value, display)
@@ -592,6 +618,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.size = 1
 
 -- Display: Closing Only Indicator
 nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Closing Only Indicator: No Value"
+  end
+
   if value == "0" then
     return "Closing Only Indicator: Standard Series (0)"
   end
@@ -606,7 +637,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.closing_only_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.closing_only_indicator, range, value, display)
@@ -771,6 +810,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.exchange_code.size = 1
 
 -- Display: Exchange Code
 nyse_arcaoptions_topfeed_pillar_v1_2_c.exchange_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Exchange Code: No Value"
+  end
+
   if value == "A" then
     return "Exchange Code: Nyse American (A)"
   end
@@ -803,7 +847,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.exchange_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.exchange_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.exchange_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.exchange_code, range, value, display)
@@ -819,6 +871,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.size = 1
 
 -- Display: Halt Condition
 nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Halt Condition: No Value"
+  end
+
   if value == "~" then
     return "Halt Condition: Security Not Delayed Or Halted (~)"
   end
@@ -875,7 +932,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.halt_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.halt_condition, range, value, display)
@@ -937,6 +1002,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Imbalance Side: No Value"
+  end
+
   if value == "B" then
     return "Imbalance Side: Buy (B)"
   end
@@ -954,7 +1024,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.imbalance_side, range, value, display)
@@ -1176,6 +1254,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.size = 1
 
 -- Display: Market State
 nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market State: No Value"
+  end
+
   if value == "P" then
     return "Market State: Preopening (P)"
   end
@@ -1199,7 +1282,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_state, range, value, display)
@@ -1433,6 +1524,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.size = 1
 
 -- Display: Offical
 nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Offical: No Value"
+  end
+
   return "Offical: "..value
 end
 
@@ -1440,7 +1536,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.offical.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.offical, range, value, display)
@@ -1479,6 +1583,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.size = 1
 
 -- Display: Opening
 nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Opening: No Value"
+  end
+
   if value == " " then
     return "Opening: None (<whitespace>)"
   end
@@ -1496,7 +1605,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.opening.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.opening, range, value, display)
@@ -1877,6 +1994,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.size = 1
 
 -- Display: Quote Condition
 nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Quote Condition: No Value"
+  end
+
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -1894,7 +2016,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.quote_condition, range, value, display)
@@ -2071,6 +2201,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.rfq_status.size = 1
 
 -- Display: Rfq Status
 nyse_arcaoptions_topfeed_pillar_v1_2_c.rfq_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Rfq Status: No Value"
+  end
+
   if value == "O" then
     return "Rfq Status: Start (O)"
   end
@@ -2085,7 +2220,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.rfq_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.rfq_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.rfq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.rfq_status, range, value, display)
@@ -2101,6 +2244,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.size = 1
 
 -- Display: Round Lot
 nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Round Lot: No Value"
+  end
+
   if value == "Y" then
     return "Round Lot: Yes (Y)"
   end
@@ -2115,7 +2263,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.round_lot.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.round_lot, range, value, display)
@@ -2178,6 +2334,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.size = 1
 
 -- Display: Security Status
 nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Status: No Value"
+  end
+
   if value == "4" then
     return "Security Status: Trading Halt (4)"
   end
@@ -2228,7 +2389,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.security_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_status, range, value, display)
@@ -2244,6 +2413,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.security_type.size = 1
 
 -- Display: Security Type
 nyse_arcaoptions_topfeed_pillar_v1_2_c.security_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Security Type: No Value"
+  end
+
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -2300,7 +2474,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.security_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.security_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_type, range, value, display)
@@ -2339,6 +2521,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.series.size = 1
 
 -- Display: Series
 nyse_arcaoptions_topfeed_pillar_v1_2_c.series.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Series: No Value"
+  end
+
   if value == "a" then
     return "Series: Cube (a)"
   end
@@ -2389,7 +2576,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.series.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.series.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.series.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series, range, value, display)
@@ -2451,6 +2646,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.size = 1
 
 -- Display: Series Status
 nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Series Status: No Value"
+  end
+
   if value == "4" then
     return "Series Status: Trading Halt (4)"
   end
@@ -2480,7 +2680,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.series_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series_status, range, value, display)
@@ -2552,6 +2760,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.side.size = 1
 
 -- Display: Side
 nyse_arcaoptions_topfeed_pillar_v1_2_c.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -2566,7 +2779,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.side, range, value, display)
@@ -2667,6 +2888,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_state.size = 1
 
 -- Display: Ssr State
 nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_state.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr State: No Value"
+  end
+
   if value == "~" then
     return "Ssr State: No Short Sale Restriction In Effect (~)"
   end
@@ -2681,7 +2907,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.ssr_state, range, value, display)
@@ -2697,6 +2931,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
 nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ssr Triggering Exchange Id: No Value"
+  end
+
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -2771,7 +3010,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.ssr_triggering_exchange_id, range, value, display)
@@ -2810,6 +3057,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.status.size = 1
 
 -- Display: Status
 nyse_arcaoptions_topfeed_pillar_v1_2_c.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
   if value == "0" then
     return "Status: Accepted (0)"
   end
@@ -2848,7 +3100,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.status, range, value, display)
@@ -3159,6 +3419,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.size = 1
 
 -- Display: Transaction
 nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Transaction: No Value"
+  end
+
   if value == "H" then
     return "Transaction: Opening Trade In Sequence (H)"
   end
@@ -3179,7 +3444,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.transaction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.transaction, range, value, display)
@@ -3195,6 +3468,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.type.size = 1
 
 -- Display: Type
 nyse_arcaoptions_topfeed_pillar_v1_2_c.type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Type: No Value"
+  end
+
   if value == "P" then
     return "Type: Price Improvement (P)"
   end
@@ -3218,7 +3496,15 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.type, range, value, display)

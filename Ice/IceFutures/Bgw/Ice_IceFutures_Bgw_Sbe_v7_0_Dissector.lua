@@ -2727,7 +2727,7 @@ ice_icefutures_bgw_sbe_v7_0.implied_type.size = 1
 -- Display: Implied Type
 ice_icefutures_bgw_sbe_v7_0.implied_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Implied Type: No Value"
   end
 

@@ -3799,7 +3799,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.size 
 -- Display: Closing Price Type Code
 koscom_mdcsrealtime_nightderivatives_exture_v2_018.closing_price_type_code.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Closing Price Type Code: No Value"
   end
 

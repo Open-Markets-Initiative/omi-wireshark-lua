@@ -515,7 +515,7 @@ cme_globex_settlements_sbe_v7_0.md_entry_type.size = 1
 -- Display: Md Entry Type
 cme_globex_settlements_sbe_v7_0.md_entry_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == 0 then
     return "Md Entry Type: No Value"
   end
 
