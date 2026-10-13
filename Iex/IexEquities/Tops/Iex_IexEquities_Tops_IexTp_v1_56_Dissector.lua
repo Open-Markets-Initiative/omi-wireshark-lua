@@ -656,7 +656,11 @@ iex_iexequities_tops_iextp_v1_56.version.size = 1
 
 -- Display: Version
 iex_iexequities_tops_iextp_v1_56.version.display = function(value)
-  return "Version: "..value
+  if value == 1 then
+    return "Version: Iex Tp"
+  end
+
+  return "Version: Unknown("..value..")"
 end
 
 -- Dissect: Version
@@ -1181,7 +1185,7 @@ end
 iex_iexequities_tops_iextp_v1_56.iextp_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: 1 Byte Unsigned Fixed Width Integer Static
   index, version = iex_iexequities_tops_iextp_v1_56.version.dissect(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte
@@ -1283,6 +1287,18 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Version Field
+iex_iexequities_tops_iextp_v1_56.version.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 1):le_uint()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Message Protocol Id Field
 iex_iexequities_tops_iextp_v1_56.message_protocol_id.verify = function(buffer)
   -- Attempt to read field
@@ -1299,6 +1315,9 @@ end
 local function omi_iex_iexequities_tops_iextp_v1_56_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not iex_iexequities_tops_iextp_v1_56.packet.requiredsize(buffer) then return false end
+
+  -- Verify Version
+  if not iex_iexequities_tops_iextp_v1_56.version.verify(buffer) then return false end
 
   -- Verify Message Protocol Id
   if not iex_iexequities_tops_iextp_v1_56.message_protocol_id.verify(buffer) then return false end

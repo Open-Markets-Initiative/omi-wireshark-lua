@@ -213,6 +213,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.board_lot.size = 2
 
 -- Display: Board Lot
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.board_lot.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Board Lot: No Value"
+  end
+
   return "Board Lot: "..value
 end
 
@@ -236,6 +241,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.size = 2
 
 -- Display: Broker Number
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Broker Number: No Value"
+  end
+
   return "Broker Number: "..value
 end
 
@@ -259,6 +269,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.size = 2
 
 -- Display: Buy Broker Number
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Buy Broker Number: No Value"
+  end
+
   return "Buy Broker Number: "..value
 end
 
@@ -282,6 +297,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_display_volume.size = 4
 
 -- Display: Buy Display Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_display_volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Buy Display Volume: No Value"
+  end
+
   return "Buy Display Volume: "..value
 end
 
@@ -305,6 +325,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_maximum_quantity.size = 4
 
 -- Display: Buy Maximum Quantity
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_maximum_quantity.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Buy Maximum Quantity: No Value"
+  end
+
   return "Buy Maximum Quantity: "..value
 end
 
@@ -328,6 +353,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_minimum_quantity.size = 4
 
 -- Display: Buy Minimum Quantity
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_minimum_quantity.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Buy Minimum Quantity: No Value"
+  end
+
   return "Buy Minimum Quantity: "..value
 end
 
@@ -351,6 +381,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_order_id.size = 8
 
 -- Display: Buy Order Id
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Buy Order Id: No Value"
+  end
+
   return "Buy Order Id: "..value
 end
 
@@ -403,12 +438,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.size = 8
 
 -- Display: Calculated Opening Price
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Calculated Opening Price: No Value"
+  end
+
   return "Calculated Opening Price: "..value
 end
 
 -- Translate: Calculated Opening Price
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -418,7 +463,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.dissect = function(b
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.calculated_opening_price, range, value, display)
 
@@ -556,12 +601,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.size = 8
 
 -- Display: Face Value
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Face Value: No Value"
+  end
+
   return "Face Value: "..value
 end
 
 -- Translate: Face Value
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -571,7 +626,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.face_value, range, value, display)
 
@@ -585,12 +640,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.size = 8
 
 -- Display: Far Indicative Closing Price
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Far Indicative Closing Price: No Value"
+  end
+
   return "Far Indicative Closing Price: "..value
 end
 
 -- Translate: Far Indicative Closing Price
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -600,7 +665,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.dissect = functi
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.far_indicative_closing_price, range, value, display)
 
@@ -614,12 +679,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.size = 8
 
 -- Display: Imbalance Reference Price
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Imbalance Reference Price: No Value"
+  end
+
   return "Imbalance Reference Price: "..value
 end
 
 -- Translate: Imbalance Reference Price
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -629,7 +704,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.dissect = function(
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.imbalance_reference_price, range, value, display)
 
@@ -677,6 +752,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_volume.size = 4
 
 -- Display: Imbalance Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Imbalance Volume: No Value"
+  end
+
   return "Imbalance Volume: "..value
 end
 
@@ -822,12 +902,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.size = 8
 
 -- Display: Last Sale
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Last Sale: No Value"
+  end
+
   return "Last Sale: "..value
 end
 
 -- Translate: Last Sale
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -837,7 +927,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.dissect = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.last_sale, range, value, display)
 
@@ -930,6 +1020,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_order_imbalance_volume.size = 4
 
 -- Display: Market Order Imbalance Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_order_imbalance_volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Market Order Imbalance Volume: No Value"
+  end
+
   return "Market Order Imbalance Volume: "..value
 end
 
@@ -1213,12 +1308,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.size = 8
 
 -- Display: Near Indicative Closing Price
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Near Indicative Closing Price: No Value"
+  end
+
   return "Near Indicative Closing Price: "..value
 end
 
 -- Translate: Near Indicative Closing Price
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1228,7 +1333,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.dissect = funct
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.near_indicative_closing_price, range, value, display)
 
@@ -1296,6 +1401,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.size = 8
 
 -- Display: Order Id
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -1349,6 +1459,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.orig_trade_number.size = 4
 
 -- Display: Orig Trade Number
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.orig_trade_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Orig Trade Number: No Value"
+  end
+
   return "Orig Trade Number: "..value
 end
 
@@ -1372,6 +1487,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.paired_volume.size = 4
 
 -- Display: Paired Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.paired_volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Paired Volume: No Value"
+  end
+
   return "Paired Volume: "..value
 end
 
@@ -1394,12 +1514,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.price = {}
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.size = 8
 
 -- Display: Price
-tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.display = function(value)
+tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1409,7 +1539,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.translate(raw)
-  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6.fields.price, range, value, display)
 
@@ -1544,6 +1674,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.size = 2
 
 -- Display: Sell Broker Number
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Sell Broker Number: No Value"
+  end
+
   return "Sell Broker Number: "..value
 end
 
@@ -1567,6 +1702,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_display_volume.size = 4
 
 -- Display: Sell Display Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_display_volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Sell Display Volume: No Value"
+  end
+
   return "Sell Display Volume: "..value
 end
 
@@ -1590,6 +1730,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_maximum_quantity.size = 4
 
 -- Display: Sell Maximum Quantity
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_maximum_quantity.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Sell Maximum Quantity: No Value"
+  end
+
   return "Sell Maximum Quantity: "..value
 end
 
@@ -1613,6 +1758,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_minimum_quantity.size = 4
 
 -- Display: Sell Minimum Quantity
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_minimum_quantity.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Sell Minimum Quantity: No Value"
+  end
+
   return "Sell Minimum Quantity: "..value
 end
 
@@ -1636,6 +1786,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_order_id.size = 8
 
 -- Display: Sell Order Id
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Sell Order Id: No Value"
+  end
+
   return "Sell Order Id: "..value
 end
 
@@ -1728,6 +1883,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.size = 4
 
 -- Display: Settlement Date
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Settlement Date: No Value"
+  end
+
   return "Settlement Date: "..value
 end
 
@@ -1843,6 +2003,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_group.size = 1
 
 -- Display: Stock Group
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_group.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Stock Group: No Value"
+  end
+
   return "Stock Group: "..value
 end
 
@@ -1990,7 +2155,15 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_date.size = 4
 
 -- Display: Trade Date
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_date.display = function(value)
-  return "Trade Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date
@@ -2013,6 +2186,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.size = 4
 
 -- Display: Trade Number
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Number: No Value"
+  end
+
   return "Trade Number: "..value
 end
 
@@ -2036,7 +2214,16 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.size = 4
 
 -- Display: Trade Time Stamp
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.display = function(value)
-  return "Trade Time Stamp: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Time Stamp: No Value"
+  end
+
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Trade Time Stamp
@@ -2059,6 +2246,12 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.size = 8
 
 -- Display: Trading System Time Stamp
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Trading System Time Stamp: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -2086,6 +2279,11 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.size = 4
 
 -- Display: Volume
 tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Volume: No Value"
+  end
+
   return "Volume: "..value
 end
 
@@ -2138,28 +2336,28 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_correction_terms_message.fields = funct
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.dissect(buffer, index, packet, parent)
 
   -- Initiated By: 1 Byte Ascii String Enum with 3 values
   index, initiated_by = tmx_tsx_quantumfeedlevel2_xmt_v3_6.initiated_by.dissect(buffer, index, packet, parent)
 
-  -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, orig_trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.orig_trade_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
@@ -2168,13 +2366,13 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_correction_terms_message.fields = funct
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
   index, settlement_terms = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_terms.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
   index, cross_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2234,37 +2432,37 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_correction_message.fields = function(bu
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.dissect(buffer, index, packet, parent)
 
   -- Initiated By: 1 Byte Ascii String Enum with 3 values
   index, initiated_by = tmx_tsx_quantumfeedlevel2_xmt_v3_6.initiated_by.dissect(buffer, index, packet, parent)
 
-  -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, orig_trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.orig_trade_number.dissect(buffer, index, packet, parent)
 
   -- Bypass: 1 Byte Ascii String Enum with 2 values
   index, bypass = tmx_tsx_quantumfeedlevel2_xmt_v3_6.bypass.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
   index, cross_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
@@ -2273,7 +2471,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_correction_message.fields = function(bu
   -- Product Type: 1 Byte Ascii String Enum with 6 values
   index, product_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.product_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_date.dissect(buffer, index, packet, parent)
 
   -- Is Mid Only: 1 Byte Ascii String Enum with 2 values
@@ -2327,10 +2525,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_cancelled_terms_message.fields = functi
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2378,10 +2576,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_cancelled_message.fields = function(buf
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
@@ -2390,7 +2588,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_cancelled_message.fields = function(buf
   -- Product Type: 1 Byte Ascii String Enum with 6 values
   index, product_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.product_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_date.dissect(buffer, index, packet, parent)
 
   return index
@@ -2448,34 +2646,34 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_report_terms_message.fields = function(
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, buy_order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, buy_display_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_display_volume.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sell_order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, sell_display_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_display_volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
@@ -2484,13 +2682,13 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_report_terms_message.fields = function(
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
   index, settlement_terms = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_terms.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
   index, cross_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2552,43 +2750,43 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_report_message.fields = function(buffer
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, buy_order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_order_id.dissect(buffer, index, packet, parent)
 
-  -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, buy_display_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_display_volume.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sell_order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_order_id.dissect(buffer, index, packet, parent)
 
-  -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, sell_display_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_display_volume.dissect(buffer, index, packet, parent)
 
   -- Bypass: 1 Byte Ascii String Enum with 2 values
   index, bypass = tmx_tsx_quantumfeedlevel2_xmt_v3_6.bypass.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
   index, cross_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
@@ -2597,7 +2795,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_report_message.fields = function(buffer
   -- Product Type: 1 Byte Ascii String Enum with 6 values
   index, product_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.product_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trade_date.dissect(buffer, index, packet, parent)
 
   -- Is Mid Only: 1 Byte Ascii String Enum with 2 values
@@ -2660,7 +2858,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_status_message.fields = function(buffer
   -- Stock State: 2 Byte Ascii String Enum with 8 values
   index, stock_state = tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_state.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
@@ -2716,25 +2914,25 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_price_time_assigned_terms_message.field
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2784,25 +2982,25 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_price_time_assigned_message.fields = fu
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2849,16 +3047,16 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_cancelled_terms_message.fields = functi
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2905,16 +3103,16 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_cancelled_message.fields = function(buf
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2967,19 +3165,19 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_booked_terms_message.fields = function(
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
@@ -2988,13 +3186,13 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_booked_terms_message.fields = function(
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
   index, settlement_terms = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_terms.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3044,25 +3242,25 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_booked_message.fields = function(buffer
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3117,28 +3315,28 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.moc_imbalance_message.fields = function(buffe
   -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
   index, imbalance_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, imbalance_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_volume.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Imbalance Reference Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, imbalance_reference_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.imbalance_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, paired_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.paired_volume.dissect(buffer, index, packet, parent)
 
-  -- Market Order Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Market Order Imbalance Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, market_order_imbalance_volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_order_imbalance_volume.dissect(buffer, index, packet, parent)
 
   -- Market Order Imbalance Side: 1 Byte Ascii String Enum with 3 values
   index, market_order_imbalance_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_order_imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Near Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
+  -- Near Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, near_indicative_closing_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.near_indicative_closing_price.dissect(buffer, index, packet, parent)
 
-  -- Far Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
+  -- Far Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, far_indicative_closing_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.far_indicative_closing_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3183,10 +3381,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_state_update_message.fields = function
   -- Market State: 1 Byte Ascii String Enum with 17 values
   index, market_state = tmx_tsx_quantumfeedlevel2_xmt_v3_6.market_state.dissect(buffer, index, packet, parent)
 
-  -- Stock Group: 1 Byte Unsigned Fixed Width Integer
+  -- Stock Group: 1 Byte Unsigned Fixed Width Integer Nullable
   index, stock_group = tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_group.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3234,13 +3432,13 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.cop_limit.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -3287,7 +3485,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.assign_limit_message.fields = function(buffer
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
+  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, calculated_opening_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
@@ -3298,7 +3496,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.assign_limit_message.fields = function(buffer
     index, cop_limit = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cop_limit.dissect(buffer, index, packet, parent, cop_limit_index)
   end
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3343,10 +3541,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.assign_cop_no_orders_message.fields = functio
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
+  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, calculated_opening_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3393,10 +3591,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.cop_order.fields = function(buffer, offset, p
     iteration:set_generated()
   end
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3443,7 +3641,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.assign_cop_orders_message.fields = function(b
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
+  -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, calculated_opening_price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.calculated_opening_price.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
@@ -3454,7 +3652,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.assign_cop_orders_message.fields = function(b
     index, cop_order = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cop_order.dissect(buffer, index, packet, parent, cop_order_index)
   end
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3506,19 +3704,19 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_book_terms_message.fields = function(bu
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
@@ -3527,10 +3725,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_book_terms_message.fields = function(bu
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
   index, settlement_terms = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_terms.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3582,19 +3780,19 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_book_message.fields = function(buffer, 
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, broker_number = tmx_tsx_quantumfeedlevel2_xmt_v3_6.broker_number.dissect(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_side.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsx_quantumfeedlevel2_xmt_v3_6.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsx_quantumfeedlevel2_xmt_v3_6.volume.dissect(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
@@ -3603,10 +3801,10 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.order_book_message.fields = function(buffer, 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
   index, settlement_terms = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_terms.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
+  -- Settlement Date: 4 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_date = tmx_tsx_quantumfeedlevel2_xmt_v3_6.settlement_date.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, priority_time_stamp = tmx_tsx_quantumfeedlevel2_xmt_v3_6.priority_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3664,22 +3862,22 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol_status_message.fields = function(buffe
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol.dissect(buffer, index, packet, parent)
 
-  -- Stock Group: 1 Byte Unsigned Fixed Width Integer
+  -- Stock Group: 1 Byte Unsigned Fixed Width Integer Nullable
   index, stock_group = tmx_tsx_quantumfeedlevel2_xmt_v3_6.stock_group.dissect(buffer, index, packet, parent)
 
   -- Cusip: 12 Byte Ascii String
   index, cusip = tmx_tsx_quantumfeedlevel2_xmt_v3_6.cusip.dissect(buffer, index, packet, parent)
 
-  -- Board Lot: 2 Byte Unsigned Fixed Width Integer
+  -- Board Lot: 2 Byte Unsigned Fixed Width Integer Nullable
   index, board_lot = tmx_tsx_quantumfeedlevel2_xmt_v3_6.board_lot.dissect(buffer, index, packet, parent)
 
   -- Currency: 1 Byte Ascii String Enum with 2 values
   index, currency = tmx_tsx_quantumfeedlevel2_xmt_v3_6.currency.dissect(buffer, index, packet, parent)
 
-  -- Face Value: 8 Byte Unsigned Fixed Width Integer
+  -- Face Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, face_value = tmx_tsx_quantumfeedlevel2_xmt_v3_6.face_value.dissect(buffer, index, packet, parent)
 
-  -- Last Sale: 8 Byte Unsigned Fixed Width Integer
+  -- Last Sale: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale = tmx_tsx_quantumfeedlevel2_xmt_v3_6.last_sale.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
@@ -3688,16 +3886,16 @@ tmx_tsx_quantumfeedlevel2_xmt_v3_6.symbol_status_message.fields = function(buffe
   -- Product Type: 1 Byte Ascii String Enum with 6 values
   index, product_type = tmx_tsx_quantumfeedlevel2_xmt_v3_6.product_type.dissect(buffer, index, packet, parent)
 
-  -- Buy Maximum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Maximum Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
   index, buy_maximum_quantity = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_maximum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Buy Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Minimum Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
   index, buy_minimum_quantity = tmx_tsx_quantumfeedlevel2_xmt_v3_6.buy_minimum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sell Maximum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Maximum Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
   index, sell_maximum_quantity = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_maximum_quantity.dissect(buffer, index, packet, parent)
 
-  -- Sell Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Minimum Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
   index, sell_minimum_quantity = tmx_tsx_quantumfeedlevel2_xmt_v3_6.sell_minimum_quantity.dissect(buffer, index, packet, parent)
 
   -- Stock State: 2 Byte Ascii String Enum with 8 values

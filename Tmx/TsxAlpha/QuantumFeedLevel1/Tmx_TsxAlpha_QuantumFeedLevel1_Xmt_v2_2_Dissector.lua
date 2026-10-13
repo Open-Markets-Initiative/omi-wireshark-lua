@@ -169,12 +169,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.size = 8
 
 -- Display: Ask Price
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.display = function(value)
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Ask Price: No Value"
+  end
+
   return "Ask Price: "..value
 end
 
 -- Translate: Ask Price
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -184,7 +194,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.dissect = function(buffer, off
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.translate(raw)
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.ask_price, range, value, display)
 
@@ -199,6 +209,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_size.size = 4
 
 -- Display: Ask Size
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_size.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Ask Size: No Value"
+  end
+
   return "Ask Size: "..value
 end
 
@@ -221,12 +236,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.size = 8
 
 -- Display: Bid Price
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.display = function(value)
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Bid Price: No Value"
+  end
+
   return "Bid Price: "..value
 end
 
 -- Translate: Bid Price
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -236,7 +261,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.dissect = function(buffer, off
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.translate(raw)
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.bid_price, range, value, display)
 
@@ -251,6 +276,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_size.size = 4
 
 -- Display: Bid Size
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_size.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Bid Size: No Value"
+  end
+
   return "Bid Size: "..value
 end
 
@@ -274,6 +304,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.board_lot.size = 2
 
 -- Display: Board Lot
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.board_lot.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Board Lot: No Value"
+  end
+
   return "Board Lot: "..value
 end
 
@@ -297,6 +332,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.buy_broker_number.size = 2
 
 -- Display: Buy Broker Number
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.buy_broker_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Buy Broker Number: No Value"
+  end
+
   return "Buy Broker Number: "..value
 end
 
@@ -470,12 +510,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.size = 8
 
 -- Display: Face Value
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.display = function(value)
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Face Value: No Value"
+  end
+
   return "Face Value: "..value
 end
 
 -- Translate: Face Value
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -485,7 +535,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.dissect = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.translate(raw)
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.face_value, range, value, display)
 
@@ -522,12 +572,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.size = 8
 
 -- Display: Last Sale
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.display = function(value)
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Last Sale: No Value"
+  end
+
   return "Last Sale: "..value
 end
 
 -- Translate: Last Sale
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -537,7 +597,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.dissect = function(buffer, off
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.translate(raw)
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.last_sale, range, value, display)
 
@@ -605,6 +665,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.min_po_qty.size = 4
 
 -- Display: Min Po Qty
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.min_po_qty.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Min Po Qty: No Value"
+  end
+
   return "Min Po Qty: "..value
 end
 
@@ -765,12 +830,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.size = 8
 
 -- Display: Price
-tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.display = function(value)
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -780,7 +855,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.translate(raw)
-  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.display(value, buffer, offset, packet, parent)
+  local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.fields.price, range, value, display)
 
@@ -882,6 +957,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.resume_trade_time.size = 4
 
 -- Display: Resume Trade Time
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.resume_trade_time.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Resume Trade Time: No Value"
+  end
+
   return "Resume Trade Time: "..value
 end
 
@@ -905,6 +985,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sell_broker_number.size = 2
 
 -- Display: Sell Broker Number
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sell_broker_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Sell Broker Number: No Value"
+  end
+
   return "Sell Broker Number: "..value
 end
 
@@ -1089,6 +1174,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_group.size = 1
 
 -- Display: Stock Group
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_group.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Stock Group: No Value"
+  end
+
   return "Stock Group: "..value
 end
 
@@ -1224,6 +1314,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_number.size = 4
 
 -- Display: Trade Number
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_number.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Number: No Value"
+  end
+
   return "Trade Number: "..value
 end
 
@@ -1247,6 +1342,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_time_stamp.size = 4
 
 -- Display: Trade Time Stamp
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_time_stamp.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Time Stamp: No Value"
+  end
+
   return "Trade Time Stamp: "..value
 end
 
@@ -1270,6 +1370,12 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.size = 8
 
 -- Display: Trading System Time Stamp
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Trading System Time Stamp: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -1297,6 +1403,11 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.volume.size = 4
 
 -- Display: Volume
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.volume.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Volume: No Value"
+  end
+
   return "Volume: "..value
 end
 
@@ -1341,19 +1452,19 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.equity_quote_message.fields = function(b
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_price = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, ask_price = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: 4 Byte Unsigned Fixed Width Integer Nullable
   index, ask_size = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1406,10 +1517,10 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_status_message.fields = function(b
   -- Stock State: 2 Byte Ascii String Enum with 4 values
   index, stock_state = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_state.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer
+  -- Resume Trade Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, resume_trade_time = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.resume_trade_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -1460,28 +1571,28 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_cancelled_message.fields = functio
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sell_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Last Sale: 8 Byte Unsigned Fixed Width Integer
+  -- Last Sale: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1537,22 +1648,22 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_message.fields = function(buffer, 
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: 4 Byte Unsigned Fixed Width Integer Nullable
   index, volume = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.volume.dissect(buffer, index, packet, parent)
 
-  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, buy_broker_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.buy_broker_number.dissect(buffer, index, packet, parent)
 
-  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
+  -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer Nullable
   index, sell_broker_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.sell_broker_number.dissect(buffer, index, packet, parent)
 
   -- Bypass: 1 Byte Ascii String Enum with 2 values
   index, bypass = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.bypass.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
@@ -1561,7 +1672,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_message.fields = function(buffer, 
   -- Cross Type: 1 Byte Ascii String Enum with 7 values
   index, cross_type = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Last Sale: 8 Byte Unsigned Fixed Width Integer
+  -- Last Sale: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.dissect(buffer, index, packet, parent)
 
   -- Opening Trade: 1 Byte Ascii String Enum with 2 values
@@ -1570,10 +1681,10 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_message.fields = function(buffer, 
   -- Is Dark: 1 Byte Ascii String
   index, is_dark = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.is_dark.dissect(buffer, index, packet, parent)
 
-  -- Trade Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_number = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trade_number.dissect(buffer, index, packet, parent)
 
-  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
+  -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trading_system_time_stamp = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.trading_system_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1627,7 +1738,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol_status_message.fields = function(
   -- Symbol: 12 Byte Ascii String
   index, symbol = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- Stock Group: 1 Byte Unsigned Fixed Width Integer
+  -- Stock Group: 1 Byte Unsigned Fixed Width Integer Nullable
   index, stock_group = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.stock_group.dissect(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 2 values
@@ -1639,19 +1750,19 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.symbol_status_message.fields = function(
   -- Cusip: 12 Byte Ascii String
   index, cusip = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.cusip.dissect(buffer, index, packet, parent)
 
-  -- Board Lot: 2 Byte Unsigned Fixed Width Integer
+  -- Board Lot: 2 Byte Unsigned Fixed Width Integer Nullable
   index, board_lot = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.board_lot.dissect(buffer, index, packet, parent)
 
   -- Currency: 1 Byte Ascii String Enum with 2 values
   index, currency = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Face Value: 8 Byte Unsigned Fixed Width Integer
+  -- Face Value: 8 Byte Unsigned Fixed Width Integer Nullable
   index, face_value = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.face_value.dissect(buffer, index, packet, parent)
 
-  -- Last Sale: 8 Byte Unsigned Fixed Width Integer
+  -- Last Sale: 8 Byte Unsigned Fixed Width Integer Nullable
   index, last_sale = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.last_sale.dissect(buffer, index, packet, parent)
 
-  -- Min Po Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Min Po Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_po_qty = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_2.min_po_qty.dissect(buffer, index, packet, parent)
 
   -- Stock State: 2 Byte Ascii String Enum with 4 values

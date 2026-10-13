@@ -19,9 +19,9 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_sequence_number
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.acceptedsession", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account = ProtoField.new("Account", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.account", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_request_appendage = ProtoField.new("Account Query Request Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryrequestappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_request_optional_field = ProtoField.new("Account Query Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryrequestoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_request_optional_field = ProtoField.new("Account Query Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryrequestoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_response_appendage = ProtoField.new("Account Query Response Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryresponseappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_response_optional_field = ProtoField.new("Account Query Response Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryresponseoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_response_optional_field = ProtoField.new("Account Query Response Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.accountqueryresponseoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.algorithm_id = ProtoField.new("Algorithm Id", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.algorithmid", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.allow_conditional = ProtoField.new("Allow Conditional", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.allowconditional", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.anonymous = ProtoField.new("Anonymous", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.anonymous", ftypes.STRING)
@@ -31,15 +31,15 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.broker_lei = ProtoField.
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.broker_pref = ProtoField.new("Broker Pref", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.brokerpref", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.bypass = ProtoField.new("Bypass", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.bypass", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_order_request_appendage = ProtoField.new("Cancel Order Request Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelorderrequestappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_order_request_optional_field = ProtoField.new("Cancel Order Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelorderrequestoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_order_request_optional_field = ProtoField.new("Cancel Order Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelorderrequestoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelreason", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_reject_appendage = ProtoField.new("Cancel Reject Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelrejectappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_reject_optional_field = ProtoField.new("Cancel Reject Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelrejectoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_reject_optional_field = ProtoField.new("Cancel Reject Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cancelrejectoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.clientpackettype", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.conditional_order = ProtoField.new("Conditional Order", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.conditionalorder", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.contra_broker = ProtoField.new("Contra Broker", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.contrabroker", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.corrected_trade_appendage = ProtoField.new("Corrected Trade Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.correctedtradeappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.corrected_trade_optional_field = ProtoField.new("Corrected Trade Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.correctedtradeoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.corrected_trade_optional_field = ProtoField.new("Corrected Trade Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.correctedtradeoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cum_rate = ProtoField.new("Cum Rate", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.cumrate", ftypes.UINT16)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.customer_account = ProtoField.new("Customer Account", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.customeraccount", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.customer_lei = ProtoField.new("Customer Lei", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.customerlei", ftypes.STRING)
@@ -48,7 +48,7 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.debug_text = ProtoField.
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.decrementshares", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.display_range = ProtoField.new("Display Range", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.displayrange", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.enter_order_appendage = ProtoField.new("Enter Order Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.enterorderappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.enter_order_optional_field = ProtoField.new("Enter Order Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.enterorderoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.enter_order_optional_field = ProtoField.new("Enter Order Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.enterorderoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.event_code = ProtoField.new("Event Code", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.eventcode", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.ex_destination = ProtoField.new("Ex Destination", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.exdestination", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.exec_broker = ProtoField.new("Exec Broker", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.execbroker", ftypes.STRING)
@@ -69,20 +69,20 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.nbbo_setter = ProtoField
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.next_user_ref_num = ProtoField.new("Next User Ref Num", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.nextuserrefnum", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.no_trade_feat = ProtoField.new("No Trade Feat", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.notradefeat", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.no_trade_key = ProtoField.new("No Trade Key", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.notradekey", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.optional_field_length = ProtoField.new("Optional Field Length", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.optionalfieldlength", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.optional_field_length = ProtoField.new("Optional Field Length", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.optionalfieldlength", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_accepted_appendage = ProtoField.new("Order Accepted Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderacceptedappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_accepted_optional_field = ProtoField.new("Order Accepted Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderacceptedoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_accepted_optional_field = ProtoField.new("Order Accepted Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderacceptedoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_canceled_appendage = ProtoField.new("Order Canceled Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.ordercanceledappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_canceled_optional_field = ProtoField.new("Order Canceled Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.ordercanceledoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_canceled_optional_field = ProtoField.new("Order Canceled Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.ordercanceledoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_executed_appendage = ProtoField.new("Order Executed Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderexecutedappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_executed_optional_field = ProtoField.new("Order Executed Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderexecutedoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_executed_optional_field = ProtoField.new("Order Executed Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderexecutedoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_origination = ProtoField.new("Order Origination", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderorigination", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_qty = ProtoField.new("Order Qty", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderqty", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_replaced_appendage = ProtoField.new("Order Replaced Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderreplacedappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_replaced_optional_field = ProtoField.new("Order Replaced Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderreplacedoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_replaced_optional_field = ProtoField.new("Order Replaced Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderreplacedoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_restated_appendage = ProtoField.new("Order Restated Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderrestatedappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_restated_optional_field = ProtoField.new("Order Restated Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderrestatedoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_restated_optional_field = ProtoField.new("Order Restated Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderrestatedoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_state = ProtoField.new("Order State", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.orderstate", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.orig_user_ref_num = ProtoField.new("Orig User Ref Num", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.origuserrefnum", ftypes.UINT32)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.packetlength", ftypes.UINT16)
@@ -99,9 +99,9 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.quantity_prevented_from_
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.reject_reason = ProtoField.new("Reject Reason", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.rejectreason", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.rejected_order_appendage = ProtoField.new("Rejected Order Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.rejectedorderappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.rejected_order_optional_field = ProtoField.new("Rejected Order Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.rejectedorderoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.rejected_order_optional_field = ProtoField.new("Rejected Order Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.rejectedorderoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_appendage = ProtoField.new("Replace Order Request Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.replaceorderrequestappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_optional_field = ProtoField.new("Replace Order Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.replaceorderrequestoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_optional_field = ProtoField.new("Replace Order Request Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.replaceorderrequestoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.reprice_reason = ProtoField.new("Reprice Reason", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.repricereason", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.requestedsession", ftypes.STRING)
@@ -114,7 +114,7 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.server_packet_type = Pro
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.short_marking_exempt = ProtoField.new("Short Marking Exempt", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.shortmarkingexempt", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.side = ProtoField.new("Side", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.side", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.stp_canceled_appendage = ProtoField.new("Stp Canceled Appendage", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.stpcanceledappendage", ftypes.STRING)
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.stp_canceled_optional_field = ProtoField.new("Stp Canceled Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.stpcanceledoptionalfield", ftypes.INT8)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.stp_canceled_optional_field = ProtoField.new("Stp Canceled Optional Field", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.stpcanceledoptionalfield", ftypes.UINT8)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.symbol = ProtoField.new("Symbol", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.symbol", ftypes.STRING)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.target_strategy = ProtoField.new("Target Strategy", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.targetstrategy", ftypes.UINT16)
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nasdaqcanada.orderentry.ouch.v5.0.1.4.timeinforce", ftypes.STRING)
@@ -396,7 +396,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_request_optional_field, range, value, display)
@@ -423,7 +423,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.account_query_response_optional_field, range, value, display)
@@ -669,7 +669,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_order_request_optional_field, range, value, display)
@@ -840,7 +840,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.cancel_reject_optional_field, range, value, display)
@@ -959,7 +959,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.corrected_trade_optional_field, range, value, display)
@@ -1258,7 +1258,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.enter_order_optional_field, range, value, display)
@@ -1913,7 +1913,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.optional_field_length, range, value, display)
@@ -2054,7 +2054,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_accepted_optional_field, range, value, display)
@@ -2081,7 +2081,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_canceled_optional_field, range, value, display)
@@ -2126,7 +2126,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_executed_optional_field, range, value, display)
@@ -2304,7 +2304,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_replaced_optional_field, range, value, display)
@@ -2334,7 +2334,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.order_restated_optional_field, range, value, display)
@@ -3184,7 +3184,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.rejected_order_optional_field, range, value, display)
@@ -3277,7 +3277,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.replace_order_request_optional_field, range, value, display)
@@ -3659,7 +3659,7 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.fields.stp_canceled_optional_field, range, value, display)
@@ -4138,10 +4138,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Account Query Response Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Account Query Response Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, account_query_response_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_optional_field.dissect(buffer, index, packet, parent)
 
   -- Account Query Response Optional Value: Runtime Type with 1 branches
@@ -4214,7 +4214,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_response_message.fiel
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Account Query Response Appendage
     local size_of_account_query_response_appendage = optional_field_length + 1
@@ -4273,10 +4273,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_appendage.fields = function(buffer, offset, packet, parent, size_of_order_restated_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Restated Optional Field: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Order Restated Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_restated_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_optional_field.dissect(buffer, index, packet, parent)
 
   -- Order Restated Optional Value: Runtime Type with 2 branches
@@ -4346,7 +4346,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_restated_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Order Restated Appendage
     local size_of_order_restated_appendage = optional_field_length + 1
@@ -4401,10 +4401,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Cancel Reject Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Cancel Reject Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, cancel_reject_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_optional_field.dissect(buffer, index, packet, parent)
 
   -- Cancel Reject Optional Value: Runtime Type with 1 branches
@@ -4474,7 +4474,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_reject_message.fields = func
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Cancel Reject Appendage
     local size_of_cancel_reject_appendage = optional_field_length + 1
@@ -4529,10 +4529,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_appendage.fields = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Rejected Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Rejected Order Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, rejected_order_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_optional_field.dissect(buffer, index, packet, parent)
 
   -- Rejected Order Optional Value: Runtime Type with 1 branches
@@ -4602,7 +4602,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.rejected_order_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Rejected Order Appendage
     local size_of_rejected_order_appendage = optional_field_length + 1
@@ -4657,10 +4657,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_appendage.fields = function(buffer, offset, packet, parent, size_of_corrected_trade_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Corrected Trade Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, corrected_trade_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_optional_field.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade Optional Value: Runtime Type with 1 branches
@@ -4736,7 +4736,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.corrected_trade_message.fields = fu
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Corrected Trade Appendage
     local size_of_corrected_trade_appendage = optional_field_length + 1
@@ -4815,10 +4815,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_appendage.fields = function(buffer, offset, packet, parent, size_of_order_executed_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Executed Optional Field: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Order Executed Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, order_executed_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_optional_field.dissect(buffer, index, packet, parent)
 
   -- Order Executed Optional Value: Runtime Type with 7 branches
@@ -4903,7 +4903,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_executed_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Order Executed Appendage
     local size_of_order_executed_appendage = optional_field_length + 1
@@ -4958,10 +4958,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_appendage.fields = function(buffer, offset, packet, parent, size_of_stp_canceled_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Stp Canceled Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Stp Canceled Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, stp_canceled_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_optional_field.dissect(buffer, index, packet, parent)
 
   -- Stp Canceled Optional Value: Runtime Type with 1 branches
@@ -5043,7 +5043,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.stp_canceled_message.fields = funct
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Stp Canceled Appendage
     local size_of_stp_canceled_appendage = optional_field_length + 1
@@ -5098,10 +5098,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_appendage.fields = function(buffer, offset, packet, parent, size_of_order_canceled_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Canceled Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Order Canceled Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, order_canceled_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_optional_field.dissect(buffer, index, packet, parent)
 
   -- Order Canceled Optional Value: Runtime Type with 1 branches
@@ -5174,7 +5174,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_canceled_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Order Canceled Appendage
     local size_of_order_canceled_appendage = optional_field_length + 1
@@ -5325,10 +5325,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_appendage.fields = function(buffer, offset, packet, parent, size_of_order_replaced_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Replaced Optional Field: 1 Byte Signed Fixed Width Integer Enum with 25 values
+  -- Order Replaced Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 25 values
   index, order_replaced_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_optional_field.dissect(buffer, index, packet, parent)
 
   -- Order Replaced Optional Value: Runtime Type with 25 branches
@@ -5416,7 +5416,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_replaced_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Order Replaced Appendage
     local size_of_order_replaced_appendage = optional_field_length + 1
@@ -5623,10 +5623,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_appendage.fields = function(buffer, offset, packet, parent, size_of_order_accepted_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Accepted Optional Field: 1 Byte Signed Fixed Width Integer Enum with 39 values
+  -- Order Accepted Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 39 values
   index, order_accepted_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_optional_field.dissect(buffer, index, packet, parent)
 
   -- Order Accepted Optional Value: Runtime Type with 39 branches
@@ -5723,7 +5723,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.order_accepted_message.fields = fun
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Order Accepted Appendage
     local size_of_order_accepted_appendage = optional_field_length + 1
@@ -6331,10 +6331,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_request_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Account Query Request Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Account Query Request Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, account_query_request_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_optional_field.dissect(buffer, index, packet, parent)
 
   -- Account Query Request Optional Value: Runtime Type with 1 branches
@@ -6383,17 +6383,11 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Runtime optional field: Appendage Length
-  local appendage_length = nil
-
-  local appendage_length_exists = index < buffer:len()
-
-  if appendage_length_exists then
-    index, appendage_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.appendage_length.dissect(buffer, index, packet, parent)
-  end
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.appendage_length.dissect(buffer, index, packet, parent)
 
   -- Dependency for Account Query Request Appendage
-  local end_of_payload = (appendage_length or 0) + index
+  local end_of_payload = appendage_length + index
 
   -- Account Query Request Appendage: Struct of 3 fields
   local message_index = 0
@@ -6401,7 +6395,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.account_query_request_message.field
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Account Query Request Appendage
     local size_of_account_query_request_appendage = optional_field_length + 1
@@ -6456,10 +6450,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_order_request_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Cancel Order Request Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  -- Cancel Order Request Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, cancel_order_request_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_optional_field.dissect(buffer, index, packet, parent)
 
   -- Cancel Order Request Optional Value: Runtime Type with 1 branches
@@ -6526,7 +6520,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.cancel_order_request_message.fields
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Cancel Order Request Appendage
     local size_of_cancel_order_request_appendage = optional_field_length + 1
@@ -6669,10 +6663,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_appendage.fields = function(buffer, offset, packet, parent, size_of_replace_order_request_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Replace Order Request Optional Field: 1 Byte Signed Fixed Width Integer Enum with 23 values
+  -- Replace Order Request Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 23 values
   index, replace_order_request_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_optional_field.dissect(buffer, index, packet, parent)
 
   -- Replace Order Request Optional Value: Runtime Type with 23 branches
@@ -6751,7 +6745,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.replace_order_request_message.field
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Replace Order Request Appendage
     local size_of_replace_order_request_appendage = optional_field_length + 1
@@ -6950,10 +6944,10 @@ end
 nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_appendage.fields = function(buffer, offset, packet, parent, size_of_enter_order_appendage)
   local index = offset
 
-  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  -- Optional Field Length: 1 Byte Unsigned Fixed Width Integer
   index, optional_field_length = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Enter Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 37 values
+  -- Enter Order Optional Field: 1 Byte Unsigned Fixed Width Integer Enum with 37 values
   index, enter_order_optional_field = nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_optional_field.dissect(buffer, index, packet, parent)
 
   -- Enter Order Optional Value: Runtime Type with 37 branches
@@ -7041,7 +7035,7 @@ nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.enter_order_message.fields = functi
     message_index = message_index + 1
 
     -- Dependency element: Optional Field Length
-    local optional_field_length = buffer(index, 1):int()
+    local optional_field_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Enter Order Appendage
     local size_of_enter_order_appendage = optional_field_length + 1
