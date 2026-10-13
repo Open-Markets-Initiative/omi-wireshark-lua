@@ -18388,6 +18388,7 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v5_16)
 --   Organization: Euronext
 --   Version: 5.16
 --   Date: Wednesday, June 1, 2022
+--   Specification: Euronext Cash and Derivatives Markets - Optiq MDG Messages - Interface Specification - External - v5.16.0 +TC.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

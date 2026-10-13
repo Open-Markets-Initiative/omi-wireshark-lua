@@ -18098,6 +18098,7 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v4_3)
 --   Organization: Euronext
 --   Version: 4.3
 --   Date: Friday, September 25, 2020
+--   Specification: Euronext Markets - Optiq MDG Client Specifications - v4.3.0 +TC.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

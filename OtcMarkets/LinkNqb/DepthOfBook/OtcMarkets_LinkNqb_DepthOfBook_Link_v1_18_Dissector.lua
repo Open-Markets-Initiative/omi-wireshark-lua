@@ -2603,7 +2603,7 @@ udp_table:add_for_decode_as(omi_otcmarkets_linknqb_depthofbook_link_v1_18)
 --   Organization: OTC Markets Group
 --   Version: 1.18
 --   Date: Friday, May 1, 2026
---   Specification: OTC-Link-NQB-MD-Specification.pdf
+--   Specification: OTC Link NQB Multicast Data Feeds Technical Specification v1.17.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

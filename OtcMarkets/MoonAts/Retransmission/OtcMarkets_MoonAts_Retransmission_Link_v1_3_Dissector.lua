@@ -3214,7 +3214,7 @@ tcp_table:add_for_decode_as(omi_otcmarkets_moonats_retransmission_link_v1_3)
 --   Organization: OTC Markets Group
 --   Version: 1.3
 --   Date: Friday, May 1, 2026
---   Specification: MOON-ATS-MD-Specification.pdf
+--   Specification: MOON ATS Multicast Data Feeds Specification v1.3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

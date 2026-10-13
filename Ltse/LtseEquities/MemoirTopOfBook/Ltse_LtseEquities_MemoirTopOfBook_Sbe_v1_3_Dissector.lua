@@ -69,6 +69,7 @@ omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_mes
 
 -- Ltse LtseEquities MemoirTopOfBook Sbe 1.3 Generated Fields
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
+omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "ltse.ltseequities.memoirtopofbook.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -81,12 +82,14 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.indexes = true
+show.sequences = true
 
 -- Register Ltse LtseEquities MemoirTopOfBook Sbe 1.3 Show Options
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs_changed()
@@ -103,6 +106,9 @@ function omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs_changed()
   end
   if show.indexes ~= omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes then
     show.indexes = omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes
+  end
+  if show.sequences ~= omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences then
+    show.sequences = omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences
   end
 end
 
@@ -1741,6 +1747,12 @@ ltse_ltseequities_memoirtopofbook_sbe_v1_3.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and ltse_ltseequities_memoirtopofbook_sbe_v1_3.packet_sequence ~= nil then
+    local sequence = parent:add(omi_ltse_ltseequities_memoirtopofbook_sbe_v1_3.fields.message_sequence_number, UInt64.new(ltse_ltseequities_memoirtopofbook_sbe_v1_3.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = ltse_ltseequities_memoirtopofbook_sbe_v1_3.message_length.dissect(buffer, index, packet, parent)
 
@@ -1881,6 +1893,9 @@ ltse_ltseequities_memoirtopofbook_sbe_v1_3.common_header.fields = function(buffe
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
   index, sequence_number = ltse_ltseequities_memoirtopofbook_sbe_v1_3.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  ltse_ltseequities_memoirtopofbook_sbe_v1_3.packet_sequence = sequence_number
 
   return index
 end

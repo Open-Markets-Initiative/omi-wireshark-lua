@@ -29839,6 +29839,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v12_1)
 --   Organization: Eurex Exchange
 --   Version: 12.1
 --   Date: Monday, March 11, 2024
+--   Specification: T7_R.12.1_Enhanced_Trading_Interface_-_Derivatives_Message_Reference_Version_2.pdf
 --   Specification: T7_R.12.1_Enhanced_Trading_Interface_-_Cash_Message_Reference_Version_2.pdf
 --
 -- Script:

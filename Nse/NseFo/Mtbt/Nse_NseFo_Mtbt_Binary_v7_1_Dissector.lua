@@ -1342,7 +1342,7 @@ udp_table:add_for_decode_as(omi_nse_nsefo_mtbt_binary_v7_1)
 --   Organization: National Stock Exchange of India Ltd
 --   Version: 7.1
 --   Date: Tuesday, September 1, 2026
---   Specification: MTBT_FO_NNF_PROTOCOL_7.1_20260902170959.pdf
+--   Specification: MTBT_CM_NNF_PROTOCOL_7.1_20260902170834.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

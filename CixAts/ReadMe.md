@@ -40,10 +40,10 @@
 
 [CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/CixAts/MarketDataFeed/CixAts_CixAspen_MarketDataFeed_Aspen_v1_4_Dissector.lua "CixAts MarketDataFeed Aspen v1.4 Wireshark Dissector"
 [CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.4 Url"
-[CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.pdf "CIX Trading Inc. 1.4 Pdf"
+[CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAspen/MarketDataFeed/CixAts.CixAspen.MarketDataFeed.Aspen.v1.4.pdf "CIX Trading Inc. 1.4 Pdf"
 [CixAts.CixAspen.Rerequest.Aspen.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/CixAts/Rerequest/CixAts_CixAspen_Rerequest_Aspen_v1_1_Dissector.lua "CixAts Rerequest Aspen v1.1 Wireshark Dissector"
 [CixAts.CixAspen.Rerequest.Aspen.v1.1.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.1 Url"
-[CixAts.CixAspen.Rerequest.Aspen.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAts.CixAspen.MarketDataFeed.Recovery.Aspen.v1.1.pdf "CIX Trading Inc. 1.1 Pdf"
+[CixAts.CixAspen.Rerequest.Aspen.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAspen/MarketDataFeed/CixAts.CixAspen.MarketDataFeed.Recovery.Aspen.v1.1.pdf "CIX Trading Inc. 1.1 Pdf"
 [CixAts.CixAspen.Snapshot.TcpOut.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/CixAts/Snapshot/CixAts_CixAspen_Snapshot_TcpOut_v1_1_Dissector.lua "CixAts Snapshot TcpOut v1.1 Wireshark Dissector"
 [CixAts.CixAspen.Snapshot.TcpOut.v1.1.Url]: https://www.thecix.ca/market-data "CIX Trading Inc. 1.1 Url"
-[CixAts.CixAspen.Snapshot.TcpOut.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAts.CixAspen.MarketDataFeed.Recovery.Aspen.v1.1.pdf "CIX Trading Inc. 1.1 Pdf"
+[CixAts.CixAspen.Snapshot.TcpOut.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/CixAts/Specifications/CixAspen/MarketDataFeed/CixAts.CixAspen.MarketDataFeed.Recovery.Aspen.v1.1.pdf "CIX Trading Inc. 1.1 Pdf"

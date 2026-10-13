@@ -4387,7 +4387,7 @@ udp_table:add_for_decode_as(omi_otcmarkets_linkats_multicast_link_v4_10_4)
 --   Organization: OTC Markets Group
 --   Version: 4.10.4
 --   Date: Tuesday, June 16, 2026
---   Specification: OTC Markets Multicast Data Feeds.pdf
+--   Specification: OTC Markets Multicast Data Feeds v4.10.4.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
