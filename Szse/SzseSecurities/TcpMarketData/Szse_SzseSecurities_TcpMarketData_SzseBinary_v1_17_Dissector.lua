@@ -6354,6 +6354,23 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.channel_heartbeat_message.dis
   end
 end
 
+-- Heartbeat Message
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Message
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.logout_message = {}
 
@@ -6469,7 +6486,7 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.payload.dissect = function(bu
   end
   -- Dissect Heartbeat Message
   if msg_type == 3 then
-    return offset
+    return szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Channel Heartbeat Message
   if msg_type == 390095 then

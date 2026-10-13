@@ -15,6 +15,8 @@ local nasdaq_bxequities_rash_asciirash_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq BxEquities Rash AsciiRash 1.0 Fields
+omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.bxequities.rash.asciirash.v1.0.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.bxequities.rash.asciirash.v1.0.acceptedsession", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.bxequities.rash.asciirash.v1.0.brokentradereason", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "nasdaq.bxequities.rash.asciirash.v1.0.cancelreason", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.capacity_rule_80_a_indicator = ProtoField.new("Capacity Rule 80 A Indicator", "nasdaq.bxequities.rash.asciirash.v1.0.capacityrule80aindicator", ftypes.STRING)
@@ -53,11 +55,9 @@ omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.reject_reason_code = ProtoField
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.bxequities.rash.asciirash.v1.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.bxequities.rash.asciirash.v1.0.requestedsession", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.route_dest_exec_broker = ProtoField.new("Route Dest Exec Broker", "nasdaq.bxequities.rash.asciirash.v1.0.routedestexecbroker", ftypes.STRING)
-omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.bxequities.rash.asciirash.v1.0.sequencenumber", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.bxequities.rash.asciirash.v1.0.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.bxequities.rash.asciirash.v1.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.bxequities.rash.asciirash.v1.0.serverpackettype", ftypes.STRING)
-omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.session = ProtoField.new("Session", "nasdaq.bxequities.rash.asciirash.v1.0.session", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.bxequities.rash.asciirash.v1.0.shares", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.shares_order_qty = ProtoField.new("Shares Order Qty", "nasdaq.bxequities.rash.asciirash.v1.0.sharesorderqty", ftypes.STRING)
 omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.side = ProtoField.new("Side", "nasdaq.bxequities.rash.asciirash.v1.0.side", ftypes.STRING)
@@ -242,6 +242,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq BxEquities Rash AsciiRash 1.0 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Broken Trade Reason
 nasdaq_bxequities_rash_asciirash_v1_0.broken_trade_reason = {}
@@ -1581,34 +1632,6 @@ nasdaq_bxequities_rash_asciirash_v1_0.route_dest_exec_broker.dissect = function(
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_bxequities_rash_asciirash_v1_0.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
-  local display = nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 nasdaq_bxequities_rash_asciirash_v1_0.sequenced_message_type = {}
 
@@ -1689,29 +1712,6 @@ nasdaq_bxequities_rash_asciirash_v1_0.server_packet_type.dissect = function(buff
   local display = nasdaq_bxequities_rash_asciirash_v1_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_bxequities_rash_asciirash_v1_0.session = {}
-
--- Size: Session
-nasdaq_bxequities_rash_asciirash_v1_0.session.size = 10
-
--- Display: Session
-nasdaq_bxequities_rash_asciirash_v1_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_bxequities_rash_asciirash_v1_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_bxequities_rash_asciirash_v1_0.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bxequities_rash_asciirash_v1_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_bxequities_rash_asciirash_v1_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2696,8 +2696,8 @@ nasdaq_bxequities_rash_asciirash_v1_0.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_bxequities_rash_asciirash_v1_0.login_accepted_packet.size =
-  nasdaq_bxequities_rash_asciirash_v1_0.session.size + 
-  nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.size
+  nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.size + 
+  nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_bxequities_rash_asciirash_v1_0.login_accepted_packet.display = function(packet, parent, length)
@@ -2708,11 +2708,11 @@ end
 nasdaq_bxequities_rash_asciirash_v1_0.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_bxequities_rash_asciirash_v1_0.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_bxequities_rash_asciirash_v1_0.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nasdaq_bxequities_rash_asciirash_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_bxequities_rash_asciirash_v1_0.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end

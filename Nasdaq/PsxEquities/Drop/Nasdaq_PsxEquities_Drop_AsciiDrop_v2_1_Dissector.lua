@@ -15,17 +15,15 @@ local nasdaq_psxequities_drop_asciidrop_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Drop AsciiDrop 2.1 Fields
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.drop.asciidrop.v2.1.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.psxequities.drop.asciidrop.v2.1.acceptedsession", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.buy_sell = ProtoField.new("Buy Sell", "nasdaq.psxequities.drop.asciidrop.v2.1.buysell", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.capacity = ProtoField.new("Capacity", "nasdaq.psxequities.drop.asciidrop.v2.1.capacity", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.clearing_code = ProtoField.new("Clearing Code", "nasdaq.psxequities.drop.asciidrop.v2.1.clearingcode", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.psxequities.drop.asciidrop.v2.1.clientpackettype", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.comma = ProtoField.new("Comma", "nasdaq.psxequities.drop.asciidrop.v2.1.comma", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.debugpacket", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.firm = ProtoField.new("Firm", "nasdaq.psxequities.drop.asciidrop.v2.1.firm", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.psxequities.drop.asciidrop.v2.1.liquidityflag", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginrequestpacket", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.match_number = ProtoField.new("Match Number", "nasdaq.psxequities.drop.asciidrop.v2.1.matchnumber", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.drop.asciidrop.v2.1.messagetype", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.password = ProtoField.new("Password", "nasdaq.psxequities.drop.asciidrop.v2.1.password", ftypes.STRING)
@@ -35,10 +33,8 @@ omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.reject_reason_code = ProtoFiel
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.replaced_token = ProtoField.new("Replaced Token", "nasdaq.psxequities.drop.asciidrop.v2.1.replacedtoken", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.drop.asciidrop.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.drop.asciidrop.v2.1.requestedsession", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.drop.asciidrop.v2.1.sequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.sequenceddatapacket", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.psxequities.drop.asciidrop.v2.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.session = ProtoField.new("Session", "nasdaq.psxequities.drop.asciidrop.v2.1.session", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.drop.asciidrop.v2.1.shares", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.psxequities.drop.asciidrop.v2.1.souplf", ftypes.INT8)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.source = ProtoField.new("Source", "nasdaq.psxequities.drop.asciidrop.v2.1.source", ftypes.STRING)
@@ -47,7 +43,6 @@ omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.text = ProtoField.new("Text", 
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.psxequities.drop.asciidrop.v2.1.timeinforce", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.time_stamp = ProtoField.new("Time Stamp", "nasdaq.psxequities.drop.asciidrop.v2.1.timestamp", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.token = ProtoField.new("Token", "nasdaq.psxequities.drop.asciidrop.v2.1.token", ftypes.STRING)
-omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.psxequities.drop.asciidrop.v2.1.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.user = ProtoField.new("User", "nasdaq.psxequities.drop.asciidrop.v2.1.user", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.username = ProtoField.new("Username", "nasdaq.psxequities.drop.asciidrop.v2.1.username", ftypes.STRING)
@@ -60,6 +55,13 @@ omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.sequenced_message_header = Pro
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.server_frame = ProtoField.new("Server Frame", "nasdaq.psxequities.drop.asciidrop.v2.1.serverframe", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.serverpacket", ftypes.STRING)
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.psxequities.drop.asciidrop.v2.1.serverpacketheader", ftypes.STRING)
+
+-- Nasdaq PsxEquities Drop 2.1 Session Messages
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.psxequities.drop.asciidrop.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq PsxEquities Drop 2.1 Application Messages
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.existing_order_canceled_message = ProtoField.new("Existing Order Canceled Message", "nasdaq.psxequities.drop.asciidrop.v2.1.existingordercanceledmessage", ftypes.STRING)
@@ -89,6 +91,7 @@ local show = {}
 -- Nasdaq PsxEquities Drop AsciiDrop 2.1 Element Dissection Options
 show.structs = true
 show.headers = true
+show.session_messages = true
 show.application_messages = true
 
 -- Register Nasdaq PsxEquities Drop AsciiDrop 2.1 Show Options
@@ -97,6 +100,7 @@ omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.assume_role = Pref.enum("Assume
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
 -- Handle changed preferences
@@ -108,6 +112,9 @@ function omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_headers then
     show.headers = omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_headers
+  end
+  if show.session_messages ~= omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_session_messages then
+    show.session_messages = omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_session_messages
   end
   if show.structs ~= omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_structs then
     show.structs = omi_nasdaq_psxequities_drop_asciidrop_v2_1.prefs.show_structs
@@ -134,6 +141,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities Drop AsciiDrop 2.1 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
+  local display = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Buy Sell
 nasdaq_psxequities_drop_asciidrop_v2_1.buy_sell = {}
@@ -650,34 +708,6 @@ nasdaq_psxequities_drop_asciidrop_v2_1.requested_session.dissect = function(buff
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = "Not Applicable"
-  end
-
-  local display = nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Server Packet Type
 nasdaq_psxequities_drop_asciidrop_v2_1.server_packet_type = {}
 
@@ -713,29 +743,6 @@ nasdaq_psxequities_drop_asciidrop_v2_1.server_packet_type.dissect = function(buf
   local display = nasdaq_psxequities_drop_asciidrop_v2_1.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_psxequities_drop_asciidrop_v2_1.session = {}
-
--- Size: Session
-nasdaq_psxequities_drop_asciidrop_v2_1.session.size = 10
-
--- Display: Session
-nasdaq_psxequities_drop_asciidrop_v2_1.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_psxequities_drop_asciidrop_v2_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_drop_asciidrop_v2_1.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_psxequities_drop_asciidrop_v2_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -844,24 +851,20 @@ end
 -- Text
 nasdaq_psxequities_drop_asciidrop_v2_1.text = {}
 
--- Size: Text
-nasdaq_psxequities_drop_asciidrop_v2_1.text.size = 1
-
 -- Display: Text
 nasdaq_psxequities_drop_asciidrop_v2_1.text.display = function(value)
   return "Text: "..value
 end
 
--- Dissect: Text
-nasdaq_psxequities_drop_asciidrop_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_drop_asciidrop_v2_1.text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Text
+nasdaq_psxequities_drop_asciidrop_v2_1.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_psxequities_drop_asciidrop_v2_1.text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_drop_asciidrop_v2_1.text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Time In Force
@@ -941,24 +944,20 @@ end
 -- Unsequenced Message
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message = {}
 
--- Size: Unsequenced Message
-nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.size = 0
-
 -- Display: Unsequenced Message
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.display = function(value)
   return "Unsequenced Message: "..value
 end
 
--- Dissect: Unsequenced Message
-nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Unsequenced Message
+nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.unsequenced_message, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- User
@@ -1909,7 +1908,7 @@ end
 
 -- Dissect: Login Rejected Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.login_rejected_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_rejected_packet, buffer(offset, 0))
     local index = nasdaq_psxequities_drop_asciidrop_v2_1.login_rejected_packet.fields(buffer, offset, packet, parent)
@@ -1930,8 +1929,8 @@ nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet.size =
-  nasdaq_psxequities_drop_asciidrop_v2_1.session.size + 
-  nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.size
+  nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.size + 
+  nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet.display = function(packet, parent, length)
@@ -1942,18 +1941,18 @@ end
 nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_psxequities_drop_asciidrop_v2_1.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nasdaq_psxequities_drop_asciidrop_v2_1.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_psxequities_drop_asciidrop_v2_1.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Accepted Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_accepted_packet, buffer(offset, 0))
     local index = nasdaq_psxequities_drop_asciidrop_v2_1.login_accepted_packet.fields(buffer, offset, packet, parent)
@@ -1972,9 +1971,15 @@ end
 -- Debug Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.size =
-  nasdaq_psxequities_drop_asciidrop_v2_1.text.size
+-- Calculate size of: Debug Packet
+nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Text
+  index = index + (buffer:len() - (offset + index))
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.display = function(packet, parent, length)
@@ -1985,15 +1990,18 @@ end
 nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_psxequities_drop_asciidrop_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Runtime Size Of: Text
+  local size_of_text = buffer:len() - index
+
+  -- Text: 0 Byte Ascii String
+  index, text = nasdaq_psxequities_drop_asciidrop_v2_1.text.dissect(buffer, index, packet, parent, size_of_text)
 
   return index
 end
 
 -- Dissect: Debug Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.debug_packet, buffer(offset, 0))
     local index = nasdaq_psxequities_drop_asciidrop_v2_1.debug_packet.fields(buffer, offset, packet, parent)
@@ -2186,9 +2194,15 @@ end
 -- Unsequenced Data Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet = {}
 
--- Size: Unsequenced Data Packet
-nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.size =
-  nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.size
+-- Calculate size of: Unsequenced Data Packet
+nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Unsequenced Message
+  index = index + (buffer:len() - (offset + index))
+
+  return index
+end
 
 -- Display: Unsequenced Data Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.display = function(packet, parent, length)
@@ -2199,15 +2213,18 @@ end
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = buffer:len() - index
+
   -- Unsequenced Message: 0 Byte
-  index, unsequenced_message = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.dissect(buffer, index, packet, parent)
+  index, unsequenced_message = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_message.dissect(buffer, index, packet, parent, size_of_unsequenced_message)
 
   return index
 end
 
 -- Dissect: Unsequenced Data Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.unsequenced_data_packet, buffer(offset, 0))
     local index = nasdaq_psxequities_drop_asciidrop_v2_1.unsequenced_data_packet.fields(buffer, offset, packet, parent)
@@ -2259,7 +2276,7 @@ end
 
 -- Dissect: Login Request Packet
 nasdaq_psxequities_drop_asciidrop_v2_1.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_drop_asciidrop_v2_1.fields.login_request_packet, buffer(offset, 0))
     local index = nasdaq_psxequities_drop_asciidrop_v2_1.login_request_packet.fields(buffer, offset, packet, parent)
