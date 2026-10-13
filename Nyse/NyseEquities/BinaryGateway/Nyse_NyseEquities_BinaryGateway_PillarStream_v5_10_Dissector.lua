@@ -7042,7 +7042,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.execution_report_message.fiel
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 89
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_nyseequities_binarygateway_pillarstream_v5_10.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -7539,7 +7539,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.order_and_cancel_replace_ackn
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
+  local optional_order_add_on_exists = seq_msg_length == 143
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_nyseequities_binarygateway_pillarstream_v5_10.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -7548,7 +7548,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.order_and_cancel_replace_ackn
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 107
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_nyseequities_binarygateway_pillarstream_v5_10.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -9391,7 +9391,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.new_order_single_and_cancel_r
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
+  local optional_order_add_on_exists = seq_msg_length == 106
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_nyseequities_binarygateway_pillarstream_v5_10.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -9400,7 +9400,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.new_order_single_and_cancel_r
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 70
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_nyseequities_binarygateway_pillarstream_v5_10.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)

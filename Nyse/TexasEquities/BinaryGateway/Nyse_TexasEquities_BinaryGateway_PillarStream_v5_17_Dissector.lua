@@ -7101,7 +7101,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.execution_report_message.fie
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 89
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -7646,7 +7646,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ack
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
+  local optional_order_add_on_exists = seq_msg_length == 143
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -7655,7 +7655,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ack
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 97 or seq_msg_length == 134
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 134
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -7664,7 +7664,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ack
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 107
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
@@ -9507,7 +9507,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 106 or seq_msg_length == 143
+  local optional_order_add_on_exists = seq_msg_length == 106
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -9516,7 +9516,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 97 or seq_msg_length == 134
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 97
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
@@ -9525,7 +9525,7 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
-  local optional_settlement_type_add_on_exists = seq_msg_length == 70 or seq_msg_length == 107 or seq_msg_length == 89
+  local optional_settlement_type_add_on_exists = seq_msg_length == 70
 
   if optional_settlement_type_add_on_exists then
     index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
