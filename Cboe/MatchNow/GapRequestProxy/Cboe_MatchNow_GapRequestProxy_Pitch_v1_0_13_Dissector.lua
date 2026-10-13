@@ -1019,7 +1019,7 @@ tcp_table:add_for_decode_as(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_13)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.13
 --   Date: Monday, October 27, 2025
---   Specification: Cboe Canada Equities Multicast PITCH Specification (2025-12-06).pdf
+--   Specification: Cboe Canada Equities Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

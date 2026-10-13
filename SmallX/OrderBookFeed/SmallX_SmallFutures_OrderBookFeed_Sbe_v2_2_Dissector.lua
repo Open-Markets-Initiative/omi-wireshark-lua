@@ -37,7 +37,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.frame_length = ProtoField.
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.group_dimension = ProtoField.new("Group Dimension", "smallx.smallfutures.orderbookfeed.sbe.v2.2.groupdimension", ftypes.STRING)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.high_price = ProtoField.new("High Price", "smallx.smallfutures.orderbookfeed.sbe.v2.2.highprice", ftypes.DOUBLE)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.implied = ProtoField.new("Implied", "smallx.smallfutures.orderbookfeed.sbe.v2.2.implied", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incarnation = ProtoField.new("Incarnation", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incarnation", ftypes.INT16)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incarnation = ProtoField.new("Incarnation", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incarnation", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incarnation_end = ProtoField.new("Incarnation End", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incarnationend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions = ProtoField.new("Incremental Message Instructions", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incrementalmessageinstructions", ftypes.STRING)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremental_trade_group = ProtoField.new("Incremental Trade Group", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incrementaltradegroup", ftypes.STRING)
@@ -69,7 +69,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.legs_groups = ProtoField.n
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.low_price = ProtoField.new("Low Price", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lowprice", ftypes.DOUBLE)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.maturity_date = ProtoField.new("Maturity Date", "smallx.smallfutures.orderbookfeed.sbe.v2.2.maturitydate", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.message_count = ProtoField.new("Message Count", "smallx.smallfutures.orderbookfeed.sbe.v2.2.messagecount", ftypes.UINT8)
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.smallfutures.orderbookfeed.sbe.v2.2.messagesequence", ftypes.INT32)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.message_sequence = ProtoField.new("Message Sequence", "smallx.smallfutures.orderbookfeed.sbe.v2.2.messagesequence", ftypes.UINT32)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.num_in_group = ProtoField.new("Num In Group", "smallx.smallfutures.orderbookfeed.sbe.v2.2.numingroup", ftypes.UINT8)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.open_interest = ProtoField.new("Open Interest", "smallx.smallfutures.orderbookfeed.sbe.v2.2.openinterest", ftypes.DOUBLE)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.open_price = ProtoField.new("Open Price", "smallx.smallfutures.orderbookfeed.sbe.v2.2.openprice", ftypes.DOUBLE)
@@ -743,7 +743,7 @@ end
 smallx_smallfutures_orderbookfeed_sbe_v2_2.incarnation.dissect = function(buffer, offset, packet, parent)
   local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.incarnation.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:le_uint()
   local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.incarnation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incarnation, range, value, display)
@@ -1454,7 +1454,7 @@ end
 smallx_smallfutures_orderbookfeed_sbe_v2_2.message_sequence.dissect = function(buffer, offset, packet, parent)
   local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.message_sequence.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:le_uint()
   local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.message_sequence.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.message_sequence, range, value, display)
@@ -5562,7 +5562,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_header.fields = function(buffe
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = smallx_smallfutures_orderbookfeed_sbe_v2_2.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Incarnation: 2 Byte Signed Fixed Width Integer
+  -- Incarnation: 2 Byte Unsigned Fixed Width Integer
   index, incarnation = smallx_smallfutures_orderbookfeed_sbe_v2_2.incarnation.dissect(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
@@ -5571,7 +5571,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_header.fields = function(buffe
   -- Packet Flags: Struct of 4 fields
   index, packet_flags = smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_flags.dissect(buffer, index, packet, parent)
 
-  -- Message Sequence: 4 Byte Signed Fixed Width Integer
+  -- Message Sequence: 4 Byte Unsigned Fixed Width Integer
   index, message_sequence = smallx_smallfutures_orderbookfeed_sbe_v2_2.message_sequence.dissect(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer

@@ -2274,7 +2274,7 @@ udp_table:add_for_decode_as(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.14
 --   Date: Monday, February 9, 2026
---   Specification: Cboe Canada Equities Multicast PITCH Specification (2026-05-28).pdf
+--   Specification: Cboe Canada Equities Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

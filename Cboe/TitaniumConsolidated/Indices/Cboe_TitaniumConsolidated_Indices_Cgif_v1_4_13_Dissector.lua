@@ -125,7 +125,7 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.agent_classification.size = 2
 
 -- Display: Agent Classification
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.agent_classification.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Agent Classification: Not Specified (<whitespace>)"
   end
   if value == "CO" then

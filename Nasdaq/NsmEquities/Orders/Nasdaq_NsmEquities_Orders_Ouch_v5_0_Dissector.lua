@@ -19,10 +19,26 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number = ProtoF
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage = ProtoField.new("Account Query Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_optional_field = ProtoField.new("Account Query Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage = ProtoField.new("Account Query Response Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponseappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_optional_field = ProtoField.new("Account Query Response Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryresponseoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage = ProtoField.new("Aiq Canceled Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_optional_field = ProtoField.new("Aiq Canceled Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.aiqcanceledoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_group_id = ProtoField.new("Aiq Group Id", "nasdaq.nsmequities.orders.ouch.v5.0.aiqgroupid", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_strategy = ProtoField.new("Aiq Strategy", "nasdaq.nsmequities.orders.ouch.v5.0.aiqstrategy", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.appendage_length = ProtoField.new("Appendage Length", "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.nsmequities.orders.ouch.v5.0.bboweightindicator", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage = ProtoField.new("Broken Trade Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.brokentradeappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_optional_field = ProtoField.new("Broken Trade Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.brokentradeoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.nsmequities.orders.ouch.v5.0.brokentradereason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage = ProtoField.new("Cancel Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_optional_field = ProtoField.new("Cancel Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_reason = ProtoField.new("Cancel Order Reason", "nasdaq.nsmequities.orders.ouch.v5.0.cancelorderreason", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage = ProtoField.new("Cancel Pending Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.cancelpendingappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_optional_field = ProtoField.new("Cancel Pending Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.cancelpendingoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage = ProtoField.new("Cancel Reject Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.cancelrejectappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_optional_field = ProtoField.new("Cancel Reject Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.cancelrejectoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage = ProtoField.new("Canceled Message Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.canceledmessageappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_optional_field = ProtoField.new("Canceled Message Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.canceledmessageoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.capacity = ProtoField.new("Capacity", "nasdaq.nsmequities.orders.ouch.v5.0.capacity", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v5.0.clientpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.clordid = ProtoField.new("ClOrdId", "nasdaq.nsmequities.orders.ouch.v5.0.clordid", ftypes.STRING)
@@ -35,8 +51,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_request_optio
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_appendage = ProtoField.new("Disable Order Entry Response Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.disableorderentryresponseappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_optional_field = ProtoField.new("Disable Order Entry Response Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.disableorderentryresponseoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_offset = ProtoField.new("Discretion Peg Offset", "nasdaq.nsmequities.orders.ouch.v5.0.discretionpegoffset", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_type = ProtoField.new("Discretion Peg Type", "nasdaq.nsmequities.orders.ouch.v5.0.discretionpegtype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_price = ProtoField.new("Discretion Price", "nasdaq.nsmequities.orders.ouch.v5.0.discretionprice", ftypes.DOUBLE)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_price_type = ProtoField.new("Discretion Price Type", "nasdaq.nsmequities.orders.ouch.v5.0.discretionpricetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v5.0.display", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display_price = ProtoField.new("Display Price", "nasdaq.nsmequities.orders.ouch.v5.0.displayprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.display_quantity = ProtoField.new("Display Quantity", "nasdaq.nsmequities.orders.ouch.v5.0.displayquantity", ftypes.UINT32)
@@ -54,6 +70,7 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.group_id = ProtoField.new("Group 
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.handle_inst = ProtoField.new("Handle Inst", "nasdaq.nsmequities.orders.ouch.v5.0.handleinst", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.inter_market_sweep_eligibility = ProtoField.new("Inter Market Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v5.0.intermarketsweepeligibility", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "nasdaq.nsmequities.orders.ouch.v5.0.liquidityflag", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.locate_broker = ProtoField.new("Locate Broker", "nasdaq.nsmequities.orders.ouch.v5.0.locatebroker", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_appendage = ProtoField.new("Mass Cancel Request Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.masscancelrequestappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_optional_field = ProtoField.new("Mass Cancel Request Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.masscancelrequestoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_appendage = ProtoField.new("Mass Cancel Response Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.masscancelresponseappendage", ftypes.STRING)
@@ -61,6 +78,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_optional_fie
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.orders.ouch.v5.0.matchnumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.max_floor = ProtoField.new("Max Floor", "nasdaq.nsmequities.orders.ouch.v5.0.maxfloor", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.min_qty = ProtoField.new("Min Qty", "nasdaq.nsmequities.orders.ouch.v5.0.minqty", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage = ProtoField.new("Modify Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.modifyorderappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_optional_field = ProtoField.new("Modify Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.modifyorderoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.next_user_ref_num = ProtoField.new("Next User Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.nextuserrefnum", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.optional_field_length = ProtoField.new("Optional Field Length", "nasdaq.nsmequities.orders.ouch.v5.0.optionalfieldlength", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage = ProtoField.new("Order Accepted Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderacceptedappendage", ftypes.STRING)
@@ -68,6 +87,10 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_optional_field = P
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_cancel_reason = ProtoField.new("Order Cancel Reason", "nasdaq.nsmequities.orders.ouch.v5.0.ordercancelreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage = ProtoField.new("Order Executed Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_optional_field = ProtoField.new("Order Executed Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderexecutedoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage = ProtoField.new("Order Modified Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.ordermodifiedappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_optional_field = ProtoField.new("Order Modified Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.ordermodifiedoptionalfield", ftypes.INT8)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage = ProtoField.new("Order Priority Update Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderpriorityupdateappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_optional_field = ProtoField.new("Order Priority Update Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderpriorityupdateoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.orders.ouch.v5.0.orderreferencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage = ProtoField.new("Order Restated Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_optional_field = ProtoField.new("Order Restated Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.orderrestatedoptionalfield", ftypes.INT8)
@@ -83,9 +106,9 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.price_type = ProtoField.new("Pric
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity = ProtoField.new("Quantity", "nasdaq.nsmequities.orders.ouch.v5.0.quantity", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.nsmequities.orders.ouch.v5.0.quantitypreventedfromtrading", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.random_reserves = ProtoField.new("Random Reserves", "nasdaq.nsmequities.orders.ouch.v5.0.randomreserves", ftypes.UINT32)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.nsmequities.orders.ouch.v5.0.referenceprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price_type = ProtoField.new("Reference Price Type", "nasdaq.nsmequities.orders.ouch.v5.0.referencepricetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.orders.ouch.v5.0.rejectreasoncode", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage = ProtoField.new("Rejected Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.rejectedorderappendage", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_optional_field = ProtoField.new("Rejected Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.rejectedorderoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_reason = ProtoField.new("Rejected Order Reason", "nasdaq.nsmequities.orders.ouch.v5.0.rejectedorderreason", ftypes.UINT16)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage = ProtoField.new("Replace Order Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_optional_field = ProtoField.new("Replace Order Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.replaceorderoptionalfield", ftypes.INT8)
@@ -97,11 +120,11 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.route = ProtoField.new("Route", "
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.secondary_ord_ref_num = ProtoField.new("Secondary Ord Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.secondaryordrefnum", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v5.0.serverpackettype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.shares_located = ProtoField.new("Shares Located", "nasdaq.nsmequities.orders.ouch.v5.0.shareslocated", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.orders.ouch.v5.0.side", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.orders.ouch.v5.0.symbol", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v5.0.timeinforce", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v5.0.timestamp", ftypes.UINT64)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_reason = ProtoField.new("Trade Correction Reason", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionreason", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_now = ProtoField.new("Trade Now", "nasdaq.nsmequities.orders.ouch.v5.0.tradenow", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.user_ref_idx = ProtoField.new("User Ref Idx", "nasdaq.nsmequities.orders.ouch.v5.0.userrefidx", ftypes.UINT8)
@@ -142,7 +165,6 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_message = ProtoFie
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "nasdaq.nsmequities.orders.ouch.v5.0.replaceordermessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message = ProtoField.new("Replaced Message", "nasdaq.nsmequities.orders.ouch.v5.0.replacedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.orders.ouch.v5.0.systemeventmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.orders.ouch.v5.0.tradecorrectionmessage", ftypes.STRING)
 
 -- Nasdaq NsmEquities Orders 5.0 Session Messages
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.nsmequities.orders.ouch.v5.0.clientheartbeat", ftypes.BYTES)
@@ -371,6 +393,173 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field.dissect = funct
   return offset + length, value
 end
 
+-- Account Query Response Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field = {}
+
+-- Size: Account Query Response Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.size = 1
+
+-- Display: Account Query Response Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.display = function(value)
+  if value == 28 then
+    return "Account Query Response Optional Field: UserRefIdx (28)"
+  end
+
+  return "Account Query Response Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Account Query Response Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aiq Canceled Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field = {}
+
+-- Size: Aiq Canceled Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.size = 1
+
+-- Display: Aiq Canceled Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.display = function(value)
+  if value == 28 then
+    return "Aiq Canceled Optional Field: UserRefIdx (28)"
+  end
+
+  return "Aiq Canceled Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Aiq Canceled Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aiq Group Id
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id = {}
+
+-- Size: Aiq Group Id
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.size = 2
+
+-- Display: Aiq Group Id
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.display = function(value)
+  return "Aiq Group Id: "..value
+end
+
+-- Dissect: Aiq Group Id
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Aiq Strategy
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy = {}
+
+-- Size: Aiq Strategy
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.size = 1
+
+-- Display: Aiq Strategy
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.display = function(value)
+  if value == "*" then
+    return "Aiq Strategy: Use Port Default (*)"
+  end
+  if value == "N" then
+    return "Aiq Strategy: Disabled (N)"
+  end
+  if value == "Y" then
+    return "Aiq Strategy: Firm Level Decrement Both No Details (Y)"
+  end
+  if value == "D" then
+    return "Aiq Strategy: Firm Level Decrement Both (D)"
+  end
+  if value == "O" then
+    return "Aiq Strategy: Firm Level Cancel Oldest (O)"
+  end
+  if value == "W" then
+    return "Aiq Strategy: Firm Level Cancel Newest (W)"
+  end
+  if value == "R" then
+    return "Aiq Strategy: Firm Level Use Remover (R)"
+  end
+  if value == "y" then
+    return "Aiq Strategy: Organization Level Decrement Both No Details (y)"
+  end
+  if value == "d" then
+    return "Aiq Strategy: Organization Level Decrement Both (d)"
+  end
+  if value == "o" then
+    return "Aiq Strategy: Organization Level Cancel Oldest (o)"
+  end
+  if value == "w" then
+    return "Aiq Strategy: Organization Level Cancel Newest (w)"
+  end
+  if value == "r" then
+    return "Aiq Strategy: Organization Level Use Remover (r)"
+  end
+  if value == "Z" then
+    return "Aiq Strategy: Affiliate Level Decrement Both No Details (Z)"
+  end
+  if value == "E" then
+    return "Aiq Strategy: Affiliate Level Decrement Both (E)"
+  end
+  if value == "P" then
+    return "Aiq Strategy: Affiliate Level Cancel Oldest (P)"
+  end
+  if value == "X" then
+    return "Aiq Strategy: Affiliate Level Cancel Newest (X)"
+  end
+  if value == "S" then
+    return "Aiq Strategy: Affiliate Level Use Remover (S)"
+  end
+  if value == "0" then
+    return "Aiq Strategy: Match Any Level Decrement Both No Details (0)"
+  end
+  if value == "1" then
+    return "Aiq Strategy: Match Any Level Decrement Both (1)"
+  end
+  if value == "2" then
+    return "Aiq Strategy: Match Any Level Cancel Oldest (2)"
+  end
+  if value == "4" then
+    return "Aiq Strategy: Match Any Level Cancel Newest (4)"
+  end
+  if value == "5" then
+    return "Aiq Strategy: Match Any Level Use Remover (5)"
+  end
+
+  return "Aiq Strategy: Unknown("..value..")"
+end
+
+-- Dissect: Aiq Strategy
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_strategy, range, value, display)
+
+  return offset + length, value
+end
+
 -- Appendage Length
 nasdaq_nsmequities_orders_ouch_v5_0.appendage_length = {}
 
@@ -402,7 +591,29 @@ nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.size = 1
 
 -- Display: Bbo Weight Indicator
 nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.display = function(value)
-  return "Bbo Weight Indicator: "..value
+  if value == "0" then
+    return "Bbo Weight Indicator: 00.2% (0)"
+  end
+  if value == "1" then
+    return "Bbo Weight Indicator: 0.2% 1% (1)"
+  end
+  if value == "2" then
+    return "Bbo Weight Indicator: 1% 2% (2)"
+  end
+  if value == "3" then
+    return "Bbo Weight Indicator: Greater Than 2% (3)"
+  end
+  if value == " " then
+    return "Bbo Weight Indicator: Unspecified (<whitespace>)"
+  end
+  if value == "S" then
+    return "Bbo Weight Indicator: Sets The Qbbo While Joining The Nbbo (S)"
+  end
+  if value == "N" then
+    return "Bbo Weight Indicator: Improves The Nbbo Upon Entry (N)"
+  end
+
+  return "Bbo Weight Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Bbo Weight Indicator
@@ -413,6 +624,33 @@ nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect = function(buff
   local display = nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.bbo_weight_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Broken Trade Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field = {}
+
+-- Size: Broken Trade Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.size = 1
+
+-- Display: Broken Trade Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.display = function(value)
+  if value == 28 then
+    return "Broken Trade Optional Field: UserRefIdx (28)"
+  end
+
+  return "Broken Trade Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Broken Trade Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_optional_field, range, value, display)
 
   return offset + length, value
 end
@@ -453,6 +691,33 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.dissect = function(buffe
   return offset + length, value
 end
 
+-- Cancel Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field = {}
+
+-- Size: Cancel Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.size = 1
+
+-- Display: Cancel Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.display = function(value)
+  if value == 28 then
+    return "Cancel Order Optional Field: UserRefIdx (28)"
+  end
+
+  return "Cancel Order Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
 -- Cancel Order Reason
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason = {}
 
@@ -482,9 +747,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value
   if value == "Z" then
     return "Cancel Order Reason: System Cancel (Z)"
   end
-  if value == "C" then
-    return "Cancel Order Reason: Cross Canceled (C)"
-  end
   if value == "K" then
     return "Cancel Order Reason: This Order Cannot Be Executed (K)"
   end
@@ -503,6 +765,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display = function(value
   if value == "G" then
     return "Cancel Order Reason: Post Only Cancel Contra Side Displayed (G)"
   end
+  if value == "e" then
+    return "Cancel Order Reason: Company Direct Listing Capital Raise Order Exceeds Allowable Shares Offered (e)"
+  end
 
   return "Cancel Order Reason: Unknown("..value..")"
 end
@@ -515,6 +780,87 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.dissect = function(buffe
   local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Pending Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field = {}
+
+-- Size: Cancel Pending Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.size = 1
+
+-- Display: Cancel Pending Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.display = function(value)
+  if value == 28 then
+    return "Cancel Pending Optional Field: UserRefIdx (28)"
+  end
+
+  return "Cancel Pending Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Pending Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reject Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field = {}
+
+-- Size: Cancel Reject Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.size = 1
+
+-- Display: Cancel Reject Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.display = function(value)
+  if value == 28 then
+    return "Cancel Reject Optional Field: UserRefIdx (28)"
+  end
+
+  return "Cancel Reject Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reject Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Canceled Message Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field = {}
+
+-- Size: Canceled Message Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.size = 1
+
+-- Display: Canceled Message Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.display = function(value)
+  if value == 28 then
+    return "Canceled Message Optional Field: UserRefIdx (28)"
+  end
+
+  return "Canceled Message Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Canceled Message Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_optional_field, range, value, display)
 
   return offset + length, value
 end
@@ -632,7 +978,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cross_type.display = function(value)
     return "Cross Type: Opening Cross (O)"
   end
   if value == "C" then
-    return "Cross Type: Closing (C)"
+    return "Cross Type: Closing Cross (C)"
   end
   if value == "H" then
     return "Cross Type: Halt Ipo (H)"
@@ -644,7 +990,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.cross_type.display = function(value)
     return "Cross Type: Retail (R)"
   end
   if value == "E" then
-    return "Cross Type: Extended (E)"
+    return "Cross Type: Extended Life (E)"
   end
   if value == "A" then
     return "Cross Type: After Hours Close (A)"
@@ -673,7 +1019,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.customer_type.size = 1
 
 -- Display: Customer Type
 nasdaq_nsmequities_orders_ouch_v5_0.customer_type.display = function(value)
-  return "Customer Type: "..value
+  if value == "R" then
+    return "Customer Type: Retail Designated Order (R)"
+  end
+  if value == "N" then
+    return "Customer Type: Not Retail Designated (N)"
+  end
+
+  return "Customer Type: Unknown("..value..")"
 end
 
 -- Dissect: Customer Type
@@ -813,29 +1166,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect = function(buf
   return offset + length, value
 end
 
--- Discretion Peg Type
-nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type = {}
-
--- Size: Discretion Peg Type
-nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.size = 1
-
--- Display: Discretion Peg Type
-nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.display = function(value)
-  return "Discretion Peg Type: "..value
-end
-
--- Dissect: Discretion Peg Type
-nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_peg_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Discretion Price
 nasdaq_nsmequities_orders_ouch_v5_0.discretion_price = {}
 
@@ -865,6 +1195,42 @@ nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Discretion Price Type
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type = {}
+
+-- Size: Discretion Price Type
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.size = 1
+
+-- Display: Discretion Price Type
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.display = function(value)
+  if value == "L" then
+    return "Discretion Price Type: Limit (L)"
+  end
+  if value == "P" then
+    return "Discretion Price Type: Market Peg (P)"
+  end
+  if value == "M" then
+    return "Discretion Price Type: Midpoint Peg (M)"
+  end
+  if value == "R" then
+    return "Discretion Price Type: Primary Peg (R)"
+  end
+
+  return "Discretion Price Type: Unknown("..value..")"
+end
+
+-- Dissect: Discretion Price Type
+nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.discretion_price_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Display
 nasdaq_nsmequities_orders_ouch_v5_0.display = {}
 
@@ -882,38 +1248,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.display.display = function(value)
   if value == "N" then
     return "Display: Hidden (N)"
   end
-  if value == "P" then
-    return "Display: Post Only (P)"
-  end
-  if value == "I" then
-    return "Display: Imbalance Only (I)"
-  end
-  if value == "M" then
-    return "Display: Mid Point Peg (M)"
-  end
-  if value == "W" then
-    return "Display: Mid Point Peg Post Only (W)"
-  end
-  if value == "L" then
-    return "Display: Post Only And Attributable (L)"
-  end
-  if value == "O" then
-    return "Display: Retail Order Type 1 (O)"
-  end
-  if value == "T" then
-    return "Display: Retail Order Type 2 (T)"
-  end
-  if value == "Q" then
-    return "Display: Retail Price Improvement Order (Q)"
-  end
   if value == "Z" then
     return "Display: Conformant (Z)"
-  end
-  if value == "m" then
-    return "Display: Mid Point Peg And Mid Point Trade Now (m)"
-  end
-  if value == "n" then
-    return "Display: Non Display And Mid Point (n)"
   end
 
   return "Display: Unknown("..value..")"
@@ -1056,6 +1392,54 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.display = functio
   end
   if value == 5 then
     return "Enter Order Optional Field: MaxFloor (5)"
+  end
+  if value == 6 then
+    return "Enter Order Optional Field: PriceType (6)"
+  end
+  if value == 7 then
+    return "Enter Order Optional Field: PegOffset (7)"
+  end
+  if value == 9 then
+    return "Enter Order Optional Field: DiscretionPrice (9)"
+  end
+  if value == 10 then
+    return "Enter Order Optional Field: DiscretionPriceType (10)"
+  end
+  if value == 11 then
+    return "Enter Order Optional Field: DiscretionPegOffset (11)"
+  end
+  if value == 12 then
+    return "Enter Order Optional Field: PostOnly (12)"
+  end
+  if value == 13 then
+    return "Enter Order Optional Field: RandomReserves (13)"
+  end
+  if value == 15 then
+    return "Enter Order Optional Field: ExpireTime (15)"
+  end
+  if value == 16 then
+    return "Enter Order Optional Field: TradeNow (16)"
+  end
+  if value == 17 then
+    return "Enter Order Optional Field: HandleInst (17)"
+  end
+  if value == 24 then
+    return "Enter Order Optional Field: Group ID (24)"
+  end
+  if value == 25 then
+    return "Enter Order Optional Field: Shares Located (25)"
+  end
+  if value == 26 then
+    return "Enter Order Optional Field: Locate Broker (26)"
+  end
+  if value == 28 then
+    return "Enter Order Optional Field: UserRefIdx (28)"
+  end
+  if value == 29 then
+    return "Enter Order Optional Field: AIQ Strategy (29)"
+  end
+  if value == 30 then
+    return "Enter Order Optional Field: AIQ Group ID (30)"
   end
 
   return "Enter Order Optional Field: Unknown("..value..")"
@@ -1209,7 +1593,26 @@ nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.size = 1
 
 -- Display: Handle Inst
 nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.display = function(value)
-  return "Handle Inst: "..value
+  if value == "I" then
+    return "Handle Inst: Imbalance Only (I)"
+  end
+  if value == "O" then
+    return "Handle Inst: Retail Order Type 1 (O)"
+  end
+  if value == "T" then
+    return "Handle Inst: Retail Order Type 2 (T)"
+  end
+  if value == "Q" then
+    return "Handle Inst: Retail Price Improvement (Q)"
+  end
+  if value == "B" then
+    return "Handle Inst: Extended Life Continuous (B)"
+  end
+  if value == "D" then
+    return "Handle Inst: Direct Listing Capital Raise (D)"
+  end
+
+  return "Handle Inst: Unknown("..value..")"
 end
 
 -- Dissect: Handle Inst
@@ -1265,6 +1668,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
   if value == "A" then
     return "Liquidity Flag: Added (A)"
   end
+  if value == "C" then
+    return "Liquidity Flag: Closing (C)"
+  end
   if value == "e" then
     return "Liquidity Flag: Retail Designated (e)"
   end
@@ -1319,6 +1725,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
   if value == "t" then
     return "Liquidity Flag: Retail Order Removes Price Improving Nondisplayed Liquidity Other Than Rpi Liquidity (t)"
   end
+  if value == "u" then
+    return "Liquidity Flag: Added Nondisplayed Liquidity Via A Reserve Order (u)"
+  end
   if value == "0" then
     return "Liquidity Flag: Supplemental (0)"
   end
@@ -1327,6 +1736,21 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display = function(value)
   end
   if value == "8" then
     return "Liquidity Flag: Displayed Liquidityadding Order Sets The Qbbo While Joining The Nbbo (8)"
+  end
+  if value == "1" then
+    return "Liquidity Flag: Rpi Order Provides Liquidity No Rpii (1)"
+  end
+  if value == "2" then
+    return "Liquidity Flag: Added In The Premarket (2)"
+  end
+  if value == "3" then
+    return "Liquidity Flag: Removed In The Premarket (3)"
+  end
+  if value == "5" then
+    return "Liquidity Flag: Displayed Liquidityadding Order Improves The Nbbo In The Premarket (5)"
+  end
+  if value == "9" then
+    return "Liquidity Flag: Nondisplayed Adding Liquidity In The Premarket (9)"
   end
 
   return "Liquidity Flag: Unknown("..value..")"
@@ -1340,6 +1764,29 @@ nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect = function(buffer, of
   local display = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.liquidity_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Locate Broker
+nasdaq_nsmequities_orders_ouch_v5_0.locate_broker = {}
+
+-- Size: Locate Broker
+nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.size = 4
+
+-- Display: Locate Broker
+nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.display = function(value)
+  return "Locate Broker: "..value
+end
+
+-- Dissect: Locate Broker
+nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.locate_broker, range, value, display)
 
   return offset + length, value
 end
@@ -1479,6 +1926,39 @@ nasdaq_nsmequities_orders_ouch_v5_0.min_qty.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Modify Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field = {}
+
+-- Size: Modify Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.size = 1
+
+-- Display: Modify Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.display = function(value)
+  if value == 28 then
+    return "Modify Order Optional Field: UserRefIdx (28)"
+  end
+  if value == 25 then
+    return "Modify Order Optional Field: Shares Located (25)"
+  end
+  if value == 26 then
+    return "Modify Order Optional Field: Locate Broker (26)"
+  end
+
+  return "Modify Order Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Modify Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
 -- Next User Ref Num
 nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num = {}
 
@@ -1555,7 +2035,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = func
     return "Order Accepted Optional Field: DiscretionPrice (9)"
   end
   if value == 10 then
-    return "Order Accepted Optional Field: DiscretionPegType (10)"
+    return "Order Accepted Optional Field: DiscretionPriceType (10)"
   end
   if value == 11 then
     return "Order Accepted Optional Field: DiscretionPegOffset (11)"
@@ -1580,6 +2060,21 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.display = func
   end
   if value == 18 then
     return "Order Accepted Optional Field: BBO Weight Indicator (18)"
+  end
+  if value == 24 then
+    return "Order Accepted Optional Field: Group ID (24)"
+  end
+  if value == 25 then
+    return "Order Accepted Optional Field: Shares Located (25)"
+  end
+  if value == 28 then
+    return "Order Accepted Optional Field: UserRefIdx (28)"
+  end
+  if value == 29 then
+    return "Order Accepted Optional Field: AIQ Strategy (29)"
+  end
+  if value == 30 then
+    return "Order Accepted Optional Field: AIQ Group ID (30)"
   end
 
   return "Order Accepted Optional Field: Unknown("..value..")"
@@ -1628,11 +2123,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.size = 1
 
 -- Display: Order Executed Optional Field
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.display = function(value)
-  if value == 19 then
-    return "Order Executed Optional Field: Reference Price (19)"
-  end
-  if value == 20 then
-    return "Order Executed Optional Field: Reference Price Type (20)"
+  if value == 28 then
+    return "Order Executed Optional Field: UserRefIdx (28)"
   end
 
   return "Order Executed Optional Field: Unknown("..value..")"
@@ -1646,6 +2138,66 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.dissect = func
   local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Modified Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field = {}
+
+-- Size: Order Modified Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.size = 1
+
+-- Display: Order Modified Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.display = function(value)
+  if value == 28 then
+    return "Order Modified Optional Field: UserRefIdx (28)"
+  end
+  if value == 25 then
+    return "Order Modified Optional Field: Shares Located (25)"
+  end
+  if value == 26 then
+    return "Order Modified Optional Field: Locate Broker (26)"
+  end
+
+  return "Order Modified Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Order Modified Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_optional_field, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Priority Update Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field = {}
+
+-- Size: Order Priority Update Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.size = 1
+
+-- Display: Order Priority Update Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.display = function(value)
+  if value == 28 then
+    return "Order Priority Update Optional Field: UserRefIdx (28)"
+  end
+
+  return "Order Priority Update Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Order Priority Update Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_optional_field, range, value, display)
 
   return offset + length, value
 end
@@ -1689,6 +2241,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.display = func
   end
   if value == 1 then
     return "Order Restated Optional Field: SecondaryOrdRefNum (1)"
+  end
+  if value == 28 then
+    return "Order Restated Optional Field: UserRefIdx (28)"
   end
 
   return "Order Restated Optional Field: Unknown("..value..")"
@@ -1872,7 +2427,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.post_only.size = 1
 
 -- Display: Post Only
 nasdaq_nsmequities_orders_ouch_v5_0.post_only.display = function(value)
-  return "Post Only: "..value
+  if value == "P" then
+    return "Post Only: Post Only (P)"
+  end
+  if value == "N" then
+    return "Post Only: No (N)"
+  end
+
+  return "Post Only: Unknown("..value..")"
 end
 
 -- Dissect: Post Only
@@ -1924,7 +2486,26 @@ nasdaq_nsmequities_orders_ouch_v5_0.price_type.size = 1
 
 -- Display: Price Type
 nasdaq_nsmequities_orders_ouch_v5_0.price_type.display = function(value)
-  return "Price Type: "..value
+  if value == "L" then
+    return "Price Type: Limit (L)"
+  end
+  if value == "P" then
+    return "Price Type: Market Peg (P)"
+  end
+  if value == "M" then
+    return "Price Type: Midpoint Peg (M)"
+  end
+  if value == "R" then
+    return "Price Type: Primary Peg (R)"
+  end
+  if value == "Q" then
+    return "Price Type: Market Maker Peg (Q)"
+  end
+  if value == "m" then
+    return "Price Type: Midpoint (m)"
+  end
+
+  return "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -2008,58 +2589,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Reference Price
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price = {}
-
--- Size: Reference Price
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size = 8
-
--- Display: Reference Price
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price.display = function(value)
-  return "Reference Price: "..value
-end
-
--- Translate: Reference Price
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Reference Price
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.size
-  local range = buffer(offset, length)
-  local raw = range:uint64()
-  local value = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.translate(raw)
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.reference_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Reference Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type = {}
-
--- Size: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.size = 1
-
--- Display: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.display = function(value)
-  return "Reference Price Type: "..value
-end
-
--- Dissect: Reference Price Type
-nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reference_price_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reject Reason Code
 nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code = {}
 
@@ -2086,6 +2615,33 @@ nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.dissect = function(buffer
   local display = nasdaq_nsmequities_orders_ouch_v5_0.reject_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.reject_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rejected Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field = {}
+
+-- Size: Rejected Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.size = 1
+
+-- Display: Rejected Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.display = function(value)
+  if value == 28 then
+    return "Rejected Order Optional Field: UserRefIdx (28)"
+  end
+
+  return "Rejected Order Optional Field: Unknown("..value..")"
+end
+
+-- Dissect: Rejected Order Optional Field
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_optional_field, range, value, display)
 
   return offset + length, value
 end
@@ -2191,6 +2747,69 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.display = function(val
   if value == 0x001F then
     return "Rejected Order Reason: Exceeds Maximum Allowed Notional Value (0x001F)"
   end
+  if value == 0x0020 then
+    return "Rejected Order Reason: Risk Aggregate Exposure Exceeded (0x0020)"
+  end
+  if value == 0x0021 then
+    return "Rejected Order Reason: Risk Market Impact (0x0021)"
+  end
+  if value == 0x0022 then
+    return "Rejected Order Reason: Risk Restricted Stock (0x0022)"
+  end
+  if value == 0x0023 then
+    return "Rejected Order Reason: Risk Short Sell Restricted (0x0023)"
+  end
+  if value == 0x0024 then
+    return "Rejected Order Reason: Risk Iso Not Allowed (0x0024)"
+  end
+  if value == 0x0025 then
+    return "Rejected Order Reason: Risk Exceeds Adv Limit (0x0025)"
+  end
+  if value == 0x0026 then
+    return "Rejected Order Reason: Risk Fat Finger (0x0026)"
+  end
+  if value == 0x0027 then
+    return "Rejected Order Reason: Risk Locate Required (0x0027)"
+  end
+  if value == 0x0028 then
+    return "Rejected Order Reason: Risk Symbol Message Rate Restriction (0x0028)"
+  end
+  if value == 0x0029 then
+    return "Rejected Order Reason: Risk Port Message Rate Restriction (0x0029)"
+  end
+  if value == 0x002A then
+    return "Rejected Order Reason: Risk Duplicate Message Rate Restriction (0x002A)"
+  end
+  if value == 0x002B then
+    return "Rejected Order Reason: Risk Short Sell Not Allowed (0x002B)"
+  end
+  if value == 0x002C then
+    return "Rejected Order Reason: Risk Market Order Not Allowed (0x002C)"
+  end
+  if value == 0x002D then
+    return "Rejected Order Reason: Risk Pre Market Not Allowed (0x002D)"
+  end
+  if value == 0x002E then
+    return "Rejected Order Reason: Risk Post Market Not Allowed (0x002E)"
+  end
+  if value == 0x002F then
+    return "Rejected Order Reason: Risk Short Sell Exempt Not Allowed (0x002F)"
+  end
+  if value == 0x0030 then
+    return "Rejected Order Reason: Risk Single Order Notional Exceeded (0x0030)"
+  end
+  if value == 0x0031 then
+    return "Rejected Order Reason: Risk Max Quantity Exceeded (0x0031)"
+  end
+  if value == 0x0032 then
+    return "Rejected Order Reason: Reg Sho State Not Available (0x0032)"
+  end
+  if value == 0x0033 then
+    return "Rejected Order Reason: Risk Ipo Market Buy Not Allowed (0x0033)"
+  end
+  if value == 0x0040 then
+    return "Rejected Order Reason: Invalid Aiq (0x0040)"
+  end
 
   return "Rejected Order Reason: Unknown("..value..")"
 end
@@ -2235,6 +2854,39 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.display = funct
   end
   if value == 17 then
     return "Replace Order Optional Field: HandleInst (17)"
+  end
+  if value == 13 then
+    return "Replace Order Optional Field: RandomReserves (13)"
+  end
+  if value == 7 then
+    return "Replace Order Optional Field: PegOffset (7)"
+  end
+  if value == 9 then
+    return "Replace Order Optional Field: DiscretionPrice (9)"
+  end
+  if value == 10 then
+    return "Replace Order Optional Field: DiscretionPriceType (10)"
+  end
+  if value == 11 then
+    return "Replace Order Optional Field: DiscretionPegOffset (11)"
+  end
+  if value == 25 then
+    return "Replace Order Optional Field: Shares Located (25)"
+  end
+  if value == 26 then
+    return "Replace Order Optional Field: Locate Broker (26)"
+  end
+  if value == 28 then
+    return "Replace Order Optional Field: UserRefIdx (28)"
+  end
+  if value == 27 then
+    return "Replace Order Optional Field: Side (27)"
+  end
+  if value == 29 then
+    return "Replace Order Optional Field: AIQ Strategy (29)"
+  end
+  if value == 30 then
+    return "Replace Order Optional Field: AIQ Group ID (30)"
   end
 
   return "Replace Order Optional Field: Unknown("..value..")"
@@ -2286,6 +2938,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.display = fu
   end
   if value == 18 then
     return "Replaced Message Optional Field: BBO Weight Indicator (18)"
+  end
+  if value == 28 then
+    return "Replaced Message Optional Field: UserRefIdx (28)"
+  end
+  if value == 29 then
+    return "Replaced Message Optional Field: AIQ Strategy (29)"
+  end
+  if value == 30 then
+    return "Replaced Message Optional Field: AIQ Group ID (30)"
   end
 
   return "Replaced Message Optional Field: Unknown("..value..")"
@@ -2429,9 +3090,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.display = function(va
   if value == "B" then
     return "Sequenced Message Type: Broken Trade Message (B)"
   end
-  if value == "F" then
-    return "Sequenced Message Type: Trade Correction Message (F)"
-  end
   if value == "J" then
     return "Sequenced Message Type: Rejected Order Message (J)"
   end
@@ -2516,6 +3174,36 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.dissect = function(buffer
   local display = nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Shares Located
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located = {}
+
+-- Size: Shares Located
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located.size = 1
+
+-- Display: Shares Located
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located.display = function(value)
+  if value == "Y" then
+    return "Shares Located: Yes (Y)"
+  end
+  if value == "N" then
+    return "Shares Located: No (N)"
+  end
+
+  return "Shares Located: Unknown("..value..")"
+end
+
+-- Dissect: Shares Located
+nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.shares_located.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.shares_located, range, value, display)
 
   return offset + length, value
 end
@@ -2661,33 +3349,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Trade Correction Reason
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason = {}
-
--- Size: Trade Correction Reason
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.size = 1
-
--- Display: Trade Correction Reason
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.display = function(value)
-  if value == "N" then
-    return "Trade Correction Reason: Adjusted To Nav (N)"
-  end
-
-  return "Trade Correction Reason: Unknown("..value..")"
-end
-
--- Dissect: Trade Correction Reason
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Trade Now
 nasdaq_nsmequities_orders_ouch_v5_0.trade_now = {}
 
@@ -2696,7 +3357,14 @@ nasdaq_nsmequities_orders_ouch_v5_0.trade_now.size = 1
 
 -- Display: Trade Now
 nasdaq_nsmequities_orders_ouch_v5_0.trade_now.display = function(value)
-  return "Trade Now: "..value
+  if value == "Y" then
+    return "Trade Now: Yes (Y)"
+  end
+  if value == "N" then
+    return "Trade Now: No (N)"
+  end
+
+  return "Trade Now: Unknown("..value..")"
 end
 
 -- Dissect: Trade Now
@@ -3262,13 +3930,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.dissect = funct
   end
 end
 
+-- Account Query Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value = {}
+
+-- Dissect: Account Query Response Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dissect = function(buffer, offset, packet, parent, account_query_response_optional_field)
+  -- Dissect User Ref Idx
+  if account_query_response_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Account Query Response Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage = {}
+
+-- Display: Account Query Response Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Account Query Response Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Account Query Response Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, account_query_response_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Account Query Response Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_optional_value.dissect(buffer, index, packet, parent, account_query_response_optional_field)
+
+  return index
+end
+
+-- Dissect: Account Query Response Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+  local index = offset + size_of_account_query_response_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+    parent:set_len(size_of_account_query_response_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+
+    return index
+  end
+end
+
 -- Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message = {}
 
 -- Size: Account Query Response Message
-nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.size
+nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Account Query Response Message
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.display = function(packet, parent, length)
@@ -3284,6 +4012,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = func
 
   -- Next User Ref Num: UserRefNum
   index, next_user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.next_user_ref_num.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Account Query Response Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Account Query Response Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Account Query Response Appendage
+    local size_of_account_query_response_appendage = optional_field_length + 1
+
+    -- Account Query Response Appendage: Struct of 3 fields
+    index, account_query_response_appendage = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect(buffer, index, packet, parent, size_of_account_query_response_appendage)
+  end
 
   return index
 end
@@ -3323,6 +4072,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect = func
   if order_restated_optional_field == 1 then
     return nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect User Ref Idx
+  if order_restated_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -3342,10 +4095,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields = function(b
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Restated Optional Field: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  -- Order Restated Optional Field: 1 Byte Signed Fixed Width Integer Enum with 4 values
   index, order_restated_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Order Restated Optional Value: Runtime Type with 3 branches
+  -- Order Restated Optional Value: Runtime Type with 4 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_optional_value.dissect(buffer, index, packet, parent, order_restated_optional_field)
 
   return index
@@ -3442,15 +4195,81 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.dissect = function(bu
   end
 end
 
+-- Order Modified Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value = {}
+
+-- Dissect: Order Modified Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dissect = function(buffer, offset, packet, parent, order_modified_optional_field)
+  -- Dissect User Ref Idx
+  if order_modified_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Shares Located
+  if order_modified_optional_field == 25 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Locate Broker
+  if order_modified_optional_field == 26 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Order Modified Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage = {}
+
+-- Display: Order Modified Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modified Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields = function(buffer, offset, packet, parent, size_of_order_modified_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Order Modified Optional Field: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  index, order_modified_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Order Modified Optional Value: Runtime Type with 3 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_optional_value.dissect(buffer, index, packet, parent, order_modified_optional_field)
+
+  return index
+end
+
+-- Dissect: Order Modified Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_modified_appendage)
+  local index = offset + size_of_order_modified_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+    parent:set_len(size_of_order_modified_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+
+    return index
+  end
+end
+
 -- Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message = {}
 
 -- Size: Order Modified Message
-nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.side.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Order Modified Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.display = function(packet, parent, length)
@@ -3473,6 +4292,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buf
   -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
 
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Order Modified Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Order Modified Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Order Modified Appendage
+    local size_of_order_modified_appendage = optional_field_length + 1
+
+    -- Order Modified Appendage: Struct of 3 fields
+    index, order_modified_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect(buffer, index, packet, parent, size_of_order_modified_appendage)
+  end
+
   return index
 end
 
@@ -3494,16 +4334,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.dissect = function(bu
   end
 end
 
+-- Order Priority Update Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value = {}
+
+-- Dissect: Order Priority Update Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dissect = function(buffer, offset, packet, parent, order_priority_update_optional_field)
+  -- Dissect User Ref Idx
+  if order_priority_update_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Order Priority Update Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage = {}
+
+-- Display: Order Priority Update Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Priority Update Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Order Priority Update Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, order_priority_update_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Order Priority Update Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_optional_value.dissect(buffer, index, packet, parent, order_priority_update_optional_field)
+
+  return index
+end
+
+-- Dissect: Order Priority Update Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+  local index = offset + size_of_order_priority_update_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+    parent:set_len(size_of_order_priority_update_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+
+    return index
+  end
+end
+
 -- Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message = {}
 
 -- Size: Order Priority Update Message
-nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.price.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.display.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.size
+nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Order Priority Update Message
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.display = function(packet, parent, length)
@@ -3529,6 +4426,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = funct
   -- Order Reference Number: Numeric
   index, order_reference_number = nasdaq_nsmequities_orders_ouch_v5_0.order_reference_number.dissect(buffer, index, packet, parent)
 
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Order Priority Update Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Order Priority Update Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Order Priority Update Appendage
+    local size_of_order_priority_update_appendage = optional_field_length + 1
+
+    -- Order Priority Update Appendage: Struct of 3 fields
+    index, order_priority_update_appendage = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect(buffer, index, packet, parent, size_of_order_priority_update_appendage)
+  end
+
   return index
 end
 
@@ -3550,13 +4468,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.dissect = func
   end
 end
 
+-- Cancel Reject Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value = {}
+
+-- Dissect: Cancel Reject Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dissect = function(buffer, offset, packet, parent, cancel_reject_optional_field)
+  -- Dissect User Ref Idx
+  if cancel_reject_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Cancel Reject Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage = {}
+
+-- Display: Cancel Reject Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Reject Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Cancel Reject Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, cancel_reject_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Cancel Reject Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_optional_value.dissect(buffer, index, packet, parent, cancel_reject_optional_field)
+
+  return index
+end
+
+-- Dissect: Cancel Reject Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+  local index = offset + size_of_cancel_reject_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+    parent:set_len(size_of_cancel_reject_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+
+    return index
+  end
+end
+
 -- Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message = {}
 
 -- Size: Cancel Reject Message
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Cancel Reject Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.display = function(packet, parent, length)
@@ -3572,6 +4550,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buff
 
   -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Cancel Reject Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Cancel Reject Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Cancel Reject Appendage
+    local size_of_cancel_reject_appendage = optional_field_length + 1
+
+    -- Cancel Reject Appendage: Struct of 3 fields
+    index, cancel_reject_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect(buffer, index, packet, parent, size_of_cancel_reject_appendage)
+  end
 
   return index
 end
@@ -3594,13 +4593,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.dissect = function(buf
   end
 end
 
+-- Cancel Pending Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value = {}
+
+-- Dissect: Cancel Pending Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dissect = function(buffer, offset, packet, parent, cancel_pending_optional_field)
+  -- Dissect User Ref Idx
+  if cancel_pending_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Cancel Pending Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage = {}
+
+-- Display: Cancel Pending Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Pending Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Cancel Pending Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, cancel_pending_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Cancel Pending Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_optional_value.dissect(buffer, index, packet, parent, cancel_pending_optional_field)
+
+  return index
+end
+
+-- Dissect: Cancel Pending Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+  local index = offset + size_of_cancel_pending_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+    parent:set_len(size_of_cancel_pending_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+
+    return index
+  end
+end
+
 -- Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message = {}
 
 -- Size: Cancel Pending Message
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Cancel Pending Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.display = function(packet, parent, length)
@@ -3616,6 +4675,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buf
 
   -- User Ref Num: UserRefNum
   index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Cancel Pending Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Cancel Pending Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Cancel Pending Appendage
+    local size_of_cancel_pending_appendage = optional_field_length + 1
+
+    -- Cancel Pending Appendage: Struct of 3 fields
+    index, cancel_pending_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect(buffer, index, packet, parent, size_of_cancel_pending_appendage)
+  end
 
   return index
 end
@@ -3638,15 +4718,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.dissect = function(bu
   end
 end
 
+-- Rejected Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value = {}
+
+-- Dissect: Rejected Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dissect = function(buffer, offset, packet, parent, rejected_order_optional_field)
+  -- Dissect User Ref Idx
+  if rejected_order_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Rejected Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage = {}
+
+-- Display: Rejected Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rejected Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Rejected Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, rejected_order_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Rejected Order Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_optional_value.dissect(buffer, index, packet, parent, rejected_order_optional_field)
+
+  return index
+end
+
+-- Dissect: Rejected Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+  local index = offset + size_of_rejected_order_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+    parent:set_len(size_of_rejected_order_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+
+    return index
+  end
+end
+
 -- Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message = {}
 
 -- Size: Rejected Order Message
-nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Rejected Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.display = function(packet, parent, length)
@@ -3669,6 +4807,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buf
   -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
 
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Rejected Order Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Rejected Order Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Rejected Order Appendage
+    local size_of_rejected_order_appendage = optional_field_length + 1
+
+    -- Rejected Order Appendage: Struct of 3 fields
+    index, rejected_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect(buffer, index, packet, parent, size_of_rejected_order_appendage)
+  end
+
   return index
 end
 
@@ -3690,71 +4849,61 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.dissect = function(bu
   end
 end
 
--- Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message = {}
+-- Broken Trade Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value = {}
 
--- Size: Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.price.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.match_number.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+-- Dissect: Broken Trade Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dissect = function(buffer, offset, packet, parent, broken_trade_optional_field)
+  -- Dissect User Ref Idx
+  if broken_trade_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
 
--- Display: Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.display = function(packet, parent, length)
+  return offset
+end
+
+-- Broken Trade Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage = {}
+
+-- Display: Broken Trade Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Broken Trade Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields = function(buffer, offset, packet, parent, size_of_broken_trade_appendage)
   local index = offset
 
-  -- Timestamp: Timestamp
-  index, timestamp = nasdaq_nsmequities_orders_ouch_v5_0.timestamp.dissect(buffer, index, packet, parent)
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- User Ref Num: UserRefNum
-  index, user_ref_num = nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.dissect(buffer, index, packet, parent)
+  -- Broken Trade Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, broken_trade_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Integer
-  index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
-
-  -- Price: Price
-  index, price = nasdaq_nsmequities_orders_ouch_v5_0.price.dissect(buffer, index, packet, parent)
-
-  -- Liquidity Flag: Alpha
-  index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
-
-  -- Match Number: Numeric
-  index, match_number = nasdaq_nsmequities_orders_ouch_v5_0.match_number.dissect(buffer, index, packet, parent)
-
-  -- Trade Correction Reason: Alpha
-  index, trade_correction_reason = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_reason.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: Alpha
-  index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
+  -- Broken Trade Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_optional_value.dissect(buffer, index, packet, parent, broken_trade_optional_field)
 
   return index
 end
 
--- Dissect: Trade Correction Message
-nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.trade_correction_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.display(packet, parent, length)
+-- Dissect: Broken Trade Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+  local index = offset + size_of_broken_trade_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+    parent:set_len(size_of_broken_trade_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.fields(buffer, offset, packet, parent)
+    nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+
+    return index
   end
 end
 
@@ -3762,12 +4911,11 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message = {}
 
 -- Size: Broken Trade Message
-nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.match_number.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_reason.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.clordid.size
+nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Broken Trade Message
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.display = function(packet, parent, length)
@@ -3792,6 +4940,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffe
 
   -- ClOrdId: Alpha
   index, clordid = nasdaq_nsmequities_orders_ouch_v5_0.clordid.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Broken Trade Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Broken Trade Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Broken Trade Appendage
+    local size_of_broken_trade_appendage = optional_field_length + 1
+
+    -- Broken Trade Appendage: Struct of 3 fields
+    index, broken_trade_appendage = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect(buffer, index, packet, parent, size_of_broken_trade_appendage)
+  end
 
   return index
 end
@@ -3819,13 +4988,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value = {}
 
 -- Dissect: Order Executed Optional Value
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect = function(buffer, offset, packet, parent, order_executed_optional_field)
-  -- Dissect Reference Price
-  if order_executed_optional_field == 19 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Reference Price Type
-  if order_executed_optional_field == 20 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.reference_price_type.dissect(buffer, offset, packet, parent)
+  -- Dissect User Ref Idx
+  if order_executed_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3846,10 +5011,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields = function(b
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Executed Optional Field: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Order Executed Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
   index, order_executed_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Order Executed Optional Value: Runtime Type with 2 branches
+  -- Order Executed Optional Value: Runtime Type with 1 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_optional_value.dissect(buffer, index, packet, parent, order_executed_optional_field)
 
   return index
@@ -3955,18 +5120,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.dissect = function(bu
   end
 end
 
+-- Aiq Canceled Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value = {}
+
+-- Dissect: Aiq Canceled Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dissect = function(buffer, offset, packet, parent, aiq_canceled_optional_field)
+  -- Dissect User Ref Idx
+  if aiq_canceled_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Aiq Canceled Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage = {}
+
+-- Display: Aiq Canceled Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Aiq Canceled Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Aiq Canceled Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, aiq_canceled_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Aiq Canceled Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_optional_value.dissect(buffer, index, packet, parent, aiq_canceled_optional_field)
+
+  return index
+end
+
+-- Dissect: Aiq Canceled Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+  local index = offset + size_of_aiq_canceled_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+    parent:set_len(size_of_aiq_canceled_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+
+    return index
+  end
+end
+
 -- Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message = {}
 
 -- Size: Aiq Canceled Message
-nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.decrement_shares.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.order_cancel_reason.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity_prevented_from_trading.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.execution_price.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.size
+nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Aiq Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.display = function(packet, parent, length)
@@ -3998,6 +5218,30 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffe
   -- Liquidity Flag: Alpha
   index, liquidity_flag = nasdaq_nsmequities_orders_ouch_v5_0.liquidity_flag.dissect(buffer, index, packet, parent)
 
+  -- Aiq Strategy: Alpha
+  index, aiq_strategy = nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Aiq Canceled Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Aiq Canceled Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Aiq Canceled Appendage
+    local size_of_aiq_canceled_appendage = optional_field_length + 1
+
+    -- Aiq Canceled Appendage: Struct of 3 fields
+    index, aiq_canceled_appendage = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect(buffer, index, packet, parent, size_of_aiq_canceled_appendage)
+  end
+
   return index
 end
 
@@ -4019,15 +5263,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.dissect = function(buff
   end
 end
 
+-- Canceled Message Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value = {}
+
+-- Dissect: Canceled Message Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dissect = function(buffer, offset, packet, parent, canceled_message_optional_field)
+  -- Dissect User Ref Idx
+  if canceled_message_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Canceled Message Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage = {}
+
+-- Display: Canceled Message Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Canceled Message Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields = function(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Canceled Message Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, canceled_message_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Canceled Message Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_optional_value.dissect(buffer, index, packet, parent, canceled_message_optional_field)
+
+  return index
+end
+
+-- Dissect: Canceled Message Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+  local index = offset + size_of_canceled_message_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+    parent:set_len(size_of_canceled_message_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+
+    return index
+  end
+end
+
 -- Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message = {}
 
 -- Size: Canceled Message
-nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.timestamp.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.size
+nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Canceled Message
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.display = function(packet, parent, length)
@@ -4049,6 +5351,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, o
 
   -- Cancel Order Reason: Alpha
   index, cancel_order_reason = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_reason.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Canceled Message Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Canceled Message Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Canceled Message Appendage
+    local size_of_canceled_message_appendage = optional_field_length + 1
+
+    -- Canceled Message Appendage: Struct of 3 fields
+    index, canceled_message_appendage = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect(buffer, index, packet, parent, size_of_canceled_message_appendage)
+  end
 
   return index
 end
@@ -4112,6 +5435,18 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect = fu
   if replaced_message_optional_field == 18 then
     return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect User Ref Idx
+  if replaced_message_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Strategy
+  if replaced_message_optional_field == 29 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Group Id
+  if replaced_message_optional_field == 30 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -4131,10 +5466,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields = function
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Replaced Message Optional Field: 1 Byte Signed Fixed Width Integer Enum with 9 values
+  -- Replaced Message Optional Field: 1 Byte Signed Fixed Width Integer Enum with 12 values
   index, replaced_message_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Replaced Message Optional Value: Runtime Type with 9 branches
+  -- Replaced Message Optional Value: Runtime Type with 12 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_optional_value.dissect(buffer, index, packet, parent, replaced_message_optional_field)
 
   return index
@@ -4300,9 +5635,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = func
   if order_accepted_optional_field == 9 then
     return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Discretion Peg Type
+  -- Dissect Discretion Price Type
   if order_accepted_optional_field == 10 then
-    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_type.dissect(buffer, offset, packet, parent)
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Discretion Peg Offset
   if order_accepted_optional_field == 11 then
@@ -4336,6 +5671,26 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect = func
   if order_accepted_optional_field == 18 then
     return nasdaq_nsmequities_orders_ouch_v5_0.bbo_weight_indicator.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Group Id
+  if order_accepted_optional_field == 24 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Shares Located
+  if order_accepted_optional_field == 25 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Ref Idx
+  if order_accepted_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Strategy
+  if order_accepted_optional_field == 29 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Group Id
+  if order_accepted_optional_field == 30 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -4355,10 +5710,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields = function(b
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Order Accepted Optional Field: 1 Byte Signed Fixed Width Integer Enum with 16 values
+  -- Order Accepted Optional Field: 1 Byte Signed Fixed Width Integer Enum with 21 values
   index, order_accepted_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Order Accepted Optional Value: Runtime Type with 16 branches
+  -- Order Accepted Optional Value: Runtime Type with 21 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_optional_value.dissect(buffer, index, packet, parent, order_accepted_optional_field)
 
   return index
@@ -4565,10 +5920,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect = function(buffer,
   if sequenced_message_type == "B" then
     return nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Trade Correction Message
-  if sequenced_message_type == "F" then
-    return nasdaq_nsmequities_orders_ouch_v5_0.trade_correction_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Rejected Order Message
   if sequenced_message_type == "J" then
     return nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.dissect(buffer, offset, packet, parent)
@@ -4672,10 +6023,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields = function(buff
     end
   end
 
-  -- Sequenced Message Type: 1 Byte Ascii String Enum with 18 values
+  -- Sequenced Message Type: 1 Byte Ascii String Enum with 17 values
   index, sequenced_message_type = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message: Runtime Type with 18 branches
+  -- Sequenced Message: Runtime Type with 17 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
 
   return index
@@ -5580,14 +6931,81 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.dissect = function(buf
   end
 end
 
+-- Modify Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value = {}
+
+-- Dissect: Modify Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dissect = function(buffer, offset, packet, parent, modify_order_optional_field)
+  -- Dissect User Ref Idx
+  if modify_order_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Shares Located
+  if modify_order_optional_field == 25 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Locate Broker
+  if modify_order_optional_field == 26 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Modify Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage = {}
+
+-- Display: Modify Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields = function(buffer, offset, packet, parent, size_of_modify_order_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Modify Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  index, modify_order_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Modify Order Optional Value: Runtime Type with 3 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_optional_value.dissect(buffer, index, packet, parent, modify_order_optional_field)
+
+  return index
+end
+
+-- Dissect: Modify Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_modify_order_appendage)
+  local index = offset + size_of_modify_order_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+    parent:set_len(size_of_modify_order_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+
+    return index
+  end
+end
+
 -- Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message = {}
 
 -- Size: Modify Order Message
-nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.side.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Modify Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.display = function(packet, parent, length)
@@ -5606,6 +7024,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffe
 
   -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Modify Order Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Modify Order Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Modify Order Appendage
+    local size_of_modify_order_appendage = optional_field_length + 1
+
+    -- Modify Order Appendage: Struct of 3 fields
+    index, modify_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect(buffer, index, packet, parent, size_of_modify_order_appendage)
+  end
 
   return index
 end
@@ -5628,13 +7067,73 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.dissect = function(buff
   end
 end
 
+-- Cancel Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value = {}
+
+-- Dissect: Cancel Order Optional Value
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dissect = function(buffer, offset, packet, parent, cancel_order_optional_field)
+  -- Dissect User Ref Idx
+  if cancel_order_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Cancel Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage = {}
+
+-- Display: Cancel Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields = function(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+  local index = offset
+
+  -- Optional Field Length: 1 Byte Signed Fixed Width Integer
+  index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
+
+  -- Cancel Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 1 values
+  index, cancel_order_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_field.dissect(buffer, index, packet, parent)
+
+  -- Cancel Order Optional Value: Runtime Type with 1 branches
+  index = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_optional_value.dissect(buffer, index, packet, parent, cancel_order_optional_field)
+
+  return index
+end
+
+-- Dissect: Cancel Order Appendage
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+  local index = offset + size_of_cancel_order_appendage
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage, buffer(offset, 0))
+    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+    parent:set_len(size_of_cancel_order_appendage)
+    local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+
+    return index
+  end
+end
+
 -- Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message = {}
 
 -- Size: Cancel Order Message
-nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.user_ref_num.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.quantity.size
+nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.size = function(buffer, offset)
+  local index = 0
+
+  return buffer:len() - (offset + index) 
+end
 
 -- Display: Cancel Order Message
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.display = function(packet, parent, length)
@@ -5650,6 +7149,27 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffe
 
   -- Quantity: Integer
   index, quantity = nasdaq_nsmequities_orders_ouch_v5_0.quantity.dissect(buffer, index, packet, parent)
+
+  -- Appendage Length: Numeric
+  index, appendage_length = nasdaq_nsmequities_orders_ouch_v5_0.appendage_length.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Cancel Order Appendage
+  local end_of_payload = appendage_length + index
+
+  -- Cancel Order Appendage: Struct of 3 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Optional Field Length
+    local optional_field_length = buffer(index, 1):int()
+
+    -- Runtime Size Of: Cancel Order Appendage
+    local size_of_cancel_order_appendage = optional_field_length + 1
+
+    -- Cancel Order Appendage: Struct of 3 fields
+    index, cancel_order_appendage = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect(buffer, index, packet, parent, size_of_cancel_order_appendage)
+  end
 
   return index
 end
@@ -5705,6 +7225,50 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect = funct
   if replace_order_optional_field == 17 then
     return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Random Reserves
+  if replace_order_optional_field == 13 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Peg Offset
+  if replace_order_optional_field == 7 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Price
+  if replace_order_optional_field == 9 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Price Type
+  if replace_order_optional_field == 10 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Peg Offset
+  if replace_order_optional_field == 11 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Shares Located
+  if replace_order_optional_field == 25 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Locate Broker
+  if replace_order_optional_field == 26 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Ref Idx
+  if replace_order_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Side
+  if replace_order_optional_field == 27 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.side.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Strategy
+  if replace_order_optional_field == 29 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Group Id
+  if replace_order_optional_field == 30 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -5724,10 +7288,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields = function(bu
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Replace Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  -- Replace Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 18 values
   index, replace_order_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Replace Order Optional Value: Runtime Type with 7 branches
+  -- Replace Order Optional Value: Runtime Type with 18 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_optional_value.dissect(buffer, index, packet, parent, replace_order_optional_field)
 
   return index
@@ -5860,6 +7424,70 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect = functio
   if enter_order_optional_field == 5 then
     return nasdaq_nsmequities_orders_ouch_v5_0.max_floor.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Price Type
+  if enter_order_optional_field == 6 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.price_type.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Peg Offset
+  if enter_order_optional_field == 7 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.peg_offset.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Price
+  if enter_order_optional_field == 9 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Price Type
+  if enter_order_optional_field == 10 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_price_type.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Discretion Peg Offset
+  if enter_order_optional_field == 11 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.discretion_peg_offset.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Post Only
+  if enter_order_optional_field == 12 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.post_only.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Random Reserves
+  if enter_order_optional_field == 13 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.random_reserves.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Expire Time
+  if enter_order_optional_field == 15 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.expire_time.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trade Now
+  if enter_order_optional_field == 16 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.trade_now.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Handle Inst
+  if enter_order_optional_field == 17 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.handle_inst.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Group Id
+  if enter_order_optional_field == 24 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.group_id.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Shares Located
+  if enter_order_optional_field == 25 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.shares_located.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Locate Broker
+  if enter_order_optional_field == 26 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.locate_broker.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect User Ref Idx
+  if enter_order_optional_field == 28 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.user_ref_idx.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Strategy
+  if enter_order_optional_field == 29 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_strategy.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Aiq Group Id
+  if enter_order_optional_field == 30 then
+    return nasdaq_nsmequities_orders_ouch_v5_0.aiq_group_id.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -5879,10 +7507,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields = function(buff
   -- Optional Field Length: 1 Byte Signed Fixed Width Integer
   index, optional_field_length = nasdaq_nsmequities_orders_ouch_v5_0.optional_field_length.dissect(buffer, index, packet, parent)
 
-  -- Enter Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 4 values
+  -- Enter Order Optional Field: 1 Byte Signed Fixed Width Integer Enum with 20 values
   index, enter_order_optional_field = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_field.dissect(buffer, index, packet, parent)
 
-  -- Enter Order Optional Value: Runtime Type with 4 branches
+  -- Enter Order Optional Value: Runtime Type with 20 branches
   index = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_optional_value.dissect(buffer, index, packet, parent, enter_order_optional_field)
 
   return index
