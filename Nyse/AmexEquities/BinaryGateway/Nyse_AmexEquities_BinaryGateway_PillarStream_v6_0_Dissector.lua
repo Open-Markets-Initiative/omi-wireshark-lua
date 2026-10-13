@@ -2246,7 +2246,7 @@ nyse_amexequities_binarygateway_pillarstream_v6_0.msg_type.display = function(va
     return "Msg Type: Seq Msg (0x0905)"
   end
 
-  return "Msg Type: Unknown("..value..")"
+  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -4919,7 +4919,7 @@ nyse_amexequities_binarygateway_pillarstream_v6_0.seq_msg_type.display = functio
     return "Seq Msg Type: Risk Control Alert Message (0x0333)"
   end
 
-  return "Seq Msg Type: Unknown("..value..")"
+  return "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Seq Msg Type

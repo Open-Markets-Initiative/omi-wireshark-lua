@@ -913,7 +913,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.message_type.display = func
     return "Message Type: Ox Constituent Symbol Mapping Message (0x9E)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

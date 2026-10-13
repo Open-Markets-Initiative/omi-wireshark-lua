@@ -1895,7 +1895,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.message_type.display = function
     return "Message Type: Mifid Ii Trade Report Message (0x54)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

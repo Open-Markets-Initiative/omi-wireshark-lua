@@ -931,7 +931,7 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.message_type.display = 
     return "Message Type: Expanded Fractional End Of Day Summary Message (0xEF)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

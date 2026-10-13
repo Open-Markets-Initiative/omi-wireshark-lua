@@ -807,7 +807,7 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.template_id.display = function(va
     return "Template ID: Index Definition Message (0x1A)"
   end
 
-  return "Template ID: Unknown("..value..")"
+  return "Template ID: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Template ID

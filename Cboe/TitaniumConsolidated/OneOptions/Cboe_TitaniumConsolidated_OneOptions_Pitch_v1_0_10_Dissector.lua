@@ -786,7 +786,7 @@ cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.message_type.display = functi
     return "Message Type: Trading Status Message (0xAB)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

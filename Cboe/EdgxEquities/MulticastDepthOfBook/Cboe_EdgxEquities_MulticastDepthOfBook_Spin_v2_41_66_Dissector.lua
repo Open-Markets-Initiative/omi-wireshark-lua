@@ -680,7 +680,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_66.message_type.display = func
     return "Message Type: Retail Price Improvement Message (0x98)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

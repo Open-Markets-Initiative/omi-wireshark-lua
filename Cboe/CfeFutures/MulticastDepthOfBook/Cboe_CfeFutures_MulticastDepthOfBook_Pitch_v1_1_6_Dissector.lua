@@ -985,7 +985,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.message_type.display = functio
     return "Message Type: End Of Session Message (0x2D)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

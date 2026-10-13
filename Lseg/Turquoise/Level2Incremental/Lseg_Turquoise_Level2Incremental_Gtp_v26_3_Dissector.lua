@@ -924,7 +924,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.message_type.display = function(value
     return "Message Type: Trade Summary Message (0x57)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

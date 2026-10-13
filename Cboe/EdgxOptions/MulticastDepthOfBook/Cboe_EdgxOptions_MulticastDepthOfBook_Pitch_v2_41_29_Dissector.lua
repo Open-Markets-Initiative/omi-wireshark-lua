@@ -872,7 +872,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_29.message_type.display = func
     return "Message Type: Auction Trade Message (0xAF)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

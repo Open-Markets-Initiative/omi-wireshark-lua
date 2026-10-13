@@ -1297,7 +1297,7 @@ jse_itac_marketdata_mitch_v4_07.message_type.display = function(value)
     return "Message Type: Indicative Quote Info Message (0x69)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -1816,7 +1816,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.display = function(val
     return "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)"
   end
 
-  return "Retail Pricing Indicator: Unknown("..value..")"
+  return "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Retail Pricing Indicator

@@ -1103,7 +1103,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_67.message_type.display = functio
     return "Message Type: Index Quote Edsp Message (0xD9)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

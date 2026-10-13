@@ -535,7 +535,7 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.message_type.display = funct
     return "Message Type: Auction Summary Message (0x5A)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -797,7 +797,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.message_type.display = functio
     return "Message Type: Retail Price Improvement Message (0x98)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

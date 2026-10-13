@@ -2090,7 +2090,8 @@ nyse_nyseequities_bbo_xdp_v2_4_g.quote_message.size =
   nyse_nyseequities_bbo_xdp_v2_4_g.bid_price.size + 
   nyse_nyseequities_bbo_xdp_v2_4_g.bid_volume.size + 
   nyse_nyseequities_bbo_xdp_v2_4_g.quote_condition.size + 
-  nyse_nyseequities_bbo_xdp_v2_4_g.rpi_indicator.size
+  nyse_nyseequities_bbo_xdp_v2_4_g.rpi_indicator.size + 
+  nyse_nyseequities_bbo_xdp_v2_4_g.reserved_4.size
 
 -- Display: Quote Message
 nyse_nyseequities_bbo_xdp_v2_4_g.quote_message.display = function(packet, parent, length)
@@ -2127,6 +2128,9 @@ nyse_nyseequities_bbo_xdp_v2_4_g.quote_message.fields = function(buffer, offset,
 
   -- Rpi Indicator: ASCII
   index, rpi_indicator = nyse_nyseequities_bbo_xdp_v2_4_g.rpi_indicator.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: reserved
+  index, reserved_4 = nyse_nyseequities_bbo_xdp_v2_4_g.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end

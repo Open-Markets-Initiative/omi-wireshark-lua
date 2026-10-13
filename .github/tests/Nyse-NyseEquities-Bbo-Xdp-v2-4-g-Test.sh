@@ -19,6 +19,7 @@ grep "nyse.nyseequities.bbo.xdp.v2.4.g.bidprice" Nyse.NyseEquities.Bbo.Xdp.v2.4.
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.bidvolume" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.quotecondition" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 grep "nyse.nyseequities.bbo.xdp.v2.4.g.rpiindicator" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
+grep "nyse.nyseequities.bbo.xdp.v2.4.g.reserved4" Nyse.NyseEquities.Bbo.Xdp.v2.4.g.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Xdp.v2.4.g/SecurityStatusMessage.pcap" \
   -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Xdp_v2_4_g_Dissector.lua" \

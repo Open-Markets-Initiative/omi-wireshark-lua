@@ -518,7 +518,7 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.message_type.display = functio
     return "Message Type: Auction Summary Message (0x96)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

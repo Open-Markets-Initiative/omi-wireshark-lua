@@ -73,8 +73,8 @@ omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.underlying_type =
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.upperpricelimit", ftypes.DOUBLE)
 
 -- Lme LmeSelect ReferenceDataSnapshot LmeSource 4.18 Framing
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.message = ProtoField.new("Message", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.message", ftypes.STRING)
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.message_header = ProtoField.new("Message Header", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.messageheader", ftypes.STRING)
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.messages = ProtoField.new("Messages", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.messages", ftypes.STRING)
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.packet = ProtoField.new("Packet", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.packet", ftypes.STRING)
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.packet_header = ProtoField.new("Packet Header", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.packetheader", ftypes.STRING)
 
@@ -88,7 +88,7 @@ omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.strategy_definiti
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.trade_statistics_end_of_day_message = ProtoField.new("Trade Statistics End Of Day Message", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradestatisticsendofdaymessage", ftypes.STRING)
 
 -- Lme LmeSelect ReferenceDataSnapshot LmeSource 4.18 Generated Fields
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.messages_index = ProtoField.new("Messages Index", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.messagesindex", ftypes.UINT16)
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.message_index = ProtoField.new("Message Index", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.messageindex", ftypes.UINT16)
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.strategy_legs_index = ProtoField.new("Strategy Legs Index", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.strategylegsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -99,15 +99,15 @@ local show = {}
 
 -- Lme LmeSelect ReferenceDataSnapshot LmeSource 4.18 Element Dissection Options
 show.application_messages = true
-show.headers = true
 show.structs = true
+show.headers = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Lme LmeSelect ReferenceDataSnapshot LmeSource 4.18 Show Options
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -2376,11 +2376,11 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message_header.dissect = fun
   end
 end
 
--- Messages
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages = {}
+-- Message
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message = {}
 
--- Calculate size of: Messages
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.size = function(buffer, offset)
+-- Calculate size of: Message
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.size = function(buffer, offset)
   local index = 0
 
   index = index + lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message_header.size
@@ -2391,18 +2391,18 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.size = function(buf
   return index
 end
 
--- Display: Messages
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.display = function(packet, parent, length)
+-- Display: Message
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Messages
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.fields = function(buffer, offset, packet, parent, messages_index)
+-- Dissect Fields: Message
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.fields = function(buffer, offset, packet, parent, message_index)
   local index = offset
 
-  -- Implicit Messages Index
-  if messages_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.messages_index, messages_index)
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.message_index, message_index)
     iteration:set_generated()
   end
 
@@ -2418,21 +2418,21 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.fields = function(b
   return index
 end
 
--- Dissect: Messages
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.dissect = function(buffer, offset, packet, parent, messages_index)
+-- Dissect: Message
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.dissect = function(buffer, offset, packet, parent, message_index)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.messages, buffer(offset, 0))
-    local index = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.fields(buffer, offset, packet, parent, messages_index)
+    parent = parent:add(omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.message, buffer(offset, 0))
+    local index = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.fields(buffer, offset, packet, parent, message_index)
     local length = index - offset
     parent:set_len(length)
-    local display = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.display(packet, parent, length)
+    local display = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.fields(buffer, offset, packet, parent, messages_index)
+    return lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.fields(buffer, offset, packet, parent, message_index)
   end
 end
 
@@ -2510,9 +2510,9 @@ lme_lmeselect_referencedatasnapshot_lmesource_v4_18.packet.dissect = function(bu
   -- Dependency element: Msg Count
   local msg_count = buffer(index - 14, 1):uint()
 
-  -- Repeating: Messages
-  for messages_index = 1, msg_count do
-    index, messages = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.messages.dissect(buffer, index, packet, parent, messages_index)
+  -- Repeating: Message
+  for message_index = 1, msg_count do
+    index, message = lme_lmeselect_referencedatasnapshot_lmesource_v4_18.message.dissect(buffer, index, packet, parent, message_index)
   end
 
   return index

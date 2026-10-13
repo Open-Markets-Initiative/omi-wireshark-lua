@@ -2705,7 +2705,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_type.display = function(va
     return "Msg Type: Seq Msg (0x0905)"
   end
 
-  return "Msg Type: Unknown("..value..")"
+  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type
@@ -5251,7 +5251,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_type.display = functio
     return "Seq Msg Type: Complex Series Request Acknowledgement Message (0x0358)"
   end
 
-  return "Seq Msg Type: Unknown("..value..")"
+  return "Seq Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Seq Msg Type

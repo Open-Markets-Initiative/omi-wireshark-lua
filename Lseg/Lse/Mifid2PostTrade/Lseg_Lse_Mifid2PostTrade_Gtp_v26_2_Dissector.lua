@@ -822,7 +822,7 @@ lseg_lse_mifid2posttrade_gtp_v26_2.message_type.display = function(value)
     return "Message Type: Mifid Ii Trade Message (0x51)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

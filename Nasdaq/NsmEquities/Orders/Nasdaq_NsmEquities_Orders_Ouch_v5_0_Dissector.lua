@@ -2811,7 +2811,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_reason.display = function(val
     return "Rejected Order Reason: Invalid Aiq (0x0040)"
   end
 
-  return "Rejected Order Reason: Unknown("..value..")"
+  return "Rejected Order Reason: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Rejected Order Reason

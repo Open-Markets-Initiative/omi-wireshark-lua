@@ -3792,7 +3792,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.message_type.display = function(valu
     return "Message Type: Order Execution Message (0x2C)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

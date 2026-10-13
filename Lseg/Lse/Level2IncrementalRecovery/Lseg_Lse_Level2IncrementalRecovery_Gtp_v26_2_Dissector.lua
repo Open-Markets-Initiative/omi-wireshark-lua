@@ -1576,7 +1576,7 @@ lseg_lse_level2incrementalrecovery_gtp_v26_2.message_type.display = function(val
     return "Message Type: Statistics Snapshot Message (0x6B)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

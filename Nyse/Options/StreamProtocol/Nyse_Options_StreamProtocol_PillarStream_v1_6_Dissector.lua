@@ -294,7 +294,7 @@ nyse_options_streamprotocol_pillarstream_v1_6.msg_type.display = function(value)
     return "Msg Type: Seq Msg (0x0905)"
   end
 
-  return "Msg Type: Unknown("..value..")"
+  return "Msg Type: Unknown("..string.format("0x%04X", value)..")"
 end
 
 -- Dissect: Msg Type

@@ -1610,7 +1610,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_type.display = func
     return "Message Type: End Of Day Summary Message (0xBA)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

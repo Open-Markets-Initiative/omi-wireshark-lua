@@ -530,7 +530,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.message_type.display = function(valu
     return "Message Type: Constituent Symbol Mapping Message (0x9E)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

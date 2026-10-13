@@ -464,7 +464,7 @@ lseg_tradeecho_level2incremental_gtp_v26_1_2.message_type.display = function(val
     return "Message Type: Si Quote Message (0x47)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -7617,7 +7617,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message_type.display = function(
     return "Message Type: Delete Floor Trade Acknowledgement Message (0x61)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

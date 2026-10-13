@@ -2044,7 +2044,7 @@ lseg_turquoise_recovery_gtp_v24_4.message_type.display = function(value)
     return "Message Type: Statistics Snapshot Message (0x6B)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -851,7 +851,7 @@ cboe_c1options_multicasttop_spin_v1_2_54.message_type.display = function(value)
     return "Message Type: Trading Status Message (0x31)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

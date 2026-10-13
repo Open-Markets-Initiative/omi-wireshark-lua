@@ -861,7 +861,7 @@ cboe_edgxoptions_complexauction_pitch_v2_2_41.message_type.display = function(va
     return "Message Type: End Of Session Message (0x2D)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

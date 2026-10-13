@@ -1206,7 +1206,7 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.message_type.display = function(value)
     return "Message Type: End Of Day Summary Message (0xBA)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

@@ -433,7 +433,7 @@ cboe_cxaequities_multicasttopofbook_spin_v1_0_10.message_type.display = function
     return "Message Type: Calculated Value Message (0xE3)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

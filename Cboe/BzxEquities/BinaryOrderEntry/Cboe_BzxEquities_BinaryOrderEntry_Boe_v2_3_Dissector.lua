@@ -74,6 +74,7 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.mass_cancel_id = ProtoFiel
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.bzxequities.binaryorderentry.boe.v2.3.masscancelinst", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.bzxequities.binaryorderentry.boe.v2.3.matchingunit", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.max_floor = ProtoField.new("Max Floor", "cboe.bzxequities.binaryorderentry.boe.v2.3.maxfloor", ftypes.UINT32)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.bzxequities.binaryorderentry.boe.v2.3.maxremovepct", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.binaryorderentry.boe.v2.3.messagelength", ftypes.UINT16)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.binaryorderentry.boe.v2.3.messagetype", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.min_qty = ProtoField.new("Min Qty", "cboe.bzxequities.binaryorderentry.boe.v2.3.minqty", ftypes.UINT32)
@@ -203,11 +204,11 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.reserved_1 = ProtoField.ne
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.bzxequities.binaryorderentry.boe.v2.3.restatementreason", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1 = ProtoField.new("Return Bitfield 1", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_exec_inst = ProtoField.new("Return Bitfield 1 Exec Inst", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_max_remove_pct = ProtoField.new("Return Bitfield 1 Max Remove Pct", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_min_qty = ProtoField.new("Return Bitfield 1 Min Qty", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_ord_type = ProtoField.new("Return Bitfield 1 Ord Type", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_peg_difference = ProtoField.new("Return Bitfield 1 Peg Difference", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_price = ProtoField.new("Return Bitfield 1 Price", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_reserved_128 = ProtoField.new("Return Bitfield 1 Reserved 128", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_side = ProtoField.new("Return Bitfield 1 Side", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_time_in_force = ProtoField.new("Return Bitfield 1 Time In Force", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1timeinforce", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_10 = ProtoField.new("Return Bitfield 10", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield10", ftypes.STRING)
@@ -2137,6 +2138,29 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.max_floor.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Max Remove Pct
+cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct = {}
+
+-- Size: Max Remove Pct
+cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.size = 1
+
+-- Display: Max Remove Pct
+cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.display = function(value)
+  return "Max Remove Pct: "..value
+end
+
+-- Dissect: Max Remove Pct
+cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.max_remove_pct, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Length
 cboe_bzxequities_binaryorderentry_boe_v2_3.message_length = {}
 
@@ -2235,7 +2259,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.message_type.display = function(value
     return "Message Type: Purge Rejected Message (0x48)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
@@ -5511,9 +5535,9 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.return_bitfield_1.display = function(
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 1 Min Qty"
   end
-  -- Is Return Bitfield 1 Reserved 128 flag set?
+  -- Is Return Bitfield 1 Max Remove Pct flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 1 Reserved 128"
+    flags[#flags + 1] = "Return Bitfield 1 Max Remove Pct"
   end
 
   return table.concat(flags, "|")
@@ -5543,8 +5567,8 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.return_bitfield_1.bits = function(ran
   -- Return Bitfield 1 Min Qty: 1 Bit
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_min_qty, range, value)
 
-  -- Return Bitfield 1 Reserved 128: 1 Bit
-  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_reserved_128, range, value)
+  -- Return Bitfield 1 Max Remove Pct: 1 Bit
+  parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_max_remove_pct, range, value)
 end
 
 -- Dissect: Return Bitfield 1
@@ -6505,6 +6529,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_execution_message.fields = func
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -7000,6 +7033,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.cancel_rejected_message.fields = func
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -7364,6 +7406,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_cancelled_message.fields = func
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol
@@ -8203,6 +8254,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_restated_message.fields = funct
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -8774,6 +8834,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_modified_message.fields = funct
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol
@@ -9352,6 +9421,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_rejected_message.fields = funct
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -9842,6 +9920,15 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.order_acknowledgment_message.fields =
 
   if min_qty_exists then
     index, min_qty = cboe_bzxequities_binaryorderentry_boe_v2_3.min_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_bzxequities_binaryorderentry_boe_v2_3.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol

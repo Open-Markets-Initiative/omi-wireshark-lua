@@ -369,7 +369,7 @@ cboe_neoequities_gaprequestproxy_pitch_v1_0_14.message_type.display = function(v
     return "Message Type: Gap Response Message (0x04)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type

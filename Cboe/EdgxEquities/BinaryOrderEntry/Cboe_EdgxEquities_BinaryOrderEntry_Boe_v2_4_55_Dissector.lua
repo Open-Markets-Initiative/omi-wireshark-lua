@@ -2098,7 +2098,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_55.message_type.display = function(v
     return "Message Type: Purge Rejected Message (0x48)"
   end
 
-  return "Message Type: Unknown("..value..")"
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
 end
 
 -- Dissect: Message Type
