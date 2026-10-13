@@ -9248,29 +9248,13 @@ end
 -- Message
 siac_cts_output_cta_v2_11_b.message = {}
 
--- Calculate size of: Message
-siac_cts_output_cta_v2_11_b.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cts_output_cta_v2_11_b.message_length.size
-
-  index = index + siac_cts_output_cta_v2_11_b.message_category.size
-
-  -- Calculate runtime size of Category Payload field
-  local category_payload_offset = offset + index
-  local category_payload_type = buffer(category_payload_offset - 1, 1):string()
-  index = index + siac_cts_output_cta_v2_11_b.category_payload.size(buffer, category_payload_offset, category_payload_type)
-
-  return index
-end
-
 -- Display: Message
 siac_cts_output_cta_v2_11_b.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-siac_cts_output_cta_v2_11_b.message.fields = function(buffer, offset, packet, parent, message_index)
+siac_cts_output_cta_v2_11_b.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -9292,20 +9276,23 @@ siac_cts_output_cta_v2_11_b.message.fields = function(buffer, offset, packet, pa
 end
 
 -- Dissect: Message
-siac_cts_output_cta_v2_11_b.message.dissect = function(buffer, offset, packet, parent, message_index)
+siac_cts_output_cta_v2_11_b.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.headers then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.message, buffer(offset, 0))
-    local index = siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_output_cta_v2_11_b.message.display(packet, parent, length)
+    local current = siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = siac_cts_output_cta_v2_11_b.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, message_index)
+    siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -9458,7 +9445,12 @@ siac_cts_output_cta_v2_11_b.packet.dissect = function(buffer, packet, parent)
 
   -- Repeating: Message
   for message_index = 1, messages_in_block do
-    index, message = siac_cts_output_cta_v2_11_b.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    index, message = siac_cts_output_cta_v2_11_b.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   -- Runtime optional field: Block Pad Byte
