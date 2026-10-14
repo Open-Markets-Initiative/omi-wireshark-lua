@@ -113,7 +113,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.unit = ProtoFiel
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.unused_1 = ProtoField.new("Unused 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.unused_3 = ProtoField.new("Unused 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.unused3", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.volume = ProtoField.new("Volume", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.volume", ftypes.UINT32)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.widthtype", ftypes.UINT8)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.widthtype", ftypes.STRING)
 
 -- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.01 Framing
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.message = ProtoField.new("Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.message", ftypes.STRING)
@@ -2824,10 +2824,10 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.size = 1
 
 -- Display: Width Type
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.display = function(value)
-  if value == R then
+  if value == "R" then
     return "Width Type: Regular (R)"
   end
-  if value == V then
+  if value == "V" then
     return "Width Type: Volatility (V)"
   end
 
@@ -2838,7 +2838,7 @@ end
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:string()
   local display = cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.width_type, range, value, display)
@@ -3445,7 +3445,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_update_message.fields
   -- Product Code: Alphanumeric
   index, product_code = cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.product_code.dissect(buffer, index, packet, parent)
 
-  -- Width Type: Binary
+  -- Width Type: Alphanumeric
   index, width_type = cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.width_type.dissect(buffer, index, packet, parent)
 
   -- Multiplier: Multiplier

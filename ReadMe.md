@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1398 | 9,925,695 |
+| 1399 | 9,926,757 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -260,6 +260,7 @@ Enjoy.
 [Cboe.C2Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C2Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.C2Options.MulticastTop]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C2Options/MulticastTop.md "Multicast Top"
 [Cboe.CboeEquities.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CboeEquities/BinaryOrderEntry.md ""
+[Cboe.CboeEurope.LatencyFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CboeEurope/LatencyFeed.md "Multicast Latency Feed"
 [Cboe.CboeEurope.TradeReporting]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CboeEurope/TradeReporting.md ""
 [Cboe.CfeFutures.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CfeFutures/BinaryOrderEntry.md "Futures Binary Order Entry"
 [Cboe.CfeFutures.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastDepthOfBook.md "Futures Multicast Depth Of Book"
