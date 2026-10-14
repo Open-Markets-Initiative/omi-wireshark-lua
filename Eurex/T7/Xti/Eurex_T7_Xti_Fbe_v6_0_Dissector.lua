@@ -19,7 +19,7 @@ omi_eurex_t7_xti_fbe_v6_0.fields.account = ProtoField.new("Account", "eurex.t7.x
 omi_eurex_t7_xti_fbe_v6_0.fields.affected_ord_grp_comp = ProtoField.new("Affected Ord Grp Comp", "eurex.t7.xti.fbe.v6.0.affectedordgrpcomp", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v6_0.fields.affected_order_id = ProtoField.new("Affected Order Id", "eurex.t7.xti.fbe.v6.0.affectedorderid", ftypes.UINT64)
 omi_eurex_t7_xti_fbe_v6_0.fields.affected_orig_cl_ord_id = ProtoField.new("Affected Orig Cl Ord Id", "eurex.t7.xti.fbe.v6.0.affectedorigclordid", ftypes.UINT64)
-omi_eurex_t7_xti_fbe_v6_0.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.xti.fbe.v6.0.alignmentpadding", ftypes.BYTES)
+omi_eurex_t7_xti_fbe_v6_0.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.xti.fbe.v6.0.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
 omi_eurex_t7_xti_fbe_v6_0.fields.appl_beg_msg_id = ProtoField.new("Appl Beg Msg Id", "eurex.t7.xti.fbe.v6.0.applbegmsgid", ftypes.BYTES)
 omi_eurex_t7_xti_fbe_v6_0.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "eurex.t7.xti.fbe.v6.0.applbegseqnum", ftypes.UINT64)
 omi_eurex_t7_xti_fbe_v6_0.fields.appl_end_msg_id = ProtoField.new("Appl End Msg Id", "eurex.t7.xti.fbe.v6.0.applendmsgid", ftypes.BYTES)
@@ -284,11 +284,11 @@ omi_eurex_t7_xti_fbe_v6_0.fields.var_text_len = ProtoField.new("Var Text Len", "
 omi_eurex_t7_xti_fbe_v6_0.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.t7.xti.fbe.v6.0.volumediscoveryprice", ftypes.DOUBLE)
 
 -- Eurex T7 Xti Fbe 6.0 Framing
-omi_eurex_t7_xti_fbe_v6_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.xti.fbe.v6.0.clientmessage", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.xti.fbe.v6.0.clientpacket", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v6.0.messageheader", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.xti.fbe.v6.0.servermessage", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v6_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.xti.fbe.v6.0.serverpacket", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v6_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.xti.fbe.v6.0.clientmessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by the participant to Eurex")
+omi_eurex_t7_xti_fbe_v6_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.xti.fbe.v6.0.clientpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by the participant to Eurex")
+omi_eurex_t7_xti_fbe_v6_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v6.0.messageheader", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti message header")
+omi_eurex_t7_xti_fbe_v6_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.xti.fbe.v6.0.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by Eurex to the participant")
+omi_eurex_t7_xti_fbe_v6_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.xti.fbe.v6.0.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
 -- Eurex T7 Xti 6.0 Application Messages
 omi_eurex_t7_xti_fbe_v6_0.fields.best_quote_execution_report = ProtoField.new("Best Quote Execution Report", "eurex.t7.xti.fbe.v6.0.bestquoteexecutionreport", ftypes.STRING)

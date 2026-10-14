@@ -15,70 +15,75 @@ local nasdaq_nsmequities_noiview_asciiitch_v3_0_2013 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities NoiView AsciiItch 3.0.2013 Fields
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.authenticity", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crossprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crosstype", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currentreferenceprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currenttradingstate", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpflag", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpleveragefactor", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.eventcode", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.far_price = ProtoField.new("Far Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.farprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.financialstatusindicator", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.imbalancedirection", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.imbalanceshares", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.inverseindicator", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoflag", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasequalifier", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasetime", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issueclassification", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issuesubtype", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.luldreferencepricetier", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.marketcategory", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.matchnumber", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagedata", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagelength", ftypes.UINT16)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagetype", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.nearprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.pairedshares", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.pricevariationindicator", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.reason", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.regshoaction", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsize", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsonly", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.sequencenumber", ftypes.UINT32)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.session", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shares", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shortsalethresholdindicator", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalpha8", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alphanumeric_8 = ProtoField.new("Stock Alphanumeric 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalphanumeric8", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.timestamp", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.tracking_id = ProtoField.new("Tracking Id", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.trackingid", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.authenticity", ftypes.STRING, nil, nil, nil, "Denotes if an issue or quoting participant record is set-up in NASDAQ systems in a live/production, test, or demo state.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crossprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the cross occurred.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crosstype", ftypes.STRING, nil, nil, nil, "Denotes the type of NASDAQ cross for which the NOII message is being generated.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currentreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Indicates price at which the NOII shares are being calculated.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.currenttradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpflag", ftypes.STRING, nil, nil, nil, "Indicates whether the security is an exchange traded product (ETP).")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.etpleveragefactor", ftypes.STRING, nil, nil, nil, "Tracks the integeral relationship of the ETP to the underlying index.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.eventcode", ftypes.STRING, nil, nil, nil, "Refer to System Event Codes below.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.far_price = ProtoField.new("Far Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.farprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders only.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.imbalancedirection", ftypes.STRING, nil, nil, nil, "Indicates the market side of the imbalance.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.imbalanceshares", ftypes.STRING, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.inverseindicator", ftypes.STRING, nil, nil, nil, "Indicates the directional relationship between the ETP and underlying index.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoflag", ftypes.STRING, nil, nil, nil, "Indicates if the NASDAQ security is set up for IPO release.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the IPO price to be used for intraday net change calculations.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasequalifier", ftypes.STRING, nil, nil, nil, "Denotes the qualifier for the IPO quotation release.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotationreleasetime", ftypes.STRING, nil, nil, nil, "Denotes the IPO release time for quotation to the nearest second.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issue as assigned by NASDAQ.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by NASDAQ.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.luldreferencepricetier", ftypes.STRING, nil, nil, nil, "Indicates which Limit Up / Limit Down price band calculation parameter is to be used for the instrument.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.matchnumber", ftypes.STRING, nil, nil, nil, "The NASDAQ generated day-unique Match Number of this execution.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.nearprice", ftypes.DOUBLE, nil, nil, nil, "A hypothetical auction-clearing price for cross orders as well as continuous orders.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.pairedshares", ftypes.STRING, nil, nil, nil, "Indicates the total number of shares that are eligible to be matched at the Current Reference Price.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.pricevariationindicator", ftypes.STRING, nil, nil, nil, "This field indicates the absolute value of the percentage of deviation of the Near Indicative Clearing Price to the nearest Current Reference Price.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsize", ftypes.STRING, nil, nil, nil, "Denotes the number of shares that represent a round lot for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if NASDAQ system limits order entry for issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shares", ftypes.STRING, nil, nil, nil, "The number of shares matched in the NASDAQ Cross.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shortsalethresholdindicator", ftypes.STRING, nil, nil, nil, "Indicates if a security is subject to mandatory close-out of short sales under SEC Rule 203(b)(3).")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalpha8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alphanumeric_8 = ProtoField.new("Stock Alphanumeric 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalphanumeric8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.tracking_id = ProtoField.new("Tracking Id", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.trackingid", ftypes.STRING, nil, nil, nil, "Tracking identifier for the trading action.")
 
 -- Nasdaq NsmEquities NoiView AsciiItch 3.0.2013 Framing
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.message", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messageheader", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.packet", ftypes.STRING, nil, nil, nil, "Itch Udp Packet")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.packetheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities NoiView 3.0.2013 Application Messages
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crosstrademessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotingperiodupdatemessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.noiimessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.regshorestrictionmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockdirectorymessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stocktradingactionmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.systemeventmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.crosstrademessage", ftypes.STRING, nil, nil, nil, "Cross Trade message indicates that NASDAQ has completed its cross process for a specific security.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.ipoquotingperiodupdatemessage", ftypes.STRING, nil, nil, nil, "Denotes the IPO release time for quotation and the IPO price for the issue.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.noiimessage", ftypes.STRING, nil, nil, nil, "NASDAQ disseminates NOII data in the minutes leading up to the NASDAQ Opening and Closing Crosses as well as the IPO/Halt Crosses.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.regshorestrictionmessage", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockdirectorymessage", ftypes.STRING, nil, nil, nil, "At the start of each trading day, NASDAQ disseminates stock directory messages for all active symbols.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stocktradingactionmessage", ftypes.STRING, nil, nil, nil, "NASDAQ uses this administrative message to indicate the current trading status of a security to the trading community.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.systemeventmessage", ftypes.STRING, nil, nil, nil, "The system event message type is used to signal a market or data feed handler event.")
 
 -- Nasdaq NsmEquities NoiView 3.0.2013 Session Messages
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.endofsession", ftypes.BYTES)
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.heartbeat", ftypes.BYTES)
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp end of session")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.heartbeat", ftypes.BYTES, nil, nil, nil, "Mold Udp heartbeat")
 
 -- Nasdaq NsmEquities NoiView AsciiItch 3.0.2013 Generated Fields
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messagesequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities NoiView AsciiItch 3.0.2013 Expert Info
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts = {}
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts = { nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts.message_after_end_of_session }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities NoiView AsciiItch 3.0.2013 Formatting
@@ -2330,6 +2335,16 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.messages.dissect = function(buffe
 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+
+    -- End Of Session: the session ends here, nothing in the packet may follow it
+    if message_length == 0 then
+      if offset < buffer:len() then
+        parent:add_tvb_expert_info(nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts.message_after_end_of_session, buffer(offset), "Message after the end of session: "..(buffer:len() - offset).." bytes follow it")
+      elseif message_index < message_count then
+        parent:add_proto_expert_info(nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.experts.message_after_end_of_session, "Message after the end of session: count states "..(message_count - message_index).." more")
+      end
+      break
+    end
   end
 end
 

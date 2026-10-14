@@ -15,17 +15,17 @@ local aquis_aquisequities_udpheader_amd_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 Fields
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.udpheader.amd.v1.0.msglength", ftypes.UINT8)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.udpheader.amd.v1.0.msgtype", ftypes.UINT8)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_count = ProtoField.new("Message Count", "aquis.aquisequities.udpheader.amd.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in this packet")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.udpheader.amd.v1.0.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.udpheader.amd.v1.0.msgtype", ftypes.UINT8, nil, nil, nil, "Message type identifier")
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.udpheader.amd.v1.0.payload", ftypes.BYTES)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.udpheader.amd.v1.0.seqno", ftypes.UINT32)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.udpheader.amd.v1.0.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 Framing
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)
-omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING, nil, nil, nil, "Aquis Amd Message")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Aquis market data message header")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING, nil, nil, nil, "Aquis Udp Packet")
+omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING, nil, nil, nil, "Aquis udp packet header")
 
 -- Aquis AquisEquities UdpHeader Amd 1.0 Generated Fields
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.udpheader.amd.v1.0.messageindex", ftypes.UINT16)

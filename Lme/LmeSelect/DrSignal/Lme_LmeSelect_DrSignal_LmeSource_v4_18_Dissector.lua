@@ -15,25 +15,25 @@ local lme_lmeselect_drsignal_lmesource_v4_18 = {}
 -----------------------------------------------------------------------
 
 -- Lme LmeSelect DrSignal LmeSource 4.18 Fields
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.dr_status = ProtoField.new("Dr Status", "lme.lmeselect.drsignal.lmesource.v4.18.drstatus", ftypes.UINT32)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.filler = ProtoField.new("Filler", "lme.lmeselect.drsignal.lmesource.v4.18.filler", ftypes.STRING)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_count = ProtoField.new("Msg Count", "lme.lmeselect.drsignal.lmesource.v4.18.msgcount", ftypes.UINT8)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_size = ProtoField.new("Msg Size", "lme.lmeselect.drsignal.lmesource.v4.18.msgsize", ftypes.UINT16)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_type = ProtoField.new("Msg Type", "lme.lmeselect.drsignal.lmesource.v4.18.msgtype", ftypes.UINT16)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.new_seq_no = ProtoField.new("New Seq No", "lme.lmeselect.drsignal.lmesource.v4.18.newseqno", ftypes.UINT32)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.drsignal.lmesource.v4.18.pktsize", ftypes.UINT16)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.drsignal.lmesource.v4.18.sendtime", ftypes.UINT64)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.drsignal.lmesource.v4.18.seqnum", ftypes.UINT32)
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.dr_status = ProtoField.new("Dr Status", "lme.lmeselect.drsignal.lmesource.v4.18.drstatus", ftypes.UINT32, nil, nil, nil, "Status during site failover.")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.filler = ProtoField.new("Filler", "lme.lmeselect.drsignal.lmesource.v4.18.filler", ftypes.STRING, nil, nil, nil, "Filler aligning the sequence number to a four byte boundary")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_count = ProtoField.new("Msg Count", "lme.lmeselect.drsignal.lmesource.v4.18.msgcount", ftypes.UINT8, nil, nil, nil, "Number of messages included in the packet")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_size = ProtoField.new("Msg Size", "lme.lmeselect.drsignal.lmesource.v4.18.msgsize", ftypes.UINT16, nil, nil, nil, "Message length, including this field")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_type = ProtoField.new("Msg Type", "lme.lmeselect.drsignal.lmesource.v4.18.msgtype", ftypes.UINT16, nil, nil, nil, "Type of message, selecting the payload that follows the message header")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.new_seq_no = ProtoField.new("New Seq No", "lme.lmeselect.drsignal.lmesource.v4.18.newseqno", ftypes.UINT32, nil, nil, nil, "New sequence number. Always set to 1.")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.drsignal.lmesource.v4.18.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet, including this field")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.drsignal.lmesource.v4.18.sendtime", ftypes.UINT64, nil, nil, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.drsignal.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 
 -- Lme LmeSelect DrSignal LmeSource 4.18 Framing
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.message = ProtoField.new("Message", "lme.lmeselect.drsignal.lmesource.v4.18.message", ftypes.STRING)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.message_header = ProtoField.new("Message Header", "lme.lmeselect.drsignal.lmesource.v4.18.messageheader", ftypes.STRING)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.packet = ProtoField.new("Packet", "lme.lmeselect.drsignal.lmesource.v4.18.packet", ftypes.STRING)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.packet_header = ProtoField.new("Packet Header", "lme.lmeselect.drsignal.lmesource.v4.18.packetheader", ftypes.STRING)
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.message = ProtoField.new("Message", "lme.lmeselect.drsignal.lmesource.v4.18.message", ftypes.STRING, nil, nil, nil, "LMEsource application messages carried by this packet; a message is never fragmented across packets")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.message_header = ProtoField.new("Message Header", "lme.lmeselect.drsignal.lmesource.v4.18.messageheader", ftypes.STRING, nil, nil, nil, "LMEsource message header, giving the size of the message and its type")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.packet = ProtoField.new("Packet", "lme.lmeselect.drsignal.lmesource.v4.18.packet", ftypes.STRING, nil, nil, nil, "LMEsource multicast packet, a packet header followed by Msg Count complete messages")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.packet_header = ProtoField.new("Packet Header", "lme.lmeselect.drsignal.lmesource.v4.18.packetheader", ftypes.STRING, nil, nil, nil, "LMEsource packet header, giving the packet size, the number of messages it carries, the sequence number of the first of them and the time the packet was sent")
 
 -- Lme LmeSelect DrSignal 4.18 Application Messages
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "lme.lmeselect.drsignal.lmesource.v4.18.disasterrecoverysignalmessage", ftypes.STRING)
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "lme.lmeselect.drsignal.lmesource.v4.18.sequenceresetmessage", ftypes.STRING)
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.disaster_recovery_signal_message = ProtoField.new("Disaster Recovery Signal Message", "lme.lmeselect.drsignal.lmesource.v4.18.disasterrecoverysignalmessage", ftypes.STRING, nil, nil, nil, "Sent on a dedicated multicast channel whenever a site failover is triggered intraday, periodically within the heartbeat interval until the end of the business day. DRStatus 1 indicates the DR process has been activated, upon which clients should clear all cached market data; DRStatus 2 indicates the failover finished and clients can rebuild from the refresh service.")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "lme.lmeselect.drsignal.lmesource.v4.18.sequenceresetmessage", ftypes.STRING, nil, nil, nil, "Sent on each multicast channel at start of day, and intraday in case of a disaster recovery. The client must ignore the sequence number of the Sequence Reset message itself and set the next expected sequence number to NewSeqNo, clear all cached data for all instruments and subscribe to the refresh channels to receive the current state of the market.")
 
 -- Lme LmeSelect DrSignal LmeSource 4.18 Generated Fields
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.message_index = ProtoField.new("Message Index", "lme.lmeselect.drsignal.lmesource.v4.18.messageindex", ftypes.UINT16)

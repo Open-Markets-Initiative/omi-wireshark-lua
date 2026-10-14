@@ -15,27 +15,27 @@ local nse_nsefo_snapshot_binary_v6_8 = {}
 -----------------------------------------------------------------------
 
 -- Nse NseFo Snapshot Binary 6.8 Fields
-omi_nse_nsefo_snapshot_binary_v6_8.fields.last_sequence_number = ProtoField.new("Last Sequence Number", "nse.nsefo.snapshot.binary.v6.8.lastsequencenumber", ftypes.UINT32)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.message_type = ProtoField.new("Message Type", "nse.nsefo.snapshot.binary.v6.8.messagetype", ftypes.STRING)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.number_of_records = ProtoField.new("Number Of Records", "nse.nsefo.snapshot.binary.v6.8.numberofrecords", ftypes.INT32)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.order_id = ProtoField.new("Order Id", "nse.nsefo.snapshot.binary.v6.8.orderid", ftypes.DOUBLE)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.order_type = ProtoField.new("Order Type", "nse.nsefo.snapshot.binary.v6.8.ordertype", ftypes.STRING)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.price = ProtoField.new("Price", "nse.nsefo.snapshot.binary.v6.8.price", ftypes.DOUBLE)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.quantity = ProtoField.new("Quantity", "nse.nsefo.snapshot.binary.v6.8.quantity", ftypes.INT32)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.size = ProtoField.new("Size", "nse.nsefo.snapshot.binary.v6.8.size", ftypes.INT32)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.stream_id = ProtoField.new("Stream Id", "nse.nsefo.snapshot.binary.v6.8.streamid", ftypes.INT16)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsefo.snapshot.binary.v6.8.timestamp", ftypes.INT64)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.token = ProtoField.new("Token", "nse.nsefo.snapshot.binary.v6.8.token", ftypes.INT32)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.trans_code = ProtoField.new("Trans Code", "nse.nsefo.snapshot.binary.v6.8.transcode", ftypes.INT16)
+omi_nse_nsefo_snapshot_binary_v6_8.fields.last_sequence_number = ProtoField.new("Last Sequence Number", "nse.nsefo.snapshot.binary.v6.8.lastsequencenumber", ftypes.UINT32, nil, nil, nil, "Last sequence number of tick received on Mtbt till which this snapshot is published. For Equity Derivative (FO) segment, this field is unsigned int [4, Uint]")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.message_type = ProtoField.new("Message Type", "nse.nsefo.snapshot.binary.v6.8.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying message type [1, Char]")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.number_of_records = ProtoField.new("Number Of Records", "nse.nsefo.snapshot.binary.v6.8.numberofrecords", ftypes.INT32, nil, nil, nil, "Number of orders in the current message [4, Int]")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.order_id = ProtoField.new("Order Id", "nse.nsefo.snapshot.binary.v6.8.orderid", ftypes.DOUBLE, nil, nil, nil, "Day Unique Order Reference Number")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.order_type = ProtoField.new("Order Type", "nse.nsefo.snapshot.binary.v6.8.ordertype", ftypes.STRING, nil, nil, nil, "Order Type Values")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.price = ProtoField.new("Price", "nse.nsefo.snapshot.binary.v6.8.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order (In Paise)")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.quantity = ProtoField.new("Quantity", "nse.nsefo.snapshot.binary.v6.8.quantity", ftypes.INT32, nil, nil, nil, "Quantity of the order")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.size = ProtoField.new("Size", "nse.nsefo.snapshot.binary.v6.8.size", ftypes.INT32, nil, nil, nil, "Total size of the message, including snapshot header [4, Int]")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.stream_id = ProtoField.new("Stream Id", "nse.nsefo.snapshot.binary.v6.8.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream [2, Short]")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsefo.snapshot.binary.v6.8.timestamp", ftypes.INT64, nil, nil, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.token = ProtoField.new("Token", "nse.nsefo.snapshot.binary.v6.8.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.trans_code = ProtoField.new("Trans Code", "nse.nsefo.snapshot.binary.v6.8.transcode", ftypes.INT16, nil, nil, nil, "Transcode of the message [2, Short]")
 
 -- Nse NseFo Snapshot Binary 6.8 Framing
-omi_nse_nsefo_snapshot_binary_v6_8.fields.message = ProtoField.new("Message", "nse.nsefo.snapshot.binary.v6.8.message", ftypes.STRING)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.packet = ProtoField.new("Packet", "nse.nsefo.snapshot.binary.v6.8.packet", ftypes.STRING)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.snapshot_header = ProtoField.new("Snapshot Header", "nse.nsefo.snapshot.binary.v6.8.snapshotheader", ftypes.STRING)
+omi_nse_nsefo_snapshot_binary_v6_8.fields.message = ProtoField.new("Message", "nse.nsefo.snapshot.binary.v6.8.message", ftypes.STRING, nil, nil, nil, "Order Book message. First field is always Message Type and must be read/interpreted first.")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.packet = ProtoField.new("Packet", "nse.nsefo.snapshot.binary.v6.8.packet", ftypes.STRING, nil, nil, nil, "Single buffer containing the Snapshot Header followed by all Order Book messages.")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.snapshot_header = ProtoField.new("Snapshot Header", "nse.nsefo.snapshot.binary.v6.8.snapshotheader", ftypes.STRING, nil, nil, nil, "Snapshot header has a size of 16 bytes")
 
 -- Nse NseFo Snapshot 6.8 Application Messages
-omi_nse_nsefo_snapshot_binary_v6_8.fields.new_order_message = ProtoField.new("New Order Message", "nse.nsefo.snapshot.binary.v6.8.newordermessage", ftypes.STRING)
-omi_nse_nsefo_snapshot_binary_v6_8.fields.new_spread_order_message = ProtoField.new("New Spread Order Message", "nse.nsefo.snapshot.binary.v6.8.newspreadordermessage", ftypes.STRING)
+omi_nse_nsefo_snapshot_binary_v6_8.fields.new_order_message = ProtoField.new("New Order Message", "nse.nsefo.snapshot.binary.v6.8.newordermessage", ftypes.STRING, nil, nil, nil, "Outstanding normal order in the order book at the last snapshot refresh.")
+omi_nse_nsefo_snapshot_binary_v6_8.fields.new_spread_order_message = ProtoField.new("New Spread Order Message", "nse.nsefo.snapshot.binary.v6.8.newspreadordermessage", ftypes.STRING, nil, nil, nil, "Outstanding spread order in the order book at the last snapshot refresh.")
 
 -- Nse NseFo Snapshot Binary 6.8 Generated Fields
 omi_nse_nsefo_snapshot_binary_v6_8.fields.message_index = ProtoField.new("Message Index", "nse.nsefo.snapshot.binary.v6.8.messageindex", ftypes.UINT16)

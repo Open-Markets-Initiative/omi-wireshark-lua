@@ -15,47 +15,52 @@ local nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Fields
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.currenttradingstate", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.eventcode", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.financialstatusindicator", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.issue_symbol = ProtoField.new("Issue Symbol", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.issuesymbol", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.marketcategory", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagecount", ftypes.UINT16)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_data = ProtoField.new("Message Data", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagedata", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagelength", ftypes.UINT16)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagetype", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidprice", ftypes.DOUBLE)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidsize", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestofferprice", ftypes.DOUBLE)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestoffersize", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.reason", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.regshoaction", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.securityclass", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.sequencenumber", ftypes.UINT32)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.session", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stock", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.timestamp", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.currenttradingstate", ftypes.STRING, nil, nil, nil, "Reflects the current trading state for the issue.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.eventcode", ftypes.STRING, nil, nil, nil, "Denotes the type of event for which the message is being generated.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.financialstatusindicator", ftypes.STRING, nil, nil, nil, "For NASDAQ-listed issues, this field indicates when a firm is not in compliance with NASDAQ continued listing requirements.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.issue_symbol = ProtoField.new("Issue Symbol", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.issuesymbol", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue for which the directory message is being generated.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.marketcategory", ftypes.STRING, nil, nil, nil, "Denotes the listing market for the issue.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_data = ProtoField.new("Message Data", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the PSX best bid price, the highest price for market buy order(s) in the PSX system. Price format is $$$$$$dddd.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestbidsize", ftypes.STRING, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX best bid Price.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestofferprice", ftypes.DOUBLE, nil, nil, nil, "Denotes the PSX exchange's best offer price, the lowest price for market sell order(s) in the PSX system. Price format is $$$$$$dddd.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.psxbestoffersize", ftypes.STRING, nil, nil, nil, "Denotes the aggregated number of shares available for display within the PSX market center system at the PSX Best Offer Price.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reason = ProtoField.new("Reason", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.reason", ftypes.STRING, nil, nil, nil, "Reflects the Market Ops or MarketWatch code for the trading state change.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.security_class = ProtoField.new("Security Class", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.securityclass", ftypes.STRING, nil, nil, nil, "Indicates the primary listing market for the issue.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.session = ProtoField.new("Session", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Framing
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.message", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messageheader", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.packet", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.packet", ftypes.STRING, nil, nil, nil, "Itch Udp Packet")
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.packetheader", ftypes.STRING)
 
 -- Nasdaq PsxEquities Bbo 1.1.2013.2 Session Messages
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.endofsession", ftypes.BYTES)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.heartbeat", ftypes.BYTES)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp end of session")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.heartbeat", ftypes.BYTES, nil, nil, nil, "Mold Udp heartbeat")
 
 -- Nasdaq PsxEquities Bbo 1.1.2013.2 Application Messages
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.quotationmessage", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stockdirectorymessage", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stocktradingactionmessage", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.systemeventmessage", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.quotationmessage", ftypes.STRING, nil, nil, nil, "PSX BBO will broadcast a real-time update every time that the exchange's best bid and offer quote is updated during the trading day.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction (Rule 201) status for an issue: a full pre-opening spin for NASDAQ-listed issues and intraday status changes.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stockdirectorymessage", ftypes.STRING, nil, nil, nil, "At the start of each trading day, NASDAQ PSX disseminates stock directory messages for all active symbols in its market center system.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.stocktradingactionmessage", ftypes.STRING, nil, nil, nil, "NASDAQ OMX uses this administrative message to indicate the current trading status of a security to the trading community.")
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.systemeventmessage", ftypes.STRING, nil, nil, nil, "The System Event message is used to signal key market or data feed control events.")
 
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Generated Fields
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messageindex", ftypes.UINT16)
 omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messagesequencenumber", ftypes.UINT64)
+
+-- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Expert Info
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts = {}
+nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.psxequities.bbo.asciiitch.v1.1.2013.2.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts = { nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session }
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities Bbo AsciiItch 1.1.2013.2 Formatting
@@ -1455,6 +1460,16 @@ nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.messages.dissect = function(buffer,
 
     -- Message: Struct of 2 fields
     offset = nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+
+    -- End Of Session: the session ends here, nothing in the packet may follow it
+    if message_length == 0 then
+      if offset < buffer:len() then
+        parent:add_tvb_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session, buffer(offset), "Message after the end of session: "..(buffer:len() - offset).." bytes follow it")
+      elseif message_index < message_count then
+        parent:add_proto_expert_info(nasdaq_psxequities_bbo_asciiitch_v1_1_2013_2.experts.message_after_end_of_session, "Message after the end of session: count states "..(message_count - message_index).." more")
+      end
+      break
+    end
   end
 end
 

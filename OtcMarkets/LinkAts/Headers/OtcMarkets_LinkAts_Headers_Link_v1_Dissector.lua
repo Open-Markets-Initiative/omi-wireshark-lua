@@ -15,28 +15,28 @@ local otcmarkets_linkats_headers_link_v1 = {}
 -----------------------------------------------------------------------
 
 -- OtcMarkets LinkAts Headers Link 1 Fields
-omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.headers.link.v1.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_otcmarkets_linkats_headers_link_v1.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.headers.link.v1.messagecount", ftypes.UINT8)
-omi_otcmarkets_linkats_headers_link_v1.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.headers.link.v1.messagesize", ftypes.UINT16)
-omi_otcmarkets_linkats_headers_link_v1.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.headers.link.v1.messagetype", ftypes.UINT8)
-omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.headers.link.v1.packetflag", ftypes.STRING)
-omi_otcmarkets_linkats_headers_link_v1.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.headers.link.v1.packetmilli", ftypes.UINT32)
-omi_otcmarkets_linkats_headers_link_v1.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.headers.link.v1.packetsize", ftypes.UINT16)
+omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.headers.link.v1.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "A Heartbeat is sent if no business level message has been published for more than a second")
+omi_otcmarkets_linkats_headers_link_v1.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.headers.link.v1.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in packet")
+omi_otcmarkets_linkats_headers_link_v1.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.headers.link.v1.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message in bytes")
+omi_otcmarkets_linkats_headers_link_v1.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.headers.link.v1.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.headers.link.v1.packetflag", ftypes.STRING, nil, nil, nil, "Packet Flags")
+omi_otcmarkets_linkats_headers_link_v1.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.headers.link.v1.packetmilli", ftypes.UINT32, nil, nil, nil, "Milliseconds since local time midnight (EST/EDT)")
+omi_otcmarkets_linkats_headers_link_v1.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.headers.link.v1.packetsize", ftypes.UINT16, nil, nil, nil, "Size of packet in bytes")
 omi_otcmarkets_linkats_headers_link_v1.fields.payload = ProtoField.new("Payload", "otcmarkets.linkats.headers.link.v1.payload", ftypes.BYTES)
-omi_otcmarkets_linkats_headers_link_v1.fields.replay = ProtoField.new("Replay", "otcmarkets.linkats.headers.link.v1.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_otcmarkets_linkats_headers_link_v1.fields.replay = ProtoField.new("Replay", "otcmarkets.linkats.headers.link.v1.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Packet contains replay messages")
 omi_otcmarkets_linkats_headers_link_v1.fields.reserved_4 = ProtoField.new("Reserved 4", "otcmarkets.linkats.headers.link.v1.reserved4", ftypes.UINT8, nil, base.DEC, 0x3C)
-omi_otcmarkets_linkats_headers_link_v1.fields.seq_num = ProtoField.new("Seq Num", "otcmarkets.linkats.headers.link.v1.seqnum", ftypes.UINT32)
-omi_otcmarkets_linkats_headers_link_v1.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linkats.headers.link.v1.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_otcmarkets_linkats_headers_link_v1.fields.test = ProtoField.new("Test", "otcmarkets.linkats.headers.link.v1.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_otcmarkets_linkats_headers_link_v1.fields.seq_num = ProtoField.new("Seq Num", "otcmarkets.linkats.headers.link.v1.seqnum", ftypes.UINT32, nil, nil, nil, "Channel specific Sequence number of packet")
+omi_otcmarkets_linkats_headers_link_v1.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linkats.headers.link.v1.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "indicates that the channel sequence numbers are being reset to 1")
+omi_otcmarkets_linkats_headers_link_v1.fields.test = ProtoField.new("Test", "otcmarkets.linkats.headers.link.v1.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Packet contains test messages")
 
 -- OtcMarkets LinkAts Headers Link 1 Framing
 omi_otcmarkets_linkats_headers_link_v1.fields.message = ProtoField.new("Message", "otcmarkets.linkats.headers.link.v1.message", ftypes.STRING)
-omi_otcmarkets_linkats_headers_link_v1.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.headers.link.v1.messageheader", ftypes.STRING)
-omi_otcmarkets_linkats_headers_link_v1.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.headers.link.v1.packet", ftypes.STRING)
+omi_otcmarkets_linkats_headers_link_v1.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.headers.link.v1.messageheader", ftypes.STRING, nil, nil, nil, "Otc Udp Message Header")
+omi_otcmarkets_linkats_headers_link_v1.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.headers.link.v1.packet", ftypes.STRING, nil, nil, nil, "Otc Udp Packet")
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.headers.link.v1.packetheader", ftypes.STRING)
 
 -- OtcMarkets LinkAts Headers 1 Session Messages
-omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.headers.link.v1.heartbeatpacket", ftypes.BYTES)
+omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.headers.link.v1.heartbeatpacket", ftypes.BYTES, nil, nil, nil, "Otc Markets heartbeat, a packet header with no messages behind it")
 
 -- OtcMarkets LinkAts Headers Link 1 Generated Fields
 omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.headers.link.v1.messageindex", ftypes.UINT16)

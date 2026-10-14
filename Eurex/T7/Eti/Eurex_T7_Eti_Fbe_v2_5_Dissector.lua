@@ -17,7 +17,7 @@ local eurex_t7_eti_fbe_v2_5 = {}
 -- Eurex T7 Eti Fbe 2.5 Fields
 omi_eurex_t7_eti_fbe_v2_5.fields.account = ProtoField.new("Account", "eurex.t7.eti.fbe.v2.5.account", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v2_5.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "eurex.t7.eti.fbe.v2.5.aggressorindicator", ftypes.UINT8)
-omi_eurex_t7_eti_fbe_v2_5.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.eti.fbe.v2.5.alignmentpadding", ftypes.BYTES)
+omi_eurex_t7_eti_fbe_v2_5.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.eti.fbe.v2.5.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
 omi_eurex_t7_eti_fbe_v2_5.fields.appl_beg_msg_id = ProtoField.new("Appl Beg Msg Id", "eurex.t7.eti.fbe.v2.5.applbegmsgid", ftypes.BYTES)
 omi_eurex_t7_eti_fbe_v2_5.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "eurex.t7.eti.fbe.v2.5.applbegseqnum", ftypes.UINT64)
 omi_eurex_t7_eti_fbe_v2_5.fields.appl_end_msg_id = ProtoField.new("Appl End Msg Id", "eurex.t7.eti.fbe.v2.5.applendmsgid", ftypes.BYTES)
@@ -291,11 +291,11 @@ omi_eurex_t7_eti_fbe_v2_5.fields.var_text_len = ProtoField.new("Var Text Len", "
 omi_eurex_t7_eti_fbe_v2_5.fields.vega = ProtoField.new("Vega", "eurex.t7.eti.fbe.v2.5.vega", ftypes.INT32)
 
 -- Eurex T7 Eti Fbe 2.5 Framing
-omi_eurex_t7_eti_fbe_v2_5.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v2.5.clientmessage", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v2.5.clientpacket", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v2.5.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v2.5.servermessage", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v2_5.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v2.5.serverpacket", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v2_5.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v2.5.clientmessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by the participant to Eurex")
+omi_eurex_t7_eti_fbe_v2_5.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v2.5.clientpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by the participant to Eurex")
+omi_eurex_t7_eti_fbe_v2_5.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v2.5.messageheader", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti message header")
+omi_eurex_t7_eti_fbe_v2_5.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v2.5.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by Eurex to the participant")
+omi_eurex_t7_eti_fbe_v2_5.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v2.5.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
 -- Eurex T7 Eti 2.5 Application Messages
 omi_eurex_t7_eti_fbe_v2_5.fields.add_complex_instrument_request = ProtoField.new("Add Complex Instrument Request", "eurex.t7.eti.fbe.v2.5.addcomplexinstrumentrequest", ftypes.STRING)

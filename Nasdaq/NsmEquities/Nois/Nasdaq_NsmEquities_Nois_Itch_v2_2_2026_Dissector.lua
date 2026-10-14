@@ -15,48 +15,53 @@ local nasdaq_nsmequities_nois_itch_v2_2_2026 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Fields
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.crosstype", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.currentreferenceprice", ftypes.BYTES)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.nois.itch.v2.2.2026.eventcode", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalancedirection", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalanceshares", ftypes.BYTES)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.nois.itch.v2.2.2026.issueclassification", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.issuesubtype", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nois.itch.v2.2.2026.marketcategory", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagedata", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagelength", ftypes.UINT16)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagetype", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.nearprice", ftypes.BYTES)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.nois.itch.v2.2.2026.reason", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.rfu = ProtoField.new("Rfu", "nasdaq.nsmequities.nois.itch.v2.2.2026.rfu", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsize", ftypes.UINT64)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsonly", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.nois.itch.v2.2.2026.sequencenumber", ftypes.UINT32)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.nois.itch.v2.2.2026.session", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.nois.itch.v2.2.2026.symbol", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.2026.timestamp", ftypes.UINT64)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.2026.tradingstate", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.crosstype", ftypes.STRING, nil, nil, nil, "Denotes the type of Nasdaq cross for which the NOII message is being generated")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.currentreferenceprice", ftypes.BYTES, nil, nil, nil, "Indicates price at which the NOII shares are being calculated")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.nois.itch.v2.2.2026.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes below")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalancedirection", ftypes.STRING, nil, nil, nil, "Indicates the market side of the imbalance")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.nois.itch.v2.2.2026.imbalanceshares", ftypes.BYTES, nil, nil, nil, "Number of shares not paired at the Current Reference Price.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.nois.itch.v2.2.2026.issueclassification", ftypes.STRING, nil, nil, nil, "Identifies the security class for the issues as assigned by Nasdaq. See Appendix for allowable values")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.issuesubtype", ftypes.STRING, nil, nil, nil, "Identifies the security sub-type for the issue as assigned by Nasdaq. See Appendix for allowable values.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nois.itch.v2.2.2026.marketcategory", ftypes.STRING, nil, nil, nil, "Indicates Listing market or listing market tier for the issue")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.2026.nearprice", ftypes.BYTES, nil, nil, nil, "A hypothetical auction-clearing price for cross orders as well as continuous orders")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.nois.itch.v2.2.2026.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.rfu = ProtoField.new("Rfu", "nasdaq.nsmequities.nois.itch.v2.2.2026.rfu", ftypes.STRING, nil, nil, nil, "Reserved for future use")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsize", ftypes.UINT64, nil, nil, nil, "Indicates the number of shares that represent a round lot for the issue")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.nois.itch.v2.2.2026.roundlotsonly", ftypes.STRING, nil, nil, nil, "Indicates if Nasdaq system limits order entry for issue")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.nois.itch.v2.2.2026.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message to follow this header")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.nois.itch.v2.2.2026.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.nois.itch.v2.2.2026.symbol", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.2026.timestamp", ftypes.UINT64, nil, nil, nil, "Number of nanoseconds past midnight")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.2026.tradingstate", ftypes.STRING, nil, nil, nil, "Indicates the current trading state for the stock.")
 
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Framing
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.message", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nois.itch.v2.2.2026.messageheader", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.2026.packet", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.2026.packetheader", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.message", ftypes.STRING, nil, nil, nil, "Mold Udp Message")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nois.itch.v2.2.2026.messageheader", ftypes.STRING, nil, nil, nil, "Mold Udp Message Header")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.2026.packet", ftypes.STRING, nil, nil, nil, "Itch Udp Packet")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.2026.packetheader", ftypes.STRING, nil, nil, nil, "Itch Mold Udp Packet Header")
 
 -- Nasdaq NsmEquities Nois 2.2.2026 Session Messages
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.nois.itch.v2.2.2026.endofsession", ftypes.BYTES)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.nois.itch.v2.2.2026.heartbeat", ftypes.BYTES)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.nois.itch.v2.2.2026.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp end of session")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.nois.itch.v2.2.2026.heartbeat", ftypes.BYTES, nil, nil, nil, "Mold Udp heartbeat")
 
 -- Nasdaq NsmEquities Nois 2.2.2026 Application Messages
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.noismessage", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.stock_directory = ProtoField.new("Stock Directory", "nasdaq.nsmequities.nois.itch.v2.2.2026.stockdirectory", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "nasdaq.nsmequities.nois.itch.v2.2.2026.stocktradingaction", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.systemeventmessage", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.noismessage", ftypes.STRING, nil, nil, nil, "Nasdaq Net Order Imbalance Snapshot (NOIS) provides a snapshot of the Nasdaq net order imbalance data at selected time intervals.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.stock_directory = ProtoField.new("Stock Directory", "nasdaq.nsmequities.nois.itch.v2.2.2026.stockdirectory", ftypes.STRING, nil, nil, nil, "At the start of each trading day, Nasdaq disseminates stock directory messages for all active symbols in the Nasdaq execution system.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "nasdaq.nsmequities.nois.itch.v2.2.2026.stocktradingaction", ftypes.STRING, nil, nil, nil, "Nasdaq uses this administrative message to indicate the current trading status of a security to the trading community.")
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.nois.itch.v2.2.2026.systemeventmessage", ftypes.STRING, nil, nil, nil, "The system event message type is used to signal a market or data feed handler event.")
 
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Generated Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.nois.itch.v2.2.2026.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2026.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.nois.itch.v2.2.2026.messagesequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities Nois Itch 2.2.2026 Expert Info
+nasdaq_nsmequities_nois_itch_v2_2_2026.experts = {}
+nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.nois.itch.v2.2.2026.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2026.experts = { nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Nois Itch 2.2.2026 Formatting
@@ -1470,6 +1475,16 @@ nasdaq_nsmequities_nois_itch_v2_2_2026.messages.dissect = function(buffer, offse
 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_nois_itch_v2_2_2026.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+
+    -- End Of Session: the session ends here, nothing in the packet may follow it
+    if message_length == 0 then
+      if offset < buffer:len() then
+        parent:add_tvb_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session, buffer(offset), "Message after the end of session: "..(buffer:len() - offset).." bytes follow it")
+      elseif message_index < message_count then
+        parent:add_proto_expert_info(nasdaq_nsmequities_nois_itch_v2_2_2026.experts.message_after_end_of_session, "Message after the end of session: count states "..(message_count - message_index).." more")
+      end
+      break
+    end
   end
 end
 

@@ -15,14 +15,14 @@ local cixats_cixaspen_rerequest_aspen_v1_1 = {}
 -----------------------------------------------------------------------
 
 -- CixAts CixAspen Rerequest Aspen 1.1 Fields
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.count = ProtoField.new("Count", "cixats.cixaspen.rerequest.aspen.v1.1.count", ftypes.UINT16)
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.feed_identifier = ProtoField.new("Feed Identifier", "cixats.cixaspen.rerequest.aspen.v1.1.feedidentifier", ftypes.STRING)
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.rerequest.aspen.v1.1.marketdayidentifier", ftypes.STRING)
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.sequence = ProtoField.new("Sequence", "cixats.cixaspen.rerequest.aspen.v1.1.sequence", ftypes.UINT64)
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.count = ProtoField.new("Count", "cixats.cixaspen.rerequest.aspen.v1.1.count", ftypes.UINT16, nil, nil, nil, "Number of messages requested")
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.feed_identifier = ProtoField.new("Feed Identifier", "cixats.cixaspen.rerequest.aspen.v1.1.feedidentifier", ftypes.STRING, nil, nil, nil, "Must match Feed Identifier of rerequest server")
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.market_day_identifier = ProtoField.new("Market Day Identifier", "cixats.cixaspen.rerequest.aspen.v1.1.marketdayidentifier", ftypes.STRING, nil, nil, nil, "Must match current Market Day Identifier")
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.sequence = ProtoField.new("Sequence", "cixats.cixaspen.rerequest.aspen.v1.1.sequence", ftypes.UINT64, nil, nil, nil, "Sequence number for the first requested message")
 
 -- CixAts CixAspen Rerequest Aspen 1.1 Framing
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.rerequest.aspen.v1.1.packet", ftypes.STRING)
-omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.rerequest_header = ProtoField.new("Rerequest Header", "cixats.cixaspen.rerequest.aspen.v1.1.rerequestheader", ftypes.STRING)
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.rerequest.aspen.v1.1.packet", ftypes.STRING, nil, nil, nil, "Aspen Udp Rerequest Packet")
+omi_cixats_cixaspen_rerequest_aspen_v1_1.fields.rerequest_header = ProtoField.new("Rerequest Header", "cixats.cixaspen.rerequest.aspen.v1.1.rerequestheader", ftypes.STRING, nil, nil, nil, "Aspen Udp rerequest header")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

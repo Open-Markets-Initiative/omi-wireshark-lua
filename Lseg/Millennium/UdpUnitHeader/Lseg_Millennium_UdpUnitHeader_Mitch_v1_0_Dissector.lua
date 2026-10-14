@@ -15,18 +15,18 @@ local lseg_millennium_udpunitheader_mitch_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Fields
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.length = ProtoField.new("Length", "lseg.millennium.udpunitheader.mitch.v1.0.length", ftypes.UINT16)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.udpunitheader.mitch.v1.0.marketdatagroup", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.udpunitheader.mitch.v1.0.messagecount", ftypes.UINT8)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.udpunitheader.mitch.v1.0.messagelength", ftypes.UINT8)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.udpunitheader.mitch.v1.0.messagetype", ftypes.UINT8)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload = ProtoField.new("Payload", "lseg.millennium.udpunitheader.mitch.v1.0.payload", ftypes.BYTES)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.udpunitheader.mitch.v1.0.sequencenumber", ftypes.UINT32)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.length = ProtoField.new("Length", "lseg.millennium.udpunitheader.mitch.v1.0.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.millennium.udpunitheader.mitch.v1.0.marketdatagroup", ftypes.STRING, nil, nil, nil, "Identity of the market data group the payload messages relate to")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count = ProtoField.new("Message Count", "lseg.millennium.udpunitheader.mitch.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.millennium.udpunitheader.mitch.v1.0.messagelength", ftypes.UINT8, nil, nil, nil, "Length of message including this field")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.millennium.udpunitheader.mitch.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload = ProtoField.new("Payload", "lseg.millennium.udpunitheader.mitch.v1.0.payload", ftypes.BYTES, nil, nil, nil, "Raw bytes")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.udpunitheader.mitch.v1.0.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Framing
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message = ProtoField.new("Message", "lseg.millennium.udpunitheader.mitch.v1.0.message", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING)
-omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.udpunitheader.mitch.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Mitch Udp Message Header")
+omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING, nil, nil, nil, "Mitch Udp Packet")
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
 
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Generated Fields

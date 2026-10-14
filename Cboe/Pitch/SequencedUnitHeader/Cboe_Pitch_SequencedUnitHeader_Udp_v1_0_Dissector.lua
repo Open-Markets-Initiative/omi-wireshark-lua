@@ -15,18 +15,18 @@ local cboe_pitch_sequencedunitheader_udp_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Cboe Pitch SequencedUnitHeader Udp 1.0 Fields
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.length = ProtoField.new("Length", "cboe.pitch.sequencedunitheader.udp.v1.0.length", ftypes.UINT16)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "cboe.pitch.sequencedunitheader.udp.v1.0.messagecount", ftypes.UINT8)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.pitch.sequencedunitheader.udp.v1.0.messagelength", ftypes.UINT8)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.pitch.sequencedunitheader.udp.v1.0.messagetype", ftypes.UINT8)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.payload = ProtoField.new("Payload", "cboe.pitch.sequencedunitheader.udp.v1.0.payload", ftypes.BYTES)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.sequence = ProtoField.new("Sequence", "cboe.pitch.sequencedunitheader.udp.v1.0.sequence", ftypes.UINT32)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.unit = ProtoField.new("Unit", "cboe.pitch.sequencedunitheader.udp.v1.0.unit", ftypes.UINT8)
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.length = ProtoField.new("Length", "cboe.pitch.sequencedunitheader.udp.v1.0.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "cboe.pitch.sequencedunitheader.udp.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "cboe.pitch.sequencedunitheader.udp.v1.0.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "cboe.pitch.sequencedunitheader.udp.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.payload = ProtoField.new("Payload", "cboe.pitch.sequencedunitheader.udp.v1.0.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.sequence = ProtoField.new("Sequence", "cboe.pitch.sequencedunitheader.udp.v1.0.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.unit = ProtoField.new("Unit", "cboe.pitch.sequencedunitheader.udp.v1.0.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 
 -- Cboe Pitch SequencedUnitHeader Udp 1.0 Framing
 omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message = ProtoField.new("Message", "cboe.pitch.sequencedunitheader.udp.v1.0.message", ftypes.STRING)
 omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "cboe.pitch.sequencedunitheader.udp.v1.0.messageheader", ftypes.STRING)
-omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "cboe.pitch.sequencedunitheader.udp.v1.0.packet", ftypes.STRING)
+omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "cboe.pitch.sequencedunitheader.udp.v1.0.packet", ftypes.STRING, nil, nil, nil, "Pitch Udp Packet")
 omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "cboe.pitch.sequencedunitheader.udp.v1.0.packetheader", ftypes.STRING)
 
 -- Cboe Pitch SequencedUnitHeader Udp 1.0 Generated Fields

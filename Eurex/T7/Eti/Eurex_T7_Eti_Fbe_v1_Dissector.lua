@@ -15,15 +15,15 @@ local eurex_t7_eti_fbe_v1 = {}
 -----------------------------------------------------------------------
 
 -- Eurex T7 Eti Fbe 1 Fields
-omi_eurex_t7_eti_fbe_v1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eti.fbe.v1.bodylen", ftypes.UINT32)
+omi_eurex_t7_eti_fbe_v1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eti.fbe.v1.bodylen", ftypes.UINT32, nil, nil, nil, "body length field")
 omi_eurex_t7_eti_fbe_v1.fields.template_id = ProtoField.new("Template Id", "eurex.t7.eti.fbe.v1.templateid", ftypes.UINT16)
 
 -- Eurex T7 Eti Fbe 1 Framing
-omi_eurex_t7_eti_fbe_v1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v1.clientmessage", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v1.clientpacket", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.messageheader", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v1.servermessage", ftypes.STRING)
-omi_eurex_t7_eti_fbe_v1.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v1.serverpacket", ftypes.STRING)
+omi_eurex_t7_eti_fbe_v1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v1.clientmessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by the participant to Eurex")
+omi_eurex_t7_eti_fbe_v1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v1.clientpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by the participant to Eurex")
+omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.messageheader", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti message header")
+omi_eurex_t7_eti_fbe_v1.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v1.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by Eurex to the participant")
+omi_eurex_t7_eti_fbe_v1.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v1.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
 -----------------------------------------------------------------------
 -- Eurex T7 Eti Fbe 1 Formatting

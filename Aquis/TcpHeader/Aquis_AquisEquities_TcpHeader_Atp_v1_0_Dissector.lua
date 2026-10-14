@@ -15,15 +15,15 @@ local aquis_aquisequities_tcpheader_atp_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Aquis AquisEquities TcpHeader Atp 1.0 Fields
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tcpheader.atp.v1.0.msglength", ftypes.UINT16)
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_seq_no = ProtoField.new("Msg Seq No", "aquis.aquisequities.tcpheader.atp.v1.0.msgseqno", ftypes.UINT32)
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.tcpheader.atp.v1.0.msgtype", ftypes.UINT8)
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tcpheader.atp.v1.0.msglength", ftypes.UINT16, nil, nil, nil, "Length of message including this header")
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_seq_no = ProtoField.new("Msg Seq No", "aquis.aquisequities.tcpheader.atp.v1.0.msgseqno", ftypes.UINT32, nil, nil, nil, "Message sequence number, from the user or Aquis")
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.tcpheader.atp.v1.0.msgtype", ftypes.UINT8, nil, nil, nil, "Atp Message type")
 omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.tcpheader.atp.v1.0.payload", ftypes.BYTES)
 
 -- Aquis AquisEquities TcpHeader Atp 1.0 Framing
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tcpheader.atp.v1.0.message", ftypes.STRING)
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.atp.v1.0.messageheader", ftypes.STRING)
-omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.atp.v1.0.packet", ftypes.STRING)
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tcpheader.atp.v1.0.message", ftypes.STRING, nil, nil, nil, "Aquis Atp Message")
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.atp.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Aquis Atp message header")
+omi_aquis_aquisequities_tcpheader_atp_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.atp.v1.0.packet", ftypes.STRING, nil, nil, nil, "Aquis Atp Tcp Message Block")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

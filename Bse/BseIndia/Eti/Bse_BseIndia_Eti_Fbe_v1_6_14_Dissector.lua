@@ -21,7 +21,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.accrued_interest_amt = ProtoField.new("A
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.activity_time = ProtoField.new("Activity Time", "bse.bseindia.eti.fbe.v1.6.14.activitytime", ftypes.UINT64)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.aggressor_indicator = ProtoField.new("Aggressor Indicator", "bse.bseindia.eti.fbe.v1.6.14.aggressorindicator", ftypes.UINT8)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.algo_id = ProtoField.new("Algo Id", "bse.bseindia.eti.fbe.v1.6.14.algoid", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.alignment_padding = ProtoField.new("Alignment Padding", "bse.bseindia.eti.fbe.v1.6.14.alignmentpadding", ftypes.BYTES)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.alignment_padding = ProtoField.new("Alignment Padding", "bse.bseindia.eti.fbe.v1.6.14.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.all_or_none_flag = ProtoField.new("All Or None Flag", "bse.bseindia.eti.fbe.v1.6.14.allornoneflag", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_beg_msg_id = ProtoField.new("Appl Beg Msg Id", "bse.bseindia.eti.fbe.v1.6.14.applbegmsgid", ftypes.BYTES)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "bse.bseindia.eti.fbe.v1.6.14.applbegseqnum", ftypes.UINT64)
@@ -305,11 +305,11 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.var_text_len = ProtoField.new("Var Text 
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.yield = ProtoField.new("Yield", "bse.bseindia.eti.fbe.v1.6.14.yield", ftypes.DOUBLE)
 
 -- Bse BseIndia Eti Fbe 1.6.14 Framing
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_message = ProtoField.new("Client Message", "bse.bseindia.eti.fbe.v1.6.14.clientmessage", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_packet = ProtoField.new("Client Packet", "bse.bseindia.eti.fbe.v1.6.14.clientpacket", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.eti.fbe.v1.6.14.messageheader", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.server_message = ProtoField.new("Server Message", "bse.bseindia.eti.fbe.v1.6.14.servermessage", ftypes.STRING)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.server_packet = ProtoField.new("Server Packet", "bse.bseindia.eti.fbe.v1.6.14.serverpacket", ftypes.STRING)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_message = ProtoField.new("Client Message", "bse.bseindia.eti.fbe.v1.6.14.clientmessage", ftypes.STRING, nil, nil, nil, "Bse Eti Message sent by the participant to Bse")
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_packet = ProtoField.new("Client Packet", "bse.bseindia.eti.fbe.v1.6.14.clientpacket", ftypes.STRING, nil, nil, nil, "Bse Eti Tcp Message Block sent by the participant to Bse")
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.eti.fbe.v1.6.14.messageheader", ftypes.STRING, nil, nil, nil, "Bse Eti message header")
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.server_message = ProtoField.new("Server Message", "bse.bseindia.eti.fbe.v1.6.14.servermessage", ftypes.STRING, nil, nil, nil, "Bse Eti Message sent by Bse to the participant")
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.server_packet = ProtoField.new("Server Packet", "bse.bseindia.eti.fbe.v1.6.14.serverpacket", ftypes.STRING, nil, nil, nil, "Bse Eti Tcp Message Block sent by Bse to the participant")
 
 -- Bse BseIndia Eti 1.6.14 Application Messages
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "bse.bseindia.eti.fbe.v1.6.14.broadcasterrornotification", ftypes.STRING)

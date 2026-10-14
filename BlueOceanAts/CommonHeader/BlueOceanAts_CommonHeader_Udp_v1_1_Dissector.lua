@@ -15,29 +15,29 @@ local blueoceanats_commonheader_udp_v1_1 = {}
 -----------------------------------------------------------------------
 
 -- BlueOceanAts CommonHeader Udp 1.1 Fields
-omi_blueoceanats_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "blueoceanats.commonheader.udp.v1.1.blocklength", ftypes.UINT16)
-omi_blueoceanats_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "blueoceanats.commonheader.udp.v1.1.headerlength", ftypes.UINT8)
-omi_blueoceanats_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "blueoceanats.commonheader.udp.v1.1.messagecount", ftypes.UINT16)
-omi_blueoceanats_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "blueoceanats.commonheader.udp.v1.1.messagelength", ftypes.UINT16)
-omi_blueoceanats_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "blueoceanats.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
-omi_blueoceanats_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "blueoceanats.commonheader.udp.v1.1.payload", ftypes.BYTES)
-omi_blueoceanats_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.commonheader.udp.v1.1.schemaid", ftypes.UINT8)
-omi_blueoceanats_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "blueoceanats.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64)
-omi_blueoceanats_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
-omi_blueoceanats_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "blueoceanats.commonheader.udp.v1.1.sessionid", ftypes.UINT64)
-omi_blueoceanats_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "blueoceanats.commonheader.udp.v1.1.templateid", ftypes.UINT8)
-omi_blueoceanats_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "blueoceanats.commonheader.udp.v1.1.version", ftypes.UINT16)
+omi_blueoceanats_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "blueoceanats.commonheader.udp.v1.1.blocklength", ftypes.UINT16, nil, nil, nil, "Blue Ocean Udp Block length")
+omi_blueoceanats_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "blueoceanats.commonheader.udp.v1.1.headerlength", ftypes.UINT8, nil, nil, nil, "Total bytes in this header")
+omi_blueoceanats_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "blueoceanats.commonheader.udp.v1.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages in this packet")
+omi_blueoceanats_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "blueoceanats.commonheader.udp.v1.1.messagelength", ftypes.UINT16, nil, nil, nil, "Number of bytes in the following message")
+omi_blueoceanats_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "blueoceanats.commonheader.udp.v1.1.messagetype", ftypes.UINT8, nil, nil, nil, "The kind of datagram that follows the header, a heartbeat, a session shutdown or a sequenced message")
+omi_blueoceanats_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "blueoceanats.commonheader.udp.v1.1.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
+omi_blueoceanats_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.commonheader.udp.v1.1.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
+omi_blueoceanats_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "blueoceanats.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message in the datagram; on a heartbeat or a session shutdown it is instead the highest sequence published so far, zero before any message is published")
+omi_blueoceanats_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING, nil, nil, nil, "A datagram carrying one or more business messages; the first has the sequence in the common header and each one after it adds one, so the next datagram starts at this sequence plus this message count")
+omi_blueoceanats_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "blueoceanats.commonheader.udp.v1.1.sessionid", ftypes.UINT64, nil, nil, nil, "Identifier of the data session the datagram belongs to; heartbeats on the session report it as active")
+omi_blueoceanats_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "blueoceanats.commonheader.udp.v1.1.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
+omi_blueoceanats_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "blueoceanats.commonheader.udp.v1.1.version", ftypes.UINT16, nil, nil, nil, "The version number of the message schema that was used to encode a message")
 
 -- BlueOceanAts CommonHeader Udp 1.1 Framing
-omi_blueoceanats_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "blueoceanats.commonheader.udp.v1.1.commonheader", ftypes.STRING)
-omi_blueoceanats_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "blueoceanats.commonheader.udp.v1.1.message", ftypes.STRING)
-omi_blueoceanats_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "blueoceanats.commonheader.udp.v1.1.packet", ftypes.STRING)
+omi_blueoceanats_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "blueoceanats.commonheader.udp.v1.1.commonheader", ftypes.STRING, nil, nil, nil, "The header every datagram opens with, naming the message type, the data session and the sequence the payload starts at")
+omi_blueoceanats_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "blueoceanats.commonheader.udp.v1.1.message", ftypes.STRING, nil, nil, nil, "One element of the message list, its length followed by that many bytes of payload")
+omi_blueoceanats_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "blueoceanats.commonheader.udp.v1.1.packet", ftypes.STRING, nil, nil, nil, "A Memx Udp datagram, a common header followed by the payload its message type calls for; the protocol is broadcast only, nothing is sent back to the source and missed data is recovered out of band over Memx Tcp")
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
 -- BlueOceanAts CommonHeader 1.1 Session Messages
-omi_blueoceanats_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "blueoceanats.commonheader.udp.v1.1.heartbeat", ftypes.BYTES)
-omi_blueoceanats_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "blueoceanats.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES)
+omi_blueoceanats_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "blueoceanats.commonheader.udp.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Memx Udp heartbeat: the session is alive and no sequenced message follows the header")
+omi_blueoceanats_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "blueoceanats.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES, nil, nil, nil, "Memx Udp session shutdown: no further sequenced message will be sent for this session id")
 
 -- BlueOceanAts CommonHeader Udp 1.1 Generated Fields
 omi_blueoceanats_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "blueoceanats.commonheader.udp.v1.1.messageindex", ftypes.UINT16)

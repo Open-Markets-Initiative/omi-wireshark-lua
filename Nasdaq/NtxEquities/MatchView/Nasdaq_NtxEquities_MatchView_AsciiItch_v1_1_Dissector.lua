@@ -15,33 +15,38 @@ local nasdaq_ntxequities_matchview_asciiitch_v1_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NtxEquities MatchView AsciiItch 1.1 Fields
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ntxequities.matchview.asciiitch.v1.1.askprice", ftypes.DOUBLE)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.ntxequities.matchview.asciiitch.v1.1.bidprice", ftypes.DOUBLE)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_data = ProtoField.new("Message Data", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagedata", ftypes.STRING)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagelength", ftypes.UINT16)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagetype", ftypes.STRING)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxequities.matchview.asciiitch.v1.1.sequencenumber", ftypes.UINT32)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.session = ProtoField.new("Session", "nasdaq.ntxequities.matchview.asciiitch.v1.1.session", ftypes.STRING)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.stock = ProtoField.new("Stock", "nasdaq.ntxequities.matchview.asciiitch.v1.1.stock", ftypes.STRING)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxequities.matchview.asciiitch.v1.1.timestamp", ftypes.STRING)
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ntxequities.matchview.asciiitch.v1.1.askprice", ftypes.DOUBLE, nil, nil, nil, "The price on the ask with 6 whole number places followed by 4 decimal digits. The decimal point is implied by position; it does not appear inside the price field. The price is padded with spaces on the left.")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.ntxequities.matchview.asciiitch.v1.1.bidprice", ftypes.DOUBLE, nil, nil, nil, "The price on the bid with 6 whole number places followed by 4 decimal digits. The decimal point is implied by position; it does not appear inside the price field. The price is padded with spaces on the left.")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_data = ProtoField.new("Message Data", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxequities.matchview.asciiitch.v1.1.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.session = ProtoField.new("Session", "nasdaq.ntxequities.matchview.asciiitch.v1.1.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.stock = ProtoField.new("Stock", "nasdaq.ntxequities.matchview.asciiitch.v1.1.stock", ftypes.STRING, nil, nil, nil, "The Stock Symbol")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxequities.matchview.asciiitch.v1.1.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 
 -- Nasdaq NtxEquities MatchView AsciiItch 1.1 Framing
 omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.ntxequities.matchview.asciiitch.v1.1.message", ftypes.STRING)
 omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messageheader", ftypes.STRING)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.matchview.asciiitch.v1.1.packet", ftypes.STRING)
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.matchview.asciiitch.v1.1.packet", ftypes.STRING, nil, nil, nil, "Itch Udp Packet")
 omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.matchview.asciiitch.v1.1.packetheader", ftypes.STRING)
 
 -- Nasdaq NtxEquities MatchView 1.1 Session Messages
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxequities.matchview.asciiitch.v1.1.endofsession", ftypes.BYTES)
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxequities.matchview.asciiitch.v1.1.heartbeat", ftypes.BYTES)
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxequities.matchview.asciiitch.v1.1.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp end of session")
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxequities.matchview.asciiitch.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Mold Udp heartbeat")
 
 -- Nasdaq NtxEquities MatchView 1.1 Application Messages
-omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.quote_update_message = ProtoField.new("Quote Update Message", "nasdaq.ntxequities.matchview.asciiitch.v1.1.quoteupdatemessage", ftypes.STRING)
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.quote_update_message = ProtoField.new("Quote Update Message", "nasdaq.ntxequities.matchview.asciiitch.v1.1.quoteupdatemessage", ftypes.STRING, nil, nil, nil, "The prevailing best bid and offer of the other exchanges as the Nasdaq Texas execution system sees it.")
 
 -- Nasdaq NtxEquities MatchView AsciiItch 1.1 Generated Fields
 omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxequities.matchview.asciiitch.v1.1.messagesequencenumber", ftypes.UINT64)
+
+-- Nasdaq NtxEquities MatchView AsciiItch 1.1 Expert Info
+nasdaq_ntxequities_matchview_asciiitch_v1_1.experts = {}
+nasdaq_ntxequities_matchview_asciiitch_v1_1.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.ntxequities.matchview.asciiitch.v1.1.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_ntxequities_matchview_asciiitch_v1_1.experts = { nasdaq_ntxequities_matchview_asciiitch_v1_1.experts.message_after_end_of_session }
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxEquities MatchView AsciiItch 1.1 Formatting
@@ -757,6 +762,16 @@ nasdaq_ntxequities_matchview_asciiitch_v1_1.messages.dissect = function(buffer, 
 
     -- Message: Struct of 2 fields
     offset = nasdaq_ntxequities_matchview_asciiitch_v1_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+
+    -- End Of Session: the session ends here, nothing in the packet may follow it
+    if message_length == 0 then
+      if offset < buffer:len() then
+        parent:add_tvb_expert_info(nasdaq_ntxequities_matchview_asciiitch_v1_1.experts.message_after_end_of_session, buffer(offset), "Message after the end of session: "..(buffer:len() - offset).." bytes follow it")
+      elseif message_index < message_count then
+        parent:add_proto_expert_info(nasdaq_ntxequities_matchview_asciiitch_v1_1.experts.message_after_end_of_session, "Message after the end of session: count states "..(message_count - message_index).." more")
+      end
+      break
+    end
   end
 end
 

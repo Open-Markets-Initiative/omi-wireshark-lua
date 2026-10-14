@@ -1,6 +1,6 @@
 # Omi Lua Wireshark Dissectors
 
-[![Wireshark](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/About/Images/Wireshark.png)](https://www.wireshark.org)
+[![Wireshark](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Images/Wireshark.png)](https://www.wireshark.org)
 
 Omi Lua Wireshark dissectors provide easily customized and verified viewing of common binary exchange protocols.
 
@@ -28,7 +28,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 Omi Lua dissectors are LLM friendly: you can point a large language model at a dissector and ask it to hide fields, rename columns, or adjust which parts of a protocol are shown, then reload the plugin to see the change immediately.
 
 
-[![Lua](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/About/Images/Lua.png)](https://www.lua.org)
+[![Lua](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Images/Lua.png)](https://www.lua.org)
 
 For more information on lua dissectors: [How Lua fits into Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html "Wireshark Lua Documentation")
 ## Development
@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1399 | 9,926,809 |
+| 1399 | 9,927,449 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -57,7 +57,7 @@ Wireshark is free and open source, maintained under the nonprofit Wireshark Foun
 If these dissectors are useful to you, please consider supporting the foundation: [Donate to the Wireshark Foundation](https://wiresharkfoundation.org/donate/ "Wireshark Foundation Donations")
 ## Open Markets Initiative
 
-[![Omi](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/About/Images/Logo.png)](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative)  The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
+[![Omi](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Images/Logo.png)](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative)  The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
 Other generated code can be found at [Omi Projects](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Projects "Open Markets Initiative Projects"); for Omi rules and regulations, see [Omi Directory](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative "Open Markets Initiative Directory").
 

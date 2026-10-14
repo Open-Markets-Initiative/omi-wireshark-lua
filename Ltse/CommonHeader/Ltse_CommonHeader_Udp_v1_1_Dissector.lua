@@ -15,29 +15,29 @@ local ltse_commonheader_udp_v1_1 = {}
 -----------------------------------------------------------------------
 
 -- Ltse CommonHeader Udp 1.1 Fields
-omi_ltse_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.udp.v1.1.blocklength", ftypes.UINT16)
-omi_ltse_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "ltse.commonheader.udp.v1.1.headerlength", ftypes.UINT8)
-omi_ltse_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "ltse.commonheader.udp.v1.1.message", ftypes.STRING)
-omi_ltse_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "ltse.commonheader.udp.v1.1.messagecount", ftypes.UINT16)
-omi_ltse_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.udp.v1.1.messagelength", ftypes.UINT16)
-omi_ltse_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "ltse.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
-omi_ltse_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "ltse.commonheader.udp.v1.1.payload", ftypes.BYTES)
-omi_ltse_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "ltse.commonheader.udp.v1.1.schemaid", ftypes.UINT8)
+omi_ltse_commonheader_udp_v1_1.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.udp.v1.1.blocklength", ftypes.UINT16, nil, nil, nil, "Memx Udp Block length")
+omi_ltse_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "ltse.commonheader.udp.v1.1.headerlength", ftypes.UINT8, nil, nil, nil, "Total bytes in this header")
+omi_ltse_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "ltse.commonheader.udp.v1.1.message", ftypes.STRING, nil, nil, nil, "Memx Udp Message")
+omi_ltse_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "ltse.commonheader.udp.v1.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages in this packet")
+omi_ltse_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.udp.v1.1.messagelength", ftypes.UINT16, nil, nil, nil, "Number of bytes in the following message")
+omi_ltse_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "ltse.commonheader.udp.v1.1.messagetype", ftypes.UINT8, nil, nil, nil, "Memx Udp Message Type")
+omi_ltse_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "ltse.commonheader.udp.v1.1.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
+omi_ltse_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "ltse.commonheader.udp.v1.1.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_ltse_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "ltse.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64)
-omi_ltse_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
-omi_ltse_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "ltse.commonheader.udp.v1.1.sessionid", ftypes.UINT64)
-omi_ltse_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "ltse.commonheader.udp.v1.1.templateid", ftypes.UINT8)
-omi_ltse_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "ltse.commonheader.udp.v1.1.version", ftypes.UINT16)
+omi_ltse_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Udp Sequenced Message")
+omi_ltse_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "ltse.commonheader.udp.v1.1.sessionid", ftypes.UINT64, nil, nil, nil, "session identifier")
+omi_ltse_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "ltse.commonheader.udp.v1.1.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
+omi_ltse_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "ltse.commonheader.udp.v1.1.version", ftypes.UINT16, nil, nil, nil, "The version number of the message schema that was used to encode a message")
 
 -- Ltse CommonHeader Udp 1.1 Framing
-omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
-omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
+omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING, nil, nil, nil, "Memx Udp Common Header")
+omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING, nil, nil, nil, "Memx Udp Packet")
 omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
 -- Ltse CommonHeader 1.1 Session Messages
-omi_ltse_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "ltse.commonheader.udp.v1.1.heartbeat", ftypes.BYTES)
-omi_ltse_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "ltse.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES)
+omi_ltse_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "ltse.commonheader.udp.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Memx Udp heartbeat: the session is alive and no sequenced message follows the header")
+omi_ltse_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "ltse.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES, nil, nil, nil, "Memx Udp session shutdown: no further sequenced message will be sent for this session id")
 
 -- Ltse CommonHeader Udp 1.1 Generated Fields
 omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "ltse.commonheader.udp.v1.1.messageindex", ftypes.UINT16)

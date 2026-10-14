@@ -15,70 +15,75 @@ local nasdaq_nsmequities_totalview_asciiitch_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0 Fields
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.acceptedsequencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.acceptedsession", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.canceledshares", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpackettype", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.asciiitch.v2.0.display", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.asciiitch.v2.0.eventcode", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.executedshares", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.matchnumber", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagedata", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagelength", ftypes.UINT16)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagetype", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.orderreferencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.asciiitch.v2.0.password", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.asciiitch.v2.0.price", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.asciiitch.v2.0.rejectreasoncode", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.requestedsequencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.requestedsession", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequencenumber", ftypes.UINT32)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpackettype", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.session", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.shares", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v2.0.side", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v2.0.souplf", ftypes.INT8)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v2.0.stock", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.asciiitch.v2.0.text", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.asciiitch.v2.0.timestamp", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.unsequencedmessage", ftypes.BYTES)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.asciiitch.v2.0.username", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.canceledshares", ftypes.STRING, nil, nil, nil, "The number of shares canceled.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.asciiitch.v2.0.display", ftypes.STRING, nil, nil, nil, "\"Y\" = displayed in the quote. The \"S\" value is no longer supported as of the NASDAQ/INET merger.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.asciiitch.v2.0.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.executedshares", ftypes.STRING, nil, nil, nil, "The number of shares executed.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.matchnumber", ftypes.STRING, nil, nil, nil, "The NASDAQ generated day-unique Match Number of this execution. The match number is also referenced in the Trade Break Message.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagedata", ftypes.STRING, nil, nil, nil, "Mold Udp message data")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.orderreferencenumber", ftypes.STRING, nil, nil, nil, "The unique reference number assigned to this new order. Increasing, but not necessarily sequential.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.asciiitch.v2.0.password", ftypes.STRING, nil, nil, nil, "Login password")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.asciiitch.v2.0.price", ftypes.DOUBLE, nil, nil, nil, "The limit price of the order.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.asciiitch.v2.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.requestedsequencenumber", ftypes.STRING, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.shares", ftypes.STRING, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered).")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v2.0.side", ftypes.STRING, nil, nil, nil, "\"B\" = buy order. \"S\" = sell order.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v2.0.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v2.0.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.asciiitch.v2.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.asciiitch.v2.0.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.asciiitch.v2.0.username", ftypes.STRING, nil, nil, nil, "Session username")
 
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0 Framing
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_frame = ProtoField.new("Client Frame", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientframe", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet_header = ProtoField.new("Client Packet Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpacketheader", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_frame = ProtoField.new("Client Frame", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientframe", ftypes.STRING, nil, nil, nil, "One SoupTcp packet sent by the client, closed by a line feed")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpacket", ftypes.STRING, nil, nil, nil, "SoupTcp Packet")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.client_packet_header = ProtoField.new("Client Packet Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.clientpacketheader", ftypes.STRING, nil, nil, nil, "SoupTcp Packet Header sent by the client")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.message", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messageheader", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.packet", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.packet", ftypes.STRING, nil, nil, nil, "Itch Udp Packet")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.packetheader", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequencedmessageheader", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_frame = ProtoField.new("Server Frame", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverframe", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpacketheader", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.sequencedmessageheader", ftypes.STRING, nil, nil, nil, "Time and type carried ahead of every sequenced Itch message")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_frame = ProtoField.new("Server Frame", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverframe", ftypes.STRING, nil, nil, nil, "One SoupTcp packet sent by the server, closed by a line feed")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpacket", ftypes.STRING, nil, nil, nil, "SoupTcp Packet")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.nsmequities.totalview.asciiitch.v2.0.serverpacketheader", ftypes.STRING, nil, nil, nil, "SoupTcp Packet Header sent by the server")
 
 -- Nasdaq NsmEquities TotalView 2.0 Application Messages
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.addordermessage", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.brokentrademessage", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.ordercancelmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.orderexecutedmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.systemeventmessage", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.trademessage", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.addordermessage", ftypes.STRING, nil, nil, nil, "An Add Order Message indicates that a new order has been accepted by the NASDAQ system and added onto the displayable book. It includes a day-unique Order Reference Number assigned by NASDAQ to the order.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.brokentrademessage", ftypes.STRING, nil, nil, nil, "The Broken Trade message is sent whenever an execution on NASDAQ is broken.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.ordercancelmessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever an order on the book is modified as a result of being canceled in whole or in part.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.orderexecutedmessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever an order on the book is executed in whole or in part. The execution price is always equal to the limit price of the order as indicated in the Add Order Message.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.systemeventmessage", ftypes.STRING, nil, nil, nil, "System Event Messages signal events that affect the entire NASDAQ system.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nsmequities.totalview.asciiitch.v2.0.trademessage", ftypes.STRING, nil, nil, nil, "The Trade Message provides information about execution events that involve orders not visible on the NASDAQ book. A Trade Message is transmitted each time a hidden order is executed in whole or in part.")
 
 -- Nasdaq NsmEquities TotalView 2.0 Session Messages
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.debugpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.endofsession", ftypes.BYTES)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.totalview.asciiitch.v2.0.heartbeat", ftypes.BYTES)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.unsequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.debugpacket", ftypes.STRING, nil, nil, nil, "Debug packets are intended to provide human readable text that may aid in debugging problems.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.endofsession", ftypes.BYTES, nil, nil, nil, "Mold Udp end of session")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.totalview.asciiitch.v2.0.heartbeat", ftypes.BYTES, nil, nil, nil, "Mold Udp heartbeat")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp server sends this packet in response to an invalid Login Request Packet from the client.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The SoupTcp client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v2.0.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server. These messages are not sequenced and may be lost in the event of a socket failure.")
 
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0 Generated Fields
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.asciiitch.v2.0.messagesequencenumber", ftypes.UINT64)
+
+-- Nasdaq NsmEquities TotalView AsciiItch 2.0 Expert Info
+nasdaq_nsmequities_totalview_asciiitch_v2_0.experts = {}
+nasdaq_nsmequities_totalview_asciiitch_v2_0.experts.message_after_end_of_session = ProtoExpert.new("nasdaq.nsmequities.totalview.asciiitch.v2.0.messageafterendofsession", "Message after the end of session, which must be the last block of its packet", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.experts = { nasdaq_nsmequities_totalview_asciiitch_v2_0.experts.message_after_end_of_session }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView AsciiItch 2.0 Formatting
@@ -1594,6 +1599,16 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.messages.dissect = function(buffer, 
 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_totalview_asciiitch_v2_0.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+
+    -- End Of Session: the session ends here, nothing in the packet may follow it
+    if message_length == 0 then
+      if offset < buffer:len() then
+        parent:add_tvb_expert_info(nasdaq_nsmequities_totalview_asciiitch_v2_0.experts.message_after_end_of_session, buffer(offset), "Message after the end of session: "..(buffer:len() - offset).." bytes follow it")
+      elseif message_index < message_count then
+        parent:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v2_0.experts.message_after_end_of_session, "Message after the end of session: count states "..(message_count - message_index).." more")
+      end
+      break
+    end
   end
 end
 

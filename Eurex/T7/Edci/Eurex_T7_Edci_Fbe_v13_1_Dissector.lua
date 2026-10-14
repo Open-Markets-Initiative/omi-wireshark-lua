@@ -21,7 +21,7 @@ omi_eurex_t7_edci_fbe_v13_1.fields.affected_fix_orig_cl_ord_id = ProtoField.new(
 omi_eurex_t7_edci_fbe_v13_1.fields.affected_ord_grp_comp = ProtoField.new("Affected Ord Grp Comp", "eurex.t7.edci.fbe.v13.1.affectedordgrpcomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v13_1.fields.affected_order_id = ProtoField.new("Affected Order Id", "eurex.t7.edci.fbe.v13.1.affectedorderid", ftypes.UINT64)
 omi_eurex_t7_edci_fbe_v13_1.fields.affected_orig_cl_ord_id = ProtoField.new("Affected Orig Cl Ord Id", "eurex.t7.edci.fbe.v13.1.affectedorigclordid", ftypes.UINT64)
-omi_eurex_t7_edci_fbe_v13_1.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.edci.fbe.v13.1.alignmentpadding", ftypes.BYTES)
+omi_eurex_t7_edci_fbe_v13_1.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.edci.fbe.v13.1.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
 omi_eurex_t7_edci_fbe_v13_1.fields.appl_id = ProtoField.new("Appl Id", "eurex.t7.edci.fbe.v13.1.applid", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v13_1.fields.appl_seq_indicator = ProtoField.new("Appl Seq Indicator", "eurex.t7.edci.fbe.v13.1.applseqindicator", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v13_1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.edci.fbe.v13.1.bodylen", ftypes.UINT32)
@@ -109,11 +109,11 @@ omi_eurex_t7_edci_fbe_v13_1.fields.var_text = ProtoField.new("Var Text", "eurex.
 omi_eurex_t7_edci_fbe_v13_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.edci.fbe.v13.1.vartextlen", ftypes.UINT16)
 
 -- Eurex T7 Edci Fbe 13.1 Framing
-omi_eurex_t7_edci_fbe_v13_1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.edci.fbe.v13.1.clientmessage", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.edci.fbe.v13.1.clientpacket", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v13.1.messageheader", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.server_message = ProtoField.new("Server Message", "eurex.t7.edci.fbe.v13.1.servermessage", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v13_1.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.edci.fbe.v13.1.serverpacket", ftypes.STRING)
+omi_eurex_t7_edci_fbe_v13_1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.edci.fbe.v13.1.clientmessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Edci Message sent by the participant to Eurex")
+omi_eurex_t7_edci_fbe_v13_1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.edci.fbe.v13.1.clientpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by the participant to Eurex")
+omi_eurex_t7_edci_fbe_v13_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v13.1.messageheader", ftypes.STRING, nil, nil, nil, "Eurex T7 Edci message header")
+omi_eurex_t7_edci_fbe_v13_1.fields.server_message = ProtoField.new("Server Message", "eurex.t7.edci.fbe.v13.1.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Edci Message sent by Eurex to the participant")
+omi_eurex_t7_edci_fbe_v13_1.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.edci.fbe.v13.1.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
 -- Eurex T7 Edci 13.1 Application Messages
 omi_eurex_t7_edci_fbe_v13_1.fields.delete_order_broadcast = ProtoField.new("Delete Order Broadcast", "eurex.t7.edci.fbe.v13.1.deleteorderbroadcast", ftypes.STRING)

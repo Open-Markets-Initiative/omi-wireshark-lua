@@ -15,24 +15,24 @@ local nse_nsefo_orderentry_nnfdirect_v9_50 = {}
 -----------------------------------------------------------------------
 
 -- Nse NseFo OrderEntry NnfDirect 9.50 Fields
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.alpha_char = ProtoField.new("Alpha Char", "nse.nsefo.orderentry.nnfdirect.v9.50.alphachar", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.checksum = ProtoField.new("Checksum", "nse.nsefo.orderentry.nnfdirect.v9.50.checksum", ftypes.BYTES)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.error_code = ProtoField.new("Error Code", "nse.nsefo.orderentry.nnfdirect.v9.50.errorcode", ftypes.INT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp", ftypes.INT64)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnfdirect.v9.50.logtime", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.message_length = ProtoField.new("Message Length", "nse.nsefo.orderentry.nnfdirect.v9.50.messagelength", ftypes.INT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_length = ProtoField.new("Packet Length", "nse.nsefo.orderentry.nnfdirect.v9.50.packetlength", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "nse.nsefo.orderentry.nnfdirect.v9.50.packetsequencenumber", ftypes.UINT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trader_id = ProtoField.new("Trader Id", "nse.nsefo.orderentry.nnfdirect.v9.50.traderid", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.transaction_code = ProtoField.new("Transaction Code", "nse.nsefo.orderentry.nnfdirect.v9.50.transactioncode", ftypes.INT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.alpha_char = ProtoField.new("Alpha Char", "nse.nsefo.orderentry.nnfdirect.v9.50.alphachar", ftypes.STRING, nil, nil, nil, "Alpha characters of the record")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.checksum = ProtoField.new("Checksum", "nse.nsefo.orderentry.nnfdirect.v9.50.checksum", ftypes.BYTES, nil, nil, nil, "Md5 digest of the message data, or the Gcm authentication tag under the new encryption")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.error_code = ProtoField.new("Error Code", "nse.nsefo.orderentry.nnfdirect.v9.50.errorcode", ftypes.INT16, nil, nil, nil, "Error code of the record")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsefo.orderentry.nnfdirect.v9.50.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnfdirect.v9.50.logtime", ftypes.INT32, nil, nil, nil, "Time the record was logged")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.message_length = ProtoField.new("Message Length", "nse.nsefo.orderentry.nnfdirect.v9.50.messagelength", ftypes.INT16, nil, nil, nil, "Length of the record including this header")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_length = ProtoField.new("Packet Length", "nse.nsefo.orderentry.nnfdirect.v9.50.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the entire packet including this field, capped at 1024 bytes")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "nse.nsefo.orderentry.nnfdirect.v9.50.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "Echoed back on responses to order related requests, zero on a non encrypting connection")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp1", ftypes.STRING, nil, nil, nil, "Current time in jiffies from the host, 65536 jiffies to the second")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp2", ftypes.STRING, nil, nil, nil, "Number of the machine the packet came from")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trader_id = ProtoField.new("Trader Id", "nse.nsefo.orderentry.nnfdirect.v9.50.traderid", ftypes.INT32, nil, nil, nil, "Trader Id of the connected user")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.transaction_code = ProtoField.new("Transaction Code", "nse.nsefo.orderentry.nnfdirect.v9.50.transactioncode", ftypes.INT16, nil, nil, nil, "Transaction code of the record carried")
 
 -- Nse NseFo OrderEntry NnfDirect 9.50 Framing
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.direct_packet = ProtoField.new("Direct Packet", "nse.nsefo.orderentry.nnfdirect.v9.50.directpacket", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.message_header = ProtoField.new("Message Header", "nse.nsefo.orderentry.nnfdirect.v9.50.messageheader", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet = ProtoField.new("Packet", "nse.nsefo.orderentry.nnfdirect.v9.50.packet", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_header = ProtoField.new("Packet Header", "nse.nsefo.orderentry.nnfdirect.v9.50.packetheader", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.direct_packet = ProtoField.new("Direct Packet", "nse.nsefo.orderentry.nnfdirect.v9.50.directpacket", ftypes.STRING, nil, nil, nil, "One framed interactive message")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.message_header = ProtoField.new("Message Header", "nse.nsefo.orderentry.nnfdirect.v9.50.messageheader", ftypes.STRING, nil, nil, nil, "MESSAGE_HEADER")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet = ProtoField.new("Packet", "nse.nsefo.orderentry.nnfdirect.v9.50.packet", ftypes.STRING, nil, nil, nil, "Nnf direct interface Tcp block of one or more packets")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.packet_header = ProtoField.new("Packet Header", "nse.nsefo.orderentry.nnfdirect.v9.50.packetheader", ftypes.STRING, nil, nil, nil, "Chapter 11 twenty two byte packet header")
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

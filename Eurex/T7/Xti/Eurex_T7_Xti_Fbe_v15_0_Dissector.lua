@@ -25,7 +25,7 @@ omi_eurex_t7_xti_fbe_v15_0.fields.affected_order_requests_grp_comp = ProtoField.
 omi_eurex_t7_xti_fbe_v15_0.fields.affected_orig_cl_ord_id = ProtoField.new("Affected Orig Cl Ord Id", "eurex.t7.xti.fbe.v15.0.affectedorigclordid", ftypes.UINT64)
 omi_eurex_t7_xti_fbe_v15_0.fields.aggregated_gross_amount = ProtoField.new("Aggregated Gross Amount", "eurex.t7.xti.fbe.v15.0.aggregatedgrossamount", ftypes.DOUBLE)
 omi_eurex_t7_xti_fbe_v15_0.fields.aggregated_net_amount = ProtoField.new("Aggregated Net Amount", "eurex.t7.xti.fbe.v15.0.aggregatednetamount", ftypes.DOUBLE)
-omi_eurex_t7_xti_fbe_v15_0.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.xti.fbe.v15.0.alignmentpadding", ftypes.BYTES)
+omi_eurex_t7_xti_fbe_v15_0.fields.alignment_padding = ProtoField.new("Alignment Padding", "eurex.t7.xti.fbe.v15.0.alignmentpadding", ftypes.BYTES, nil, nil, nil, "Alignment")
 omi_eurex_t7_xti_fbe_v15_0.fields.alloc_id = ProtoField.new("Alloc Id", "eurex.t7.xti.fbe.v15.0.allocid", ftypes.UINT32)
 omi_eurex_t7_xti_fbe_v15_0.fields.alloc_method = ProtoField.new("Alloc Method", "eurex.t7.xti.fbe.v15.0.allocmethod", ftypes.UINT8)
 omi_eurex_t7_xti_fbe_v15_0.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.t7.xti.fbe.v15.0.allocqty", ftypes.DOUBLE)
@@ -430,11 +430,11 @@ omi_eurex_t7_xti_fbe_v15_0.fields.var_text_len = ProtoField.new("Var Text Len", 
 omi_eurex_t7_xti_fbe_v15_0.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.t7.xti.fbe.v15.0.xetraenlighttargetpartiescomp", ftypes.STRING)
 
 -- Eurex T7 Xti Fbe 15.0 Framing
-omi_eurex_t7_xti_fbe_v15_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.xti.fbe.v15.0.clientmessage", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v15_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.xti.fbe.v15.0.clientpacket", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v15_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v15.0.messageheader", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v15_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.xti.fbe.v15.0.servermessage", ftypes.STRING)
-omi_eurex_t7_xti_fbe_v15_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.xti.fbe.v15.0.serverpacket", ftypes.STRING)
+omi_eurex_t7_xti_fbe_v15_0.fields.client_message = ProtoField.new("Client Message", "eurex.t7.xti.fbe.v15.0.clientmessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by the participant to Eurex")
+omi_eurex_t7_xti_fbe_v15_0.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.xti.fbe.v15.0.clientpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by the participant to Eurex")
+omi_eurex_t7_xti_fbe_v15_0.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v15.0.messageheader", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti message header")
+omi_eurex_t7_xti_fbe_v15_0.fields.server_message = ProtoField.new("Server Message", "eurex.t7.xti.fbe.v15.0.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by Eurex to the participant")
+omi_eurex_t7_xti_fbe_v15_0.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.xti.fbe.v15.0.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
 -- Eurex T7 Xti 15.0 Application Messages
 omi_eurex_t7_xti_fbe_v15_0.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.t7.xti.fbe.v15.0.approvetestraderequest", ftypes.STRING)

@@ -15,33 +15,33 @@ local cboe_gaprequestproxy_pitch_v1 = {}
 -----------------------------------------------------------------------
 
 -- Cboe GapRequestProxy Pitch 1 Fields
-omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16)
-omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.gaprequestproxy.pitch.v1.gapresponsestatus", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.gap_sequence = ProtoField.new("Gap Sequence", "cboe.gaprequestproxy.pitch.v1.gapsequence", ftypes.UINT32)
-omi_cboe_gaprequestproxy_pitch_v1.fields.gap_unit = ProtoField.new("Gap Unit", "cboe.gaprequestproxy.pitch.v1.gapunit", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.length = ProtoField.new("Length", "cboe.gaprequestproxy.pitch.v1.length", ftypes.UINT16)
-omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.gaprequestproxy.pitch.v1.loginresponsestatus", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.message_count = ProtoField.new("Message Count", "cboe.gaprequestproxy.pitch.v1.messagecount", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.message_length = ProtoField.new("Message Length", "cboe.gaprequestproxy.pitch.v1.messagelength", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.message_type = ProtoField.new("Message Type", "cboe.gaprequestproxy.pitch.v1.messagetype", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.password = ProtoField.new("Password", "cboe.gaprequestproxy.pitch.v1.password", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.sequence = ProtoField.new("Sequence", "cboe.gaprequestproxy.pitch.v1.sequence", ftypes.UINT32)
-omi_cboe_gaprequestproxy_pitch_v1.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.gaprequestproxy.pitch.v1.sessionsubid", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.unit = ProtoField.new("Unit", "cboe.gaprequestproxy.pitch.v1.unit", ftypes.UINT8)
-omi_cboe_gaprequestproxy_pitch_v1.fields.username = ProtoField.new("Username", "cboe.gaprequestproxy.pitch.v1.username", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16, nil, nil, nil, "Count of messages requested.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.gaprequestproxy.pitch.v1.gapresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject. All non-'A' status codes should be interpreted as a reject.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_sequence = ProtoField.new("Gap Sequence", "cboe.gaprequestproxy.pitch.v1.gapsequence", ftypes.UINT32, nil, nil, nil, "Sequence of first message, (lowest sequence in range).")
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_unit = ProtoField.new("Gap Unit", "cboe.gaprequestproxy.pitch.v1.gapunit", ftypes.UINT8, nil, nil, nil, "Unit that the gap is requested for.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.length = ProtoField.new("Length", "cboe.gaprequestproxy.pitch.v1.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
+omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.gaprequestproxy.pitch.v1.loginresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.message_count = ProtoField.new("Message Count", "cboe.gaprequestproxy.pitch.v1.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
+omi_cboe_gaprequestproxy_pitch_v1.fields.message_length = ProtoField.new("Message Length", "cboe.gaprequestproxy.pitch.v1.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
+omi_cboe_gaprequestproxy_pitch_v1.fields.message_type = ProtoField.new("Message Type", "cboe.gaprequestproxy.pitch.v1.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_cboe_gaprequestproxy_pitch_v1.fields.password = ProtoField.new("Password", "cboe.gaprequestproxy.pitch.v1.password", ftypes.STRING, nil, nil, nil, "Password supplied by Cboe.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.sequence = ProtoField.new("Sequence", "cboe.gaprequestproxy.pitch.v1.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_cboe_gaprequestproxy_pitch_v1.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.gaprequestproxy.pitch.v1.sessionsubid", ftypes.STRING, nil, nil, nil, "SessionSubId supplied by Cboe.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.unit = ProtoField.new("Unit", "cboe.gaprequestproxy.pitch.v1.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
+omi_cboe_gaprequestproxy_pitch_v1.fields.username = ProtoField.new("Username", "cboe.gaprequestproxy.pitch.v1.username", ftypes.STRING, nil, nil, nil, "Username supplied by Cboe.")
 
 -- Cboe GapRequestProxy Pitch 1 Framing
 omi_cboe_gaprequestproxy_pitch_v1.fields.message = ProtoField.new("Message", "cboe.gaprequestproxy.pitch.v1.message", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_header = ProtoField.new("Message Header", "cboe.gaprequestproxy.pitch.v1.messageheader", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING, nil, nil, nil, "Pitch Tcp Packet")
 omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
 
 -- Cboe GapRequestProxy 1 Application Messages
-omi_cboe_gaprequestproxy_pitch_v1.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.gaprequestproxy.pitch.v1.gaprequestmessage", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_message = ProtoField.new("Gap Response Message", "cboe.gaprequestproxy.pitch.v1.gapresponsemessage", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.login_message = ProtoField.new("Login Message", "cboe.gaprequestproxy.pitch.v1.loginmessage", ftypes.STRING)
-omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.gaprequestproxy.pitch.v1.loginresponsemessage", ftypes.STRING)
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.gaprequestproxy.pitch.v1.gaprequestmessage", ftypes.STRING, nil, nil, nil, "The Gap Request message is used by a user's process to request retransmission of a sequenced message (or messages) by one of Cboe's gap servers.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_message = ProtoField.new("Gap Response Message", "cboe.gaprequestproxy.pitch.v1.gapresponsemessage", ftypes.STRING, nil, nil, nil, "The Gap Response message is sent by the Gap Request Proxy in response to a Gap Request message. The Unit and Sequence fields will match the values supplied in the Gap Request message. A Gap Response message, with a Status of Accepted or reason for failure, will be sent for each Gap Request message received by the Gap Request Proxy.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.login_message = ProtoField.new("Login Message", "cboe.gaprequestproxy.pitch.v1.loginmessage", ftypes.STRING, nil, nil, nil, "The Login message is the first message sent to the Gap Request Proxy by a user's process after the connection is established. Failure to login before sending any other message type will result in the connection being dropped by the Gap Request Proxy.")
+omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.gaprequestproxy.pitch.v1.loginresponsemessage", ftypes.STRING, nil, nil, nil, "The Login Response message is sent by the Gap Request Proxy to a user's process in response to a Login message. The status field is used to reflect an accepted login or the reason the session was not accepted. If login fails, the connection will be dropped after the Login Response message is sent.")
 
 -- Cboe GapRequestProxy Pitch 1 Generated Fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_index = ProtoField.new("Message Index", "cboe.gaprequestproxy.pitch.v1.messageindex", ftypes.UINT16)

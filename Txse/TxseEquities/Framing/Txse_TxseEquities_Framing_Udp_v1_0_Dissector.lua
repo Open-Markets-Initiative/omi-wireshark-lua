@@ -15,19 +15,19 @@ local txse_txseequities_framing_udp_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Txse TxseEquities Framing Udp 1.0 Fields
-omi_txse_txseequities_framing_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "txse.txseequities.framing.udp.v1.0.messagecount", ftypes.UINT16)
-omi_txse_txseequities_framing_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "txse.txseequities.framing.udp.v1.0.messagelength", ftypes.UINT16)
-omi_txse_txseequities_framing_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "txse.txseequities.framing.udp.v1.0.messagetype", ftypes.UINT8)
-omi_txse_txseequities_framing_udp_v1_0.fields.packet_type = ProtoField.new("Packet Type", "txse.txseequities.framing.udp.v1.0.packettype", ftypes.UINT8)
-omi_txse_txseequities_framing_udp_v1_0.fields.payload = ProtoField.new("Payload", "txse.txseequities.framing.udp.v1.0.payload", ftypes.BYTES)
-omi_txse_txseequities_framing_udp_v1_0.fields.sequence = ProtoField.new("Sequence", "txse.txseequities.framing.udp.v1.0.sequence", ftypes.UINT64)
-omi_txse_txseequities_framing_udp_v1_0.fields.session = ProtoField.new("Session", "txse.txseequities.framing.udp.v1.0.session", ftypes.UINT64)
-omi_txse_txseequities_framing_udp_v1_0.fields.stream_id = ProtoField.new("Stream Id", "txse.txseequities.framing.udp.v1.0.streamid", ftypes.UINT8)
+omi_txse_txseequities_framing_udp_v1_0.fields.message_count = ProtoField.new("Message Count", "txse.txseequities.framing.udp.v1.0.messagecount", ftypes.UINT16, nil, nil, nil, "The number of messages in the payload.")
+omi_txse_txseequities_framing_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "txse.txseequities.framing.udp.v1.0.messagelength", ftypes.UINT16, nil, nil, nil, "Length of the message, exclusive of the length field itself. Note: inclusive of the streamId byte.")
+omi_txse_txseequities_framing_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "txse.txseequities.framing.udp.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Higher-level protocol message type code identifying the payload that follows. Interpretation is protocol-specific.")
+omi_txse_txseequities_framing_udp_v1_0.fields.packet_type = ProtoField.new("Packet Type", "txse.txseequities.framing.udp.v1.0.packettype", ftypes.UINT8, nil, nil, nil, "Enum RakeUdpPacketType. Identifies the Rake Udp packet variant. Informational only.")
+omi_txse_txseequities_framing_udp_v1_0.fields.payload = ProtoField.new("Payload", "txse.txseequities.framing.udp.v1.0.payload", ftypes.BYTES, nil, nil, nil, "Raw application payload bytes carried by a Udp Sequenced Message.")
+omi_txse_txseequities_framing_udp_v1_0.fields.sequence = ProtoField.new("Sequence", "txse.txseequities.framing.udp.v1.0.sequence", ftypes.UINT64, nil, nil, nil, "The message sequence number of the first message in the payload. Members should increment their message sequence based on the number of messages in the payload.")
+omi_txse_txseequities_framing_udp_v1_0.fields.session = ProtoField.new("Session", "txse.txseequities.framing.udp.v1.0.session", ftypes.UINT64, nil, nil, nil, "The currently active trading session. Changes daily and matches the trading session fields on other protocols.")
+omi_txse_txseequities_framing_udp_v1_0.fields.stream_id = ProtoField.new("Stream Id", "txse.txseequities.framing.udp.v1.0.streamid", ftypes.UINT8, nil, nil, nil, "The internal Exchange StreamID that created this message.")
 
 -- Txse TxseEquities Framing Udp 1.0 Framing
-omi_txse_txseequities_framing_udp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.udp.v1.0.packet", ftypes.STRING)
-omi_txse_txseequities_framing_udp_v1_0.fields.udp_header = ProtoField.new("Udp Header", "txse.txseequities.framing.udp.v1.0.udpheader", ftypes.STRING)
-omi_txse_txseequities_framing_udp_v1_0.fields.udp_sequenced_message = ProtoField.new("Udp Sequenced Message", "txse.txseequities.framing.udp.v1.0.udpsequencedmessage", ftypes.STRING)
+omi_txse_txseequities_framing_udp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.udp.v1.0.packet", ftypes.STRING, nil, nil, nil, "Rake Udp Packet: UdpHeader followed by MessageCount UdpSequencedMessage(s)")
+omi_txse_txseequities_framing_udp_v1_0.fields.udp_header = ProtoField.new("Udp Header", "txse.txseequities.framing.udp.v1.0.udpheader", ftypes.STRING, nil, nil, nil, "Rake Udp packet header")
+omi_txse_txseequities_framing_udp_v1_0.fields.udp_sequenced_message = ProtoField.new("Udp Sequenced Message", "txse.txseequities.framing.udp.v1.0.udpsequencedmessage", ftypes.STRING, nil, nil, nil, "Each individual message has a length, a stream id, a message type, and an application payload.")
 
 -- Txse TxseEquities Framing Udp 1.0 Generated Fields
 omi_txse_txseequities_framing_udp_v1_0.fields.udp_sequenced_message_index = ProtoField.new("Udp Sequenced Message Index", "txse.txseequities.framing.udp.v1.0.udpsequencedmessageindex", ftypes.UINT16)

@@ -15,26 +15,26 @@ local nyse_nyseoptions_commonclient_pillar_v2_6 = {}
 -----------------------------------------------------------------------
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Fields
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseoptions.commonclient.pillar.v2.6.deliveryflag", ftypes.UINT8)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.nyseoptions.commonclient.pillar.v2.6.messagesize", ftypes.UINT16)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.nyseoptions.commonclient.pillar.v2.6.messagetype", ftypes.UINT16)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseoptions.commonclient.pillar.v2.6.nanoseconds", ftypes.UINT32)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseoptions.commonclient.pillar.v2.6.numbermsgs", ftypes.UINT8)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload = ProtoField.new("Payload", "nyse.nyseoptions.commonclient.pillar.v2.6.payload", ftypes.BYTES)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseoptions.commonclient.pillar.v2.6.pktsize", ftypes.UINT16)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.UINT32)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseoptions.commonclient.pillar.v2.6.deliveryflag", ftypes.UINT8, nil, nil, nil, "A flag that indicates whether this is an original, retransmitted, or ‘replayed’ message")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.nyseoptions.commonclient.pillar.v2.6.messagesize", ftypes.UINT16, nil, nil, nil, "The size of this message in bytes")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.nyseoptions.commonclient.pillar.v2.6.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseoptions.commonclient.pillar.v2.6.nanoseconds", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the Send Time")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseoptions.commonclient.pillar.v2.6.numbermsgs", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload = ProtoField.new("Payload", "nyse.nyseoptions.commonclient.pillar.v2.6.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseoptions.commonclient.pillar.v2.6.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.UINT32, nil, nil, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Framing
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nyseoptions.commonclient.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nyseoptions.commonclient.pillar.v2.6.messageheader", ftypes.STRING)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nyseoptions.commonclient.pillar.v2.6.message", ftypes.STRING, nil, nil, nil, "Pillar message")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nyseoptions.commonclient.pillar.v2.6.messageheader", ftypes.STRING, nil, nil, nil, "Pillar message header")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING, nil, nil, nil, "Pillar common client udp packet")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING, nil, nil, nil, "Pillar common client udp packet header")
 
 -- Nyse NyseOptions CommonClient 2.6 Session Messages
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseoptions.commonclient.pillar.v2.6.heartbeat", ftypes.BYTES)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseoptions.commonclient.pillar.v2.6.heartbeat", ftypes.BYTES, nil, nil, nil, "Pillar heartbeat, a packet header with no messages behind it")
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Generated Fields
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_index = ProtoField.new("Message Index", "nyse.nyseoptions.commonclient.pillar.v2.6.messageindex", ftypes.UINT16)

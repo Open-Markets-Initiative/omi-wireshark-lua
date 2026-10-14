@@ -16,12 +16,12 @@ local miax_onyxfutures_headeronly_mach_v1_0 = {}
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Fields
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.application_message = ProtoField.new("Application Message", "miax.onyxfutures.headeronly.mach.v1.0.applicationmessage", ftypes.STRING)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.headeronly.mach.v1.0.data", ftypes.BYTES)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.headeronly.mach.v1.0.messagetype", ftypes.UINT8)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.headeronly.mach.v1.0.packetlength", ftypes.UINT16)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.headeronly.mach.v1.0.packettype", ftypes.UINT8)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.headeronly.mach.v1.0.sequencenumber", ftypes.UINT64)
-omi_miax_onyxfutures_headeronly_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.headeronly.mach.v1.0.sessionnumber", ftypes.UINT8)
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.data = ProtoField.new("Data", "miax.onyxfutures.headeronly.mach.v1.0.data", ftypes.BYTES, nil, nil, nil, "Raw message data")
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.message_type = ProtoField.new("Message Type", "miax.onyxfutures.headeronly.mach.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.headeronly.mach.v1.0.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet. This includes the header and application data")
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.headeronly.mach.v1.0.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.headeronly.mach.v1.0.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
+omi_miax_onyxfutures_headeronly_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.headeronly.mach.v1.0.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 
 -- Miax OnyxFutures HeaderOnly Mach 1.0 Framing
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.headeronly.mach.v1.0.machmessage", ftypes.STRING)
