@@ -1464,6 +1464,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4)
 -- Protocol:
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4
+--   Since: 1.0
 --   Date: Thursday, February 6, 2025
 --   Specification: BATS_Europe_Auction_Feed_Specification.pdf
 --

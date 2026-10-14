@@ -802,7 +802,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.attributed_quote_optional.display = fu
   if value == 5 then
     return "Attributed Quote Optional: Do Not Use Sum (5)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Attributed Quote Optional: No Value"
   end
 
@@ -909,7 +909,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.blocked_by_breach_indicator.display = 
   if value == 1 then
     return "Blocked By Breach Indicator: Blocked (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Blocked By Breach Indicator: No Value"
   end
 
@@ -1058,7 +1058,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_instead_of_slide_optional.displ
   if value == 1 then
     return "Cancel Instead Of Slide Optional: Cancel (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Cancel Instead Of Slide Optional: No Value"
   end
 
@@ -1091,7 +1091,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.cancel_on_disconnect.display = functio
   if value == 1 then
     return "Cancel On Disconnect: On (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Cancel On Disconnect: No Value"
   end
 
@@ -1715,7 +1715,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.customer_or_firm_optional.display = fu
   if value == 5 then
     return "Customer Or Firm Optional: Prof Customer (5)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Customer Or Firm Optional: No Value"
   end
 
@@ -1796,7 +1796,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.default_attributed_quote.display = fun
   if value == 5 then
     return "Default Attributed Quote: Do Not Use Sum (5)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Default Attributed Quote: No Value"
   end
 
@@ -1999,7 +1999,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.display_inst.display = function(value)
   if value == 1 then
     return "Display Inst: Post Only (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Display Inst: No Value"
   end
 
@@ -2156,7 +2156,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.exec_inst.display = function(value)
   if value == 2 then
     return "Exec Inst: Do Not Route (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Exec Inst: No Value"
   end
 
@@ -2279,7 +2279,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ioc_attribution.display = function(val
   if value == 2 then
     return "Ioc Attribution: Exclude Ioc (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Ioc Attribution: No Value"
   end
 
@@ -3071,7 +3071,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.open_close_optional.display = function
   if value == 2 then
     return "Open Close Optional: Not Applicable (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Open Close Optional: No Value"
   end
 
@@ -3203,7 +3203,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.ord_type_optional.display = function(v
   if value == 2 then
     return "Ord Type Optional: Limit (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Ord Type Optional: No Value"
   end
 
@@ -4637,7 +4637,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.reserved.size = 1
 -- Display: Reserved
 iex_iexoptions_binaryorderentry_sbe_v1_03.reserved.display = function(value)
   -- Check if field has value
-  if value == 128 then
+  if value == -128 then
     return "Reserved: No Value"
   end
 
@@ -4769,7 +4769,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_action_optional.display = functio
   if value == 2 then
     return "Risk Action Optional: Unblock (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Action Optional: No Value"
   end
 
@@ -4862,7 +4862,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_optional.display = functi
   if value == 7 then
     return "Risk Control Optional: All Blocks For Underlying (7)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Control Optional: No Value"
   end
 
@@ -4895,7 +4895,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.risk_control_status.display = function
   if value == 1 then
     return "Risk Control Status: Enabled (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Control Status: No Value"
   end
 
@@ -5073,7 +5073,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.side_optional.display = function(value
   if value == 2 then
     return "Side Optional: Sell (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Side Optional: No Value"
   end
 
@@ -5499,7 +5499,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.throttle_indicator_optional.display = 
   if value == 1 then
     return "Throttle Indicator Optional: Throttled (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Throttle Indicator Optional: No Value"
   end
 
@@ -5562,7 +5562,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.time_in_force_optional.display = funct
   if value == 1 then
     return "Time In Force Optional: Ioc (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Time In Force Optional: No Value"
   end
 
@@ -5825,7 +5825,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.trading_ring_optional.size = 1
 -- Display: Trading Ring Optional
 iex_iexoptions_binaryorderentry_sbe_v1_03.trading_ring_optional.display = function(value)
   -- Check if field has value
-  if value == 128 then
+  if value == -128 then
     return "Trading Ring Optional: No Value"
   end
 

@@ -48,7 +48,6 @@
 
 [Ice.IceFutures.Bgw.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Ice/IceFutures/Bgw/Ice_IceFutures_Bgw_Sbe_v7_0_Dissector.lua "Ice IceFutures Bgw Sbe v7.0 Wireshark Dissector"
 [Ice.IceFutures.Bgw.Sbe.v7.0.Url]: https://service.ice.com/s/article/Binary-Order-API "Intercontinental Exchange 7.0 Url"
-[Ice.IceFutures.Bgw.Sbe.v7.0.Pdf]: https://service.ice.com/s/article/Binary-Order-API "Intercontinental Exchange 7.0 Pdf"
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Ice/IceFutures/Mdf/Ice_IceFutures_Mdf_iMpact_v1_1_24_Dissector.lua "Ice IceFutures Mdf iMpact v1.1.24 Wireshark Dissector"
 [Ice.IceFutures.Mdf.iMpact.v1.1.24.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Specifications/ "Intercontinental Exchange 1.1.24 Pdf"
 [Ice.IceFutures.Mdf.iMpact.v1.1.33.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Ice/IceFutures/Mdf/Ice_IceFutures_Mdf_iMpact_v1_1_33_Dissector.lua "Ice IceFutures Mdf iMpact v1.1.33 Wireshark Dissector"

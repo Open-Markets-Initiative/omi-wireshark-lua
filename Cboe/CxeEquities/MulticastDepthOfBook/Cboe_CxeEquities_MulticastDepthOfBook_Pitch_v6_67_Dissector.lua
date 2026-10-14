@@ -38,6 +38,7 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.includes_primary = 
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.index_price = ProtoField.new("Index Price", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indexprice", ftypes.DOUBLE)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.index_status = ProtoField.new("Index Status", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indexstatus", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.index_ticker = ProtoField.new("Index Ticker", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indexticker", ftypes.STRING)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.index_timestamp = ProtoField.new("Index Timestamp", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indextimestamp", ftypes.UINT64)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indicativeprice", ftypes.DOUBLE)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.indicative_shares = ProtoField.new("Indicative Shares", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.indicativeshares", ftypes.UINT32)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.length = ProtoField.new("Length", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.length", ftypes.UINT16)
@@ -65,10 +66,11 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.sequence = ProtoFie
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_extended = ProtoField.new("Shares Extended", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sharesextended", ftypes.UINT64)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_long = ProtoField.new("Shares Long", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.shareslong", ftypes.UINT32)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.shares_short = ProtoField.new("Shares Short", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sharesshort", ftypes.UINT16)
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote = ProtoField.new("Si Quote", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.siquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote = ProtoField.new("Si Quote", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.siquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.sideindicator", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.specialdividend", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.statistictype", ftypes.STRING)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.symbolalphanumeric6", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.symbollong", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.symbolshort", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.time = ProtoField.new("Time", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.time", ftypes.UINT32)
@@ -81,7 +83,7 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.trading_mode = Prot
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.tradingstatus", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.transactioncategory", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unit = ProtoField.new("Unit", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.unit", ftypes.UINT8)
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1 = ProtoField.new("Unused 1", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1 = ProtoField.new("Unused 1", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_6 = ProtoField.new("Unused 6", "cboe.cxeequities.multicastdepthofbook.pitch.v6.67.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
 -- Cboe CxeEquities MulticastDepthOfBook Pitch 6.67 Framing
@@ -360,6 +362,36 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.benchmark_reference_price_indi
   if value == "-" then
     return "Benchmark Reference Price Indicator: Not Specified (-)"
   end
+  if value == "C" then
+    return "Benchmark Reference Price Indicator: Cont (C)"
+  end
+  if value == "M" then
+    return "Benchmark Reference Price Indicator: Benc Cont (M)"
+  end
+  if value == "N" then
+    return "Benchmark Reference Price Indicator: Port Cont (N)"
+  end
+  if value == "O" then
+    return "Benchmark Reference Price Indicator: Benc Port Cont (O)"
+  end
+  if value == "P" then
+    return "Benchmark Reference Price Indicator: Port (P)"
+  end
+  if value == "Y" then
+    return "Benchmark Reference Price Indicator: Benc Port (Y)"
+  end
+  if value == "1" then
+    return "Benchmark Reference Price Indicator: Clse (1)"
+  end
+  if value == "2" then
+    return "Benchmark Reference Price Indicator: Clse Port (2)"
+  end
+  if value == "3" then
+    return "Benchmark Reference Price Indicator: Clse Cont (3)"
+  end
+  if value == "4" then
+    return "Benchmark Reference Price Indicator: Clse Port Cont (4)"
+  end
 
   return "Benchmark Reference Price Indicator: Unknown("..value..")"
 end
@@ -453,6 +485,24 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.cboe_trade_flags.display = fun
   end
   if value == "F" then
     return "Cboe Trade Flags: Late And Out Of The Main Session 3 Rd Country Venue (F)"
+  end
+  if value == "-" then
+    return "Cboe Trade Flags: Uk The Trade Was Reported To Cboe On Time And In The Main Session (-)"
+  end
+  if value == "1" then
+    return "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Late (1)"
+  end
+  if value == "2" then
+    return "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Out Of The Main Session (2)"
+  end
+  if value == "3" then
+    return "Cboe Trade Flags: Uk The Trade Was Reported To Cboe Late And Out Of The Main Session (3)"
+  end
+  if value == "G" then
+    return "Cboe Trade Flags: Uk The Trade Was An Execution Against Retailonly Liquidity (G)"
+  end
+  if value == "K" then
+    return "Cboe Trade Flags: Eu The Trade Was An Execution Against Retailonly Liquidity (K)"
   end
 
   return "Cboe Trade Flags: Unknown("..value..")"
@@ -619,6 +669,24 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.duplicative_indicator.display 
   end
   if value == "-" then
     return "Duplicative Indicator: Unique Trade Report (-)"
+  end
+  if value == "2" then
+    return "Duplicative Indicator: Igrp (2)"
+  end
+  if value == "3" then
+    return "Duplicative Indicator: Dupl Igrp (3)"
+  end
+  if value == "4" then
+    return "Duplicative Indicator: Xbdt (4)"
+  end
+  if value == "5" then
+    return "Duplicative Indicator: Dupl Xbdt (5)"
+  end
+  if value == "6" then
+    return "Duplicative Indicator: Dupl Xbdt Igrp (6)"
+  end
+  if value == "7" then
+    return "Duplicative Indicator: Xbdt Igrp (7)"
   end
 
   return "Duplicative Indicator: Unknown("..value..")"
@@ -853,11 +921,34 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_ticker.dissect = functio
   return offset + length, value
 end
 
+-- Index Timestamp
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp = {}
+
+-- Size: Index Timestamp
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.size = 8
+
+-- Display: Index Timestamp
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.display = function(value)
+  return "Index Timestamp: "..value
+end
+
+-- Dissect: Index Timestamp
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.index_timestamp, range, value, display)
+
+  return offset + length, value
+end
+
 -- Indicative Price
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price = {}
 
 -- Size: Indicative Price
-cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.size = 4
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.size = 8
 
 -- Display: Indicative Price
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.display = function(value)
@@ -866,14 +957,14 @@ end
 
 -- Translate: Indicative Price
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.translate = function(raw)
-  return raw/10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Price
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint()
+  local raw = range:le_uint64()
   local value = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.translate(raw)
   local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.indicative_price.display(value, buffer, offset, packet, parent)
 
@@ -956,6 +1047,12 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.market_mechanism.display = fun
   end
   if value == "7" then
     return "Market Mechanism: Any Other Including Hybrid (7)"
+  end
+  if value == "8" then
+    return "Market Mechanism: Hybrid System Revised Esma Definition (8)"
+  end
+  if value == "9" then
+    return "Market Mechanism: Any Other Excluding Hybrid Revised Esma Definition (9)"
   end
 
   return "Market Mechanism: Unknown("..value..")"
@@ -1183,6 +1280,24 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.negotiated_trade.display = fun
   if value == "-" then
     return "Negotiated Trade: Not Specified (-)"
   end
+  if value == "7" then
+    return "Negotiated Trade: Ntls Negotiated Trade Larger Than Lis Brought Onto A Venue (7)"
+  end
+  if value == "8" then
+    return "Negotiated Trade: Netw Negotiated Trade With Pre Trade Transparency Waiver (8)"
+  end
+  if value == "9" then
+    return "Negotiated Trade: Nliq Negotiated Trade In Liquid Finan Ntls Negotiated Trade Larger Than Lis Cial Instruments Brought Onto A Venue (9)"
+  end
+  if value == "a" then
+    return "Negotiated Trade: Oilq Negotiated Trade In Illiquid Finan Ntls Negotiated Trade Larger Than Lis Cial Instruments Brought Onto A Venue (a)"
+  end
+  if value == "b" then
+    return "Negotiated Trade: Pric Negotiated Trade Subject To Con Ntls Negotiated Trade Larger Than Lis Ditions Other Than The Current Market Brought Onto A Venue Price (b)"
+  end
+  if value == "c" then
+    return "Negotiated Trade: Netw Negotiated Trade With Pre Ntls Negotiated Trade Larger Than Lis Trade Transparency Waiver Brought Onto A Venue (c)"
+  end
 
   return "Negotiated Trade: Unknown("..value..")"
 end
@@ -1361,6 +1476,9 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.price_formation_discovery_proc
   if value == "N" then
     return "Price Formation Discovery Process: Price Is Currently Not Available But Pending (N)"
   end
+  if value == "Z" then
+    return "Price Formation Discovery Process: Noap Price Is Not Applicable (Z)"
+  end
 
   return "Price Formation Discovery Process: Unknown("..value..")"
 end
@@ -1463,6 +1581,9 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.publication_mode_deferral_reas
   end
   if value == "-" then
     return "Publication Mode Deferral Reason: Not Specified (-)"
+  end
+  if value == "G" then
+    return "Publication Mode Deferral Reason: Deff (G)"
   end
 
   return "Publication Mode Deferral Reason: Unknown("..value..")"
@@ -1785,6 +1906,29 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.statistic_type.dissect = funct
   return offset + length, value
 end
 
+-- Symbol Alphanumeric 6
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6 = {}
+
+-- Size: Symbol Alphanumeric 6
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.size = 6
+
+-- Display: Symbol Alphanumeric 6
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.display = function(value)
+  return "Symbol Alphanumeric 6: "..value
+end
+
+-- Dissect: Symbol Alphanumeric 6
+cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.symbol_alphanumeric_6, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol Long
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_long = {}
 
@@ -1997,6 +2141,9 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_mode.display = functio
   if value == "U" then
     return "Trading Mode: Unscheduled Auction (U)"
   end
+  if value == "P" then
+    return "Trading Mode: On Demand Auction (P)"
+  end
 
   return "Trading Mode: Unknown("..value..")"
 end
@@ -2057,6 +2204,12 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trading_status.display = funct
   if value == "U" then
     return "Trading Status: Cboe Closing Cross (U)"
   end
+  if value == "I" then
+    return "Trading Status: Volatility Auction (I)"
+  end
+  if value == "Y" then
+    return "Trading Status: Halt Auction (Y)"
+  end
 
   return "Trading Status: Unknown("..value..")"
 end
@@ -2095,6 +2248,12 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.transaction_category.display =
   end
   if value == "-" then
     return "Transaction Category: None Of The Above Apply (-)"
+  end
+  if value == "H" then
+    return "Transaction Category: Exchange For Physicals Trade Give (H)"
+  end
+  if value == "G" then
+    return "Transaction Category: None Of The Above Apply Give (G)"
   end
 
   return "Transaction Category: Unknown("..value..")"
@@ -2204,7 +2363,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_edsp_message = {}
 
 -- Size: Index Quote Edsp Message
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_edsp_message.size =
-  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.time_offset.size + 
+  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_ticker.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_price.size
 
@@ -2217,8 +2376,8 @@ end
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_edsp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: Binary
-  index, time_offset = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.timestamp.dissect(buffer, index, packet, parent)
+  -- Index Timestamp: Binary
+  index, index_timestamp = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.dissect(buffer, index, packet, parent)
 
   -- Index Ticker: Alphanumeric
   index, index_ticker = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_ticker.dissect(buffer, index, packet, parent)
@@ -2252,7 +2411,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_message = {}
 
 -- Size: Index Quote Message
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_message.size =
-  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.time_offset.size + 
+  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_ticker.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_price.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_status.size
@@ -2266,8 +2425,8 @@ end
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: Binary
-  index, time_offset = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.timestamp.dissect(buffer, index, packet, parent)
+  -- Index Timestamp: Binary
+  index, index_timestamp = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_timestamp.dissect(buffer, index, packet, parent)
 
   -- Index Ticker: Alphanumeric
   index, index_ticker = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.index_ticker.dissect(buffer, index, packet, parent)
@@ -2960,7 +3119,7 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trade_short_message.size =
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.order_id.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.side_indicator.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.contracts_short.size + 
-  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_short.size + 
+  cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.price_short.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.execution_id.size + 
   cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trade_flags.size
@@ -2986,8 +3145,8 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.trade_short_message.fields = f
   -- Contracts Short: Binary
   index, contracts_short = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.contracts_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Alphanumeric 6: Alphanumeric
+  index, symbol_alphanumeric_6 = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_cxeequities_multicastdepthofbook_pitch_v6_67.price_short.dissect(buffer, index, packet, parent)
@@ -3513,13 +3672,13 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.size = 1
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Si Quote flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Si Quote"
-  end
   -- Is Unused 1 flag set?
-  if bit.band(value, 0x02) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Unused 1"
+  end
+  -- Is Si Quote flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Si Quote"
   end
 
   return table.concat(flags, "|")
@@ -3528,11 +3687,11 @@ end
 -- Dissect Bit Fields: Add Order Flags
 cboe_cxeequities_multicastdepthofbook_pitch_v6_67.add_order_flags.bits = function(range, value, packet, parent)
 
-  -- Si Quote: 1 Bit
-  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote, range, value)
-
   -- Unused 1: 1 Bit
   parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_1, range, value)
+
+  -- Si Quote: 1 Bit
+  parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.si_quote, range, value)
 
   -- Unused 6: 6 Bit
   parent:add(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_67.fields.unused_6, range, value)
@@ -4228,6 +4387,7 @@ udp_table:add_for_decode_as(omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_6
 -- Protocol:
 --   Organization: Chicago Board Options Exchange
 --   Version: 6.67
+--   Since: 6.34
 --   Date: Thursday, April 2, 2026
 --   Specification: BATS_Europe_MC_PITCH_Specification.pdf
 --

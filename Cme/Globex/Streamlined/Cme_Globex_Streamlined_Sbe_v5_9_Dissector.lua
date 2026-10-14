@@ -51,6 +51,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.event_type_optional = ProtoField.new(
 omi_cme_globex_streamlined_sbe_v5_9.fields.events_group = ProtoField.new("Events Group", "cme.globex.streamlined.sbe.v5.9.eventsgroup", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.streamlined.sbe.v5.9.eventsgroups", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.exponent = ProtoField.new("Exponent", "cme.globex.streamlined.sbe.v5.9.exponent", ftypes.INT8)
+omi_cme_globex_streamlined_sbe_v5_9.fields.exponent_optional = ProtoField.new("Exponent Optional", "cme.globex.streamlined.sbe.v5.9.exponentoptional", ftypes.INT8)
 omi_cme_globex_streamlined_sbe_v5_9.fields.fair_coupon_pct = ProtoField.new("Fair Coupon Pct", "cme.globex.streamlined.sbe.v5.9.faircouponpct", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_9.fields.fed_funds_date = ProtoField.new("Fed Funds Date", "cme.globex.streamlined.sbe.v5.9.fedfundsdate", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cme.globex.streamlined.sbe.v5.9.fedfundsrate", ftypes.STRING)
@@ -731,11 +732,6 @@ cme_globex_streamlined_sbe_v5_9.exponent.size = 1
 
 -- Display: Exponent
 cme_globex_streamlined_sbe_v5_9.exponent.display = function(value)
-  -- Check if field has value
-  if value == 127 then
-    return "Exponent: No Value"
-  end
-
   return "Exponent: "..value
 end
 
@@ -747,6 +743,34 @@ cme_globex_streamlined_sbe_v5_9.exponent.dissect = function(buffer, offset, pack
   local display = cme_globex_streamlined_sbe_v5_9.exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.exponent, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exponent Optional
+cme_globex_streamlined_sbe_v5_9.exponent_optional = {}
+
+-- Size: Exponent Optional
+cme_globex_streamlined_sbe_v5_9.exponent_optional.size = 1
+
+-- Display: Exponent Optional
+cme_globex_streamlined_sbe_v5_9.exponent_optional.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Exponent Optional: No Value"
+  end
+
+  return "Exponent Optional: "..value
+end
+
+-- Dissect: Exponent Optional
+cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.exponent_optional.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = cme_globex_streamlined_sbe_v5_9.exponent_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.exponent_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5485,7 +5509,7 @@ cme_globex_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional = {}
 -- Size: Unit Of Measure Qty Decimal Optional
 cme_globex_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Unit Of Measure Qty Decimal Optional
 cme_globex_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.display = function(packet, parent, value, length)
@@ -5503,11 +5527,11 @@ cme_globex_streamlined_sbe_v5_9.unit_of_measure_qty_decimal_optional.fields = fu
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local unit_of_measure_qty_decimal_optional = mantissa * 10 ^ exponent
+  local unit_of_measure_qty_decimal_optional = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then unit_of_measure_qty_decimal_optional = nil end
@@ -5539,7 +5563,7 @@ cme_globex_streamlined_sbe_v5_9.strike_price_decimal_optional = {}
 -- Size: Strike Price Decimal Optional
 cme_globex_streamlined_sbe_v5_9.strike_price_decimal_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Strike Price Decimal Optional
 cme_globex_streamlined_sbe_v5_9.strike_price_decimal_optional.display = function(packet, parent, value, length)
@@ -5557,11 +5581,11 @@ cme_globex_streamlined_sbe_v5_9.strike_price_decimal_optional.fields = function(
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local strike_price_decimal_optional = mantissa * 10 ^ exponent
+  local strike_price_decimal_optional = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then strike_price_decimal_optional = nil end
@@ -6127,7 +6151,7 @@ cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null = {}
 -- Size: Leg Unit Of Measure Qty Decimal 64 Null
 cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Leg Unit Of Measure Qty Decimal 64 Null
 cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.display = function(packet, parent, value, length)
@@ -6145,11 +6169,11 @@ cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.fields =
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_unit_of_measure_qty_decimal_64_null = mantissa * 10 ^ exponent
+  local leg_unit_of_measure_qty_decimal_64_null = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_unit_of_measure_qty_decimal_64_null = nil end
@@ -6181,7 +6205,7 @@ cme_globex_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null = {}
 -- Size: Leg Strike Price Decimal 64 Null
 cme_globex_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Leg Strike Price Decimal 64 Null
 cme_globex_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.display = function(packet, parent, value, length)
@@ -6199,11 +6223,11 @@ cme_globex_streamlined_sbe_v5_9.leg_strike_price_decimal_64_null.fields = functi
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_strike_price_decimal_64_null = mantissa * 10 ^ exponent
+  local leg_strike_price_decimal_64_null = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_strike_price_decimal_64_null = nil end
@@ -10941,7 +10965,7 @@ cme_globex_streamlined_sbe_v5_9.final_settlement_futures_price = {}
 -- Size: Final Settlement Futures Price
 cme_globex_streamlined_sbe_v5_9.final_settlement_futures_price.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Final Settlement Futures Price
 cme_globex_streamlined_sbe_v5_9.final_settlement_futures_price.display = function(packet, parent, value, length)
@@ -10959,11 +10983,11 @@ cme_globex_streamlined_sbe_v5_9.final_settlement_futures_price.fields = function
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local final_settlement_futures_price = mantissa * 10 ^ exponent
+  local final_settlement_futures_price = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then final_settlement_futures_price = nil end
@@ -10995,7 +11019,7 @@ cme_globex_streamlined_sbe_v5_9.settlement_npv = {}
 -- Size: Settlement Npv
 cme_globex_streamlined_sbe_v5_9.settlement_npv.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Settlement Npv
 cme_globex_streamlined_sbe_v5_9.settlement_npv.display = function(packet, parent, value, length)
@@ -11013,11 +11037,11 @@ cme_globex_streamlined_sbe_v5_9.settlement_npv.fields = function(buffer, offset,
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local settlement_npv = mantissa * 10 ^ exponent
+  local settlement_npv = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then settlement_npv = nil end
@@ -11049,7 +11073,7 @@ cme_globex_streamlined_sbe_v5_9.d_v_01 = {}
 -- Size: D V 01
 cme_globex_streamlined_sbe_v5_9.d_v_01.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: D V 01
 cme_globex_streamlined_sbe_v5_9.d_v_01.display = function(packet, parent, value, length)
@@ -11067,11 +11091,11 @@ cme_globex_streamlined_sbe_v5_9.d_v_01.fields = function(buffer, offset, packet,
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local d_v_01 = mantissa * 10 ^ exponent
+  local d_v_01 = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then d_v_01 = nil end
@@ -11103,7 +11127,7 @@ cme_globex_streamlined_sbe_v5_9.p_v_01 = {}
 -- Size: P V 01
 cme_globex_streamlined_sbe_v5_9.p_v_01.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: P V 01
 cme_globex_streamlined_sbe_v5_9.p_v_01.display = function(packet, parent, value, length)
@@ -11121,11 +11145,11 @@ cme_globex_streamlined_sbe_v5_9.p_v_01.fields = function(buffer, offset, packet,
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local p_v_01 = mantissa * 10 ^ exponent
+  local p_v_01 = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then p_v_01 = nil end
@@ -11157,7 +11181,7 @@ cme_globex_streamlined_sbe_v5_9.leg_contract_multiplier = {}
 -- Size: Leg Contract Multiplier
 cme_globex_streamlined_sbe_v5_9.leg_contract_multiplier.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Leg Contract Multiplier
 cme_globex_streamlined_sbe_v5_9.leg_contract_multiplier.display = function(packet, parent, value, length)
@@ -11175,11 +11199,11 @@ cme_globex_streamlined_sbe_v5_9.leg_contract_multiplier.fields = function(buffer
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_contract_multiplier = mantissa * 10 ^ exponent
+  local leg_contract_multiplier = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_contract_multiplier = nil end
@@ -11211,7 +11235,7 @@ cme_globex_streamlined_sbe_v5_9.previous_eris_pai = {}
 -- Size: Previous Eris Pai
 cme_globex_streamlined_sbe_v5_9.previous_eris_pai.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Previous Eris Pai
 cme_globex_streamlined_sbe_v5_9.previous_eris_pai.display = function(packet, parent, value, length)
@@ -11229,11 +11253,11 @@ cme_globex_streamlined_sbe_v5_9.previous_eris_pai.fields = function(buffer, offs
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local previous_eris_pai = mantissa * 10 ^ exponent
+  local previous_eris_pai = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then previous_eris_pai = nil end
@@ -11265,7 +11289,7 @@ cme_globex_streamlined_sbe_v5_9.next_floating_payment_amount = {}
 -- Size: Next Floating Payment Amount
 cme_globex_streamlined_sbe_v5_9.next_floating_payment_amount.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Next Floating Payment Amount
 cme_globex_streamlined_sbe_v5_9.next_floating_payment_amount.display = function(packet, parent, value, length)
@@ -11283,11 +11307,11 @@ cme_globex_streamlined_sbe_v5_9.next_floating_payment_amount.fields = function(b
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_floating_payment_amount = mantissa * 10 ^ exponent
+  local next_floating_payment_amount = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_floating_payment_amount = nil end
@@ -11319,7 +11343,7 @@ cme_globex_streamlined_sbe_v5_9.next_fixed_payment_amount = {}
 -- Size: Next Fixed Payment Amount
 cme_globex_streamlined_sbe_v5_9.next_fixed_payment_amount.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Next Fixed Payment Amount
 cme_globex_streamlined_sbe_v5_9.next_fixed_payment_amount.display = function(packet, parent, value, length)
@@ -11337,11 +11361,11 @@ cme_globex_streamlined_sbe_v5_9.next_fixed_payment_amount.fields = function(buff
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local next_fixed_payment_amount = mantissa * 10 ^ exponent
+  local next_fixed_payment_amount = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then next_fixed_payment_amount = nil end
@@ -11373,7 +11397,7 @@ cme_globex_streamlined_sbe_v5_9.floating_payment = {}
 -- Size: Floating Payment
 cme_globex_streamlined_sbe_v5_9.floating_payment.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Floating Payment
 cme_globex_streamlined_sbe_v5_9.floating_payment.display = function(packet, parent, value, length)
@@ -11391,11 +11415,11 @@ cme_globex_streamlined_sbe_v5_9.floating_payment.fields = function(buffer, offse
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local floating_payment = mantissa * 10 ^ exponent
+  local floating_payment = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then floating_payment = nil end
@@ -11427,7 +11451,7 @@ cme_globex_streamlined_sbe_v5_9.fixed_payment = {}
 -- Size: Fixed Payment
 cme_globex_streamlined_sbe_v5_9.fixed_payment.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Fixed Payment
 cme_globex_streamlined_sbe_v5_9.fixed_payment.display = function(packet, parent, value, length)
@@ -11445,11 +11469,11 @@ cme_globex_streamlined_sbe_v5_9.fixed_payment.fields = function(buffer, offset, 
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_payment = mantissa * 10 ^ exponent
+  local fixed_payment = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_payment = nil end
@@ -11481,7 +11505,7 @@ cme_globex_streamlined_sbe_v5_9.min_price_increment_optional = {}
 -- Size: Min Price Increment Optional
 cme_globex_streamlined_sbe_v5_9.min_price_increment_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Min Price Increment Optional
 cme_globex_streamlined_sbe_v5_9.min_price_increment_optional.display = function(packet, parent, value, length)
@@ -11499,11 +11523,11 @@ cme_globex_streamlined_sbe_v5_9.min_price_increment_optional.fields = function(b
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local min_price_increment_optional = mantissa * 10 ^ exponent
+  local min_price_increment_optional = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then min_price_increment_optional = nil end
@@ -11535,7 +11559,7 @@ cme_globex_streamlined_sbe_v5_9.fed_funds_rate = {}
 -- Size: Fed Funds Rate
 cme_globex_streamlined_sbe_v5_9.fed_funds_rate.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Fed Funds Rate
 cme_globex_streamlined_sbe_v5_9.fed_funds_rate.display = function(packet, parent, value, length)
@@ -11553,11 +11577,11 @@ cme_globex_streamlined_sbe_v5_9.fed_funds_rate.fields = function(buffer, offset,
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fed_funds_rate = mantissa * 10 ^ exponent
+  local fed_funds_rate = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fed_funds_rate = nil end
@@ -11589,7 +11613,7 @@ cme_globex_streamlined_sbe_v5_9.eris_pai = {}
 -- Size: Eris Pai
 cme_globex_streamlined_sbe_v5_9.eris_pai.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Eris Pai
 cme_globex_streamlined_sbe_v5_9.eris_pai.display = function(packet, parent, value, length)
@@ -11607,11 +11631,11 @@ cme_globex_streamlined_sbe_v5_9.eris_pai.fields = function(buffer, offset, packe
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local eris_pai = mantissa * 10 ^ exponent
+  local eris_pai = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then eris_pai = nil end
@@ -11643,7 +11667,7 @@ cme_globex_streamlined_sbe_v5_9.daily_incremental_eris_pai = {}
 -- Size: Daily Incremental Eris Pai
 cme_globex_streamlined_sbe_v5_9.daily_incremental_eris_pai.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Daily Incremental Eris Pai
 cme_globex_streamlined_sbe_v5_9.daily_incremental_eris_pai.display = function(packet, parent, value, length)
@@ -11661,11 +11685,11 @@ cme_globex_streamlined_sbe_v5_9.daily_incremental_eris_pai.fields = function(buf
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local daily_incremental_eris_pai = mantissa * 10 ^ exponent
+  local daily_incremental_eris_pai = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then daily_incremental_eris_pai = nil end
@@ -11697,7 +11721,7 @@ cme_globex_streamlined_sbe_v5_9.accrued_coupons = {}
 -- Size: Accrued Coupons
 cme_globex_streamlined_sbe_v5_9.accrued_coupons.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Accrued Coupons
 cme_globex_streamlined_sbe_v5_9.accrued_coupons.display = function(packet, parent, value, length)
@@ -11715,11 +11739,11 @@ cme_globex_streamlined_sbe_v5_9.accrued_coupons.fields = function(buffer, offset
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local accrued_coupons = mantissa * 10 ^ exponent
+  local accrued_coupons = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then accrued_coupons = nil end
@@ -11751,7 +11775,7 @@ cme_globex_streamlined_sbe_v5_9.npv = {}
 -- Size: Npv
 cme_globex_streamlined_sbe_v5_9.npv.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Npv
 cme_globex_streamlined_sbe_v5_9.npv.display = function(packet, parent, value, length)
@@ -11769,11 +11793,11 @@ cme_globex_streamlined_sbe_v5_9.npv.fields = function(buffer, offset, packet, pa
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local npv = mantissa * 10 ^ exponent
+  local npv = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then npv = nil end
@@ -11805,7 +11829,7 @@ cme_globex_streamlined_sbe_v5_9.float_npv = {}
 -- Size: Float Npv
 cme_globex_streamlined_sbe_v5_9.float_npv.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Float Npv
 cme_globex_streamlined_sbe_v5_9.float_npv.display = function(packet, parent, value, length)
@@ -11823,11 +11847,11 @@ cme_globex_streamlined_sbe_v5_9.float_npv.fields = function(buffer, offset, pack
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local float_npv = mantissa * 10 ^ exponent
+  local float_npv = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then float_npv = nil end
@@ -11859,7 +11883,7 @@ cme_globex_streamlined_sbe_v5_9.fixed_npv = {}
 -- Size: Fixed Npv
 cme_globex_streamlined_sbe_v5_9.fixed_npv.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Fixed Npv
 cme_globex_streamlined_sbe_v5_9.fixed_npv.display = function(packet, parent, value, length)
@@ -11877,11 +11901,11 @@ cme_globex_streamlined_sbe_v5_9.fixed_npv.fields = function(buffer, offset, pack
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fixed_npv = mantissa * 10 ^ exponent
+  local fixed_npv = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fixed_npv = nil end
@@ -11913,7 +11937,7 @@ cme_globex_streamlined_sbe_v5_9.leg_purchase_rate = {}
 -- Size: Leg Purchase Rate
 cme_globex_streamlined_sbe_v5_9.leg_purchase_rate.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Leg Purchase Rate
 cme_globex_streamlined_sbe_v5_9.leg_purchase_rate.display = function(packet, parent, value, length)
@@ -11931,11 +11955,11 @@ cme_globex_streamlined_sbe_v5_9.leg_purchase_rate.fields = function(buffer, offs
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local leg_purchase_rate = mantissa * 10 ^ exponent
+  local leg_purchase_rate = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then leg_purchase_rate = nil end
@@ -11967,7 +11991,7 @@ cme_globex_streamlined_sbe_v5_9.fair_coupon_pct = {}
 -- Size: Fair Coupon Pct
 cme_globex_streamlined_sbe_v5_9.fair_coupon_pct.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Fair Coupon Pct
 cme_globex_streamlined_sbe_v5_9.fair_coupon_pct.display = function(packet, parent, value, length)
@@ -11985,11 +12009,11 @@ cme_globex_streamlined_sbe_v5_9.fair_coupon_pct.fields = function(buffer, offset
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local fair_coupon_pct = mantissa * 10 ^ exponent
+  local fair_coupon_pct = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then fair_coupon_pct = nil end
@@ -12021,7 +12045,7 @@ cme_globex_streamlined_sbe_v5_9.coupon_rate_optional = {}
 -- Size: Coupon Rate Optional
 cme_globex_streamlined_sbe_v5_9.coupon_rate_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa_32.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Coupon Rate Optional
 cme_globex_streamlined_sbe_v5_9.coupon_rate_optional.display = function(packet, parent, value, length)
@@ -12039,11 +12063,11 @@ cme_globex_streamlined_sbe_v5_9.coupon_rate_optional.fields = function(buffer, o
   -- Mantissa 32: int32
   index, mantissa_32 = cme_globex_streamlined_sbe_v5_9.mantissa_32.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local coupon_rate_optional = mantissa_32 * 10 ^ exponent
+  local coupon_rate_optional = mantissa_32 * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa_32 == 2147483647 then coupon_rate_optional = nil end
@@ -12075,7 +12099,7 @@ cme_globex_streamlined_sbe_v5_9.cal_fut_px_optional = {}
 -- Size: Cal Fut Px Optional
 cme_globex_streamlined_sbe_v5_9.cal_fut_px_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Cal Fut Px Optional
 cme_globex_streamlined_sbe_v5_9.cal_fut_px_optional.display = function(packet, parent, value, length)
@@ -12093,11 +12117,11 @@ cme_globex_streamlined_sbe_v5_9.cal_fut_px_optional.fields = function(buffer, of
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local cal_fut_px_optional = mantissa * 10 ^ exponent
+  local cal_fut_px_optional = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then cal_fut_px_optional = nil end
@@ -12218,7 +12242,7 @@ cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal_optional = {}
 -- Size: Md Entry Px Decimal Optional
 cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal_optional.size =
   cme_globex_streamlined_sbe_v5_9.mantissa.size + 
-  cme_globex_streamlined_sbe_v5_9.exponent.size
+  cme_globex_streamlined_sbe_v5_9.exponent_optional.size
 
 -- Display: Md Entry Px Decimal Optional
 cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal_optional.display = function(packet, parent, value, length)
@@ -12236,11 +12260,11 @@ cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal_optional.fields = function(b
   -- Mantissa: int64
   index, mantissa = cme_globex_streamlined_sbe_v5_9.mantissa.dissect(buffer, index, packet, parent)
 
-  -- Exponent: int8
-  index, exponent = cme_globex_streamlined_sbe_v5_9.exponent.dissect(buffer, index, packet, parent)
+  -- Exponent Optional: int8
+  index, exponent_optional = cme_globex_streamlined_sbe_v5_9.exponent_optional.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local md_entry_px_decimal_optional = mantissa * 10 ^ exponent
+  local md_entry_px_decimal_optional = mantissa * 10 ^ exponent_optional
 
   -- Null check (composite is null when child is null sentinel)
   if mantissa == Int64(0xFFFFFFFF, 0x7FFFFFFF) then md_entry_px_decimal_optional = nil end

@@ -415,7 +415,7 @@ end
 
 -- Translate: Auction Value Trade
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.auction_value_trade.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Value Trade
@@ -444,7 +444,7 @@ end
 
 -- Translate: Auction Volume Trade
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.auction_volume_trade.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Auction Volume Trade
@@ -1081,7 +1081,7 @@ end
 
 -- Translate: High Limit Price
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.high_limit_price.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: High Limit Price
@@ -1192,7 +1192,7 @@ end
 
 -- Translate: Last Px
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.last_px.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Last Px
@@ -1221,7 +1221,7 @@ end
 
 -- Translate: Last Qty
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.last_qty.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Last Qty
@@ -1250,7 +1250,7 @@ end
 
 -- Translate: Low Limit Price
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.low_limit_price.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Low Limit Price
@@ -1279,7 +1279,7 @@ end
 
 -- Translate: Margin Price
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.margin_price.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Margin Price
@@ -1358,7 +1358,7 @@ end
 
 -- Translate: Md Entry Px
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.md_entry_px.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Md Entry Px
@@ -1387,7 +1387,7 @@ end
 
 -- Translate: Md Entry Size
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.md_entry_size.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Md Entry Size
@@ -1774,7 +1774,7 @@ end
 
 -- Translate: Min Qty
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.min_qty.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Min Qty
@@ -2197,7 +2197,7 @@ end
 
 -- Translate: Order Qty
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.order_qty.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Order Qty
@@ -2304,7 +2304,7 @@ end
 
 -- Translate: Pos Amt
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.pos_amt.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Pos Amt
@@ -2333,7 +2333,7 @@ end
 
 -- Translate: Prev Close Px
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prev_close_px.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Prev Close Px
@@ -2362,7 +2362,7 @@ end
 
 -- Translate: Price
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.price.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
@@ -3028,7 +3028,7 @@ end
 
 -- Translate: Thredhold Amount
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.thredhold_amount.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Thredhold Amount
@@ -3057,7 +3057,7 @@ end
 
 -- Translate: Total Value Trade
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.total_value_trade.translate = function(raw)
-  return raw:tonumber()*10000
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Total Value Trade
@@ -3086,7 +3086,7 @@ end
 
 -- Translate: Total Volume Trade
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.total_volume_trade.translate = function(raw)
-  return raw:tonumber()*100
+  return raw:tonumber()/100
 end
 
 -- Dissect: Total Volume Trade

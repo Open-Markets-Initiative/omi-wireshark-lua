@@ -63,6 +63,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cross_prioritization = Pr
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cross_type = ProtoField.new("Cross Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.crosstype", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.cumqty", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.customgroupid", ftypes.UINT16)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.edgxoptions.binaryorderentry.boe.v2.10.dayavgpx", ftypes.DOUBLE)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.daycumqty", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.dayorderqty", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.edgxoptions.binaryorderentry.boe.v2.10.displayindicator", ftypes.STRING)
@@ -85,8 +86,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.exec_inst = ProtoField.ne
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.execrefid", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.expire_time = ProtoField.new("Expire Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.expiretime", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.fee_code = ProtoField.new("Fee Code", "cboe.edgxoptions.binaryorderentry.boe.v2.10.feecode", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.10.floorroutinginst", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.floor_trader_acronym = ProtoField.new("Floor Trader Acronym", "cboe.edgxoptions.binaryorderentry.boe.v2.10.floortraderacronym", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.frequenttraderid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.give_up_firm_id = ProtoField.new("Give Up Firm Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.giveupfirmid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.last_priority = ProtoField.new("Last Priority", "cboe.edgxoptions.binaryorderentry.boe.v2.10.lastpriority", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.last_px = ProtoField.new("Last Px", "cboe.edgxoptions.binaryorderentry.boe.v2.10.lastpx", ftypes.DOUBLE)
@@ -108,7 +109,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.mass_cancel_lockout = Pro
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.edgxoptions.binaryorderentry.boe.v2.10.matchingunit", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maturitydate", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.max_floor = ProtoField.new("Max Floor", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maxfloor", ftypes.UINT32)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.edgxoptions.binaryorderentry.boe.v2.10.maxremovepct", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_length = ProtoField.new("Message Length", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messagelength", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.message_type = ProtoField.new("Message Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.messagetype", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.min_qty = ProtoField.new("Min Qty", "cboe.edgxoptions.binaryorderentry.boe.v2.10.minqty", ftypes.UINT32)
@@ -131,7 +131,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.modify_order_bitfield_2_r
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.modify_order_bitfield_2_routing_firm_id = ProtoField.new("Modify Order Bitfield 2 Routing Firm Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.modifyorderbitfield2routingfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.modify_order_bitfield_2_stop_px = ProtoField.new("Modify Order Bitfield 2 Stop Px", "cboe.edgxoptions.binaryorderentry.boe.v2.10.modifyorderbitfield2stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.edgxoptions.binaryorderentry.boe.v2.10.modifyrejectreason", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.multi_class_sprd = ProtoField.new("Multi Class Sprd", "cboe.edgxoptions.binaryorderentry.boe.v2.10.multiclasssprd", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.multilegreportingtype", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_instrument_bitfield_1 = ProtoField.new("New Complex Instrument Bitfield 1", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexinstrumentbitfield1", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_instrument_bitfield_1_clearing_firm = ProtoField.new("New Complex Instrument Bitfield 1 Clearing Firm", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexinstrumentbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -180,12 +179,12 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfiel
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_4_session_eligibility = ProtoField.new("New Complex Order Bitfield 4 Session Eligibility", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield4sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5 = ProtoField.new("New Complex Order Bitfield 5", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_equity_leg_short_sell = ProtoField.new("New Complex Order Bitfield 5 Equity Leg Short Sell", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5equitylegshortsell", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_floor_routing_inst = ProtoField.new("New Complex Order Bitfield 5 Floor Routing Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_multi_class_sprd = ProtoField.new("New Complex Order Bitfield 5 Multi Class Sprd", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5multiclasssprd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_order_origin = ProtoField.new("New Complex Order Bitfield 5 Order Origin", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_ors = ProtoField.new("New Complex Order Bitfield 5 Ors", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5ors", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_price_type = ProtoField.new("New Complex Order Bitfield 5 Price Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5pricetype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_reserved_2 = ProtoField.new("New Complex Order Bitfield 5 Reserved 2", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_reserved_4 = ProtoField.new("New Complex Order Bitfield 5 Reserved 4", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_strategy_id = ProtoField.new("New Complex Order Bitfield 5 Strategy Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield5strategyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_6 = ProtoField.new("New Complex Order Bitfield 6", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield6", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_6_exec_inst = ProtoField.new("New Complex Order Bitfield 6 Exec Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.10.newcomplexorderbitfield6execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -263,9 +262,9 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8 = Pr
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_clearing_optional_data = ProtoField.new("New Order Bitfield 8 Clearing Optional Data", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8clearingoptionaldata", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_client_id_attr = ProtoField.new("New Order Bitfield 8 Client Id Attr", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8clientidattr", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_custom_group_id = ProtoField.new("New Order Bitfield 8 Custom Group Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8customgroupid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_floor_routing_inst = ProtoField.new("New Order Bitfield 8 Floor Routing Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_frequent_trader_id = ProtoField.new("New Order Bitfield 8 Frequent Trader Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8frequenttraderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_1 = ProtoField.new("New Order Bitfield 8 Reserved 1", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_128 = ProtoField.new("New Order Bitfield 8 Reserved 128", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_32 = ProtoField.new("New Order Bitfield 8 Reserved 32", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_64 = ProtoField.new("New Order Bitfield 8 Reserved 64", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9 = ProtoField.new("New Order Bitfield 9", "cboe.edgxoptions.binaryorderentry.boe.v2.10.neworderbitfield9", ftypes.STRING)
@@ -383,7 +382,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.order_qty_short = ProtoFi
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.edgxoptions.binaryorderentry.boe.v2.10.orderrejectreason", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.origclordid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.orig_time = ProtoField.new("Orig Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.origtime", ftypes.UINT64)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.ors = ProtoField.new("Ors", "cboe.edgxoptions.binaryorderentry.boe.v2.10.ors", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group = ProtoField.new("Param Group", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgroup", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgrouplength", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.paramgrouptype", ftypes.UINT8)
@@ -392,7 +390,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.posting_instruction = Pro
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.edgxoptions.binaryorderentry.boe.v2.10.preventmatch", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.price_long = ProtoField.new("Price Long", "cboe.edgxoptions.binaryorderentry.boe.v2.10.pricelong", ftypes.DOUBLE)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.price_short = ProtoField.new("Price Short", "cboe.edgxoptions.binaryorderentry.boe.v2.10.priceshort", ftypes.DOUBLE)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.price_type = ProtoField.new("Price Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.pricetype", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.purge_order_bitfield_1 = ProtoField.new("Purge Order Bitfield 1", "cboe.edgxoptions.binaryorderentry.boe.v2.10.purgeorderbitfield1", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.purge_order_bitfield_1_clearing_firm = ProtoField.new("Purge Order Bitfield 1 Clearing Firm", "cboe.edgxoptions.binaryorderentry.boe.v2.10.purgeorderbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.purge_order_bitfield_1_mass_cancel_id = ProtoField.new("Purge Order Bitfield 1 Mass Cancel Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.purgeorderbitfield1masscancelid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -493,11 +490,11 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_15_reserv
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_15_reserved_4 = ProtoField.new("Return Bitfield 15 Reserved 4", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield15reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_15_reserved_64 = ProtoField.new("Return Bitfield 15 Reserved 64", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield15reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16 = ProtoField.new("Return Bitfield 16", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_floor_routing_inst = ProtoField.new("Return Bitfield 16 Floor Routing Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_frequent_trader_id = ProtoField.new("Return Bitfield 16 Frequent Trader Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16frequenttraderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_multi_class_sprd = ProtoField.new("Return Bitfield 16 Multi Class Sprd", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16multiclasssprd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_order_origin = ProtoField.new("Return Bitfield 16 Order Origin", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_16 = ProtoField.new("Return Bitfield 16 Reserved 16", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_32 = ProtoField.new("Return Bitfield 16 Reserved 32", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_4 = ProtoField.new("Return Bitfield 16 Reserved 4", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_8 = ProtoField.new("Return Bitfield 16 Reserved 8", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_session_eligibility = ProtoField.new("Return Bitfield 16 Session Eligibility", "cboe.edgxoptions.binaryorderentry.boe.v2.10.returnbitfield16sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -594,7 +591,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.routing_inst = ProtoField
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.secondaryexecid", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.secondaryorderid", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.send_time = ProtoField.new("Send Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.sendtime", ftypes.UINT64)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.sender_location_id = ProtoField.new("Sender Location Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.senderlocationid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.edgxoptions.binaryorderentry.boe.v2.10.sequencenumber", ftypes.UINT32)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.session_eligibility = ProtoField.new("Session Eligibility", "cboe.edgxoptions.binaryorderentry.boe.v2.10.sessioneligibility", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.sessionsubid", ftypes.STRING)
@@ -602,16 +598,13 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.short_quote_update = Prot
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.side = ProtoField.new("Side", "cboe.edgxoptions.binaryorderentry.boe.v2.10.side", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.edgxoptions.binaryorderentry.boe.v2.10.startofmessage", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.stop_px = ProtoField.new("Stop Px", "cboe.edgxoptions.binaryorderentry.boe.v2.10.stoppx", ftypes.DOUBLE)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.strategy_id = ProtoField.new("Strategy Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.strategyid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.strike_price = ProtoField.new("Strike Price", "cboe.edgxoptions.binaryorderentry.boe.v2.10.strikeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.edgxoptions.binaryorderentry.boe.v2.10.subliquidityindicator", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.edgxoptions.binaryorderentry.boe.v2.10.symbollong", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.edgxoptions.binaryorderentry.boe.v2.10.symbolshort", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.target_party_id = ProtoField.new("Target Party Id", "cboe.edgxoptions.binaryorderentry.boe.v2.10.targetpartyid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.text = ProtoField.new("Text", "cboe.edgxoptions.binaryorderentry.boe.v2.10.text", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.tied_hedge = ProtoField.new("Tied Hedge", "cboe.edgxoptions.binaryorderentry.boe.v2.10.tiedhedge", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.time_in_force = ProtoField.new("Time In Force", "cboe.edgxoptions.binaryorderentry.boe.v2.10.timeinforce", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.trade_through_alert_type = ProtoField.new("Trade Through Alert Type", "cboe.edgxoptions.binaryorderentry.boe.v2.10.tradethroughalerttype", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.transact_time = ProtoField.new("Transact Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.transacttime", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgxoptions.binaryorderentry.boe.v2.10.transactiontime", ftypes.UINT64)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.unit_number = ProtoField.new("Unit Number", "cboe.edgxoptions.binaryorderentry.boe.v2.10.unitnumber", ftypes.UINT8)
@@ -1987,6 +1980,35 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.custom_group_id.dissect = function(b
   return offset + length, value
 end
 
+-- Day Avg Px
+cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px = {}
+
+-- Size: Day Avg Px
+cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.size = 8
+
+-- Display: Day Avg Px
+cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.display = function(value)
+  return "Day Avg Px: "..value
+end
+
+-- Translate: Day Avg Px
+cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Day Avg Px
+cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.translate(raw)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.day_avg_px, range, value, display)
+
+  return offset + length, value
+end
+
 -- Day Cum Qty
 cboe_edgxoptions_binaryorderentry_boe_v2_10.day_cum_qty = {}
 
@@ -2803,6 +2825,42 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.fee_code.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Floor Routing Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst = {}
+
+-- Size: Floor Routing Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.size = 1
+
+-- Display: Floor Routing Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Floor Routing Inst: No Value"
+  end
+
+  return "Floor Routing Inst: "..value
+end
+
+-- Dissect: Floor Routing Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.floor_routing_inst, range, value, display)
+
+  return offset + length, value
+end
+
 -- Floor Trader Acronym
 cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym = {}
 
@@ -2838,45 +2896,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.dissect = funct
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.floor_trader_acronym, range, value, display)
-
-  return offset + length, value
-end
-
--- Frequent Trader Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id = {}
-
--- Size: Frequent Trader Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.size = 6
-
--- Display: Frequent Trader Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Frequent Trader Id: No Value"
-  end
-
-  return "Frequent Trader Id: "..value
-end
-
--- Dissect: Frequent Trader Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.frequent_trader_id, range, value, display)
 
   return offset + length, value
 end
@@ -3617,29 +3636,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.max_floor.dissect = function(buffer,
   return offset + length, value
 end
 
--- Max Remove Pct
-cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct = {}
-
--- Size: Max Remove Pct
-cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.size = 1
-
--- Display: Max Remove Pct
-cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.display = function(value)
-  return "Max Remove Pct: "..value
-end
-
--- Dissect: Max Remove Pct
-cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.max_remove_pct, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Length
 cboe_edgxoptions_binaryorderentry_boe_v2_10.message_length = {}
 
@@ -3956,49 +3952,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.modify_reject_reason.dissect = funct
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.modify_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.modify_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Multi Class Sprd
-cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd = {}
-
--- Size: Multi Class Sprd
-cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.size = 1
-
--- Display: Multi Class Sprd
-cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Multi Class Sprd: No Value"
-  end
-
-  if value == "N" then
-    return "Multi Class Sprd: No (N)"
-  end
-  if value == "Y" then
-    return "Multi Class Sprd: Yes (Y)"
-  end
-
-  return "Multi Class Sprd: Unknown("..value..")"
-end
-
--- Dissect: Multi Class Sprd
-cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.multi_class_sprd, range, value, display)
 
   return offset + length, value
 end
@@ -4823,49 +4776,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.orig_time.dissect = function(buffer,
   return offset + length, value
 end
 
--- Ors
-cboe_edgxoptions_binaryorderentry_boe_v2_10.ors = {}
-
--- Size: Ors
-cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.size = 1
-
--- Display: Ors
-cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ors: No Value"
-  end
-
-  if value == "N" then
-    return "Ors: No (N)"
-  end
-  if value == "Y" then
-    return "Ors: Yes (Y)"
-  end
-
-  return "Ors: Unknown("..value..")"
-end
-
--- Dissect: Ors
-cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.ors, range, value, display)
-
-  return offset + length, value
-end
-
 -- Param Group Length
 cboe_edgxoptions_binaryorderentry_boe_v2_10.param_group_length = {}
 
@@ -5093,55 +5003,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.price_short.dissect = function(buffe
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.price_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type = {}
-
--- Size: Price Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.size = 1
-
--- Display: Price Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Price Type: No Value"
-  end
-
-  if value == "0" then
-    return "Price Type: Fixed Cabinet Trade Price (0)"
-  end
-  if value == "1" then
-    return "Price Type: Percentage (1)"
-  end
-  if value == "2" then
-    return "Price Type: Price Per Unit (2)"
-  end
-  if value == "3" then
-    return "Price Type: Fixed Amount (3)"
-  end
-
-  return "Price Type: Unknown("..value..")"
-end
-
--- Dissect: Price Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.price_type, range, value, display)
 
   return offset + length, value
 end
@@ -6340,42 +6201,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.send_time.dissect = function(buffer,
   return offset + length, value
 end
 
--- Sender Location Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id = {}
-
--- Size: Sender Location Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.size = 1
-
--- Display: Sender Location Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Sender Location Id: No Value"
-  end
-
-  return "Sender Location Id: "..value
-end
-
--- Dissect: Sender Location Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.sender_location_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequence Number
 cboe_edgxoptions_binaryorderentry_boe_v2_10.sequence_number = {}
 
@@ -6581,58 +6406,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.stop_px.dissect = function(buffer, o
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Strategy Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id = {}
-
--- Size: Strategy Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.size = 1
-
--- Display: Strategy Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Strategy Id: No Value"
-  end
-
-  if value == "C" then
-    return "Strategy Id: Conversion (C)"
-  end
-  if value == "R" then
-    return "Strategy Id: Reversal (R)"
-  end
-  if value == "M" then
-    return "Strategy Id: Merger (M)"
-  end
-  if value == "S" then
-    return "Strategy Id: Short Stock Interest (S)"
-  end
-  if value == "J" then
-    return "Strategy Id: Jelly Roll (J)"
-  end
-
-  return "Strategy Id: Unknown("..value..")"
-end
-
--- Dissect: Strategy Id
-cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.strategy_id, range, value, display)
 
   return offset + length, value
 end
@@ -6883,49 +6656,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.text.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Tied Hedge
-cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge = {}
-
--- Size: Tied Hedge
-cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.size = 1
-
--- Display: Tied Hedge
-cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Tied Hedge: No Value"
-  end
-
-  if value == "N" then
-    return "Tied Hedge: No (N)"
-  end
-  if value == "Y" then
-    return "Tied Hedge: Yes (Y)"
-  end
-
-  return "Tied Hedge: Unknown("..value..")"
-end
-
--- Dissect: Tied Hedge
-cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.tied_hedge, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time In Force
 cboe_edgxoptions_binaryorderentry_boe_v2_10.time_in_force = {}
 
@@ -6980,61 +6710,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect = function(buf
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.time_in_force, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Through Alert Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type = {}
-
--- Size: Trade Through Alert Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.size = 1
-
--- Display: Trade Through Alert Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Trade Through Alert Type: No Value"
-  end
-
-  if value == "0" then
-    return "Trade Through Alert Type: No Trade Through (0)"
-  end
-  if value == "1" then
-    return "Trade Through Alert Type: Nbbo (1)"
-  end
-  if value == "2" then
-    return "Trade Through Alert Type: Bbo (2)"
-  end
-  if value == "3" then
-    return "Trade Through Alert Type: Sbbo (3)"
-  end
-  if value == "4" then
-    return "Trade Through Alert Type: Book Trade Through (4)"
-  end
-  if value == "5" then
-    return "Trade Through Alert Type: Due Diligence Trade Through (5)"
-  end
-
-  return "Trade Through Alert Type: Unknown("..value..")"
-end
-
--- Dissect: Trade Through Alert Type
-cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.trade_through_alert_type, range, value, display)
 
   return offset + length, value
 end
@@ -7304,9 +6979,9 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.return_bitfield_16.display = functio
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 16 Reserved 16"
   end
-  -- Is Return Bitfield 16 Reserved 32 flag set?
+  -- Is Return Bitfield 16 Floor Routing Inst flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 16 Reserved 32"
+    flags[#flags + 1] = "Return Bitfield 16 Floor Routing Inst"
   end
   -- Is Return Bitfield 16 Multi Class Sprd flag set?
   if bit.band(value, 0x40) ~= 0 then
@@ -7338,8 +7013,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.return_bitfield_16.bits = function(r
   -- Return Bitfield 16 Reserved 16: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_16, range, value)
 
-  -- Return Bitfield 16 Reserved 32: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_32, range, value)
+  -- Return Bitfield 16 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_floor_routing_inst, range, value)
 
   -- Return Bitfield 16 Multi Class Sprd: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_multi_class_sprd, range, value)
@@ -8994,15 +8669,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = fun
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -9363,6 +9029,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = fun
     index, avg_px = cboe_edgxoptions_binaryorderentry_boe_v2_10.avg_px.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Day Avg Px
+  local day_avg_px = nil
+
+  local day_avg_px_exists = number_of_return_bitfields >= 13 and bit.rshift(bit.band(return_bitfield_13, 0x10), 4) > 0
+
+  if day_avg_px_exists then
+    index, day_avg_px = cboe_edgxoptions_binaryorderentry_boe_v2_10.day_avg_px.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Drill Thru Protection
   local drill_thru_protection = nil
 
@@ -9408,22 +9083,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = fun
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
-
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
-
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -9433,42 +9099,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = fun
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Trade Through Alert Type
-  local trade_through_alert_type = nil
-
-  local trade_through_alert_type_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x08), 3) > 0
-
-  if trade_through_alert_type_exists then
-    index, trade_through_alert_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.trade_through_alert_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Sender Location Id
-  local sender_location_id = nil
-
-  local sender_location_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x10), 4) > 0
-
-  if sender_location_id_exists then
-    index, sender_location_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.sender_location_id.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Floor Trader Acronym
@@ -11205,15 +10835,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = fun
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -11634,6 +11255,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_order_cancelled_message.fields
     index, return_bitfield_17 = cboe_edgxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_edgxoptions_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Price Long
   local price_long = nil
 
@@ -11733,6 +11363,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_order_cancelled_message.fields
     index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Open Close
+  local open_close = nil
+
+  local open_close_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x08), 3) > 0
+
+  if open_close_exists then
+    index, open_close = cboe_edgxoptions_binaryorderentry_boe_v2_10.open_close.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Attributed Quote
   local attributed_quote = nil
 
@@ -11821,15 +11460,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_order_cancelled_message.fields
 
   if equity_party_id_exists then
     index, equity_party_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -12198,15 +11828,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = fun
 
   if min_qty_exists then
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol Long
@@ -12578,22 +12199,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = fun
     index, equity_party_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
-
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
-
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -12603,24 +12215,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = fun
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -13297,15 +12891,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = func
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -13675,22 +13260,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = func
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
-
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
-
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -13700,24 +13276,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = func
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -14023,15 +13581,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -14039,15 +13588,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
 
   if symbol_long_exists then
     index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_edgxoptions_binaryorderentry_boe_v2_10.capacity.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Account
@@ -14111,51 +13651,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
 
   if prevent_match_exists then
     index, prevent_match = cboe_edgxoptions_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Maturity Date
-  local maturity_date = nil
-
-  local maturity_date_exists = number_of_return_bitfields >= 4 and bit.band(return_bitfield_4, 0x01) > 0
-
-  if maturity_date_exists then
-    index, maturity_date = cboe_edgxoptions_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strike Price
-  local strike_price = nil
-
-  local strike_price_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x02), 1) > 0
-
-  if strike_price_exists then
-    index, strike_price = cboe_edgxoptions_binaryorderentry_boe_v2_10.strike_price.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Put Or Call
-  local put_or_call = nil
-
-  local put_or_call_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x04), 2) > 0
-
-  if put_or_call_exists then
-    index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Open Close
-  local open_close = nil
-
-  local open_close_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x08), 3) > 0
-
-  if open_close_exists then
-    index, open_close = cboe_edgxoptions_binaryorderentry_boe_v2_10.open_close.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Corrected Size
-  local corrected_size = nil
-
-  local corrected_size_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x20), 5) > 0
-
-  if corrected_size_exists then
-    index, corrected_size = cboe_edgxoptions_binaryorderentry_boe_v2_10.corrected_size.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Orig Cl Ord Id
@@ -14257,15 +13752,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
     index, attributed_quote = cboe_edgxoptions_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Sub Liquidity Indicator
-  local sub_liquidity_indicator = nil
-
-  local sub_liquidity_indicator_exists = number_of_return_bitfields >= 7 and bit.band(return_bitfield_7, 0x01) > 0
-
-  if sub_liquidity_indicator_exists then
-    index, sub_liquidity_indicator = cboe_edgxoptions_binaryorderentry_boe_v2_10.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
@@ -14347,6 +13833,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
     index, auction_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.auction_id.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_edgxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Cross Id
   local cross_id = nil
 
@@ -14392,67 +13887,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
     index, cross_exclusion_indicator = cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_exclusion_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Clearing Optional Data
-  local clearing_optional_data = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local clearing_optional_data_exists = number_of_return_bitfields >= 12 and bit.rshift(bit.band(return_bitfield_12, 0x80), 7) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if clearing_optional_data_exists then
-    index, clearing_optional_data = cboe_edgxoptions_binaryorderentry_boe_v2_10.clearing_optional_data.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Drill Thru Protection
-  local drill_thru_protection = nil
-
-  local drill_thru_protection_exists = number_of_return_bitfields >= 13 and bit.rshift(bit.band(return_bitfield_13, 0x40), 6) > 0
-
-  if drill_thru_protection_exists then
-    index, drill_thru_protection = cboe_edgxoptions_binaryorderentry_boe_v2_10.drill_thru_protection.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Equity Party Id
-  local equity_party_id = nil
-
-  local equity_party_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x02), 1) > 0
-
-  if equity_party_id_exists then
-    index, equity_party_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Client Id Attr
-  local client_id_attr = nil
-
-  local client_id_attr_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x80), 7) > 0
-
-  if client_id_attr_exists then
-    index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Session Eligibility
-  local session_eligibility = nil
-
-  local session_eligibility_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x02), 1) > 0
-
-  if session_eligibility_exists then
-    index, session_eligibility = cboe_edgxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
-
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
-
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -14462,24 +13903,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = func
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -14919,15 +14342,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_order_rejected_message.fields 
     index, equity_party_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -15232,15 +14646,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = func
 
   if min_qty_exists then
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol Long
@@ -15549,15 +14954,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = func
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Session Eligibility
   local session_eligibility = nil
 
@@ -15567,13 +14963,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = func
     index, session_eligibility = cboe_edgxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -15583,24 +14979,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = func
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -16193,15 +15571,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.cross_order_acknowledgment_message.f
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -16503,15 +15872,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields 
 
   if min_qty_exists then
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol Long
@@ -16829,6 +16189,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields 
     index, auction_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.auction_id.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_edgxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Cross Id
   local cross_id = nil
 
@@ -16910,15 +16279,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields 
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_return_bitfields >= 16 and bit.band(return_bitfield_16, 0x01) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Session Eligibility
   local session_eligibility = nil
 
@@ -16928,13 +16288,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields 
     index, session_eligibility = cboe_edgxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local multi_class_sprd_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x40), 6) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -16944,24 +16304,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields 
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_return_bitfields >= 17 and bit.band(return_bitfield_17, 0x01) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x02), 1) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -18164,15 +17506,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functi
     index, routing_firm_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.routing_firm_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_modify_order_bitfields >= 2 and bit.rshift(bit.band(modify_order_bitfield_2, 0x20), 5) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -19279,24 +18612,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_cross_multileg_message.fie
     index, equity_ex_destination = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Ors
-  local ors = nil
-
-  local ors_exists = number_of_new_order_cross_multileg_bitfields >= 5 and bit.band(new_order_cross_multileg_bitfield_5, 0x01) > 0
-
-  if ors_exists then
-    index, ors = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_new_order_cross_multileg_bitfields >= 5 and bit.rshift(bit.band(new_order_cross_multileg_bitfield_5, 0x02), 1) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -19429,9 +18744,9 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_complex_order_bitfield_5.display
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "New Complex Order Bitfield 5 Reserved 2"
   end
-  -- Is New Complex Order Bitfield 5 Reserved 4 flag set?
+  -- Is New Complex Order Bitfield 5 Floor Routing Inst flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "New Complex Order Bitfield 5 Reserved 4"
+    flags[#flags + 1] = "New Complex Order Bitfield 5 Floor Routing Inst"
   end
   -- Is New Complex Order Bitfield 5 Multi Class Sprd flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -19466,8 +18781,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_complex_order_bitfield_5.bits = 
   -- New Complex Order Bitfield 5 Reserved 2: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_reserved_2, range, value)
 
-  -- New Complex Order Bitfield 5 Reserved 4: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_reserved_4, range, value)
+  -- New Complex Order Bitfield 5 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_floor_routing_inst, range, value)
 
   -- New Complex Order Bitfield 5 Multi Class Sprd: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_complex_order_bitfield_5_multi_class_sprd, range, value)
@@ -20163,15 +19478,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_complex_message.fields = f
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_new_complex_order_bitfields >= 4 and bit.rshift(bit.band(new_complex_order_bitfield_4, 0x02), 1) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Session Eligibility
   local session_eligibility = nil
 
@@ -20217,13 +19523,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_complex_message.fields = f
     index, equity_leg_short_sell = cboe_edgxoptions_binaryorderentry_boe_v2_10.equity_leg_short_sell.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Multi Class Sprd
-  local multi_class_sprd = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local multi_class_sprd_exists = number_of_new_complex_order_bitfields >= 5 and bit.rshift(bit.band(new_complex_order_bitfield_5, 0x08), 3) > 0
+  local floor_routing_inst_exists = number_of_new_complex_order_bitfields >= 5 and bit.rshift(bit.band(new_complex_order_bitfield_5, 0x04), 2) > 0
 
-  if multi_class_sprd_exists then
-    index, multi_class_sprd = cboe_edgxoptions_binaryorderentry_boe_v2_10.multi_class_sprd.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -20235,33 +19541,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_complex_message.fields = f
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Ors
-  local ors = nil
-
-  local ors_exists = number_of_new_complex_order_bitfields >= 5 and bit.rshift(bit.band(new_complex_order_bitfield_5, 0x20), 5) > 0
-
-  if ors_exists then
-    index, ors = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_new_complex_order_bitfields >= 5 and bit.rshift(bit.band(new_complex_order_bitfield_5, 0x40), 6) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strategy Id
-  local strategy_id = nil
-
-  local strategy_id_exists = number_of_new_complex_order_bitfields >= 5 and bit.rshift(bit.band(new_complex_order_bitfield_5, 0x80), 7) > 0
-
-  if strategy_id_exists then
-    index, strategy_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.strategy_id.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -20269,15 +19548,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_complex_message.fields = f
 
   if exec_inst_exists then
     index, exec_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Tied Hedge
-  local tied_hedge = nil
-
-  local tied_hedge_exists = number_of_new_complex_order_bitfields >= 6 and bit.rshift(bit.band(new_complex_order_bitfield_6, 0x04), 2) > 0
-
-  if tied_hedge_exists then
-    index, tied_hedge = cboe_edgxoptions_binaryorderentry_boe_v2_10.tied_hedge.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -20961,24 +20231,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_cross_message.fields = fun
     index, session_eligibility = cboe_edgxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Ors
-  local ors = nil
-
-  local ors_exists = number_of_new_order_cross_bitfields >= 4 and bit.rshift(bit.band(new_order_cross_bitfield_4, 0x02), 1) > 0
-
-  if ors_exists then
-    index, ors = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
-
-  local frequent_trader_id_exists = number_of_new_order_cross_bitfields >= 4 and bit.rshift(bit.band(new_order_cross_bitfield_4, 0x04), 2) > 0
-
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -21131,9 +20383,9 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_8.display = funct
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "New Order Bitfield 8 Reserved 64"
   end
-  -- Is New Order Bitfield 8 Reserved 128 flag set?
+  -- Is New Order Bitfield 8 Floor Routing Inst flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "New Order Bitfield 8 Reserved 128"
+    flags[#flags + 1] = "New Order Bitfield 8 Floor Routing Inst"
   end
 
   return table.concat(flags, "|")
@@ -21163,8 +20415,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_8.bits = function
   -- New Order Bitfield 8 Reserved 64: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_64, range, value)
 
-  -- New Order Bitfield 8 Reserved 128: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_128, range, value)
+  -- New Order Bitfield 8 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_floor_routing_inst, range, value)
 end
 
 -- Dissect: New Order Bitfield 8
@@ -22055,15 +21307,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(
     index, display_indicator = cboe_edgxoptions_binaryorderentry_boe_v2_10.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x04), 2) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_edgxoptions_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
@@ -22071,6 +21314,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(
 
   if prevent_match_exists then
     index, prevent_match = cboe_edgxoptions_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
+  local expire_time_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x80), 7) > 0
+
+  if expire_time_exists then
+    index, expire_time = cboe_edgxoptions_binaryorderentry_boe_v2_10.expire_time.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Maturity Date
@@ -22253,13 +21505,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(
     index, client_id_attr = cboe_edgxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Frequent Trader Id
-  local frequent_trader_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local frequent_trader_id_exists = number_of_new_order_bitfields >= 8 and bit.rshift(bit.band(new_order_bitfield_8, 0x10), 4) > 0
+  local floor_routing_inst_exists = number_of_new_order_bitfields >= 8 and bit.rshift(bit.band(new_order_bitfield_8, 0x80), 7) > 0
 
-  if frequent_trader_id_exists then
-    index, frequent_trader_id = cboe_edgxoptions_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_edgxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Order Origin
@@ -22269,24 +21521,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(
 
   if order_origin_exists then
     index, order_origin = cboe_edgxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Ors
-  local ors = nil
-
-  local ors_exists = number_of_new_order_bitfields >= 9 and bit.rshift(bit.band(new_order_bitfield_9, 0x02), 1) > 0
-
-  if ors_exists then
-    index, ors = cboe_edgxoptions_binaryorderentry_boe_v2_10.ors.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Price Type
-  local price_type = nil
-
-  local price_type_exists = number_of_new_order_bitfields >= 9 and bit.rshift(bit.band(new_order_bitfield_9, 0x04), 2) > 0
-
-  if price_type_exists then
-    index, price_type = cboe_edgxoptions_binaryorderentry_boe_v2_10.price_type.dissect(buffer, index, packet, parent)
   end
 
   return index

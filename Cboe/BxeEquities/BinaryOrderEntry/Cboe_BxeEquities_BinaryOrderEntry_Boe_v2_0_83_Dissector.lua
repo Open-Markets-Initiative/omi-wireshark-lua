@@ -503,7 +503,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_base_liquidity_indicator = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Base Liquidity Indicator", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_display_price = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Display Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_expire_time = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_price = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Last Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5lastprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_px = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_shares = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Last Shares", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_leaves_qty = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Leaves Qty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_orig_cl_ord_id = ProtoField.new("Order Acknowledgment V 2 Return Bitfield 5 Orig Cl Ord Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderacknowledgmentv2returnbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -674,7 +674,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_ret
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_base_liquidity_indicator = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Base Liquidity Indicator", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_display_price = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Display Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_expire_time = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_price = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Last Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5lastprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_px = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_shares = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Last Shares", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_leaves_qty = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Leaves Qty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_orig_cl_ord_id = ProtoField.new("Order Cancelled V 2 Return Bitfield 5 Orig Cl Ord Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordercancelledv2returnbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -855,7 +855,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_ret
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_attributed_quote = ProtoField.new("Order Execution V 2 Return Bitfield 6 Attributed Quote", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6attributedquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_bulk_order_ids = ProtoField.new("Order Execution V 2 Return Bitfield 6 Bulk Order Ids", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_bulk_reject_reasons = ProtoField.new("Order Execution V 2 Return Bitfield 6 Bulk Reject Reasons", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_ccp = ProtoField.new("Order Execution V 2 Return Bitfield 6 Ccp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_central_counterparty = ProtoField.new("Order Execution V 2 Return Bitfield 6 Central Counterparty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6centralcounterparty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_contra_capacity = ProtoField.new("Order Execution V 2 Return Bitfield 6 Contra Capacity", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_ext_exec_inst = ProtoField.new("Order Execution V 2 Return Bitfield 6 Ext Exec Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_party_role = ProtoField.new("Order Execution V 2 Return Bitfield 6 Party Role", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderexecutionv2returnbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -1018,7 +1018,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_retu
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_base_liquidity_indicator = ProtoField.new("Order Modified V 2 Return Bitfield 5 Base Liquidity Indicator", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_display_price = ProtoField.new("Order Modified V 2 Return Bitfield 5 Display Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_expire_time = ProtoField.new("Order Modified V 2 Return Bitfield 5 Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_price = ProtoField.new("Order Modified V 2 Return Bitfield 5 Last Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5lastprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_px = ProtoField.new("Order Modified V 2 Return Bitfield 5 Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_shares = ProtoField.new("Order Modified V 2 Return Bitfield 5 Last Shares", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_leaves_qty = ProtoField.new("Order Modified V 2 Return Bitfield 5 Leaves Qty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_orig_cl_ord_id = ProtoField.new("Order Modified V 2 Return Bitfield 5 Orig Cl Ord Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.ordermodifiedv2returnbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1363,7 +1363,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_retu
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_base_liquidity_indicator = ProtoField.new("Order Restated V 2 Return Bitfield 5 Base Liquidity Indicator", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_display_price = ProtoField.new("Order Restated V 2 Return Bitfield 5 Display Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_expire_time = ProtoField.new("Order Restated V 2 Return Bitfield 5 Expire Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_price = ProtoField.new("Order Restated V 2 Return Bitfield 5 Last Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5lastprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_px = ProtoField.new("Order Restated V 2 Return Bitfield 5 Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_shares = ProtoField.new("Order Restated V 2 Return Bitfield 5 Last Shares", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_leaves_qty = ProtoField.new("Order Restated V 2 Return Bitfield 5 Leaves Qty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_orig_cl_ord_id = ProtoField.new("Order Restated V 2 Return Bitfield 5 Orig Cl Ord Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.orderrestatedv2returnbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1441,6 +1441,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.reserved_1 = ProtoField
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.restatementreason", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.riskreset", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.routinginst", ftypes.STRING)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.rpttime", ftypes.UINT64)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.secondaryorderid", ftypes.UINT64)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.secondarytrdtype", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.securityexchange", ftypes.STRING)
@@ -1769,7 +1770,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_attributed_quote = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Attributed Quote", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6attributedquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_bulk_order_ids = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Bulk Order Ids", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_bulk_reject_reasons = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Bulk Reject Reasons", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_ccp = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Ccp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_central_counterparty = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6centralcounterparty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_contra_capacity = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_ext_exec_inst = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Ext Exec Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_party_role = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Party Role", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2returnbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -2144,6 +2145,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_de
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_return_bitfield_9_marketing_fee_code = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Marketing Fee Code", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportdeclinev2returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_return_bitfield_9_order_category = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Order Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportdeclinev2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_return_bitfield_9_target_party_id = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Target Party Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportdeclinev2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Report Decline V 2 Trd Cap Ack Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportdeclinev2trdcapacksidegrp", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_1 = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield1", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_1_exec_inst = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1 Exec Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_1_max_remove_pct = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1 Max Remove Pct", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -2315,6 +2317,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_re
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_9_marketing_fee_code = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Marketing Fee Code", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_9_order_category = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Order Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_return_bitfield_9_target_party_id = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Target Party Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Report Reject V 2 Trd Cap Ack Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2trdcapacksidegrp", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_v_2_bitfield_1 = ProtoField.new("Trade Capture Report V 2 Bitfield 1", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportv2bitfield1", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_v_2_bitfield_1_currency = ProtoField.new("Trade Capture Report V 2 Bitfield 1 Currency", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportv2bitfield1currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_v_2_bitfield_1_id_source = ProtoField.new("Trade Capture Report V 2 Bitfield 1 Id Source", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportv2bitfield1idsource", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -2603,6 +2606,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.user_modify_rejected_v_
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.custom_group_ids_index = ProtoField.new("Custom Group Ids Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.customgroupidsindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.paramgroupindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Confirm V 2 Trd Cap Ack Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecaptureconfirmv2trdcapacksidegrpindex", ftypes.UINT16)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Decline V 2 Trd Cap Ack Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportdeclinev2trdcapacksidegrpindex", ftypes.UINT16)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Reject V 2 Trd Cap Ack Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradecapturereportrejectv2trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp_index = ProtoField.new("Trd Cap Ack Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp_index = ProtoField.new("Trd Cap Rpt Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcaprptsidegrpindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.units_index = ProtoField.new("Units Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.unitsindex", ftypes.UINT16)
@@ -6315,6 +6320,33 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.routing_inst.dissect = function(bu
   return offset + length, value
 end
 
+-- Rpt Time
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time = {}
+
+-- Size: Rpt Time
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.size = 8
+
+-- Display: Rpt Time
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Rpt Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Rpt Time
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.rpt_time, range, value, display)
+
+  return offset + length, value
+end
+
 -- Secondary Order Id
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.secondary_order_id = {}
 
@@ -7699,65 +7731,89 @@ end
 -- Dissect Cboe BxeEquities BinaryOrderEntry Boe 2.0.83
 -----------------------------------------------------------------------
 
--- Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp = {}
+-- Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp = {}
 
--- Size: Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.size =
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size
+-- Size of Trade Capture Report Decline V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Decline V 2 Return Bitfield 1, Trade Capture Report Decline V 2 Return Bitfield 2, Trade Capture Report Decline V 2 Return Bitfield 3, Trade Capture Report Decline V 2 Return Bitfield 4, Trade Capture Report Decline V 2 Return Bitfield 6 passed down from Trade Capture Report Decline V 2 Message
 
--- Display: Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display = function(packet, parent, length)
+-- Display: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+-- Dissect Fields: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   local index = offset
 
-  -- Implicit Trd Cap Ack Side Grp Index
-  if trd_cap_ack_side_grp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp_index, trd_cap_ack_side_grp_index)
+  -- Implicit Trade Capture Report Decline V 2 Trd Cap Ack Side Grp Index
+  if trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index)
     iteration:set_generated()
   end
 
-  -- Side: Alphanumeric
-  index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Side
+  local side = nil
 
-  -- Capacity: Alpha
-  index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_decline_v_2_return_bitfield_1, 0x01) > 0
 
-  -- Account: Text
-  index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  if side_exists then
+    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  end
 
-  -- Party Id: Alpha
-  index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
--- Dissect: Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+-- Dissect: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp, buffer(offset, 0))
-    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display(packet, parent, length)
+    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   end
 end
 
@@ -9473,6 +9529,8 @@ end
 -- Dissect Fields: Trade Capture Report Decline V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
+  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.transaction_time.dissect(buffer, index, packet, parent)
@@ -9719,9 +9777,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_m
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Trd Cap Ack Side Grp
-  for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  -- Repeating: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+  for trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trade_capture_report_decline_v_2_trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -9796,6 +9854,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_m
     index, trade_report_type_return = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_report_type_return.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
@@ -9821,51 +9897,6 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_m
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_bxeequities_binaryorderentry_boe_v2_0_83.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_decline_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -9896,15 +9927,7 @@ end
 -- Trade Capture Confirm V 2 Trd Cap Ack Side Grp
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp = {}
 
--- Size: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.size =
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.central_counterparty.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.fee_code.size
+-- Size of Trade Capture Confirm V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Confirm V 2 Return Bitfield 1, Trade Capture Confirm V 2 Return Bitfield 2, Trade Capture Confirm V 2 Return Bitfield 3, Trade Capture Confirm V 2 Return Bitfield 4, Trade Capture Confirm V 2 Return Bitfield 6, Trade Capture Confirm V 2 Return Bitfield 8 passed down from Trade Capture Confirm V 2 Message
 
 -- Display: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
@@ -9912,7 +9935,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_
 end
 
 -- Dissect Fields: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   local index = offset
 
   -- Implicit Trade Capture Confirm V 2 Trd Cap Ack Side Grp Index
@@ -9921,36 +9944,78 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_
     iteration:set_generated()
   end
 
-  -- Side: Alphanumeric
-  index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Side
+  local side = nil
 
-  -- Capacity: Alpha
-  index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_confirm_v_2_return_bitfield_1, 0x01) > 0
 
-  -- Account: Text
-  index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  if side_exists then
+    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  end
 
-  -- Party Id: Alpha
-  index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
 
-  -- Central Counterparty: Alpha
-  index, central_counterparty = cboe_bxeequities_binaryorderentry_boe_v2_0_83.central_counterparty.dissect(buffer, index, packet, parent)
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40), 6) > 0
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  if capacity_exists then
+    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  end
 
-  -- Fee Code: Alphanumeric
-  index, fee_code = cboe_bxeequities_binaryorderentry_boe_v2_0_83.fee_code.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Central Counterparty
+  local central_counterparty = nil
+
+  local central_counterparty_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x02), 1) > 0
+
+  if central_counterparty_exists then
+    index, central_counterparty = cboe_bxeequities_binaryorderentry_boe_v2_0_83.central_counterparty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Fee Code
+  local fee_code = nil
+
+  local fee_code_exists = number_of_return_bitfields >= 8 and bit.band(trade_capture_confirm_v_2_return_bitfield_8, 0x01) > 0
+
+  if fee_code_exists then
+    index, fee_code = cboe_bxeequities_binaryorderentry_boe_v2_0_83.fee_code.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
-    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
@@ -9959,7 +10024,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   end
 end
 
@@ -11134,9 +11199,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_return_b
   if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Secondary Order Id"
   end
-  -- Is Trade Capture Confirm V 2 Return Bitfield 6 Ccp flag set?
+  -- Is Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty flag set?
   if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Ccp"
+    flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty"
   end
   -- Is Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity flag set?
   if bit.band(value, 0x04) ~= 0 then
@@ -11172,8 +11237,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_return_b
   -- Trade Capture Confirm V 2 Return Bitfield 6 Secondary Order Id: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_secondary_order_id, range, value)
 
-  -- Trade Capture Confirm V 2 Return Bitfield 6 Ccp: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_ccp, range, value)
+  -- Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_central_counterparty, range, value)
 
   -- Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_confirm_v_2_return_bitfield_6_contra_capacity, range, value)
@@ -11675,6 +11740,8 @@ end
 -- Dissect Fields: Trade Capture Confirm V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 73, 1):le_uint()
+  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.transaction_time.dissect(buffer, index, packet, parent)
@@ -11917,7 +11984,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.
 
   -- Repeating: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
   for trade_capture_confirm_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trade_capture_confirm_v_2_trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    index, trade_capture_confirm_v_2_trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   end
 
   -- Runtime optional field: Symbol
@@ -11990,6 +12057,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_report_type_return.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Text
@@ -12073,60 +12158,6 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.
     index, intra_firm_trade_ind = cboe_bxeequities_binaryorderentry_boe_v2_0_83.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_confirm_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Fee Code
-  local fee_code = nil
-
-  local fee_code_exists = number_of_return_bitfields >= 8 and bit.band(trade_capture_confirm_v_2_return_bitfield_8, 0x01) > 0
-
-  if fee_code_exists then
-    index, fee_code = cboe_bxeequities_binaryorderentry_boe_v2_0_83.fee_code.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -12149,6 +12180,92 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.
     cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.fields(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
 
     return index
+  end
+end
+
+-- Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp = {}
+
+-- Size of Trade Capture Report Reject V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Reject V 2 Return Bitfield 1, Trade Capture Report Reject V 2 Return Bitfield 2, Trade Capture Report Reject V 2 Return Bitfield 3, Trade Capture Report Reject V 2 Return Bitfield 4, Trade Capture Report Reject V 2 Return Bitfield 6 passed down from Trade Capture Report Reject V 2 Message
+
+-- Display: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+  local index = offset
+
+  -- Implicit Trade Capture Report Reject V 2 Trd Cap Ack Side Grp Index
+  if trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_reject_v_2_return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
   end
 end
 
@@ -13864,6 +13981,8 @@ end
 -- Dissect Fields: Trade Capture Report Reject V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
+  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.transaction_time.dissect(buffer, index, packet, parent)
@@ -14095,9 +14214,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_me
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Trd Cap Ack Side Grp
-  for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  -- Repeating: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+  for trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trade_capture_report_reject_v_2_trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -14172,6 +14291,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_me
     index, trade_report_type_return = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_report_type_return.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.rpt_time.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Price Formation
   local price_formation = nil
 
@@ -14199,51 +14336,6 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_me
     index, intra_firm_trade_ind = cboe_bxeequities_binaryorderentry_boe_v2_0_83.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_reject_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -14266,6 +14358,92 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_me
     cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_message.fields(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
 
     return index
+  end
+end
+
+-- Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp = {}
+
+-- Size of Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Acknowledgment V 2 Return Bitfield 1, Trade Capture Report Acknowledgment V 2 Return Bitfield 2, Trade Capture Report Acknowledgment V 2 Return Bitfield 3, Trade Capture Report Acknowledgment V 2 Return Bitfield 4, Trade Capture Report Acknowledgment V 2 Return Bitfield 6 passed down from Trade Capture Report Acknowledgment V 2 Message
+
+-- Display: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+  local index = offset
+
+  -- Implicit Trd Cap Ack Side Grp Index
+  if trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp_index, trd_cap_ack_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
   end
 end
 
@@ -15981,6 +16159,8 @@ end
 -- Dissect Fields: Trade Capture Report Acknowledgment V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 29, 1):le_uint()
+  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_bxeequities_binaryorderentry_boe_v2_0_83.transaction_time.dissect(buffer, index, packet, parent)
@@ -16208,7 +16388,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_acknowledgmen
 
   -- Repeating: Trd Cap Ack Side Grp
   for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -16335,51 +16515,6 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_acknowledgmen
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_bxeequities_binaryorderentry_boe_v2_0_83.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -18498,6 +18633,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_cancel_or_correct_v_2_messag
     index, symbol = cboe_bxeequities_binaryorderentry_boe_v2_0_83.symbol.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Currency
+  local currency = nil
+
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_cancelor_correct_v_2_return_bitfield_2, 0x04), 2) > 0
+
+  if currency_exists then
+    index, currency = cboe_bxeequities_binaryorderentry_boe_v2_0_83.currency.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Id Source
+  local id_source = nil
+
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_cancelor_correct_v_2_return_bitfield_2, 0x08), 3) > 0
+
+  if id_source_exists then
+    index, id_source = cboe_bxeequities_binaryorderentry_boe_v2_0_83.id_source.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Security Id
   local security_id = nil
 
@@ -19739,9 +19892,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_execution_v_2_return_bitfiel
   if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Order Execution V 2 Return Bitfield 6 Secondary Order Id"
   end
-  -- Is Order Execution V 2 Return Bitfield 6 Ccp flag set?
+  -- Is Order Execution V 2 Return Bitfield 6 Central Counterparty flag set?
   if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Order Execution V 2 Return Bitfield 6 Ccp"
+    flags[#flags + 1] = "Order Execution V 2 Return Bitfield 6 Central Counterparty"
   end
   -- Is Order Execution V 2 Return Bitfield 6 Contra Capacity flag set?
   if bit.band(value, 0x04) ~= 0 then
@@ -19777,8 +19930,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_execution_v_2_return_bitfiel
   -- Order Execution V 2 Return Bitfield 6 Secondary Order Id: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_secondary_order_id, range, value)
 
-  -- Order Execution V 2 Return Bitfield 6 Ccp: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_ccp, range, value)
+  -- Order Execution V 2 Return Bitfield 6 Central Counterparty: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_central_counterparty, range, value)
 
   -- Order Execution V 2 Return Bitfield 6 Contra Capacity: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_execution_v_2_return_bitfield_6_contra_capacity, range, value)
@@ -20595,6 +20748,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_execution_v_2_message.fields
     index, symbol = cboe_bxeequities_binaryorderentry_boe_v2_0_83.symbol.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Currency
+  local currency = nil
+
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_execution_v_2_return_bitfield_2, 0x04), 2) > 0
+
+  if currency_exists then
+    index, currency = cboe_bxeequities_binaryorderentry_boe_v2_0_83.currency.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Id Source
+  local id_source = nil
+
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_execution_v_2_return_bitfield_2, 0x08), 3) > 0
+
+  if id_source_exists then
+    index, id_source = cboe_bxeequities_binaryorderentry_boe_v2_0_83.id_source.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Security Id
   local security_id = nil
 
@@ -20692,6 +20863,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_execution_v_2_message.fields
 
   if secondary_order_id_exists then
     index, secondary_order_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.secondary_order_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Central Counterparty
+  local central_counterparty = nil
+
+  local central_counterparty_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(order_execution_v_2_return_bitfield_6, 0x02), 1) > 0
+
+  if central_counterparty_exists then
+    index, central_counterparty = cboe_bxeequities_binaryorderentry_boe_v2_0_83.central_counterparty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Ext Exec Inst
@@ -22902,6 +23082,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.cancel_rejected_v_2_message.fields
     index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(cancel_rejected_v_2_return_bitfield_6, 0x10), 4) > 0
+
+  if ext_exec_inst_exists then
+    index, ext_exec_inst = cboe_bxeequities_binaryorderentry_boe_v2_0_83.ext_exec_inst.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Liquidity Provision
   local liquidity_provision = nil
 
@@ -24285,9 +24474,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_cancelled_v_2_return_bitfiel
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Order Cancelled V 2 Return Bitfield 5 Last Shares"
   end
-  -- Is Order Cancelled V 2 Return Bitfield 5 Last Price flag set?
+  -- Is Order Cancelled V 2 Return Bitfield 5 Last Px flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Order Cancelled V 2 Return Bitfield 5 Last Price"
+    flags[#flags + 1] = "Order Cancelled V 2 Return Bitfield 5 Last Px"
   end
   -- Is Order Cancelled V 2 Return Bitfield 5 Display Price flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -24321,8 +24510,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_cancelled_v_2_return_bitfiel
   -- Order Cancelled V 2 Return Bitfield 5 Last Shares: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_shares, range, value)
 
-  -- Order Cancelled V 2 Return Bitfield 5 Last Price: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_price, range, value)
+  -- Order Cancelled V 2 Return Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_last_px, range, value)
 
   -- Order Cancelled V 2 Return Bitfield 5 Display Price: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_cancelled_v_2_return_bitfield_5_display_price, range, value)
@@ -25026,6 +25215,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_cancelled_v_2_message.fields
     index, symbol = cboe_bxeequities_binaryorderentry_boe_v2_0_83.symbol.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Currency
+  local currency = nil
+
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_2, 0x04), 2) > 0
+
+  if currency_exists then
+    index, currency = cboe_bxeequities_binaryorderentry_boe_v2_0_83.currency.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Id Source
+  local id_source = nil
+
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_2, 0x08), 3) > 0
+
+  if id_source_exists then
+    index, id_source = cboe_bxeequities_binaryorderentry_boe_v2_0_83.id_source.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Security Id
   local security_id = nil
 
@@ -25141,6 +25348,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_cancelled_v_2_message.fields
 
   if last_shares_exists then
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px Binary Price 8
+  local last_px_binary_price_8 = nil
+
+  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_5, 0x08), 3) > 0
+
+  if last_px_binary_price_8_exists then
+    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_px_binary_price_8.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -28545,9 +28761,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_restated_v_2_return_bitfield
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Order Restated V 2 Return Bitfield 5 Last Shares"
   end
-  -- Is Order Restated V 2 Return Bitfield 5 Last Price flag set?
+  -- Is Order Restated V 2 Return Bitfield 5 Last Px flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Order Restated V 2 Return Bitfield 5 Last Price"
+    flags[#flags + 1] = "Order Restated V 2 Return Bitfield 5 Last Px"
   end
   -- Is Order Restated V 2 Return Bitfield 5 Display Price flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -28581,8 +28797,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_restated_v_2_return_bitfield
   -- Order Restated V 2 Return Bitfield 5 Last Shares: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_shares, range, value)
 
-  -- Order Restated V 2 Return Bitfield 5 Last Price: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_price, range, value)
+  -- Order Restated V 2 Return Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_last_px, range, value)
 
   -- Order Restated V 2 Return Bitfield 5 Display Price: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_restated_v_2_return_bitfield_5_display_price, range, value)
@@ -29289,6 +29505,24 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_restated_v_2_message.fields 
     index, symbol = cboe_bxeequities_binaryorderentry_boe_v2_0_83.symbol.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Currency
+  local currency = nil
+
+  local currency_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_2, 0x04), 2) > 0
+
+  if currency_exists then
+    index, currency = cboe_bxeequities_binaryorderentry_boe_v2_0_83.currency.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Id Source
+  local id_source = nil
+
+  local id_source_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_2, 0x08), 3) > 0
+
+  if id_source_exists then
+    index, id_source = cboe_bxeequities_binaryorderentry_boe_v2_0_83.id_source.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Security Id
   local security_id = nil
 
@@ -29404,6 +29638,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_restated_v_2_message.fields 
 
   if last_shares_exists then
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px Binary Price 8
+  local last_px_binary_price_8 = nil
+
+  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_5, 0x08), 3) > 0
+
+  if last_px_binary_price_8_exists then
+    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_px_binary_price_8.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -30843,9 +31086,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_modified_v_2_return_bitfield
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Order Modified V 2 Return Bitfield 5 Last Shares"
   end
-  -- Is Order Modified V 2 Return Bitfield 5 Last Price flag set?
+  -- Is Order Modified V 2 Return Bitfield 5 Last Px flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Order Modified V 2 Return Bitfield 5 Last Price"
+    flags[#flags + 1] = "Order Modified V 2 Return Bitfield 5 Last Px"
   end
   -- Is Order Modified V 2 Return Bitfield 5 Display Price flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -30879,8 +31122,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_modified_v_2_return_bitfield
   -- Order Modified V 2 Return Bitfield 5 Last Shares: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_shares, range, value)
 
-  -- Order Modified V 2 Return Bitfield 5 Last Price: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_price, range, value)
+  -- Order Modified V 2 Return Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_last_px, range, value)
 
   -- Order Modified V 2 Return Bitfield 5 Display Price: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_modified_v_2_return_bitfield_5_display_price, range, value)
@@ -31663,6 +31906,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_modified_v_2_message.fields 
 
   if last_shares_exists then
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px Binary Price 8
+  local last_px_binary_price_8 = nil
+
+  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_v_2_return_bitfield_5, 0x08), 3) > 0
+
+  if last_px_binary_price_8_exists then
+    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_px_binary_price_8.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -33963,6 +34215,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_rejected_v_2_message.fields 
     index, secondary_order_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.secondary_order_id.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Ext Exec Inst
+  local ext_exec_inst = nil
+
+  local ext_exec_inst_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(order_rejected_v_2_return_bitfield_6, 0x10), 4) > 0
+
+  if ext_exec_inst_exists then
+    index, ext_exec_inst = cboe_bxeequities_binaryorderentry_boe_v2_0_83.ext_exec_inst.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Liquidity Provision
   local liquidity_provision = nil
 
@@ -35337,9 +35598,9 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_return_bi
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Order Acknowledgment V 2 Return Bitfield 5 Last Shares"
   end
-  -- Is Order Acknowledgment V 2 Return Bitfield 5 Last Price flag set?
+  -- Is Order Acknowledgment V 2 Return Bitfield 5 Last Px flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Order Acknowledgment V 2 Return Bitfield 5 Last Price"
+    flags[#flags + 1] = "Order Acknowledgment V 2 Return Bitfield 5 Last Px"
   end
   -- Is Order Acknowledgment V 2 Return Bitfield 5 Display Price flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -35373,8 +35634,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_return_bi
   -- Order Acknowledgment V 2 Return Bitfield 5 Last Shares: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_shares, range, value)
 
-  -- Order Acknowledgment V 2 Return Bitfield 5 Last Price: 1 Bit
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_price, range, value)
+  -- Order Acknowledgment V 2 Return Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_last_px, range, value)
 
   -- Order Acknowledgment V 2 Return Bitfield 5 Display Price: 1 Bit
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.order_acknowledgment_v_2_return_bitfield_5_display_price, range, value)
@@ -36069,6 +36330,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_message.f
     index, min_qty = cboe_bxeequities_binaryorderentry_boe_v2_0_83.min_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
+  local symbol_exists = number_of_return_bitfields >= 2 and bit.band(order_acknowledgment_v_2_return_bitfield_2, 0x01) > 0
+
+  if symbol_exists then
+    index, symbol = cboe_bxeequities_binaryorderentry_boe_v2_0_83.symbol.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Currency
   local currency = nil
 
@@ -36202,6 +36472,15 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_message.f
 
   if last_shares_exists then
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px Binary Price 8
+  local last_px_binary_price_8 = nil
+
+  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_v_2_return_bitfield_5, 0x08), 3) > 0
+
+  if last_px_binary_price_8_exists then
+    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_83.last_px_binary_price_8.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -36385,13 +36664,7 @@ end
 -- Trd Cap Rpt Side Grp
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp = {}
 
--- Size: Trd Cap Rpt Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.size =
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.size + 
-  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size
+-- Size of Trd Cap Rpt Side Grp: not written, it needs Number Of Trade Capture Report V 2 Bitfields, Trade Capture Report V 2 Bitfield 2 passed down from Trade Capture Report V 2 Message
 
 -- Display: Trd Cap Rpt Side Grp
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.display = function(packet, parent, length)
@@ -36399,7 +36672,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.display = fun
 end
 
 -- Dissect Fields: Trd Cap Rpt Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   local index = offset
 
   -- Implicit Trd Cap Rpt Side Grp Index
@@ -36411,27 +36684,45 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields = func
   -- Side: Alphanumeric
   index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
 
-  -- Capacity: Alpha
-  index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x01) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+  end
 
   -- Party Id: Alpha
   index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
 
-  -- Account: Text
-  index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Account
+  local account = nil
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x02), 1) > 0
+
+  if account_exists then
+    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x10), 4) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Trd Cap Rpt Side Grp
-cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp, buffer(offset, 0))
-    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.display(packet, parent, length)
@@ -36440,7 +36731,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   end
 end
 
@@ -36999,6 +37290,7 @@ end
 -- Dissect Fields: Trade Capture Report V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_v_2_message)
   local index = offset
+  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):le_uint()
 
   -- Trade Report Id: Text
   index, trade_report_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_report_id.dissect(buffer, index, packet, parent)
@@ -37083,7 +37375,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_v_2_message.f
 
   -- Repeating: Trd Cap Rpt Side Grp
   for trd_cap_rpt_side_grp_index = 1, no_sides do
-    index, trd_cap_rpt_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index)
+    index, trd_cap_rpt_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   end
 
   -- Runtime optional field: Symbol
@@ -37381,33 +37673,6 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_v_2_message.f
 
   if tertiary_trd_type_exists then
     index, tertiary_trd_type = cboe_bxeequities_binaryorderentry_boe_v2_0_83.tertiary_trd_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x01) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x02), 1) > 0
-
-  if account_exists then
-    index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x10), 4) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index

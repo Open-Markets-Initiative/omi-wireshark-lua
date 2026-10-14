@@ -157,6 +157,9 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.trade_session_vol
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.tradesummarymessage", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.tradingstatusupdatemessage", ftypes.STRING)
 
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Generated Fields
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.sbe_message_index = ProtoField.new("Sbe Message Index", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.sbemessageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -167,11 +170,13 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.indexes = true
 
 -- Register Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Show Options
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs_changed()
@@ -185,6 +190,9 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs_changed()
   end
   if show.structs ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_structs
+  end
+  if show.indexes ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_indexes then
+    show.indexes = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs.show_indexes
   end
 end
 
@@ -5127,8 +5135,14 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.display = functi
 end
 
 -- Dissect Fields: Sbe Message
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message)
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields = function(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
   local index = offset
+
+  -- Implicit Sbe Message Index
+  if sbe_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.sbe_message_index, sbe_message_index)
+    iteration:set_generated()
+  end
 
   -- Message Header: Struct of 5 fields
   index, message_header = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.message_header.dissect(buffer, index, packet, parent)
@@ -5152,13 +5166,13 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields = functio
 end
 
 -- Dissect: Sbe Message
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
   local index = offset + size_of_sbe_message
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local current = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
     parent:set_len(size_of_sbe_message)
     local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5166,7 +5180,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect = functi
     return index, parent
   else
     -- Skip element, add fields directly
-    coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
 
     return index
   end
@@ -5294,7 +5308,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet = {}
 
 -- Verify required size of Udp packet
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet.requiredsize = function(buffer)
-  return buffer:len() >= coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet_header.size + coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.message_header.size
+  return buffer:len() >= coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet_header.size
 end
 
 -- Dissect Packet
@@ -5304,19 +5318,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet.dissect = function(bu
   -- Packet Header: Struct of 6 fields
   index, packet_header = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Sbe Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 5, 1):uint()
 
-  -- Sbe Message: Struct of 3 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Sbe Message
+  for sbe_message_index = 1, message_count do
 
     -- Dependency element: Frame Length
     local frame_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Sbe Message
-    index, sbe_message = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent, frame_length)
+    index, sbe_message = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect(buffer, index, packet, parent, frame_length, sbe_message_index)
   end
 
   return index

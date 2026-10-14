@@ -273,7 +273,11 @@ finra_finraorf_tdds_dfi_v2_0.block_soh.size = 1
 
 -- Display: Block Soh
 finra_finraorf_tdds_dfi_v2_0.block_soh.display = function(value)
-  return "Block Soh: "..value
+  if value == 1 then
+    return "Block Soh: Block Soh"
+  end
+
+  return "Block Soh: Unknown("..value..")"
 end
 
 -- Dissect: Block Soh
@@ -3649,7 +3653,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Block Soh: 1 Byte Unsigned Fixed Width Integer
+  -- Block Soh: 1 Byte Unsigned Fixed Width Integer Static
   index, block_soh = finra_finraorf_tdds_dfi_v2_0.block_soh.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
@@ -3689,10 +3693,25 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Block Soh Field
+finra_finraorf_tdds_dfi_v2_0.block_soh.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Finra FinraOrf Tdds Dfi 2.0 (Udp)
 local function omi_finra_finraorf_tdds_dfi_v2_0_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not finra_finraorf_tdds_dfi_v2_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify Block Soh
+  if not finra_finraorf_tdds_dfi_v2_0.block_soh.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_finraorf_tdds_dfi_v2_0

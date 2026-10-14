@@ -2710,7 +2710,7 @@ siac_opra_input_obi_v5_0_i.administrative_message.size = function(buffer, offset
   -- Dependency element: Message Data Length
   local message_data_length = buffer(offset + 5, 2):uint()
 
-  return message_data_length + 8
+  return message_data_length + 7
 end
 
 -- Display: Administrative Message

@@ -48,15 +48,15 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.clearing_firm = ProtoField
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.clearing_optional_data = ProtoField.new("Clearing Optional Data", "cboe.bzxoptions.binaryorderentry.boe.v2.10.clearingoptionaldata", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.client_id_attr = ProtoField.new("Client Id Attr", "cboe.bzxoptions.binaryorderentry.boe.v2.10.clientidattr", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.cmtanumber", ftypes.UINT32)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.compression = ProtoField.new("Compression", "cboe.bzxoptions.binaryorderentry.boe.v2.10.compression", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.bzxoptions.binaryorderentry.boe.v2.10.contrabroker", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.bzxoptions.binaryorderentry.boe.v2.10.contracapacity", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.contra_trader = ProtoField.new("Contra Trader", "cboe.bzxoptions.binaryorderentry.boe.v2.10.contratrader", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.bzxoptions.binaryorderentry.boe.v2.10.correctedprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.bzxoptions.binaryorderentry.boe.v2.10.correctedsize", ftypes.UINT32)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_id = ProtoField.new("Cross Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crossid", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_type = ProtoField.new("Cross Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.crosstype", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.cumqty", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.customgroupid", ftypes.UINT16)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.dayavgpx", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.daycumqty", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.10.dayorderqty", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.bzxoptions.binaryorderentry.boe.v2.10.displayindicator", ftypes.STRING)
@@ -68,8 +68,9 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_id = ProtoField.new("
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.execinst", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.execrefid", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.expire_time = ProtoField.new("Expire Time", "cboe.bzxoptions.binaryorderentry.boe.v2.10.expiretime", ftypes.UINT64)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.ext_exec_inst = ProtoField.new("Ext Exec Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.extexecinst", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.fee_code = ProtoField.new("Fee Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.feecode", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.floorroutinginst", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.floor_trader_acronym = ProtoField.new("Floor Trader Acronym", "cboe.bzxoptions.binaryorderentry.boe.v2.10.floortraderacronym", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_px = ProtoField.new("Last Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastpx", ftypes.DOUBLE)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_received_sequence_number = ProtoField.new("Last Received Sequence Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastreceivedsequencenumber", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.last_shares = ProtoField.new("Last Shares", "cboe.bzxoptions.binaryorderentry.boe.v2.10.lastshares", ftypes.UINT32)
@@ -176,13 +177,13 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8 = Pro
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_clearing_optional_data = ProtoField.new("New Order Bitfield 8 Clearing Optional Data", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8clearingoptionaldata", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_client_id_attr = ProtoField.new("New Order Bitfield 8 Client Id Attr", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8clientidattr", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_custom_group_id = ProtoField.new("New Order Bitfield 8 Custom Group Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8customgroupid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_floor_routing_inst = ProtoField.new("New Order Bitfield 8 Floor Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_1 = ProtoField.new("New Order Bitfield 8 Reserved 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_128 = ProtoField.new("New Order Bitfield 8 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_16 = ProtoField.new("New Order Bitfield 8 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_32 = ProtoField.new("New Order Bitfield 8 Reserved 32", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_64 = ProtoField.new("New Order Bitfield 8 Reserved 64", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield8reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9 = ProtoField.new("New Order Bitfield 9", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9", ftypes.STRING)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_1 = ProtoField.new("New Order Bitfield 9 Reserved 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_order_origin = ProtoField.new("New Order Bitfield 9 Order Origin", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_128 = ProtoField.new("New Order Bitfield 9 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_16 = ProtoField.new("New Order Bitfield 9 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_2 = ProtoField.new("New Order Bitfield 9 Reserved 2", "cboe.bzxoptions.binaryorderentry.boe.v2.10.neworderbitfield9reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -204,6 +205,7 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.number_of_units = ProtoFie
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.open_close = ProtoField.new("Open Close", "cboe.bzxoptions.binaryorderentry.boe.v2.10.openclose", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.ord_type = ProtoField.new("Ord Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.ordtype", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_id = ProtoField.new("Order Id", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderid", ftypes.UINT64)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_origin = ProtoField.new("Order Origin", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderorigin", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_qty_long = ProtoField.new("Order Qty Long", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtylong", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_qty_short = ProtoField.new("Order Qty Short", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderqtyshort", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.bzxoptions.binaryorderentry.boe.v2.10.orderrejectreason", ftypes.STRING)
@@ -318,19 +320,19 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_15_reserve
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_15_reserved_64 = ProtoField.new("Return Bitfield 15 Reserved 64", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield15reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16 = ProtoField.new("Return Bitfield 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_compression = ProtoField.new("Return Bitfield 16 Compression", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16compression", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_floor_routing_inst = ProtoField.new("Return Bitfield 16 Floor Routing Inst", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_order_origin = ProtoField.new("Return Bitfield 16 Order Origin", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_1 = ProtoField.new("Return Bitfield 16 Reserved 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_128 = ProtoField.new("Return Bitfield 16 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_16 = ProtoField.new("Return Bitfield 16 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_32 = ProtoField.new("Return Bitfield 16 Reserved 32", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_4 = ProtoField.new("Return Bitfield 16 Reserved 4", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_64 = ProtoField.new("Return Bitfield 16 Reserved 64", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_session_eligibility = ProtoField.new("Return Bitfield 16 Session Eligibility", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield16sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17 = ProtoField.new("Return Bitfield 17", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_floor_trader_acronym = ProtoField.new("Return Bitfield 17 Floor Trader Acronym", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17floortraderacronym", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_1 = ProtoField.new("Return Bitfield 17 Reserved 1", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_128 = ProtoField.new("Return Bitfield 17 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_16 = ProtoField.new("Return Bitfield 17 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_2 = ProtoField.new("Return Bitfield 17 Reserved 2", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_32 = ProtoField.new("Return Bitfield 17 Reserved 32", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_4 = ProtoField.new("Return Bitfield 17 Reserved 4", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_64 = ProtoField.new("Return Bitfield 17 Reserved 64", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_8 = ProtoField.new("Return Bitfield 17 Reserved 8", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield17reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -399,12 +401,12 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_8_routing_
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_8_stop_px = ProtoField.new("Return Bitfield 8 Stop Px", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield8stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9 = ProtoField.new("Return Bitfield 9", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_cmta_number = ProtoField.new("Return Bitfield 9 Cmta Number", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9cmtanumber", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_cross_type = ProtoField.new("Return Bitfield 9 Cross Type", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9crosstype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_marketing_fee_code = ProtoField.new("Return Bitfield 9 Marketing Fee Code", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_128 = ProtoField.new("Return Bitfield 9 Reserved 128", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_16 = ProtoField.new("Return Bitfield 9 Reserved 16", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_2 = ProtoField.new("Return Bitfield 9 Reserved 2", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_4 = ProtoField.new("Return Bitfield 9 Reserved 4", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_64 = ProtoField.new("Return Bitfield 9 Reserved 64", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_8 = ProtoField.new("Return Bitfield 9 Reserved 8", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfield9reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfields_param_group = ProtoField.new("Return Bitfields Param Group", "cboe.bzxoptions.binaryorderentry.boe.v2.10.returnbitfieldsparamgroup", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.bzxoptions.binaryorderentry.boe.v2.10.riskreset", ftypes.STRING)
@@ -1326,42 +1328,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect = function(buffer
   return offset + length, value
 end
 
--- Compression
-cboe_bzxoptions_binaryorderentry_boe_v2_10.compression = {}
-
--- Size: Compression
-cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.size = 1
-
--- Display: Compression
-cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Compression: No Value"
-  end
-
-  return "Compression: "..value
-end
-
--- Dissect: Compression
-cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.compression, range, value, display)
-
-  return offset + length, value
-end
-
 -- Contra Broker
 cboe_bzxoptions_binaryorderentry_boe_v2_10.contra_broker = {}
 
@@ -1528,41 +1494,38 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.corrected_size.dissect = function(buf
   return offset + length, value
 end
 
--- Cross Id
-cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id = {}
+-- Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type = {}
 
--- Size: Cross Id
-cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.size = 20
+-- Size: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.size = 1
 
--- Display: Cross Id
-cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.display = function(value)
+-- Display: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
-    return "Cross Id: No Value"
+  if value == nil or value == 0 then
+    return "Cross Type: No Value"
   end
 
-  return "Cross Id: "..value
+  return "Cross Type: "..value
 end
 
--- Dissect: Cross Id
-cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.size
+-- Dissect: Cross Type
+cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.size
   local range = buffer(offset, length)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
+  -- parse as byte
+  local value = range:uint()
 
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
+  -- check if value is non zero
+  if value ~= 0 then
     value = range:string()
   end
 
-  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_id, range, value, display)
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.cross_type, range, value, display)
 
   return offset + length, value
 end
@@ -1609,6 +1572,35 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.custom_group_id.dissect = function(bu
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.custom_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.custom_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day Avg Px
+cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px = {}
+
+-- Size: Day Avg Px
+cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.size = 8
+
+-- Display: Day Avg Px
+cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.display = function(value)
+  return "Day Avg Px: "..value
+end
+
+-- Translate: Day Avg Px
+cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Day Avg Px
+cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.translate(raw)
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.day_avg_px, range, value, display)
 
   return offset + length, value
 end
@@ -2006,42 +1998,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.expire_time.dissect = function(buffer
   return offset + length, value
 end
 
--- Ext Exec Inst
-cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst = {}
-
--- Size: Ext Exec Inst
-cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.size = 1
-
--- Display: Ext Exec Inst
-cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Ext Exec Inst: No Value"
-  end
-
-  return "Ext Exec Inst: "..value
-end
-
--- Dissect: Ext Exec Inst
-cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.ext_exec_inst, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fee Code
 cboe_bzxoptions_binaryorderentry_boe_v2_10.fee_code = {}
 
@@ -2077,6 +2033,81 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.fee_code.dissect = function(buffer, o
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.fee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.fee_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Floor Routing Inst
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst = {}
+
+-- Size: Floor Routing Inst
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.size = 1
+
+-- Display: Floor Routing Inst
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Floor Routing Inst: No Value"
+  end
+
+  return "Floor Routing Inst: "..value
+end
+
+-- Dissect: Floor Routing Inst
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.floor_routing_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Floor Trader Acronym
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym = {}
+
+-- Size: Floor Trader Acronym
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.size = 3
+
+-- Display: Floor Trader Acronym
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Floor Trader Acronym: No Value"
+  end
+
+  return "Floor Trader Acronym: "..value
+end
+
+-- Dissect: Floor Trader Acronym
+cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.floor_trader_acronym, range, value, display)
 
   return offset + length, value
 end
@@ -3328,6 +3359,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_id.dissect = function(buffer, o
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Origin
+cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin = {}
+
+-- Size: Order Origin
+cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.size = 3
+
+-- Display: Order Origin
+cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Origin: No Value"
+  end
+
+  return "Order Origin: "..value
+end
+
+-- Dissect: Order Origin
+cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.order_origin, range, value, display)
 
   return offset + length, value
 end
@@ -5559,9 +5629,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.display = function
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 17 Reserved 16"
   end
-  -- Is Return Bitfield 17 Reserved 32 flag set?
+  -- Is Return Bitfield 17 Floor Trader Acronym flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 17 Reserved 32"
+    flags[#flags + 1] = "Return Bitfield 17 Floor Trader Acronym"
   end
   -- Is Return Bitfield 17 Reserved 64 flag set?
   if bit.band(value, 0x40) ~= 0 then
@@ -5593,8 +5663,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.bits = function(ra
   -- Return Bitfield 17 Reserved 16: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_16, range, value)
 
-  -- Return Bitfield 17 Reserved 32: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_32, range, value)
+  -- Return Bitfield 17 Floor Trader Acronym: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_floor_trader_acronym, range, value)
 
   -- Return Bitfield 17 Reserved 64: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_17_reserved_64, range, value)
@@ -5648,17 +5718,17 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_16.display = function
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 16 Reserved 16"
   end
-  -- Is Return Bitfield 16 Reserved 32 flag set?
+  -- Is Return Bitfield 16 Floor Routing Inst flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 16 Reserved 32"
+    flags[#flags + 1] = "Return Bitfield 16 Floor Routing Inst"
   end
   -- Is Return Bitfield 16 Reserved 64 flag set?
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 16 Reserved 64"
   end
-  -- Is Return Bitfield 16 Reserved 128 flag set?
+  -- Is Return Bitfield 16 Order Origin flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 16 Reserved 128"
+    flags[#flags + 1] = "Return Bitfield 16 Order Origin"
   end
 
   return table.concat(flags, "|")
@@ -5682,14 +5752,14 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_16.bits = function(ra
   -- Return Bitfield 16 Reserved 16: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_16, range, value)
 
-  -- Return Bitfield 16 Reserved 32: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_32, range, value)
+  -- Return Bitfield 16 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_floor_routing_inst, range, value)
 
   -- Return Bitfield 16 Reserved 64: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_64, range, value)
 
-  -- Return Bitfield 16 Reserved 128: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_reserved_128, range, value)
+  -- Return Bitfield 16 Order Origin: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_16_order_origin, range, value)
 end
 
 -- Dissect: Return Bitfield 16
@@ -6275,9 +6345,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_9.display = function(
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Return Bitfield 9 Cmta Number"
   end
-  -- Is Return Bitfield 9 Reserved 64 flag set?
+  -- Is Return Bitfield 9 Cross Type flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Return Bitfield 9 Reserved 64"
+    flags[#flags + 1] = "Return Bitfield 9 Cross Type"
   end
   -- Is Return Bitfield 9 Reserved 128 flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -6308,8 +6378,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_9.bits = function(ran
   -- Return Bitfield 9 Cmta Number: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_cmta_number, range, value)
 
-  -- Return Bitfield 9 Reserved 64: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_64, range, value)
+  -- Return Bitfield 9 Cross Type: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_cross_type, range, value)
 
   -- Return Bitfield 9 Reserved 128: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.return_bitfield_9_reserved_128, range, value)
@@ -7563,15 +7633,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
-
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
-
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Cmta Number
   local cmta_number = nil
 
@@ -7581,13 +7642,13 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
+  -- Runtime optional field: Cross Type
+  local cross_type = nil
 
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
+  local cross_type_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x40), 6) > 0
 
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
+  if cross_type_exists then
+    index, cross_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Clearing Optional Data
@@ -7635,6 +7696,15 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, avg_px = cboe_bzxoptions_binaryorderentry_boe_v2_10.avg_px.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Day Avg Px
+  local day_avg_px = nil
+
+  local day_avg_px_exists = number_of_return_bitfields >= 13 and bit.rshift(bit.band(return_bitfield_13, 0x10), 4) > 0
+
+  if day_avg_px_exists then
+    index, day_avg_px = cboe_bzxoptions_binaryorderentry_boe_v2_10.day_avg_px.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Client Id Attr
   local client_id_attr = nil
 
@@ -7642,6 +7712,33 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
 
   if client_id_attr_exists then
     index, client_id_attr = cboe_bzxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
+
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
+
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Floor Trader Acronym
+  local floor_trader_acronym = nil
+
+  local floor_trader_acronym_exists = number_of_return_bitfields >= 17 and bit.rshift(bit.band(return_bitfield_17, 0x20), 5) > 0
+
+  if floor_trader_acronym_exists then
+    index, floor_trader_acronym = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_trader_acronym.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -8371,15 +8468,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.trade_cancel_or_correct_message.field
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -8871,15 +8959,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, stop_px = cboe_bzxoptions_binaryorderentry_boe_v2_10.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
-
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
-
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Cmta Number
   local cmta_number = nil
 
@@ -8887,15 +8966,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
 
   if cmta_number_exists then
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Mass Cancel Id
@@ -9563,15 +9633,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
-
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
-
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Cmta Number
   local cmta_number = nil
 
@@ -9581,13 +9642,22 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -9840,15 +9910,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.user_modify_rejected_message.fields =
 
     -- Return Bitfield 17: Struct of 8 fields
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -10516,15 +10577,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
-
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
-
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Cmta Number
   local cmta_number = nil
 
@@ -10534,15 +10586,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Client Id Attr
   local client_id_attr = nil
 
@@ -10550,6 +10593,24 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
 
   if client_id_attr_exists then
     index, client_id_attr = cboe_bzxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
+
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
+
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -10873,15 +10934,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, symbol_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_bzxoptions_binaryorderentry_boe_v2_10.capacity.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Account
   local account = nil
 
@@ -10943,51 +10995,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
 
   if prevent_match_exists then
     index, prevent_match = cboe_bzxoptions_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Maturity Date
-  local maturity_date = nil
-
-  local maturity_date_exists = number_of_return_bitfields >= 4 and bit.band(return_bitfield_4, 0x01) > 0
-
-  if maturity_date_exists then
-    index, maturity_date = cboe_bzxoptions_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strike Price
-  local strike_price = nil
-
-  local strike_price_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x02), 1) > 0
-
-  if strike_price_exists then
-    index, strike_price = cboe_bzxoptions_binaryorderentry_boe_v2_10.strike_price.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Put Or Call
-  local put_or_call = nil
-
-  local put_or_call_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x04), 2) > 0
-
-  if put_or_call_exists then
-    index, put_or_call = cboe_bzxoptions_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Open Close
-  local open_close = nil
-
-  local open_close_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x08), 3) > 0
-
-  if open_close_exists then
-    index, open_close = cboe_bzxoptions_binaryorderentry_boe_v2_10.open_close.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Corrected Size
-  local corrected_size = nil
-
-  local corrected_size_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x20), 5) > 0
-
-  if corrected_size_exists then
-    index, corrected_size = cboe_bzxoptions_binaryorderentry_boe_v2_10.corrected_size.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Orig Cl Ord Id
@@ -11089,15 +11096,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, attributed_quote = cboe_bzxoptions_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Sub Liquidity Indicator
-  local sub_liquidity_indicator = nil
-
-  local sub_liquidity_indicator_exists = number_of_return_bitfields >= 7 and bit.band(return_bitfield_7, 0x01) > 0
-
-  if sub_liquidity_indicator_exists then
-    index, sub_liquidity_indicator = cboe_bzxoptions_binaryorderentry_boe_v2_10.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
@@ -11152,49 +11150,31 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
 
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
 
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
+  if cmta_number_exists then
+    index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Clearing Optional Data
-  local clearing_optional_data = nil
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
 
-  local clearing_optional_data_exists = number_of_return_bitfields >= 12 and bit.rshift(bit.band(return_bitfield_12, 0x80), 7) > 0
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
 
-  if clearing_optional_data_exists then
-    index, clearing_optional_data = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_optional_data.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Client Id Attr
-  local client_id_attr = nil
-
-  local client_id_attr_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x80), 7) > 0
-
-  if client_id_attr_exists then
-    index, client_id_attr = cboe_bzxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Session Eligibility
-  local session_eligibility = nil
-
-  local session_eligibility_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x02), 1) > 0
-
-  if session_eligibility_exists then
-    index, session_eligibility = cboe_bzxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -11778,15 +11758,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
-
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
-
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Cmta Number
   local cmta_number = nil
 
@@ -11794,15 +11765,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
 
   if cmta_number_exists then
     index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Client Id Attr
@@ -11823,13 +11785,22 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, session_eligibility = cboe_bzxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Compression
-  local compression = nil
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
 
-  local compression_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x08), 3) > 0
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
 
-  if compression_exists then
-    index, compression = cboe_bzxoptions_binaryorderentry_boe_v2_10.compression.dissect(buffer, index, packet, parent)
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -12557,22 +12528,13 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, ex_destination = cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Marketing Fee Code
-  local marketing_fee_code = nil
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
 
-  local marketing_fee_code_exists = number_of_return_bitfields >= 9 and bit.band(return_bitfield_9, 0x01) > 0
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
 
-  if marketing_fee_code_exists then
-    index, marketing_fee_code = cboe_bzxoptions_binaryorderentry_boe_v2_10.marketing_fee_code.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Cross Id
-  local cross_id = nil
-
-  local cross_id_exists = number_of_return_bitfields >= 10 and bit.band(return_bitfield_10, 0x01) > 0
-
-  if cross_id_exists then
-    index, cross_id = cboe_bzxoptions_binaryorderentry_boe_v2_10.cross_id.dissect(buffer, index, packet, parent)
+  if cmta_number_exists then
+    index, cmta_number = cboe_bzxoptions_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Clearing Optional Data
@@ -12600,6 +12562,24 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
 
   if session_eligibility_exists then
     index, session_eligibility = cboe_bzxoptions_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
+
+  local floor_routing_inst_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x20), 5) > 0
+
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x80), 7) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -13937,9 +13917,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_9.size = 1
 cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_9.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is New Order Bitfield 9 Reserved 1 flag set?
+  -- Is New Order Bitfield 9 Order Origin flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "New Order Bitfield 9 Reserved 1"
+    flags[#flags + 1] = "New Order Bitfield 9 Order Origin"
   end
   -- Is New Order Bitfield 9 Reserved 2 flag set?
   if bit.band(value, 0x02) ~= 0 then
@@ -13976,8 +13956,8 @@ end
 -- Dissect Bit Fields: New Order Bitfield 9
 cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_9.bits = function(range, value, packet, parent)
 
-  -- New Order Bitfield 9 Reserved 1: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_1, range, value)
+  -- New Order Bitfield 9 Order Origin: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_order_origin, range, value)
 
   -- New Order Bitfield 9 Reserved 2: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_9_reserved_2, range, value)
@@ -14054,9 +14034,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_8.display = functi
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "New Order Bitfield 8 Reserved 64"
   end
-  -- Is New Order Bitfield 8 Reserved 128 flag set?
+  -- Is New Order Bitfield 8 Floor Routing Inst flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "New Order Bitfield 8 Reserved 128"
+    flags[#flags + 1] = "New Order Bitfield 8 Floor Routing Inst"
   end
 
   return table.concat(flags, "|")
@@ -14086,8 +14066,8 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_8.bits = function(
   -- New Order Bitfield 8 Reserved 64: 1 Bit
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_64, range, value)
 
-  -- New Order Bitfield 8 Reserved 128: 1 Bit
-  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_reserved_128, range, value)
+  -- New Order Bitfield 8 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.new_order_bitfield_8_floor_routing_inst, range, value)
 end
 
 -- Dissect: New Order Bitfield 8
@@ -14996,6 +14976,15 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, prevent_match = cboe_bzxoptions_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
+  local expire_time_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x80), 7) > 0
+
+  if expire_time_exists then
+    index, expire_time = cboe_bzxoptions_binaryorderentry_boe_v2_10.expire_time.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Maturity Date
   local maturity_date = nil
 
@@ -15066,15 +15055,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
 
   if attributed_quote_exists then
     index, attributed_quote = cboe_bzxoptions_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Ext Exec Inst
-  local ext_exec_inst = nil
-
-  local ext_exec_inst_exists = number_of_new_order_bitfields >= 5 and bit.rshift(bit.band(new_order_bitfield_5, 0x08), 3) > 0
-
-  if ext_exec_inst_exists then
-    index, ext_exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.ext_exec_inst.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Range
@@ -15156,6 +15136,24 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
 
   if client_id_attr_exists then
     index, client_id_attr = cboe_bzxoptions_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Floor Routing Inst
+  local floor_routing_inst = nil
+
+  local floor_routing_inst_exists = number_of_new_order_bitfields >= 8 and bit.rshift(bit.band(new_order_bitfield_8, 0x80), 7) > 0
+
+  if floor_routing_inst_exists then
+    index, floor_routing_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.floor_routing_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Origin
+  local order_origin = nil
+
+  local order_origin_exists = number_of_new_order_bitfields >= 9 and bit.band(new_order_bitfield_9, 0x01) > 0
+
+  if order_origin_exists then
+    index, order_origin = cboe_bzxoptions_binaryorderentry_boe_v2_10.order_origin.dissect(buffer, index, packet, parent)
   end
 
   return index

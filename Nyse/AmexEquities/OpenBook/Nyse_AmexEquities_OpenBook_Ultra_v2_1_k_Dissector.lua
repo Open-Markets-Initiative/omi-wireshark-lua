@@ -52,6 +52,7 @@ omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.status = ProtoField.new("Stat
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_11 = ProtoField.new("Symbol 11", "nyse.amexequities.openbook.ultra.v2.1.k.symbol11", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_16 = ProtoField.new("Symbol 16", "nyse.amexequities.openbook.ultra.v2.1.k.symbol16", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexequities.openbook.ultra.v2.1.k.symbolindex", ftypes.INT32)
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_messages = ProtoField.new("Symbol Index Mapping Response Messages", "nyse.amexequities.openbook.ultra.v2.1.k.symbolindexmappingresponsemessages", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexequities.openbook.ultra.v2.1.k.symbolseqnum", ftypes.INT32)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexequities.openbook.ultra.v2.1.k.timestamp", ftypes.UINT32)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.trading_status = ProtoField.new("Trading Status", "nyse.amexequities.openbook.ultra.v2.1.k.tradingstatus", ftypes.STRING)
@@ -81,6 +82,11 @@ omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_request_
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message = ProtoField.new("Symbol Index Mapping Response Message", "nyse.amexequities.openbook.ultra.v2.1.k.symbolindexmappingresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.unavailable_message = ProtoField.new("Unavailable Message", "nyse.amexequities.openbook.ultra.v2.1.k.unavailablemessage", ftypes.STRING)
 
+-- Nyse AmexEquities OpenBook Ultra 2.1.k Generated Fields
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.delta_update_message_index = ProtoField.new("Delta Update Message Index", "nyse.amexequities.openbook.ultra.v2.1.k.deltaupdatemessageindex", ftypes.UINT16)
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.full_update_message_index = ProtoField.new("Full Update Message Index", "nyse.amexequities.openbook.ultra.v2.1.k.fullupdatemessageindex", ftypes.UINT16)
+omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message_index = ProtoField.new("Symbol Index Mapping Response Message Index", "nyse.amexequities.openbook.ultra.v2.1.k.symbolindexmappingresponsemessageindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -92,12 +98,14 @@ show.application_messages = true
 show.repeating_groups = true
 show.structs = true
 show.headers = true
+show.indexes = true
 
 -- Register Nyse AmexEquities OpenBook Ultra 2.1.k Show Options
 omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs_changed()
@@ -114,6 +122,9 @@ function omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs_changed()
   end
   if show.structs ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs then
     show.structs = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_structs
+  end
+  if show.indexes ~= omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes then
+    show.indexes = omi_nyse_amexequities_openbook_ultra_v2_1_k.prefs.show_indexes
   end
 end
 
@@ -1477,8 +1488,14 @@ nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.display = function(
 end
 
 -- Dissect Fields: Delta Update Message
-nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields = function(buffer, offset, packet, parent)
+nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields = function(buffer, offset, packet, parent, delta_update_message_index)
   local index = offset
+
+  -- Implicit Delta Update Message Index
+  if delta_update_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.delta_update_message_index, delta_update_message_index)
+    iteration:set_generated()
+  end
 
   -- Delta Size: Binary
   index, delta_size = nyse_amexequities_openbook_ultra_v2_1_k.delta_size.dissect(buffer, index, packet, parent)
@@ -1493,11 +1510,11 @@ nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields = function(b
 end
 
 -- Dissect: Delta Update Message
-nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.dissect = function(buffer, offset, packet, parent)
+nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.dissect = function(buffer, offset, packet, parent, delta_update_message_index)
   if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.delta_update_message, buffer(offset, 0))
-    local index = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields(buffer, offset, packet, parent)
+    local index = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields(buffer, offset, packet, parent, delta_update_message_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.display(packet, parent, length)
@@ -1506,16 +1523,23 @@ nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields(buffer, offset, packet, parent)
+    return nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.fields(buffer, offset, packet, parent, delta_update_message_index)
   end
 end
 
 -- Delta Update Messages
 nyse_amexequities_openbook_ultra_v2_1_k.delta_update_messages = {}
 
--- Size: Delta Update Messages
+-- Calculate size of: Delta Update Messages
 nyse_amexequities_openbook_ultra_v2_1_k.delta_update_messages.size = function(buffer, offset)
-  return buffer:len() - offset
+  local index = 0
+
+  -- Calculate field size from count
+  local delta_update_message_count = buffer(offset + index - 2, 1):uint()
+  for i = 1, delta_update_message_count do
+    index = index + nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.size(buffer, offset + index)
+  end
+  return index
 end
 
 -- Display: Delta Update Messages
@@ -1527,14 +1551,12 @@ end
 nyse_amexequities_openbook_ultra_v2_1_k.delta_update_messages.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency for Delta Update Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(offset - 2, 1):uint()
 
-  -- Delta Update Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, delta_update_message = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.dissect(buffer, index, packet, parent)
+  -- Repeating: Delta Update Message
+  for delta_update_message_index = 1, message_count do
+    index, delta_update_message = nyse_amexequities_openbook_ultra_v2_1_k.delta_update_message.dissect(buffer, index, packet, parent, delta_update_message_index)
   end
 
   return index
@@ -1714,8 +1736,14 @@ nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.display = function(p
 end
 
 -- Dissect Fields: Full Update Message
-nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields = function(buffer, offset, packet, parent)
+nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields = function(buffer, offset, packet, parent, full_update_message_index)
   local index = offset
+
+  -- Implicit Full Update Message Index
+  if full_update_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.full_update_message_index, full_update_message_index)
+    iteration:set_generated()
+  end
 
   -- Update Size: Binary
   index, update_size = nyse_amexequities_openbook_ultra_v2_1_k.update_size.dissect(buffer, index, packet, parent)
@@ -1730,11 +1758,11 @@ nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields = function(bu
 end
 
 -- Dissect: Full Update Message
-nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.dissect = function(buffer, offset, packet, parent)
+nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.dissect = function(buffer, offset, packet, parent, full_update_message_index)
   if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.full_update_message, buffer(offset, 0))
-    local index = nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields(buffer, offset, packet, parent)
+    local index = nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields(buffer, offset, packet, parent, full_update_message_index)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.display(packet, parent, length)
@@ -1743,16 +1771,23 @@ nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields(buffer, offset, packet, parent)
+    return nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.fields(buffer, offset, packet, parent, full_update_message_index)
   end
 end
 
 -- Full Update Messages
 nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages = {}
 
--- Size: Full Update Messages
+-- Calculate size of: Full Update Messages
 nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.size = function(buffer, offset)
-  return buffer:len() - offset
+  local index = 0
+
+  -- Calculate field size from count
+  local full_update_message_count = buffer(offset + index - 2, 1):uint()
+  for i = 1, full_update_message_count do
+    index = index + nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.size(buffer, offset + index)
+  end
+  return index
 end
 
 -- Display: Full Update Messages
@@ -1764,14 +1799,12 @@ end
 nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Dependency for Full Update Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(offset - 2, 1):uint()
 
-  -- Full Update Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, full_update_message = nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.dissect(buffer, index, packet, parent)
+  -- Repeating: Full Update Message
+  for full_update_message_index = 1, message_count do
+    index, full_update_message = nyse_amexequities_openbook_ultra_v2_1_k.full_update_message.dissect(buffer, index, packet, parent, full_update_message_index)
   end
 
   return index
@@ -1792,54 +1825,6 @@ nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.dissect = function(
   else
     -- Skip element, add fields directly
     return nyse_amexequities_openbook_ultra_v2_1_k.full_update_messages.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Symbol Index Mapping Response Message
-nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message = {}
-
--- Size: Symbol Index Mapping Response Message
-nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.size =
-  nyse_amexequities_openbook_ultra_v2_1_k.symbol_11.size + 
-  nyse_amexequities_openbook_ultra_v2_1_k.filler_1.size + 
-  nyse_amexequities_openbook_ultra_v2_1_k.symbol_index.size
-
--- Display: Symbol Index Mapping Response Message
-nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Symbol Index Mapping Response Message
-nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Symbol 11: ASCII
-  index, symbol_11 = nyse_amexequities_openbook_ultra_v2_1_k.symbol_11.dissect(buffer, index, packet, parent)
-
-  -- Filler 1: Binary
-  index, filler_1 = nyse_amexequities_openbook_ultra_v2_1_k.filler_1.dissect(buffer, index, packet, parent)
-
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Symbol Index Mapping Response Message
-nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message, buffer(offset, 0))
-    local index = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2241,11 +2226,121 @@ nyse_amexequities_openbook_ultra_v2_1_k.sequence_number_reset_message.dissect = 
   end
 end
 
+-- Symbol Index Mapping Response Message
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message = {}
+
+-- Size: Symbol Index Mapping Response Message
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.size =
+  nyse_amexequities_openbook_ultra_v2_1_k.symbol_11.size + 
+  nyse_amexequities_openbook_ultra_v2_1_k.filler_1.size + 
+  nyse_amexequities_openbook_ultra_v2_1_k.symbol_index.size
+
+-- Display: Symbol Index Mapping Response Message
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Index Mapping Response Message
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields = function(buffer, offset, packet, parent, symbol_index_mapping_response_message_index)
+  local index = offset
+
+  -- Implicit Symbol Index Mapping Response Message Index
+  if symbol_index_mapping_response_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message_index, symbol_index_mapping_response_message_index)
+    iteration:set_generated()
+  end
+
+  -- Symbol 11: ASCII
+  index, symbol_11 = nyse_amexequities_openbook_ultra_v2_1_k.symbol_11.dissect(buffer, index, packet, parent)
+
+  -- Filler 1: Binary
+  index, filler_1 = nyse_amexequities_openbook_ultra_v2_1_k.filler_1.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Index Mapping Response Message
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.dissect = function(buffer, offset, packet, parent, symbol_index_mapping_response_message_index)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message, buffer(offset, 0))
+    local index = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields(buffer, offset, packet, parent, symbol_index_mapping_response_message_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.fields(buffer, offset, packet, parent, symbol_index_mapping_response_message_index)
+  end
+end
+
+-- Symbol Index Mapping Response Messages
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages = {}
+
+-- Calculate size of: Symbol Index Mapping Response Messages
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate field size from count
+  local symbol_index_mapping_response_message_count = buffer(offset + index - 2, 1):uint()
+  index = index + symbol_index_mapping_response_message_count * 16
+
+  return index
+end
+
+-- Display: Symbol Index Mapping Response Messages
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Index Mapping Response Messages
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Message Count
+  local message_count = buffer(offset - 2, 1):uint()
+
+  -- Repeating: Symbol Index Mapping Response Message
+  for symbol_index_mapping_response_message_index = 1, message_count do
+    index, symbol_index_mapping_response_message = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.dissect(buffer, index, packet, parent, symbol_index_mapping_response_message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Symbol Index Mapping Response Messages
+nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_messages, buffer(offset, 0))
+    local index = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Payload
 nyse_amexequities_openbook_ultra_v2_1_k.payload = {}
 
 -- Dissect: Payload
 nyse_amexequities_openbook_ultra_v2_1_k.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Symbol Index Mapping Response Messages
+  if message_type == 35 then
+    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_messages.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
     return nyse_amexequities_openbook_ultra_v2_1_k.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
@@ -2285,10 +2380,6 @@ nyse_amexequities_openbook_ultra_v2_1_k.payload.dissect = function(buffer, offse
   -- Dissect Symbol Index Mapping Request Message
   if message_type == 34 then
     return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Symbol Index Mapping Response Message
-  if message_type == 35 then
-    return nyse_amexequities_openbook_ultra_v2_1_k.symbol_index_mapping_response_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Full Update Messages
   if message_type == 230 then

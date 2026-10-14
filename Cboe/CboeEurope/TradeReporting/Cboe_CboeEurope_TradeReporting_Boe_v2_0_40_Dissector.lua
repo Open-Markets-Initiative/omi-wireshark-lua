@@ -17,6 +17,8 @@ local cboe_cboeeurope_tradereporting_boe_v2_0_40 = {}
 -- Cboe CboeEurope TradeReporting Boe 2.0.40 Fields
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.account = ProtoField.new("Account", "cboe.cboeeurope.tradereporting.boe.v2.0.40.account", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "cboe.cboeeurope.tradereporting.boe.v2.0.40.algorithmicindicator", ftypes.STRING)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.bid_px = ProtoField.new("Bid Px", "cboe.cboeeurope.tradereporting.boe.v2.0.40.bidpx", ftypes.DOUBLE)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.bid_size = ProtoField.new("Bid Size", "cboe.cboeeurope.tradereporting.boe.v2.0.40.bidsize", ftypes.UINT32)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.capacity = ProtoField.new("Capacity", "cboe.cboeeurope.tradereporting.boe.v2.0.40.capacity", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.central_counterparty = ProtoField.new("Central Counterparty", "cboe.cboeeurope.tradereporting.boe.v2.0.40.centralcounterparty", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.clearing_firm = ProtoField.new("Clearing Firm", "cboe.cboeeurope.tradereporting.boe.v2.0.40.clearingfirm", ftypes.STRING)
@@ -41,6 +43,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.match_type = ProtoField.ne
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.cboeeurope.tradereporting.boe.v2.0.40.matchingunit", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.message_length = ProtoField.new("Message Length", "cboe.cboeeurope.tradereporting.boe.v2.0.40.messagelength", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.message_type = ProtoField.new("Message Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.messagetype", ftypes.UINT8)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.multi_juris_reporting_ind = ProtoField.new("Multi Juris Reporting Ind", "cboe.cboeeurope.tradereporting.boe.v2.0.40.multijurisreportingind", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.no_quote_entries = ProtoField.new("No Quote Entries", "cboe.cboeeurope.tradereporting.boe.v2.0.40.noquoteentries", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.no_sides = ProtoField.new("No Sides", "cboe.cboeeurope.tradereporting.boe.v2.0.40.nosides", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.no_unspecified_unit_replay = ProtoField.new("No Unspecified Unit Replay", "cboe.cboeeurope.tradereporting.boe.v2.0.40.nounspecifiedunitreplay", ftypes.UINT8)
@@ -50,6 +53,8 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_quote_v_2_bitfie
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_return_bitfields = ProtoField.new("Number Of Return Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberofreturnbitfields", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_trade_capture_report_v_2_bitfields = ProtoField.new("Number Of Trade Capture Report V 2 Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberoftradecapturereportv2bitfields", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberofunits", ftypes.UINT8)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.offer_px = ProtoField.new("Offer Px", "cboe.cboeeurope.tradereporting.boe.v2.0.40.offerpx", ftypes.DOUBLE)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.offer_size = ProtoField.new("Offer Size", "cboe.cboeeurope.tradereporting.boe.v2.0.40.offersize", ftypes.UINT32)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_category = ProtoField.new("Order Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.ordercategory", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_qty = ProtoField.new("Order Qty", "cboe.cboeeurope.tradereporting.boe.v2.0.40.orderqty", ftypes.UINT32)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group = ProtoField.new("Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgroup", ftypes.STRING)
@@ -424,6 +429,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.quote_v_2_bitfield_1_symbo
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.reason = ProtoField.new("Reason", "cboe.cboeeurope.tradereporting.boe.v2.0.40.reason", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.report_time = ProtoField.new("Report Time", "cboe.cboeeurope.tradereporting.boe.v2.0.40.reporttime", ftypes.UINT64)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.reserved1", ftypes.BYTES)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.40.rpttime", ftypes.UINT64)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.secondarytrdtype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.cboeeurope.tradereporting.boe.v2.0.40.securityexchange", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.security_id = ProtoField.new("Security Id", "cboe.cboeeurope.tradereporting.boe.v2.0.40.securityid", ftypes.STRING)
@@ -574,7 +580,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_attributed_quote = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Attributed Quote", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6attributedquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_bulk_order_ids = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Bulk Order Ids", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_bulk_reject_reasons = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Bulk Reject Reasons", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_ccp = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Ccp", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_central_counterparty = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6centralcounterparty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_contra_capacity = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_ext_exec_inst = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Ext Exec Inst", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_party_role = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 6 Party Role", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2returnbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -949,6 +955,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decli
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_return_bitfield_9_marketing_fee_code = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Marketing Fee Code", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportdeclinev2returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_return_bitfield_9_order_category = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Order Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportdeclinev2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_return_bitfield_9_target_party_id = ProtoField.new("Trade Capture Report Decline V 2 Return Bitfield 9 Target Party Id", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportdeclinev2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Report Decline V 2 Trd Cap Ack Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportdeclinev2trdcapacksidegrp", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_1 = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield1", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_1_exec_inst = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1 Exec Inst", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_1_max_remove_pct = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 1 Max Remove Pct", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -1120,6 +1127,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_rejec
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_9_marketing_fee_code = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Marketing Fee Code", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_9_order_category = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Order Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_return_bitfield_9_target_party_id = ProtoField.new("Trade Capture Report Reject V 2 Return Bitfield 9 Target Party Id", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Report Reject V 2 Trd Cap Ack Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2trdcapacksidegrp", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_v_2_bitfield_1 = ProtoField.new("Trade Capture Report V 2 Bitfield 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportv2bitfield1", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_v_2_bitfield_1_currency = ProtoField.new("Trade Capture Report V 2 Bitfield 1 Currency", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportv2bitfield1currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_v_2_bitfield_1_id_source = ProtoField.new("Trade Capture Report V 2 Bitfield 1 Id Source", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportv2bitfield1idsource", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -1222,6 +1230,8 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_v_2_m
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgroupindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.quote_cancel_rpt_grp_index = ProtoField.new("Quote Cancel Rpt Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.quotecancelrptgrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Confirm V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecaptureconfirmv2trdcapacksidegrpindex", ftypes.UINT16)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Decline V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportdeclinev2trdcapacksidegrpindex", ftypes.UINT16)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Reject V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_ack_side_grp_index = ProtoField.new("Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_rpt_side_grp_index = ProtoField.new("Trd Cap Rpt Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.trdcaprptsidegrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.units_index = ProtoField.new("Units Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitsindex", ftypes.UINT16)
@@ -1350,6 +1360,58 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.dissect = funct
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.algorithmic_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px = {}
+
+-- Size: Bid Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.size = 8
+
+-- Display: Bid Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.display = function(value)
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Bid Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.translate(raw)
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size = {}
+
+-- Size: Bid Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.size = 4
+
+-- Display: Bid Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.display = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2293,6 +2355,42 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.message_type.dissect = function(buffe
   return offset + length, value
 end
 
+-- Multi Juris Reporting Ind
+cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind = {}
+
+-- Size: Multi Juris Reporting Ind
+cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.size = 1
+
+-- Display: Multi Juris Reporting Ind
+cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Multi Juris Reporting Ind: No Value"
+  end
+
+  return "Multi Juris Reporting Ind: "..value
+end
+
+-- Dissect: Multi Juris Reporting Ind
+cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.multi_juris_reporting_ind, range, value, display)
+
+  return offset + length, value
+end
+
 -- No Quote Entries
 cboe_cboeeurope_tradereporting_boe_v2_0_40.no_quote_entries = {}
 
@@ -2496,6 +2594,58 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_units.dissect = function(bu
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_units, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px = {}
+
+-- Size: Offer Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.size = 8
+
+-- Display: Offer Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.display = function(value)
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Offer Px
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.translate(raw)
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size = {}
+
+-- Size: Offer Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.size = 4
+
+-- Display: Offer Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.display = function(value)
+  return "Offer Size: "..value
+end
+
+-- Dissect: Offer Size
+cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -2887,6 +3037,33 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect = function(buffer,
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rpt Time
+cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time = {}
+
+-- Size: Rpt Time
+cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.size = 8
+
+-- Display: Rpt Time
+cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.display = function(value)
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Rpt Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect: Rpt Time
+cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.rpt_time, range, value, display)
 
   return offset + length, value
 end
@@ -5911,6 +6088,42 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_reject_v_2_message.fields = fun
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Bid Px
+  local bid_px = nil
+
+  local bid_px_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_7, 0x10), 4) > 0
+
+  if bid_px_exists then
+    index, bid_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bid Size
+  local bid_size = nil
+
+  local bid_size_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_7, 0x10), 4) > 0
+
+  if bid_size_exists then
+    index, bid_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Px
+  local offer_px = nil
+
+  local offer_px_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_7, 0x20), 5) > 0
+
+  if offer_px_exists then
+    index, offer_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Size
+  local offer_size = nil
+
+  local offer_size_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_reject_v_2_return_bitfield_7, 0x20), 5) > 0
+
+  if offer_size_exists then
+    index, offer_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.dissect(buffer, index, packet, parent)
+  end
+
   return index
 end
 
@@ -7942,6 +8155,42 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.fields = fun
     index, text = cboe_cboeeurope_tradereporting_boe_v2_0_40.text.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Bid Px
+  local bid_px = nil
+
+  local bid_px_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_7, 0x10), 4) > 0
+
+  if bid_px_exists then
+    index, bid_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bid Size
+  local bid_size = nil
+
+  local bid_size_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_7, 0x10), 4) > 0
+
+  if bid_size_exists then
+    index, bid_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Px
+  local offer_px = nil
+
+  local offer_px_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_7, 0x20), 5) > 0
+
+  if offer_px_exists then
+    index, offer_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Size
+  local offer_size = nil
+
+  local offer_size_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(quote_status_v_2_return_bitfield_7, 0x20), 5) > 0
+
+  if offer_size_exists then
+    index, offer_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.dissect(buffer, index, packet, parent)
+  end
+
   return index
 end
 
@@ -7967,65 +8216,89 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_status_v_2_message.dissect = fu
   end
 end
 
--- Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp = {}
+-- Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp = {}
 
--- Size: Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.size =
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.account.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.size
+-- Size of Trade Capture Report Decline V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Decline V 2 Return Bitfield 1, Trade Capture Report Decline V 2 Return Bitfield 2, Trade Capture Report Decline V 2 Return Bitfield 3, Trade Capture Report Decline V 2 Return Bitfield 4, Trade Capture Report Decline V 2 Return Bitfield 6 passed down from Trade Capture Report Decline V 2 Message
 
--- Display: Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.display = function(packet, parent, length)
+-- Display: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+-- Dissect Fields: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   local index = offset
 
-  -- Implicit Trd Cap Ack Side Grp Index
-  if trd_cap_ack_side_grp_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_ack_side_grp_index, trd_cap_ack_side_grp_index)
+  -- Implicit Trade Capture Report Decline V 2 Trd Cap Ack Side Grp Index
+  if trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index)
     iteration:set_generated()
   end
 
-  -- Side: Alphanumeric
-  index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Side
+  local side = nil
 
-  -- Capacity: Alpha
-  index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_decline_v_2_return_bitfield_1, 0x01) > 0
 
-  -- Account: Text
-  index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  if side_exists then
+    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  end
 
-  -- Party Id: Alpha
-  index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
--- Dissect: Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+-- Dissect: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_ack_side_grp, buffer(offset, 0))
-    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.display(packet, parent, length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   end
 end
 
@@ -9741,6 +10014,8 @@ end
 -- Dissect Fields: Trade Capture Report Decline V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
+  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_time.dissect(buffer, index, packet, parent)
@@ -9987,9 +10262,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- No Sides: Binary
   index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Trd Cap Ack Side Grp
-  for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  -- Repeating: Trade Capture Report Decline V 2 Trd Cap Ack Side Grp
+  for trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trade_capture_report_decline_v_2_trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -10064,6 +10339,24 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
@@ -10109,6 +10402,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Multi Juris Reporting Ind
+  local multi_juris_reporting_ind = nil
+
+  local multi_juris_reporting_ind_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_18, 0x80), 7) > 0
+
+  if multi_juris_reporting_ind_exists then
+    index, multi_juris_reporting_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
@@ -10116,51 +10418,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_decline_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_decline_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -10191,15 +10448,7 @@ end
 -- Trade Capture Confirm V 2 Trd Cap Ack Side Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp = {}
 
--- Size: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.size =
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.account.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.fee_code.size
+-- Size of Trade Capture Confirm V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Confirm V 2 Return Bitfield 1, Trade Capture Confirm V 2 Return Bitfield 2, Trade Capture Confirm V 2 Return Bitfield 3, Trade Capture Confirm V 2 Return Bitfield 4, Trade Capture Confirm V 2 Return Bitfield 6, Trade Capture Confirm V 2 Return Bitfield 8 passed down from Trade Capture Confirm V 2 Message
 
 -- Display: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
@@ -10207,7 +10456,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack
 end
 
 -- Dissect Fields: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   local index = offset
 
   -- Implicit Trade Capture Confirm V 2 Trd Cap Ack Side Grp Index
@@ -10216,36 +10465,78 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack
     iteration:set_generated()
   end
 
-  -- Side: Alphanumeric
-  index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Side
+  local side = nil
 
-  -- Capacity: Alpha
-  index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_confirm_v_2_return_bitfield_1, 0x01) > 0
 
-  -- Account: Text
-  index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  if side_exists then
+    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  end
 
-  -- Party Id: Alpha
-  index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
 
-  -- Central Counterparty: Alpha
-  index, central_counterparty = cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.dissect(buffer, index, packet, parent)
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40), 6) > 0
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  if capacity_exists then
+    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  end
 
-  -- Fee Code: Alphanumeric
-  index, fee_code = cboe_cboeeurope_tradereporting_boe_v2_0_40.fee_code.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Central Counterparty
+  local central_counterparty = nil
+
+  local central_counterparty_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x02), 1) > 0
+
+  if central_counterparty_exists then
+    index, central_counterparty = cboe_cboeeurope_tradereporting_boe_v2_0_40.central_counterparty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Fee Code
+  local fee_code = nil
+
+  local fee_code_exists = number_of_return_bitfields >= 8 and bit.band(trade_capture_confirm_v_2_return_bitfield_8, 0x01) > 0
+
+  if fee_code_exists then
+    index, fee_code = cboe_cboeeurope_tradereporting_boe_v2_0_40.fee_code.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
-    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
@@ -10254,7 +10545,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   end
 end
 
@@ -11429,9 +11720,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_return_bitf
   if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Secondary Order Id"
   end
-  -- Is Trade Capture Confirm V 2 Return Bitfield 6 Ccp flag set?
+  -- Is Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty flag set?
   if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Ccp"
+    flags[#flags + 1] = "Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty"
   end
   -- Is Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity flag set?
   if bit.band(value, 0x04) ~= 0 then
@@ -11467,8 +11758,8 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_return_bitf
   -- Trade Capture Confirm V 2 Return Bitfield 6 Secondary Order Id: 1 Bit
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_secondary_order_id, range, value)
 
-  -- Trade Capture Confirm V 2 Return Bitfield 6 Ccp: 1 Bit
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_ccp, range, value)
+  -- Trade Capture Confirm V 2 Return Bitfield 6 Central Counterparty: 1 Bit
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_central_counterparty, range, value)
 
   -- Trade Capture Confirm V 2 Return Bitfield 6 Contra Capacity: 1 Bit
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_confirm_v_2_return_bitfield_6_contra_capacity, range, value)
@@ -11970,6 +12261,8 @@ end
 -- Dissect Fields: Trade Capture Confirm V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 73, 1):le_uint()
+  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_time.dissect(buffer, index, packet, parent)
@@ -12212,7 +12505,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
 
   -- Repeating: Trade Capture Confirm V 2 Trd Cap Ack Side Grp
   for trade_capture_confirm_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trade_capture_confirm_v_2_trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index)
+    index, trade_capture_confirm_v_2_trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8)
   end
 
   -- Runtime optional field: Symbol
@@ -12285,6 +12578,24 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
 
   if trade_report_type_return_exists then
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Text
@@ -12368,6 +12679,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
     index, report_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.report_time.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Multi Juris Reporting Ind
+  local multi_juris_reporting_ind = nil
+
+  local multi_juris_reporting_ind_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_18, 0x80), 7) > 0
+
+  if multi_juris_reporting_ind_exists then
+    index, multi_juris_reporting_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
@@ -12375,60 +12695,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_confirm_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_confirm_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Fee Code
-  local fee_code = nil
-
-  local fee_code_exists = number_of_return_bitfields >= 8 and bit.band(trade_capture_confirm_v_2_return_bitfield_8, 0x01) > 0
-
-  if fee_code_exists then
-    index, fee_code = cboe_cboeeurope_tradereporting_boe_v2_0_40.fee_code.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -12453,6 +12719,92 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.dis
     cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fields(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
 
     return index
+  end
+end
+
+-- Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp = {}
+
+-- Size of Trade Capture Report Reject V 2 Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Reject V 2 Return Bitfield 1, Trade Capture Report Reject V 2 Return Bitfield 2, Trade Capture Report Reject V 2 Return Bitfield 3, Trade Capture Report Reject V 2 Return Bitfield 4, Trade Capture Report Reject V 2 Return Bitfield 6 passed down from Trade Capture Report Reject V 2 Message
+
+-- Display: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+  local index = offset
+
+  -- Implicit Trade Capture Report Reject V 2 Trd Cap Ack Side Grp Index
+  if trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_reject_v_2_return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
   end
 end
 
@@ -14168,6 +14520,8 @@ end
 -- Dissect Fields: Trade Capture Report Reject V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
+  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_time.dissect(buffer, index, packet, parent)
@@ -14399,9 +14753,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- No Sides: Binary
   index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Trd Cap Ack Side Grp
-  for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  -- Repeating: Trade Capture Report Reject V 2 Trd Cap Ack Side Grp
+  for trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trade_capture_report_reject_v_2_trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -14476,6 +14830,24 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
     index, trade_report_type_return = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_type_return.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Trade Publish Indicator
+  local trade_publish_indicator = nil
+
+  local trade_publish_indicator_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if trade_publish_indicator_exists then
+    index, trade_publish_indicator = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Rpt Time
+  local rpt_time = nil
+
+  local rpt_time_exists = number_of_return_bitfields >= 7 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_7, 0x04), 2) > 0
+
+  if rpt_time_exists then
+    index, rpt_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.rpt_time.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Last Mkt
   local last_mkt = nil
 
@@ -14521,6 +14893,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Multi Juris Reporting Ind
+  local multi_juris_reporting_ind = nil
+
+  local multi_juris_reporting_ind_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_18, 0x80), 7) > 0
+
+  if multi_juris_reporting_ind_exists then
+    index, multi_juris_reporting_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
@@ -14528,51 +14909,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_reject_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_reject_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -14597,6 +14933,92 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
     cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_message.fields(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
 
     return index
+  end
+end
+
+-- Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp = {}
+
+-- Size of Trd Cap Ack Side Grp: not written, it needs Number Of Return Bitfields, Trade Capture Report Acknowledgment V 2 Return Bitfield 1, Trade Capture Report Acknowledgment V 2 Return Bitfield 2, Trade Capture Report Acknowledgment V 2 Return Bitfield 3, Trade Capture Report Acknowledgment V 2 Return Bitfield 4, Trade Capture Report Acknowledgment V 2 Return Bitfield 6 passed down from Trade Capture Report Acknowledgment V 2 Message
+
+-- Display: Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+  local index = offset
+
+  -- Implicit Trd Cap Ack Side Grp Index
+  if trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_ack_side_grp_index, trd_cap_ack_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40), 6) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Id
+  local party_id = nil
+
+  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40), 6) > 0
+
+  if party_id_exists then
+    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80), 7) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Trd Cap Ack Side Grp
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
   end
 end
 
@@ -16312,6 +16734,8 @@ end
 -- Dissect Fields: Trade Capture Report Acknowledgment V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
+  local number_of_return_bitfields = buffer(offset + 29, 1):le_uint()
+  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):bytes():tohex(false, " ")
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_time.dissect(buffer, index, packet, parent)
@@ -16539,7 +16963,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
 
   -- Repeating: Trd Cap Ack Side Grp
   for trd_cap_ack_side_grp_index = 1, no_sides do
-    index, trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+    index, trd_cap_ack_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6)
   end
 
   -- Runtime optional field: Symbol
@@ -16677,6 +17101,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Multi Juris Reporting Ind
+  local multi_juris_reporting_ind = nil
+
+  local multi_juris_reporting_ind_exists = number_of_return_bitfields >= 18 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_18, 0x80), 7) > 0
+
+  if multi_juris_reporting_ind_exists then
+    index, multi_juris_reporting_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
@@ -16684,51 +17117,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
 
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_return_bitfields >= 1 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_1, 0x01) > 0
-
-  if side_exists then
-    index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x01) > 0
-
-  if account_exists then
-    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Id
-  local party_id = nil
-
-  local party_id_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_4, 0x40), 6) > 0
-
-  if party_id_exists then
-    index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_return_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_6, 0x80), 7) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -16759,13 +17147,7 @@ end
 -- Quote Cancel Rpt Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp = {}
 
--- Size: Quote Cancel Rpt Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.size =
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.size
+-- Size of Quote Cancel Rpt Grp: not written, it needs Number Of Quote Cancel V 2 Bitfields, Quote Cancel V 2 Bitfield 1 passed down from Quote Cancel V 2 Message
 
 -- Display: Quote Cancel Rpt Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.display = function(packet, parent, length)
@@ -16773,7 +17155,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.display = functi
 end
 
 -- Dissect Fields: Quote Cancel Rpt Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields = function(buffer, offset, packet, parent, quote_cancel_rpt_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields = function(buffer, offset, packet, parent, quote_cancel_rpt_grp_index, number_of_quote_cancel_v_2_bitfields, quote_cancel_v_2_bitfield_1)
   local index = offset
 
   -- Implicit Quote Cancel Rpt Grp Index
@@ -16782,30 +17164,60 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields = functio
     iteration:set_generated()
   end
 
-  -- Symbol: Alphanumeric
-  index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Symbol
+  local symbol = nil
 
-  -- Currency: Alpha
-  index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
+  local symbol_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x01) > 0
 
-  -- Id Source: Alphanumeric
-  index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
+  if symbol_exists then
+    index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
+  end
 
-  -- Security Id: Text
-  index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Currency
+  local currency = nil
 
-  -- Security Exchange: Alphanumeric
-  index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
+  local currency_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x02), 1) > 0
+
+  if currency_exists then
+    index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Id Source
+  local id_source = nil
+
+  local id_source_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x04), 2) > 0
+
+  if id_source_exists then
+    index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Security Id
+  local security_id = nil
+
+  local security_id_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x08), 3) > 0
+
+  if security_id_exists then
+    index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Security Exchange
+  local security_exchange = nil
+
+  local security_exchange_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x10), 4) > 0
+
+  if security_exchange_exists then
+    index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Quote Cancel Rpt Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect = function(buffer, offset, packet, parent, quote_cancel_rpt_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect = function(buffer, offset, packet, parent, quote_cancel_rpt_grp_index, number_of_quote_cancel_v_2_bitfields, quote_cancel_v_2_bitfield_1)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.quote_cancel_rpt_grp, buffer(offset, 0))
-    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields(buffer, offset, packet, parent, quote_cancel_rpt_grp_index)
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields(buffer, offset, packet, parent, quote_cancel_rpt_grp_index, number_of_quote_cancel_v_2_bitfields, quote_cancel_v_2_bitfield_1)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.display(packet, parent, length)
@@ -16814,7 +17226,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect = functi
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields(buffer, offset, packet, parent, quote_cancel_rpt_grp_index)
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.fields(buffer, offset, packet, parent, quote_cancel_rpt_grp_index, number_of_quote_cancel_v_2_bitfields, quote_cancel_v_2_bitfield_1)
   end
 end
 
@@ -16928,6 +17340,8 @@ end
 -- Dissect Fields: Quote Cancel V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = function(buffer, offset, packet, parent, size_of_quote_cancel_v_2_message)
   local index = offset
+  local number_of_quote_cancel_v_2_bitfields = buffer(offset + 20, 1):le_uint()
+  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Quote Id: Text
   index, quote_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_id.dissect(buffer, index, packet, parent)
@@ -16951,7 +17365,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
 
   -- Repeating: Quote Cancel Rpt Grp
   for quote_cancel_rpt_grp_index = 1, no_quote_entries do
-    index, quote_cancel_rpt_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect(buffer, index, packet, parent, quote_cancel_rpt_grp_index)
+    index, quote_cancel_rpt_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect(buffer, index, packet, parent, quote_cancel_rpt_grp_index, number_of_quote_cancel_v_2_bitfields, quote_cancel_v_2_bitfield_1)
   end
 
   -- Runtime optional field: Clearing Firm
@@ -16961,51 +17375,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Symbol
-  local symbol = nil
-
-  local symbol_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.band(quote_cancel_v_2_bitfield_1, 0x01) > 0
-
-  if symbol_exists then
-    index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Currency
-  local currency = nil
-
-  local currency_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x02), 1) > 0
-
-  if currency_exists then
-    index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Id Source
-  local id_source = nil
-
-  local id_source_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x04), 2) > 0
-
-  if id_source_exists then
-    index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Security Id
-  local security_id = nil
-
-  local security_id_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x08), 3) > 0
-
-  if security_id_exists then
-    index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Security Exchange
-  local security_exchange = nil
-
-  local security_exchange_exists = number_of_quote_cancel_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_cancel_v_2_bitfield_1, 0x10), 4) > 0
-
-  if security_exchange_exists then
-    index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -17206,6 +17575,42 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Bid Px
+  local bid_px = nil
+
+  local bid_px_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x20), 5) > 0
+
+  if bid_px_exists then
+    index, bid_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Bid Size
+  local bid_size = nil
+
+  local bid_size_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x20), 5) > 0
+
+  if bid_size_exists then
+    index, bid_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.bid_size.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Px
+  local offer_px = nil
+
+  local offer_px_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x40), 6) > 0
+
+  if offer_px_exists then
+    index, offer_px = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Offer Size
+  local offer_size = nil
+
+  local offer_size_exists = number_of_quote_v_2_bitfields >= 1 and bit.rshift(bit.band(quote_v_2_bitfield_1, 0x40), 6) > 0
+
+  if offer_size_exists then
+    index, offer_size = cboe_cboeeurope_tradereporting_boe_v2_0_40.offer_size.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -17243,13 +17648,7 @@ end
 -- Trd Cap Rpt Side Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp = {}
 
--- Size: Trd Cap Rpt Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.size =
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.account.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.size
+-- Size of Trd Cap Rpt Side Grp: not written, it needs Number Of Trade Capture Report V 2 Bitfields, Trade Capture Report V 2 Bitfield 2 passed down from Trade Capture Report V 2 Message
 
 -- Display: Trd Cap Rpt Side Grp
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.display = function(packet, parent, length)
@@ -17257,7 +17656,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.display = functi
 end
 
 -- Dissect Fields: Trd Cap Rpt Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   local index = offset
 
   -- Implicit Trd Cap Rpt Side Grp Index
@@ -17269,27 +17668,45 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields = functio
   -- Side: Alphanumeric
   index, side = cboe_cboeeurope_tradereporting_boe_v2_0_40.side.dissect(buffer, index, packet, parent)
 
-  -- Capacity: Alpha
-  index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.band(trade_capture_report_v_2_bitfield_2, 0x01) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.dissect(buffer, index, packet, parent)
+  end
 
   -- Party Id: Alpha
   index, party_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_id.dissect(buffer, index, packet, parent)
 
-  -- Account: Text
-  index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Account
+  local account = nil
 
-  -- Party Role: Alphanumeric
-  index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x02), 1) > 0
+
+  if account_exists then
+    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Party Role
+  local party_role = nil
+
+  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x10), 4) > 0
+
+  if party_role_exists then
+    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Trd Cap Rpt Side Grp
-cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_cap_rpt_side_grp, buffer(offset, 0))
-    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.display(packet, parent, length)
@@ -17298,7 +17715,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect = functi
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   end
 end
 
@@ -17857,6 +18274,7 @@ end
 -- Dissect Fields: Trade Capture Report V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_v_2_message)
   local index = offset
+  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):le_uint()
 
   -- Trade Report Id: Text
   index, trade_report_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_id.dissect(buffer, index, packet, parent)
@@ -17941,7 +18359,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
 
   -- Repeating: Trd Cap Rpt Side Grp
   for trd_cap_rpt_side_grp_index = 1, no_sides do
-    index, trd_cap_rpt_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index)
+    index, trd_cap_rpt_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index, number_of_trade_capture_report_v_2_bitfields, trade_capture_report_v_2_bitfield_2)
   end
 
   -- Runtime optional field: Symbol
@@ -18169,6 +18587,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
     index, deferral_reason = cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Multi Juris Reporting Ind
+  local multi_juris_reporting_ind = nil
+
+  local multi_juris_reporting_ind_exists = number_of_trade_capture_report_v_2_bitfields >= 6 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_6, 0x08), 3) > 0
+
+  if multi_juris_reporting_ind_exists then
+    index, multi_juris_reporting_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.multi_juris_reporting_ind.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Intra Firm Trade Ind
   local intra_firm_trade_ind = nil
 
@@ -18185,24 +18612,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
 
   if tertiary_trd_type_exists then
     index, tertiary_trd_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.tertiary_trd_type.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Account
-  local account = nil
-
-  local account_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x02), 1) > 0
-
-  if account_exists then
-    index, account = cboe_cboeeurope_tradereporting_boe_v2_0_40.account.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Party Role
-  local party_role = nil
-
-  local party_role_exists = number_of_trade_capture_report_v_2_bitfields >= 2 and bit.rshift(bit.band(trade_capture_report_v_2_bitfield_2, 0x10), 4) > 0
-
-  if party_role_exists then
-    index, party_role = cboe_cboeeurope_tradereporting_boe_v2_0_40.party_role.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -18831,6 +19240,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40)
 -- Protocol:
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.0.40
+--   Since: 2.0.39
 --   Date: Wednesday, May 27, 2026
 --   Specification: Cboe Europe TRF BOE2 Specification.pdf
 --

@@ -66,6 +66,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_prioritization = Prot
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cross_type = ProtoField.new("Cross Type", "cboe.c1options.binaryorderentry.boe.v2.10.crosstype", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c1options.binaryorderentry.boe.v2.10.cumqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.c1options.binaryorderentry.boe.v2.10.customgroupid", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.c1options.binaryorderentry.boe.v2.10.dayavgpx", ftypes.DOUBLE)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.c1options.binaryorderentry.boe.v2.10.daycumqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.c1options.binaryorderentry.boe.v2.10.dayorderqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.c1options.binaryorderentry.boe.v2.10.displayindicator", ftypes.STRING)
@@ -113,7 +114,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.mass_cancel_lockout = Proto
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.c1options.binaryorderentry.boe.v2.10.matchingunit", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.c1options.binaryorderentry.boe.v2.10.maturitydate", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_floor = ProtoField.new("Max Floor", "cboe.c1options.binaryorderentry.boe.v2.10.maxfloor", ftypes.UINT32)
-omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.c1options.binaryorderentry.boe.v2.10.maxremovepct", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.binaryorderentry.boe.v2.10.messagelength", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.binaryorderentry.boe.v2.10.messagetype", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.min_qty = ProtoField.new("Min Qty", "cboe.c1options.binaryorderentry.boe.v2.10.minqty", ftypes.UINT32)
@@ -2133,6 +2133,35 @@ cboe_c1options_binaryorderentry_boe_v2_10.custom_group_id.dissect = function(buf
   return offset + length, value
 end
 
+-- Day Avg Px
+cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px = {}
+
+-- Size: Day Avg Px
+cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.size = 8
+
+-- Display: Day Avg Px
+cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.display = function(value)
+  return "Day Avg Px: "..value
+end
+
+-- Translate: Day Avg Px
+cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Day Avg Px
+cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.translate(raw)
+  local display = cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.day_avg_px, range, value, display)
+
+  return offset + length, value
+end
+
 -- Day Cum Qty
 cboe_c1options_binaryorderentry_boe_v2_10.day_cum_qty = {}
 
@@ -3850,29 +3879,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.max_floor.dissect = function(buffer, o
   local display = cboe_c1options_binaryorderentry_boe_v2_10.max_floor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_floor, range, value, display)
-
-  return offset + length, value
-end
-
--- Max Remove Pct
-cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct = {}
-
--- Size: Max Remove Pct
-cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.size = 1
-
--- Display: Max Remove Pct
-cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.display = function(value)
-  return "Max Remove Pct: "..value
-end
-
--- Dissect: Max Remove Pct
-cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_remove_pct, range, value, display)
 
   return offset + length, value
 end
@@ -9356,15 +9362,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_message.fields = funct
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -9723,6 +9720,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_execution_message.fields = funct
 
   if avg_px_exists then
     index, avg_px = cboe_c1options_binaryorderentry_boe_v2_10.avg_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Day Avg Px
+  local day_avg_px = nil
+
+  local day_avg_px_exists = number_of_return_bitfields >= 13 and bit.rshift(bit.band(return_bitfield_13, 0x10), 4) > 0
+
+  if day_avg_px_exists then
+    index, day_avg_px = cboe_c1options_binaryorderentry_boe_v2_10.day_avg_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Drill Thru Protection
@@ -11953,15 +11959,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = funct
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -12382,6 +12379,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_message.fields =
     index, return_bitfield_17 = cboe_c1options_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_c1options_binaryorderentry_boe_v2_10.side.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Price Long
   local price_long = nil
 
@@ -12479,6 +12485,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.cross_order_cancelled_message.fields =
 
   if put_or_call_exists then
     index, put_or_call = cboe_c1options_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Open Close
+  local open_close = nil
+
+  local open_close_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x08), 3) > 0
+
+  if open_close_exists then
+    index, open_close = cboe_c1options_binaryorderentry_boe_v2_10.open_close.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Attributed Quote
@@ -12955,15 +12970,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_cancelled_message.fields = funct
 
   if min_qty_exists then
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol Long
@@ -14090,15 +14096,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_restated_message.fields = functi
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -14852,15 +14849,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -14868,15 +14856,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
 
   if symbol_long_exists then
     index, symbol_long = cboe_c1options_binaryorderentry_boe_v2_10.symbol_long.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_c1options_binaryorderentry_boe_v2_10.capacity.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Account
@@ -14940,51 +14919,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
 
   if prevent_match_exists then
     index, prevent_match = cboe_c1options_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Maturity Date
-  local maturity_date = nil
-
-  local maturity_date_exists = number_of_return_bitfields >= 4 and bit.band(return_bitfield_4, 0x01) > 0
-
-  if maturity_date_exists then
-    index, maturity_date = cboe_c1options_binaryorderentry_boe_v2_10.maturity_date.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Strike Price
-  local strike_price = nil
-
-  local strike_price_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x02), 1) > 0
-
-  if strike_price_exists then
-    index, strike_price = cboe_c1options_binaryorderentry_boe_v2_10.strike_price.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Put Or Call
-  local put_or_call = nil
-
-  local put_or_call_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x04), 2) > 0
-
-  if put_or_call_exists then
-    index, put_or_call = cboe_c1options_binaryorderentry_boe_v2_10.put_or_call.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Open Close
-  local open_close = nil
-
-  local open_close_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x08), 3) > 0
-
-  if open_close_exists then
-    index, open_close = cboe_c1options_binaryorderentry_boe_v2_10.open_close.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Corrected Size
-  local corrected_size = nil
-
-  local corrected_size_exists = number_of_return_bitfields >= 4 and bit.rshift(bit.band(return_bitfield_4, 0x20), 5) > 0
-
-  if corrected_size_exists then
-    index, corrected_size = cboe_c1options_binaryorderentry_boe_v2_10.corrected_size.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Orig Cl Ord Id
@@ -15086,15 +15020,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
     index, attributed_quote = cboe_c1options_binaryorderentry_boe_v2_10.attributed_quote.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Sub Liquidity Indicator
-  local sub_liquidity_indicator = nil
-
-  local sub_liquidity_indicator_exists = number_of_return_bitfields >= 7 and bit.band(return_bitfield_7, 0x01) > 0
-
-  if sub_liquidity_indicator_exists then
-    index, sub_liquidity_indicator = cboe_c1options_binaryorderentry_boe_v2_10.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
@@ -15176,6 +15101,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
     index, auction_id = cboe_c1options_binaryorderentry_boe_v2_10.auction_id.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_c1options_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Cross Id
   local cross_id = nil
 
@@ -15221,42 +15155,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
     index, cross_exclusion_indicator = cboe_c1options_binaryorderentry_boe_v2_10.cross_exclusion_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Clearing Optional Data
-  local clearing_optional_data = nil
-
-  local clearing_optional_data_exists = number_of_return_bitfields >= 12 and bit.rshift(bit.band(return_bitfield_12, 0x80), 7) > 0
-
-  if clearing_optional_data_exists then
-    index, clearing_optional_data = cboe_c1options_binaryorderentry_boe_v2_10.clearing_optional_data.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Drill Thru Protection
-  local drill_thru_protection = nil
-
-  local drill_thru_protection_exists = number_of_return_bitfields >= 13 and bit.rshift(bit.band(return_bitfield_13, 0x40), 6) > 0
-
-  if drill_thru_protection_exists then
-    index, drill_thru_protection = cboe_c1options_binaryorderentry_boe_v2_10.drill_thru_protection.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Equity Party Id
-  local equity_party_id = nil
-
-  local equity_party_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x02), 1) > 0
-
-  if equity_party_id_exists then
-    index, equity_party_id = cboe_c1options_binaryorderentry_boe_v2_10.equity_party_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Client Id Attr
-  local client_id_attr = nil
-
-  local client_id_attr_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x80), 7) > 0
-
-  if client_id_attr_exists then
-    index, client_id_attr = cboe_c1options_binaryorderentry_boe_v2_10.client_id_attr.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Frequent Trader Id
   local frequent_trader_id = nil
 
@@ -15264,15 +15162,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_modified_message.fields = functi
 
   if frequent_trader_id_exists then
     index, frequent_trader_id = cboe_c1options_binaryorderentry_boe_v2_10.frequent_trader_id.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Session Eligibility
-  local session_eligibility = nil
-
-  local session_eligibility_exists = number_of_return_bitfields >= 16 and bit.rshift(bit.band(return_bitfield_16, 0x02), 1) > 0
-
-  if session_eligibility_exists then
-    index, session_eligibility = cboe_c1options_binaryorderentry_boe_v2_10.session_eligibility.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Combo Order
@@ -16106,15 +15995,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_rejected_message.fields = functi
 
   if min_qty_exists then
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Symbol Long
@@ -17424,15 +17304,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields = 
     index, min_qty = cboe_c1options_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(return_bitfield_1, 0x80), 7) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Symbol Long
   local symbol_long = nil
 
@@ -17746,6 +17617,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields = 
 
   if auction_id_exists then
     index, auction_id = cboe_c1options_binaryorderentry_boe_v2_10.auction_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_return_bitfields >= 9 and bit.rshift(bit.band(return_bitfield_9, 0x20), 5) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_c1options_binaryorderentry_boe_v2_10.cmta_number.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Cross Id
@@ -23316,15 +23196,6 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_message.fields = function(bu
     index, display_indicator = cboe_c1options_binaryorderentry_boe_v2_10.display_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Max Remove Pct
-  local max_remove_pct = nil
-
-  local max_remove_pct_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x04), 2) > 0
-
-  if max_remove_pct_exists then
-    index, max_remove_pct = cboe_c1options_binaryorderentry_boe_v2_10.max_remove_pct.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
@@ -23332,6 +23203,15 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_message.fields = function(bu
 
   if prevent_match_exists then
     index, prevent_match = cboe_c1options_binaryorderentry_boe_v2_10.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Expire Time
+  local expire_time = nil
+
+  local expire_time_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x80), 7) > 0
+
+  if expire_time_exists then
+    index, expire_time = cboe_c1options_binaryorderentry_boe_v2_10.expire_time.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Maturity Date

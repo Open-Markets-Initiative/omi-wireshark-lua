@@ -214,7 +214,7 @@ end
 cixats_cixaspen_marketdatafeed_aspen_v1_4.corrected_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_marketdatafeed_aspen_v1_4.corrected_trade_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = cixats_cixaspen_marketdatafeed_aspen_v1_4.corrected_trade_price.translate(raw)
   local display = cixats_cixaspen_marketdatafeed_aspen_v1_4.corrected_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -609,7 +609,7 @@ end
 cixats_cixaspen_marketdatafeed_aspen_v1_4.original_trade_price.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_marketdatafeed_aspen_v1_4.original_trade_price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = cixats_cixaspen_marketdatafeed_aspen_v1_4.original_trade_price.translate(raw)
   local display = cixats_cixaspen_marketdatafeed_aspen_v1_4.original_trade_price.display(value, buffer, offset, packet, parent)
 
@@ -667,7 +667,7 @@ end
 cixats_cixaspen_marketdatafeed_aspen_v1_4.price.dissect = function(buffer, offset, packet, parent)
   local length = cixats_cixaspen_marketdatafeed_aspen_v1_4.price.size
   local range = buffer(offset, length)
-  local raw = range:le_uint64()
+  local raw = range:le_int64()
   local value = cixats_cixaspen_marketdatafeed_aspen_v1_4.price.translate(raw)
   local display = cixats_cixaspen_marketdatafeed_aspen_v1_4.price.display(value, buffer, offset, packet, parent)
 

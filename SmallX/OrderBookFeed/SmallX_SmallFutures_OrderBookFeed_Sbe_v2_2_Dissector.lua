@@ -161,6 +161,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trades_incremental_message
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremental_trade_group_index = ProtoField.new("Incremental Trade Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incrementaltradegroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremetal_orders_group_index = ProtoField.new("Incremetal Orders Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incremetalordersgroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.legs_group_index = ProtoField.new("Legs Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.legsgroupindex", ftypes.UINT16)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.sbe_frame_index = ProtoField.new("Sbe Frame Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.sbeframeindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snaphot_orders_group_index = ProtoField.new("Snaphot Orders Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.snaphotordersgroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_group_index = ProtoField.new("Trade Bust Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradebustgroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index = ProtoField.new("Trade Correct Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradecorrectgroupindex", ftypes.UINT16)
@@ -5442,8 +5443,14 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.display = function(packet, 
 end
 
 -- Dissect Fields: Sbe Frame
-smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields = function(buffer, offset, packet, parent, size_of_sbe_frame)
+smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields = function(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
   local index = offset
+
+  -- Implicit Sbe Frame Index
+  if sbe_frame_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.sbe_frame_index, sbe_frame_index)
+    iteration:set_generated()
+  end
 
   -- Frame Length: 2 Byte Unsigned Fixed Width Integer
   index, frame_length = smallx_smallfutures_orderbookfeed_sbe_v2_2.frame_length.dissect(buffer, index, packet, parent)
@@ -5461,13 +5468,13 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields = function(buffer, o
 end
 
 -- Dissect: Sbe Frame
-smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, offset, packet, parent, size_of_sbe_frame)
+smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
   local index = offset + size_of_sbe_frame
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.sbe_frame, buffer(offset, 0))
-    local current = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame)
+    local current = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
     parent:set_len(size_of_sbe_frame)
     local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5475,7 +5482,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame)
+    smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
 
     return index
   end
@@ -5603,7 +5610,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.packet = {}
 
 -- Verify required size of Udp packet
 smallx_smallfutures_orderbookfeed_sbe_v2_2.packet.requiredsize = function(buffer)
-  return buffer:len() >= smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_header.size + smallx_smallfutures_orderbookfeed_sbe_v2_2.frame_length.size + smallx_smallfutures_orderbookfeed_sbe_v2_2.message_header.size
+  return buffer:len() >= smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_header.size
 end
 
 -- Dissect Packet
@@ -5613,19 +5620,17 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.packet.dissect = function(buffer, pac
   -- Packet Header: Struct of 6 fields
   index, packet_header = smallx_smallfutures_orderbookfeed_sbe_v2_2.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Sbe Frame
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
-  -- Sbe Frame: Struct of 3 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Sbe Frame
+  for sbe_frame_index = 1, message_count do
 
     -- Dependency element: Frame Length
     local frame_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Sbe Frame
-    index, sbe_frame = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect(buffer, index, packet, parent, frame_length)
+    index, sbe_frame = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect(buffer, index, packet, parent, frame_length, sbe_frame_index)
   end
 
   return index

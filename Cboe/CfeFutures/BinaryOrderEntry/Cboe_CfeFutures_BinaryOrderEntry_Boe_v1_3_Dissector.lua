@@ -6898,15 +6898,6 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.tas_restatement_message.fields = funct
     index, clearing_account = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty
-  local order_qty = nil
-
-  local order_qty_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(return_bitfield_3, 0x40), 6) > 0
-
-  if order_qty_exists then
-    index, order_qty = cboe_cfefutures_binaryorderentry_boe_v1_3.order_qty.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Prevent Match
   local prevent_match = nil
 
@@ -7031,15 +7022,6 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.tas_restatement_message.fields = funct
 
   if clearing_price_exists then
     index, clearing_price = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_price.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Clearing Size
-  local clearing_size = nil
-
-  local clearing_size_exists = number_of_return_bitfields >= 12 and bit.rshift(bit.band(return_bitfield_12, 0x20), 5) > 0
-
-  if clearing_size_exists then
-    index, clearing_size = cboe_cfefutures_binaryorderentry_boe_v1_3.clearing_size.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Clearing Symbol
@@ -9244,6 +9226,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.order_cancelled_message.fields = funct
 
   if open_close_exists then
     index, open_close = cboe_cfefutures_binaryorderentry_boe_v1_3.open_close.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
+  local orig_cl_ord_id_exists = number_of_return_bitfields >= 5 and bit.band(return_bitfield_5, 0x01) > 0
+
+  if orig_cl_ord_id_exists then
+    index, orig_cl_ord_id = cboe_cfefutures_binaryorderentry_boe_v1_3.orig_cl_ord_id.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Leaves Qty
@@ -12087,15 +12078,6 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.modify_order_message.fields = function
 
   if cancel_orig_on_reject_exists then
     index, cancel_orig_on_reject = cboe_cfefutures_binaryorderentry_boe_v1_3.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Side
-  local side = nil
-
-  local side_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x80), 7) > 0
-
-  if side_exists then
-    index, side = cboe_cfefutures_binaryorderentry_boe_v1_3.side.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Stop Px

@@ -25,6 +25,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.imbalance_direction = 
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.imbalanceshares", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.marketcategory", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.messagecount", ftypes.UINT16)
+omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_data = ProtoField.new("Message Data", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.messagedata", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.asciiitch.v2.0.2007.nearprice", ftypes.DOUBLE)
@@ -580,7 +581,7 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_length, range, value, display)
@@ -925,7 +926,7 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.sequence_number.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.sequence_number, range, value, display)
@@ -1282,7 +1283,6 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header = {}
 
 -- Size: Message Header
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.size =
-  nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.size + 
   nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.timestamp.size + 
   nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_type.size
 
@@ -1294,9 +1294,6 @@ end
 -- Dissect Fields: Message Header
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
-
-  -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Ascii String
   index, timestamp = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.timestamp.dissect(buffer, index, packet, parent)
@@ -1325,6 +1322,91 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.dissect = function
   end
 end
 
+-- Message Data
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data = {}
+
+-- Calculate size of: Message Data
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.size
+
+  -- Parse runtime size of: Payload
+  index = index + buffer(offset + index - 11, 2):le_uint()
+
+  return index
+end
+
+-- Display: Message Data
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Data
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 4 branches
+  index = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message Data
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.fields.message_data, buffer(offset, 0))
+    local index = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- End Of Session
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Body
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_body = {}
+
+-- Dissect: Message Body
+nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_body.dissect = function(buffer, offset, packet, parent, message_length)
+  -- Dissect End Of Session
+  if message_length == 0 then
+    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Message Data
+  return nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_data.dissect(buffer, offset, packet, parent)
+end
+
 -- Message
 nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message = {}
 
@@ -1333,7 +1415,7 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message.size = function(buffer, o
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 2):uint()
+  local message_length = buffer(offset, 2):le_uint()
 
   return message_length + 2
 end
@@ -1359,14 +1441,11 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message.fields = function(buffer,
     sequence:set_generated()
   end
 
-  -- Message Header: Struct of 3 fields
-  index, message_header = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_header.dissect(buffer, index, packet, parent)
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_length.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):string()
-
-  -- Payload: Runtime Type with 4 branches
-  index = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.payload.dissect(buffer, index, packet, parent, message_type)
+  -- Message Body: Runtime Type with 2 branches
+  index = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message_body.dissect(buffer, index, packet, parent, message_length)
 
   return index
 end
@@ -1391,23 +1470,6 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.message.dissect = function(buffer
 
     return index
   end
-end
-
--- End Of Session
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session = {}
-
--- Display: End Of Session
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.display = function(packet, parent, length)
-  return "End Of Session"
-end
-
-
--- Dissect: End Of Session
-nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.dissect = function(buffer, offset, packet, parent)
-  local display = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
 end
 
 -- Heartbeat
@@ -1436,16 +1498,12 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.messages.dissect = function(buffe
   if message_count == 0 then
     return nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.heartbeat.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect End Of Session
-  if message_count == 65535 then
-    return nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.end_of_session.dissect(buffer, offset, packet, parent)
-  end
 
   -- Repeating: Message
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 2):uint()
+    local message_length = buffer(offset, 2):le_uint()
 
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
@@ -1524,7 +1582,7 @@ nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.packet.dissect = function(buffer,
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):le_uint()
 
-  -- Messages: Runtime Type with 3 branches
+  -- Messages: Runtime Type with 2 branches
   index = nasdaq_nsmequities_noiview_asciiitch_v2_0_2007.messages.dissect(buffer, index, packet, parent, message_count)
 
   return index

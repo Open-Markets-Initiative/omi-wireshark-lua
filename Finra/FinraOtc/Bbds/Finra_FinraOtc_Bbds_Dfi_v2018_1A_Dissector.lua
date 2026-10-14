@@ -366,7 +366,11 @@ finra_finraotc_bbds_dfi_v2018_1a.block_soh.size = 1
 
 -- Display: Block Soh
 finra_finraotc_bbds_dfi_v2018_1a.block_soh.display = function(value)
-  return "Block Soh: "..value
+  if value == 1 then
+    return "Block Soh: Block Soh"
+  end
+
+  return "Block Soh: Unknown("..value..")"
 end
 
 -- Dissect: Block Soh
@@ -731,7 +735,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id = {}
 
 -- Size: Market Center Originator Id
-finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size = 2
+finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size = 1
 
 -- Display: Market Center Originator Id
 finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(value)
@@ -741,11 +745,8 @@ finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display = function(
   if value == "U" then
     return "Market Center Originator Id: Otc Bulletin Board (U)"
   end
-  if value == "u" then
-    return "Market Center Originator Id: Other Otc Security (u)"
-  end
-  if value == "F" then
-    return "Market Center Originator Id: Otcbb And Ootc (F)"
+  if value == "Q" then
+    return "Market Center Originator Id: Nasdaq Omx Market System (Q)"
   end
 
   return "Market Center Originator Id: Unknown("..value..")"
@@ -755,7 +756,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
@@ -2580,7 +2581,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Block Soh: 1 Byte Unsigned Fixed Width Integer
+  -- Block Soh: 1 Byte Unsigned Fixed Width Integer Static
   index, block_soh = finra_finraotc_bbds_dfi_v2018_1a.block_soh.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message
@@ -2620,10 +2621,25 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Block Soh Field
+finra_finraotc_bbds_dfi_v2018_1a.block_soh.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Finra FinraOtc Bbds Dfi 2018.1A (Udp)
 local function omi_finra_finraotc_bbds_dfi_v2018_1a_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not finra_finraotc_bbds_dfi_v2018_1a.packet.requiredsize(buffer) then return false end
+
+  -- Verify Block Soh
+  if not finra_finraotc_bbds_dfi_v2018_1a.block_soh.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_finra_finraotc_bbds_dfi_v2018_1a

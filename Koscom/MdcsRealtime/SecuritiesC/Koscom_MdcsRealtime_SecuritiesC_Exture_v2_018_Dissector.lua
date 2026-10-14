@@ -403,6 +403,7 @@ omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.number_of_months_for_gr
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.number_of_repo_trade_periods = ProtoField.new("Number Of Repo Trade Periods", "koscom.mdcsrealtime.securitiesc.exture.v2.018.numberofrepotradeperiods", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.numbers_of_issuer = ProtoField.new("Numbers Of Issuer", "koscom.mdcsrealtime.securitiesc.exture.v2.018.numbersofissuer", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.securitiesc.exture.v2.018.openingprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.option_rights_type_code = ProtoField.new("Option Rights Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.optionrightstypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.other_stock_type_code = ProtoField.new("Other Stock Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.otherstocktypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.par_value = ProtoField.new("Par Value", "koscom.mdcsrealtime.securitiesc.exture.v2.018.parvalue", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.par_value_type_code = ProtoField.new("Par Value Type Code", "koscom.mdcsrealtime.securitiesc.exture.v2.018.parvaluetypecode", ftypes.STRING)
@@ -12130,6 +12131,29 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.opening_price.dissect = function(b
   return offset + length, value
 end
 
+-- Option Rights Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code = {}
+
+-- Size: Option Rights Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.size = 1
+
+-- Display: Option Rights Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.display = function(value)
+  return "Option Rights Type Code: "..value
+end
+
+-- Dissect: Option Rights Type Code
+koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.option_rights_type_code, range, value, display)
+
+  return offset + length, value
+end
+
 -- Other Stock Type Code
 koscom_mdcsrealtime_securitiesc_exture_v2_018.other_stock_type_code = {}
 
@@ -13239,10 +13263,15 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code = {}
 
 -- Size: Rights Type Code
-koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.size = 1
+koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.size = 2
 
 -- Display: Rights Type Code
 koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rights Type Code: No Value"
+  end
+
   return "Rights Type Code: "..value
 end
 
@@ -13250,7 +13279,7 @@ end
 koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesc_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesc_exture_v2_018.fields.rights_type_code, range, value, display)
@@ -18287,7 +18316,7 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_elw_batch_data_message.
   koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_asset_composition_ratio_4.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.underlying_asset_composition_ratio_5.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.size + 
-  koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.size + 
+  koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_execution_type_code.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.payment_methods.size + 
   koscom_mdcsrealtime_securitiesc_exture_v2_018.last_trading_date.size + 
@@ -18380,8 +18409,8 @@ koscom_mdcsrealtime_securitiesc_exture_v2_018.securities_elw_batch_data_message.
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_securitiesc_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
-  -- Rights Type Code: String
-  index, rights_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_type_code.dissect(buffer, index, packet, parent)
+  -- Option Rights Type Code: String
+  index, option_rights_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.option_rights_type_code.dissect(buffer, index, packet, parent)
 
   -- Rights Execution Type Code: String
   index, rights_execution_type_code = koscom_mdcsrealtime_securitiesc_exture_v2_018.rights_execution_type_code.dissect(buffer, index, packet, parent)

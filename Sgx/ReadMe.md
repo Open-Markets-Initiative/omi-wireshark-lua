@@ -37,7 +37,5 @@
 
 [Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Sgx/TitanDt/DepthOfBook/Sgx_TitanDt_DepthOfBook_Glimpse_v1_4_Dissector.lua "Sgx TitanDt DepthOfBook Glimpse v1.4 Wireshark Dissector"
 [Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Url]: https://www.sgx.com/securities/technical-information "Singapore Exchange 1.4 Url"
-[Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Pdf]: https://www.sgx.com/securities/technical-information "Singapore Exchange 1.4 Pdf"
 [Sgx.TitanDt.DepthOfBook.Itch.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Sgx/TitanDt/DepthOfBook/Sgx_TitanDt_DepthOfBook_Itch_v1_4_Dissector.lua "Sgx TitanDt DepthOfBook Itch v1.4 Wireshark Dissector"
 [Sgx.TitanDt.DepthOfBook.Itch.v1.4.Url]: https://www.sgx.com/securities/technical-information "Singapore Exchange 1.4 Url"
-[Sgx.TitanDt.DepthOfBook.Itch.v1.4.Pdf]: https://www.sgx.com/securities/technical-information "Singapore Exchange 1.4 Pdf"

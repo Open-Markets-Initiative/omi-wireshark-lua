@@ -121,9 +121,9 @@ omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_di
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_display_indicator = ProtoField.new("New Order Bitfield 3 Display Indicator", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3displayindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_expire_time = ProtoField.new("New Order Bitfield 3 Expire Time", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_locate_reqd = ProtoField.new("New Order Bitfield 3 Locate Reqd", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3locatereqd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_max_remove_pct = ProtoField.new("New Order Bitfield 3 Max Remove Pct", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_peg_difference = ProtoField.new("New Order Bitfield 3 Peg Difference", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_prevent_match = ProtoField.new("New Order Bitfield 3 Prevent Match", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3preventmatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_reserved_4 = ProtoField.new("New Order Bitfield 3 Reserved 4", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield3reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_4 = ProtoField.new("New Order Bitfield 4", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield4", ftypes.STRING)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_4_reserved_1 = ProtoField.new("New Order Bitfield 4 Reserved 1", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield4reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_4_reserved_128 = ProtoField.new("New Order Bitfield 4 Reserved 128", "cboe.cboeequities.binaryorderentry.boe.v2.3.7.neworderbitfield4reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -5810,15 +5810,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.purge_rejected_message.fields = fu
     index, return_bitfield_17 = cboe_cboeequities_binaryorderentry_boe_v2_3_7.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Sub Liquidity Indicator
-  local sub_liquidity_indicator = nil
-
-  local sub_liquidity_indicator_exists = number_of_return_bitfields >= 7 and bit.band(return_bitfield_7, 0x01) > 0
-
-  if sub_liquidity_indicator_exists then
-    index, sub_liquidity_indicator = cboe_cboeequities_binaryorderentry_boe_v2_3_7.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
 
@@ -7087,15 +7078,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.cancel_rejected_message.fields = f
     index, stop_px = cboe_cboeequities_binaryorderentry_boe_v2_3_7.stop_px.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Rout Strategy
-  local rout_strategy = nil
-
-  local rout_strategy_exists = number_of_return_bitfields >= 8 and bit.rshift(bit.band(return_bitfield_8, 0x10), 4) > 0
-
-  if rout_strategy_exists then
-    index, rout_strategy = cboe_cboeequities_binaryorderentry_boe_v2_3_7.rout_strategy.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -7669,15 +7651,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_cancelled_message.fields = f
     index, ex_destination = cboe_cboeequities_binaryorderentry_boe_v2_3_7.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Mass Cancel Id
-  local mass_cancel_id = nil
-
-  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x08), 3) > 0
-
-  if mass_cancel_id_exists then
-    index, mass_cancel_id = cboe_cboeequities_binaryorderentry_boe_v2_3_7.mass_cancel_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -7928,15 +7901,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.user_modify_rejected_message.field
 
     -- Return Bitfield 17: Struct of 8 fields
     index, return_bitfield_17 = cboe_cboeequities_binaryorderentry_boe_v2_3_7.return_bitfield_17.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Sub Liquidity Indicator
-  local sub_liquidity_indicator = nil
-
-  local sub_liquidity_indicator_exists = number_of_return_bitfields >= 7 and bit.band(return_bitfield_7, 0x01) > 0
-
-  if sub_liquidity_indicator_exists then
-    index, sub_liquidity_indicator = cboe_cboeequities_binaryorderentry_boe_v2_3_7.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -8515,15 +8479,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_restated_message.fields = fu
     index, ex_destination = cboe_cboeequities_binaryorderentry_boe_v2_3_7.ex_destination.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Mass Cancel Id
-  local mass_cancel_id = nil
-
-  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x08), 3) > 0
-
-  if mass_cancel_id_exists then
-    index, mass_cancel_id = cboe_cboeequities_binaryorderentry_boe_v2_3_7.mass_cancel_id.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
@@ -8854,24 +8809,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_modified_message.fields = fu
     index, symbol = cboe_cboeequities_binaryorderentry_boe_v2_3_7.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Sfx
-  local symbol_sfx = nil
-
-  local symbol_sfx_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x02), 1) > 0
-
-  if symbol_sfx_exists then
-    index, symbol_sfx = cboe_cboeequities_binaryorderentry_boe_v2_3_7.symbol_sfx.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Capacity
-  local capacity = nil
-
-  local capacity_exists = number_of_return_bitfields >= 2 and bit.rshift(bit.band(return_bitfield_2, 0x40), 6) > 0
-
-  if capacity_exists then
-    index, capacity = cboe_cboeequities_binaryorderentry_boe_v2_3_7.capacity.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Account
   local account = nil
 
@@ -9095,15 +9032,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_modified_message.fields = fu
 
   if ex_destination_exists then
     index, ex_destination = cboe_cboeequities_binaryorderentry_boe_v2_3_7.ex_destination.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Mass Cancel Id
-  local mass_cancel_id = nil
-
-  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x08), 3) > 0
-
-  if mass_cancel_id_exists then
-    index, mass_cancel_id = cboe_cboeequities_binaryorderentry_boe_v2_3_7.mass_cancel_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -10138,15 +10066,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_acknowledgment_message.field
     index, sub_liquidity_indicator = cboe_cboeequities_binaryorderentry_boe_v2_3_7.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Fee Code
-  local fee_code = nil
-
-  local fee_code_exists = number_of_return_bitfields >= 8 and bit.band(return_bitfield_8, 0x01) > 0
-
-  if fee_code_exists then
-    index, fee_code = cboe_cboeequities_binaryorderentry_boe_v2_3_7.fee_code.dissect(buffer, index, packet, parent)
-  end
-
   -- Runtime optional field: Echo Text
   local echo_text = nil
 
@@ -10199,15 +10118,6 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.order_acknowledgment_message.field
 
   if ex_destination_exists then
     index, ex_destination = cboe_cboeequities_binaryorderentry_boe_v2_3_7.ex_destination.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Mass Cancel Id
-  local mass_cancel_id = nil
-
-  local mass_cancel_id_exists = number_of_return_bitfields >= 15 and bit.rshift(bit.band(return_bitfield_15, 0x08), 3) > 0
-
-  if mass_cancel_id_exists then
-    index, mass_cancel_id = cboe_cboeequities_binaryorderentry_boe_v2_3_7.mass_cancel_id.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -11560,9 +11470,9 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.new_order_bitfield_3.display = fun
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "New Order Bitfield 3 Display Indicator"
   end
-  -- Is New Order Bitfield 3 Reserved 4 flag set?
+  -- Is New Order Bitfield 3 Max Remove Pct flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "New Order Bitfield 3 Reserved 4"
+    flags[#flags + 1] = "New Order Bitfield 3 Max Remove Pct"
   end
   -- Is New Order Bitfield 3 Discretion Amount flag set?
   if bit.band(value, 0x08) ~= 0 then
@@ -11597,8 +11507,8 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.new_order_bitfield_3.bits = functi
   -- New Order Bitfield 3 Display Indicator: 1 Bit
   parent:add(omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_display_indicator, range, value)
 
-  -- New Order Bitfield 3 Reserved 4: 1 Bit
-  parent:add(omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_reserved_4, range, value)
+  -- New Order Bitfield 3 Max Remove Pct: 1 Bit
+  parent:add(omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_max_remove_pct, range, value)
 
   -- New Order Bitfield 3 Discretion Amount: 1 Bit
   parent:add(omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7.fields.new_order_bitfield_3_discretion_amount, range, value)
@@ -12044,6 +11954,15 @@ cboe_cboeequities_binaryorderentry_boe_v2_3_7.new_order_message.fields = functio
 
   if display_indicator_exists then
     index, display_indicator = cboe_cboeequities_binaryorderentry_boe_v2_3_7.display_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Max Remove Pct
+  local max_remove_pct = nil
+
+  local max_remove_pct_exists = number_of_new_order_bitfields >= 3 and bit.rshift(bit.band(new_order_bitfield_3, 0x04), 2) > 0
+
+  if max_remove_pct_exists then
+    index, max_remove_pct = cboe_cboeequities_binaryorderentry_boe_v2_3_7.max_remove_pct.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Discretion Amount

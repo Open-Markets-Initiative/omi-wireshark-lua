@@ -2215,7 +2215,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_6.time_in_force.display = function
   if value == 1 then
     return "Time In Force: Good Till Date (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Time In Force: No Value"
   end
 

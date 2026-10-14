@@ -43,7 +43,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_b
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_exec_inst = ProtoField.new("Cancel Rejected Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_max_remove_pct = ProtoField.new("Cancel Rejected Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_min_qty = ProtoField.new("Cancel Rejected Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_order_type = ProtoField.new("Cancel Rejected Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_ord_type = ProtoField.new("Cancel Rejected Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_peg_difference = ProtoField.new("Cancel Rejected Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_price = ProtoField.new("Cancel Rejected Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_side = ProtoField.new("Cancel Rejected Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.cancelrejectedreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -362,7 +362,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_ret
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_exec_inst = ProtoField.new("Order Acknowledgment Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_max_remove_pct = ProtoField.new("Order Acknowledgment Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_min_qty = ProtoField.new("Order Acknowledgment Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_order_type = ProtoField.new("Order Acknowledgment Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_ord_type = ProtoField.new("Order Acknowledgment Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_peg_difference = ProtoField.new("Order Acknowledgment Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_price = ProtoField.new("Order Acknowledgment Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_side = ProtoField.new("Order Acknowledgment Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderacknowledgmentreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -524,7 +524,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_b
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_exec_inst = ProtoField.new("Order Cancelled Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_max_remove_pct = ProtoField.new("Order Cancelled Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_min_qty = ProtoField.new("Order Cancelled Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_order_type = ProtoField.new("Order Cancelled Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_ord_type = ProtoField.new("Order Cancelled Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_peg_difference = ProtoField.new("Order Cancelled Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_price = ProtoField.new("Order Cancelled Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_side = ProtoField.new("Order Cancelled Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordercancelledreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -686,7 +686,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_b
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_exec_inst = ProtoField.new("Order Execution Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_max_remove_pct = ProtoField.new("Order Execution Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_min_qty = ProtoField.new("Order Execution Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_order_type = ProtoField.new("Order Execution Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_ord_type = ProtoField.new("Order Execution Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_peg_difference = ProtoField.new("Order Execution Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_price = ProtoField.new("Order Execution Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_side = ProtoField.new("Order Execution Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderexecutionreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -849,7 +849,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bi
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_exec_inst = ProtoField.new("Order Modified Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_max_remove_pct = ProtoField.new("Order Modified Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_min_qty = ProtoField.new("Order Modified Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_order_type = ProtoField.new("Order Modified Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_ord_type = ProtoField.new("Order Modified Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_peg_difference = ProtoField.new("Order Modified Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_price = ProtoField.new("Order Modified Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_side = ProtoField.new("Order Modified Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordermodifiedreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1013,7 +1013,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bi
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_exec_inst = ProtoField.new("Order Rejected Return Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_max_remove_pct = ProtoField.new("Order Rejected Return Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_min_qty = ProtoField.new("Order Rejected Return Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_order_type = ProtoField.new("Order Rejected Return Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_ord_type = ProtoField.new("Order Rejected Return Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_peg_difference = ProtoField.new("Order Rejected Return Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_price = ProtoField.new("Order Rejected Return Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_side = ProtoField.new("Order Rejected Return Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1394,7 +1394,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_exec_inst = ProtoField.new("Tas Restatement Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_max_remove_pct = ProtoField.new("Tas Restatement Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_min_qty = ProtoField.new("Tas Restatement Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_order_type = ProtoField.new("Tas Restatement Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_ord_type = ProtoField.new("Tas Restatement Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_peg_difference = ProtoField.new("Tas Restatement Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_price = ProtoField.new("Tas Restatement Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_side = ProtoField.new("Tas Restatement Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1888,7 +1888,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bit
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_exec_inst = ProtoField.new("Variance Restatement Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_max_remove_pct = ProtoField.new("Variance Restatement Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_min_qty = ProtoField.new("Variance Restatement Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_order_type = ProtoField.new("Variance Restatement Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_ord_type = ProtoField.new("Variance Restatement Bitfield 1 Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1ordtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_peg_difference = ProtoField.new("Variance Restatement Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_price = ProtoField.new("Variance Restatement Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_side = ProtoField.new("Variance Restatement Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -7983,9 +7983,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.dis
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Variance Restatement Bitfield 1 Exec Inst"
   end
-  -- Is Variance Restatement Bitfield 1 Order Type flag set?
+  -- Is Variance Restatement Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Variance Restatement Bitfield 1 Order Type"
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Ord Type"
   end
   -- Is Variance Restatement Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -8018,8 +8018,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.bit
   -- Variance Restatement Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_exec_inst, range, value)
 
-  -- Variance Restatement Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_order_type, range, value)
+  -- Variance Restatement Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_ord_type, range, value)
 
   -- Variance Restatement Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_time_in_force, range, value)
@@ -8297,6 +8297,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_new_order_mess
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_variance_restatement_bitfields >= 1 and bit.rshift(bit.band(variance_restatement_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -10106,9 +10115,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.display 
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Tas Restatement Bitfield 1 Exec Inst"
   end
-  -- Is Tas Restatement Bitfield 1 Order Type flag set?
+  -- Is Tas Restatement Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Tas Restatement Bitfield 1 Order Type"
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Ord Type"
   end
   -- Is Tas Restatement Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -10141,8 +10150,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.bits = f
   -- Tas Restatement Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_exec_inst, range, value)
 
-  -- Tas Restatement Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_order_type, range, value)
+  -- Tas Restatement Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_ord_type, range, value)
 
   -- Tas Restatement Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_time_in_force, range, value)
@@ -10420,6 +10429,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_new_order_message_m
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_tas_restatement_bitfields >= 1 and bit.rshift(bit.band(tas_restatement_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -16232,9 +16250,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_execution_return_bitfield_1.d
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Order Execution Return Bitfield 1 Exec Inst"
   end
-  -- Is Order Execution Return Bitfield 1 Order Type flag set?
+  -- Is Order Execution Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Execution Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Order Execution Return Bitfield 1 Ord Type"
   end
   -- Is Order Execution Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -16267,8 +16285,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_execution_return_bitfield_1.b
   -- Order Execution Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_exec_inst, range, value)
 
-  -- Order Execution Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_order_type, range, value)
+  -- Order Execution Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_ord_type, range, value)
 
   -- Order Execution Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_execution_return_bitfield_1_time_in_force, range, value)
@@ -16564,6 +16582,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_execution_message.fields = fu
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_execution_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -18400,9 +18427,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_rejected_return_bitfield_1.d
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Cancel Rejected Return Bitfield 1 Exec Inst"
   end
-  -- Is Cancel Rejected Return Bitfield 1 Order Type flag set?
+  -- Is Cancel Rejected Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Cancel Rejected Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Cancel Rejected Return Bitfield 1 Ord Type"
   end
   -- Is Cancel Rejected Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -18435,8 +18462,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_rejected_return_bitfield_1.b
   -- Cancel Rejected Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_exec_inst, range, value)
 
-  -- Cancel Rejected Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_order_type, range, value)
+  -- Cancel Rejected Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_ord_type, range, value)
 
   -- Cancel Rejected Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.cancel_rejected_return_bitfield_1_time_in_force, range, value)
@@ -18717,6 +18744,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_rejected_message.fields = fu
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cancel_rejected_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -20465,9 +20501,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_cancelled_return_bitfield_1.d
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Order Cancelled Return Bitfield 1 Exec Inst"
   end
-  -- Is Order Cancelled Return Bitfield 1 Order Type flag set?
+  -- Is Order Cancelled Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Cancelled Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Order Cancelled Return Bitfield 1 Ord Type"
   end
   -- Is Order Cancelled Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -20500,8 +20536,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_cancelled_return_bitfield_1.b
   -- Order Cancelled Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_exec_inst, range, value)
 
-  -- Order Cancelled Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_order_type, range, value)
+  -- Order Cancelled Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_ord_type, range, value)
 
   -- Order Cancelled Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_cancelled_return_bitfield_1_time_in_force, range, value)
@@ -20779,6 +20815,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_cancelled_message.fields = fu
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_cancelled_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -24497,9 +24542,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_modified_return_bitfield_1.di
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Order Modified Return Bitfield 1 Exec Inst"
   end
-  -- Is Order Modified Return Bitfield 1 Order Type flag set?
+  -- Is Order Modified Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Modified Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Order Modified Return Bitfield 1 Ord Type"
   end
   -- Is Order Modified Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -24532,8 +24577,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_modified_return_bitfield_1.bi
   -- Order Modified Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_exec_inst, range, value)
 
-  -- Order Modified Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_order_type, range, value)
+  -- Order Modified Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_ord_type, range, value)
 
   -- Order Modified Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_modified_return_bitfield_1_time_in_force, range, value)
@@ -24811,6 +24856,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_modified_message.fields = fun
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_modified_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -26634,9 +26688,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_rejected_return_bitfield_1.di
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Order Rejected Return Bitfield 1 Exec Inst"
   end
-  -- Is Order Rejected Return Bitfield 1 Order Type flag set?
+  -- Is Order Rejected Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Rejected Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Order Rejected Return Bitfield 1 Ord Type"
   end
   -- Is Order Rejected Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -26669,8 +26723,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_rejected_return_bitfield_1.bi
   -- Order Rejected Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_exec_inst, range, value)
 
-  -- Order Rejected Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_order_type, range, value)
+  -- Order Rejected Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_ord_type, range, value)
 
   -- Order Rejected Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_1_time_in_force, range, value)
@@ -26951,6 +27005,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_rejected_message.fields = fun
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_rejected_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force
@@ -28804,9 +28867,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_acknowledgment_return_bitfiel
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Order Acknowledgment Return Bitfield 1 Exec Inst"
   end
-  -- Is Order Acknowledgment Return Bitfield 1 Order Type flag set?
+  -- Is Order Acknowledgment Return Bitfield 1 Ord Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Acknowledgment Return Bitfield 1 Order Type"
+    flags[#flags + 1] = "Order Acknowledgment Return Bitfield 1 Ord Type"
   end
   -- Is Order Acknowledgment Return Bitfield 1 Time In Force flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -28839,8 +28902,8 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_acknowledgment_return_bitfiel
   -- Order Acknowledgment Return Bitfield 1 Exec Inst: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_exec_inst, range, value)
 
-  -- Order Acknowledgment Return Bitfield 1 Order Type: 1 Bit
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_order_type, range, value)
+  -- Order Acknowledgment Return Bitfield 1 Ord Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_ord_type, range, value)
 
   -- Order Acknowledgment Return Bitfield 1 Time In Force: 1 Bit
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_acknowledgment_return_bitfield_1_time_in_force, range, value)
@@ -29118,6 +29181,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_acknowledgment_message.fields
 
   if price_exists then
     index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Ord Type
+  local ord_type = nil
+
+  local ord_type_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_1, 0x10), 4) > 0
+
+  if ord_type_exists then
+    index, ord_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.ord_type.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Time In Force

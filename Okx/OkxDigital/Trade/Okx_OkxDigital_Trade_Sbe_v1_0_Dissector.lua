@@ -342,7 +342,7 @@ okx_okxdigital_trade_sbe_v1_0.new_px_exponent.size = 1
 -- Display: New Px Exponent
 okx_okxdigital_trade_sbe_v1_0.new_px_exponent.display = function(value)
   -- Check if field has value
-  if value == 128 then
+  if value == -128 then
     return "New Px Exponent: No Value"
   end
 
@@ -398,7 +398,7 @@ okx_okxdigital_trade_sbe_v1_0.new_sz_exponent.size = 1
 -- Display: New Sz Exponent
 okx_okxdigital_trade_sbe_v1_0.new_sz_exponent.display = function(value)
   -- Check if field has value
-  if value == 128 then
+  if value == -128 then
     return "New Sz Exponent: No Value"
   end
 
@@ -646,7 +646,7 @@ okx_okxdigital_trade_sbe_v1_0.rpi_taker_access.display = function(value)
   if value == 1 then
     return "Rpi Taker Access: True (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Rpi Taker Access: No Value"
   end
 

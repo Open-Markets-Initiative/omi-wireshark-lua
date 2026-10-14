@@ -149,7 +149,7 @@ okx_okxdigital_private_sbe_v1_0.amend_result.display = function(value)
   if value == 2 then
     return "Amend Result: Auto Amended (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Amend Result: No Value"
   end
 
@@ -188,7 +188,7 @@ okx_okxdigital_private_sbe_v1_0.amend_source.display = function(value)
   if value == 5 then
     return "Amend Source: Option Px Follow Up Amendment (5)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Amend Source: No Value"
   end
 
@@ -351,7 +351,7 @@ okx_okxdigital_private_sbe_v1_0.cancel_source.display = function(value)
   if value == 46 then
     return "Cancel Source: Delta Reduction (46)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Cancel Source: No Value"
   end
 
@@ -405,7 +405,7 @@ okx_okxdigital_private_sbe_v1_0.category.display = function(value)
   if value == 8 then
     return "Category: Xstock Liquidation (8)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Category: No Value"
   end
 
@@ -519,7 +519,7 @@ okx_okxdigital_private_sbe_v1_0.exec_type_optional.display = function(value)
   if value == 1 then
     return "Exec Type Optional: Taker (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Exec Type Optional: No Value"
   end
 
@@ -959,7 +959,7 @@ okx_okxdigital_private_sbe_v1_0.risk_bypass_result.display = function(value)
   if value == 11 then
     return "Risk Bypass Result: Temporarily Unavailable (11)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Bypass Result: No Value"
   end
 

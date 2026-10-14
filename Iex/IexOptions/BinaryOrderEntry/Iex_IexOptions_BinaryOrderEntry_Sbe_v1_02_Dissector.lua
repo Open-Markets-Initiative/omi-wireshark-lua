@@ -846,7 +846,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.display = 
   if value == 1 then
     return "Blocked By Breach Indicator: Blocked (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Blocked By Breach Indicator: No Value"
   end
 
@@ -995,7 +995,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.displ
   if value == 1 then
     return "Cancel Instead Of Slide Optional: Cancel (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Cancel Instead Of Slide Optional: No Value"
   end
 
@@ -1028,7 +1028,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_on_disconnect.display = functio
   if value == 1 then
     return "Cancel On Disconnect: On (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Cancel On Disconnect: No Value"
   end
 
@@ -1634,7 +1634,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.default_attributed_quote.display = fun
   if value == 5 then
     return "Default Attributed Quote: Do Not Use Sum (5)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Default Attributed Quote: No Value"
   end
 
@@ -2083,7 +2083,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.display = function(val
   if value == 2 then
     return "Ioc Attribution: Exclude Ioc (2)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Ioc Attribution: No Value"
   end
 
@@ -4023,7 +4023,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.display = functi
   if value == 6 then
     return "Risk Control Optional: Intrinsic Value And Arbitrage (6)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Control Optional: No Value"
   end
 
@@ -4086,7 +4086,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.display =
   if value == 1 then
     return "Risk Control Status Optional: Enabled (1)"
   end
-  if value == 128 then
+  if value == -128 then
     return "Risk Control Status Optional: No Value"
   end
 
