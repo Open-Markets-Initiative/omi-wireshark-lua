@@ -30,9 +30,9 @@ omi_otcmarkets_moonats_topofbook_link_v1_3.fields.deprecated = ProtoField.new("D
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.moonats.topofbook.link.v1.3.fullclosingprice", ftypes.DOUBLE)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.moonats.topofbook.link.v1.3.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.moonats.topofbook.link.v1.3.lastupdatemilli", ftypes.UINT64)
+omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_count = ProtoField.new("Message Count", "otcmarkets.moonats.topofbook.link.v1.3.messagecount", ftypes.UINT8)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_size = ProtoField.new("Message Size", "otcmarkets.moonats.topofbook.link.v1.3.messagesize", ftypes.UINT16)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_type = ProtoField.new("Message Type", "otcmarkets.moonats.topofbook.link.v1.3.messagetype", ftypes.UINT8)
-omi_otcmarkets_moonats_topofbook_link_v1_3.fields.messages = ProtoField.new("Messages", "otcmarkets.moonats.topofbook.link.v1.3.messages", ftypes.UINT8)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.moc_shares_unmatched = ProtoField.new("Moc Shares Unmatched", "otcmarkets.moonats.topofbook.link.v1.3.mocsharesunmatched", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "otcmarkets.moonats.topofbook.link.v1.3.nextsequencenumber", ftypes.UINT32)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.ocio_only_closing_price = ProtoField.new("Ocio Only Closing Price", "otcmarkets.moonats.topofbook.link.v1.3.ocioonlyclosingprice", ftypes.DOUBLE)
@@ -453,6 +453,29 @@ otcmarkets_moonats_topofbook_link_v1_3.last_update_milli.dissect = function(buff
   return offset + length, value
 end
 
+-- Message Count
+otcmarkets_moonats_topofbook_link_v1_3.message_count = {}
+
+-- Size: Message Count
+otcmarkets_moonats_topofbook_link_v1_3.message_count.size = 1
+
+-- Display: Message Count
+otcmarkets_moonats_topofbook_link_v1_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+otcmarkets_moonats_topofbook_link_v1_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_moonats_topofbook_link_v1_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_moonats_topofbook_link_v1_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Size
 otcmarkets_moonats_topofbook_link_v1_3.message_size = {}
 
@@ -517,29 +540,6 @@ otcmarkets_moonats_topofbook_link_v1_3.message_type.dissect = function(buffer, o
   local display = otcmarkets_moonats_topofbook_link_v1_3.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otcmarkets_moonats_topofbook_link_v1_3.messages = {}
-
--- Size: Messages
-otcmarkets_moonats_topofbook_link_v1_3.messages.size = 1
-
--- Display: Messages
-otcmarkets_moonats_topofbook_link_v1_3.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otcmarkets_moonats_topofbook_link_v1_3.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otcmarkets_moonats_topofbook_link_v1_3.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otcmarkets_moonats_topofbook_link_v1_3.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -1897,7 +1897,7 @@ otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, 
   end
 
   -- Repeating: Message
-  for message_index = 1, messages do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Size
     local message_size = buffer(offset, 2):uint()
@@ -1979,7 +1979,7 @@ otcmarkets_moonats_topofbook_link_v1_3.packet_header.size =
   otcmarkets_moonats_topofbook_link_v1_3.packet_size.size + 
   otcmarkets_moonats_topofbook_link_v1_3.seq_num.size + 
   otcmarkets_moonats_topofbook_link_v1_3.packet_flag.size + 
-  otcmarkets_moonats_topofbook_link_v1_3.messages.size + 
+  otcmarkets_moonats_topofbook_link_v1_3.message_count.size + 
   otcmarkets_moonats_topofbook_link_v1_3.packet_milli.size
 
 -- Display: Packet Header
@@ -2000,8 +2000,8 @@ otcmarkets_moonats_topofbook_link_v1_3.packet_header.fields = function(buffer, o
   -- Packet Flag: Struct of 5 fields
   index, packet_flag = otcmarkets_moonats_topofbook_link_v1_3.packet_flag.dissect(buffer, index, packet, parent)
 
-  -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otcmarkets_moonats_topofbook_link_v1_3.messages.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = otcmarkets_moonats_topofbook_link_v1_3.message_count.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_moonats_topofbook_link_v1_3.packet_milli.dissect(buffer, index, packet, parent)

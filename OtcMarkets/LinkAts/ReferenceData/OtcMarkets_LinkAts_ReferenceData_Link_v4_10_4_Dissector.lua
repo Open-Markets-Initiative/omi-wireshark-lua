@@ -37,9 +37,9 @@ omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.market_close_time_milli
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.referencedata.link.v4.10.4.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.referencedata.link.v4.10.4.marketopen", ftypes.UINT64)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otcmarkets.linkats.referencedata.link.v4.10.4.maturitydatemilli", ftypes.UINT64)
+omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.referencedata.link.v4.10.4.messagecount", ftypes.UINT8)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.referencedata.link.v4.10.4.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.referencedata.link.v4.10.4.messagetype", ftypes.UINT8)
-omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.referencedata.link.v4.10.4.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.otc_issuer_id = ProtoField.new("Otc Issuer Id", "otcmarkets.linkats.referencedata.link.v4.10.4.otcissuerid", ftypes.UINT32)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otcmarkets.linkats.referencedata.link.v4.10.4.otclinkecneligible", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otcmarkets.linkats.referencedata.link.v4.10.4.otclinkmessagingdisabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
@@ -522,6 +522,29 @@ otcmarkets_linkats_referencedata_link_v4_10_4.maturity_date_milli.dissect = func
   return offset + length, value
 end
 
+-- Message Count
+otcmarkets_linkats_referencedata_link_v4_10_4.message_count = {}
+
+-- Size: Message Count
+otcmarkets_linkats_referencedata_link_v4_10_4.message_count.size = 1
+
+-- Display: Message Count
+otcmarkets_linkats_referencedata_link_v4_10_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+otcmarkets_linkats_referencedata_link_v4_10_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_referencedata_link_v4_10_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_referencedata_link_v4_10_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Size
 otcmarkets_linkats_referencedata_link_v4_10_4.message_size = {}
 
@@ -580,29 +603,6 @@ otcmarkets_linkats_referencedata_link_v4_10_4.message_type.dissect = function(bu
   local display = otcmarkets_linkats_referencedata_link_v4_10_4.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otcmarkets_linkats_referencedata_link_v4_10_4.messages = {}
-
--- Size: Messages
-otcmarkets_linkats_referencedata_link_v4_10_4.messages.size = 1
-
--- Display: Messages
-otcmarkets_linkats_referencedata_link_v4_10_4.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otcmarkets_linkats_referencedata_link_v4_10_4.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otcmarkets_linkats_referencedata_link_v4_10_4.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otcmarkets_linkats_referencedata_link_v4_10_4.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otcmarkets_linkats_referencedata_link_v4_10_4.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -2075,7 +2075,7 @@ otcmarkets_linkats_referencedata_link_v4_10_4.message_block.dissect = function(b
   end
 
   -- Repeating: Message
-  for message_index = 1, messages do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Size
     local message_size = buffer(offset, 2):uint()
@@ -2157,7 +2157,7 @@ otcmarkets_linkats_referencedata_link_v4_10_4.packet_header.size =
   otcmarkets_linkats_referencedata_link_v4_10_4.packet_size.size + 
   otcmarkets_linkats_referencedata_link_v4_10_4.seq_num.size + 
   otcmarkets_linkats_referencedata_link_v4_10_4.packet_flag.size + 
-  otcmarkets_linkats_referencedata_link_v4_10_4.messages.size + 
+  otcmarkets_linkats_referencedata_link_v4_10_4.message_count.size + 
   otcmarkets_linkats_referencedata_link_v4_10_4.packet_milli.size
 
 -- Display: Packet Header
@@ -2178,8 +2178,8 @@ otcmarkets_linkats_referencedata_link_v4_10_4.packet_header.fields = function(bu
   -- Packet Flag: Struct of 5 fields
   index, packet_flag = otcmarkets_linkats_referencedata_link_v4_10_4.packet_flag.dissect(buffer, index, packet, parent)
 
-  -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otcmarkets_linkats_referencedata_link_v4_10_4.messages.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = otcmarkets_linkats_referencedata_link_v4_10_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_linkats_referencedata_link_v4_10_4.packet_milli.dissect(buffer, index, packet, parent)

@@ -40,9 +40,9 @@ omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_close = P
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketclosetimemilli", ftypes.UINT64)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.marketopen", ftypes.UINT64)
+omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messagecount", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messagetype", ftypes.UINT8)
-omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.num_priced_mp = ProtoField.new("Num Priced Mp", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.numpricedmp", ftypes.UINT8)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.otc_link_ecn_eligible = ProtoField.new("Otc Link Ecn Eligible", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.otclinkecneligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.otc_link_messaging_disabled = ProtoField.new("Otc Link Messaging Disabled", "otcmarkets.linkats.quoteinsideglobalotc.link.v4.10.4.otclinkmessagingdisabled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -571,6 +571,29 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.market_open.dissect = funct
   return offset + length, value
 end
 
+-- Message Count
+otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count = {}
+
+-- Size: Message Count
+otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.size = 1
+
+-- Display: Message Count
+otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Size
 otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_size = {}
 
@@ -635,29 +658,6 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_type.dissect = func
   local display = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages = {}
-
--- Size: Messages
-otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.size = 1
-
--- Display: Messages
-otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -1978,7 +1978,7 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_block.dissect = fun
   end
 
   -- Repeating: Message
-  for message_index = 1, messages do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Size
     local message_size = buffer(offset, 2):uint()
@@ -2060,7 +2060,7 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_header.size =
   otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_size.size + 
   otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.seq_num.size + 
   otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_flag.size + 
-  otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.size + 
+  otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.size + 
   otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_milli.size
 
 -- Display: Packet Header
@@ -2081,8 +2081,8 @@ otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_header.fields = func
   -- Packet Flag: Struct of 5 fields
   index, packet_flag = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_flag.dissect(buffer, index, packet, parent)
 
-  -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.messages.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.message_count.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_linkats_quoteinsideglobalotc_link_v4_10_4.packet_milli.dissect(buffer, index, packet, parent)

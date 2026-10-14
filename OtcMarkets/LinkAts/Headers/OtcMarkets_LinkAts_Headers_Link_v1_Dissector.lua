@@ -16,9 +16,9 @@ local otcmarkets_linkats_headers_link_v1 = {}
 
 -- OtcMarkets LinkAts Headers Link 1 Fields
 omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.headers.link.v1.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_otcmarkets_linkats_headers_link_v1.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.headers.link.v1.messagecount", ftypes.UINT8)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.headers.link.v1.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.headers.link.v1.messagetype", ftypes.UINT8)
-omi_otcmarkets_linkats_headers_link_v1.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.headers.link.v1.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.headers.link.v1.packetflag", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.headers.link.v1.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.headers.link.v1.packetsize", ftypes.UINT16)
@@ -77,6 +77,29 @@ end
 -- OtcMarkets LinkAts Headers Link 1 Fields
 -----------------------------------------------------------------------
 
+-- Message Count
+otcmarkets_linkats_headers_link_v1.message_count = {}
+
+-- Size: Message Count
+otcmarkets_linkats_headers_link_v1.message_count.size = 1
+
+-- Display: Message Count
+otcmarkets_linkats_headers_link_v1.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+otcmarkets_linkats_headers_link_v1.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_headers_link_v1.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_headers_link_v1.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Size
 otcmarkets_linkats_headers_link_v1.message_size = {}
 
@@ -119,29 +142,6 @@ otcmarkets_linkats_headers_link_v1.message_type.dissect = function(buffer, offse
   local display = otcmarkets_linkats_headers_link_v1.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otcmarkets_linkats_headers_link_v1.messages = {}
-
--- Size: Messages
-otcmarkets_linkats_headers_link_v1.messages.size = 1
-
--- Display: Messages
-otcmarkets_linkats_headers_link_v1.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otcmarkets_linkats_headers_link_v1.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otcmarkets_linkats_headers_link_v1.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otcmarkets_linkats_headers_link_v1.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -394,7 +394,7 @@ otcmarkets_linkats_headers_link_v1.message_block.dissect = function(buffer, offs
   end
 
   -- Repeating: Message
-  for message_index = 1, messages do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Size
     local message_size = buffer(offset, 2):uint()
@@ -476,7 +476,7 @@ otcmarkets_linkats_headers_link_v1.packet_header.size =
   otcmarkets_linkats_headers_link_v1.packet_size.size + 
   otcmarkets_linkats_headers_link_v1.seq_num.size + 
   otcmarkets_linkats_headers_link_v1.packet_flag.size + 
-  otcmarkets_linkats_headers_link_v1.messages.size + 
+  otcmarkets_linkats_headers_link_v1.message_count.size + 
   otcmarkets_linkats_headers_link_v1.packet_milli.size
 
 -- Display: Packet Header
@@ -497,8 +497,8 @@ otcmarkets_linkats_headers_link_v1.packet_header.fields = function(buffer, offse
   -- Packet Flag: Struct of 5 fields
   index, packet_flag = otcmarkets_linkats_headers_link_v1.packet_flag.dissect(buffer, index, packet, parent)
 
-  -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otcmarkets_linkats_headers_link_v1.messages.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = otcmarkets_linkats_headers_link_v1.message_count.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_linkats_headers_link_v1.packet_milli.dissect(buffer, index, packet, parent)

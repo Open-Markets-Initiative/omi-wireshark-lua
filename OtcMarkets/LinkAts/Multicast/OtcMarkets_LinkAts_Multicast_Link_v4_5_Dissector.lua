@@ -61,9 +61,9 @@ omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_close_time_milli = Prot
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.multicast.link.v4.5.marketmsgct", ftypes.UINT32)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.multicast.link.v4.5.marketopen", ftypes.UINT64)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.maturity_date_milli = ProtoField.new("Maturity Date Milli", "otcmarkets.linkats.multicast.link.v4.5.maturitydatemilli", ftypes.UINT64)
+omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.multicast.link.v4.5.messagecount", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.multicast.link.v4.5.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.multicast.link.v4.5.messagetype", ftypes.UINT8)
-omi_otcmarkets_linkats_multicast_link_v4_5.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.multicast.link.v4.5.messages", ftypes.UINT8)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.mpid = ProtoField.new("Mpid", "otcmarkets.linkats.multicast.link.v4.5.mpid", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.nms_conditional_quote = ProtoField.new("Nms Conditional Quote", "otcmarkets.linkats.multicast.link.v4.5.nmsconditionalquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.num_priced_mp = ProtoField.new("Num Priced Mp", "otcmarkets.linkats.multicast.link.v4.5.numpricedmp", ftypes.UINT8)
@@ -915,6 +915,29 @@ otcmarkets_linkats_multicast_link_v4_5.maturity_date_milli.dissect = function(bu
   return offset + length, value
 end
 
+-- Message Count
+otcmarkets_linkats_multicast_link_v4_5.message_count = {}
+
+-- Size: Message Count
+otcmarkets_linkats_multicast_link_v4_5.message_count.size = 1
+
+-- Display: Message Count
+otcmarkets_linkats_multicast_link_v4_5.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+otcmarkets_linkats_multicast_link_v4_5.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = otcmarkets_linkats_multicast_link_v4_5.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = otcmarkets_linkats_multicast_link_v4_5.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Size
 otcmarkets_linkats_multicast_link_v4_5.message_size = {}
 
@@ -1000,29 +1023,6 @@ otcmarkets_linkats_multicast_link_v4_5.message_type.dissect = function(buffer, o
   local display = otcmarkets_linkats_multicast_link_v4_5.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Messages
-otcmarkets_linkats_multicast_link_v4_5.messages = {}
-
--- Size: Messages
-otcmarkets_linkats_multicast_link_v4_5.messages.size = 1
-
--- Display: Messages
-otcmarkets_linkats_multicast_link_v4_5.messages.display = function(value)
-  return "Messages: "..value
-end
-
--- Dissect: Messages
-otcmarkets_linkats_multicast_link_v4_5.messages.dissect = function(buffer, offset, packet, parent)
-  local length = otcmarkets_linkats_multicast_link_v4_5.messages.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = otcmarkets_linkats_multicast_link_v4_5.messages.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_otcmarkets_linkats_multicast_link_v4_5.fields.messages, range, value, display)
 
   return offset + length, value
 end
@@ -4020,7 +4020,7 @@ otcmarkets_linkats_multicast_link_v4_5.message_block.dissect = function(buffer, 
   end
 
   -- Repeating: Message
-  for message_index = 1, messages do
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Size
     local message_size = buffer(offset, 2):uint()
@@ -4102,7 +4102,7 @@ otcmarkets_linkats_multicast_link_v4_5.packet_header.size =
   otcmarkets_linkats_multicast_link_v4_5.packet_size.size + 
   otcmarkets_linkats_multicast_link_v4_5.seq_num.size + 
   otcmarkets_linkats_multicast_link_v4_5.packet_flag.size + 
-  otcmarkets_linkats_multicast_link_v4_5.messages.size + 
+  otcmarkets_linkats_multicast_link_v4_5.message_count.size + 
   otcmarkets_linkats_multicast_link_v4_5.packet_milli.size
 
 -- Display: Packet Header
@@ -4123,8 +4123,8 @@ otcmarkets_linkats_multicast_link_v4_5.packet_header.fields = function(buffer, o
   -- Packet Flag: Struct of 5 fields
   index, packet_flag = otcmarkets_linkats_multicast_link_v4_5.packet_flag.dissect(buffer, index, packet, parent)
 
-  -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = otcmarkets_linkats_multicast_link_v4_5.messages.dissect(buffer, index, packet, parent)
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = otcmarkets_linkats_multicast_link_v4_5.message_count.dissect(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_linkats_multicast_link_v4_5.packet_milli.dissect(buffer, index, packet, parent)
