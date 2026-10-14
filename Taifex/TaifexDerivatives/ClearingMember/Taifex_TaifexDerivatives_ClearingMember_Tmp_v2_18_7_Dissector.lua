@@ -5180,6 +5180,23 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_confirmed_message.dis
   end
 end
 
+-- Logout Message
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_message = {}
+
+-- Display: Logout Message
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Activate Application System Confirmed Message
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.activate_application_system_confirmed_message = {}
 
@@ -5571,7 +5588,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.payload.dissect = function(b
   end
   -- Dissect Logout Message
   if message_type == 70 then
-    return offset
+    return taifex_taifexderivatives_clearingmember_tmp_v2_18_7.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Confirmed Message
   if message_type == 80 then

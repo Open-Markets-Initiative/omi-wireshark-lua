@@ -15,13 +15,6 @@ local cboe_cboeeurope_latencyfeed_pitch_v1_4 = {}
 -----------------------------------------------------------------------
 
 -- Cboe CboeEurope LatencyFeed Pitch 1.4 Fields
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._25_percentile = ProtoField.new("25 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.25percentile", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._50_percentile_median = ProtoField.new("50 Percentile Median", "cboe.cboeeurope.latencyfeed.pitch.v1.4.50percentilemedian", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._75_percentile = ProtoField.new("75 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.75percentile", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._90_percentile = ProtoField.new("90 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.90percentile", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._95_percentile = ProtoField.new("95 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.95percentile", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._99_percentile = ProtoField.new("99 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.99percentile", ftypes.DOUBLE)
-omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._999_percentile = ProtoField.new("99.9 Percentile", "cboe.cboeeurope.latencyfeed.pitch.v1.4.999percentile", ftypes.DOUBLE)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.average = ProtoField.new("Average", "cboe.cboeeurope.latencyfeed.pitch.v1.4.average", ftypes.DOUBLE)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.begin_time = ProtoField.new("Begin Time", "cboe.cboeeurope.latencyfeed.pitch.v1.4.begintime", ftypes.UINT32)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.count = ProtoField.new("Count", "cboe.cboeeurope.latencyfeed.pitch.v1.4.count", ftypes.UINT32)
@@ -35,6 +28,13 @@ omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.message_length = ProtoField.ne
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.message_type = ProtoField.new("Message Type", "cboe.cboeeurope.latencyfeed.pitch.v1.4.messagetype", ftypes.UINT8)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.minimum = ProtoField.new("Minimum", "cboe.cboeeurope.latencyfeed.pitch.v1.4.minimum", ftypes.DOUBLE)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.mode = ProtoField.new("Mode", "cboe.cboeeurope.latencyfeed.pitch.v1.4.mode", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_25 = ProtoField.new("25%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile25", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_50 = ProtoField.new("50% (Median)", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile50", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_75 = ProtoField.new("75%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile75", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_90 = ProtoField.new("90%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile90", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_95 = ProtoField.new("95%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile95", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_99 = ProtoField.new("99%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile99", ftypes.DOUBLE)
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_99_point_9 = ProtoField.new("99.9%", "cboe.cboeeurope.latencyfeed.pitch.v1.4.percentile99point9", ftypes.DOUBLE)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.sequence = ProtoField.new("Sequence", "cboe.cboeeurope.latencyfeed.pitch.v1.4.sequence", ftypes.UINT32)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.standard_deviation = ProtoField.new("Standard Deviation", "cboe.cboeeurope.latencyfeed.pitch.v1.4.standarddeviation", ftypes.DOUBLE)
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.unit = ProtoField.new("Unit", "cboe.cboeeurope.latencyfeed.pitch.v1.4.unit", ftypes.UINT8)
@@ -97,167 +97,6 @@ end
 -----------------------------------------------------------------------
 -- Cboe CboeEurope LatencyFeed Pitch 1.4 Fields
 -----------------------------------------------------------------------
-
--- 25 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile = {}
-
--- Size: 25 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.size = 8
-
--- Display: 25 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.display = function(value)
-  return "25 Percentile: "..value
-end
-
--- Dissect: 25 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._25_percentile, range, value, display)
-
-  return offset + length, value
-end
-
--- 50 Percentile Median
-cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median = {}
-
--- Size: 50 Percentile Median
-cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.size = 8
-
--- Display: 50 Percentile Median
-cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.display = function(value)
-  return "50 Percentile Median: "..value
-end
-
--- Dissect: 50 Percentile Median
-cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._50_percentile_median, range, value, display)
-
-  return offset + length, value
-end
-
--- 75 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile = {}
-
--- Size: 75 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.size = 8
-
--- Display: 75 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.display = function(value)
-  return "75 Percentile: "..value
-end
-
--- Dissect: 75 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._75_percentile, range, value, display)
-
-  return offset + length, value
-end
-
--- 90 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile = {}
-
--- Size: 90 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.size = 8
-
--- Display: 90 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.display = function(value)
-  return "90 Percentile: "..value
-end
-
--- Dissect: 90 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._90_percentile, range, value, display)
-
-  return offset + length, value
-end
-
--- 95 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile = {}
-
--- Size: 95 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.size = 8
-
--- Display: 95 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.display = function(value)
-  return "95 Percentile: "..value
-end
-
--- Dissect: 95 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._95_percentile, range, value, display)
-
-  return offset + length, value
-end
-
--- 99 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile = {}
-
--- Size: 99 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.size = 8
-
--- Display: 99 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.display = function(value)
-  return "99 Percentile: "..value
-end
-
--- Dissect: 99 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._99_percentile, range, value, display)
-
-  return offset + length, value
-end
-
--- 99.9 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile = {}
-
--- Size: 99.9 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.size = 8
-
--- Display: 99.9 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.display = function(value)
-  return "99.9 Percentile: "..value
-end
-
--- Dissect: 99.9 Percentile
-cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.size
-  local range = buffer(offset, length)
-  local value = range:le_float()
-  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields._999_percentile, range, value, display)
-
-  return offset + length, value
-end
 
 -- Average
 cboe_cboeeurope_latencyfeed_pitch_v1_4.average = {}
@@ -566,6 +405,167 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.mode.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Percentile 25
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25 = {}
+
+-- Size: Percentile 25
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.size = 8
+
+-- Display: Percentile 25
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.display = function(value)
+  return "25%: "..value
+end
+
+-- Dissect: Percentile 25
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_25, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 50
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50 = {}
+
+-- Size: Percentile 50
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.size = 8
+
+-- Display: Percentile 50
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.display = function(value)
+  return "50% (Median): "..value
+end
+
+-- Dissect: Percentile 50
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_50, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 75
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75 = {}
+
+-- Size: Percentile 75
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.size = 8
+
+-- Display: Percentile 75
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.display = function(value)
+  return "75%: "..value
+end
+
+-- Dissect: Percentile 75
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_75, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 90
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90 = {}
+
+-- Size: Percentile 90
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.size = 8
+
+-- Display: Percentile 90
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.display = function(value)
+  return "90%: "..value
+end
+
+-- Dissect: Percentile 90
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_90, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 95
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95 = {}
+
+-- Size: Percentile 95
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.size = 8
+
+-- Display: Percentile 95
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.display = function(value)
+  return "95%: "..value
+end
+
+-- Dissect: Percentile 95
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_95, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 99
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99 = {}
+
+-- Size: Percentile 99
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.size = 8
+
+-- Display: Percentile 99
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.display = function(value)
+  return "99%: "..value
+end
+
+-- Dissect: Percentile 99
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_99, range, value, display)
+
+  return offset + length, value
+end
+
+-- Percentile 99 Point 9
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9 = {}
+
+-- Size: Percentile 99 Point 9
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.size = 8
+
+-- Display: Percentile 99 Point 9
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.display = function(value)
+  return "99.9%: "..value
+end
+
+-- Dissect: Percentile 99 Point 9
+cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.percentile_99_point_9, range, value, display)
+
+  return offset + length, value
+end
+
 -- Sequence
 cboe_cboeeurope_latencyfeed_pitch_v1_4.sequence = {}
 
@@ -655,13 +655,13 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.size =
   cboe_cboeeurope_latencyfeed_pitch_v1_4.average.size + 
   cboe_cboeeurope_latencyfeed_pitch_v1_4.standard_deviation.size + 
   cboe_cboeeurope_latencyfeed_pitch_v1_4.mode.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.size + 
-  cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.size
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.size + 
+  cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.size
 
 -- Display: Latency Stat Message
 cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.display = function(packet, parent, length)
@@ -702,26 +702,26 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.latency_stat_message.fields = function(bu
   -- Mode: Double
   index, mode = cboe_cboeeurope_latencyfeed_pitch_v1_4.mode.dissect(buffer, index, packet, parent)
 
-  -- 99.9 Percentile: Double
-  index, _999_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._999_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 99 Point 9: Double
+  index, percentile_99_point_9 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99_point_9.dissect(buffer, index, packet, parent)
 
-  -- 99 Percentile: Double
-  index, _99_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._99_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 99: Double
+  index, percentile_99 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_99.dissect(buffer, index, packet, parent)
 
-  -- 95 Percentile: Double
-  index, _95_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._95_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 95: Double
+  index, percentile_95 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_95.dissect(buffer, index, packet, parent)
 
-  -- 90 Percentile: Double
-  index, _90_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._90_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 90: Double
+  index, percentile_90 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_90.dissect(buffer, index, packet, parent)
 
-  -- 75 Percentile: Double
-  index, _75_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._75_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 75: Double
+  index, percentile_75 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_75.dissect(buffer, index, packet, parent)
 
-  -- 50 Percentile Median: Double
-  index, _50_percentile_median = cboe_cboeeurope_latencyfeed_pitch_v1_4._50_percentile_median.dissect(buffer, index, packet, parent)
+  -- Percentile 50: Double
+  index, percentile_50 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_50.dissect(buffer, index, packet, parent)
 
-  -- 25 Percentile: Double
-  index, _25_percentile = cboe_cboeeurope_latencyfeed_pitch_v1_4._25_percentile.dissect(buffer, index, packet, parent)
+  -- Percentile 25: Double
+  index, percentile_25 = cboe_cboeeurope_latencyfeed_pitch_v1_4.percentile_25.dissect(buffer, index, packet, parent)
 
   return index
 end

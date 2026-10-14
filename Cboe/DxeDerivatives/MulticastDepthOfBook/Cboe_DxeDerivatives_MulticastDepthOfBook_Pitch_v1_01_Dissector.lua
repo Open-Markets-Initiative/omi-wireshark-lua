@@ -89,6 +89,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.quantity_short =
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.reference_price = ProtoField.new("Reference Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.referenceprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.remainingquantity", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.reserved3", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.second_unused_1 = ProtoField.new("Second Unused 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.sellcontracts", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.sequence = ProtoField.new("Sequence", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.sequence", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.01.settlementprice", ftypes.DOUBLE)
@@ -2932,9 +2933,9 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.summary_flags.display = fun
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Low Price 1"
   end
-  -- Is Unused 1 flag set?
+  -- Is Second Unused 1 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
+    flags[#flags + 1] = "Second Unused 1"
   end
   -- Is Open And Close Price flag set?
   if bit.band(value, 0x10) ~= 0 then
@@ -2956,8 +2957,8 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.summary_flags.bits = functi
   -- Low Price 1: 1 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.low_price_1, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.unused_1, range, value)
+  -- Second Unused 1: 1 Bit
+  parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.second_unused_1, range, value)
 
   -- Open And Close Price: 1 Bit
   parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_01.fields.open_and_close_price, range, value)
