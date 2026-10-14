@@ -71,6 +71,10 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message 
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- Ltse LtseEquities MemoirDepthFeed 1.3 Session Messages
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.heartbeat", ftypes.BYTES)
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.sessionshutdown", ftypes.BYTES)
+
 -- Ltse LtseEquities MemoirDepthFeed Sbe 1.3 Generated Fields
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.messageindex", ftypes.UINT16)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
@@ -2060,11 +2064,53 @@ ltse_ltseequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect = function(
   end
 end
 
+-- Session Shutdown
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.session_shutdown = {}
+
+-- Display: Session Shutdown
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.session_shutdown.display = function(packet, parent, length)
+  return "Session Shutdown"
+end
+
+
+-- Dissect: Session Shutdown
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect = function(buffer, offset, packet, parent)
+  local display = ltse_ltseequities_memoirdepthfeed_sbe_v1_3.session_shutdown.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.heartbeat = {}
+
+-- Display: Heartbeat
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+ltse_ltseequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = ltse_ltseequities_memoirdepthfeed_sbe_v1_3.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Messages
 ltse_ltseequities_memoirdepthfeed_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
 ltse_ltseequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Heartbeat
+  if message_type == 0 then
+    return ltse_ltseequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Shutdown
+  if message_type == 1 then
+    return ltse_ltseequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequenced Message
   if message_type == 2 then
     return ltse_ltseequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
@@ -2146,7 +2192,7 @@ ltse_ltseequities_memoirdepthfeed_sbe_v1_3.packet.dissect = function(buffer, pac
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
-  -- Sequenced Messages: Runtime Type with 1 branches
+  -- Sequenced Messages: Runtime Type with 3 branches
   index = ltse_ltseequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index

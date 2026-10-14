@@ -71,6 +71,10 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- BlueOceanAts BlueEquities MemoirDepthFeed 1.3 Session Messages
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.heartbeat", ftypes.BYTES)
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.sessionshutdown", ftypes.BYTES)
+
 -- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Generated Fields
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.messageindex", ftypes.UINT16)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
@@ -2060,11 +2064,53 @@ blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect = f
   end
 end
 
+-- Session Shutdown
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown = {}
+
+-- Display: Session Shutdown
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown.display = function(packet, parent, length)
+  return "Session Shutdown"
+end
+
+
+-- Dissect: Session Shutdown
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect = function(buffer, offset, packet, parent)
+  local display = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat = {}
+
+-- Display: Heartbeat
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Messages
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Heartbeat
+  if message_type == 0 then
+    return blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Shutdown
+  if message_type == 1 then
+    return blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequenced Message
   if message_type == 2 then
     return blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
@@ -2146,7 +2192,7 @@ blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.packet.dissect = function(buf
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
-  -- Sequenced Messages: Runtime Type with 1 branches
+  -- Sequenced Messages: Runtime Type with 3 branches
   index = blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index

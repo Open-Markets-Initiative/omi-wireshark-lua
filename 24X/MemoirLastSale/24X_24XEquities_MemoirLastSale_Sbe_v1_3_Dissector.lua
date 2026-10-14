@@ -65,6 +65,10 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Pac
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "24x.24xequities.memoirlastsale.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "24x.24xequities.memoirlastsale.sbe.v1.3.sbemessage", ftypes.STRING)
 
+-- 24X 24XEquities MemoirLastSale 1.3 Session Messages
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "24x.24xequities.memoirlastsale.sbe.v1.3.heartbeat", ftypes.BYTES)
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "24x.24xequities.memoirlastsale.sbe.v1.3.sessionshutdown", ftypes.BYTES)
+
 -- 24X 24XEquities MemoirLastSale 1.3 Application Messages
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "24x.24xequities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "24x.24xequities.memoirlastsale.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
@@ -2207,11 +2211,53 @@ n24x_24xequities_memoirlastsale_sbe_v1_3.sequenced_message.dissect = function(bu
   end
 end
 
+-- Session Shutdown
+n24x_24xequities_memoirlastsale_sbe_v1_3.session_shutdown = {}
+
+-- Display: Session Shutdown
+n24x_24xequities_memoirlastsale_sbe_v1_3.session_shutdown.display = function(packet, parent, length)
+  return "Session Shutdown"
+end
+
+
+-- Dissect: Session Shutdown
+n24x_24xequities_memoirlastsale_sbe_v1_3.session_shutdown.dissect = function(buffer, offset, packet, parent)
+  local display = n24x_24xequities_memoirlastsale_sbe_v1_3.session_shutdown.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+n24x_24xequities_memoirlastsale_sbe_v1_3.heartbeat = {}
+
+-- Display: Heartbeat
+n24x_24xequities_memoirlastsale_sbe_v1_3.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+n24x_24xequities_memoirlastsale_sbe_v1_3.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = n24x_24xequities_memoirlastsale_sbe_v1_3.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Messages
 n24x_24xequities_memoirlastsale_sbe_v1_3.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
 n24x_24xequities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Heartbeat
+  if message_type == 0 then
+    return n24x_24xequities_memoirlastsale_sbe_v1_3.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Shutdown
+  if message_type == 1 then
+    return n24x_24xequities_memoirlastsale_sbe_v1_3.session_shutdown.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequenced Message
   if message_type == 2 then
     return n24x_24xequities_memoirlastsale_sbe_v1_3.sequenced_message.dissect(buffer, offset, packet, parent)
@@ -2290,7 +2336,7 @@ n24x_24xequities_memoirlastsale_sbe_v1_3.packet.dissect = function(buffer, packe
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
-  -- Sequenced Messages: Runtime Type with 1 branches
+  -- Sequenced Messages: Runtime Type with 3 branches
   index = n24x_24xequities_memoirlastsale_sbe_v1_3.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index

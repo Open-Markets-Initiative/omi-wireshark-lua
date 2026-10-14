@@ -35,6 +35,10 @@ omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.co
 omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
+-- Ltse CommonHeader 1.1 Session Messages
+omi_ltse_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "ltse.commonheader.udp.v1.1.heartbeat", ftypes.BYTES)
+omi_ltse_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "ltse.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES)
+
 -- Ltse CommonHeader Udp 1.1 Generated Fields
 omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "ltse.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
 
@@ -550,11 +554,53 @@ ltse_commonheader_udp_v1_1.sequenced_message.dissect = function(buffer, offset, 
   end
 end
 
+-- Session Shutdown
+ltse_commonheader_udp_v1_1.session_shutdown = {}
+
+-- Display: Session Shutdown
+ltse_commonheader_udp_v1_1.session_shutdown.display = function(packet, parent, length)
+  return "Session Shutdown"
+end
+
+
+-- Dissect: Session Shutdown
+ltse_commonheader_udp_v1_1.session_shutdown.dissect = function(buffer, offset, packet, parent)
+  local display = ltse_commonheader_udp_v1_1.session_shutdown.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+ltse_commonheader_udp_v1_1.heartbeat = {}
+
+-- Display: Heartbeat
+ltse_commonheader_udp_v1_1.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+ltse_commonheader_udp_v1_1.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = ltse_commonheader_udp_v1_1.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Messages
 ltse_commonheader_udp_v1_1.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
 ltse_commonheader_udp_v1_1.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Heartbeat
+  if message_type == 0 then
+    return ltse_commonheader_udp_v1_1.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Shutdown
+  if message_type == 1 then
+    return ltse_commonheader_udp_v1_1.session_shutdown.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequenced Message
   if message_type == 2 then
     return ltse_commonheader_udp_v1_1.sequenced_message.dissect(buffer, offset, packet, parent)
@@ -633,7 +679,7 @@ ltse_commonheader_udp_v1_1.packet.dissect = function(buffer, packet, parent)
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
-  -- Sequenced Messages: Runtime Type with 1 branches
+  -- Sequenced Messages: Runtime Type with 3 branches
   index = ltse_commonheader_udp_v1_1.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index
