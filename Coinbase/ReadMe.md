@@ -28,6 +28,7 @@
 | [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [0.1][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Dissector] | 9/5/2025 | 8350 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Xml] |
 | [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Dissector] | 5/6/2026 | 8386 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Xml] |
 | [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.3][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Dissector] | 7/21/2026 | 8902 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Xml] |
+| [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.4][Coinbase.Deribit.OrdersApi.Sbe.v1.4.Dissector] | 8/4/2026 | 8910 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.4.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.4.Xml] |
 
 
 ### Order Entry
@@ -125,3 +126,6 @@
 [Coinbase.Deribit.OrdersApi.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Coinbase/Deribit/OrdersApi/Coinbase_Deribit_OrdersApi_Sbe_v1_3_Dissector.lua "Coinbase Deribit OrdersApi Sbe v1.3 Wireshark Dissector"
 [Coinbase.Deribit.OrdersApi.Sbe.v1.3.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.3 Url"
 [Coinbase.Deribit.OrdersApi.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Specifications/Deribit/OrdersApi/Coinbase.Deribit.OrdersApi.Sbe.v1.3.xml "Coinbase 1.3 Xml"
+[Coinbase.Deribit.OrdersApi.Sbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Coinbase/Deribit/OrdersApi/Coinbase_Deribit_OrdersApi_Sbe_v1_4_Dissector.lua "Coinbase Deribit OrdersApi Sbe v1.4 Wireshark Dissector"
+[Coinbase.Deribit.OrdersApi.Sbe.v1.4.Url]: https://docs.cdp.coinbase.com/derivatives/introduction/downloads "Coinbase 1.4 Url"
+[Coinbase.Deribit.OrdersApi.Sbe.v1.4.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Coinbase/Specifications/Deribit/OrdersApi/Coinbase.Deribit.OrdersApi.Sbe.v1.4.xml "Coinbase 1.4 Xml"
