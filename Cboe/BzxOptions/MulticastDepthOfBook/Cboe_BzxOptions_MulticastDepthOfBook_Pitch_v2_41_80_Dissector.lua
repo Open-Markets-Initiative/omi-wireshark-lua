@@ -1670,8 +1670,8 @@ cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.trade_condition.display = fu
   if value == "v" then
     return "Trade Condition: Extended Hours Trade (v)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "K" then
     return "Trade Condition: Cabinet Order (K)"

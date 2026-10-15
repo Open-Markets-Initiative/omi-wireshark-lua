@@ -30,6 +30,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.composite_market_o
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.contracts", ftypes.UINT32, nil, nil, nil, "Number of contracts available in the auction.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.customerindicator", ftypes.STRING, nil, nil, nil, "BZX/C1/EDGX Options Only (space filled on C2 Options and all equities markets). N = Non-Customer, C = Customer, R = Retail Priority order (EDGX Equities only).")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.display", ftypes.UINT8, {[0]="Order Is Not Aggregated In The Cboe Sip Quote", [1]="Order Is Aggregated In The Cboe Sip Quote"}, base.DEC, 0x01, "0 = Order is not aggregated in the Cboe SIP quote, 1 = Order is aggregated in the Cboe SIP quote.")
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.epochtime", ftypes.UINT32, nil, nil, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c1options.multicastdepthofbook.pitch.v2.41.76.expandedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -554,6 +555,29 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_76.customer_indicator.dissect = 
   local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_76.customer_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.customer_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Epoch Time
+cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time = {}
+
+-- Size: Epoch Time
+cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.size = 4
+
+-- Display: Epoch Time
+cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.display = function(value)
+  return "Epoch Time: "..value
+end
+
+-- Dissect: Epoch Time
+cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_76.fields.epoch_time, range, value, display)
 
   return offset + length, value
 end
@@ -1712,8 +1736,8 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_76.trade_condition.display = fun
   if value == "v" then
     return "Trade Condition: Extended Hours Trade (v)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "K" then
     return "Trade Condition: Cabinet Order (K)"
@@ -3638,7 +3662,8 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time_message = {}
 
 -- Size: Time Message
 cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time_message.size =
-  cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time.size
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.size
 
 -- Display: Time Message
 cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time_message.display = function(packet, parent, length)
@@ -3651,6 +3676,9 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time_message.fields = functio
 
   -- Time: Binary
   index, time = cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time.dissect(buffer, index, packet, parent)
+
+  -- Epoch Time: Binary
+  index, epoch_time = cboe_c1options_multicastdepthofbook_pitch_v2_41_76.epoch_time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
   cboe_c1options_multicastdepthofbook_pitch_v2_41_76.time.current = time

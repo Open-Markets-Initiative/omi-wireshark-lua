@@ -49,7 +49,7 @@ omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.cmc_sessions = ProtoFie
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.byxequities.binaryorderentry.boe.v2.4.55.contrabroker", ftypes.STRING, nil, nil, nil, "Corresponds to ContraBroker (375) in Cboe FIX. All externally matched (routed) executions will identify the away exchange.")
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.byxequities.binaryorderentry.boe.v2.4.55.correctedprice", ftypes.DOUBLE, nil, nil, nil, "For trade corrections, this is the new trade price. For trade breaks, this is set to 0.")
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.cross_trade_flag = ProtoField.new("Cross Trade Flag", "cboe.byxequities.binaryorderentry.boe.v2.4.55.crosstradeflag", ftypes.STRING)
-omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.byxequities.binaryorderentry.boe.v2.4.55.discretionamount", ftypes.UINT16)
+omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.byxequities.binaryorderentry.boe.v2.4.55.discretionamount", ftypes.DOUBLE)
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.byxequities.binaryorderentry.boe.v2.4.55.displayindicator", ftypes.STRING)
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.display_price = ProtoField.new("Display Price", "cboe.byxequities.binaryorderentry.boe.v2.4.55.displayprice", ftypes.DOUBLE)
 omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.display_range = ProtoField.new("Display Range", "cboe.byxequities.binaryorderentry.boe.v2.4.55.displayrange", ftypes.UINT32)
@@ -1153,11 +1153,17 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.display = functi
   return "Discretion Amount: "..value
 end
 
+-- Translate: Discretion Amount
+cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Discretion Amount
 cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.translate(raw)
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.discretion_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.discretion_amount, range, value, display)

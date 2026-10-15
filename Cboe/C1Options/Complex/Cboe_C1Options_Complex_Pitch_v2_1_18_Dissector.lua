@@ -1562,8 +1562,8 @@ cboe_c1options_complex_pitch_v2_1_18.trade_condition.display = function(value)
   if value == "o" then
     return "Trade Condition: Complex With Stock Cross (o)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "O" then
     return "Trade Condition: Opening Trade (O)"

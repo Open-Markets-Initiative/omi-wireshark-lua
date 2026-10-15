@@ -148,7 +148,7 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.quote_short = ProtoField
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.c1options.binaryorderentry.boe3.v1.1.23.quotesymbol", ftypes.STRING, nil, nil, nil, "Entire Cboe format symbol for a quote update")
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.c1options.binaryorderentry.boe3.v1.1.23.quoteupdateid", ftypes.STRING, nil, nil, nil, "ID chosen by the member")
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c1options.binaryorderentry.boe3.v1.1.23.ratioqty", ftypes.UINT32, nil, nil, nil, "Integer ratio of a complex leg with respect to the other legs of a")
-omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c1options.binaryorderentry.boe3.v1.1.23.replayunspecifiedunit", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
+omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.replay_instruction = ProtoField.new("Replay Instruction", "cboe.c1options.binaryorderentry.boe3.v1.1.23.replayinstruction", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.report_time = ProtoField.new("Report Time", "cboe.c1options.binaryorderentry.boe3.v1.1.23.reporttime", ftypes.UINT64, nil, nil, nil, "The time a Floor Trade is reported")
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c1options.binaryorderentry.boe3.v1.1.23.requestreceivedtime", ftypes.UINT64, nil, nil, nil, "A hardware timestamp, populated with nanosecond precision, that")
 omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.reserved = ProtoField.new("Reserved", "cboe.c1options.binaryorderentry.boe3.v1.1.23.reserved", ftypes.BYTES)
@@ -1829,12 +1829,6 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.display_indicator.display = functio
   if value == "V" then
     return "Display Indicator: Default (V)"
   end
-  if value == "S" then
-    return "Display Indicator: Display Price Sliding (S)"
-  end
-  if value == "L" then
-    return "Display Indicator: Display Price Sliding But Reject If Order Crosses Nbbo On Entry (L)"
-  end
   if value == "P" then
     return "Display Indicator: Price Adjust (P)"
   end
@@ -1842,7 +1836,7 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.display_indicator.display = functio
     return "Display Indicator: Multiple Price Adjust (m)"
   end
   if value == "R" then
-    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without (R)"
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
   end
 
   return "Display Indicator: Unknown("..value..")"
@@ -3466,8 +3460,14 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.login_response_status.display = fun
   if value == "Q" then
     return "Login Response Status: Sequence Ahead (Q)"
   end
+  if value == "R" then
+    return "Login Response Status: Replay Too Deep (R)"
+  end
   if value == "S" then
     return "Login Response Status: Invalid Session (S)"
+  end
+  if value == "X" then
+    return "Login Response Status: Invalid Replay Instruction (X)"
   end
 
   return "Login Response Status: Unknown("..value..")"
@@ -3534,6 +3534,9 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.logout_reason.size = 1
 cboe_c1options_binaryorderentry_boe3_v1_1_23.logout_reason.display = function(value)
   if value == "U" then
     return "Logout Reason: User Requested (U)"
+  end
+  if value == "E" then
+    return "Logout Reason: End Of Day (E)"
   end
   if value == "A" then
     return "Logout Reason: Administrative (A)"
@@ -5022,35 +5025,38 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.ratio_qty.dissect = function(buffer
   return offset + length, value
 end
 
--- Replay Unspecified Unit
-cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit = {}
+-- Replay Instruction
+cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction = {}
 
--- Size: Replay Unspecified Unit
-cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.size = 1
+-- Size: Replay Instruction
+cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.size = 1
 
--- Display: Replay Unspecified Unit
-cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.display = function(value)
+-- Display: Replay Instruction
+cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.display = function(value)
+  if value == "D" then
+    return "Replay Instruction: Deep Replay Of Specified Unit (D)"
+  end
   if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
+    return "Replay Instruction: Fail If Unit Not Specified (F)"
   end
   if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
+    return "Replay Instruction: Replay Any Unspecified Unit From Zero (R)"
   end
   if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
+    return "Replay Instruction: Skip Replay Of Unspecified Units (S)"
   end
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+  return "Replay Instruction: Unknown("..value..")"
 end
 
--- Dissect: Replay Unspecified Unit
-cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.size
+-- Dissect: Replay Instruction
+cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.replay_unspecified_unit, range, value, display)
+  parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_1_23.fields.replay_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -9819,7 +9825,7 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_1_23.logout_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
+  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = cboe_c1options_binaryorderentry_boe3_v1_1_23.logout_reason.dissect(buffer, index, packet, parent)
 
   -- Logout Reason Text: 60 Byte Ascii String
@@ -9944,7 +9950,7 @@ end
 cboe_c1options_binaryorderentry_boe3_v1_1_23.login_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
+  -- Login Response Status: 1 Byte Ascii String Enum with 10 values
   index, login_response_status = cboe_c1options_binaryorderentry_boe3_v1_1_23.login_response_status.dissect(buffer, index, packet, parent)
 
   -- Login Response Text: 60 Byte Ascii String
@@ -13254,7 +13260,7 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.login_request_message.size = functi
 
   index = index + cboe_c1options_binaryorderentry_boe3_v1_1_23.password.size
 
-  index = index + cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.size
+  index = index + cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.size
 
   index = index + cboe_c1options_binaryorderentry_boe3_v1_1_23.number_of_units.size
 
@@ -13283,8 +13289,8 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.login_request_message.fields = func
   -- Password: 10 Byte Ascii String
   index, password = cboe_c1options_binaryorderentry_boe3_v1_1_23.password.dissect(buffer, index, packet, parent)
 
-  -- Replay Unspecified Unit: 1 Byte Ascii String Enum with 3 values
-  index, replay_unspecified_unit = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_unspecified_unit.dissect(buffer, index, packet, parent)
+  -- Replay Instruction: 1 Byte Ascii String Enum with 4 values
+  index, replay_instruction = cboe_c1options_binaryorderentry_boe3_v1_1_23.replay_instruction.dissect(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_c1options_binaryorderentry_boe3_v1_1_23.number_of_units.dissect(buffer, index, packet, parent)

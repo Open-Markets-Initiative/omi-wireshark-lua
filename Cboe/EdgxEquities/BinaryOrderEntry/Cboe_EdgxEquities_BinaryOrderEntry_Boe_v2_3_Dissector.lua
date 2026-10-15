@@ -49,7 +49,7 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.corrected_price = ProtoFi
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.custom_group_i_ds = ProtoField.new("Custom Group I Ds", "cboe.edgxequities.binaryorderentry.boe.v2.3.customgroupids", ftypes.STRING, nil, nil, nil, "Repeating CustomGroupID value appended after CustomGroupIDCnt in the Purge Orders message. CustomGroupIDCnt instances follow (count may be 0). Each names a custom group whose orders are to be cancelled; the filter cannot be combined with the symbol filter.")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.edgxequities.binaryorderentry.boe.v2.3.customgroupid", ftypes.UINT16)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.edgxequities.binaryorderentry.boe.v2.3.customgroupidcnt", ftypes.UINT8, nil, nil, nil, "Number of repeating CustomGroupID values included in this message. May be 0.")
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.edgxequities.binaryorderentry.boe.v2.3.discretionamount", ftypes.UINT16)
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.edgxequities.binaryorderentry.boe.v2.3.discretionamount", ftypes.DOUBLE)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.edgxequities.binaryorderentry.boe.v2.3.displayindicator", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.display_price = ProtoField.new("Display Price", "cboe.edgxequities.binaryorderentry.boe.v2.3.displayprice", ftypes.DOUBLE)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.display_range = ProtoField.new("Display Range", "cboe.edgxequities.binaryorderentry.boe.v2.3.displayrange", ftypes.UINT32)
@@ -1206,11 +1206,17 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.display = function
   return "Discretion Amount: "..value
 end
 
+-- Translate: Discretion Amount
+cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Discretion Amount
 cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.translate(raw)
   local display = cboe_edgxequities_binaryorderentry_boe_v2_3.discretion_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.discretion_amount, range, value, display)

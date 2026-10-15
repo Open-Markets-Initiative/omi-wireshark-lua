@@ -1676,8 +1676,8 @@ cboe_edgxoptions_complex_pitch_v2_1_61.trade_condition.display = function(value)
   if value == "v" then
     return "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "O" then
     return "Trade Condition: Opening Trade (O)"

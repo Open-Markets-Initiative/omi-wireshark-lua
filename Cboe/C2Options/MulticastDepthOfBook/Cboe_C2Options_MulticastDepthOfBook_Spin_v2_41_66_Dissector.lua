@@ -1836,8 +1836,8 @@ cboe_c2options_multicastdepthofbook_spin_v2_41_66.trade_condition.display = func
   if value == "v" then
     return "Trade Condition: Extended Hours Trade (v)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "K" then
     return "Trade Condition: Cabinet Order (K)"

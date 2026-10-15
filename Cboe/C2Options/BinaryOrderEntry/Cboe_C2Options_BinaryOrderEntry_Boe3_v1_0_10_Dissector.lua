@@ -41,7 +41,7 @@ omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.compression = ProtoField
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.c2options.binaryorderentry.boe3.v1.0.10.contrabroker", ftypes.STRING, nil, nil, nil, "Internally matched simple executions will identify the OCC clearing number of the contra on the execution")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.c2options.binaryorderentry.boe3.v1.0.10.contracapacity", ftypes.STRING, nil, nil, nil, "Capacity of the contra for this execution")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.contra_trader = ProtoField.new("Contra Trader", "cboe.c2options.binaryorderentry.boe3.v1.0.10.contratrader", ftypes.STRING, nil, nil, nil, "Only present on local book trades, not present on routed trades")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.c2options.binaryorderentry.boe3.v1.0.10.correctedprice", ftypes.UINT64, nil, nil, nil, "Price of the trade after adjustment")
+omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.c2options.binaryorderentry.boe3.v1.0.10.correctedprice", ftypes.DOUBLE, nil, nil, nil, "Price of the trade after adjustment")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.corrected_size = ProtoField.new("Corrected Size", "cboe.c2options.binaryorderentry.boe3.v1.0.10.correctedsize", ftypes.UINT32, nil, nil, nil, "Number of shares after trade adjustment")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.cross_exclusion_indicator = ProtoField.new("Cross Exclusion Indicator", "cboe.c2options.binaryorderentry.boe3.v1.0.10.crossexclusionindicator", ftypes.STRING, nil, nil, nil, "CrossExclusionIndicator")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c2options.binaryorderentry.boe3.v1.0.10.cumqty", ftypes.UINT32, nil, nil, nil, "The total quantity traded by the order")
@@ -126,7 +126,7 @@ omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.quote_short = ProtoField
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.c2options.binaryorderentry.boe3.v1.0.10.quotesymbol", ftypes.STRING, nil, nil, nil, "Entire Cboe format symbol for a quote update")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.c2options.binaryorderentry.boe3.v1.0.10.quoteupdateid", ftypes.STRING, nil, nil, nil, "ID chosen by the member")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.ratio_qty = ProtoField.new("Ratio Qty", "cboe.c2options.binaryorderentry.boe3.v1.0.10.ratioqty", ftypes.UINT32, nil, nil, nil, "Integer ratio of a complex leg with respect to the other legs of a")
-omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.c2options.binaryorderentry.boe3.v1.0.10.replayunspecifiedunit", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
+omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.replay_instruction = ProtoField.new("Replay Instruction", "cboe.c2options.binaryorderentry.boe3.v1.0.10.replayinstruction", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.c2options.binaryorderentry.boe3.v1.0.10.requestreceivedtime", ftypes.UINT64, nil, nil, nil, "A hardware timestamp, populated with nanosecond precision, that")
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.reserved = ProtoField.new("Reserved", "cboe.c2options.binaryorderentry.boe3.v1.0.10.reserved", ftypes.BYTES)
 omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.c2options.binaryorderentry.boe3.v1.0.10.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
@@ -1237,11 +1237,17 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.display = function(
   return "Corrected Price: "..value
 end
 
+-- Translate: Corrected Price
+cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Corrected Price
 cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_int64()
+  local value = cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.translate(raw)
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.corrected_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.corrected_price, range, value, display)
@@ -1400,7 +1406,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.display_indicator.display = functio
     return "Display Indicator: Multiple Price Adjust (m)"
   end
   if value == "R" then
-    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without (R)"
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed Without Adjustment (R)"
   end
 
   return "Display Indicator: Unknown("..value..")"
@@ -2597,8 +2603,14 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_status.display = fun
   if value == "Q" then
     return "Login Response Status: Sequence Ahead (Q)"
   end
+  if value == "R" then
+    return "Login Response Status: Replay Too Deep (R)"
+  end
   if value == "S" then
     return "Login Response Status: Invalid Session (S)"
+  end
+  if value == "X" then
+    return "Login Response Status: Invalid Replay Instruction (X)"
   end
 
   return "Login Response Status: Unknown("..value..")"
@@ -2665,6 +2677,9 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason.size = 1
 cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason.display = function(value)
   if value == "U" then
     return "Logout Reason: User Requested (U)"
+  end
+  if value == "E" then
+    return "Logout Reason: End Of Day (E)"
   end
   if value == "A" then
     return "Logout Reason: Administrative (A)"
@@ -4019,12 +4034,12 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol = {}
 
 -- Size: Quote Symbol
-cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol.size = 1
+cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol.size = 6
 
 -- Display: Quote Symbol
 cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol.display = function(value)
   -- Check if field has value
-  if value == nil or value == 0 then
+  if value == nil or value == '' then
     return "Quote Symbol: No Value"
   end
 
@@ -4036,11 +4051,14 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol.dissect = function(buf
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_symbol.size
   local range = buffer(offset, length)
 
-  -- parse as byte
-  local value = range:uint()
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
 
-  -- check if value is non zero
-  if value ~= 0 then
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
     value = range:string()
   end
 
@@ -4113,35 +4131,38 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.ratio_qty.dissect = function(buffer
   return offset + length, value
 end
 
--- Replay Unspecified Unit
-cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit = {}
+-- Replay Instruction
+cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction = {}
 
--- Size: Replay Unspecified Unit
-cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.size = 1
+-- Size: Replay Instruction
+cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.size = 1
 
--- Display: Replay Unspecified Unit
-cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.display = function(value)
+-- Display: Replay Instruction
+cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.display = function(value)
+  if value == "D" then
+    return "Replay Instruction: Deep Replay Of Specified Unit (D)"
+  end
   if value == "F" then
-    return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
+    return "Replay Instruction: Fail If Unit Not Specified (F)"
   end
   if value == "R" then
-    return "Replay Unspecified Unit: Replay Any Unspecified Unit From Zero (R)"
+    return "Replay Instruction: Replay Any Unspecified Unit From Zero (R)"
   end
   if value == "S" then
-    return "Replay Unspecified Unit: Skip Replay Of Unspecified Units (S)"
+    return "Replay Instruction: Skip Replay Of Unspecified Units (S)"
   end
 
-  return "Replay Unspecified Unit: Unknown("..value..")"
+  return "Replay Instruction: Unknown("..value..")"
 end
 
--- Dissect: Replay Unspecified Unit
-cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.size
+-- Dissect: Replay Instruction
+cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.display(value, buffer, offset, packet, parent)
+  local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.replay_unspecified_unit, range, value, display)
+  parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.replay_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -7845,7 +7866,7 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logout Reason: 1 Byte Ascii String Enum with 3 values
+  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
   index, logout_reason = cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason.dissect(buffer, index, packet, parent)
 
   -- Logout Reason Text: 60 Byte Ascii String
@@ -7970,7 +7991,7 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Login Response Status: 1 Byte Ascii String Enum with 8 values
+  -- Login Response Status: 1 Byte Ascii String Enum with 10 values
   index, login_response_status = cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_status.dissect(buffer, index, packet, parent)
 
   -- Login Response Text: 60 Byte Ascii String
@@ -8521,7 +8542,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_update_short_message.size = f
 
   -- Calculate field size from count
   local quote_short_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_short_count * 11
+  index = index + quote_short_count * 16
 
   return index
 end
@@ -8690,7 +8711,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.quote_update_message.size = functio
 
   -- Calculate field size from count
   local quote_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + quote_count * 17
+  index = index + quote_count * 22
 
   return index
 end
@@ -9890,7 +9911,7 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.login_request_message.size = functi
 
   index = index + cboe_c2options_binaryorderentry_boe3_v1_0_10.password.size
 
-  index = index + cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.size
+  index = index + cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.size
 
   index = index + cboe_c2options_binaryorderentry_boe3_v1_0_10.number_of_units.size
 
@@ -9919,8 +9940,8 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.login_request_message.fields = func
   -- Password: 10 Byte Ascii String
   index, password = cboe_c2options_binaryorderentry_boe3_v1_0_10.password.dissect(buffer, index, packet, parent)
 
-  -- Replay Unspecified Unit: 1 Byte Ascii String Enum with 3 values
-  index, replay_unspecified_unit = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_unspecified_unit.dissect(buffer, index, packet, parent)
+  -- Replay Instruction: 1 Byte Ascii String Enum with 4 values
+  index, replay_instruction = cboe_c2options_binaryorderentry_boe3_v1_0_10.replay_instruction.dissect(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
   index, number_of_units = cboe_c2options_binaryorderentry_boe3_v1_0_10.number_of_units.dissect(buffer, index, packet, parent)

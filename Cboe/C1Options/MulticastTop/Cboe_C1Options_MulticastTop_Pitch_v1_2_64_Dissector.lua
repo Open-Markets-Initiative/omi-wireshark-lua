@@ -1675,8 +1675,8 @@ cboe_c1options_multicasttop_pitch_v1_2_64.trade_condition.display = function(val
   if value == "v" then
     return "Trade Condition: Extended Hours Trade Transaction Represents A Trade Executed During The Curb Session (v)"
   end
-  if value == "l" then
-    return "Trade Condition: Electronic Trade (l)"
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "K" then
     return "Trade Condition: Cabinet Order (K)"

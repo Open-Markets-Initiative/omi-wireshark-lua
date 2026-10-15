@@ -247,7 +247,7 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.cmc_sessions = ProtoFi
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.contrabroker", ftypes.STRING, nil, nil, nil, "Corresponds to ContraBroker (375) in Cboe FIX. All externally matched (routed) executions will identify the away exchange. AMEX=Routed to NYSE American ARCA=Routed to NYSE Arca BEX=Routed to Nasdaq Texas CHX=Routed to NYSE Texas ICRS=Routed to Intelligent Cross (pending approval) IEX=Routed to Investors Exchange INET=Routed to Nasdaq LTSE=Routed to Long Term Stock Exchange MEMX=Routed to Members Exchange NYSE=Routed to NYSE PERL=Routed to MIAX PEARL Exchange PSX=Routed to Nasdaq PSX NSX=Routed to NYSE National DRT=Routed to DRT Pool TFXE=Routed to 24X National Exchange TXSE=Routed to Texas Stock Exchange BATS=Routed to Cboe BZX Exchange* BYXX=Routed to Cboe BYX Exchange* EDGA=Routed to Cboe EDGA Exchange* EDGX=Routed to Cboe EDGX Exchange* * Internally matched if ContraBroker matches the identifier of the local trading platform’s book.")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.correctedprice", ftypes.DOUBLE, nil, nil, nil, "For trade corrections, this is the new trade price. For trade breaks, this is set to 0.")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.cross_trade_flag = ProtoField.new("Cross Trade Flag", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.crosstradeflag", ftypes.STRING)
-omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.discretionamount", ftypes.UINT16)
+omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.discretion_amount = ProtoField.new("Discretion Amount", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.discretionamount", ftypes.DOUBLE)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.display_indicator = ProtoField.new("Display Indicator", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.displayindicator", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.display_price = ProtoField.new("Display Price", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.displayprice", ftypes.DOUBLE)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.display_range = ProtoField.new("Display Range", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.displayrange", ftypes.UINT32)
@@ -3186,11 +3186,17 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.display = funct
   return "Discretion Amount: "..value
 end
 
+-- Translate: Discretion Amount
+cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Discretion Amount
 cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_int()
+  local value = cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.translate(raw)
   local display = cboe_edgxequities_binaryorderentry_boe_v2_4_57.discretion_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.discretion_amount, range, value, display)
@@ -3388,7 +3394,7 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.ex_destination.display = function
     return "Ex Destination: Texas Stock Exchange (F)"
   end
   if value == "G" then
-    return "Ex Destination: N 24 X National Exchange (G)"
+    return "Ex Destination: 24X National Exchange (G)"
   end
   if value == "H" then
     return "Ex Destination: Miax Pearl (H)"

@@ -485,6 +485,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.cancel_reason.display = function(v
   if value == "Z" then
     return "Cancel Reason: Unforeseen Reason (Z)"
   end
+  if value == "c" then
+    return "Cancel Reason: Only Close Transactions Accepted (c)"
+  end
   if value == "h" then
     return "Cancel Reason: Order Persisted (h)"
   end
@@ -593,6 +596,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.cancel_reject_reason.display = fun
   end
   if value == "Z" then
     return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Cancel Reject Reason: Only Close Transactions Accepted (c)"
   end
   if value == "h" then
     return "Cancel Reject Reason: Order Persisted (h)"
@@ -2332,6 +2338,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.mass_cancel_reject_reason.display 
   if value == "Z" then
     return "Mass Cancel Reject Reason: Unforeseen Reason (Z)"
   end
+  if value == "c" then
+    return "Mass Cancel Reject Reason: Only Close Transactions Accepted (c)"
+  end
   if value == "h" then
     return "Mass Cancel Reject Reason: Order Persisted (h)"
   end
@@ -2532,6 +2541,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.modify_reject_reason.display = fun
   end
   if value == "Z" then
     return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Modify Reject Reason: Only Close Transactions Accepted (c)"
   end
   if value == "h" then
     return "Modify Reject Reason: Order Persisted (h)"
@@ -2960,6 +2972,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.order_reject_reason.display = func
   if value == "Z" then
     return "Order Reject Reason: Unforeseen Reason (Z)"
   end
+  if value == "c" then
+    return "Order Reject Reason: Only Close Transactions Accepted (c)"
+  end
   if value == "h" then
     return "Order Reject Reason: Order Persisted (h)"
   end
@@ -3285,6 +3300,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.purge_reject_reason.display = func
   if value == "Z" then
     return "Purge Reject Reason: Unforeseen Reason (Z)"
   end
+  if value == "c" then
+    return "Purge Reject Reason: Only Close Transactions Accepted (c)"
+  end
   if value == "h" then
     return "Purge Reject Reason: Order Persisted (h)"
   end
@@ -3411,6 +3429,9 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_reject_reason.display = func
   if value == "c" then
     return "Quote Reject Reason: Invalid Capacity (c)"
   end
+  if value == "d" then
+    return "Quote Reject Reason: Close Only (d)"
+  end
   if value == "e" then
     return "Quote Reject Reason: Invalid Oeoid (e)"
   end
@@ -3429,17 +3450,14 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_reject_reason.display = func
   if value == "o" then
     return "Quote Reject Reason: Invalid Open Close (o)"
   end
-  if value == "p" then
-    return "Quote Reject Reason: Risk Management Product Level (p)"
-  end
   if value == "r" then
     return "Quote Reject Reason: Invalid Remove (r)"
   end
   if value == "s" then
     return "Quote Reject Reason: Invalid Side (s)"
   end
-  if value == "u" then
-    return "Quote Reject Reason: Symbol Range Unreachable (u)"
+  if value == "U" then
+    return "Quote Reject Reason: Symbol Range Unreachable (U)"
   end
   if value == "x" then
     return "Quote Reject Reason: Exceeds Max Size Per Order (x)"
