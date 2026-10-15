@@ -3135,20 +3135,6 @@ nyse_arcaequities_depthfeedrefresh_pillar_v1_6.full_refresh_header.dissect = fun
   end
 end
 
--- Refresh Header Layout
-nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_layout = {}
-
--- Dissect: Refresh Header Layout
-nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_layout.dissect = function(buffer, offset, packet, parent, current_refresh_pkt)
-  -- Dissect Full Refresh Header
-  if current_refresh_pkt == 1 then
-    return nyse_arcaequities_depthfeedrefresh_pillar_v1_6.full_refresh_header.dissect(buffer, offset, packet, parent)
-  end
-
-  -- Dissect Short Refresh Header
-  return offset
-end
-
 -- Refresh Header Message
 nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_message = {}
 
@@ -3160,10 +3146,12 @@ nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_message.size = fun
 
   index = index + nyse_arcaequities_depthfeedrefresh_pillar_v1_6.total_refresh_pkts.size
 
-  -- Calculate runtime size of Refresh Header Layout field
-  local refresh_header_layout_offset = offset + index
-  local refresh_header_layout_type = buffer(refresh_header_layout_offset - 4, 2):le_uint()
-  index = index + nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_layout.size(buffer, refresh_header_layout_offset, refresh_header_layout_type)
+  local current_refresh_pkt = buffer(offset + 0, 2):le_uint()
+
+  if current_refresh_pkt == 1 then
+    index = index + nyse_arcaequities_depthfeedrefresh_pillar_v1_6.full_refresh_header.size
+
+  end
 
   return index
 end
@@ -3183,8 +3171,14 @@ nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_message.fields = f
   -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_arcaequities_depthfeedrefresh_pillar_v1_6.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Refresh Header Layout: Runtime Type with 2 branches
-  index = nyse_arcaequities_depthfeedrefresh_pillar_v1_6.refresh_header_layout.dissect(buffer, index, packet, parent, current_refresh_pkt)
+  -- Runtime optional field: Full Refresh Header
+  local full_refresh_header = nil
+
+  local full_refresh_header_exists = current_refresh_pkt == 1
+
+  if full_refresh_header_exists then
+    index, full_refresh_header = nyse_arcaequities_depthfeedrefresh_pillar_v1_6.full_refresh_header.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
