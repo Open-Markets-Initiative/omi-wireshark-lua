@@ -1336,7 +1336,7 @@ cboe_c1options_complexauction_pitch_v2_2_41.timestamp = {}
 
 -- Translate: Timestamp
 cboe_c1options_complexauction_pitch_v2_2_41.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
-  return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
+  return UInt64.new((stored_midnight_reference + stored_time) * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp

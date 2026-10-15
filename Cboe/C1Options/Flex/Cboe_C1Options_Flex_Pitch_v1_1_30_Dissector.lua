@@ -1883,7 +1883,7 @@ cboe_c1options_flex_pitch_v1_1_30.timestamp = {}
 
 -- Translate: Timestamp
 cboe_c1options_flex_pitch_v1_1_30.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time)
-  return UInt64.new(stored_midnight_reference + stored_time * 1000000000 + time_offset)
+  return UInt64.new((stored_midnight_reference + stored_time) * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp

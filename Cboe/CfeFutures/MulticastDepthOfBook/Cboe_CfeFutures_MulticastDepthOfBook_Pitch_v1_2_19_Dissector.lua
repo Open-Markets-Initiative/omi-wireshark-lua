@@ -1721,7 +1721,7 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp = {}
 
 -- Translate: Timestamp
 cboe_cfefutures_multicastdepthofbook_pitch_v1_2_19.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time_reference)
-  return UInt64.new(stored_midnight_reference + stored_time_reference * 1000000000 + time_offset)
+  return UInt64.new((stored_midnight_reference + stored_time_reference) * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp

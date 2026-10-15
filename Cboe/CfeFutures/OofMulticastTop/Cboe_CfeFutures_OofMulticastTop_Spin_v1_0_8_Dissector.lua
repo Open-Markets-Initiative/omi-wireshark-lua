@@ -1907,7 +1907,7 @@ cboe_cfefutures_oofmulticasttop_spin_v1_0_8.timestamp = {}
 
 -- Translate: Timestamp
 cboe_cfefutures_oofmulticasttop_spin_v1_0_8.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time_reference)
-  return UInt64.new(stored_midnight_reference + stored_time_reference * 1000000000 + time_offset)
+  return UInt64.new((stored_midnight_reference + stored_time_reference) * 1000000000 + time_offset)
 end
 
 -- Display: Timestamp
