@@ -30761,7 +30761,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v15_0)
 --   Organization: Eurex Exchange
 --   Version: 15.0
 --   Date: Wednesday, August 26, 2026
---   Specification: T7_R.15.0_Enhanced_Trading_Interface_-_Cash_Message_Reference_Version 2.pdf
+--   Specification: T7_R.15.0_Enhanced_Trading_Interface_-_Cash_Message_Reference_Version 3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
