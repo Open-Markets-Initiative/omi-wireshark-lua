@@ -165,7 +165,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.extended_statistics_message = ProtoFi
 omi_jse_itac_marketdata_mitch_v4_07.fields.indicative_quote_info_message = ProtoField.new("Indicative Quote Info Message", "jse.itac.marketdata.mitch.v4.07.indicativequoteinfomessage", ftypes.STRING, nil, nil, nil, "Disseminates the indicative bid and offer of a request for quote.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.login_request_message = ProtoField.new("Login Request Message", "jse.itac.marketdata.mitch.v4.07.loginrequestmessage", ftypes.STRING, nil, nil, nil, "Sent by the client to log in to the market data gateway.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.login_response_message = ProtoField.new("Login Response Message", "jse.itac.marketdata.mitch.v4.07.loginresponsemessage", ftypes.STRING, nil, nil, nil, "Sent by the server in response to a Login Request.")
-omi_jse_itac_marketdata_mitch_v4_07.fields.logout_request_message = ProtoField.new("Logout Request Message", "jse.itac.marketdata.mitch.v4.07.logoutrequestmessage", ftypes.BYTES)
+omi_jse_itac_marketdata_mitch_v4_07.fields.logout_request_message = ProtoField.new("Logout Request Message", "jse.itac.marketdata.mitch.v4.07.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "Sent by the client to log out of the market data gateway. Carries no fields beyond the message header.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.news_message = ProtoField.new("News Message", "jse.itac.marketdata.mitch.v4.07.newsmessage", ftypes.STRING, nil, nil, nil, "Carries an exchange announcement and the instruments it relates to.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_trade_message = ProtoField.new("Off Book Trade Message", "jse.itac.marketdata.mitch.v4.07.offbooktrademessage", ftypes.STRING, nil, nil, nil, "Sent for a trade agreed away from the order book and reported to the exchange.")
 omi_jse_itac_marketdata_mitch_v4_07.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "jse.itac.marketdata.mitch.v4.07.orderbookclearmessage", ftypes.STRING, nil, nil, nil, "Sent to instruct the recipient to discard every order held for an instrument on the named book.")
@@ -5515,6 +5515,23 @@ jse_itac_marketdata_mitch_v4_07.login_response_message.dissect = function(buffer
   end
 end
 
+-- Logout Request Message
+jse_itac_marketdata_mitch_v4_07.logout_request_message = {}
+
+-- Display: Logout Request Message
+jse_itac_marketdata_mitch_v4_07.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+jse_itac_marketdata_mitch_v4_07.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = jse_itac_marketdata_mitch_v4_07.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Snapshot Request Message
 jse_itac_marketdata_mitch_v4_07.snapshot_request_message = {}
 
@@ -5698,7 +5715,7 @@ jse_itac_marketdata_mitch_v4_07.payload.dissect = function(buffer, offset, packe
   end
   -- Dissect Logout Request Message
   if message_type == 0x05 then
-    return offset
+    return jse_itac_marketdata_mitch_v4_07.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response Message
   if message_type == 0x02 then

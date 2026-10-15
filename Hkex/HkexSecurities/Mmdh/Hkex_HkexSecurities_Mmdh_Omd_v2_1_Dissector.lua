@@ -218,7 +218,7 @@ omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.nominal_price_message = ProtoField.
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.order_imbalance_message = ProtoField.new("Order Imbalance Message", "hkex.hkexsecurities.mmdh.omd.v2.1.orderimbalancemessage", ftypes.STRING, nil, nil, nil, "The Order Imbalance message provides order imbalance information at the Indicative Equilibrium Price (IEP) during the Pre-Opening Session (POS) and Closing Auction Session (CAS).")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.reference_price_message = ProtoField.new("Reference Price Message", "hkex.hkexsecurities.mmdh.omd.v2.1.referencepricemessage", ftypes.STRING, nil, nil, nil, "Reference price, lower and upper price limits for order input during an applicable auction session (POS or CAS). Sent again when there is any change.")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.mmdh.omd.v2.1.refreshcompletemessage", ftypes.STRING, nil, nil, nil, "Published at the end of a refresh cycle. Once received, the client is up to date and will resume receiving normal data flow.")
-omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "hkex.hkexsecurities.mmdh.omd.v2.1.refreshrequestmessage", ftypes.BYTES)
+omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "hkex.hkexsecurities.mmdh.omd.v2.1.refreshrequestmessage", ftypes.BYTES, nil, nil, nil, "Client-to-server request to refresh all market state. Server responds with Refresh Response (1202) followed by the snapshot messages, terminated by Refresh Complete (203).")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.refresh_response_message = ProtoField.new("Refresh Response Message", "hkex.hkexsecurities.mmdh.omd.v2.1.refreshresponsemessage", ftypes.STRING, nil, nil, nil, "Server acknowledgement of a client Refresh Request.")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.security_definition_message = ProtoField.new("Security Definition Message", "hkex.hkexsecurities.mmdh.omd.v2.1.securitydefinitionmessage", ftypes.STRING, nil, nil, nil, "The Security Definition message contains all the reference data for a security. Security Definition messages may be received intraday (for example the FreeText field may be updated during the day).")
 omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.security_status_message = ProtoField.new("Security Status Message", "hkex.hkexsecurities.mmdh.omd.v2.1.securitystatusmessage", ftypes.STRING, nil, nil, nil, "The Security Status message is generated at the start of the business day if the security is not available for trading, and whenever a security state changes.")
@@ -5728,6 +5728,23 @@ hkex_hkexsecurities_mmdh_omd_v2_1.refresh_response_message.dissect = function(bu
   end
 end
 
+-- Refresh Request Message
+hkex_hkexsecurities_mmdh_omd_v2_1.refresh_request_message = {}
+
+-- Display: Refresh Request Message
+hkex_hkexsecurities_mmdh_omd_v2_1.refresh_request_message.display = function(packet, parent, length)
+  return "Refresh Request Message"
+end
+
+
+-- Dissect: Refresh Request Message
+hkex_hkexsecurities_mmdh_omd_v2_1.refresh_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = hkex_hkexsecurities_mmdh_omd_v2_1.refresh_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Reference Price Message
 hkex_hkexsecurities_mmdh_omd_v2_1.reference_price_message = {}
 
@@ -7568,7 +7585,7 @@ hkex_hkexsecurities_mmdh_omd_v2_1.payload.dissect = function(buffer, offset, pac
   end
   -- Dissect Refresh Request Message
   if msg_type == 1201 then
-    return offset
+    return hkex_hkexsecurities_mmdh_omd_v2_1.refresh_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Response Message
   if msg_type == 1202 then

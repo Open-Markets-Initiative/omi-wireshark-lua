@@ -69,7 +69,7 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.fields.add_attributed_order_messa
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.add_order_message = ProtoField.new("Add Order Message", "lseg.millennium.level2recovery.mitch.v11.9.addordermessage", ftypes.STRING, nil, nil, nil, "Sent to indicate that an anonymous limit or market order is added to the order book.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.millennium.level2recovery.mitch.v11.9.loginrequestmessage", ftypes.STRING, nil, nil, nil, "Used by the client to log in to the recovery channel.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.login_response_message = ProtoField.new("Login Response Message", "lseg.millennium.level2recovery.mitch.v11.9.loginresponsemessage", ftypes.STRING, nil, nil, nil, "Used by the server to accept or reject a login request.")
-omi_lseg_millennium_level2recovery_mitch_v11_9.fields.logout_request_message = ProtoField.new("Logout Request Message", "lseg.millennium.level2recovery.mitch.v11.9.logoutrequestmessage", ftypes.BYTES)
+omi_lseg_millennium_level2recovery_mitch_v11_9.fields.logout_request_message = ProtoField.new("Logout Request Message", "lseg.millennium.level2recovery.mitch.v11.9.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "Used by the client to log out of the recovery channel.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotcompletemessage", ftypes.STRING, nil, nil, nil, "Sent once the details of all active orders of an order book, or of every instrument in a segment, are disseminated.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_request_message = ProtoField.new("Snapshot Request Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotrequestmessage", ftypes.STRING, nil, nil, nil, "Used by the client to request a snapshot of the order book for a segment or an instrument.")
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_response_message = ProtoField.new("Snapshot Response Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotresponsemessage", ftypes.STRING, nil, nil, nil, "Used by the server to accept or reject a snapshot request.")
@@ -1321,6 +1321,23 @@ lseg_millennium_level2recovery_mitch_v11_9.symbol_status_message.dissect = funct
   end
 end
 
+-- Logout Request Message
+lseg_millennium_level2recovery_mitch_v11_9.logout_request_message = {}
+
+-- Display: Logout Request Message
+lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Snapshot Complete Flags
 lseg_millennium_level2recovery_mitch_v11_9.snapshot_complete_flags = {}
 
@@ -1637,7 +1654,7 @@ lseg_millennium_level2recovery_mitch_v11_9.payload.dissect = function(buffer, of
   end
   -- Dissect Logout Request Message
   if message_type == 0x05 then
-    return offset
+    return lseg_millennium_level2recovery_mitch_v11_9.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Status Message
   if message_type == 0x48 then

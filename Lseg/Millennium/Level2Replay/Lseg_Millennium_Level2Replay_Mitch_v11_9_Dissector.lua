@@ -107,7 +107,7 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.auction_info_message = Proto
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "lseg.millennium.level2replay.mitch.v11.9.auctiontrademessage", ftypes.STRING, nil, nil, nil, "Sent to report details of an auction")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.login_request_message = ProtoField.new("Login Request Message", "lseg.millennium.level2replay.mitch.v11.9.loginrequestmessage", ftypes.STRING, nil, nil, nil, "Used by the client to log in to the replay channel.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.login_response_message = ProtoField.new("Login Response Message", "lseg.millennium.level2replay.mitch.v11.9.loginresponsemessage", ftypes.STRING, nil, nil, nil, "Used by the server to accept or reject a login request.")
-omi_lseg_millennium_level2replay_mitch_v11_9.fields.logout_request_message = ProtoField.new("Logout Request Message", "lseg.millennium.level2replay.mitch.v11.9.logoutrequestmessage", ftypes.BYTES)
+omi_lseg_millennium_level2replay_mitch_v11_9.fields.logout_request_message = ProtoField.new("Logout Request Message", "lseg.millennium.level2replay.mitch.v11.9.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "Used by the client to log out of the replay channel.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.millennium.level2replay.mitch.v11.9.orderbookclearmessage", ftypes.STRING, nil, nil, nil, "Sent to instruct recipients to remove all orders from the order book for the specified instrument.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "lseg.millennium.level2replay.mitch.v11.9.orderdeletedmessage", ftypes.STRING, nil, nil, nil, "Sent to indicate that the remainder of a displayed order is cancelled.")
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.order_executed_message = ProtoField.new("Order Executed Message", "lseg.millennium.level2replay.mitch.v11.9.orderexecutedmessage", ftypes.STRING, nil, nil, nil, "Indicates that the displayed portion of an order is fully or partially filled at its displayed price.")
@@ -3192,6 +3192,23 @@ lseg_millennium_level2replay_mitch_v11_9.time_message.dissect = function(buffer,
   end
 end
 
+-- Logout Request Message
+lseg_millennium_level2replay_mitch_v11_9.logout_request_message = {}
+
+-- Display: Logout Request Message
+lseg_millennium_level2replay_mitch_v11_9.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+lseg_millennium_level2replay_mitch_v11_9.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = lseg_millennium_level2replay_mitch_v11_9.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Replay Response Message
 lseg_millennium_level2replay_mitch_v11_9.replay_response_message = {}
 
@@ -3399,7 +3416,7 @@ lseg_millennium_level2replay_mitch_v11_9.payload.dissect = function(buffer, offs
   end
   -- Dissect Logout Request Message
   if message_type == 0x05 then
-    return offset
+    return lseg_millennium_level2replay_mitch_v11_9.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Time Message
   if message_type == 0x54 then
