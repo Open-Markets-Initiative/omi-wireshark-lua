@@ -834,8 +834,28 @@ qse_qsecash_marketdata_xdp_v2_6.clearing_time = {}
 qse_qsecash_marketdata_xdp_v2_6.clearing_time.size = 4
 
 -- Display: Clearing Time
-qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value)
-  return "Clearing Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Clearing Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Clearing Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Clearing Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Clearing Time
@@ -926,8 +946,28 @@ qse_qsecash_marketdata_xdp_v2_6.closing_reference_time = {}
 qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.size = 4
 
 -- Display: Closing Reference Time
-qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value)
-  return "Closing Reference Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Closing Reference Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Closing Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Closing Reference Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Closing Reference Time
@@ -1049,30 +1089,18 @@ qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.size = 8
 
 -- Display: Date Of Last Trade
 qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Date Of Last Trade: No Value"
+  if #value < 8 then
+    return "Date Of Last Trade: "..value
   end
 
-  return "Date Of Last Trade: "..value
+  return "Date Of Last Trade: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Date Of Last Trade
 qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.date_of_last_trade, range, value, display)
@@ -1513,30 +1541,18 @@ qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.size = 8
 
 -- Display: First Settlement Date
 qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "First Settlement Date: No Value"
+  if #value < 8 then
+    return "First Settlement Date: "..value
   end
 
-  return "First Settlement Date: "..value
+  return "First Settlement Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: First Settlement Date
 qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.first_settlement_date, range, value, display)
@@ -1551,8 +1567,28 @@ qse_qsecash_marketdata_xdp_v2_6.first_time = {}
 qse_qsecash_marketdata_xdp_v2_6.first_time.size = 4
 
 -- Display: First Time
-qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value)
-  return "First Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "First Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "First Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "First Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: First Time
@@ -1771,8 +1807,28 @@ qse_qsecash_marketdata_xdp_v2_6.high_time = {}
 qse_qsecash_marketdata_xdp_v2_6.high_time.size = 4
 
 -- Display: High Time
-qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value)
-  return "High Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "High Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "High Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "High Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: High Time
@@ -2752,8 +2808,28 @@ qse_qsecash_marketdata_xdp_v2_6.liquidation_time = {}
 qse_qsecash_marketdata_xdp_v2_6.liquidation_time.size = 4
 
 -- Display: Liquidation Time
-qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value)
-  return "Liquidation Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Liquidation Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Liquidation Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Liquidation Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Liquidation Time
@@ -2929,8 +3005,28 @@ qse_qsecash_marketdata_xdp_v2_6.low_time = {}
 qse_qsecash_marketdata_xdp_v2_6.low_time.size = 4
 
 -- Display: Low Time
-qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value)
-  return "Low Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Low Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Low Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Low Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Low Time
@@ -3637,8 +3733,28 @@ qse_qsecash_marketdata_xdp_v2_6.opening_reference_time = {}
 qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.size = 4
 
 -- Display: Opening Reference Time
-qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value)
-  return "Opening Reference Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Opening Reference Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Opening Reference Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Opening Reference Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Opening Reference Time
@@ -3839,7 +3955,12 @@ qse_qsecash_marketdata_xdp_v2_6.order_priority_time.size = 4
 
 -- Display: Order Priority Time
 qse_qsecash_marketdata_xdp_v2_6.order_priority_time.display = function(value)
-  return "Order Priority Time: "..value
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return string.format("Order Priority Time: %02d:%02d:%02d.%03d", hour, minute, second, milli)
 end
 
 -- Dissect: Order Priority Time
@@ -4163,8 +4284,28 @@ qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time = {}
 qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.size = 4
 
 -- Display: Preliminary Opening Time
-qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(value)
-  return "Preliminary Opening Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Preliminary Opening Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Preliminary Opening Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Preliminary Opening Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Preliminary Opening Time
@@ -4355,30 +4496,18 @@ qse_qsecash_marketdata_xdp_v2_6.prog_opening_time.size = 6
 
 -- Display: Prog Opening Time
 qse_qsecash_marketdata_xdp_v2_6.prog_opening_time.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Prog Opening Time: No Value"
+  if #value < 6 then
+    return "Prog Opening Time: "..value
   end
 
-  return "Prog Opening Time: "..value
+  return "Prog Opening Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Prog Opening Time
 qse_qsecash_marketdata_xdp_v2_6.prog_opening_time.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.prog_opening_time.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = qse_qsecash_marketdata_xdp_v2_6.prog_opening_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.prog_opening_time, range, value, display)
@@ -4986,8 +5115,28 @@ qse_qsecash_marketdata_xdp_v2_6.source_time = {}
 qse_qsecash_marketdata_xdp_v2_6.source_time.size = 4
 
 -- Display: Source Time
-qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value)
-  return "Source Time: "..value
+qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 0 then
+    return "Source Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = qse_qsecash_marketdata_xdp_v2_6.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Source Time: "..os.date("%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Source Time
@@ -5033,30 +5182,18 @@ qse_qsecash_marketdata_xdp_v2_6.start_date_halting.size = 8
 
 -- Display: Start Date Halting
 qse_qsecash_marketdata_xdp_v2_6.start_date_halting.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Start Date Halting: No Value"
+  if #value < 8 then
+    return "Start Date Halting: "..value
   end
 
-  return "Start Date Halting: "..value
+  return "Start Date Halting: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Start Date Halting
 qse_qsecash_marketdata_xdp_v2_6.start_date_halting.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.start_date_halting.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = qse_qsecash_marketdata_xdp_v2_6.start_date_halting.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.start_date_halting, range, value, display)
@@ -5072,30 +5209,18 @@ qse_qsecash_marketdata_xdp_v2_6.start_time_halting.size = 6
 
 -- Display: Start Time Halting
 qse_qsecash_marketdata_xdp_v2_6.start_time_halting.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Start Time Halting: No Value"
+  if #value < 6 then
+    return "Start Time Halting: "..value
   end
 
-  return "Start Time Halting: "..value
+  return "Start Time Halting: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Start Time Halting
 qse_qsecash_marketdata_xdp_v2_6.start_time_halting.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.start_time_halting.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = qse_qsecash_marketdata_xdp_v2_6.start_time_halting.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.start_time_halting, range, value, display)
@@ -6329,7 +6454,7 @@ qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.size = 2
 -- Display: Type Of Last Price
 qse_qsecash_marketdata_xdp_v2_6.type_of_last_price.display = function(value)
   if value == 4 then
-    return "Type Of Last Price: 1 Traded Price (4)"
+    return "Type Of Last Price: 1st traded price (4)"
   end
   if value == 7 then
     return "Type Of Last Price: N Traded Price Resume After Reservation (7)"

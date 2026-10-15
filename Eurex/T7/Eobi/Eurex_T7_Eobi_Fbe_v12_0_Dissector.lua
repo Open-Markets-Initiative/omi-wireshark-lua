@@ -6871,7 +6871,7 @@ udp_table:add_for_decode_as(omi_eurex_t7_eobi_fbe_v12_0)
 --   Organization: Eurex Exchange
 --   Version: 12.0
 --   Date: Thursday, August 3, 2023
---   Specification: T7_R.12.0_ EOBI_Manual_Version_1.pdf
+--   Specification: T7_R.12.0_ EOBI_Manual_Version_3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

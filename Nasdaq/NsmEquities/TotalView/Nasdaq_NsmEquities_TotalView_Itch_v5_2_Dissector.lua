@@ -657,11 +657,11 @@ nasdaq_nsmequities_totalview_itch_v5_2.cross_type.display = function(value)
   if value == "H" then
     return "Cross Type: Halted Or Paused (H)"
   end
-  if value == "A" then
-    return "Cross Type: Extended Close (A)"
-  end
   if value == "I" then
     return "Cross Type: Intraday Or Post Close (I)"
+  end
+  if value == "A" then
+    return "Cross Type: Extended Close (A)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -1138,11 +1138,11 @@ nasdaq_nsmequities_totalview_itch_v5_2.ipo_flag.display = function(value)
   if value == "N" then
     return "Ipo Flag: Not Set Up For Ipo Release (N)"
   end
-  if value == "Z" then
-    return "Ipo Flag: Non Ipo New Listed Security (Z)"
-  end
   if value == " " then
     return "Ipo Flag: Not Available (<whitespace>)"
+  end
+  if value == "Z" then
+    return "Ipo Flag: Non Ipo New Listed Security (Z)"
   end
 
   return "Ipo Flag: Unknown("..value..")"

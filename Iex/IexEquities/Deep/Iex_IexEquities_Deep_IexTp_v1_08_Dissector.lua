@@ -263,7 +263,11 @@ iex_iexequities_deep_iextp_v1_08.channel_id.size = 4
 
 -- Display: Channel Id
 iex_iexequities_deep_iextp_v1_08.channel_id.display = function(value)
-  return "Channel Id: "..value
+  if value == 1 then
+    return "Channel Id: Iex Channel"
+  end
+
+  return "Channel Id: Unknown("..value..")"
 end
 
 -- Dissect: Channel Id
@@ -2499,7 +2503,7 @@ iex_iexequities_deep_iextp_v1_08.iextp_header.fields = function(buffer, offset, 
   -- Message Protocol Id: 2 Byte Unsigned Fixed Width Integer Static
   index, message_protocol_id = iex_iexequities_deep_iextp_v1_08.message_protocol_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 4 Byte Unsigned Fixed Width Integer
+  -- Channel Id: 4 Byte Unsigned Fixed Width Integer Static
   index, channel_id = iex_iexequities_deep_iextp_v1_08.channel_id.dissect(buffer, index, packet, parent)
 
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
@@ -2616,6 +2620,18 @@ iex_iexequities_deep_iextp_v1_08.message_protocol_id.verify = function(buffer)
   return false
 end
 
+-- Verify Channel Id Field
+iex_iexequities_deep_iextp_v1_08.channel_id.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(4, 4):le_uint()
+
+  if value == 1 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Iex IexEquities Deep IexTp 1.08 (Udp)
 local function omi_iex_iexequities_deep_iextp_v1_08_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
@@ -2626,6 +2642,9 @@ local function omi_iex_iexequities_deep_iextp_v1_08_udp_heuristic(buffer, packet
 
   -- Verify Message Protocol Id
   if not iex_iexequities_deep_iextp_v1_08.message_protocol_id.verify(buffer) then return false end
+
+  -- Verify Channel Id
+  if not iex_iexequities_deep_iextp_v1_08.channel_id.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexequities_deep_iextp_v1_08

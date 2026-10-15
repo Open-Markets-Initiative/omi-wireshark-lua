@@ -739,7 +739,7 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display
   if value == "10" then
     return "Buying Post Trading Instruction: Close (10)"
   end
-  if value == 0 then
+  if value == '' then
     return "Buying Post Trading Instruction: No Value"
   end
 
@@ -3059,7 +3059,7 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display = func
   if value == "10" then
     return "Post Trading Instruction: Close (10)"
   end
-  if value == 0 then
+  if value == '' then
     return "Post Trading Instruction: No Value"
   end
 
@@ -3116,7 +3116,7 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display = fun
   if value == "10" then
     return "Post Trading Instructions: Close (10)"
   end
-  if value == 0 then
+  if value == '' then
     return "Post Trading Instructions: No Value"
   end
 
@@ -4166,7 +4166,7 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.displa
   if value == "10" then
     return "Selling Post Trading Instruction: Close (10)"
   end
-  if value == 0 then
+  if value == '' then
     return "Selling Post Trading Instruction: No Value"
   end
 
