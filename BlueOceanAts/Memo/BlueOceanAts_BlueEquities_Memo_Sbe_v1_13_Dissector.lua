@@ -61,6 +61,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.message_length = ProtoField.
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.message_type = ProtoField.new("Message Type", "blueoceanats.blueequities.memo.sbe.v1.13.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.min_qty = ProtoField.new("Min Qty", "blueoceanats.blueequities.memo.sbe.v1.13.minqty", ftypes.UINT32, nil, nil, nil, "Minimum quantity of an order to be executed")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "blueoceanats.blueequities.memo.sbe.v1.13.nextsequencenumber", ftypes.UINT64, nil, nil, nil, "The first requested sequence number")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.num_groups = ProtoField.new("Num Groups", "blueoceanats.blueequities.memo.sbe.v1.13.numgroups", ftypes.UINT8, nil, nil, nil, "A count of repeating groups at the root level of the message")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.num_in_group = ProtoField.new("Num In Group", "blueoceanats.blueequities.memo.sbe.v1.13.numingroup", ftypes.UINT8, nil, nil, nil, "A counter representing the number of entries in the repeating group")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.ord_status = ProtoField.new("Ord Status", "blueoceanats.blueequities.memo.sbe.v1.13.ordstatus", ftypes.STRING, nil, nil, nil, "The status of the order")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.ord_type = ProtoField.new("Ord Type", "blueoceanats.blueequities.memo.sbe.v1.13.ordtype", ftypes.STRING, nil, nil, nil, "Type of the order")
@@ -1733,6 +1734,29 @@ blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.dissect = function
   local display = blueoceanats_blueequities_memo_sbe_v1_13.next_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Groups
+blueoceanats_blueequities_memo_sbe_v1_13.num_groups = {}
+
+-- Size: Num Groups
+blueoceanats_blueequities_memo_sbe_v1_13.num_groups.size = 1
+
+-- Display: Num Groups
+blueoceanats_blueequities_memo_sbe_v1_13.num_groups.display = function(value)
+  return "Num Groups: "..value
+end
+
+-- Dissect: Num Groups
+blueoceanats_blueequities_memo_sbe_v1_13.num_groups.dissect = function(buffer, offset, packet, parent)
+  local length = blueoceanats_blueequities_memo_sbe_v1_13.num_groups.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = blueoceanats_blueequities_memo_sbe_v1_13.num_groups.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.num_groups, range, value, display)
 
   return offset + length, value
 end
@@ -5499,7 +5523,8 @@ blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.size =
   blueoceanats_blueequities_memo_sbe_v1_13.block_length.size + 
   blueoceanats_blueequities_memo_sbe_v1_13.template_id.size + 
   blueoceanats_blueequities_memo_sbe_v1_13.schema_id.size + 
-  blueoceanats_blueequities_memo_sbe_v1_13.version.size
+  blueoceanats_blueequities_memo_sbe_v1_13.version.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.num_groups.size
 
 -- Display: Sbe Header
 blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.display = function(packet, parent, length)
@@ -5521,6 +5546,9 @@ blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.fields = function(buffer, of
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = blueoceanats_blueequities_memo_sbe_v1_13.version.dissect(buffer, index, packet, parent)
+
+  -- Num Groups: 1 Byte Unsigned Fixed Width Integer
+  index, num_groups = blueoceanats_blueequities_memo_sbe_v1_13.num_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5554,7 +5582,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.size = function(buff
 
   -- Calculate runtime size of Server Payload field
   local server_payload_offset = offset + index
-  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  local server_payload_type = buffer(server_payload_offset - 5, 1):uint()
   index = index + blueoceanats_blueequities_memo_sbe_v1_13.server_payload.size(buffer, server_payload_offset, server_payload_type)
 
   return index
@@ -5569,11 +5597,11 @@ end
 blueoceanats_blueequities_memo_sbe_v1_13.server_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Server Payload: Runtime Type with 15 branches
   index = blueoceanats_blueequities_memo_sbe_v1_13.server_payload.dissect(buffer, index, packet, parent, template_id)
@@ -6554,7 +6582,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.size = function(buff
 
   -- Calculate runtime size of Client Payload field
   local client_payload_offset = offset + index
-  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  local client_payload_type = buffer(client_payload_offset - 5, 1):uint()
   index = index + blueoceanats_blueequities_memo_sbe_v1_13.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
@@ -6569,11 +6597,11 @@ end
 blueoceanats_blueequities_memo_sbe_v1_13.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = blueoceanats_blueequities_memo_sbe_v1_13.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Client Payload: Runtime Type with 4 branches
   index = blueoceanats_blueequities_memo_sbe_v1_13.client_payload.dissect(buffer, index, packet, parent, template_id)

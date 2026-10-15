@@ -73,6 +73,7 @@ omi_n24x_24xequities_memo_sbe_v2_0.fields.nbbo_joiner = ProtoField.new("Nbbo Joi
 omi_n24x_24xequities_memo_sbe_v2_0.fields.nbbo_setter = ProtoField.new("Nbbo Setter", "24x.24xequities.memo.sbe.v2.0.nbbosetter", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "NBBOSetter")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "24x.24xequities.memo.sbe.v2.0.nextsequencenumber", ftypes.UINT64, nil, nil, nil, "The first requested sequence number")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.non_attested_retail = ProtoField.new("Non Attested Retail", "24x.24xequities.memo.sbe.v2.0.nonattestedretail", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "NonAttestedRetail")
+omi_n24x_24xequities_memo_sbe_v2_0.fields.num_groups = ProtoField.new("Num Groups", "24x.24xequities.memo.sbe.v2.0.numgroups", ftypes.UINT8, nil, nil, nil, "A count of repeating groups at the root level of the message")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.num_in_group = ProtoField.new("Num In Group", "24x.24xequities.memo.sbe.v2.0.numingroup", ftypes.UINT8, nil, nil, nil, "numInGroup")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.on_entry = ProtoField.new("On Entry", "24x.24xequities.memo.sbe.v2.0.onentry", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "OnEntry")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.ord_status = ProtoField.new("Ord Status", "24x.24xequities.memo.sbe.v2.0.ordstatus", ftypes.STRING, nil, nil, nil, "OrdStatus")
@@ -1796,6 +1797,29 @@ n24x_24xequities_memo_sbe_v2_0.next_sequence_number.dissect = function(buffer, o
   local display = n24x_24xequities_memo_sbe_v2_0.next_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Groups
+n24x_24xequities_memo_sbe_v2_0.num_groups = {}
+
+-- Size: Num Groups
+n24x_24xequities_memo_sbe_v2_0.num_groups.size = 1
+
+-- Display: Num Groups
+n24x_24xequities_memo_sbe_v2_0.num_groups.display = function(value)
+  return "Num Groups: "..value
+end
+
+-- Dissect: Num Groups
+n24x_24xequities_memo_sbe_v2_0.num_groups.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_24xequities_memo_sbe_v2_0.num_groups.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = n24x_24xequities_memo_sbe_v2_0.num_groups.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.num_groups, range, value, display)
 
   return offset + length, value
 end
@@ -5569,7 +5593,8 @@ n24x_24xequities_memo_sbe_v2_0.sbe_header.size =
   n24x_24xequities_memo_sbe_v2_0.block_length.size + 
   n24x_24xequities_memo_sbe_v2_0.template_id.size + 
   n24x_24xequities_memo_sbe_v2_0.schema_id.size + 
-  n24x_24xequities_memo_sbe_v2_0.version.size
+  n24x_24xequities_memo_sbe_v2_0.version.size + 
+  n24x_24xequities_memo_sbe_v2_0.num_groups.size
 
 -- Display: Sbe Header
 n24x_24xequities_memo_sbe_v2_0.sbe_header.display = function(packet, parent, length)
@@ -5591,6 +5616,9 @@ n24x_24xequities_memo_sbe_v2_0.sbe_header.fields = function(buffer, offset, pack
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = n24x_24xequities_memo_sbe_v2_0.version.dissect(buffer, index, packet, parent)
+
+  -- Num Groups: 1 Byte Unsigned Fixed Width Integer
+  index, num_groups = n24x_24xequities_memo_sbe_v2_0.num_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5624,7 +5652,7 @@ n24x_24xequities_memo_sbe_v2_0.server_sbe_message.size = function(buffer, offset
 
   -- Calculate runtime size of Server Payload field
   local server_payload_offset = offset + index
-  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  local server_payload_type = buffer(server_payload_offset - 5, 1):uint()
   index = index + n24x_24xequities_memo_sbe_v2_0.server_payload.size(buffer, server_payload_offset, server_payload_type)
 
   return index
@@ -5639,11 +5667,11 @@ end
 n24x_24xequities_memo_sbe_v2_0.server_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = n24x_24xequities_memo_sbe_v2_0.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Server Payload: Runtime Type with 14 branches
   index = n24x_24xequities_memo_sbe_v2_0.server_payload.dissect(buffer, index, packet, parent, template_id)
@@ -6629,7 +6657,7 @@ n24x_24xequities_memo_sbe_v2_0.client_sbe_message.size = function(buffer, offset
 
   -- Calculate runtime size of Client Payload field
   local client_payload_offset = offset + index
-  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  local client_payload_type = buffer(client_payload_offset - 5, 1):uint()
   index = index + n24x_24xequities_memo_sbe_v2_0.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
@@ -6644,11 +6672,11 @@ end
 n24x_24xequities_memo_sbe_v2_0.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = n24x_24xequities_memo_sbe_v2_0.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Client Payload: Runtime Type with 4 branches
   index = n24x_24xequities_memo_sbe_v2_0.client_payload.dissect(buffer, index, packet, parent, template_id)

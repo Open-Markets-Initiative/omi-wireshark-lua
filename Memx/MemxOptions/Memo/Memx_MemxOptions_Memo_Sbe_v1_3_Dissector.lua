@@ -76,6 +76,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.mtp_group_id = ProtoField.new("Mtp Gro
 omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_group = ProtoField.new("Nested Parties Group", "memx.memxoptions.memo.sbe.v1.3.nestedpartiesgroup", ftypes.STRING, nil, nil, nil, "Parties")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_groups = ProtoField.new("Nested Parties Groups", "memx.memxoptions.memo.sbe.v1.3.nestedpartiesgroups", ftypes.STRING, nil, nil, nil, "Parties Block")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.memxoptions.memo.sbe.v1.3.nextsequencenumber", ftypes.UINT64, nil, nil, nil, "The first requested sequence number")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.num_groups = ProtoField.new("Num Groups", "memx.memxoptions.memo.sbe.v1.3.numgroups", ftypes.UINT8, nil, nil, nil, "A count of repeating groups at the root level of the message")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.num_in_group = ProtoField.new("Num In Group", "memx.memxoptions.memo.sbe.v1.3.numingroup", ftypes.UINT8, nil, nil, nil, "numInGroup")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.memxoptions.memo.sbe.v1.3.numberoforders", ftypes.UINT8, nil, nil, nil, "The number of orders/quote entries in the request. NoPartyIDs - - RepeatingGroupDimensions 453 Y The dimensions of the Repeating Group. Parties - - Parties Group N/A Y The parties associated with the quotes. MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 55 5.2.1.3 ExecutionReport_BulkQuote_ComponentNew The ExecutionReport_BulkQuote_ComponentNew is a response to bulk quote requests (ShortTwoSidedBulkQuote, LongTwoSidedBulkQuote, ShortOneSidedBulkQuote, LongOneSidedBulkQuote). This message gives state information about an individual single sided quote within the bulk quote request. The requester will receive a component new message for each side of a two-sided entry. This message echos back to the requester fields configured on the individual single sided quote with additional information about the state of the individual quote handling. Field Offset Length Type Tag Ref Num Req'd Description SBE Header 0 7 SBE Header N/A Y SBE Header with templateID = 13")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_px = ProtoField.new("Offer Px", "memx.memxoptions.memo.sbe.v1.3.offerpx", ftypes.DOUBLE, nil, nil, nil, "Ask side price of the quote. Price per unit of quantity. 3.3.3 Long Two Sided Quote Group The Two Sided Quote repeating group allows for up to 20 two sided quotes in messages. This group is used within the LongTwoSidedBulkQuote message. All quotes in a Long Two Sided Quote repeating group must be for the same Underlier. The OptionsSecurityID of the first quote in the repeating group identifies the Underlier that is used to validate all of the following quotes in the repeating group. This group is always preceded by a RepeatingGroupDimensions field that denotes the length of this group and the number of them expected in the message. Field Offset Length Type Tag Ref Num Req'd Description")
@@ -1919,6 +1920,29 @@ memx_memxoptions_memo_sbe_v1_3.next_sequence_number.dissect = function(buffer, o
   local display = memx_memxoptions_memo_sbe_v1_3.next_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.next_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Groups
+memx_memxoptions_memo_sbe_v1_3.num_groups = {}
+
+-- Size: Num Groups
+memx_memxoptions_memo_sbe_v1_3.num_groups.size = 1
+
+-- Display: Num Groups
+memx_memxoptions_memo_sbe_v1_3.num_groups.display = function(value)
+  return "Num Groups: "..value
+end
+
+-- Dissect: Num Groups
+memx_memxoptions_memo_sbe_v1_3.num_groups.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.num_groups.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_memxoptions_memo_sbe_v1_3.num_groups.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.num_groups, range, value, display)
 
   return offset + length, value
 end
@@ -6362,7 +6386,8 @@ memx_memxoptions_memo_sbe_v1_3.sbe_header.size =
   memx_memxoptions_memo_sbe_v1_3.block_length.size + 
   memx_memxoptions_memo_sbe_v1_3.template_id.size + 
   memx_memxoptions_memo_sbe_v1_3.schema_id.size + 
-  memx_memxoptions_memo_sbe_v1_3.version.size
+  memx_memxoptions_memo_sbe_v1_3.version.size + 
+  memx_memxoptions_memo_sbe_v1_3.num_groups.size
 
 -- Display: Sbe Header
 memx_memxoptions_memo_sbe_v1_3.sbe_header.display = function(packet, parent, length)
@@ -6384,6 +6409,9 @@ memx_memxoptions_memo_sbe_v1_3.sbe_header.fields = function(buffer, offset, pack
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
   index, version = memx_memxoptions_memo_sbe_v1_3.version.dissect(buffer, index, packet, parent)
+
+  -- Num Groups: 1 Byte Unsigned Fixed Width Integer
+  index, num_groups = memx_memxoptions_memo_sbe_v1_3.num_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6417,7 +6445,7 @@ memx_memxoptions_memo_sbe_v1_3.server_sbe_message.size = function(buffer, offset
 
   -- Calculate runtime size of Server Payload field
   local server_payload_offset = offset + index
-  local server_payload_type = buffer(server_payload_offset - 4, 1):uint()
+  local server_payload_type = buffer(server_payload_offset - 5, 1):uint()
   index = index + memx_memxoptions_memo_sbe_v1_3.server_payload.size(buffer, server_payload_offset, server_payload_type)
 
   return index
@@ -6432,11 +6460,11 @@ end
 memx_memxoptions_memo_sbe_v1_3.server_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = memx_memxoptions_memo_sbe_v1_3.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Server Payload: Runtime Type with 21 branches
   index = memx_memxoptions_memo_sbe_v1_3.server_payload.dissect(buffer, index, packet, parent, template_id)
@@ -8395,7 +8423,7 @@ memx_memxoptions_memo_sbe_v1_3.client_sbe_message.size = function(buffer, offset
 
   -- Calculate runtime size of Client Payload field
   local client_payload_offset = offset + index
-  local client_payload_type = buffer(client_payload_offset - 4, 1):uint()
+  local client_payload_type = buffer(client_payload_offset - 5, 1):uint()
   index = index + memx_memxoptions_memo_sbe_v1_3.client_payload.size(buffer, client_payload_offset, client_payload_type)
 
   return index
@@ -8410,11 +8438,11 @@ end
 memx_memxoptions_memo_sbe_v1_3.client_sbe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sbe Header: Struct of 4 fields
+  -- Sbe Header: Struct of 5 fields
   index, sbe_header = memx_memxoptions_memo_sbe_v1_3.sbe_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
-  local template_id = buffer(index - 4, 1):uint()
+  local template_id = buffer(index - 5, 1):uint()
 
   -- Client Payload: Runtime Type with 10 branches
   index = memx_memxoptions_memo_sbe_v1_3.client_payload.dissect(buffer, index, packet, parent, template_id)
