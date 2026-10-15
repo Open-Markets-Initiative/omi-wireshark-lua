@@ -8878,7 +8878,7 @@ tcp_table:add_for_decode_as(omi_coinbase_deribit_ordersapi_sbe_v1_3)
 -- Protocol:
 --   Organization: Coinbase
 --   Version: 1.3
---   Date: Monday, June 8, 2026
+--   Date: Tuesday, July 21, 2026
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -16,22 +16,22 @@ local memx_memxequities_commonheader_udp_v1_1 = {}
 
 -- Memx MemxEquities CommonHeader Udp 1.1 Fields
 omi_memx_memxequities_commonheader_udp_v1_1.fields.header_length = ProtoField.new("Header Length", "memx.memxequities.commonheader.udp.v1.1.headerlength", ftypes.UINT8, nil, nil, nil, "Total bytes in this header")
-omi_memx_memxequities_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "memx.memxequities.commonheader.udp.v1.1.message", ftypes.STRING, nil, nil, nil, "Memx Udp Message")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.message = ProtoField.new("Message", "memx.memxequities.commonheader.udp.v1.1.message", ftypes.STRING, nil, nil, nil, "Message List Element")
 omi_memx_memxequities_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Count", "memx.memxequities.commonheader.udp.v1.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages in this packet")
 omi_memx_memxequities_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "memx.memxequities.commonheader.udp.v1.1.messagelength", ftypes.UINT16, nil, nil, nil, "Number of bytes in the following message")
-omi_memx_memxequities_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "memx.memxequities.commonheader.udp.v1.1.messagetype", ftypes.UINT8, nil, nil, nil, "Memx Udp Message Type")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "memx.memxequities.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
 omi_memx_memxequities_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.commonheader.udp.v1.1.sbemessage", ftypes.BYTES, nil, nil, nil, "The wrapped protocol's sbe message, read as the bytes remaining in the frame")
 omi_memx_memxequities_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxequities.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64)
-omi_memx_memxequities_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Udp Sequenced Message")
-omi_memx_memxequities_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.commonheader.udp.v1.1.sessionid", ftypes.UINT64, nil, nil, nil, "session identifier")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.commonheader.udp.v1.1.sessionid", ftypes.UINT64, nil, nil, nil, "Session identifier")
 
 -- Memx MemxEquities CommonHeader Udp 1.1 Framing
-omi_memx_memxequities_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.udp.v1.1.commonheader", ftypes.STRING, nil, nil, nil, "Memx Udp Common Header")
-omi_memx_memxequities_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.commonheader.udp.v1.1.packet", ftypes.STRING, nil, nil, nil, "Memx Udp Packet")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.udp.v1.1.commonheader", ftypes.STRING)
+omi_memx_memxequities_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.commonheader.udp.v1.1.packet", ftypes.STRING, nil, nil, nil, "Datagram")
 
 -- Memx MemxEquities CommonHeader 1.1 Session Messages
-omi_memx_memxequities_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.commonheader.udp.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Memx Udp heartbeat: the session is alive and no sequenced message follows the header")
-omi_memx_memxequities_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES, nil, nil, nil, "Memx Udp session shutdown: no further sequenced message will be sent for this session id")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.commonheader.udp.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "The session is active; no data follows the header")
+omi_memx_memxequities_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES, nil, nil, nil, "No further sequenced messages will be sent for this session")
 
 -- Memx MemxEquities CommonHeader Udp 1.1 Generated Fields
 omi_memx_memxequities_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
@@ -298,11 +298,16 @@ end
 -- Sequenced Message
 memx_memxequities_commonheader_udp_v1_1.sequenced_message = {}
 
--- Size: Sequenced Message
+-- Calculate size of: Sequenced Message
 memx_memxequities_commonheader_udp_v1_1.sequenced_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index)
+  index = index + memx_memxequities_commonheader_udp_v1_1.message_count.size
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):uint()
+
+  return index
 end
 
 -- Display: Sequenced Message
@@ -317,13 +322,8 @@ memx_memxequities_commonheader_udp_v1_1.sequenced_message.fields = function(buff
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = memx_memxequities_commonheader_udp_v1_1.message_count.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()

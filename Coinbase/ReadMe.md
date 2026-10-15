@@ -8,7 +8,7 @@
 | Division | [Protocol][Omi.Coinbase.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Coinbase.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Deribit][Deribit.Exchange] | [MarketDataApi][Coinbase.Deribit.MarketDataApi] | [Sbe][Omi.Encoding.Sbe] | [0.1][Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Dissector] | 9/5/2025 | 3790 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Url] - [xml][Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Xml] |
-| [Deribit][Deribit.Exchange] | [MarketDataApi][Coinbase.Deribit.MarketDataApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Dissector] | 6/8/2026 | 4007 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Xml] |
+| [Deribit][Deribit.Exchange] | [MarketDataApi][Coinbase.Deribit.MarketDataApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Dissector] | 5/6/2026 | 4007 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.MarketDataApi.Sbe.v1.0.Xml] |
 
 
 ### Market Data
@@ -26,8 +26,8 @@
 | Division | [Protocol][Omi.Coinbase.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Coinbase.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [0.1][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Dissector] | 9/5/2025 | 8350 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v0.1.Xml] |
-| [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Dissector] | 6/8/2026 | 8386 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Xml] |
-| [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.3][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Dissector] | 6/8/2026 | 8902 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Xml] |
+| [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.0][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Dissector] | 5/6/2026 | 8386 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.0.Xml] |
+| [Deribit][Deribit.Exchange] | [OrdersApi][Coinbase.Deribit.OrdersApi] | [Sbe][Omi.Encoding.Sbe] | [1.3][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Dissector] | 7/21/2026 | 8902 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Url] - [xml][Coinbase.Deribit.OrdersApi.Sbe.v1.3.Xml] |
 
 
 ### Order Entry

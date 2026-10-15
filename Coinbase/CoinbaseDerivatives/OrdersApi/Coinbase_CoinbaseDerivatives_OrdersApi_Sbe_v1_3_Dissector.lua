@@ -15,7 +15,7 @@ local coinbase_coinbasederivatives_ordersapi_sbe_v1_3 = {}
 -----------------------------------------------------------------------
 
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.3 Fields
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.account = ProtoField.new("Account", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.account", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.account = ProtoField.new("Account", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.account", ftypes.STRING, nil, nil, nil, "Account, a zero padded ascii string")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.available_qty = ProtoField.new("Available Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.availableqty", ftypes.INT32, nil, nil, nil, "availableQty")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.beginexecid", ftypes.INT64, nil, nil, nil, "beginExecId")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.blocklength", ftypes.UINT16, nil, nil, nil, "Length of the root of the message contained before repeating groups or variable-length fields")
@@ -63,9 +63,9 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.order_id_optional = P
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.order_reject_details = ProtoField.new("Order Reject Details", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.orderrejectdetails", ftypes.STRING, nil, nil, nil, "details")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.orderrejectreason", ftypes.UINT8, nil, nil, nil, "rejectReason")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.padding", ftypes.BYTES, nil, nil, nil, "Tcp sbe alignment padding")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.password", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.password", ftypes.STRING, nil, nil, nil, "Logon password")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.protocolid", ftypes.UINT8, nil, nil, nil, "Coinbase protocol identifier")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.quantity", ftypes.INT32)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.quantity", ftypes.INT32, nil, nil, nil, "Quantity with 0 decimal places")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reason = ProtoField.new("Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reason", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.receive_time = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.receivetime", ftypes.INT64, nil, nil, nil, "receiveTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.request_time = ProtoField.new("Request Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.requesttime", ftypes.INT64, nil, nil, nil, "requestTime")
@@ -81,16 +81,16 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.security_type = Proto
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.sendtimeepochnanos", ftypes.INT64, nil, nil, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.sequencenumber", ftypes.UINT32, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.server_time = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.servertime", ftypes.INT64, nil, nil, nil, "serverTime")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.side = ProtoField.new("Side", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.side", ftypes.INT8)
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.symbol", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.side = ProtoField.new("Side", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.side", ftypes.INT8, nil, nil, nil, "1 buy, -1 sell")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.timestamp", ftypes.INT64)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.timestamp", ftypes.INT64, nil, nil, nil, "Nanoseconds since epoch")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.tosequencenumber", ftypes.UINT32, nil, nil, nil, "toSequenceNumber")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.total_filled = ProtoField.new("Total Filled", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.totalfilled", ftypes.INT32, nil, nil, nil, "totalFilled")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trader = ProtoField.new("Trader", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.trader", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trader = ProtoField.new("Trader", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.trader", ftypes.STRING, nil, nil, nil, "Trader, a zero padded ascii string")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trading_instrument_status = ProtoField.new("Trading Instrument Status", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.tradinginstrumentstatus", ftypes.INT8, nil, nil, nil, "status")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.tradinglockapplied", ftypes.INT8, nil, nil, nil, "tradingLockApplied")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.username", ftypes.STRING)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.username", ftypes.STRING, nil, nil, nil, "Logon username")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.3 Framing

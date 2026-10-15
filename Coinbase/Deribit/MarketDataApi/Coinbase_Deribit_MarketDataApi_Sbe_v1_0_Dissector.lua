@@ -3983,7 +3983,7 @@ udp_table:add_for_decode_as(omi_coinbase_deribit_marketdataapi_sbe_v1_0)
 -- Protocol:
 --   Organization: Coinbase
 --   Version: 1.0
---   Date: Monday, June 8, 2026
+--   Date: Wednesday, May 6, 2026
 --
 -- Script:
 --   Generator: 1.5.0.0

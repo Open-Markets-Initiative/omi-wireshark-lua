@@ -23,10 +23,10 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.bid_size_short = ProtoFiel
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.memxequities.memoirtopofbook.sbe.v1.3.blocklength", ftypes.UINT16, nil, nil, nil, "Memx Udp Message Type")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.memxequities.memoirtopofbook.sbe.v1.3.headerlength", ftypes.UINT8, nil, nil, nil, "Total bytes in this header")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.memxequities.memoirtopofbook.sbe.v1.3.istestsymbol", ftypes.UINT8, nil, nil, nil, "IsTestSymbol")
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.message", ftypes.STRING, nil, nil, nil, "Memx Udp Message")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.message", ftypes.STRING, nil, nil, nil, "Message List Element")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.memxequities.memoirtopofbook.sbe.v1.3.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages in this packet")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "memx.memxequities.memoirtopofbook.sbe.v1.3.messagelength", ftypes.UINT16, nil, nil, nil, "Number of bytes in the following message")
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.memxequities.memoirtopofbook.sbe.v1.3.messagetype", ftypes.UINT8, nil, nil, nil, "Memx Udp Message Type")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.memxequities.memoirtopofbook.sbe.v1.3.messagetype", ftypes.UINT8)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.memxequities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "memx.memxequities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE, nil, nil, nil, "OfferPrice")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.memxequities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE, nil, nil, nil, "OfferPrice")
@@ -38,8 +38,8 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_id = ProtoField.n
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.memxequities.memoirtopofbook.sbe.v1.3.securitytradingstatus", ftypes.STRING, nil, nil, nil, "SecurityTradingStatus")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.memxequities.memoirtopofbook.sbe.v1.3.securitytradingstatusreason", ftypes.STRING, nil, nil, nil, "SecurityTradingStatusReason")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxequities.memoirtopofbook.sbe.v1.3.sequencenumber", ftypes.UINT64)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Udp Sequenced Message")
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.sessionid", ftypes.UINT64, nil, nil, nil, "session identifier")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.sequencedmessage", ftypes.STRING)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.sessionid", ftypes.UINT64, nil, nil, nil, "Session identifier")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "memx.memxequities.memoirtopofbook.sbe.v1.3.shortsalerestriction", ftypes.UINT8, nil, nil, nil, "ShortSaleRestriction")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.memxequities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.memxequities.memoirtopofbook.sbe.v1.3.symbolsfx", ftypes.STRING, nil, nil, nil, "SymbolSfx")
@@ -49,8 +49,8 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoFie
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16, nil, nil, nil, "The version number of the message schema that was used to encode a message")
 
 -- Memx MemxEquities MemoirTopOfBook Sbe 1.3 Framing
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING, nil, nil, nil, "Memx Udp Common Header")
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING, nil, nil, nil, "Memx Udp Packet")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING, nil, nil, nil, "Datagram")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
 
@@ -68,8 +68,8 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message 
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "TradingSessionStatusMessage")
 
 -- Memx MemxEquities MemoirTopOfBook 1.3 Session Messages
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.memoirtopofbook.sbe.v1.3.heartbeat", ftypes.BYTES, nil, nil, nil, "Memx Udp heartbeat: the session is alive and no sequenced message follows the header")
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.memoirtopofbook.sbe.v1.3.sessionshutdown", ftypes.BYTES, nil, nil, nil, "Memx Udp session shutdown: no further sequenced message will be sent for this session id")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.memoirtopofbook.sbe.v1.3.heartbeat", ftypes.BYTES, nil, nil, nil, "The session is active; no data follows the header")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.memoirtopofbook.sbe.v1.3.sessionshutdown", ftypes.BYTES, nil, nil, nil, "No further sequenced messages will be sent for this session")
 
 -- Memx MemxEquities MemoirTopOfBook Sbe 1.3 Generated Fields
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
@@ -1805,11 +1805,16 @@ end
 -- Sequenced Message
 memx_memxequities_memoirtopofbook_sbe_v1_3.sequenced_message = {}
 
--- Size: Sequenced Message
+-- Calculate size of: Sequenced Message
 memx_memxequities_memoirtopofbook_sbe_v1_3.sequenced_message.size = function(buffer, offset)
   local index = 0
 
-  return buffer:len() - (offset + index)
+  index = index + memx_memxequities_memoirtopofbook_sbe_v1_3.message_count.size
+
+  -- Parse runtime size of: Message
+  index = index + buffer(offset + index - 0, 2):uint()
+
+  return index
 end
 
 -- Display: Sequenced Message
@@ -1824,13 +1829,8 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.sequenced_message.fields = function(b
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = memx_memxequities_memoirtopofbook_sbe_v1_3.message_count.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):uint()

@@ -24,6 +24,7 @@
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 7315 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] - [xml][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml] |
+| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.14][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector] | 12/8/2025 | 7315 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url] |
 
 
 <p align="center"><a href="https://blueocean-tech.io/" title="Blue Ocean Technologies Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/blue-ocean-technologies-llc-an-overnight-trading-company" title="Blue Ocean Technologies on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
@@ -57,6 +58,8 @@
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_13_Dissector.lua "BlueOceanAts Memo Sbe v1.13 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.13 Url"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/BlueEquities/Memo/BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.xml "Blue Ocean Technologies 1.13 Xml"
+[BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_14_Dissector.lua "BlueOceanAts Memo Sbe v1.14 Wireshark Dissector"
+[BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.14 Url"
 [BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirDepthFeed/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirDepthFeed Sbe v1.3 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.3 Url"
 [BlueOceanAts.BlueEquities.MemoirLastSale.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirLastSale/BlueOceanAts_BlueEquities_MemoirLastSale_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirLastSale Sbe v1.3 Wireshark Dissector"

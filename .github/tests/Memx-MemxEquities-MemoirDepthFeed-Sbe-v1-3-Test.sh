@@ -11,6 +11,21 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Heartbeat.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/InstrumentDirectoryMessage.pcap" \
+  -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  -T json \
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json.stderr \
+  || { echo "--- tshark FAILED (InstrumentDirectoryMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json.stderr; exit 1; }
+
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.symbol" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.symbolsfx" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.roundlot" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.reserved" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.istestsymbol" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.mpv" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.InstrumentDirectoryMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/OrderAddedMessage.pcap" \
   -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \
@@ -78,6 +93,25 @@ grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.Me
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securitytradingstatus" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
 grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securitytradingstatusreason" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SecurityTradingStatusMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/SessionShutdown.pcap" \
+  -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  -T json \
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SessionShutdown.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SessionShutdown.json.stderr \
+  || { echo "--- tshark FAILED (SessionShutdown) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.SessionShutdown.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/TradeMessage.pcap" \
+  -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  -T json \
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json.stderr \
+  || { echo "--- tshark FAILED (TradeMessage) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json.stderr; exit 1; }
+
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.timestamp" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.securityid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.tradeid" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.quantity" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json
+grep "memx.memxequities.memoirdepthfeed.sbe.v1.3.price" Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.TradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/TradingSessionStatusMessage.pcap" \
   -X "lua_script:Memx/MemxEquities/MemoirDepthFeed/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
