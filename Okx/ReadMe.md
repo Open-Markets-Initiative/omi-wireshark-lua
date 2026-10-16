@@ -50,8 +50,8 @@
 [Okx.OkxDigital.Trade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Okx/Protocols/OkxDigital/Trade.md "Trade"
 
 [Okx.OkxDigital.MarketData.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/MarketData/Okx_OkxDigital_MarketData_Sbe_v1_0_Dissector.lua "Okx OkxDigital MarketData Sbe v1.0 Wireshark Dissector"
-[Okx.OkxDigital.MarketData.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.MarketData.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_1_0.xml "OKX 1.0 Url"
 [Okx.OkxDigital.Private.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/Private/Okx_OkxDigital_Private_Sbe_v1_0_Dissector.lua "Okx OkxDigital Private Sbe v1.0 Wireshark Dissector"
-[Okx.OkxDigital.Private.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.Private.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_private_1_0.xml "OKX 1.0 Url"
 [Okx.OkxDigital.Trade.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Okx/OkxDigital/Trade/Okx_OkxDigital_Trade_Sbe_v1_0_Dissector.lua "Okx OkxDigital Trade Sbe v1.0 Wireshark Dissector"
-[Okx.OkxDigital.Trade.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/en/ "OKX 1.0 Url"
+[Okx.OkxDigital.Trade.Sbe.v1.0.Url]: https://www.okx.com/docs-v5/log_en/xml/okx_sbe_trade_1_0.xml "OKX 1.0 Url"
