@@ -3651,7 +3651,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_2)
 --   Organization: Miami International Holdings
 --   Version: 1.2
 --   Date: Monday, October 5, 2020
---   Specification: PEARL_Liquidity_Feed_PLF_v1.2.pdf
+--   Specification: PEARL Liquidity Feed PLF v1.2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

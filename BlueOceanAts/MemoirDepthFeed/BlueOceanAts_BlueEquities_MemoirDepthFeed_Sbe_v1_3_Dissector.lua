@@ -2250,7 +2250,7 @@ udp_table:add_for_decode_as(omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1
 --   Organization: Blue Ocean Technologies
 --   Version: 1.3
 --   Date: Monday, September 1, 2025
---   Specification: MEMOIR Depth Feed (v1.3).pdf
+--   Specification: Blue Ocean ATS MEMOIR Depth Multicast.pdf
 --   Specification: Blue Ocean ATS UDP Protocol.pdf
 --
 -- Script:

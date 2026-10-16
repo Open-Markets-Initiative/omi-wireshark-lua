@@ -885,7 +885,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.error_msg.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.error_msg.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.error_msg.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.error_msg, range, value, display)
@@ -1678,7 +1678,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.leg_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.leg_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.leg_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.leg_symbol, range, value, display)
@@ -4332,7 +4332,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.tick_table_name.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.tick_table_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.tick_table_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.tick_table_name, range, value, display)
@@ -4709,7 +4709,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.underlying_symbol, range, value, display)
@@ -4755,7 +4755,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol_root.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol_root.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.underlying_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.underlying_symbol_root, range, value, display)
@@ -11253,7 +11253,7 @@ udp_table:add_for_decode_as(omi_tmx_mx_solamulticast_hsvf_v1_12)
 --   Organization: TMX Group
 --   Version: 1.12
 --   Date: Friday, March 23, 2018
---   Specification: hsvf-mx-005e-mx-sola-hsvf-multicast-specifications-guide-v1-12-2.pdf
+--   Specification: MX SOLA HSVF Multicast Specifications Guide (1.12.2).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

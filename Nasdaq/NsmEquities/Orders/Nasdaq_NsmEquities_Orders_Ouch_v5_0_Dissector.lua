@@ -8287,7 +8287,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_nsmequities_orders_ouch_v5_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0
 --   Date: Saturday, April 1, 2023
---   Specification: OUCH5.0.pdf
+--   Specification: OUCH5.0 (2026-09-21).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -4656,7 +4656,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_topofmarket_mach_v2_5)
 --   Organization: Miami International Holdings
 --   Version: 2.5
 --   Date: Monday, June 26, 2023
---   Specification: Top_Of_Market_Feed_ToM_v2.5-2.pdf
+--   Specification: Top Of Market Feed ToM v2.5-2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -4034,7 +4034,7 @@ udp_table:add_for_decode_as(omi_iex_iexoptions_marketdata_sbe_v1_03)
 --   Organization: Investors Exchange
 --   Version: 1.03
 --   Date: Monday, June 1, 2026
---   Specification: IEX Options Market Data Transport Protocol Specification
+--   Specification: IEX Options Market Data Transport Protocol Specification (v1.03).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

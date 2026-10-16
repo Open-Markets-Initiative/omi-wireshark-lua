@@ -6592,7 +6592,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.0.2026
 --   Date: Thursday, June 11, 2026
---   Specification: NQTVITCHSpecification.pdf
+--   Specification: NQTVITCHSpecification (2026-07-30).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

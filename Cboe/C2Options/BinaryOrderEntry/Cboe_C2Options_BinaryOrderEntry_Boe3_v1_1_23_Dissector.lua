@@ -11078,7 +11078,7 @@ tcp_table:add_for_decode_as(omi_cboe_c2options_binaryorderentry_boe3_v1_1_23)
 --   Version: 1.1.23
 --   Since: 1.1.19
 --   Date: Monday, September 14, 2026
---   Specification: technical-specifications-cboe-titanium-us-options-boev3-specification.pdf
+--   Specification: technical-specifications-cboe-titanium-us-options-boev3-specification (2026-09-18).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

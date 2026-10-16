@@ -3554,7 +3554,7 @@ udp_table:add_for_decode_as(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7
 --   Organization: Chicago Board Options Exchange
 --   Version: 6.7
 --   Date: Monday, June 8, 2015
---   Specification: BATS_Europe_Q3_MC_PITCH_Specification.pdf
+--   Specification: BATS Europe Q3 MC PITCH Specification (2023-10-20).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

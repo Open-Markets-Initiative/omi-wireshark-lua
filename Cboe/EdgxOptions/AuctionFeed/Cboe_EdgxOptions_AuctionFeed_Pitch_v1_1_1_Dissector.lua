@@ -1493,7 +1493,7 @@ udp_table:add_for_decode_as(omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.1.1
 --   Date: Thursday, December 6, 2018
---   Specification: US_Options_Auction_Feed_Specification.pdf
+--   Specification: US Options Auction Feed Specification v1.1.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

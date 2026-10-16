@@ -2801,7 +2801,7 @@ udp_table:add_for_decode_as(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_4
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.41.29
 --   Date: Wednesday, April 20, 2022
---   Specification: US Equities Options Multicast PITCH Specification.pdf
+--   Specification: US Equities Options Multicast PITCH Specification (2022-08-20).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

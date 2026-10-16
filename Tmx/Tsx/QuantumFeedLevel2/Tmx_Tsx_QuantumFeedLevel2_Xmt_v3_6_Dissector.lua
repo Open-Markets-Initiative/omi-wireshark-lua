@@ -4403,7 +4403,7 @@ udp_table:add_for_decode_as(omi_tmx_tsx_quantumfeedlevel2_xmt_v3_6)
 --   Organization: TMX Group
 --   Version: 3.6
 --   Date: Tuesday, October 20, 2020
---   Specification: tsx_tsxv_level_2_quantumfeed_business_message_specifications-v3-6-0.pdf
+--   Specification: TSX TSXV Level 2 QuantumFeed Business Message Specification (3.6.0).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

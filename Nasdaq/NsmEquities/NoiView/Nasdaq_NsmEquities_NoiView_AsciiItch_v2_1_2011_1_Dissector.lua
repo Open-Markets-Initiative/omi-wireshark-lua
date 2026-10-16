@@ -1917,7 +1917,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_noiview_asciiitch_v2_1_2011_1
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1.2011.1
 --   Date: Monday, May 2, 2011
---   Specification: NQNoiview-v2_1.pdf
+--   Specification: NQNoiview-v2_1 (2011-10-16).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

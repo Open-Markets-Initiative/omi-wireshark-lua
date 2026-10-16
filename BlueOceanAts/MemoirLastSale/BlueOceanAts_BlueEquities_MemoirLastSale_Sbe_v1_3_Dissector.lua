@@ -2405,7 +2405,7 @@ udp_table:add_for_decode_as(omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_
 --   Organization: Blue Ocean Technologies
 --   Version: 1.3
 --   Date: Monday, January 1, 2024
---   Specification: MEMOIR Last Sale Feed (v1.3).pdf
+--   Specification: Blue Ocean ATS MEMOIR Last Sale Multicast.pdf
 --   Specification: Blue Ocean ATS UDP Protocol.pdf
 --
 -- Script:

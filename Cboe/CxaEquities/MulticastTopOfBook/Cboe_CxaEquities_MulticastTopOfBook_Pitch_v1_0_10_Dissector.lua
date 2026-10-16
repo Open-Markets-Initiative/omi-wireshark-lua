@@ -2082,7 +2082,7 @@ udp_table:add_for_decode_as(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_1
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.10
 --   Date: Friday, March 21, 2025
---   Specification: CXA_Multicast_TOP_Specification.pdf
+--   Specification: CXA Multicast TOP Specification (2026-05-28).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

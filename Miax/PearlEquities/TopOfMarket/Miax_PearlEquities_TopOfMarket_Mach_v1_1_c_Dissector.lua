@@ -3540,7 +3540,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_c)
 --   Organization: Miami International Holdings
 --   Version: 1.1.c
 --   Date: Wednesday, February 4, 2026
---   Specification: pearl_equities_tom_feed_v1.1.c.pdf
+--   Specification: pearl equities tom feed (2026-03-17).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

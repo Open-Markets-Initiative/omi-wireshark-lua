@@ -3376,7 +3376,7 @@ tcp_table:add_for_decode_as(omi_asx_asxsecurities_trade_ouch_v3_6)
 --   Organization: Australian Securities Exchange
 --   Version: 3.6
 --   Date: Wednesday, February 1, 2023
---   Specification: asx-trade-ouch-message-specification.pdf
+--   Specification: asx-trade-ouch-message-specification (2024-08-07).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -3083,7 +3083,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_marketlevel2_csm_v1_0_4)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.4
 --   Date: Tuesday, May 8, 2018
---   Specification: cboestreamingbookdepthv1.0.pdf
+--   Specification: Cboe Streaming Book Depth v1.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

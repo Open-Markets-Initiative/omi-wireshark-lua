@@ -3682,7 +3682,7 @@ tcp_table:add_for_decode_as(omi_aquis_aquisequities_tradingprotocol_atp_v4_0)
 --   Organization: Aquis Exchange
 --   Version: 4.0
 --   Date: Friday, August 1, 2025
---   Specification: Production_Aquis_ATP_Technical_Specification_v4_0_f0cd559010.pdf
+--   Specification: Aquis ATP Technical Specification v4.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

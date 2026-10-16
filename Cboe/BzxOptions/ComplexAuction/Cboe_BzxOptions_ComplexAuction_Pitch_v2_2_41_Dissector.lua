@@ -2274,7 +2274,7 @@ udp_table:add_for_decode_as(omi_cboe_bzxoptions_complexauction_pitch_v2_2_41)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.2.41
 --   Date: Wednesday, April 1, 2026
---   Specification: US_OPTIONS_COMPLEX_AUCTION_MULTICAST_PITCH_SPECIFICATION.pdf
+--   Specification: US_OPTIONS_COMPLEX_AUCTION_MULTICAST_PITCH_SPECIFICATION (2026-04-02).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -2182,7 +2182,7 @@ tcp_table:add_for_decode_as(omi_iex_iexoptions_session_sbe_v1_01)
 --   Version: 1.01
 --   Since: 1.00
 --   Date: Friday, July 17, 2026
---   Specification: IEX Options Binary Session Protocol Specification v1.01
+--   Specification: IEX Options Binary Session Protocol Specification (v1.01).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

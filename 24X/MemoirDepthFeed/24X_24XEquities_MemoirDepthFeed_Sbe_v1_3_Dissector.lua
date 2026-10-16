@@ -2239,7 +2239,7 @@ udp_table:add_for_decode_as(omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3)
 --   Organization: 24 National Exchange
 --   Version: 1.3
 --   Date: Monday, September 1, 2025
---   Specification: memoir-depth-feed-v1_3
+--   Specification: MEMOIR Depth Feed v1.3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

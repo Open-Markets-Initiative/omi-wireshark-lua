@@ -4751,7 +4751,7 @@ udp_table:add_for_decode_as(omi_hkex_hkexderivatives_fulltick_omd_v2_2)
 --   Organization: Hong Kong Exchanges and Clearing
 --   Version: 2.2
 --   Date: Tuesday, April 28, 2026
---   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v2.2.pdf
+--   Specification: HKEX_OMD_Derivatives_Binary_Interface_Specifications_v2_2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

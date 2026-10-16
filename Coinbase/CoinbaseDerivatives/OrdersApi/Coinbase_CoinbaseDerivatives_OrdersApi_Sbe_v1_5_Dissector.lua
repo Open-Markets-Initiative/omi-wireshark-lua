@@ -5008,7 +5008,7 @@ tcp_table:add_for_decode_as(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5)
 --   Organization: Coinbase
 --   Version: 1.5
 --   Date: Thursday, April 14, 2022
---   Specification: Coinbase Derivatives-SBE-API V1.5
+--   Specification: Coinbase Derivatives SBE API V1.5.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

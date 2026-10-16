@@ -2188,7 +2188,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_lastsale_asciipitch_v1_9)
 --   Version: 1.9
 --   Since: 1.8
 --   Date: Thursday, February 6, 2025
---   Specification: BATS_Europe_Last_Sale_Specification.pdf
+--   Specification: BATS Europe Last Sale Specification (2025-05-03).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

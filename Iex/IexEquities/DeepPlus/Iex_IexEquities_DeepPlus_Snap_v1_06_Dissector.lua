@@ -2807,7 +2807,7 @@ tcp_table:add_for_decode_as(omi_iex_iexequities_deepplus_snap_v1_06)
 --   Version: 1.06
 --   Since: 1.00
 --   Date: Friday, August 21, 2026
---   Specification: IEX DEEP+ SNAP Specification.pdf
+--   Specification: IEX DEEP+ SNAP Specification v1.06 (PDF).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

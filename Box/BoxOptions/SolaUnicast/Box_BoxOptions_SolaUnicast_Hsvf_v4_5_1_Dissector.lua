@@ -4228,6 +4228,9 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.strike_price_currency.display = function(
   if value == "CAD" then
     return "Strike Price Currency: Canadian Dollars (CAD)"
   end
+  if value == "   " then
+    return "Strike Price Currency: Not Provided (<whitespace>)"
+  end
 
   return "Strike Price Currency: Unknown("..value..")"
 end

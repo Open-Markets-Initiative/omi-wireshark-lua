@@ -2405,7 +2405,7 @@ udp_table:add_for_decode_as(omi_ltse_ltseequities_memoirlastsale_sbe_v1_3)
 --   Organization: Long-Term Stock Exchange
 --   Version: 1.3
 --   Date: Wednesday, December 13, 2023
---   Specification: (v1.3) LTSE MEMOIR Last Sale Feed.pdf
+--   Specification: LTSE MEMOIR Last Sale Feed v1.3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

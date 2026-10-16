@@ -14166,7 +14166,7 @@ tcp_table:add_for_decode_as(omi_cboe_cfefutures_binaryorderentry_boe_v1_3)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.3
 --   Date: Tuesday, April 21, 2020
---   Specification: CBOE_FUTURES_EXCHANGE_BOE_SPECIFICATION.pdf
+--   Specification: Cboe Futures Exchange BOE Specification (1.3.5).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

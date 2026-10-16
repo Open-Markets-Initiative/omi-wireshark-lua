@@ -4410,7 +4410,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12)
 --   Version: 1.0.12
 --   Since: 1.0.7
 --   Date: Monday, June 9, 2025
---   Specification: CXJ Equities BOEv3 Specification.pdf
+--   Specification: CXJ Equities BOEv3 Specification (2026-05-28).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

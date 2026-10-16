@@ -9960,7 +9960,7 @@ tcp_table:add_for_decode_as(omi_tmx_mx_solaorderentry_sail_v1_21)
 --   Organization: TMX Group
 --   Version: 1.21
 --   Date: Thursday, June 18, 2020
---   Specification: sail-mx-001e-mx-sail-specifications-guide-v1-21.pdf
+--   Specification: MX SAIL Specifications Guide (1.21).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

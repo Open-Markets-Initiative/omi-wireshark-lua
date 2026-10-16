@@ -485,7 +485,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_headeronly_mach_v1_0)
 --   Organization: Miami International Holdings
 --   Version: 1.0
 --   Date: Friday, June 26, 2020
---   Specification: TcpSessionMgmt_eSesM_v1.0.a.updated.pdf.pdf
+--   Specification: tcp session mgmt esesm.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

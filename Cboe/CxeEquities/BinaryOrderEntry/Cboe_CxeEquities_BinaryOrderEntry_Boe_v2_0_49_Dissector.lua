@@ -37408,7 +37408,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_binaryorderentry_boe_v2_0_49)
 --   Version: 2.0.49
 --   Since: 2.0.48
 --   Date: Tuesday, April 28, 2020
---   Specification: BATS_Europe_BOE2_Specification.pdf
+--   Specification: BATS Europe BOE2 Specification (2020-08-05).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

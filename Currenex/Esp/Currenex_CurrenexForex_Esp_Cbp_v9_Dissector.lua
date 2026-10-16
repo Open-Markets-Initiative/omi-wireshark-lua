@@ -1712,7 +1712,7 @@ udp_table:add_for_decode_as(omi_currenex_currenexforex_esp_cbp_v9)
 --   Organization: Currenex
 --   Version: 9
 --   Date: Wednesday, March 24, 2021
---   Specification: ITCH-Spec.pdf
+--   Specification: Currenex ITCH Market Data Service (2021-03-24).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

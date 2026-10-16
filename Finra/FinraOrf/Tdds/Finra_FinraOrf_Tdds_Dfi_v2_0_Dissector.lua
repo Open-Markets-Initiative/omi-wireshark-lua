@@ -3736,7 +3736,7 @@ udp_table:add_for_decode_as(omi_finra_finraorf_tdds_dfi_v2_0)
 --   Organization: Financial Industry Regulatory Authority
 --   Version: 2.0
 --   Date: Monday, September 24, 2018
---   Specification: TDDS2.0.pdf
+--   Specification: FINRA TDDS 2.0 Data Feed Interface Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

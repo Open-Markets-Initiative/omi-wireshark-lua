@@ -2397,7 +2397,16 @@ tmx_mx_solamulticast_hsvf_v1_13.message_timestamp.size = 20
 
 -- Display: Message Timestamp
 tmx_mx_solamulticast_hsvf_v1_13.message_timestamp.display = function(value)
-  return "Message Timestamp: "..value
+  local digits = tostring(value)
+
+  if #digits ~= 20 or digits:find("%D") then
+    return "Message Timestamp: "..digits
+  end
+
+  return string.format("Message Timestamp: %s-%s-%s %s:%s:%s.%s",
+                       digits:sub(1, 4), digits:sub(5, 6), digits:sub(7, 8),
+                       digits:sub(9, 10), digits:sub(11, 12), digits:sub(13, 14),
+                       digits:sub(15, 20))
 end
 
 -- Dissect: Message Timestamp
@@ -4755,7 +4764,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_13.tick_table_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.tick_table_name, range, value, display)
@@ -5104,7 +5113,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_symbol, range, value, display)
@@ -5150,7 +5159,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_13.underlying_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_13.fields.underlying_symbol_root, range, value, display)
@@ -11759,7 +11768,7 @@ udp_table:add_for_decode_as(omi_tmx_mx_solamulticast_hsvf_v1_13)
 --   Organization: TMX Group
 --   Version: 1.13
 --   Date: Wednesday, October 5, 2022
---   Specification: hsvf-mx-005e-mx-sola-hsvf-multicast-specifications-guide-v1-13-3d7.pdf
+--   Specification: MX SOLA HSVF Multicast Specifications Guide (1.13.3).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

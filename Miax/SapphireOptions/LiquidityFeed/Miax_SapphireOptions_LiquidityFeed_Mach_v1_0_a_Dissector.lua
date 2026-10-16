@@ -4178,7 +4178,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a)
 --   Organization: Miami International Holdings
 --   Version: 1.0.a
 --   Date: Thursday, December 28, 2023
---   Specification: MIAX_Sapphire_Liquidity_Feed_SLF_v1.0a.pdf
+--   Specification: MIAX Sapphire Liquidity Feed SLF v1.0a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

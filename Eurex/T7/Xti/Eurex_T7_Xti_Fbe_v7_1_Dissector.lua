@@ -24436,7 +24436,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_xti_fbe_v7_1)
 --   Organization: Eurex Exchange
 --   Version: 7.1
 --   Date: Monday, May 27, 2019
---   Specification: T7_Enhanced_Trading_Interface_-_Manual_v.1.3.pdf
+--   Specification: T7_Enhanced_Trading_Interface_-_Manual_v.1.3(7.1).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

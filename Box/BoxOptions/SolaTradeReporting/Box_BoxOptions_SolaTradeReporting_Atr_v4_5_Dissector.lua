@@ -271,7 +271,7 @@ box_boxoptions_solatradereporting_atr_v4_5.account_type.display = function(value
     return "Account Type: Floor Broker Dealer (Y)"
   end
   if value == "Z" then
-    return "Account Type: Floor Market Maker Flex Symbology Symbol Is Prefixed By One Of The Following (Z)"
+    return "Account Type: Floor Market Maker (Z)"
   end
 
   return "Account Type: Unknown("..value..")"
@@ -1550,11 +1550,7 @@ box_boxoptions_solatradereporting_atr_v4_5.trade_number.size = 15
 
 -- Display: Trade Number
 box_boxoptions_solatradereporting_atr_v4_5.trade_number.display = function(value)
-  if value == "of" then
-    return "Trade Number: Side Field Only The First Letter Of The Verb Ie B For Buy And S For Sell Instrument Id And Group Id Field Trade Id Field (of)"
-  end
-
-  return "Trade Number: Unknown("..value..")"
+  return "Trade Number: "..value
 end
 
 -- Dissect: Trade Number

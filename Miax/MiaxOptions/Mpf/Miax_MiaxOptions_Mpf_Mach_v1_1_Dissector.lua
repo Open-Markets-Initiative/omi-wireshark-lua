@@ -2584,7 +2584,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_mpf_mach_v1_1)
 --   Organization: Miami International Holdings
 --   Version: 1.1
 --   Date: Wednesday, February 20, 2019
---   Specification: MIAX_Product_Feed_v1.1_re.pdf
+--   Specification: MIAX Product Feed v1.1_re.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

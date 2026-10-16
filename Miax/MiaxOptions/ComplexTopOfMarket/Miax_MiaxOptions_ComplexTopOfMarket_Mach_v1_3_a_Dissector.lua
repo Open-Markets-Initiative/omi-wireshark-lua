@@ -4723,7 +4723,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a)
 --   Organization: Miami International Holdings
 --   Version: 1.3.a
 --   Date: Wednesday, August 12, 2020
---   Specification: miax_options_complex_top_of_market_feed_ctom_v1.3.a.pdf
+--   Specification: miax options complex top of market feed ctom.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

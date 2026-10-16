@@ -1784,7 +1784,7 @@ udp_table:add_for_decode_as(omi_a2x_a2xequities_rtmdf_amd_v1_3_2)
 --   Organization: A2X Markets
 --   Version: 1.3.2
 --   Date: Thursday, September 15, 2022
---   Specification: A2X712-Market-Data-Techincal-Specification-v1.3.2.pdf
+--   Specification: A2X712 Market Data Technical Specification v1.3.2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

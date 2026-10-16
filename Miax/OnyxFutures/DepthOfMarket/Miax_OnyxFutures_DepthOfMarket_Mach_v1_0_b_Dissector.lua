@@ -3054,7 +3054,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b)
 --   Organization: Miami International Holdings
 --   Version: 1.0.b
 --   Date: Tuesday, March 25, 2025
---   Specification: onyx_dom_feed_v1.0b.pdf
+--   Specification: onyx dom feed v1.0b.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

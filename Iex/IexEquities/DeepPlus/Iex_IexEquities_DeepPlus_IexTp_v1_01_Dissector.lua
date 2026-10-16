@@ -2392,7 +2392,7 @@ udp_table:add_for_decode_as(omi_iex_iexequities_deepplus_iextp_v1_01)
 --   Organization: Investors Exchange
 --   Version: 1.01
 --   Date: Monday, September 30, 2024
---   Specification: IEX_DEEP+ Specification.pdf
+--   Specification: IEX DEEP+ Specification (archived).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

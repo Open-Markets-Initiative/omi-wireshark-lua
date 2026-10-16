@@ -1510,7 +1510,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxeequities_lastsale_asciipitch_v1_3)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.3
 --   Date: Monday, October 2, 2023
---   Specification: BATS_Europe_Last_Sale_Specification.pdf
+--   Specification: BATS Europe Last Sale Specification (2018-10-20).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

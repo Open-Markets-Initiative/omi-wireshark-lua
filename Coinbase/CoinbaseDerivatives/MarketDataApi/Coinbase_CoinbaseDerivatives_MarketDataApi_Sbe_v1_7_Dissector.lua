@@ -5416,7 +5416,7 @@ udp_table:add_for_decode_as(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v
 --   Organization: Coinbase
 --   Version: 1.7
 --   Date: Thursday, April 14, 2022
---   Specification: Coinbase Derivatives-Multicast-UDP-Market-Data-API V1.7
+--   Specification: Coinbase Derivatives Multicast UDP Market Data API (1.7 alt).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

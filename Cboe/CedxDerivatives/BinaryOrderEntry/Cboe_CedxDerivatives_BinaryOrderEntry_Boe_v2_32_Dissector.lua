@@ -58490,7 +58490,7 @@ tcp_table:add_for_decode_as(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_32)
 --   Version: 2.32
 --   Since: 2.31
 --   Date: Thursday, December 4, 2025
---   Specification: Cboe_Europe_CEDX_BOE2_Specification.pdf
+--   Specification: Cboe Europe CEDX BOE2 Specification (2026-01-11).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

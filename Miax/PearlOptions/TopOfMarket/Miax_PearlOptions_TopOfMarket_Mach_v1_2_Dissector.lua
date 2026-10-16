@@ -4894,7 +4894,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v1_2)
 --   Organization: Miami International Holdings
 --   Version: 1.2
 --   Date: Tuesday, July 25, 2023
---   Specification: Pearl_Top_of_Market_Feed_ToM_v1.2.pdf
+--   Specification: Pearl Top of Market Feed ToM v1.2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

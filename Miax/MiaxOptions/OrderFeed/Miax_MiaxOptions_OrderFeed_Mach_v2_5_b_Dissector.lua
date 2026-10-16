@@ -4260,7 +4260,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_orderfeed_mach_v2_5_b)
 --   Organization: Miami International Holdings
 --   Version: 2.5.b
 --   Date: Tuesday, May 17, 2022
---   Specification: MIAX Options Order Feed_MOR_v2.5.b_re.pdf
+--   Specification: MIAX Options Order Feed MOR v2.5b_re.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

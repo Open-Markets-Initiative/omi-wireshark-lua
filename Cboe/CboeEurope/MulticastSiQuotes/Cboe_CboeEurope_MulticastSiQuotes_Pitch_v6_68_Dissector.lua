@@ -4389,7 +4389,7 @@ udp_table:add_for_decode_as(omi_cboe_cboeeurope_multicastsiquotes_pitch_v6_68)
 --   Version: 6.68
 --   Since: 6.34
 --   Date: Wednesday, July 8, 2026
---   Specification: BATS_Europe_MC_PITCH_Specification.pdf
+--   Specification: BATS Europe MC PITCH Specification (2026-07-31).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

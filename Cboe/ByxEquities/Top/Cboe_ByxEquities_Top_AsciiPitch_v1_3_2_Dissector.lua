@@ -2429,7 +2429,7 @@ tcp_table:add_for_decode_as(omi_cboe_byxequities_top_asciipitch_v1_3_2)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.3.2
 --   Date: Wednesday, July 14, 2021
---   Specification: Cboe_US_Equities_TOP_Specification.pdf
+--   Specification: Cboe US Equities TOP Specification (2022-01-18).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

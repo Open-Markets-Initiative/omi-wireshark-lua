@@ -3239,7 +3239,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3)
 --   Organization: Miami International Holdings
 --   Version: 1.3
 --   Date: Friday, March 16, 2018
---   Specification: Complex_Top_Of_Market_Feed_cToM_v1_3.pdf
+--   Specification: Complex Top Of Market Feed cToM v1.3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

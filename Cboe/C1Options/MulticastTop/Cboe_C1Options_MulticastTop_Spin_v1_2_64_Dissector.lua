@@ -2844,7 +2844,7 @@ tcp_table:add_for_decode_as(omi_cboe_c1options_multicasttop_spin_v1_2_64)
 --   Version: 1.2.64
 --   Since: 1.2.63
 --   Date: Thursday, September 17, 2026
---   Specification: technical-specifications-cboe-titanium-us-options-multicast-top-specification.pdf
+--   Specification: technical-specifications-cboe-titanium-us-options-multicast-top-specification (2026-09-18).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

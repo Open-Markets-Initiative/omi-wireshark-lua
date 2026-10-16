@@ -3060,7 +3060,7 @@ udp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v2_2)
 --   Organization: Miami International Holdings
 --   Version: 2.2
 --   Date: Friday, March 16, 2018
---   Specification: Top_Of_Market_Feed_ToM_v2.2.pdf
+--   Specification: Top Of Market Feed ToM v2.2.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

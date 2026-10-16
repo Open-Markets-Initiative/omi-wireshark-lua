@@ -4833,7 +4833,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_5)
 --   Organization: Miami International Holdings
 --   Version: 2.5
 --   Date: Monday, August 1, 2022
---   Specification: Administrative_Information_Subscriber_Feed_AIS_v2.5.pdf
+--   Specification: Administrative Information Subscriber Feed AIS v2.5.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

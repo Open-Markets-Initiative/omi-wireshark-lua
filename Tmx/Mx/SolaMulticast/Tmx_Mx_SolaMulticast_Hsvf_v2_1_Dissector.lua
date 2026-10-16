@@ -161,7 +161,7 @@ end
 tmx_mx_solamulticast_hsvf_v2_1.error_msg.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v2_1.error_msg.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v2_1.error_msg.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_msg, range, value, display)

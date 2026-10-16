@@ -6443,7 +6443,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_expressorders_meo_v2_7)
 --   Organization: Miami International Holdings
 --   Version: 2.7
 --   Date: Thursday, August 22, 2024
---   Specification: miax express orders meo.pdf
+--   Specification: miax express orders meo (2026-03-17).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

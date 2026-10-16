@@ -2586,7 +2586,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nomoptions_bono_itch_v3_2)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.2
 --   Date: Thursday, November 2, 2017
---   Specification: http://www.nasdaqtrader.com/content/productsservices/trading/optionsmarket/BONO_spec.pdf
+--   Specification: BONO_spec.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

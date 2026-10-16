@@ -4700,7 +4700,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_complextopofmarket_mach_v1_
 --   Organization: Miami International Holdings
 --   Version: 1.0.a
 --   Date: Thursday, January 25, 2024
---   Specification: Sapphire_Complex_Top_Of_Market_Feed_cToM_v1.0a.pdf
+--   Specification: Sapphire Complex Top Of Market Feed cToM v1.0a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -4263,7 +4263,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a)
 --   Organization: Miami International Holdings
 --   Version: 1.1.a
 --   Date: Monday, August 22, 2022
---   Specification: MIAX_Options_Order_Feed_MOR_v1.1.a.pdf
+--   Specification: MIAX Options Order Feed MOR v1.1a.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

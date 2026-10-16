@@ -4894,7 +4894,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_topofmarket_mach_v2_0)
 --   Organization: Miami International Holdings
 --   Version: 2.0
 --   Date: Thursday, March 6, 2025
---   Specification: Sapphire_Top_Of_Market_Feed_ToM_v2.0.pdf
+--   Specification: Sapphire Top Of Market Feed ToM v2.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

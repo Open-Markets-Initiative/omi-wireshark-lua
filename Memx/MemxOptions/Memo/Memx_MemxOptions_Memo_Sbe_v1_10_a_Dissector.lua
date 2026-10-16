@@ -10024,7 +10024,7 @@ tcp_table:add_for_decode_as(omi_memx_memxoptions_memo_sbe_v1_10_a)
 --   Organization: The Members Exchange
 --   Version: 1.10.a
 --   Date: Wednesday, February 25, 2026
---   Specification: MEMO for US Options - SBE-v1_10a.pdf
+--   Specification: MXOP-Specifications-20260225.zip
 --
 -- Script:
 --   Generator: 1.5.0.0

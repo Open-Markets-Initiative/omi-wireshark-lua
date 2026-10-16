@@ -4925,7 +4925,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_topofmarket_mach_v1_3)
 --   Organization: Miami International Holdings
 --   Version: 1.3
 --   Date: Monday, April 24, 2023
---   Specification: Top_Of_Market_Feed_ToM_v1.3.pdf
+--   Specification: Top Of Market Feed ToM v1.3.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

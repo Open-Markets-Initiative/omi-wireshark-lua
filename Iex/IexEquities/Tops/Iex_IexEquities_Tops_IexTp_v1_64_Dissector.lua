@@ -2626,7 +2626,7 @@ udp_table:add_for_decode_as(omi_iex_iexequities_tops_iextp_v1_64)
 --   Organization: Investors Exchange
 --   Version: 1.64
 --   Date: Tuesday, February 27, 2018
---   Specification: IEX TOPS Specification.pdf
+--   Specification: IEX TOPS Specification (2018).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

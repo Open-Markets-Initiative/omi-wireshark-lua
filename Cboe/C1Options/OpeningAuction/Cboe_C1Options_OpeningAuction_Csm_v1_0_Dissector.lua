@@ -3187,7 +3187,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_openingauction_csm_v1_0)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0
 --   Date: Wednesday, July 18, 2018
---   Specification: CBOEStreamingOpeningAuction.pdf
+--   Specification: Cboe Streaming Opening Auction v1.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

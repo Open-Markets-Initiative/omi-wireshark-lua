@@ -6463,7 +6463,7 @@ tcp_table:add_for_decode_as(omi_cboe_cxaequities_binaryorderentry_boe3_v1_0_20)
 --   Version: 1.0.20
 --   Since: 1.0.20
 --   Date: Friday, May 22, 2026
---   Specification: CXA Equities BOEv3 Specification.pdf
+--   Specification: CXA Equities BOEv3 Specification (2026-05-28).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

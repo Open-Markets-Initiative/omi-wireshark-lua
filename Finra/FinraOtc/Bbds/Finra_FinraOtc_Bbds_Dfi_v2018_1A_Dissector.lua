@@ -2664,7 +2664,7 @@ udp_table:add_for_decode_as(omi_finra_finraotc_bbds_dfi_v2018_1a)
 --   Organization: Financial Industry Regulatory Authority
 --   Version: 2018.1A
 --   Date: Monday, May 14, 2018
---   Specification: BBDS_Specs_v2018-1.pdf
+--   Specification: FINRA BBDS Data Feed Interface Specification (2018-1A).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

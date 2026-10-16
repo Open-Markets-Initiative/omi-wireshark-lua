@@ -1405,7 +1405,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_11.external_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_11.external_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_11.external_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.external_symbol, range, value, display)
@@ -2270,7 +2270,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_11.leg_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_11.leg_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_11.leg_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.leg_symbol, range, value, display)
@@ -5379,7 +5379,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_11.tick_table_name.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_11.tick_table_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_11.tick_table_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.tick_table_name, range, value, display)
@@ -5807,7 +5807,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_11.underlying_symbol_root_options.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_11.fields.underlying_symbol_root_options, range, value, display)
@@ -14270,7 +14270,7 @@ udp_table:add_for_decode_as(omi_tmx_mx_solamulticast_hsvf_v1_11)
 --   Organization: TMX Group
 --   Version: 1.11
 --   Date: Wednesday, January 23, 2019
---   Specification: hsvf-mx-005e-mx-sola-hsvf-multicast-specifications-guide-v1-11d5.pdf
+--   Specification: MX SOLA HSVF Multicast Specifications Guide (1.11).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

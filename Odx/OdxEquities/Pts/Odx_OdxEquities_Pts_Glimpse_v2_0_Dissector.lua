@@ -2856,7 +2856,7 @@ tcp_table:add_for_decode_as(omi_odx_odxequities_pts_glimpse_v2_0)
 --   Organization: Osaka Digital Exchange
 --   Version: 2.0
 --   Date: Friday, March 31, 2023
---   Specification: ODX_PTS_GLIMPSE_Equities_v2.0.pdf
+--   Specification: ODX_PTS_GLIMPSE_Specification(Equities)_v2.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

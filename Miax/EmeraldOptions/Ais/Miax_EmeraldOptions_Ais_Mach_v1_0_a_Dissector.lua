@@ -4057,7 +4057,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_ais_mach_v1_0_a)
 --   Organization: Miami International Holdings
 --   Version: 1.0.a
 --   Date: Sunday, July 26, 2020
---   Specification: MIAX_Emerald_Administrative_Information_Subscriber_Feed_AIS_v1.0.a_re.pdf
+--   Specification: MIAX Emerald Administrative Information Subscriber Feed AIS v1.0a_re.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

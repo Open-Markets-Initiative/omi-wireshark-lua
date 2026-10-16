@@ -7079,7 +7079,7 @@ udp_table:add_for_decode_as(omi_siac_cts_output_cta_v1_91)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 1.91
 --   Date: Thursday, January 2, 2020
---   Specification: CTS_BINARY_OUTPUT_SPECIFICATION.pdf
+--   Specification: CTS_Binary_Output_Specification_legacy.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

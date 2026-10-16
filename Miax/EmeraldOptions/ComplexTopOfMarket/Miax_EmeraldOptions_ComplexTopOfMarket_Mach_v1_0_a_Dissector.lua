@@ -4723,7 +4723,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_complextopofmarket_mach_v1_0
 --   Organization: Miami International Holdings
 --   Version: 1.0.a
 --   Date: Sunday, July 26, 2020
---   Specification: MIAX_Emerald_Complex_Top_Of_Market_Feed_cToM_v1.0.a_re.pdf
+--   Specification: MIAX Emerald Complex Top Of Market Feed cToM v1.0a_re.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

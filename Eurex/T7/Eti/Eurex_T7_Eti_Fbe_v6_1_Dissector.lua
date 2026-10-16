@@ -27198,7 +27198,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v6_1)
 --   Organization: Eurex Exchange
 --   Version: 6.1
 --   Date: Wednesday, May 16, 2018
---   Specification: T7-Enhanced-Trading-Interface-Manual.pdf
+--   Specification: T7-Enhanced-Trading-Interface-Manual.6.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

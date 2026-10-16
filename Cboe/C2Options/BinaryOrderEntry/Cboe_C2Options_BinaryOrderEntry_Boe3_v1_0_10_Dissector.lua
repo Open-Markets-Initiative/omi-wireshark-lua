@@ -10575,7 +10575,7 @@ tcp_table:add_for_decode_as(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.0.10
 --   Date: Thursday, January 23, 2025
---   Specification: US_Options_BOE3_Specification.pdf
+--   Specification: US Options BOE3 Specification (2024-11-15).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

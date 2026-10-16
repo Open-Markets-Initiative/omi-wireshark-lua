@@ -680,7 +680,7 @@ udp_table:add_for_decode_as(omi_iex_iexequities_iextpheader_udp_v1_0)
 --   Organization: Investors Exchange
 --   Version: 1.0
 --   Date: Sunday, September 20, 2015
---   Specification: IEX Transport Specification.pdf
+--   Specification: IEX Transport Specification (v1.26).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

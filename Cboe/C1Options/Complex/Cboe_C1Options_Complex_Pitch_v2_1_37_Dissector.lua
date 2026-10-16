@@ -3787,7 +3787,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_complex_pitch_v2_1_37)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.1.37
 --   Date: Tuesday, March 1, 2022
---   Specification: US_OPTIONS_COMPLEX_MULTICAST_PITCH_SPECIFICATION.pdf
+--   Specification: US Options Complex Multicast PITCH Specification (2022-08-20).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

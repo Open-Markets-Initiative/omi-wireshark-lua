@@ -3161,7 +3161,7 @@ udp_table:add_for_decode_as(omi_asx_asxsecurities_trade_itch_v3_1)
 --   Organization: Australian Securities Exchange
 --   Version: 3.1
 --   Date: Wednesday, March 1, 2023
---   Specification: asx-trade-itch-message-specification.pdf
+--   Specification: asx-trade-itch-message-specification (2024-08-07).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

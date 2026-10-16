@@ -7318,7 +7318,7 @@ tcp_table:add_for_decode_as(omi_blueoceanats_blueequities_memo_sbe_v1_14)
 --   Organization: Blue Ocean Technologies
 --   Version: 1.14
 --   Date: Monday, December 8, 2025
---   Specification: Blue Ocean Order Entry - MEMO SBE Specification v1.14.pdf
+--   Specification: Blue Ocean ATS MEMO SBE.pdf
 --   Specification: Blue Ocean ATS TCP Protocol.pdf
 --
 -- Script:
