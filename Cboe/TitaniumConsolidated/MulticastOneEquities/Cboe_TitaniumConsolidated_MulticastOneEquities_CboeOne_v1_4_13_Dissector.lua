@@ -3501,7 +3501,7 @@ udp_table:add_for_decode_as(omi_cboe_titaniumconsolidated_multicastoneequities_c
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.4.13
 --   Date: Monday, March 16, 2026
---   Specification: Cboe_Equities_One_Feed_Specification.pdf
+--   Specification: Cboe_US_Equities_Auction_Feed_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

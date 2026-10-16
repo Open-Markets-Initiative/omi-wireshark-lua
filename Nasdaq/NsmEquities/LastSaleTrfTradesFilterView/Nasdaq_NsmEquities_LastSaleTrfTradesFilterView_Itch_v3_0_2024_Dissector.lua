@@ -4572,8 +4572,8 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_lastsaletrftradesfilterview_i
 --   Version: 3.0.2024
 --   Since: 2.1
 --   Date: Tuesday, May 28, 2024
---   Specification: NLSSpecification2.1.pdf
 --   Specification: NLSTRFFilterview3.0.pdf
+--   Specification: NLSSpecification2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

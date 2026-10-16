@@ -4033,7 +4033,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicequities_totalview_itch_v3_04_5)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.04.5
 --   Date: Wednesday, November 12, 2025
---   Specification: Nasdaq Nordic INET Equity TotalView-ITCH (3.04.5).pdf
+--   Specification: Nordic_Equity_TotalView-ITCH-3.04.5.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -19009,7 +19009,7 @@ udp_table:add_for_decode_as(omi_euronext_optiq_marketdatagateway_sbe_v5_36)
 --   Organization: Euronext
 --   Version: 5.36
 --   Date: Monday, May 27, 2024
---   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.36.0 +TC
+--   Specification: Optiq MDG Messages - Interface Specification - Euronext Cash and Derivatives Markets - External - v5.36.0 +TC.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

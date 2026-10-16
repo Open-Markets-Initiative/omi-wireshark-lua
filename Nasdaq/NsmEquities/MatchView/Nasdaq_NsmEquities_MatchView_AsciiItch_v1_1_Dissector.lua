@@ -903,7 +903,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_matchview_asciiitch_v1_1)
 --   Version: 1.1
 --   Since: 1.1
 --   Date: Wednesday, August 10, 2011
---   Specification: NQOUCH-V1_1.pdf
 --   Specification: NQMatchView-V1_1.pdf
 --
 -- Script:

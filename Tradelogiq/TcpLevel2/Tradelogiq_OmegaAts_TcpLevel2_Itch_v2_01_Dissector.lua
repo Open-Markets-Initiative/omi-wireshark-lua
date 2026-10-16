@@ -3722,7 +3722,7 @@ tcp_table:add_for_decode_as(omi_tradelogiq_omegaats_tcplevel2_itch_v2_01)
 --   Organization: Tradelogiq Markets Inc.
 --   Version: 2.01
 --   Date: Tuesday, January 13, 2026
---   Specification: TMI-Level-2-ITCH-5.0-Specification-v2.01.pdf
+--   Specification: Tradelogiq-Level-2-ITCH-5.0-Specification-v2.01.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

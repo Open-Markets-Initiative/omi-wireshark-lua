@@ -240,7 +240,7 @@ omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_entry = ProtoField.new("Order 
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_modification = ProtoField.new("Order Modification", "tmx.mx.solaorderentry.sail.v1.21.ordermodification", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_modification_acknowledgement = ProtoField.new("Order Modification Acknowledgement", "tmx.mx.solaorderentry.sail.v1.21.ordermodificationacknowledgement", ftypes.STRING, nil, nil, nil, "Stated by the guide as having the same number of bytes and format as the KE message.")
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_reply = ProtoField.new("Order Reply", "tmx.mx.solaorderentry.sail.v1.21.orderreply", ftypes.STRING)
-omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_request = ProtoField.new("Order Request", "tmx.mx.solaorderentry.sail.v1.21.orderrequest", ftypes.BYTES, nil, nil, nil, "Action")
+omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_request = ProtoField.new("Order Request", "tmx.mx.solaorderentry.sail.v1.21.orderrequest", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "tmx.mx.solaorderentry.sail.v1.21.outofsequence", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.overstepped_order_or_quote_notice = ProtoField.new("Overstepped Order Or Quote Notice", "tmx.mx.solaorderentry.sail.v1.21.oversteppedorderorquotenotice", ftypes.STRING)
 omi_tmx_mx_solaorderentry_sail_v1_21.fields.request_for_quote = ProtoField.new("Request For Quote", "tmx.mx.solaorderentry.sail.v1.21.requestforquote", ftypes.STRING)
@@ -313,6 +313,22 @@ function omi_tmx_mx_solaorderentry_sail_v1_21.prefs_changed()
   if show.indexes ~= omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_indexes then
     show.indexes = omi_tmx_mx_solaorderentry_sail_v1_21.prefs.show_indexes
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
 end
 
 
@@ -1334,7 +1350,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.error_description.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.error_description.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.error_description.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_description, range, value, display)
@@ -1357,7 +1373,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.error_message.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.error_message.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.error_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.error_message, range, value, display)
@@ -2416,6 +2432,11 @@ tmx_mx_solaorderentry_sail_v1_21.memo.size = 50
 
 -- Display: Memo
 tmx_mx_solaorderentry_sail_v1_21.memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Memo: No Value"
+  end
+
   return "Memo: "..value
 end
 
@@ -2423,7 +2444,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.memo.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.memo, range, value, display)
@@ -3939,7 +3960,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.start_of_message_in_error.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.start_of_message_in_error.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.start_of_message_in_error.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.start_of_message_in_error, range, value, display)
@@ -4128,7 +4149,7 @@ end
 tmx_mx_solaorderentry_sail_v1_21.trade_memo.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solaorderentry_sail_v1_21.trade_memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solaorderentry_sail_v1_21.trade_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.trade_memo, range, value, display)
@@ -8955,18 +8976,41 @@ end
 -- Order Request
 tmx_mx_solaorderentry_sail_v1_21.order_request = {}
 
+-- Size: Order Request
+tmx_mx_solaorderentry_sail_v1_21.order_request.size =
+  tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.size
+
 -- Display: Order Request
 tmx_mx_solaorderentry_sail_v1_21.order_request.display = function(packet, parent, length)
-  return "Order Request"
+  return ""
 end
 
+-- Dissect Fields: Order Request
+tmx_mx_solaorderentry_sail_v1_21.order_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Incoming Messages Header: Struct of 3 fields
+  index, incoming_messages_header = tmx_mx_solaorderentry_sail_v1_21.incoming_messages_header.dissect(buffer, index, packet, parent)
+
+  return index
+end
 
 -- Dissect: Order Request
 tmx_mx_solaorderentry_sail_v1_21.order_request.dissect = function(buffer, offset, packet, parent)
-  local display = tmx_mx_solaorderentry_sail_v1_21.order_request.display(packet, parent, 0)
-  packet.cols.info = display
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.order_request, buffer(offset, 0))
+    local index = tmx_mx_solaorderentry_sail_v1_21.order_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tmx_mx_solaorderentry_sail_v1_21.order_request.display(packet, parent, length)
+    parent:append_text(display)
 
-  return offset
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tmx_mx_solaorderentry_sail_v1_21.order_request.fields(buffer, offset, packet, parent)
+  end
 end
 
 -- User Disconnection

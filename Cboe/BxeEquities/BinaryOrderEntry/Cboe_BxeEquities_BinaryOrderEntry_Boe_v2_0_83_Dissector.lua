@@ -40535,7 +40535,7 @@ tcp_table:add_for_decode_as(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.0.83
 --   Date: Wednesday, May 27, 2026
---   Specification: Cboe Europe BOE2 Specification.pdf
+--   Specification: BATS Europe BOE2 Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

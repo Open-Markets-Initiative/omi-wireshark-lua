@@ -2410,8 +2410,6 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_bbo_itch_v2_1_2018)
 --   Version: 2.1.2018
 --   Date: Thursday, May 3, 2018
 --   Specification: PSXbboSpecification2.1.pdf
---   Specification: PSXbboSpecification2.1.pdf
---   Specification: PSXbbospecification2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

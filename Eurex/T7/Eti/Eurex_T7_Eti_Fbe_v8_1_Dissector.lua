@@ -33497,7 +33497,7 @@ tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v8_1)
 --   Organization: Eurex Exchange
 --   Version: 8.1
 --   Date: Wednesday, March 25, 2020
---   Specification: T7_R.8.1_Enhanced_Trading_Interface_-_Manual_v.1.0
+--   Specification: T7_R.8.1_Enhanced_Trading_Interface_-_Manual_v.1.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

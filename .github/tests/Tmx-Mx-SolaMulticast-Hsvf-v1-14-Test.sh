@@ -97,7 +97,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (StrategyMarketDepthMessage) ---"; cat Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json.stderr; exit 1; }
 
 grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.symbolstrategy" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.symbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.instrumentstatusmarker" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.numberoflevels" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyMarketDepthMessage.json
 runuser -u tester -- tshark \
@@ -108,7 +108,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (StrategyTradeMessage) ---"; cat Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json.stderr; exit 1; }
 
 grep "tmx.mx.solamulticast.hsvf.v1.14.exchangeid" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json
-grep "tmx.mx.solamulticast.hsvf.v1.14.symbolstrategy" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json
+grep "tmx.mx.solamulticast.hsvf.v1.14.symbol" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.volume" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.tradepricesign" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.solamulticast.hsvf.v1.14.tradeprice" Tmx.Mx.SolaMulticast.Hsvf.v1.14.StrategyTradeMessage.json

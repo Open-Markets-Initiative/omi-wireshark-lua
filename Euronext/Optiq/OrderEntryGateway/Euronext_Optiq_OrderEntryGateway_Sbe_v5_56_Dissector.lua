@@ -19731,7 +19731,7 @@ tcp_table:add_for_decode_as(omi_euronext_optiq_orderentrygateway_sbe_v5_56)
 --   Organization: Euronext
 --   Version: 5.56
 --   Date: Friday, December 13, 2024
---   Specification: optiq-oeg-sbe-messages-interface-specification-euronext-cash-and-derivatives-markets-external-v53561_0
+--   Specification: optiq-oeg-sbe-messages-interface-specification-euronext-cash-and-derivatives-markets-external-v53561_0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

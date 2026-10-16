@@ -154,9 +154,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_type = ProtoField.new("Strat
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price = ProtoField.new("Strike Price", "tmx.mx.solamulticast.hsvf.v1.14.strikeprice", ftypes.STRING, nil, nil, nil, "Strike price of the option in full")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "tmx.mx.solamulticast.hsvf.v1.14.strikepricecurrency", ftypes.STRING, nil, nil, nil, "Currency used for the option Strike Price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.strikepricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_bulletin = ProtoField.new("Symbol Bulletin", "tmx.mx.solamulticast.hsvf.v1.14.symbolbulletin", ftypes.STRING, nil, nil, nil, "Identifies the strategy. The legs (underlying) are defined in message type NS. Alphanumeric with \".\", \"+\", \"-\"")
+omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol = ProtoField.new("Symbol", "tmx.mx.solamulticast.hsvf.v1.14.symbol", ftypes.STRING, nil, nil, nil, "Identifies the strategy. The legs (underlying) are defined in message type NS. Alphanumeric with \".\", \"+\", \"-\"")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_month = ProtoField.new("Symbol Month", "tmx.mx.solamulticast.hsvf.v1.14.symbolmonth", ftypes.STRING, nil, nil, nil, "Option symbol month code")
-omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_strategy = ProtoField.new("Symbol Strategy", "tmx.mx.solamulticast.hsvf.v1.14.symbolstrategy", ftypes.STRING, nil, nil, nil, "Identifies the strategy. The legs (underlying) are defined in message type NS. Alphanumeric with \".\", \"+\", \"-\"")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_year = ProtoField.new("Symbol Year", "tmx.mx.solamulticast.hsvf.v1.14.symbolyear", ftypes.STRING, nil, nil, nil, "Last two digits of the option symbol year")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick = ProtoField.new("Tick", "tmx.mx.solamulticast.hsvf.v1.14.tick", ftypes.STRING, nil, nil, nil, "Determined by the difference between last price and the previous different trade price")
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_entry = ProtoField.new("Tick Entry", "tmx.mx.solamulticast.hsvf.v1.14.tickentry", ftypes.STRING)
@@ -4677,7 +4676,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.regular_bulletin_contents.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.regular_bulletin_contents.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_14.regular_bulletin_contents.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.regular_bulletin_contents, range, value, display)
@@ -4779,7 +4778,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.root.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.root.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_14.root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.root, range, value, display)
@@ -5018,7 +5017,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.special_bulletin_contents.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14.special_bulletin_contents.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_14.special_bulletin_contents.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.special_bulletin_contents, range, value, display)
@@ -5264,25 +5263,25 @@ tmx_mx_solamulticast_hsvf_v1_14.strike_price_fraction_indicator.dissect = functi
   return offset + length, value
 end
 
--- Symbol Bulletin
-tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin = {}
+-- Symbol
+tmx_mx_solamulticast_hsvf_v1_14.symbol = {}
 
--- Size: Symbol Bulletin
-tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.size = 30
+-- Size: Symbol
+tmx_mx_solamulticast_hsvf_v1_14.symbol.size = 30
 
--- Display: Symbol Bulletin
-tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.display = function(value)
-  return "Symbol Bulletin: "..value
+-- Display: Symbol
+tmx_mx_solamulticast_hsvf_v1_14.symbol.display = function(value)
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol Bulletin
-tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.size
+-- Dissect: Symbol
+tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v1_14.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.display(value, buffer, offset, packet, parent)
+  local value = trim_right_spaces(range:string())
+  local display = tmx_mx_solamulticast_hsvf_v1_14.symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_bulletin, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -5306,29 +5305,6 @@ tmx_mx_solamulticast_hsvf_v1_14.symbol_month.dissect = function(buffer, offset, 
   local display = tmx_mx_solamulticast_hsvf_v1_14.symbol_month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_month, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Strategy
-tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy = {}
-
--- Size: Symbol Strategy
-tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size = 30
-
--- Display: Symbol Strategy
-tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.display = function(value)
-  return "Symbol Strategy: "..value
-end
-
--- Dissect: Symbol Strategy
-tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14.fields.symbol_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -8542,7 +8518,7 @@ tmx_mx_solamulticast_hsvf_v1_14.special_text_bulletin = {}
 
 -- Size: Special Text Bulletin
 tmx_mx_solamulticast_hsvf_v1_14.special_text_bulletin.size =
-  tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.size + 
+  tmx_mx_solamulticast_hsvf_v1_14.symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_14.special_bulletin_contents.size + 
   tmx_mx_solamulticast_hsvf_v1_14.continue_marker.size
 
@@ -8555,8 +8531,8 @@ end
 tmx_mx_solamulticast_hsvf_v1_14.special_text_bulletin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Bulletin: X
-  index, symbol_bulletin = tmx_mx_solamulticast_hsvf_v1_14.symbol_bulletin.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Special Bulletin Contents: X
   index, special_bulletin_contents = tmx_mx_solamulticast_hsvf_v1_14.special_bulletin_contents.dissect(buffer, index, packet, parent)
@@ -11078,7 +11054,7 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_cancellation_message = {}
 -- Size: Strategy Trade Cancellation Message
 tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_cancellation_message.size =
   tmx_mx_solamulticast_hsvf_v1_14.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size + 
+  tmx_mx_solamulticast_hsvf_v1_14.symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_14.volume.size + 
   tmx_mx_solamulticast_hsvf_v1_14.trade_price_sign.size + 
   tmx_mx_solamulticast_hsvf_v1_14.trade_price.size + 
@@ -11098,8 +11074,8 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_cancellation_message.fields = fun
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Strategy: X
-  index, symbol_strategy = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)
@@ -11439,7 +11415,7 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_market_depth_message.size = function(bu
 
   index = index + tmx_mx_solamulticast_hsvf_v1_14.exchange_id.size
 
-  index = index + tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size
+  index = index + tmx_mx_solamulticast_hsvf_v1_14.symbol.size
 
   index = index + tmx_mx_solamulticast_hsvf_v1_14.instrument_status_marker.size
 
@@ -11464,8 +11440,8 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_market_depth_message.fields = function(
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Strategy: X
-  index, symbol_strategy = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = tmx_mx_solamulticast_hsvf_v1_14.instrument_status_marker.dissect(buffer, index, packet, parent)
@@ -11790,7 +11766,7 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_quote_message = {}
 -- Size: Strategy Quote Message
 tmx_mx_solamulticast_hsvf_v1_14.strategy_quote_message.size =
   tmx_mx_solamulticast_hsvf_v1_14.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size + 
+  tmx_mx_solamulticast_hsvf_v1_14.symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_14.bid_price_sign.size + 
   tmx_mx_solamulticast_hsvf_v1_14.bid_price_quote.size + 
   tmx_mx_solamulticast_hsvf_v1_14.bid_price_fraction_indicator.size + 
@@ -11813,8 +11789,8 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_quote_message.fields = function(buffer,
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Strategy: X
-  index, symbol_strategy = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_solamulticast_hsvf_v1_14.bid_price_sign.dissect(buffer, index, packet, parent)
@@ -12294,7 +12270,7 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_request_for_quote_message = {}
 -- Size: Strategy Request For Quote Message
 tmx_mx_solamulticast_hsvf_v1_14.strategy_request_for_quote_message.size =
   tmx_mx_solamulticast_hsvf_v1_14.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size + 
+  tmx_mx_solamulticast_hsvf_v1_14.symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_14.requested_size.size + 
   tmx_mx_solamulticast_hsvf_v1_14.requested_market_side.size
 
@@ -12310,8 +12286,8 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_request_for_quote_message.fields = func
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Strategy: X
-  index, symbol_strategy = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Requested Size: X
   index, requested_size = tmx_mx_solamulticast_hsvf_v1_14.requested_size.dissect(buffer, index, packet, parent)
@@ -12502,7 +12478,7 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_message = {}
 -- Size: Strategy Trade Message
 tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_message.size =
   tmx_mx_solamulticast_hsvf_v1_14.exchange_id.size + 
-  tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.size + 
+  tmx_mx_solamulticast_hsvf_v1_14.symbol.size + 
   tmx_mx_solamulticast_hsvf_v1_14.volume.size + 
   tmx_mx_solamulticast_hsvf_v1_14.trade_price_sign.size + 
   tmx_mx_solamulticast_hsvf_v1_14.trade_price.size + 
@@ -12526,8 +12502,8 @@ tmx_mx_solamulticast_hsvf_v1_14.strategy_trade_message.fields = function(buffer,
   -- Exchange Id: A
   index, exchange_id = tmx_mx_solamulticast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Strategy: X
-  index, symbol_strategy = tmx_mx_solamulticast_hsvf_v1_14.symbol_strategy.dissect(buffer, index, packet, parent)
+  -- Symbol: X
+  index, symbol = tmx_mx_solamulticast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_solamulticast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)

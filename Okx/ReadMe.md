@@ -7,21 +7,21 @@
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OkxDigital][OkxDigital.Exchange] | [Private][Okx.OkxDigital.Private] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Private.Sbe.v1.0.Dissector] | 9/30/2026 | 1824 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Private.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [Private][Okx.OkxDigital.Private] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Private.Sbe.v1.0.Dissector] | 9/30/2026 | 1823 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Private.Sbe.v1.0.Url] |
 
 
 ### Market Data
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OkxDigital][OkxDigital.Exchange] | [MarketData][Okx.OkxDigital.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.MarketData.Sbe.v1.0.Dissector] | 11/6/2025 | 2261 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.MarketData.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [MarketData][Okx.OkxDigital.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.MarketData.Sbe.v1.0.Dissector] | 11/6/2025 | 2260 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.MarketData.Sbe.v1.0.Url] |
 
 
 ### Order Entry
 
 | Division | [Protocol][Omi.Okx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Okx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [OkxDigital][OkxDigital.Exchange] | [Trade][Okx.OkxDigital.Trade] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Trade.Sbe.v1.0.Dissector] | 9/30/2026 | 2883 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Trade.Sbe.v1.0.Url] |
+| [OkxDigital][OkxDigital.Exchange] | [Trade][Okx.OkxDigital.Trade] | [Sbe][Omi.Encoding.Sbe] | [1.0][Okx.OkxDigital.Trade.Sbe.v1.0.Dissector] | 9/30/2026 | 2882 | [Pending][Omi.Glossary.Deployment.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Okx.OkxDigital.Trade.Sbe.v1.0.Url] |
 
 
 <p align="center"><a href="https://www.okx.com/en-us" title="OKX Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a></p>

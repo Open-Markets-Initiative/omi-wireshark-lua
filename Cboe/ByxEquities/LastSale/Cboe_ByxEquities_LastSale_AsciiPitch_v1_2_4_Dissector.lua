@@ -1325,7 +1325,7 @@ tcp_table:add_for_decode_as(omi_cboe_byxequities_lastsale_asciipitch_v1_2_4)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.2.4
 --   Date: Wednesday, January 15, 2025
---   Specification: Cboe_US_Equities_Last_Sale_Specification.pdf
+--   Specification: Cboe US Equities Last Sale Specification (2022-01-18).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

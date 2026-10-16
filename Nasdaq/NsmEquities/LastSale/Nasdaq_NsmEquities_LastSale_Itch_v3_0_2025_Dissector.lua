@@ -4579,7 +4579,6 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_lastsale_itch_v3_0_2025)
 --   Since: 3.0
 --   Date: Tuesday, May 6, 2025
 --   Specification: NLSSpecification3.0.pdf
---   Specification: NLSSpecification3.0.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -3722,7 +3722,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_ntxequities_orders_ouch_v4_2)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.2
 --   Date: Monday, July 8, 2019
---   Specification: NQBXOUCH42.pdf
+--   Specification: NTXOUCH42.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

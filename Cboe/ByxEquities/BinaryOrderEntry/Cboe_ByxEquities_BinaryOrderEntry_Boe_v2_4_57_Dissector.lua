@@ -33800,7 +33800,7 @@ tcp_table:add_for_decode_as(omi_cboe_byxequities_binaryorderentry_boe_v2_4_57)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.4.57
 --   Date: Tuesday, September 8, 2026
---   Specification: Cboe Titanium U.S. Equities BOE Specification.pdf
+--   Specification: cboe-titanium-u.s.-equities-boe-specification.html
 --
 -- Script:
 --   Generator: 1.5.0.0

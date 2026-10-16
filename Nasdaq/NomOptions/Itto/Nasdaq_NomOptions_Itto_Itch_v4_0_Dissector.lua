@@ -5333,7 +5333,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nomoptions_itto_itch_v4_0)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 4.0
 --   Date: Monday, January 9, 2023
---   Specification: itto_spec40.pdf
+--   Specification: NOM_ITTO_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

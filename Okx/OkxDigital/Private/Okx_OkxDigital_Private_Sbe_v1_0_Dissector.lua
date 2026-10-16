@@ -1782,8 +1782,7 @@ local function omi_okx_okxdigital_private_sbe_v1_0_ws_heuristic(buffer, packet, 
   -- Verify Version
   if not okx_okxdigital_private_sbe_v1_0.version.verify(buffer) then return false end
 
-  -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = omi_okx_okxdigital_private_sbe_v1_0
+  -- Protocol is valid, dissect this packet: each WebSocket message comes to the heuristic, so the conversation stays the WebSocket's
   omi_okx_okxdigital_private_sbe_v1_0.dissector(buffer, packet, parent)
 
   return true

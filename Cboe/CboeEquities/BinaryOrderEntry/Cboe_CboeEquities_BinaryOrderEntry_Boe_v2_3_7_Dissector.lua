@@ -13203,7 +13203,7 @@ tcp_table:add_for_decode_as(omi_cboe_cboeequities_binaryorderentry_boe_v2_3_7)
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.3.7
 --   Date: Wednesday, August 7, 2019
---   Specification: Cboe_US_Equities_BOE_Specification.pdf
+--   Specification: Cboe US Equities BOE Specification (2.3).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

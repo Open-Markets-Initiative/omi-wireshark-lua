@@ -310,6 +310,22 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
 -- Box BoxOptions SolaOrderEntry Sail 2.25 Fields
 -----------------------------------------------------------------------
 
@@ -449,6 +465,11 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size = 16
 
 -- Display: Additional Client Memo
 box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Additional Client Memo: No Value"
+  end
+
   return "Additional Client Memo: "..value
 end
 
@@ -456,7 +477,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.additional_client_memo, range, value, display)
@@ -686,6 +707,11 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.size = 16
 
 -- Display: Buying Additional Client Memo
 box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Buying Additional Client Memo: No Value"
+  end
+
   return "Buying Additional Client Memo: "..value
 end
 
@@ -693,7 +719,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_additional_client_memo, range, value, display)
@@ -709,48 +735,19 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size = 
 
 -- Display: Buying Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display = function(value)
-  if value == "1" then
-    return "Buying Post Trading Instruction: Open Leg (1)"
-  end
-  if value == "2" then
-    return "Buying Post Trading Instruction: Open Leg (2)"
-  end
-  if value == "3" then
-    return "Buying Post Trading Instruction: Close Leg (3)"
-  end
-  if value == "4" then
-    return "Buying Post Trading Instruction: Close Leg (4)"
-  end
-  if value == "5" then
-    return "Buying Post Trading Instruction: Open Leg (5)"
-  end
-  if value == "6" then
-    return "Buying Post Trading Instruction: Close Leg (6)"
-  end
-  if value == "7" then
-    return "Buying Post Trading Instruction: Open Leg (7)"
-  end
-  if value == "8" then
-    return "Buying Post Trading Instruction: Close Leg (8)"
-  end
-  if value == "9" then
-    return "Buying Post Trading Instruction: Close Leg (9)"
-  end
-  if value == "10" then
-    return "Buying Post Trading Instruction: Close (10)"
-  end
-  if value == '' then
+  -- Check if field has value
+  if value == nil or value == '' then
     return "Buying Post Trading Instruction: No Value"
   end
 
-  return "Buying Post Trading Instruction: Unknown("..value..")"
+  return "Buying Post Trading Instruction: "..value
 end
 
 -- Dissect: Buying Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_post_trading_instruction, range, value, display)
@@ -904,6 +901,11 @@ box_boxoptions_solaorderentry_sail_v2_25.client_order_id.size = 20
 
 -- Display: Client Order Id
 box_boxoptions_solaorderentry_sail_v2_25.client_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Client Order Id: No Value"
+  end
+
   return "Client Order Id: "..value
 end
 
@@ -911,7 +913,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.client_order_id.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.client_order_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.client_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.client_order_id, range, value, display)
@@ -1216,7 +1218,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.error_description.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.error_description.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_description.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_description, range, value, display)
@@ -1232,6 +1234,11 @@ box_boxoptions_solaorderentry_sail_v2_25.error_detail.size = 200
 
 -- Display: Error Detail
 box_boxoptions_solaorderentry_sail_v2_25.error_detail.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Error Detail: No Value"
+  end
+
   return "Error Detail: "..value
 end
 
@@ -1239,7 +1246,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.error_detail.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.error_detail.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_detail.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_detail, range, value, display)
@@ -1262,7 +1269,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.error_message.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.error_message.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.error_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.error_message, range, value, display)
@@ -2105,6 +2112,11 @@ box_boxoptions_solaorderentry_sail_v2_25.memo.size = 50
 
 -- Display: Memo
 box_boxoptions_solaorderentry_sail_v2_25.memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Memo: No Value"
+  end
+
   return "Memo: "..value
 end
 
@@ -2112,7 +2124,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.memo.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.memo, range, value, display)
@@ -2828,6 +2840,11 @@ box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.size = 20
 
 -- Display: Order Id Error Notice
 box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Id Error Notice: No Value"
+  end
+
   return "Order Id Error Notice: "..value
 end
 
@@ -2835,7 +2852,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.order_id_error_notice, range, value, display)
@@ -3029,48 +3046,19 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size = 50
 
 -- Display: Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display = function(value)
-  if value == "1" then
-    return "Post Trading Instruction: Open Leg (1)"
-  end
-  if value == "2" then
-    return "Post Trading Instruction: Open Leg (2)"
-  end
-  if value == "3" then
-    return "Post Trading Instruction: Close Leg (3)"
-  end
-  if value == "4" then
-    return "Post Trading Instruction: Close Leg (4)"
-  end
-  if value == "5" then
-    return "Post Trading Instruction: Open Leg (5)"
-  end
-  if value == "6" then
-    return "Post Trading Instruction: Close Leg (6)"
-  end
-  if value == "7" then
-    return "Post Trading Instruction: Open Leg (7)"
-  end
-  if value == "8" then
-    return "Post Trading Instruction: Close Leg (8)"
-  end
-  if value == "9" then
-    return "Post Trading Instruction: Close Leg (9)"
-  end
-  if value == "10" then
-    return "Post Trading Instruction: Close (10)"
-  end
-  if value == '' then
+  -- Check if field has value
+  if value == nil or value == '' then
     return "Post Trading Instruction: No Value"
   end
 
-  return "Post Trading Instruction: Unknown("..value..")"
+  return "Post Trading Instruction: "..value
 end
 
 -- Dissect: Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instruction, range, value, display)
@@ -3086,48 +3074,19 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size = 50
 
 -- Display: Post Trading Instructions
 box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display = function(value)
-  if value == "1" then
-    return "Post Trading Instructions: Open Leg (1)"
-  end
-  if value == "2" then
-    return "Post Trading Instructions: Open Leg (2)"
-  end
-  if value == "3" then
-    return "Post Trading Instructions: Close Leg (3)"
-  end
-  if value == "4" then
-    return "Post Trading Instructions: Close Leg (4)"
-  end
-  if value == "5" then
-    return "Post Trading Instructions: Open Leg (5)"
-  end
-  if value == "6" then
-    return "Post Trading Instructions: Close Leg (6)"
-  end
-  if value == "7" then
-    return "Post Trading Instructions: Open Leg (7)"
-  end
-  if value == "8" then
-    return "Post Trading Instructions: Close Leg (8)"
-  end
-  if value == "9" then
-    return "Post Trading Instructions: Close Leg (9)"
-  end
-  if value == "10" then
-    return "Post Trading Instructions: Close (10)"
-  end
-  if value == '' then
+  -- Check if field has value
+  if value == nil or value == '' then
     return "Post Trading Instructions: No Value"
   end
 
-  return "Post Trading Instructions: Unknown("..value..")"
+  return "Post Trading Instructions: "..value
 end
 
 -- Dissect: Post Trading Instructions
 box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instructions, range, value, display)
@@ -4113,6 +4072,11 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.size = 1
 
 -- Display: Selling Additional Client Memo
 box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Selling Additional Client Memo: No Value"
+  end
+
   return "Selling Additional Client Memo: "..value
 end
 
@@ -4120,7 +4084,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_additional_client_memo, range, value, display)
@@ -4136,48 +4100,19 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size =
 
 -- Display: Selling Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.display = function(value)
-  if value == "1" then
-    return "Selling Post Trading Instruction: Open Leg (1)"
-  end
-  if value == "2" then
-    return "Selling Post Trading Instruction: Open Leg (2)"
-  end
-  if value == "3" then
-    return "Selling Post Trading Instruction: Close Leg (3)"
-  end
-  if value == "4" then
-    return "Selling Post Trading Instruction: Close Leg (4)"
-  end
-  if value == "5" then
-    return "Selling Post Trading Instruction: Open Leg (5)"
-  end
-  if value == "6" then
-    return "Selling Post Trading Instruction: Close Leg (6)"
-  end
-  if value == "7" then
-    return "Selling Post Trading Instruction: Open Leg (7)"
-  end
-  if value == "8" then
-    return "Selling Post Trading Instruction: Close Leg (8)"
-  end
-  if value == "9" then
-    return "Selling Post Trading Instruction: Close Leg (9)"
-  end
-  if value == "10" then
-    return "Selling Post Trading Instruction: Close (10)"
-  end
-  if value == '' then
+  -- Check if field has value
+  if value == nil or value == '' then
     return "Selling Post Trading Instruction: No Value"
   end
 
-  return "Selling Post Trading Instruction: Unknown("..value..")"
+  return "Selling Post Trading Instruction: "..value
 end
 
 -- Dissect: Selling Post Trading Instruction
 box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_post_trading_instruction, range, value, display)
@@ -4327,7 +4262,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.start_of_message_in_error.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.start_of_message_in_error.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.start_of_message_in_error.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.start_of_message_in_error, range, value, display)
@@ -4718,6 +4653,11 @@ box_boxoptions_solaorderentry_sail_v2_25.trade_memo.size = 50
 
 -- Display: Trade Memo
 box_boxoptions_solaorderentry_sail_v2_25.trade_memo.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trade Memo: No Value"
+  end
+
   return "Trade Memo: "..value
 end
 
@@ -4725,7 +4665,7 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.trade_memo.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.trade_memo.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = box_boxoptions_solaorderentry_sail_v2_25.trade_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_memo, range, value, display)

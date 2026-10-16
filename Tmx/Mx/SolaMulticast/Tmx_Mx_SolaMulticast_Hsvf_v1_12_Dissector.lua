@@ -1455,7 +1455,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.instrument_external_code.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.instrument_external_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.instrument_external_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.instrument_external_code, range, value, display)
@@ -3468,7 +3468,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.regular_bulletin_contents.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.regular_bulletin_contents.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.regular_bulletin_contents.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.regular_bulletin_contents, range, value, display)
@@ -3788,7 +3788,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.special_bulletin_contents.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.special_bulletin_contents.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.special_bulletin_contents.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.special_bulletin_contents, range, value, display)
@@ -3885,7 +3885,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.strategy_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.strategy_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.strategy_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.strategy_symbol, range, value, display)
@@ -4034,7 +4034,7 @@ end
 tmx_mx_solamulticast_hsvf_v1_12.symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_solamulticast_hsvf_v1_12.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.symbol, range, value, display)

@@ -3349,7 +3349,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_bbo_xdp_v2_4_c)
 --   Organization: New York Stock Exchange
 --   Version: 2.4.c
 --   Date: Wednesday, July 13, 2016
---   Specification: XDP_BBO_Client_Specification_V2.4c.pdf
+--   Specification: XDP BBO Client Specification (2.4c).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

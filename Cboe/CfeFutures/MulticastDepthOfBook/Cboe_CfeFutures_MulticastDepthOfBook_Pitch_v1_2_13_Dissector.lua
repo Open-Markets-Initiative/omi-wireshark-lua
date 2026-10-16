@@ -3684,7 +3684,7 @@ udp_table:add_for_decode_as(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_2_
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.2.13
 --   Date: Monday, April 7, 2025
---   Specification: Cboe Futures Exchange Multicast PITCH Specification (2025-05-04).pdf
+--   Specification: Cboe Futures Exchange Multicast PITCH Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

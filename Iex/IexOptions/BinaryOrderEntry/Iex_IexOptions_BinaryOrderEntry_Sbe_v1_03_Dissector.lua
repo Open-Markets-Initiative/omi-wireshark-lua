@@ -10746,7 +10746,7 @@ tcp_table:add_for_decode_as(omi_iex_iexoptions_binaryorderentry_sbe_v1_03)
 --   Organization: Investors Exchange
 --   Version: 1.03
 --   Date: Tuesday, September 8, 2026
---   Specification: IEX Binary Options Protocol Specification
+--   Specification: IEX Binary Options Protocol Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

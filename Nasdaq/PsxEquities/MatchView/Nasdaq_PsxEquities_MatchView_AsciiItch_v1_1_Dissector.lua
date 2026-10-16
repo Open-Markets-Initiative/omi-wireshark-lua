@@ -903,7 +903,6 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_matchview_asciiitch_v1_1)
 --   Version: 1.1
 --   Date: Wednesday, August 10, 2011
 --   Specification: PSXMatchView-v1_1.pdf
---   Specification: PSXMatchView-v1_1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

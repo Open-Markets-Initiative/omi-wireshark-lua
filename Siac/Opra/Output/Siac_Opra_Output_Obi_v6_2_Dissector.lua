@@ -118,6 +118,7 @@ omi_siac_opra_output_obi_v6_2.fields.underlying_value_last_sale_message = ProtoF
 
 -- Siac Opra Output Obi 6.2 Generated Fields
 omi_siac_opra_output_obi_v6_2.fields.message_index = ProtoField.new("Message Index", "siac.opra.output.obi.v6.2.messageindex", ftypes.UINT16)
+omi_siac_opra_output_obi_v6_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "siac.opra.output.obi.v6.2.messagesequencenumber", ftypes.UINT64)
 omi_siac_opra_output_obi_v6_2.fields.scaled_best_bid = ProtoField.new("Scaled Best Bid", "siac.opra.output.obi.v6.2.scaledbestbid", ftypes.DOUBLE)
 omi_siac_opra_output_obi_v6_2.fields.scaled_best_offer = ProtoField.new("Scaled Best Offer", "siac.opra.output.obi.v6.2.scaledbestoffer", ftypes.DOUBLE)
 omi_siac_opra_output_obi_v6_2.fields.scaled_index_value = ProtoField.new("Scaled Index Value", "siac.opra.output.obi.v6.2.scaledindexvalue", ftypes.DOUBLE)
@@ -153,12 +154,14 @@ show.structs = true
 show.application_messages = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Siac Opra Output Obi 6.2 Show Options
 omi_siac_opra_output_obi_v6_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_opra_output_obi_v6_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_opra_output_obi_v6_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_opra_output_obi_v6_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_siac_opra_output_obi_v6_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_siac_opra_output_obi_v6_2.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 omi_siac_opra_output_obi_v6_2.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -178,6 +181,9 @@ function omi_siac_opra_output_obi_v6_2.prefs_changed()
   end
   if show.indexes ~= omi_siac_opra_output_obi_v6_2.prefs.show_indexes then
     show.indexes = omi_siac_opra_output_obi_v6_2.prefs.show_indexes
+  end
+  if show.sequences ~= omi_siac_opra_output_obi_v6_2.prefs.show_sequences then
+    show.sequences = omi_siac_opra_output_obi_v6_2.prefs.show_sequences
   end
   if siac_opra_output_obi_v6_2.format_decimals ~= omi_siac_opra_output_obi_v6_2.prefs.format_decimals then
     siac_opra_output_obi_v6_2.format_decimals = omi_siac_opra_output_obi_v6_2.prefs.format_decimals
@@ -4540,6 +4546,12 @@ siac_opra_output_obi_v6_2.message.fields = function(buffer, offset, packet, pare
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and siac_opra_output_obi_v6_2.packet_sequence ~= nil then
+    local sequence = parent:add(omi_siac_opra_output_obi_v6_2.fields.message_sequence_number, UInt64.new(siac_opra_output_obi_v6_2.packet_sequence))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = siac_opra_output_obi_v6_2.message_header.dissect(buffer, index, packet, parent)
 
@@ -4682,6 +4694,9 @@ siac_opra_output_obi_v6_2.block_header.fields = function(buffer, offset, packet,
   -- Block Checksum: unsigned integer
   index, block_checksum = siac_opra_output_obi_v6_2.block_checksum.dissect(buffer, index, packet, parent)
 
+  -- Sequence base for the packet's messages
+  siac_opra_output_obi_v6_2.packet_sequence = block_sequence_number
+
   return index
 end
 
@@ -4807,7 +4822,7 @@ udp_table:add_for_decode_as(omi_siac_opra_output_obi_v6_2)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 6.2
 --   Date: Friday, December 6, 2024
---   Specification: OPRA_Pillar_Output_Specification.pdf
+--   Specification: OPRA_Pillar_Output_Specification (6.4).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

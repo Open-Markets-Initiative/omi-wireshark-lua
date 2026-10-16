@@ -5218,8 +5218,8 @@ udp_table:add_for_decode_as(omi_nasdaq_gemxoptions_depthofmarket_itch_v2_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, February 13, 2026
---   Specification: ISE_GEMX_MRX_Depth_of_Market_Feed_2.1.pdf
 --   Specification: Options_Depth_of_Market_Feed_2.1.pdf
+--   Specification: ISE_GEMX_MRX_Depth_of_Market_Feed_2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

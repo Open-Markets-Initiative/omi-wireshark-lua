@@ -2916,6 +2916,7 @@ tcp_table:add_for_decode_as(omi_nse_nsefo_orderentry_nnftrimmed_v9_50)
 --   Version: 9.50
 --   Date: Monday, July 27, 2026
 --   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9.50_20260820170606.pdf
+--   Specification: TP_FO_Trimmed_NNF_PROTOCOL_9_50.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

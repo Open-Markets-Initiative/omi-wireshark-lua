@@ -3359,7 +3359,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a)
 --   Version: 2.2.a
 --   Since: 2.2
 --   Date: Friday, March 8, 2019
---   Specification: XDP_Imbalances_Feed_Client_Specification_v2.2a.pdf
+--   Specification: XDP_Imbalances_Feed_Client_Specification (2.2a).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

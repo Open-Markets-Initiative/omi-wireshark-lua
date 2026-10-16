@@ -23,7 +23,7 @@
 
 | [Protocol][Omi.BlueOceanAts.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.BlueOceanAts.Specifications] |
 | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 7343 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] - [xml][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml] |
+| [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.13][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector] | 1/1/2024 | 7343 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url] |
 | [Memo][BlueOceanAts.BlueEquities.Memo] | [Sbe][Omi.Encoding.Sbe] | [1.14][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector] | 12/8/2025 | 7343 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url] |
 
 
@@ -57,7 +57,6 @@
 
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_13_Dissector.lua "BlueOceanAts Memo Sbe v1.13 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.13 Url"
-[BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Specifications/BlueEquities/Memo/BlueOceanAts.BlueEquities.Memo.Sbe.v1.13.xml "Blue Ocean Technologies 1.13 Xml"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/Memo/BlueOceanAts_BlueEquities_Memo_Sbe_v1_14_Dissector.lua "BlueOceanAts Memo Sbe v1.14 Wireshark Dissector"
 [BlueOceanAts.BlueEquities.Memo.Sbe.v1.14.Url]: https://blueocean-tech.io/trading-updates "Blue Ocean Technologies 1.14 Url"
 [BlueOceanAts.BlueEquities.MemoirDepthFeed.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/BlueOceanAts/MemoirDepthFeed/BlueOceanAts_BlueEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua "BlueOceanAts MemoirDepthFeed Sbe v1.3 Wireshark Dissector"

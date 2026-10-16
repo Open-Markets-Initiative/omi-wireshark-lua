@@ -9599,7 +9599,7 @@ tcp_table:add_for_decode_as(omi_memx_memxoptions_memo_sbe_v1_6_b)
 --   Organization: The Members Exchange
 --   Version: 1.6.b
 --   Date: Friday, February 2, 2024
---   Specification: MEMO for US Options - SBE-v1_6b
+--   Specification: MEMO for US Options - SBE-v1_6b.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
