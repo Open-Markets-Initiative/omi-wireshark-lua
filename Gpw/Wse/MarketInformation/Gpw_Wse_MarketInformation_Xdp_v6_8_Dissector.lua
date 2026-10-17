@@ -51,7 +51,8 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.delivery_flag = ProtoField.new("De
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.delivery_type = ProtoField.new("Delivery Type", "gpw.wse.marketinformation.xdp.v6.8.deliverytype", ftypes.STRING, nil, nil, nil, "Indicates the type of delivery for a derivatives instrument only (otherwise left blank i.e")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.delta = ProtoField.new("Delta", "gpw.wse.marketinformation.xdp.v6.8.delta", ftypes.UINT32, nil, nil, nil, "Value of Delta indicator from the current session")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.delta_scale_code = ProtoField.new("Delta Scale Code", "gpw.wse.marketinformation.xdp.v6.8.deltascalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the delta")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list = ProtoField.new("Depositary List", "gpw.wse.marketinformation.xdp.v6.8.depositarylist", ftypes.STRING, nil, nil, nil, "Identifies the possible main depository organizations (max 5 characters padded with zeros) for the shares or bonds for an instrument")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary = ProtoField.new("Depositary", "gpw.wse.marketinformation.xdp.v6.8.depositary", ftypes.STRING, nil, nil, nil, "A depository organization of the instrument, 5 characters padded with zeros. The document gives Null - Not significant for an entry that is not populated, without stating its form on the wire, so no sentinel is declared")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list = ProtoField.new("Depositary List", "gpw.wse.marketinformation.xdp.v6.8.depositarylist", ftypes.STRING, nil, nil, nil, "The possible main depository organizations of an instrument. Section 1.2.10.3 gives the entry width, max 5 characters padded with zeros, and the field width, 25 bytes, so the run is five entries; the document does not state the count in words. Used by the clearing house to determine the relevant system for settling trades")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.dividend = ProtoField.new("Dividend", "gpw.wse.marketinformation.xdp.v6.8.dividend", ftypes.STRING, nil, nil, nil, "This field informs that the instruments are traded the first time after determining the right to dividend")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.dividend_rate = ProtoField.new("Dividend Rate", "gpw.wse.marketinformation.xdp.v6.8.dividendrate", ftypes.UINT32, nil, nil, nil, "Dividend rate for the company is given on the basis of dividends paid by companies being the base instrument for futures and options")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.dividend_rate_scale_code = ProtoField.new("Dividend Rate Scale Code", "gpw.wse.marketinformation.xdp.v6.8.dividendratescalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the dividend rate")
@@ -302,6 +303,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.start_referential_message = ProtoF
 
 -- Gpw Wse MarketInformation Xdp 6.8 Generated Fields
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.class_phase_index = ProtoField.new("Class Phase Index", "gpw.wse.marketinformation.xdp.v6.8.classphaseindex", ftypes.UINT16)
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list_index = ProtoField.new("Depositary List Index", "gpw.wse.marketinformation.xdp.v6.8.depositarylistindex", ftypes.UINT16)
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.message_index = ProtoField.new("Message Index", "gpw.wse.marketinformation.xdp.v6.8.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1310,35 +1312,35 @@ gpw_wse_marketinformation_xdp_v6_8.delta_scale_code.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Depositary List
-gpw_wse_marketinformation_xdp_v6_8.depositary_list = {}
+-- Depositary
+gpw_wse_marketinformation_xdp_v6_8.depositary = {}
 
--- Size: Depositary List
-gpw_wse_marketinformation_xdp_v6_8.depositary_list.size = 25
+-- Size: Depositary
+gpw_wse_marketinformation_xdp_v6_8.depositary.size = 5
 
--- Display: Depositary List
-gpw_wse_marketinformation_xdp_v6_8.depositary_list.display = function(value)
+-- Display: Depositary
+gpw_wse_marketinformation_xdp_v6_8.depositary.display = function(value)
   if value == "00001" then
-    return "Depositary List: Kdpw (00001)"
+    return "Depositary: Kdpw (00001)"
   end
   if value == "00000" then
-    return "Depositary List: No Depository Organization (00000)"
+    return "Depositary: No Depository Organization (00000)"
   end
   if value == '' then
-    return "Depositary List: Not Significant"
+    return "Depositary: Not Significant"
   end
 
-  return "Depositary List: Unknown("..value..")"
+  return "Depositary: Unknown("..value..")"
 end
 
--- Dissect: Depositary List
-gpw_wse_marketinformation_xdp_v6_8.depositary_list.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.depositary_list.size
+-- Dissect: Depositary
+gpw_wse_marketinformation_xdp_v6_8.depositary.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.depositary.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = gpw_wse_marketinformation_xdp_v6_8.depositary_list.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_marketinformation_xdp_v6_8.depositary.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary, range, value, display)
 
   return offset + length, value
 end
@@ -8528,6 +8530,52 @@ gpw_wse_marketinformation_xdp_v6_8.session_summary_message.dissect = function(bu
   end
 end
 
+-- Depositary List
+gpw_wse_marketinformation_xdp_v6_8.depositary_list = {}
+
+-- Size: Depositary List
+gpw_wse_marketinformation_xdp_v6_8.depositary_list.size =
+  gpw_wse_marketinformation_xdp_v6_8.depositary.size
+
+-- Display: Depositary List
+gpw_wse_marketinformation_xdp_v6_8.depositary_list.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Depositary List
+gpw_wse_marketinformation_xdp_v6_8.depositary_list.fields = function(buffer, offset, packet, parent, depositary_list_index)
+  local index = offset
+
+  -- Implicit Depositary List Index
+  if depositary_list_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list_index, depositary_list_index)
+    iteration:set_generated()
+  end
+
+  -- Depositary: ASCII Str.
+  index, depositary = gpw_wse_marketinformation_xdp_v6_8.depositary.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Depositary List
+gpw_wse_marketinformation_xdp_v6_8.depositary_list.dissect = function(buffer, offset, packet, parent, depositary_list_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list, buffer(offset, 0))
+    local index = gpw_wse_marketinformation_xdp_v6_8.depositary_list.fields(buffer, offset, packet, parent, depositary_list_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = gpw_wse_marketinformation_xdp_v6_8.depositary_list.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return gpw_wse_marketinformation_xdp_v6_8.depositary_list.fields(buffer, offset, packet, parent, depositary_list_index)
+  end
+end
+
 -- Referential Message
 gpw_wse_marketinformation_xdp_v6_8.referential_message = {}
 
@@ -8561,7 +8609,7 @@ gpw_wse_marketinformation_xdp_v6_8.referential_message.size =
   gpw_wse_marketinformation_xdp_v6_8.icb.size + 
   gpw_wse_marketinformation_xdp_v6_8.mic.size + 
   gpw_wse_marketinformation_xdp_v6_8.underlying_isin_code.size + 
-  gpw_wse_marketinformation_xdp_v6_8.depositary_list.size + 
+  5 * gpw_wse_marketinformation_xdp_v6_8.depositary_list.size + 
   gpw_wse_marketinformation_xdp_v6_8.main_depositary.size + 
   gpw_wse_marketinformation_xdp_v6_8.type_of_corporate_event.size + 
   gpw_wse_marketinformation_xdp_v6_8.time_lag_euronext_utc.size + 
@@ -8717,8 +8765,10 @@ gpw_wse_marketinformation_xdp_v6_8.referential_message.fields = function(buffer,
   -- Underlying Isin Code: ASCII Str.
   index, underlying_isin_code = gpw_wse_marketinformation_xdp_v6_8.underlying_isin_code.dissect(buffer, index, packet, parent)
 
-  -- Depositary List: ASCII Str.
-  index, depositary_list = gpw_wse_marketinformation_xdp_v6_8.depositary_list.dissect(buffer, index, packet, parent)
+  -- Array Of: Depositary List
+  for depositary_list_index = 1, 5 do
+    index, depositary_list = gpw_wse_marketinformation_xdp_v6_8.depositary_list.dissect(buffer, index, packet, parent, depositary_list_index)
+  end
 
   -- Main Depositary: ASCII Str.
   index, main_depositary = gpw_wse_marketinformation_xdp_v6_8.main_depositary.dissect(buffer, index, packet, parent)
