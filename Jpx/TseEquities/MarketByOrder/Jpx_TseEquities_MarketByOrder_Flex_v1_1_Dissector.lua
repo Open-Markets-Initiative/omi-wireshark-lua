@@ -73,8 +73,10 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.add_order_message = ProtoFiel
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.communication_control_message = ProtoField.new("Communication Control Message", "jpx.tseequities.marketbyorder.flex.v1.1.communicationcontrolmessage", ftypes.STRING, nil, nil, nil, "Provides information about communication control. Delivered when communication starts and ends, and in between at minute intervals.")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.end_of_message_message = ProtoField.new("End Of Message Message", "jpx.tseequities.marketbyorder.flex.v1.1.endofmessagemessage", ftypes.STRING, nil, nil, nil, "Tcp end of message marker terminating a retransmission or snapshot session.")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.execution_summary_message = ProtoField.new("Execution Summary Message", "jpx.tseequities.marketbyorder.flex.v1.1.executionsummarymessage", ftypes.STRING, nil, nil, nil, "Provides summary information about execution. Delivered when an execution occurs.")
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_message = ProtoField.new("Login Request Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginrequestmessage", ftypes.STRING, nil, nil, nil, "Tcp login request for retransmission or snapshot. Packet Type R selects retransmission and L selects snapshot.")
-omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_message = ProtoField.new("Login Result Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginresultmessage", ftypes.STRING, nil, nil, nil, "Tcp login response. Packet Type A indicates accepted and J indicates rejected.")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_retransmission_message = ProtoField.new("Login Request Retransmission Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginrequestretransmissionmessage", ftypes.STRING, nil, nil, nil, "Tcp login request selecting retransmission, sent by the user. One of the two Packet Type codes the document gives the 18 byte Login Request.")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_snapshot_message = ProtoField.new("Login Request Snapshot Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginrequestsnapshotmessage", ftypes.STRING, nil, nil, nil, "Tcp login request selecting snapshot, sent by the user. Same layout as the retransmission request; Number of System Reboots, Sequence Number and Requested Message Count are all set to 0.")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_accepted_message = ProtoField.new("Login Result Accepted Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginresultacceptedmessage", ftypes.STRING, nil, nil, nil, "Tcp login response accepting the request. Result Code carries A.")
+omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_rejected_message = ProtoField.new("Login Result Rejected Message", "jpx.tseequities.marketbyorder.flex.v1.1.loginresultrejectedmessage", ftypes.STRING, nil, nil, nil, "Tcp login response rejecting the request. Same layout as the accepted response; Result Code carries the reason the request failed.")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message_response_message = ProtoField.new("Message Response Message", "jpx.tseequities.marketbyorder.flex.v1.1.messageresponsemessage", ftypes.STRING, nil, nil, nil, "Tcp message response carrying tag data including their packet headers in response to a retransmission or snapshot request.")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.order_delete_message = ProtoField.new("Order Delete Message", "jpx.tseequities.marketbyorder.flex.v1.1.orderdeletemessage", ftypes.STRING, nil, nil, nil, "Provides information about order deletion from the order book. Delivered when an order is deleted via a cancel order or a modification order or when a registered order expires.")
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.order_executed_message = ProtoField.new("Order Executed Message", "jpx.tseequities.marketbyorder.flex.v1.1.orderexecutedmessage", ftypes.STRING, nil, nil, nil, "Provides information about registered orders in case of Zaraba execution. Delivered when an execution occurs in Zaraba.")
@@ -811,10 +813,16 @@ jpx_tseequities_marketbyorder_flex_v1_1.packet_type.size = 1
 -- Display: Packet Type
 jpx_tseequities_marketbyorder_flex_v1_1.packet_type.display = function(value)
   if value == "R" then
-    return "Packet Type: Login Request Message (R)"
+    return "Packet Type: Login Request Retransmission Message (R)"
+  end
+  if value == "L" then
+    return "Packet Type: Login Request Snapshot Message (L)"
   end
   if value == "A" then
-    return "Packet Type: Login Result Message (A)"
+    return "Packet Type: Login Result Accepted Message (A)"
+  end
+  if value == "J" then
+    return "Packet Type: Login Result Rejected Message (J)"
   end
   if value == "S" then
     return "Packet Type: Message Response Message (S)"
@@ -1623,21 +1631,21 @@ jpx_tseequities_marketbyorder_flex_v1_1.message_response_message.dissect = funct
   end
 end
 
--- Login Result Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_result_message = {}
+-- Login Result Rejected Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message = {}
 
--- Size: Login Result Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.size =
+-- Size: Login Result Rejected Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.size =
   jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.size + 
   jpx_tseequities_marketbyorder_flex_v1_1.result_code.size
 
--- Display: Login Result Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.display = function(packet, parent, length)
+-- Display: Login Result Rejected Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Login Result Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Login Result Rejected Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Multicast Group Number: Bn
@@ -1649,42 +1657,86 @@ jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.fields = function(b
   return index
 end
 
--- Dissect: Login Result Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Login Result Rejected Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_message, buffer(offset, 0))
-    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_rejected_message, buffer(offset, 0))
+    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.display(packet, parent, length)
+    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.fields(buffer, offset, packet, parent)
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Login Request Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_request_message = {}
+-- Login Result Accepted Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message = {}
 
--- Size: Login Request Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.size =
+-- Size: Login Result Accepted Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.size =
+  jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.size + 
+  jpx_tseequities_marketbyorder_flex_v1_1.result_code.size
+
+-- Display: Login Result Accepted Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Result Accepted Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Multicast Group Number: Bn
+  index, multicast_group_number = jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.dissect(buffer, index, packet, parent)
+
+  -- Result Code: Char
+  index, result_code = jpx_tseequities_marketbyorder_flex_v1_1.result_code.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Result Accepted Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_result_accepted_message, buffer(offset, 0))
+    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Request Snapshot Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message = {}
+
+-- Size: Login Request Snapshot Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.size =
   jpx_tseequities_marketbyorder_flex_v1_1.user_id.size + 
   jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.size + 
   jpx_tseequities_marketbyorder_flex_v1_1.number_of_system_reboots.size + 
   jpx_tseequities_marketbyorder_flex_v1_1.sequence_number.size + 
   jpx_tseequities_marketbyorder_flex_v1_1.requested_message_count.size
 
--- Display: Login Request Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.display = function(packet, parent, length)
+-- Display: Login Request Snapshot Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Login Request Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Login Request Snapshot Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- User Id: Char
@@ -1705,21 +1757,77 @@ jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.fields = function(
   return index
 end
 
--- Dissect: Login Request Message
-jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Login Request Snapshot Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_message, buffer(offset, 0))
-    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_snapshot_message, buffer(offset, 0))
+    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.display(packet, parent, length)
+    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.fields(buffer, offset, packet, parent)
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Request Retransmission Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message = {}
+
+-- Size: Login Request Retransmission Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.size =
+  jpx_tseequities_marketbyorder_flex_v1_1.user_id.size + 
+  jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.size + 
+  jpx_tseequities_marketbyorder_flex_v1_1.number_of_system_reboots.size + 
+  jpx_tseequities_marketbyorder_flex_v1_1.sequence_number.size + 
+  jpx_tseequities_marketbyorder_flex_v1_1.requested_message_count.size
+
+-- Display: Login Request Retransmission Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Retransmission Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Id: Char
+  index, user_id = jpx_tseequities_marketbyorder_flex_v1_1.user_id.dissect(buffer, index, packet, parent)
+
+  -- Multicast Group Number: Bn
+  index, multicast_group_number = jpx_tseequities_marketbyorder_flex_v1_1.multicast_group_number.dissect(buffer, index, packet, parent)
+
+  -- Number Of System Reboots: Bn
+  index, number_of_system_reboots = jpx_tseequities_marketbyorder_flex_v1_1.number_of_system_reboots.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Bn
+  index, sequence_number = jpx_tseequities_marketbyorder_flex_v1_1.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Requested Message Count: Bn
+  index, requested_message_count = jpx_tseequities_marketbyorder_flex_v1_1.requested_message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Retransmission Message
+jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.login_request_retransmission_message, buffer(offset, 0))
+    local index = jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1728,13 +1836,21 @@ jpx_tseequities_marketbyorder_flex_v1_1.tcp_payload = {}
 
 -- Dissect: Tcp Payload
 jpx_tseequities_marketbyorder_flex_v1_1.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
-  -- Dissect Login Request Message
+  -- Dissect Login Request Retransmission Message
   if packet_type == "R" then
-    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_message.dissect(buffer, offset, packet, parent)
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_retransmission_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Login Result Message
+  -- Dissect Login Request Snapshot Message
+  if packet_type == "L" then
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_request_snapshot_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Result Accepted Message
   if packet_type == "A" then
-    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_message.dissect(buffer, offset, packet, parent)
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_accepted_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Result Rejected Message
+  if packet_type == "J" then
+    return jpx_tseequities_marketbyorder_flex_v1_1.login_result_rejected_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Message Response Message
   if packet_type == "S" then
@@ -1768,7 +1884,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.tcp_packet_header.fields = function(buff
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
   index, packet_length = jpx_tseequities_marketbyorder_flex_v1_1.packet_length.dissect(buffer, index, packet, parent)
 
-  -- Packet Type: 1 Byte Ascii String Enum with 4 values
+  -- Packet Type: 1 Byte Ascii String Enum with 6 values
   index, packet_type = jpx_tseequities_marketbyorder_flex_v1_1.packet_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1810,7 +1926,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.tcp_packet.dissect = function(buffer, pa
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Tcp Payload: Runtime Type with 4 branches
+  -- Tcp Payload: Runtime Type with 6 branches
   index = jpx_tseequities_marketbyorder_flex_v1_1.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
