@@ -317,7 +317,7 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.calendar_exception = ProtoFiel
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.collar_group = ProtoField.new("Collar Group", "gpw.wse.streamfulldepth.wats.v1.7.6.20.collargroup", ftypes.STRING, nil, nil, nil, "Message defining a collar group")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.collar_table_entry = ProtoField.new("Collar Table Entry", "gpw.wse.streamfulldepth.wats.v1.7.6.20.collartableentry", ftypes.STRING, nil, nil, nil, "Collar table definition")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.external_underlying = ProtoField.new("External Underlying", "gpw.wse.streamfulldepth.wats.v1.7.6.20.externalunderlying", ftypes.STRING, nil, nil, nil, "The message contains a list of underlyings not traded in WATS. It concerns underlyings for derivatives and structured products")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.streamfulldepth.wats.v1.7.6.20.heartbeat", ftypes.BYTES)
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.streamfulldepth.wats.v1.7.6.20.heartbeat", ftypes.BYTES, nil, nil, nil, "A message type used to check connectivity")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.index_params = ProtoField.new("Index Params", "gpw.wse.streamfulldepth.wats.v1.7.6.20.indexparams", ftypes.STRING, nil, nil, nil, "The metadata message for the given index")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.index_portfolio_entry = ProtoField.new("Index Portfolio Entry", "gpw.wse.streamfulldepth.wats.v1.7.6.20.indexportfolioentry", ftypes.STRING, nil, nil, nil, "The message contains information about a product providing the index portfolio")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.index_summary = ProtoField.new("Index Summary", "gpw.wse.streamfulldepth.wats.v1.7.6.20.indexsummary", ftypes.STRING, nil, nil, nil, "The index summary message provides a summary of the data calculated in a stock index for a given day")
@@ -11509,6 +11509,23 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.test_event.dissect = function(buffer, off
   end
 end
 
+-- Heartbeat
+gpw_wse_streamfulldepth_wats_v1_7_6_20.heartbeat = {}
+
+-- Display: Heartbeat
+gpw_wse_streamfulldepth_wats_v1_7_6_20.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+gpw_wse_streamfulldepth_wats_v1_7_6_20.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Trading Session Status
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_session_status = {}
 
@@ -15021,7 +15038,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.payload.dissect = function(buffer, offset
   end
   -- Dissect Heartbeat
   if message_type == 1 then
-    return offset
+    return gpw_wse_streamfulldepth_wats_v1_7_6_20.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Event
   if message_type == 8192 then

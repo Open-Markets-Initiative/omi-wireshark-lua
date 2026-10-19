@@ -72,6 +72,7 @@ omi_bme_bmeequities_retail5_bmegate_v1_6.fields.cp_reg_type = ProtoField.new("Cp
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.currency = ProtoField.new("Currency", "bme.bmeequities.retail5.bmegate.v1.6.currency", ftypes.STRING, nil, nil, nil, "Currency code")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.data_code = ProtoField.new("Data Code", "bme.bmeequities.retail5.bmegate.v1.6.datacode", ftypes.STRING, nil, nil, nil, "Data field code")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.data_count = ProtoField.new("Data Count", "bme.bmeequities.retail5.bmegate.v1.6.datacount", ftypes.UINT8, nil, nil, nil, "Number of data values")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.data_value = ProtoField.new("Data Value", "bme.bmeequities.retail5.bmegate.v1.6.datavalue", ftypes.INT64, nil, nil, nil, "Data field value. Its type follows DataCode: P (price, 6 implicit decimals) for D, d, G, H, h, M, Q, Z, z, j, k and n; V (volume, 6 implicit decimals) for J, V, v and W; A (amount, 4 implicit decimals) for E and e; R (rate, 4 implicit decimals) for l, m and R; U (unsigned integer) for f (0 if not end of session) and N")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.deferral_waiver = ProtoField.new("Deferral Waiver", "bme.bmeequities.retail5.bmegate.v1.6.deferralwaiver", ftypes.STRING)
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.designation = ProtoField.new("Designation", "bme.bmeequities.retail5.bmegate.v1.6.designation", ftypes.STRING, nil, nil, nil, "Trade situation")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.double_volume_cap_reached = ProtoField.new("Double Volume Cap Reached", "bme.bmeequities.retail5.bmegate.v1.6.doublevolumecapreached", ftypes.UINT8)
@@ -170,8 +171,9 @@ omi_bme_bmeequities_retail5_bmegate_v1_6.fields.sst_ipost = ProtoField.new("Sst 
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.sst_ipre = ProtoField.new("Sst Ipre", "bme.bmeequities.retail5.bmegate.v1.6.sstipre", ftypes.DOUBLE, nil, nil, nil, "SSTI pretransparency threshold")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.static_price = ProtoField.new("Static Price", "bme.bmeequities.retail5.bmegate.v1.6.staticprice", ftypes.DOUBLE)
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.static_range_type = ProtoField.new("Static Range Type", "bme.bmeequities.retail5.bmegate.v1.6.staticrangetype", ftypes.STRING)
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.strike_price = ProtoField.new("Strike Price", "bme.bmeequities.retail5.bmegate.v1.6.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Exercise price")
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.strike_value = ProtoField.new("Strike Value", "bme.bmeequities.retail5.bmegate.v1.6.strikevalue", ftypes.DOUBLE, nil, nil, nil, "Trading Unit")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_repeating_group = ProtoField.new("Statistics Repeating Group", "bme.bmeequities.retail5.bmegate.v1.6.statisticsrepeatinggroup", ftypes.STRING, nil, nil, nil, "Repeating group of the Statistics message, one entry per data value, DataCount entries")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.strike_price = ProtoField.new("Strike Price", "bme.bmeequities.retail5.bmegate.v1.6.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Exercise price. Only present for warrants")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.strike_value = ProtoField.new("Strike Value", "bme.bmeequities.retail5.bmegate.v1.6.strikevalue", ftypes.DOUBLE, nil, nil, nil, "Trading Unit. Number of shares for each security")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.sub_product = ProtoField.new("Sub Product", "bme.bmeequities.retail5.bmegate.v1.6.subproduct", ftypes.STRING, nil, nil, nil, "SubProduct")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.symbol = ProtoField.new("Symbol", "bme.bmeequities.retail5.bmegate.v1.6.symbol", ftypes.STRING)
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.symbol_isin = ProtoField.new("Symbol Isin", "bme.bmeequities.retail5.bmegate.v1.6.symbolisin", ftypes.STRING, nil, nil, nil, "Instrument ISIN")
@@ -181,7 +183,7 @@ omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_date = ProtoField.new("Tra
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "bme.bmeequities.retail5.bmegate.v1.6.tradepricecondition", ftypes.STRING, nil, nil, nil, "MMT 3.8")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_session_date = ProtoField.new("Trade Session Date", "bme.bmeequities.retail5.bmegate.v1.6.tradesessiondate", ftypes.INT32)
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.bmeequities.retail5.bmegate.v1.6.tradetype", ftypes.STRING)
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmeequities.retail5.bmegate.v1.6.tradingobligation", ftypes.UINT8)
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmeequities.retail5.bmegate.v1.6.tradingobligation", ftypes.UINT8, nil, nil, nil, "Trading obligation. Indicates whether the security has to be traded in a regulated exchange")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_scope = ProtoField.new("Trading Scope", "bme.bmeequities.retail5.bmegate.v1.6.tradingscope", ftypes.UINT8)
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "bme.bmeequities.retail5.bmegate.v1.6.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Trading mode")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.bmeequities.retail5.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
@@ -207,15 +209,18 @@ omi_bme_bmeequities_retail5_bmegate_v1_6.fields.logout_response_message = ProtoF
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.network_status_message = ProtoField.new("Network Status Message", "bme.bmeequities.retail5.bmegate.v1.6.networkstatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server with information about the connectivity between the Server and the central systems. In the Network Status message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.bmeequities.retail5.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_list_cancellation_report_message = ProtoField.new("Security List Cancellation Report Message", "bme.bmeequities.retail5.bmegate.v1.6.securitylistcancellationreportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for cancelling previously defined securities")
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmeequities.retail5.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition. T Le y n")
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmeequities.retail5.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition. T Le y n")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmeequities.retail5.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to provide the definition of one security. It shares the same layout as the Security List Update Report message, but with a different Message Type")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmeequities.retail5.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.security_status_message = ProtoField.new("Security Status Message", "bme.bmeequities.retail5.bmegate.v1.6.securitystatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform on the status of one security")
-omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmeequities.retail5.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics. Le n")
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmeequities.retail5.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.topofbook_retail_5_levels_message = ProtoField.new("Topofbook Retail 5 Levels Message", "bme.bmeequities.retail5.bmegate.v1.6.topofbookretail5levelsmessage", ftypes.STRING, nil, nil, nil, "Specific message for the Retail Service. This message is sent through the UDP channels I/J")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.topofbook_retail_message = ProtoField.new("Topofbook Retail Message", "bme.bmeequities.retail5.bmegate.v1.6.topofbookretailmessage", ftypes.STRING, nil, nil, nil, "Specific message for the Retail Service. This message is sent through the UDP channels G/H")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message = ProtoField.new("Trade Market Post Transparency Information Topofbook Message", "bme.bmeequities.retail5.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_message = ProtoField.new("Trade Trade Amendment Or Cancellation Message", "bme.bmeequities.retail5.bmegate.v1.6.tradetradeamendmentorcancellationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. In this message, all fields with the suffix 2 refer to the sell order, and the ones without the suffix refer either to both legs or the buy order")
 omi_bme_bmeequities_retail5_bmegate_v1_6.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "bme.bmeequities.retail5.bmegate.v1.6.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the session status in each Trading Mode")
+
+-- Bme BmeEquities Retail5 BmeGate 1.6 Generated Fields
+omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_repeating_group_index = ProtoField.new("Statistics Repeating Group Index", "bme.bmeequities.retail5.bmegate.v1.6.statisticsrepeatinggroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -227,11 +232,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.indexes = true
 
 -- Register Bme BmeEquities Retail5 BmeGate 1.6 Show Options
 omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_bme_bmeequities_retail5_bmegate_v1_6.prefs_changed()
@@ -245,6 +252,9 @@ function omi_bme_bmeequities_retail5_bmegate_v1_6.prefs_changed()
   end
   if show.structs ~= omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_structs then
     show.structs = omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_structs
+  end
+  if show.indexes ~= omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_indexes then
+    show.indexes = omi_bme_bmeequities_retail5_bmegate_v1_6.prefs.show_indexes
   end
 end
 
@@ -268,7 +278,7 @@ bme_bmeequities_retail5_bmegate_v1_6.admission_requested_by_issuer.display = fun
     return "Admission Requested By Issuer: True (1)"
   end
   if value == 255 then
-    return "Admission Requested By Issuer: Undefined (255)"
+    return "Admission Requested By Issuer: No Value"
   end
 
   return "Admission Requested By Issuer: Unknown("..value..")"
@@ -359,7 +369,7 @@ bme_bmeequities_retail5_bmegate_v1_6.algo_flag.display = function(value)
     return "Algo Flag: True (1)"
   end
   if value == 255 then
-    return "Algo Flag: Undefined (255)"
+    return "Algo Flag: No Value"
   end
 
   return "Algo Flag: Unknown("..value..")"
@@ -437,6 +447,81 @@ bme_bmeequities_retail5_bmegate_v1_6.amended_trade_type.display = function(value
   end
   if value == "6" then
     return "Amended Trade Type: Validation Communicated (6)"
+  end
+  if value == "7" then
+    return "Amended Trade Type: Authorised Validation Trades (7)"
+  end
+  if value == "8" then
+    return "Amended Trade Type: Authorised Validation Corporate Interest (8)"
+  end
+  if value == "9" then
+    return "Amended Trade Type: Authorised Validation Execution Of Contracts (9)"
+  end
+  if value == "0" then
+    return "Amended Trade Type: Authorised Validation Other Causes (0)"
+  end
+  if value == "A" then
+    return "Amended Trade Type: Transaction Between Members Communicated (A)"
+  end
+  if value == "B" then
+    return "Amended Trade Type: Transaction Between Members Trades (B)"
+  end
+  if value == "C" then
+    return "Amended Trade Type: Transaction Between Members Corporate Interest (C)"
+  end
+  if value == "F" then
+    return "Amended Trade Type: Transaction Between Members Execution Of Contracts (F)"
+  end
+  if value == "G" then
+    return "Amended Trade Type: Transaction Between Members Other Causes (G)"
+  end
+  if value == "I" then
+    return "Amended Trade Type: Application To Cater For A Linked Position (I)"
+  end
+  if value == "J" then
+    return "Amended Trade Type: Transaction To Cater For A Linked Position (J)"
+  end
+  if value == "E" then
+    return "Amended Trade Type: Transaction Of Exercise Of Options (E)"
+  end
+  if value == "N" then
+    return "Amended Trade Type: Public Share Bid Offer Type Transaction (N)"
+  end
+  if value == "O" then
+    return "Amended Trade Type: Public Share Ask Offer Type Transaction (O)"
+  end
+  if value == "P" then
+    return "Amended Trade Type: Public Share Subscription Offer Type Transaction (P)"
+  end
+  if value == "L" then
+    return "Amended Trade Type: Special Trades Delta Type (L)"
+  end
+  if value == "a" then
+    return "Amended Trade Type: Net Asset Value Special Trade D Plus 1 (a)"
+  end
+  if value == "b" then
+    return "Amended Trade Type: Net Asset Value Special Trade D Plus 2 (b)"
+  end
+  if value == "c" then
+    return "Amended Trade Type: Net Asset Value Special Trade D Plus 3 (c)"
+  end
+  if value == "D" then
+    return "Amended Trade Type: Application Without CCP (D)"
+  end
+  if value == "K" then
+    return "Amended Trade Type: Transaction Without CCP (K)"
+  end
+  if value == "d" then
+    return "Amended Trade Type: Investment Fund D Plus 1 (d)"
+  end
+  if value == "e" then
+    return "Amended Trade Type: Investment Fund D Plus 2 (e)"
+  end
+  if value == "f" then
+    return "Amended Trade Type: Investment Fund D Plus 3 (f)"
+  end
+  if value == "W" then
+    return "Amended Trade Type: VWAP (W)"
   end
 
   return "Amended Trade Type: Unknown("..value..")"
@@ -576,12 +661,22 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_1 = {}
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.size = 8
 
 -- Display: Ask Px 1
-bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 1: No Value"
+  end
+
   return "Ask Px 1: "..value
 end
 
 -- Translate: Ask Px 1
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -591,7 +686,7 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.ask_px_1, range, value, display)
 
@@ -605,12 +700,22 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_2 = {}
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.size = 8
 
 -- Display: Ask Px 2
-bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 2: No Value"
+  end
+
   return "Ask Px 2: "..value
 end
 
 -- Translate: Ask Px 2
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -620,7 +725,7 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_2.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.ask_px_2, range, value, display)
 
@@ -634,12 +739,22 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_3 = {}
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.size = 8
 
 -- Display: Ask Px 3
-bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 3: No Value"
+  end
+
   return "Ask Px 3: "..value
 end
 
 -- Translate: Ask Px 3
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -649,7 +764,7 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_3.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.ask_px_3, range, value, display)
 
@@ -663,12 +778,22 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_4 = {}
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.size = 8
 
 -- Display: Ask Px 4
-bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 4: No Value"
+  end
+
   return "Ask Px 4: "..value
 end
 
 -- Translate: Ask Px 4
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -678,7 +803,7 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_4.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.ask_px_4, range, value, display)
 
@@ -692,12 +817,22 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_5 = {}
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.size = 8
 
 -- Display: Ask Px 5
-bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 5: No Value"
+  end
+
   return "Ask Px 5: "..value
 end
 
 -- Translate: Ask Px 5
 bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -707,7 +842,7 @@ bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.ask_px_5.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.ask_px_5, range, value, display)
 
@@ -942,7 +1077,7 @@ bme_bmeequities_retail5_bmegate_v1_6.automatic_expiration.display = function(val
     return "Automatic Expiration: True (1)"
   end
   if value == 255 then
-    return "Automatic Expiration: Undefined (255)"
+    return "Automatic Expiration: No Value"
   end
 
   return "Automatic Expiration: Unknown("..value..")"
@@ -1276,12 +1411,22 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_1 = {}
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.size = 8
 
 -- Display: Bid Px 1
-bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 1: No Value"
+  end
+
   return "Bid Px 1: "..value
 end
 
 -- Translate: Bid Px 1
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1291,7 +1436,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.bid_px_1, range, value, display)
 
@@ -1305,12 +1450,22 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_2 = {}
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.size = 8
 
 -- Display: Bid Px 2
-bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 2: No Value"
+  end
+
   return "Bid Px 2: "..value
 end
 
 -- Translate: Bid Px 2
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1320,7 +1475,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_2.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.bid_px_2, range, value, display)
 
@@ -1334,12 +1489,22 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_3 = {}
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.size = 8
 
 -- Display: Bid Px 3
-bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 3: No Value"
+  end
+
   return "Bid Px 3: "..value
 end
 
 -- Translate: Bid Px 3
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1349,7 +1514,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_3.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.bid_px_3, range, value, display)
 
@@ -1363,12 +1528,22 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_4 = {}
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.size = 8
 
 -- Display: Bid Px 4
-bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 4: No Value"
+  end
+
   return "Bid Px 4: "..value
 end
 
 -- Translate: Bid Px 4
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1378,7 +1553,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_4.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.bid_px_4, range, value, display)
 
@@ -1392,12 +1567,22 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_5 = {}
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.size = 8
 
 -- Display: Bid Px 5
-bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.display = function(value)
+bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 5: No Value"
+  end
+
   return "Bid Px 5: "..value
 end
 
 -- Translate: Bid Px 5
 bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1407,7 +1592,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.translate(raw)
-  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.display(value, buffer, offset, packet, parent)
+  local display = bme_bmeequities_retail5_bmegate_v1_6.bid_px_5.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.bid_px_5, range, value, display)
 
@@ -1602,7 +1787,7 @@ bme_bmeequities_retail5_bmegate_v1_6.bonus_warrants_with_active_bonus.display = 
     return "Bonus Warrants With Active Bonus: True (1)"
   end
   if value == 255 then
-    return "Bonus Warrants With Active Bonus: Undefined (255)"
+    return "Bonus Warrants With Active Bonus: No Value"
   end
 
   return "Bonus Warrants With Active Bonus: Unknown("..value..")"
@@ -1772,7 +1957,7 @@ bme_bmeequities_retail5_bmegate_v1_6.cp_reg_type.display = function(value)
     return "Cp Reg Type: True (1)"
   end
   if value == 255 then
-    return "Cp Reg Type: Undefined (255)"
+    return "Cp Reg Type: No Value"
   end
 
   return "Cp Reg Type: Unknown("..value..")"
@@ -1837,7 +2022,77 @@ bme_bmeequities_retail5_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
 bme_bmeequities_retail5_bmegate_v1_6.data_code.display = function(value)
-  return "Data Code: "..value
+  if value == "D" then
+    return "Data Code: Average Price (D)"
+  end
+  if value == "d" then
+    return "Data Code: Previous Forward Price (d)"
+  end
+  if value == "E" then
+    return "Data Code: Published Cash Amount (E)"
+  end
+  if value == "e" then
+    return "Data Code: Order Modality Cash Amount (e)"
+  end
+  if value == "f" then
+    return "Data Code: End Of Session Indicator (f)"
+  end
+  if value == "G" then
+    return "Data Code: First (G)"
+  end
+  if value == "H" then
+    return "Data Code: High (H)"
+  end
+  if value == "h" then
+    return "Data Code: Maximum Bid (h)"
+  end
+  if value == "J" then
+    return "Data Code: Not Published Volume (J)"
+  end
+  if value == "M" then
+    return "Data Code: Last (M)"
+  end
+  if value == "N" then
+    return "Data Code: Number Of Trades (N)"
+  end
+  if value == "Q" then
+    return "Data Code: Previous Closing Price (Q)"
+  end
+  if value == "R" then
+    return "Data Code: Opening Volatility (R)"
+  end
+  if value == "V" then
+    return "Data Code: Published Volume (V)"
+  end
+  if value == "v" then
+    return "Data Code: Published Volume Order Modality (v)"
+  end
+  if value == "W" then
+    return "Data Code: Volume Of Last Trade (W)"
+  end
+  if value == "Z" then
+    return "Data Code: Low (Z)"
+  end
+  if value == "z" then
+    return "Data Code: Minimum Ask (z)"
+  end
+  if value == "j" then
+    return "Data Code: Closing Price (j)"
+  end
+  if value == "k" then
+    return "Data Code: Closing Yield (k)"
+  end
+  if value == "l" then
+    return "Data Code: Volatility (l)"
+  end
+  if value == "m" then
+    return "Data Code: Delta (m)"
+  end
+  if value == "n" then
+    return "Data Code: Forward Price (n)"
+  end
+
+  return "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -1871,6 +2126,29 @@ bme_bmeequities_retail5_bmegate_v1_6.data_count.dissect = function(buffer, offse
   local display = bme_bmeequities_retail5_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.data_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Value
+bme_bmeequities_retail5_bmegate_v1_6.data_value = {}
+
+-- Size: Data Value
+bme_bmeequities_retail5_bmegate_v1_6.data_value.size = 8
+
+-- Display: Data Value
+bme_bmeequities_retail5_bmegate_v1_6.data_value.display = function(value)
+  return "Data Value: "..value
+end
+
+-- Dissect: Data Value
+bme_bmeequities_retail5_bmegate_v1_6.data_value.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmeequities_retail5_bmegate_v1_6.data_value.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = bme_bmeequities_retail5_bmegate_v1_6.data_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.data_value, range, value, display)
 
   return offset + length, value
 end
@@ -1968,7 +2246,7 @@ bme_bmeequities_retail5_bmegate_v1_6.double_volume_cap_reached.display = functio
     return "Double Volume Cap Reached: True (1)"
   end
   if value == 255 then
-    return "Double Volume Cap Reached: Undefined (255)"
+    return "Double Volume Cap Reached: No Value"
   end
 
   return "Double Volume Cap Reached: Unknown("..value..")"
@@ -2499,7 +2777,7 @@ bme_bmeequities_retail5_bmegate_v1_6.investment_fund_class.display = function(va
     return "Investment Fund Class: True (1)"
   end
   if value == 255 then
-    return "Investment Fund Class: Undefined (255)"
+    return "Investment Fund Class: No Value"
   end
 
   return "Investment Fund Class: Unknown("..value..")"
@@ -2881,7 +3159,7 @@ bme_bmeequities_retail5_bmegate_v1_6.last_change_flag.display = function(value)
     return "Last Change Flag: True (1)"
   end
   if value == 255 then
-    return "Last Change Flag: Undefined (255)"
+    return "Last Change Flag: No Value"
   end
 
   return "Last Change Flag: Unknown("..value..")"
@@ -3047,7 +3325,7 @@ bme_bmeequities_retail5_bmegate_v1_6.liquid_instrument.display = function(value)
     return "Liquid Instrument: True (1)"
   end
   if value == 255 then
-    return "Liquid Instrument: Undefined (255)"
+    return "Liquid Instrument: No Value"
   end
 
   return "Liquid Instrument: Unknown("..value..")"
@@ -3202,12 +3480,11 @@ bme_bmeequities_retail5_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
 bme_bmeequities_retail5_bmegate_v1_6.market_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Id: No Value"
+  if value == "BMEX" then
+    return "Market Id: BMEX (BMEX)"
   end
 
-  return "Market Id: "..value
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -3732,7 +4009,7 @@ bme_bmeequities_retail5_bmegate_v1_6.net_asset_value_indicator.display = functio
     return "Net Asset Value Indicator: True (1)"
   end
   if value == 255 then
-    return "Net Asset Value Indicator: Undefined (255)"
+    return "Net Asset Value Indicator: No Value"
   end
 
   return "Net Asset Value Indicator: Unknown("..value..")"
@@ -4081,7 +4358,7 @@ bme_bmeequities_retail5_bmegate_v1_6.pre_trade_transparency_waiver.display = fun
     return "Pre Trade Transparency Waiver: Negotiated Trade In Illiquid Financial Instruments Oilq (1)"
   end
   if value == "2" then
-    return "Pre Trade Transparency Waiver: Negotiated Trade Subject To Conditions Other Than The Current Market Price Pric (2)"
+    return "Pre Trade Transparency Waiver: Negotiated Trade Other Than Current Market Price PRIC (2)"
   end
 
   return "Pre Trade Transparency Waiver: Unknown("..value..")"
@@ -4107,7 +4384,29 @@ bme_bmeequities_retail5_bmegate_v1_6.price_tick_rule.size = 1
 
 -- Display: Price Tick Rule
 bme_bmeequities_retail5_bmegate_v1_6.price_tick_rule.display = function(value)
-  return "Price Tick Rule: "..value
+  if value == 1 then
+    return "Price Tick Rule: Tick Rule 1 (1)"
+  end
+  if value == 2 then
+    return "Price Tick Rule: Tick Rule 2 (2)"
+  end
+  if value == 3 then
+    return "Price Tick Rule: Tick Rule 3 (3)"
+  end
+  if value == 4 then
+    return "Price Tick Rule: Tick Rule 4 (4)"
+  end
+  if value == 5 then
+    return "Price Tick Rule: Tick Rule 5 (5)"
+  end
+  if value == 6 then
+    return "Price Tick Rule: Tick Rule 6 (6)"
+  end
+  if value == 7 then
+    return "Price Tick Rule: Tick Rule 7 (7)"
+  end
+
+  return "Price Tick Rule: Unknown("..value..")"
 end
 
 -- Dissect: Price Tick Rule
@@ -4130,12 +4429,23 @@ bme_bmeequities_retail5_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
 bme_bmeequities_retail5_bmegate_v1_6.protocol_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Protocol Version: No Value"
+  if value == "BBP001" then
+    return "Protocol Version: BBP001 (BBP001)"
+  end
+  if value == "BP1.3W" then
+    return "Protocol Version: BP13W (BP1.3W)"
+  end
+  if value == "BP1.4W" then
+    return "Protocol Version: BP14W (BP1.4W)"
+  end
+  if value == "BP1.5W" then
+    return "Protocol Version: BP15W (BP1.5W)"
+  end
+  if value == "BP1.6W" then
+    return "Protocol Version: BP16W (BP1.6W)"
   end
 
-  return "Protocol Version: "..value
+  return "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -4301,7 +4611,7 @@ bme_bmeequities_retail5_bmegate_v1_6.retail_service_flag.display = function(valu
     return "Retail Service Flag: True (1)"
   end
   if value == 255 then
-    return "Retail Service Flag: Undefined (255)"
+    return "Retail Service Flag: No Value"
   end
 
   return "Retail Service Flag: Unknown("..value..")"
@@ -4350,6 +4660,11 @@ bme_bmeequities_retail5_bmegate_v1_6.security_code.size = 4
 
 -- Display: Security Code
 bme_bmeequities_retail5_bmegate_v1_6.security_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Security Code: No Value"
+  end
+
   return "Security Code: "..value
 end
 
@@ -4412,12 +4727,68 @@ bme_bmeequities_retail5_bmegate_v1_6.security_group.size = 2
 
 -- Display: Security Group
 bme_bmeequities_retail5_bmegate_v1_6.security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group: No Value"
+  if value == "AC" then
+    return "Security Group: Shares (AC)"
+  end
+  if value == "CE" then
+    return "Security Group: Electronic Pits (CE)"
+  end
+  if value == "CP" then
+    return "Security Group: Cuotas Participativas Savings Banks Shares (CP)"
+  end
+  if value == "DE" then
+    return "Security Group: Rights (DE)"
+  end
+  if value == "NC" then
+    return "Security Group: Non Traded Funds (NC)"
+  end
+  if value == "SY" then
+    return "Security Group: Underlyings (SY)"
+  end
+  if value == "OA" then
+    return "Security Group: ETFs (OA)"
+  end
+  if value == "WA" then
+    return "Security Group: Warrants (WA)"
+  end
+  if value == "WC" then
+    return "Security Group: Certificates (WC)"
+  end
+  if value == "WO" then
+    return "Security Group: Other (WO)"
+  end
+  if value == "EE" then
+    return "Security Group: Growth Companies (EE)"
+  end
+  if value == "FC" then
+    return "Security Group: Venture Capital (FC)"
+  end
+  if value == "FO" then
+    return "Security Group: Listed Investment Funds (FO)"
+  end
+  if value == "IC" then
+    return "Security Group: Funds Of Hedge Funds (IC)"
+  end
+  if value == "IL" then
+    return "Security Group: Hedge Funds (IL)"
+  end
+  if value == "SI" then
+    return "Security Group: SICAVs (SI)"
+  end
+  if value == "SO" then
+    return "Security Group: SOCIMI (SO)"
+  end
+  if value == "SC" then
+    return "Security Group: BME ScaleUp (SC)"
+  end
+  if value == "AL" then
+    return "Security Group: LATIBEX Shares (AL)"
+  end
+  if value == "DL" then
+    return "Security Group: LATIBEX Rights (DL)"
   end
 
-  return "Security Group: "..value
+  return "Security Group: Unknown("..value..")"
 end
 
 -- Dissect: Security Group
@@ -4804,7 +5175,7 @@ bme_bmeequities_retail5_bmegate_v1_6.self_match_prevention.display = function(va
     return "Self Match Prevention: True (1)"
   end
   if value == 255 then
-    return "Self Match Prevention: Undefined (255)"
+    return "Self Match Prevention: No Value"
   end
 
   return "Self Match Prevention: Unknown("..value..")"
@@ -4998,7 +5369,7 @@ bme_bmeequities_retail5_bmegate_v1_6.sicav_fund_counterparty_side.display = func
     return "Sicav Fund Counterparty Side: Seller (2)"
   end
   if value == " " then
-    return "Sicav Fund Counterparty Side: Na (<whitespace>)"
+    return "Sicav Fund Counterparty Side: Not Applicable (<whitespace>)"
   end
 
   return "Sicav Fund Counterparty Side: Unknown("..value..")"
@@ -5008,7 +5379,15 @@ end
 bme_bmeequities_retail5_bmegate_v1_6.sicav_fund_counterparty_side.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_retail5_bmegate_v1_6.sicav_fund_counterparty_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmeequities_retail5_bmegate_v1_6.sicav_fund_counterparty_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.sicav_fund_counterparty_side, range, value, display)
@@ -5316,7 +5695,14 @@ bme_bmeequities_retail5_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
 bme_bmeequities_retail5_bmegate_v1_6.test_production_ind.display = function(value)
-  return "Test Production Ind: "..value
+  if value == "T" then
+    return "Test Production Ind: Test (T)"
+  end
+  if value == "P" then
+    return "Test Production Ind: Production (P)"
+  end
+
+  return "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -5415,7 +5801,7 @@ bme_bmeequities_retail5_bmegate_v1_6.trade_price_condition.display = function(va
     return "Trade Price Condition: Non Price Forming Trade Formerly Defined As A Technical Trade Npft (5)"
   end
   if value == "6" then
-    return "Trade Price Condition: Trade Not Contributing To The Price Discovery Process Formerly Defined As A Technical Trade Tncp To Be Discontinued As Of 1 St January 2024 (6)"
+    return "Trade Price Condition: Trade Not Contributing To Price Discovery TNCP (6)"
   end
 
   return "Trade Price Condition: Unknown("..value..")"
@@ -5494,6 +5880,81 @@ bme_bmeequities_retail5_bmegate_v1_6.trade_type.display = function(value)
   if value == "6" then
     return "Trade Type: Validation Communicated (6)"
   end
+  if value == "7" then
+    return "Trade Type: Authorised Validation Trades (7)"
+  end
+  if value == "8" then
+    return "Trade Type: Authorised Validation Corporate Interest (8)"
+  end
+  if value == "9" then
+    return "Trade Type: Authorised Validation Execution Of Contracts (9)"
+  end
+  if value == "0" then
+    return "Trade Type: Authorised Validation Other Causes (0)"
+  end
+  if value == "A" then
+    return "Trade Type: Transaction Between Members Communicated (A)"
+  end
+  if value == "B" then
+    return "Trade Type: Transaction Between Members Trades (B)"
+  end
+  if value == "C" then
+    return "Trade Type: Transaction Between Members Corporate Interest (C)"
+  end
+  if value == "F" then
+    return "Trade Type: Transaction Between Members Execution Of Contracts (F)"
+  end
+  if value == "G" then
+    return "Trade Type: Transaction Between Members Other Causes (G)"
+  end
+  if value == "I" then
+    return "Trade Type: Application To Cater For A Linked Position (I)"
+  end
+  if value == "J" then
+    return "Trade Type: Transaction To Cater For A Linked Position (J)"
+  end
+  if value == "E" then
+    return "Trade Type: Transaction Of Exercise Of Options (E)"
+  end
+  if value == "N" then
+    return "Trade Type: Public Share Bid Offer Type Transaction (N)"
+  end
+  if value == "O" then
+    return "Trade Type: Public Share Ask Offer Type Transaction (O)"
+  end
+  if value == "P" then
+    return "Trade Type: Public Share Subscription Offer Type Transaction (P)"
+  end
+  if value == "L" then
+    return "Trade Type: Special Trades Delta Type (L)"
+  end
+  if value == "a" then
+    return "Trade Type: Net Asset Value Special Trade D Plus 1 (a)"
+  end
+  if value == "b" then
+    return "Trade Type: Net Asset Value Special Trade D Plus 2 (b)"
+  end
+  if value == "c" then
+    return "Trade Type: Net Asset Value Special Trade D Plus 3 (c)"
+  end
+  if value == "D" then
+    return "Trade Type: Application Without CCP (D)"
+  end
+  if value == "K" then
+    return "Trade Type: Transaction Without CCP (K)"
+  end
+  if value == "d" then
+    return "Trade Type: Investment Fund D Plus 1 (d)"
+  end
+  if value == "e" then
+    return "Trade Type: Investment Fund D Plus 2 (e)"
+  end
+  if value == "f" then
+    return "Trade Type: Investment Fund D Plus 3 (f)"
+  end
+  if value == "W" then
+    return "Trade Type: VWAP (W)"
+  end
 
   return "Trade Type: Unknown("..value..")"
 end
@@ -5525,7 +5986,7 @@ bme_bmeequities_retail5_bmegate_v1_6.trading_obligation.display = function(value
     return "Trading Obligation: True (1)"
   end
   if value == 255 then
-    return "Trading Obligation: Undefined (255)"
+    return "Trading Obligation: No Value"
   end
 
   return "Trading Obligation: Unknown("..value..")"
@@ -5690,7 +6151,7 @@ bme_bmeequities_retail5_bmegate_v1_6.trading_session_sub_id.display = function(v
     return "Trading Session Sub Id: Trading Period At Closing Price Tal (100)"
   end
   if value == 101 then
-    return "Trading Session Sub Id: End Of Closing Auction And Beginning Of Tal Period For Instruments Without Extension (101)"
+    return "Trading Session Sub Id: End Of Closing Auction Beginning Of TAL (101)"
   end
   if value == 201 then
     return "Trading Session Sub Id: Publication Of Previous Day Special Operations (201)"
@@ -7401,16 +7862,77 @@ bme_bmeequities_retail5_bmegate_v1_6.security_list_message.dissect = function(bu
   end
 end
 
+-- Statistics Repeating Group
+bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group = {}
+
+-- Size: Statistics Repeating Group
+bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.size =
+  bme_bmeequities_retail5_bmegate_v1_6.data_code.size + 
+  bme_bmeequities_retail5_bmegate_v1_6.data_value.size
+
+-- Display: Statistics Repeating Group
+bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Statistics Repeating Group
+bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.fields = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  local index = offset
+
+  -- Implicit Statistics Repeating Group Index
+  if statistics_repeating_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_repeating_group_index, statistics_repeating_group_index)
+    iteration:set_generated()
+  end
+
+  -- Data Code: C
+  index, data_code = bme_bmeequities_retail5_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+
+  -- Data Value: 8 Byte Signed Fixed Width Integer
+  index, data_value = bme_bmeequities_retail5_bmegate_v1_6.data_value.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Statistics Repeating Group
+bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.dissect = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_bme_bmeequities_retail5_bmegate_v1_6.fields.statistics_repeating_group, buffer(offset, 0))
+    local index = bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+  end
+end
+
 -- Statistics Message
 bme_bmeequities_retail5_bmegate_v1_6.statistics_message = {}
 
--- Size: Statistics Message
-bme_bmeequities_retail5_bmegate_v1_6.statistics_message.size =
-  bme_bmeequities_retail5_bmegate_v1_6.sequence_number.size + 
-  bme_bmeequities_retail5_bmegate_v1_6.security_code.size + 
-  bme_bmeequities_retail5_bmegate_v1_6.transaction_date_and_time.size + 
-  bme_bmeequities_retail5_bmegate_v1_6.data_count.size + 
-  bme_bmeequities_retail5_bmegate_v1_6.data_code.size
+-- Calculate size of: Statistics Message
+bme_bmeequities_retail5_bmegate_v1_6.statistics_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + bme_bmeequities_retail5_bmegate_v1_6.sequence_number.size
+
+  index = index + bme_bmeequities_retail5_bmegate_v1_6.security_code.size
+
+  index = index + bme_bmeequities_retail5_bmegate_v1_6.transaction_date_and_time.size
+
+  index = index + bme_bmeequities_retail5_bmegate_v1_6.data_count.size
+
+  -- Calculate field size from count
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + statistics_repeating_group_count * 9
+
+  return index
+end
 
 -- Display: Statistics Message
 bme_bmeequities_retail5_bmegate_v1_6.statistics_message.display = function(packet, parent, length)
@@ -7433,8 +7955,10 @@ bme_bmeequities_retail5_bmegate_v1_6.statistics_message.fields = function(buffer
   -- Data Count: U
   index, data_count = bme_bmeequities_retail5_bmegate_v1_6.data_count.dissect(buffer, index, packet, parent)
 
-  -- Data Code: C
-  index, data_code = bme_bmeequities_retail5_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+  -- Repeating: Statistics Repeating Group
+  for statistics_repeating_group_index = 1, data_count do
+    index, statistics_repeating_group = bme_bmeequities_retail5_bmegate_v1_6.statistics_repeating_group.dissect(buffer, index, packet, parent, statistics_repeating_group_index)
+  end
 
   return index
 end

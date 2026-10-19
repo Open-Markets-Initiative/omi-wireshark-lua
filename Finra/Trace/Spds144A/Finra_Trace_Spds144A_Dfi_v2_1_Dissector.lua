@@ -29,22 +29,22 @@ omi_finra_trace_spds144a_dfi_v2_1.fields.control_message_type = ProtoField.new("
 omi_finra_trace_spds144a_dfi_v2_1.fields.correction_trade_information = ProtoField.new("Correction Trade Information", "finra.trace.spds144a.dfi.v2.1.correctiontradeinformation", ftypes.STRING)
 omi_finra_trace_spds144a_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.trace.spds144a.dfi.v2.1.count", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_finra_trace_spds144a_dfi_v2_1.fields.cusip = ProtoField.new("Cusip", "finra.trace.spds144a.dfi.v2.1.cusip", ftypes.STRING, nil, nil, nil, "The universal identifier for the specific security assigned by Standard and Poor's Cusip Service Bureau")
-omi_finra_trace_spds144a_dfi_v2_1.fields.daily_close_price = ProtoField.new("Daily Close Price", "finra.trace.spds144a.dfi.v2.1.dailycloseprice", ftypes.STRING, nil, nil, nil, "The closing price reported for the specific security for the day")
-omi_finra_trace_spds144a_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.trace.spds144a.dfi.v2.1.dailyhighprice", ftypes.STRING, nil, nil, nil, "The high price reported for the specific security for the day")
-omi_finra_trace_spds144a_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.spds144a.dfi.v2.1.dailylowprice", ftypes.STRING, nil, nil, nil, "The low price reported for the specific security for the day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.daily_close_price = ProtoField.new("Daily Close Price", "finra.trace.spds144a.dfi.v2.1.dailycloseprice", ftypes.DOUBLE, nil, nil, nil, "The closing price reported for the specific security for the day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.trace.spds144a.dfi.v2.1.dailyhighprice", ftypes.DOUBLE, nil, nil, nil, "The high price reported for the specific security for the day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.spds144a.dfi.v2.1.dailylowprice", ftypes.DOUBLE, nil, nil, nil, "The low price reported for the specific security for the day")
 omi_finra_trace_spds144a_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.spds144a.dfi.v2.1.datetime", ftypes.STRING)
 omi_finra_trace_spds144a_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.spds144a.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
 omi_finra_trace_spds144a_dfi_v2_1.fields.execution_datetime = ProtoField.new("Execution Datetime", "finra.trace.spds144a.dfi.v2.1.executiondatetime", ftypes.STRING)
-omi_finra_trace_spds144a_dfi_v2_1.fields.factor = ProtoField.new("Factor", "finra.trace.spds144a.dfi.v2.1.factor", ftypes.STRING, nil, nil, nil, "Indicates a reported factor on a trade that was not based on the latest published factor")
+omi_finra_trace_spds144a_dfi_v2_1.fields.factor = ProtoField.new("Factor", "finra.trace.spds144a.dfi.v2.1.factor", ftypes.DOUBLE, nil, nil, nil, "Indicates a reported factor on a trade that was not based on the latest published factor")
 omi_finra_trace_spds144a_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.spds144a.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_spds144a_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.spds144a.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a security")
-omi_finra_trace_spds144a_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.spds144a.dfi.v2.1.highprice", ftypes.STRING, nil, nil, nil, "The current highest price for which the specified issue was traded for the current day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.spds144a.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified issue was traded for the current day")
 omi_finra_trace_spds144a_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.spds144a.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_trace_spds144a_dfi_v2_1.fields.issuer = ProtoField.new("Issuer", "finra.trace.spds144a.dfi.v2.1.issuer", ftypes.STRING, nil, nil, nil, "The name of the entity that issued the security")
 omi_finra_trace_spds144a_dfi_v2_1.fields.label = ProtoField.new("Label", "finra.trace.spds144a.dfi.v2.1.label", ftypes.STRING)
-omi_finra_trace_spds144a_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.spds144a.dfi.v2.1.lastsaleprice", ftypes.STRING, nil, nil, nil, "The last sale price reported for the specific security for the day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.spds144a.dfi.v2.1.lastsaleprice", ftypes.DOUBLE, nil, nil, nil, "The last sale price reported for the specific security for the day")
 omi_finra_trace_spds144a_dfi_v2_1.fields.length = ProtoField.new("Length", "finra.trace.spds144a.dfi.v2.1.length", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
-omi_finra_trace_spds144a_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.trace.spds144a.dfi.v2.1.lowprice", ftypes.STRING, nil, nil, nil, "The current low price for which the specified security was traded for the day")
+omi_finra_trace_spds144a_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.trace.spds144a.dfi.v2.1.lowprice", ftypes.DOUBLE, nil, nil, nil, "The current low price for which the specified security was traded for the day")
 omi_finra_trace_spds144a_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.trace.spds144a.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING, nil, nil, nil, "Indicates the market center or exchange that originated the message")
 omi_finra_trace_spds144a_dfi_v2_1.fields.message_category = ProtoField.new("Message Category", "finra.trace.spds144a.dfi.v2.1.messagecategory", ftypes.STRING)
 omi_finra_trace_spds144a_dfi_v2_1.fields.message_header = ProtoField.new("Message Header", "finra.trace.spds144a.dfi.v2.1.messageheader", ftypes.STRING)
@@ -53,7 +53,7 @@ omi_finra_trace_spds144a_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.
 omi_finra_trace_spds144a_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.spds144a.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
 omi_finra_trace_spds144a_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.spds144a.dfi.v2.1.originaltradeidentifier", ftypes.STRING, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_spds144a_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.spds144a.dfi.v2.1.originaltradeinformation", ftypes.STRING)
-omi_finra_trace_spds144a_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.spds144a.dfi.v2.1.price", ftypes.STRING, nil, nil, nil, "The security price inclusive of any commission, mark-ups and mark-downs reported in the transaction")
+omi_finra_trace_spds144a_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.spds144a.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The security price inclusive of any commission, mark-ups and mark-downs reported in the transaction")
 omi_finra_trace_spds144a_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.spds144a.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The dollar size amount of the transaction, inclusive of a decimal")
 omi_finra_trace_spds144a_dfi_v2_1.fields.quantity_indicator = ProtoField.new("Quantity Indicator", "finra.trace.spds144a.dfi.v2.1.quantityindicator", ftypes.STRING, nil, nil, nil, "Indicates if the quantity reported is actual or estimated")
 omi_finra_trace_spds144a_dfi_v2_1.fields.remuneration = ProtoField.new("Remuneration", "finra.trace.spds144a.dfi.v2.1.remuneration", ftypes.STRING, nil, nil, nil, "Identifies if the reported trade price includes remuneration")
@@ -150,6 +150,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -490,8 +537,22 @@ finra_trace_spds144a_dfi_v2_1.daily_close_price = {}
 finra_trace_spds144a_dfi_v2_1.daily_close_price.size = 11
 
 -- Display: Daily Close Price
-finra_trace_spds144a_dfi_v2_1.daily_close_price.display = function(value)
-  return "Daily Close Price: "..value
+finra_trace_spds144a_dfi_v2_1.daily_close_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.daily_close_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Close Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Close Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Close Price: "..text
 end
 
 -- Dissect: Daily Close Price
@@ -501,7 +562,7 @@ finra_trace_spds144a_dfi_v2_1.daily_close_price.dissect = function(buffer, offse
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -518,8 +579,22 @@ finra_trace_spds144a_dfi_v2_1.daily_high_price = {}
 finra_trace_spds144a_dfi_v2_1.daily_high_price.size = 11
 
 -- Display: Daily High Price
-finra_trace_spds144a_dfi_v2_1.daily_high_price.display = function(value)
-  return "Daily High Price: "..value
+finra_trace_spds144a_dfi_v2_1.daily_high_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.daily_high_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily High Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily High Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily High Price: "..text
 end
 
 -- Dissect: Daily High Price
@@ -529,7 +604,7 @@ finra_trace_spds144a_dfi_v2_1.daily_high_price.dissect = function(buffer, offset
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -546,8 +621,22 @@ finra_trace_spds144a_dfi_v2_1.daily_low_price = {}
 finra_trace_spds144a_dfi_v2_1.daily_low_price.size = 11
 
 -- Display: Daily Low Price
-finra_trace_spds144a_dfi_v2_1.daily_low_price.display = function(value)
-  return "Daily Low Price: "..value
+finra_trace_spds144a_dfi_v2_1.daily_low_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.daily_low_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Low Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Low Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Low Price: "..text
 end
 
 -- Dissect: Daily Low Price
@@ -557,7 +646,7 @@ finra_trace_spds144a_dfi_v2_1.daily_low_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -602,8 +691,22 @@ finra_trace_spds144a_dfi_v2_1.factor = {}
 finra_trace_spds144a_dfi_v2_1.factor.size = 12
 
 -- Display: Factor
-finra_trace_spds144a_dfi_v2_1.factor.display = function(value)
-  return "Factor: "..value
+finra_trace_spds144a_dfi_v2_1.factor.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.factor.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Factor: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 9 then
+    return "Factor: "..text.." (expected 9 places)"
+  end
+
+  return "Factor: "..text
 end
 
 -- Dissect: Factor
@@ -613,7 +716,7 @@ finra_trace_spds144a_dfi_v2_1.factor.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.factor.display(value, buffer, offset, packet, parent)
@@ -695,8 +798,22 @@ finra_trace_spds144a_dfi_v2_1.high_price = {}
 finra_trace_spds144a_dfi_v2_1.high_price.size = 11
 
 -- Display: High Price
-finra_trace_spds144a_dfi_v2_1.high_price.display = function(value)
-  return "High Price: "..value
+finra_trace_spds144a_dfi_v2_1.high_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.high_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "High Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "High Price: "..text.." (expected 6 places)"
+  end
+
+  return "High Price: "..text
 end
 
 -- Dissect: High Price
@@ -706,7 +823,7 @@ finra_trace_spds144a_dfi_v2_1.high_price.dissect = function(buffer, offset, pack
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -774,8 +891,22 @@ finra_trace_spds144a_dfi_v2_1.last_sale_price = {}
 finra_trace_spds144a_dfi_v2_1.last_sale_price.size = 11
 
 -- Display: Last Sale Price
-finra_trace_spds144a_dfi_v2_1.last_sale_price.display = function(value)
-  return "Last Sale Price: "..value
+finra_trace_spds144a_dfi_v2_1.last_sale_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.last_sale_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Last Sale Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Last Sale Price: "..text.." (expected 6 places)"
+  end
+
+  return "Last Sale Price: "..text
 end
 
 -- Dissect: Last Sale Price
@@ -785,7 +916,7 @@ finra_trace_spds144a_dfi_v2_1.last_sale_price.dissect = function(buffer, offset,
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -825,8 +956,22 @@ finra_trace_spds144a_dfi_v2_1.low_price = {}
 finra_trace_spds144a_dfi_v2_1.low_price.size = 11
 
 -- Display: Low Price
-finra_trace_spds144a_dfi_v2_1.low_price.display = function(value)
-  return "Low Price: "..value
+finra_trace_spds144a_dfi_v2_1.low_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.low_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Low Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Low Price: "..text.." (expected 6 places)"
+  end
+
+  return "Low Price: "..text
 end
 
 -- Dissect: Low Price
@@ -836,7 +981,7 @@ finra_trace_spds144a_dfi_v2_1.low_price.dissect = function(buffer, offset, packe
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -997,8 +1142,22 @@ finra_trace_spds144a_dfi_v2_1.price = {}
 finra_trace_spds144a_dfi_v2_1.price.size = 11
 
 -- Display: Price
-finra_trace_spds144a_dfi_v2_1.price.display = function(value)
-  return "Price: "..value
+finra_trace_spds144a_dfi_v2_1.price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_spds144a_dfi_v2_1.price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Price: "..text.." (expected 6 places)"
+  end
+
+  return "Price: "..text
 end
 
 -- Dissect: Price
@@ -1008,7 +1167,7 @@ finra_trace_spds144a_dfi_v2_1.price.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_spds144a_dfi_v2_1.price.display(value, buffer, offset, packet, parent)

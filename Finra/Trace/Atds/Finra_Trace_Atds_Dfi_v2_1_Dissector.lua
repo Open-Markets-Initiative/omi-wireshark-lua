@@ -34,12 +34,12 @@ omi_finra_trace_atds_dfi_v2_1.fields.control_message_type = ProtoField.new("Cont
 omi_finra_trace_atds_dfi_v2_1.fields.correction_trade_information = ProtoField.new("Correction Trade Information", "finra.trace.atds.dfi.v2.1.correctiontradeinformation", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.trace.atds.dfi.v2.1.count", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_finra_trace_atds_dfi_v2_1.fields.cusip = ProtoField.new("Cusip", "finra.trace.atds.dfi.v2.1.cusip", ftypes.STRING, nil, nil, nil, "The universal identifier for the specific agency bond as assigned by the Cusip Service Bureau")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_close_price = ProtoField.new("Daily Close Price", "finra.trace.atds.dfi.v2.1.dailycloseprice", ftypes.STRING, nil, nil, nil, "The closing price reported for the specific bond for the day")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_close_yield = ProtoField.new("Daily Close Yield", "finra.trace.atds.dfi.v2.1.dailycloseyield", ftypes.STRING, nil, nil, nil, "The closing yield associated with the Daily Close Price")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.trace.atds.dfi.v2.1.dailyhighprice", ftypes.STRING, nil, nil, nil, "The high price reported for the specific bond for the day")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_high_yield = ProtoField.new("Daily High Yield", "finra.trace.atds.dfi.v2.1.dailyhighyield", ftypes.STRING, nil, nil, nil, "The high yield associated with the Daily High Price")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.atds.dfi.v2.1.dailylowprice", ftypes.STRING, nil, nil, nil, "The low price reported for the specific bond for the day")
-omi_finra_trace_atds_dfi_v2_1.fields.daily_low_yield = ProtoField.new("Daily Low Yield", "finra.trace.atds.dfi.v2.1.dailylowyield", ftypes.STRING, nil, nil, nil, "The low yield associated with the Daily Low Price")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_close_price = ProtoField.new("Daily Close Price", "finra.trace.atds.dfi.v2.1.dailycloseprice", ftypes.DOUBLE, nil, nil, nil, "The closing price reported for the specific bond for the day")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_close_yield = ProtoField.new("Daily Close Yield", "finra.trace.atds.dfi.v2.1.dailycloseyield", ftypes.DOUBLE, nil, nil, nil, "The closing yield associated with the Daily Close Price")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_high_price = ProtoField.new("Daily High Price", "finra.trace.atds.dfi.v2.1.dailyhighprice", ftypes.DOUBLE, nil, nil, nil, "The high price reported for the specific bond for the day")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_high_yield = ProtoField.new("Daily High Yield", "finra.trace.atds.dfi.v2.1.dailyhighyield", ftypes.DOUBLE, nil, nil, nil, "The high yield associated with the Daily High Price")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_low_price = ProtoField.new("Daily Low Price", "finra.trace.atds.dfi.v2.1.dailylowprice", ftypes.DOUBLE, nil, nil, nil, "The low price reported for the specific bond for the day")
+omi_finra_trace_atds_dfi_v2_1.fields.daily_low_yield = ProtoField.new("Daily Low Yield", "finra.trace.atds.dfi.v2.1.dailylowyield", ftypes.DOUBLE, nil, nil, nil, "The low yield associated with the Daily Low Price")
 omi_finra_trace_atds_dfi_v2_1.fields.datetime = ProtoField.new("Datetime", "finra.trace.atds.dfi.v2.1.datetime", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.day = ProtoField.new("Day", "finra.trace.atds.dfi.v2.1.day", ftypes.STRING, nil, nil, nil, "The day of the month the transaction occurred")
 omi_finra_trace_atds_dfi_v2_1.fields.declines_all_securities = ProtoField.new("Declines All Securities", "finra.trace.atds.dfi.v2.1.declinesallsecurities", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than the prior closing price")
@@ -57,18 +57,18 @@ omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_fhlb = ProtoField.new("F
 omi_finra_trace_atds_dfi_v2_1.fields.fifty_two_week_low_freddie_mac = ProtoField.new("Fifty Two Week Low Freddie Mac", "finra.trace.atds.dfi.v2.1.fiftytwoweeklowfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day is lower than a prior closing price within the past 52 business weeks")
 omi_finra_trace_atds_dfi_v2_1.fields.future_use = ProtoField.new("Future Use", "finra.trace.atds.dfi.v2.1.futureuse", ftypes.STRING, nil, nil, nil, "Reserved for future use")
 omi_finra_trace_atds_dfi_v2_1.fields.halt_reason = ProtoField.new("Halt Reason", "finra.trace.atds.dfi.v2.1.haltreason", ftypes.STRING, nil, nil, nil, "Describes the specific reason for a halt being placed on a bond issue")
-omi_finra_trace_atds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.atds.dfi.v2.1.highprice", ftypes.STRING, nil, nil, nil, "The current highest price for which the specified bond issue was traded for the current day")
-omi_finra_trace_atds_dfi_v2_1.fields.high_yield = ProtoField.new("High Yield", "finra.trace.atds.dfi.v2.1.highyield", ftypes.STRING, nil, nil, nil, "The yield associated with the high price of the day")
+omi_finra_trace_atds_dfi_v2_1.fields.high_price = ProtoField.new("High Price", "finra.trace.atds.dfi.v2.1.highprice", ftypes.DOUBLE, nil, nil, nil, "The current highest price for which the specified bond issue was traded for the current day")
+omi_finra_trace_atds_dfi_v2_1.fields.high_yield = ProtoField.new("High Yield", "finra.trace.atds.dfi.v2.1.highyield", ftypes.DOUBLE, nil, nil, nil, "The yield associated with the high price of the day")
 omi_finra_trace_atds_dfi_v2_1.fields.high_yield_direction = ProtoField.new("High Yield Direction", "finra.trace.atds.dfi.v2.1.highyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the High Price Yield field")
 omi_finra_trace_atds_dfi_v2_1.fields.hour = ProtoField.new("Hour", "finra.trace.atds.dfi.v2.1.hour", ftypes.STRING, nil, nil, nil, "The hour of the day the transaction occurred in military time")
 omi_finra_trace_atds_dfi_v2_1.fields.issuer = ProtoField.new("Issuer", "finra.trace.atds.dfi.v2.1.issuer", ftypes.STRING, nil, nil, nil, "The name of the Agency or Government-sponsored enterprise that issued the security")
 omi_finra_trace_atds_dfi_v2_1.fields.label = ProtoField.new("Label", "finra.trace.atds.dfi.v2.1.label", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.atds.dfi.v2.1.lastsaleprice", ftypes.STRING, nil, nil, nil, "The last sale price reported for the specific bond for the day")
-omi_finra_trace_atds_dfi_v2_1.fields.last_sale_yield = ProtoField.new("Last Sale Yield", "finra.trace.atds.dfi.v2.1.lastsaleyield", ftypes.STRING, nil, nil, nil, "The yield associated with the last price of the day")
+omi_finra_trace_atds_dfi_v2_1.fields.last_sale_price = ProtoField.new("Last Sale Price", "finra.trace.atds.dfi.v2.1.lastsaleprice", ftypes.DOUBLE, nil, nil, nil, "The last sale price reported for the specific bond for the day")
+omi_finra_trace_atds_dfi_v2_1.fields.last_sale_yield = ProtoField.new("Last Sale Yield", "finra.trace.atds.dfi.v2.1.lastsaleyield", ftypes.DOUBLE, nil, nil, nil, "The yield associated with the last price of the day")
 omi_finra_trace_atds_dfi_v2_1.fields.last_sale_yield_direction = ProtoField.new("Last Sale Yield Direction", "finra.trace.atds.dfi.v2.1.lastsaleyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the Last Sale Yield field")
 omi_finra_trace_atds_dfi_v2_1.fields.length = ProtoField.new("Length", "finra.trace.atds.dfi.v2.1.length", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
-omi_finra_trace_atds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.trace.atds.dfi.v2.1.lowprice", ftypes.STRING, nil, nil, nil, "The current low price for which the specified bond issue was traded for the day")
-omi_finra_trace_atds_dfi_v2_1.fields.low_yield = ProtoField.new("Low Yield", "finra.trace.atds.dfi.v2.1.lowyield", ftypes.STRING, nil, nil, nil, "The yield associated with the low price of the day")
+omi_finra_trace_atds_dfi_v2_1.fields.low_price = ProtoField.new("Low Price", "finra.trace.atds.dfi.v2.1.lowprice", ftypes.DOUBLE, nil, nil, nil, "The current low price for which the specified bond issue was traded for the day")
+omi_finra_trace_atds_dfi_v2_1.fields.low_yield = ProtoField.new("Low Yield", "finra.trace.atds.dfi.v2.1.lowyield", ftypes.DOUBLE, nil, nil, nil, "The yield associated with the low price of the day")
 omi_finra_trace_atds_dfi_v2_1.fields.low_yield_direction = ProtoField.new("Low Yield Direction", "finra.trace.atds.dfi.v2.1.lowyielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the Low Price field")
 omi_finra_trace_atds_dfi_v2_1.fields.market_breadth_information = ProtoField.new("Market Breadth Information", "finra.trace.atds.dfi.v2.1.marketbreadthinformation", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.trace.atds.dfi.v2.1.marketcenteroriginatorid", ftypes.STRING, nil, nil, nil, "Indicates the market center or exchange that originated the message")
@@ -80,7 +80,7 @@ omi_finra_trace_atds_dfi_v2_1.fields.month = ProtoField.new("Month", "finra.trac
 omi_finra_trace_atds_dfi_v2_1.fields.original_dissemination_date = ProtoField.new("Original Dissemination Date", "finra.trace.atds.dfi.v2.1.originaldisseminationdate", ftypes.STRING)
 omi_finra_trace_atds_dfi_v2_1.fields.original_trade_identifier = ProtoField.new("Original Trade Identifier", "finra.trace.atds.dfi.v2.1.originaltradeidentifier", ftypes.STRING, nil, nil, nil, "Indicates the id of the original outbound message for the transaction being reversed")
 omi_finra_trace_atds_dfi_v2_1.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.trace.atds.dfi.v2.1.originaltradeinformation", ftypes.STRING)
-omi_finra_trace_atds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.atds.dfi.v2.1.price", ftypes.STRING, nil, nil, nil, "The bond price inclusive of any commission, mark-ups, and/or mark-downs reported by the sell-side firm")
+omi_finra_trace_atds_dfi_v2_1.fields.price = ProtoField.new("Price", "finra.trace.atds.dfi.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "The bond price inclusive of any commission, mark-ups, and/or mark-downs reported by the sell-side firm")
 omi_finra_trace_atds_dfi_v2_1.fields.quantity = ProtoField.new("Quantity", "finra.trace.atds.dfi.v2.1.quantity", ftypes.STRING, nil, nil, nil, "The par value volume of the transaction")
 omi_finra_trace_atds_dfi_v2_1.fields.quantity_indicator = ProtoField.new("Quantity Indicator", "finra.trace.atds.dfi.v2.1.quantityindicator", ftypes.STRING, nil, nil, nil, "Indicates if the quantity reported is actual or estimated")
 omi_finra_trace_atds_dfi_v2_1.fields.remuneration = ProtoField.new("Remuneration", "finra.trace.atds.dfi.v2.1.remuneration", ftypes.STRING, nil, nil, nil, "Identifies if the reported trade price includes remuneration")
@@ -132,7 +132,7 @@ omi_finra_trace_atds_dfi_v2_1.fields.unchanged_fhlb = ProtoField.new("Unchanged 
 omi_finra_trace_atds_dfi_v2_1.fields.unchanged_freddie_mac = ProtoField.new("Unchanged Freddie Mac", "finra.trace.atds.dfi.v2.1.unchangedfreddiemac", ftypes.STRING, nil, nil, nil, "The total number of issues where the closing price for the day remains the same as the prior closing price")
 omi_finra_trace_atds_dfi_v2_1.fields.when_issued_indicator = ProtoField.new("When Issued Indicator", "finra.trace.atds.dfi.v2.1.whenissuedindicator", ftypes.STRING, nil, nil, nil, "Indicates if the issue is trading on a when issued basis")
 omi_finra_trace_atds_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.trace.atds.dfi.v2.1.year", ftypes.STRING, nil, nil, nil, "The year the transaction occurred")
-omi_finra_trace_atds_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.atds.dfi.v2.1.yield", ftypes.STRING, nil, nil, nil, "Indicates the effective rate of return earned on a security")
+omi_finra_trace_atds_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.atds.dfi.v2.1.yield", ftypes.DOUBLE, nil, nil, nil, "Indicates the effective rate of return earned on a security")
 omi_finra_trace_atds_dfi_v2_1.fields.yield_direction = ProtoField.new("Yield Direction", "finra.trace.atds.dfi.v2.1.yielddirection", ftypes.STRING, nil, nil, nil, "Indicates the yield direction for the subsequent Yield field")
 
 -- Finra Trace Atds Dfi 2.1 Framing
@@ -213,6 +213,53 @@ trim_right_spaces = function(str)
   end
 
   return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
 end
 
 
@@ -710,8 +757,22 @@ finra_trace_atds_dfi_v2_1.daily_close_price = {}
 finra_trace_atds_dfi_v2_1.daily_close_price.size = 11
 
 -- Display: Daily Close Price
-finra_trace_atds_dfi_v2_1.daily_close_price.display = function(value)
-  return "Daily Close Price: "..value
+finra_trace_atds_dfi_v2_1.daily_close_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_close_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Close Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Close Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Close Price: "..text
 end
 
 -- Dissect: Daily Close Price
@@ -721,7 +782,7 @@ finra_trace_atds_dfi_v2_1.daily_close_price.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_close_price.display(value, buffer, offset, packet, parent)
@@ -738,8 +799,22 @@ finra_trace_atds_dfi_v2_1.daily_close_yield = {}
 finra_trace_atds_dfi_v2_1.daily_close_yield.size = 13
 
 -- Display: Daily Close Yield
-finra_trace_atds_dfi_v2_1.daily_close_yield.display = function(value)
-  return "Daily Close Yield: "..value
+finra_trace_atds_dfi_v2_1.daily_close_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_close_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Close Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Close Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Close Yield: "..text
 end
 
 -- Dissect: Daily Close Yield
@@ -749,7 +824,7 @@ finra_trace_atds_dfi_v2_1.daily_close_yield.dissect = function(buffer, offset, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_close_yield.display(value, buffer, offset, packet, parent)
@@ -766,8 +841,22 @@ finra_trace_atds_dfi_v2_1.daily_high_price = {}
 finra_trace_atds_dfi_v2_1.daily_high_price.size = 11
 
 -- Display: Daily High Price
-finra_trace_atds_dfi_v2_1.daily_high_price.display = function(value)
-  return "Daily High Price: "..value
+finra_trace_atds_dfi_v2_1.daily_high_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_high_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily High Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily High Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily High Price: "..text
 end
 
 -- Dissect: Daily High Price
@@ -777,7 +866,7 @@ finra_trace_atds_dfi_v2_1.daily_high_price.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_high_price.display(value, buffer, offset, packet, parent)
@@ -794,8 +883,22 @@ finra_trace_atds_dfi_v2_1.daily_high_yield = {}
 finra_trace_atds_dfi_v2_1.daily_high_yield.size = 13
 
 -- Display: Daily High Yield
-finra_trace_atds_dfi_v2_1.daily_high_yield.display = function(value)
-  return "Daily High Yield: "..value
+finra_trace_atds_dfi_v2_1.daily_high_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_high_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily High Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily High Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Daily High Yield: "..text
 end
 
 -- Dissect: Daily High Yield
@@ -805,7 +908,7 @@ finra_trace_atds_dfi_v2_1.daily_high_yield.dissect = function(buffer, offset, pa
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_high_yield.display(value, buffer, offset, packet, parent)
@@ -822,8 +925,22 @@ finra_trace_atds_dfi_v2_1.daily_low_price = {}
 finra_trace_atds_dfi_v2_1.daily_low_price.size = 11
 
 -- Display: Daily Low Price
-finra_trace_atds_dfi_v2_1.daily_low_price.display = function(value)
-  return "Daily Low Price: "..value
+finra_trace_atds_dfi_v2_1.daily_low_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_low_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Low Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Low Price: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Low Price: "..text
 end
 
 -- Dissect: Daily Low Price
@@ -833,7 +950,7 @@ finra_trace_atds_dfi_v2_1.daily_low_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_low_price.display(value, buffer, offset, packet, parent)
@@ -850,8 +967,22 @@ finra_trace_atds_dfi_v2_1.daily_low_yield = {}
 finra_trace_atds_dfi_v2_1.daily_low_yield.size = 13
 
 -- Display: Daily Low Yield
-finra_trace_atds_dfi_v2_1.daily_low_yield.display = function(value)
-  return "Daily Low Yield: "..value
+finra_trace_atds_dfi_v2_1.daily_low_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.daily_low_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Daily Low Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Daily Low Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Daily Low Yield: "..text
 end
 
 -- Dissect: Daily Low Yield
@@ -861,7 +992,7 @@ finra_trace_atds_dfi_v2_1.daily_low_yield.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.daily_low_yield.display(value, buffer, offset, packet, parent)
@@ -1307,8 +1438,22 @@ finra_trace_atds_dfi_v2_1.high_price = {}
 finra_trace_atds_dfi_v2_1.high_price.size = 11
 
 -- Display: High Price
-finra_trace_atds_dfi_v2_1.high_price.display = function(value)
-  return "High Price: "..value
+finra_trace_atds_dfi_v2_1.high_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.high_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "High Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "High Price: "..text.." (expected 6 places)"
+  end
+
+  return "High Price: "..text
 end
 
 -- Dissect: High Price
@@ -1318,7 +1463,7 @@ finra_trace_atds_dfi_v2_1.high_price.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.high_price.display(value, buffer, offset, packet, parent)
@@ -1335,8 +1480,22 @@ finra_trace_atds_dfi_v2_1.high_yield = {}
 finra_trace_atds_dfi_v2_1.high_yield.size = 13
 
 -- Display: High Yield
-finra_trace_atds_dfi_v2_1.high_yield.display = function(value)
-  return "High Yield: "..value
+finra_trace_atds_dfi_v2_1.high_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.high_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "High Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "High Yield: "..text.." (expected 6 places)"
+  end
+
+  return "High Yield: "..text
 end
 
 -- Dissect: High Yield
@@ -1346,7 +1505,7 @@ finra_trace_atds_dfi_v2_1.high_yield.dissect = function(buffer, offset, packet, 
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.high_yield.display(value, buffer, offset, packet, parent)
@@ -1444,8 +1603,22 @@ finra_trace_atds_dfi_v2_1.last_sale_price = {}
 finra_trace_atds_dfi_v2_1.last_sale_price.size = 11
 
 -- Display: Last Sale Price
-finra_trace_atds_dfi_v2_1.last_sale_price.display = function(value)
-  return "Last Sale Price: "..value
+finra_trace_atds_dfi_v2_1.last_sale_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.last_sale_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Last Sale Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Last Sale Price: "..text.." (expected 6 places)"
+  end
+
+  return "Last Sale Price: "..text
 end
 
 -- Dissect: Last Sale Price
@@ -1455,7 +1628,7 @@ finra_trace_atds_dfi_v2_1.last_sale_price.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.last_sale_price.display(value, buffer, offset, packet, parent)
@@ -1472,8 +1645,22 @@ finra_trace_atds_dfi_v2_1.last_sale_yield = {}
 finra_trace_atds_dfi_v2_1.last_sale_yield.size = 13
 
 -- Display: Last Sale Yield
-finra_trace_atds_dfi_v2_1.last_sale_yield.display = function(value)
-  return "Last Sale Yield: "..value
+finra_trace_atds_dfi_v2_1.last_sale_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.last_sale_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Last Sale Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Last Sale Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Last Sale Yield: "..text
 end
 
 -- Dissect: Last Sale Yield
@@ -1483,7 +1670,7 @@ finra_trace_atds_dfi_v2_1.last_sale_yield.dissect = function(buffer, offset, pac
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.last_sale_yield.display(value, buffer, offset, packet, parent)
@@ -1553,8 +1740,22 @@ finra_trace_atds_dfi_v2_1.low_price = {}
 finra_trace_atds_dfi_v2_1.low_price.size = 11
 
 -- Display: Low Price
-finra_trace_atds_dfi_v2_1.low_price.display = function(value)
-  return "Low Price: "..value
+finra_trace_atds_dfi_v2_1.low_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.low_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Low Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Low Price: "..text.." (expected 6 places)"
+  end
+
+  return "Low Price: "..text
 end
 
 -- Dissect: Low Price
@@ -1564,7 +1765,7 @@ finra_trace_atds_dfi_v2_1.low_price.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.low_price.display(value, buffer, offset, packet, parent)
@@ -1581,8 +1782,22 @@ finra_trace_atds_dfi_v2_1.low_yield = {}
 finra_trace_atds_dfi_v2_1.low_yield.size = 13
 
 -- Display: Low Yield
-finra_trace_atds_dfi_v2_1.low_yield.display = function(value)
-  return "Low Yield: "..value
+finra_trace_atds_dfi_v2_1.low_yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.low_yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Low Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Low Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Low Yield: "..text
 end
 
 -- Dissect: Low Yield
@@ -1592,7 +1807,7 @@ finra_trace_atds_dfi_v2_1.low_yield.dissect = function(buffer, offset, packet, p
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.low_yield.display(value, buffer, offset, packet, parent)
@@ -1783,8 +1998,22 @@ finra_trace_atds_dfi_v2_1.price = {}
 finra_trace_atds_dfi_v2_1.price.size = 11
 
 -- Display: Price
-finra_trace_atds_dfi_v2_1.price.display = function(value)
-  return "Price: "..value
+finra_trace_atds_dfi_v2_1.price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Price: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Price: "..text.." (expected 6 places)"
+  end
+
+  return "Price: "..text
 end
 
 -- Dissect: Price
@@ -1794,7 +2023,7 @@ finra_trace_atds_dfi_v2_1.price.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.price.display(value, buffer, offset, packet, parent)
@@ -3138,8 +3367,22 @@ finra_trace_atds_dfi_v2_1.yield = {}
 finra_trace_atds_dfi_v2_1.yield.size = 13
 
 -- Display: Yield
-finra_trace_atds_dfi_v2_1.yield.display = function(value)
-  return "Yield: "..value
+finra_trace_atds_dfi_v2_1.yield.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, finra_trace_atds_dfi_v2_1.yield.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Yield: No Value"
+  end
+
+  local point = text:find(".", 1, true)
+  local places = point and (#text - point) or 0
+
+  if places ~= 6 then
+    return "Yield: "..text.." (expected 6 places)"
+  end
+
+  return "Yield: "..text
 end
 
 -- Dissect: Yield
@@ -3149,7 +3392,7 @@ finra_trace_atds_dfi_v2_1.yield.dissect = function(buffer, offset, packet, paren
   local value = tonumber(range:string())
 
   if value == nil then
-    value = "Not Applicable"
+    value = 0
   end
 
   local display = finra_trace_atds_dfi_v2_1.yield.display(value, buffer, offset, packet, parent)

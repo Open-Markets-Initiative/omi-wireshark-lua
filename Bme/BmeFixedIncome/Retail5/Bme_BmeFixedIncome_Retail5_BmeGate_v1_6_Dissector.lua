@@ -84,6 +84,7 @@ omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.coupon_type = ProtoField.new(
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.currency = ProtoField.new("Currency", "bme.bmefixedincome.retail5.bmegate.v1.6.currency", ftypes.STRING, nil, nil, nil, "Currency code")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.data_code = ProtoField.new("Data Code", "bme.bmefixedincome.retail5.bmegate.v1.6.datacode", ftypes.STRING, nil, nil, nil, "Data field code")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.data_count = ProtoField.new("Data Count", "bme.bmefixedincome.retail5.bmegate.v1.6.datacount", ftypes.UINT8, nil, nil, nil, "Number of data values")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.data_value = ProtoField.new("Data Value", "bme.bmefixedincome.retail5.bmegate.v1.6.datavalue", ftypes.INT64, nil, nil, nil, "Data field value. Its type follows DataCode: P (price, 6 implicit decimals) for D, d, G, H, h, M, Q, Z, z, j, k and n; V (volume, 6 implicit decimals) for J, V, v and W; A (amount, 4 implicit decimals) for E and e; R (rate, 4 implicit decimals) for l, m and R; U (unsigned integer) for f (0 if not end of session) and N")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.date_last_coupon_was_paid = ProtoField.new("Date Last Coupon Was Paid", "bme.bmefixedincome.retail5.bmegate.v1.6.datelastcouponwaspaid", ftypes.INT32)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.deferral_waiver = ProtoField.new("Deferral Waiver", "bme.bmefixedincome.retail5.bmegate.v1.6.deferralwaiver", ftypes.STRING)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.designation = ProtoField.new("Designation", "bme.bmefixedincome.retail5.bmegate.v1.6.designation", ftypes.STRING, nil, nil, nil, "Trade situation")
@@ -126,7 +127,7 @@ omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.mid_sell_price = ProtoField.n
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.mid_sell_volume = ProtoField.new("Mid Sell Volume", "bme.bmefixedincome.retail5.bmegate.v1.6.midsellvolume", ftypes.UINT32, nil, nil, nil, "Mid volume of selling RFQs")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.min_price_increment = ProtoField.new("Min Price Increment", "bme.bmefixedincome.retail5.bmegate.v1.6.minpriceincrement", ftypes.DOUBLE, nil, nil, nil, "Minimum Price Increment")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "bme.bmefixedincome.retail5.bmegate.v1.6.mintradevol", ftypes.UINT32, nil, nil, nil, "Minimum Tradeable Volume")
-omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.modality_mask_b_4 = ProtoField.new("Modality Mask B 4", "bme.bmefixedincome.retail5.bmegate.v1.6.modalitymaskb4", ftypes.UINT32, nil, nil, nil, "Modality mask ∑ 2^(ModalityCode - 100) ModalityCode valid values are the TradingSessionID values listed in Table 25 -")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.modality_mask_b_4 = ProtoField.new("Modality Mask B 4", "bme.bmefixedincome.retail5.bmegate.v1.6.modalitymaskb4", ftypes.UINT32, nil, nil, nil, "Modality mask ∑ 2^(ModalityCode - 100) ModalityCode valid values are the TradingSessionID values listed in Table 25 - TradingSessionID in “BMEGate Codification Tables”")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.network_status_value = ProtoField.new("Network Status Value", "bme.bmefixedincome.retail5.bmegate.v1.6.networkstatusvalue", ftypes.UINT8, nil, nil, nil, "Connection status")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.news_text = ProtoField.new("News Text", "bme.bmefixedincome.retail5.bmegate.v1.6.newstext", ftypes.STRING)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.next_redemption_date = ProtoField.new("Next Redemption Date", "bme.bmefixedincome.retail5.bmegate.v1.6.nextredemptiondate", ftypes.INT32)
@@ -162,6 +163,7 @@ omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.sst_ipost = ProtoField.new("S
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.sst_ipre = ProtoField.new("Sst Ipre", "bme.bmefixedincome.retail5.bmegate.v1.6.sstipre", ftypes.DOUBLE, nil, nil, nil, "SSTI pretransparency threshold")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.start_date = ProtoField.new("Start Date", "bme.bmefixedincome.retail5.bmegate.v1.6.startdate", ftypes.INT32, nil, nil, nil, "Value date")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.static_range_type = ProtoField.new("Static Range Type", "bme.bmefixedincome.retail5.bmegate.v1.6.staticrangetype", ftypes.STRING)
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_repeating_group = ProtoField.new("Statistics Repeating Group", "bme.bmefixedincome.retail5.bmegate.v1.6.statisticsrepeatinggroup", ftypes.STRING, nil, nil, nil, "Repeating group of the Statistics message, one entry per data value, DataCount entries")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.strippable = ProtoField.new("Strippable", "bme.bmefixedincome.retail5.bmegate.v1.6.strippable", ftypes.UINT8)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.symbol = ProtoField.new("Symbol", "bme.bmefixedincome.retail5.bmegate.v1.6.symbol", ftypes.STRING)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.symbol_isin = ProtoField.new("Symbol Isin", "bme.bmefixedincome.retail5.bmegate.v1.6.symbolisin", ftypes.STRING, nil, nil, nil, "Instrument ISIN")
@@ -171,7 +173,7 @@ omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_date = ProtoField.new("
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "bme.bmefixedincome.retail5.bmegate.v1.6.tradepricecondition", ftypes.STRING, nil, nil, nil, "MMT 3.8")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_session_date = ProtoField.new("Trade Session Date", "bme.bmefixedincome.retail5.bmegate.v1.6.tradesessiondate", ftypes.INT32)
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.bmefixedincome.retail5.bmegate.v1.6.tradetype", ftypes.STRING)
-omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingobligation", ftypes.UINT8)
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingobligation", ftypes.UINT8, nil, nil, nil, "Trading obligation. Indicates whether the security has to be traded in a regulated exchange")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_scope_b_1 = ProtoField.new("Trading Scope B 1", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingscopeb1", ftypes.UINT8, nil, nil, nil, "Trading Scope")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Trading mode")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
@@ -195,15 +197,18 @@ omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.network_status_message = Prot
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.bmefixedincome.retail5.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.rfq_market_pre_transparency_information_message = ProtoField.new("Rfq Market Pre Transparency Information Message", "bme.bmefixedincome.retail5.bmegate.v1.6.rfqmarketpretransparencyinformationmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate price information about RFQs. The contents of the RFQID field match those of the field IOIID in the corresponding Indication of Interest message")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_list_cancellation_report_message = ProtoField.new("Security List Cancellation Report Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitylistcancellationreportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for cancelling previously defined securities")
-omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "T Le y Field ng Valid values Description p th e")
-omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition. T Le y n")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to provide the definition of one security. It shares the same layout as the Security List Update Report message, but with a different Message Type")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.security_status_message = ProtoField.new("Security Status Message", "bme.bmefixedincome.retail5.bmegate.v1.6.securitystatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform on the status of one security")
-omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmefixedincome.retail5.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics. Le n")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmefixedincome.retail5.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.topofbook_retail_5_levels_message = ProtoField.new("Topofbook Retail 5 Levels Message", "bme.bmefixedincome.retail5.bmegate.v1.6.topofbookretail5levelsmessage", ftypes.STRING, nil, nil, nil, "Specific message for the Retail Service. This message is sent through the UDP channels I/J")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.topofbook_retail_message = ProtoField.new("Topofbook Retail Message", "bme.bmefixedincome.retail5.bmegate.v1.6.topofbookretailmessage", ftypes.STRING, nil, nil, nil, "Specific message for the Retail Service. This message is sent through the UDP channels G/H")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_market_post_transparency_information_topofbook_message = ProtoField.new("Trade Market Post Transparency Information Topofbook Message", "bme.bmefixedincome.retail5.bmegate.v1.6.trademarketposttransparencyinformationtopofbookmessage", ftypes.STRING, nil, nil, nil, "Used by the server to communicate trade information related to trades resulting from order matching in channels C/D and E/F. It is also used in channels A/B when the trade is the result of order matching at the end of an auction period (where only top-of-book information is shown)")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_message = ProtoField.new("Trade Trade Amendment Or Cancellation Message", "bme.bmefixedincome.retail5.bmegate.v1.6.tradetradeamendmentorcancellationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. In this message, all fields with the suffix 2 refer to the sell order, and the ones without the suffix refer either to both legs or the buy order")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "bme.bmefixedincome.retail5.bmegate.v1.6.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the session status in each Trading Mode")
+
+-- Bme BmeFixedIncome Retail5 BmeGate 1.6 Generated Fields
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_repeating_group_index = ProtoField.new("Statistics Repeating Group Index", "bme.bmefixedincome.retail5.bmegate.v1.6.statisticsrepeatinggroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -215,11 +220,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.indexes = true
 
 -- Register Bme BmeFixedIncome Retail5 BmeGate 1.6 Show Options
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs_changed()
@@ -233,6 +240,9 @@ function omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs_changed()
   end
   if show.structs ~= omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_structs then
     show.structs = omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_structs
+  end
+  if show.indexes ~= omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_indexes then
+    show.indexes = omi_bme_bmefixedincome_retail5_bmegate_v1_6.prefs.show_indexes
   end
 end
 
@@ -370,7 +380,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.admission_requested_by_issuer.display = 
     return "Admission Requested By Issuer: True (1)"
   end
   if value == 255 then
-    return "Admission Requested By Issuer: Undefined (255)"
+    return "Admission Requested By Issuer: No Value"
   end
 
   return "Admission Requested By Issuer: Unknown("..value..")"
@@ -403,7 +413,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.algo_flag.display = function(value)
     return "Algo Flag: True (1)"
   end
   if value == 255 then
-    return "Algo Flag: Undefined (255)"
+    return "Algo Flag: No Value"
   end
 
   return "Algo Flag: Unknown("..value..")"
@@ -974,12 +984,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.size = 8
 
 -- Display: Ask Px 1
-bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 1: No Value"
+  end
+
   return "Ask Px 1: "..value
 end
 
 -- Translate: Ask Px 1
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -989,7 +1009,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.ask_px_1, range, value, display)
 
@@ -1003,12 +1023,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.size = 8
 
 -- Display: Ask Px 2
-bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 2: No Value"
+  end
+
   return "Ask Px 2: "..value
 end
 
 -- Translate: Ask Px 2
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1018,7 +1048,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_2.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.ask_px_2, range, value, display)
 
@@ -1032,12 +1062,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.size = 8
 
 -- Display: Ask Px 3
-bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 3: No Value"
+  end
+
   return "Ask Px 3: "..value
 end
 
 -- Translate: Ask Px 3
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1047,7 +1087,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_3.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.ask_px_3, range, value, display)
 
@@ -1061,12 +1101,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.size = 8
 
 -- Display: Ask Px 4
-bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 4: No Value"
+  end
+
   return "Ask Px 4: "..value
 end
 
 -- Translate: Ask Px 4
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1076,7 +1126,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_4.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.ask_px_4, range, value, display)
 
@@ -1090,12 +1140,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.size = 8
 
 -- Display: Ask Px 5
-bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 5: No Value"
+  end
+
   return "Ask Px 5: "..value
 end
 
 -- Translate: Ask Px 5
 bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1105,7 +1165,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.ask_px_5.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.ask_px_5, range, value, display)
 
@@ -1242,7 +1302,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.benchmark.display = function(value)
     return "Benchmark: True (1)"
   end
   if value == 255 then
-    return "Benchmark: Undefined (255)"
+    return "Benchmark: No Value"
   end
 
   return "Benchmark: Unknown("..value..")"
@@ -1268,12 +1328,20 @@ bme_bmefixedincome_retail5_bmegate_v1_6.benchmark_curve_points_units.size = 4
 
 -- Display: Benchmark Curve Points Units
 bme_bmefixedincome_retail5_bmegate_v1_6.benchmark_curve_points_units.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Benchmark Curve Points Units: No Value"
+  if value == "DAYS" then
+    return "Benchmark Curve Points Units: Days (DAYS)"
+  end
+  if value == "WEEK" then
+    return "Benchmark Curve Points Units: Week (WEEK)"
+  end
+  if value == "MNTH" then
+    return "Benchmark Curve Points Units: Month (MNTH)"
+  end
+  if value == "YEAR" then
+    return "Benchmark Curve Points Units: Year (YEAR)"
   end
 
-  return "Benchmark Curve Points Units: "..value
+  return "Benchmark Curve Points Units: Unknown("..value..")"
 end
 
 -- Dissect: Benchmark Curve Points Units
@@ -1513,12 +1581,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.size = 8
 
 -- Display: Bid Px 1
-bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 1: No Value"
+  end
+
   return "Bid Px 1: "..value
 end
 
 -- Translate: Bid Px 1
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1528,7 +1606,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.bid_px_1, range, value, display)
 
@@ -1542,12 +1620,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.size = 8
 
 -- Display: Bid Px 2
-bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 2: No Value"
+  end
+
   return "Bid Px 2: "..value
 end
 
 -- Translate: Bid Px 2
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1557,7 +1645,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_2.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.bid_px_2, range, value, display)
 
@@ -1571,12 +1659,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.size = 8
 
 -- Display: Bid Px 3
-bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 3: No Value"
+  end
+
   return "Bid Px 3: "..value
 end
 
 -- Translate: Bid Px 3
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1586,7 +1684,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_3.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.bid_px_3, range, value, display)
 
@@ -1600,12 +1698,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.size = 8
 
 -- Display: Bid Px 4
-bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 4: No Value"
+  end
+
   return "Bid Px 4: "..value
 end
 
 -- Translate: Bid Px 4
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1615,7 +1723,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_4.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.bid_px_4, range, value, display)
 
@@ -1629,12 +1737,22 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5 = {}
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.size = 8
 
 -- Display: Bid Px 5
-bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.display = function(value)
+bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 5: No Value"
+  end
+
   return "Bid Px 5: "..value
 end
 
 -- Translate: Bid Px 5
 bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1644,7 +1762,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.translate(raw)
-  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.bid_px_5.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.bid_px_5, range, value, display)
 
@@ -2036,7 +2154,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.coupon_quotation.display = function(valu
     return "Coupon Quotation: True (1)"
   end
   if value == 255 then
-    return "Coupon Quotation: Undefined (255)"
+    return "Coupon Quotation: No Value"
   end
 
   return "Coupon Quotation: Unknown("..value..")"
@@ -2098,7 +2216,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.coupon_type.display = function(value)
     return "Coupon Type: Variable (V)"
   end
   if value == " " then
-    return "Coupon Type: Na (<whitespace>)"
+    return "Coupon Type: Not Applicable (<whitespace>)"
   end
 
   return "Coupon Type: Unknown("..value..")"
@@ -2108,7 +2226,15 @@ end
 bme_bmefixedincome_retail5_bmegate_v1_6.coupon_type.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_retail5_bmegate_v1_6.coupon_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_retail5_bmegate_v1_6.coupon_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.coupon_type, range, value, display)
@@ -2163,7 +2289,77 @@ bme_bmefixedincome_retail5_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
 bme_bmefixedincome_retail5_bmegate_v1_6.data_code.display = function(value)
-  return "Data Code: "..value
+  if value == "D" then
+    return "Data Code: Average Price (D)"
+  end
+  if value == "d" then
+    return "Data Code: Previous Forward Price (d)"
+  end
+  if value == "E" then
+    return "Data Code: Published Cash Amount (E)"
+  end
+  if value == "e" then
+    return "Data Code: Order Modality Cash Amount (e)"
+  end
+  if value == "f" then
+    return "Data Code: End Of Session Indicator (f)"
+  end
+  if value == "G" then
+    return "Data Code: First (G)"
+  end
+  if value == "H" then
+    return "Data Code: High (H)"
+  end
+  if value == "h" then
+    return "Data Code: Maximum Bid (h)"
+  end
+  if value == "J" then
+    return "Data Code: Not Published Volume (J)"
+  end
+  if value == "M" then
+    return "Data Code: Last (M)"
+  end
+  if value == "N" then
+    return "Data Code: Number Of Trades (N)"
+  end
+  if value == "Q" then
+    return "Data Code: Previous Closing Price (Q)"
+  end
+  if value == "R" then
+    return "Data Code: Opening Volatility (R)"
+  end
+  if value == "V" then
+    return "Data Code: Published Volume (V)"
+  end
+  if value == "v" then
+    return "Data Code: Published Volume Order Modality (v)"
+  end
+  if value == "W" then
+    return "Data Code: Volume Of Last Trade (W)"
+  end
+  if value == "Z" then
+    return "Data Code: Low (Z)"
+  end
+  if value == "z" then
+    return "Data Code: Minimum Ask (z)"
+  end
+  if value == "j" then
+    return "Data Code: Closing Price (j)"
+  end
+  if value == "k" then
+    return "Data Code: Closing Yield (k)"
+  end
+  if value == "l" then
+    return "Data Code: Volatility (l)"
+  end
+  if value == "m" then
+    return "Data Code: Delta (m)"
+  end
+  if value == "n" then
+    return "Data Code: Forward Price (n)"
+  end
+
+  return "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -2197,6 +2393,29 @@ bme_bmefixedincome_retail5_bmegate_v1_6.data_count.dissect = function(buffer, of
   local display = bme_bmefixedincome_retail5_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.data_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Value
+bme_bmefixedincome_retail5_bmegate_v1_6.data_value = {}
+
+-- Size: Data Value
+bme_bmefixedincome_retail5_bmegate_v1_6.data_value.size = 8
+
+-- Display: Data Value
+bme_bmefixedincome_retail5_bmegate_v1_6.data_value.display = function(value)
+  return "Data Value: "..value
+end
+
+-- Dissect: Data Value
+bme_bmefixedincome_retail5_bmegate_v1_6.data_value.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmefixedincome_retail5_bmegate_v1_6.data_value.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = bme_bmefixedincome_retail5_bmegate_v1_6.data_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.data_value, range, value, display)
 
   return offset + length, value
 end
@@ -2254,7 +2473,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.deferral_waiver.display = function(value
     return "Deferral Waiver: Non Immediate Publication Deferral For Very Large Size Illiquid Market Vif 5 (F)"
   end
   if value == "G" then
-    return "Deferral Waiver: Non Immediate Publication Deferral For Et Cs Et Ns Sf Ps Emission Allowances Deff (G)"
+    return "Deferral Waiver: Deferral For ETCs ETNs SFPs Emission Allowances DEFF (G)"
   end
 
   return "Deferral Waiver: Unknown("..value..")"
@@ -2856,7 +3075,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.last_change_flag.display = function(valu
     return "Last Change Flag: True (1)"
   end
   if value == 255 then
-    return "Last Change Flag: Undefined (255)"
+    return "Last Change Flag: No Value"
   end
 
   return "Last Change Flag: Unknown("..value..")"
@@ -2999,7 +3218,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.liquid_instrument.display = function(val
     return "Liquid Instrument: True (1)"
   end
   if value == 255 then
-    return "Liquid Instrument: Undefined (255)"
+    return "Liquid Instrument: No Value"
   end
 
   return "Liquid Instrument: Unknown("..value..")"
@@ -3102,12 +3321,14 @@ bme_bmefixedincome_retail5_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
 bme_bmefixedincome_retail5_bmegate_v1_6.market_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Id: No Value"
+  if value == "BMEX" then
+    return "Market Id: BMEX (BMEX)"
+  end
+  if value == "XNAF" then
+    return "Market Id: XNAF (XNAF)"
   end
 
-  return "Market Id: "..value
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -3855,12 +4076,11 @@ bme_bmefixedincome_retail5_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
 bme_bmefixedincome_retail5_bmegate_v1_6.protocol_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Protocol Version: No Value"
+  if value == "BBP001" then
+    return "Protocol Version: BBP001 (BBP001)"
   end
 
-  return "Protocol Version: "..value
+  return "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -3996,6 +4216,11 @@ bme_bmefixedincome_retail5_bmegate_v1_6.security_code.size = 4
 
 -- Display: Security Code
 bme_bmefixedincome_retail5_bmegate_v1_6.security_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Security Code: No Value"
+  end
+
   return "Security Code: "..value
 end
 
@@ -4058,12 +4283,35 @@ bme_bmefixedincome_retail5_bmegate_v1_6.security_group.size = 2
 
 -- Display: Security Group
 bme_bmefixedincome_retail5_bmegate_v1_6.security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group: No Value"
+  if value == "CR" then
+    return "Security Group: MERF Corporates (CR)"
+  end
+  if value == "DB" then
+    return "Security Group: Bilbao Stock Exchange Debt (DB)"
+  end
+  if value == "DC" then
+    return "Security Group: Barcelona Stock Exchange Debt (DC)"
+  end
+  if value == "CP" then
+    return "Security Group: AIAF SEND Corporates (CP)"
+  end
+  if value == "DE" then
+    return "Security Group: AIAF Spanish Treasury Debt (DE)"
+  end
+  if value == "DT" then
+    return "Security Group: AIAF DLT Issues (DT)"
+  end
+  if value == "EX" then
+    return "Security Group: AIAF Non Spanish Issues (EX)"
+  end
+  if value == "MA" then
+    return "Security Group: MARF Corporates (MA)"
+  end
+  if value == "DS" then
+    return "Security Group: Senaf Spanish Treasury Debt (DS)"
   end
 
-  return "Security Group: "..value
+  return "Security Group: Unknown("..value..")"
 end
 
 -- Dissect: Security Group
@@ -4456,8 +4704,8 @@ bme_bmefixedincome_retail5_bmegate_v1_6.side.display = function(value)
   if value == "7" then
     return "Side: Undisclosed (7)"
   end
-  if value == "?" then
-    return "Side: Notspecified (?)"
+  if value == ? then
+    return "Side: No Value"
   end
 
   return "Side: Unknown("..value..")"
@@ -4467,7 +4715,15 @@ end
 bme_bmefixedincome_retail5_bmegate_v1_6.side.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_retail5_bmegate_v1_6.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_retail5_bmegate_v1_6.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.side, range, value, display)
@@ -4630,7 +4886,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.strippable.display = function(value)
     return "Strippable: True (1)"
   end
   if value == 255 then
-    return "Strippable: Undefined (255)"
+    return "Strippable: No Value"
   end
 
   return "Strippable: Unknown("..value..")"
@@ -4734,7 +4990,14 @@ bme_bmefixedincome_retail5_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
 bme_bmefixedincome_retail5_bmegate_v1_6.test_production_ind.display = function(value)
-  return "Test Production Ind: "..value
+  if value == "T" then
+    return "Test Production Ind: Test (T)"
+  end
+  if value == "P" then
+    return "Test Production Ind: Production (P)"
+  end
+
+  return "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -4949,7 +5212,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.trading_obligation.display = function(va
     return "Trading Obligation: True (1)"
   end
   if value == 255 then
-    return "Trading Obligation: Undefined (255)"
+    return "Trading Obligation: No Value"
   end
 
   return "Trading Obligation: Unknown("..value..")"
@@ -6696,16 +6959,77 @@ bme_bmefixedincome_retail5_bmegate_v1_6.security_list_message.dissect = function
   end
 end
 
+-- Statistics Repeating Group
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group = {}
+
+-- Size: Statistics Repeating Group
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.size =
+  bme_bmefixedincome_retail5_bmegate_v1_6.data_code.size + 
+  bme_bmefixedincome_retail5_bmegate_v1_6.data_value.size
+
+-- Display: Statistics Repeating Group
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Statistics Repeating Group
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.fields = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  local index = offset
+
+  -- Implicit Statistics Repeating Group Index
+  if statistics_repeating_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_repeating_group_index, statistics_repeating_group_index)
+    iteration:set_generated()
+  end
+
+  -- Data Code: C
+  index, data_code = bme_bmefixedincome_retail5_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+
+  -- Data Value: 8 Byte Signed Fixed Width Integer
+  index, data_value = bme_bmefixedincome_retail5_bmegate_v1_6.data_value.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Statistics Repeating Group
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.dissect = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_bme_bmefixedincome_retail5_bmegate_v1_6.fields.statistics_repeating_group, buffer(offset, 0))
+    local index = bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+  end
+end
+
 -- Statistics Message
 bme_bmefixedincome_retail5_bmegate_v1_6.statistics_message = {}
 
--- Size: Statistics Message
-bme_bmefixedincome_retail5_bmegate_v1_6.statistics_message.size =
-  bme_bmefixedincome_retail5_bmegate_v1_6.sequence_number.size + 
-  bme_bmefixedincome_retail5_bmegate_v1_6.security_code.size + 
-  bme_bmefixedincome_retail5_bmegate_v1_6.transaction_date_and_time.size + 
-  bme_bmefixedincome_retail5_bmegate_v1_6.data_count.size + 
-  bme_bmefixedincome_retail5_bmegate_v1_6.data_code.size
+-- Calculate size of: Statistics Message
+bme_bmefixedincome_retail5_bmegate_v1_6.statistics_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + bme_bmefixedincome_retail5_bmegate_v1_6.sequence_number.size
+
+  index = index + bme_bmefixedincome_retail5_bmegate_v1_6.security_code.size
+
+  index = index + bme_bmefixedincome_retail5_bmegate_v1_6.transaction_date_and_time.size
+
+  index = index + bme_bmefixedincome_retail5_bmegate_v1_6.data_count.size
+
+  -- Calculate field size from count
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + statistics_repeating_group_count * 9
+
+  return index
+end
 
 -- Display: Statistics Message
 bme_bmefixedincome_retail5_bmegate_v1_6.statistics_message.display = function(packet, parent, length)
@@ -6728,8 +7052,10 @@ bme_bmefixedincome_retail5_bmegate_v1_6.statistics_message.fields = function(buf
   -- Data Count: U
   index, data_count = bme_bmefixedincome_retail5_bmegate_v1_6.data_count.dissect(buffer, index, packet, parent)
 
-  -- Data Code: C
-  index, data_code = bme_bmefixedincome_retail5_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+  -- Repeating: Statistics Repeating Group
+  for statistics_repeating_group_index = 1, data_count do
+    index, statistics_repeating_group = bme_bmefixedincome_retail5_bmegate_v1_6.statistics_repeating_group.dissect(buffer, index, packet, parent, statistics_repeating_group_index)
+  end
 
   return index
 end

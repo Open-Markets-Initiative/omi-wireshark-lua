@@ -322,7 +322,7 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.collar_table_entry = ProtoField.ne
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.encryption_key = ProtoField.new("Encryption Key", "gpw.wse.snapshotbbo.wats.v1.7.6.20.encryptionkey", ftypes.STRING, nil, nil, nil, "Encryption key and ID")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.end_of_snapshot = ProtoField.new("End Of Snapshot", "gpw.wse.snapshotbbo.wats.v1.7.6.20.endofsnapshot", ftypes.STRING, nil, nil, nil, "Marks the end of a snapshot")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.external_underlying = ProtoField.new("External Underlying", "gpw.wse.snapshotbbo.wats.v1.7.6.20.externalunderlying", ftypes.STRING, nil, nil, nil, "The message contains a list of underlyings not traded in WATS. It concerns underlyings for derivatives and structured products")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.snapshotbbo.wats.v1.7.6.20.heartbeat", ftypes.BYTES)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.snapshotbbo.wats.v1.7.6.20.heartbeat", ftypes.BYTES, nil, nil, nil, "A message type used to check connectivity")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.index_params = ProtoField.new("Index Params", "gpw.wse.snapshotbbo.wats.v1.7.6.20.indexparams", ftypes.STRING, nil, nil, nil, "The metadata message for the given index")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.index_portfolio_entry = ProtoField.new("Index Portfolio Entry", "gpw.wse.snapshotbbo.wats.v1.7.6.20.indexportfolioentry", ftypes.STRING, nil, nil, nil, "The message contains information about a product providing the index portfolio")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.index_summary = ProtoField.new("Index Summary", "gpw.wse.snapshotbbo.wats.v1.7.6.20.indexsummary", ftypes.STRING, nil, nil, nil, "The index summary message provides a summary of the data calculated in a stock index for a given day")
@@ -332,7 +332,7 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.instrument_status_change = ProtoFi
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.instrument_summary = ProtoField.new("Instrument Summary", "gpw.wse.snapshotbbo.wats.v1.7.6.20.instrumentsummary", ftypes.STRING, nil, nil, nil, "Provides brief instrument summary")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.login = ProtoField.new("Login", "gpw.wse.snapshotbbo.wats.v1.7.6.20.login", ftypes.STRING, nil, nil, nil, "Login message to the Snapshot service")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.login_response = ProtoField.new("Login Response", "gpw.wse.snapshotbbo.wats.v1.7.6.20.loginresponse", ftypes.STRING, nil, nil, nil, "Response to a Login message")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.logout = ProtoField.new("Logout", "gpw.wse.snapshotbbo.wats.v1.7.6.20.logout", ftypes.BYTES)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.logout = ProtoField.new("Logout", "gpw.wse.snapshotbbo.wats.v1.7.6.20.logout", ftypes.BYTES, nil, nil, nil, "A Logout message is sent by the client to initiate disconnection from the service")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.market_structure = ProtoField.new("Market Structure", "gpw.wse.snapshotbbo.wats.v1.7.6.20.marketstructure", ftypes.STRING, nil, nil, nil, "Messages defining the Trading Venue’s market structure")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.news = ProtoField.new("News", "gpw.wse.snapshotbbo.wats.v1.7.6.20.news", ftypes.STRING, nil, nil, nil, "News message")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.order_collars = ProtoField.new("Order Collars", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ordercollars", ftypes.STRING, nil, nil, nil, "New order price collars")
@@ -11202,6 +11202,23 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.end_of_snapshot.dissect = function(buffer, of
   end
 end
 
+-- Logout
+gpw_wse_snapshotbbo_wats_v1_7_6_20.logout = {}
+
+-- Display: Logout
+gpw_wse_snapshotbbo_wats_v1_7_6_20.logout.display = function(packet, parent, length)
+  return "Logout"
+end
+
+
+-- Dissect: Logout
+gpw_wse_snapshotbbo_wats_v1_7_6_20.logout.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_snapshotbbo_wats_v1_7_6_20.logout.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Response
 gpw_wse_snapshotbbo_wats_v1_7_6_20.login_response = {}
 
@@ -11426,6 +11443,23 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.test_event.dissect = function(buffer, offset,
     -- Skip element, add fields directly
     return gpw_wse_snapshotbbo_wats_v1_7_6_20.test_event.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Heartbeat
+gpw_wse_snapshotbbo_wats_v1_7_6_20.heartbeat = {}
+
+-- Display: Heartbeat
+gpw_wse_snapshotbbo_wats_v1_7_6_20.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+gpw_wse_snapshotbbo_wats_v1_7_6_20.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_snapshotbbo_wats_v1_7_6_20.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Trading Session Status
@@ -14940,7 +14974,7 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.payload.dissect = function(buffer, offset, pa
   end
   -- Dissect Heartbeat
   if message_type == 1 then
-    return offset
+    return gpw_wse_snapshotbbo_wats_v1_7_6_20.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Event
   if message_type == 8192 then
@@ -14960,7 +14994,7 @@ gpw_wse_snapshotbbo_wats_v1_7_6_20.payload.dissect = function(buffer, offset, pa
   end
   -- Dissect Logout
   if message_type == 669 then
-    return offset
+    return gpw_wse_snapshotbbo_wats_v1_7_6_20.logout.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Snapshot
   if message_type == 670 then

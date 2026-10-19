@@ -74,6 +74,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.cxl_rej_reason = ProtoFiel
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "bme.bmefixedincome.orderentry.bmegate.v1.6.cxlrejresponseto", ftypes.STRING, nil, nil, nil, "Type of message responded to")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.data_code = ProtoField.new("Data Code", "bme.bmefixedincome.orderentry.bmegate.v1.6.datacode", ftypes.STRING, nil, nil, nil, "Data field code")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.data_count = ProtoField.new("Data Count", "bme.bmefixedincome.orderentry.bmegate.v1.6.datacount", ftypes.UINT8, nil, nil, nil, "Number of data values")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.data_value = ProtoField.new("Data Value", "bme.bmefixedincome.orderentry.bmegate.v1.6.datavalue", ftypes.INT64, nil, nil, nil, "Data field value. Its type follows DataCode: P (price, 6 implicit decimals) for D, d, G, H, h, M, Q, Z, z, j, k and n; V (volume, 6 implicit decimals) for J, V, v and W; A (amount, 4 implicit decimals) for E and e; R (rate, 4 implicit decimals) for l, m and R; U (unsigned integer) for f (0 if not end of session) and N")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.date_last_coupon_was_paid = ProtoField.new("Date Last Coupon Was Paid", "bme.bmefixedincome.orderentry.bmegate.v1.6.datelastcouponwaspaid", ftypes.INT32)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.dea_flag = ProtoField.new("Dea Flag", "bme.bmefixedincome.orderentry.bmegate.v1.6.deaflag", ftypes.UINT8, nil, nil, nil, "Direct Electronic Access indicator")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.dea_flag_2 = ProtoField.new("Dea Flag 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.deaflag2", ftypes.UINT8, nil, nil, nil, "Direct Electronic Access indicator")
@@ -131,15 +132,15 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.message_size = ProtoField.
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.message_type = ProtoField.new("Message Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.messagetype", ftypes.UINT8, nil, nil, nil, "Message type. Section 3.3 assigns the message code of the equivalent Fix protocol message where there is one, so Logon is 0x41, and gives the rest a hexadecimal value below 0x20 or at or above 0x80")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.min_price_increment = ProtoField.new("Min Price Increment", "bme.bmefixedincome.orderentry.bmegate.v1.6.minpriceincrement", ftypes.DOUBLE, nil, nil, nil, "Minimum Price Increment")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "bme.bmefixedincome.orderentry.bmegate.v1.6.mintradevol", ftypes.UINT32, nil, nil, nil, "Minimum Tradeable Volume")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.modality_mask_b_4 = ProtoField.new("Modality Mask B 4", "bme.bmefixedincome.orderentry.bmegate.v1.6.modalitymaskb4", ftypes.UINT32, nil, nil, nil, "Modality mask ∑ 2^(ModalityCode - 100) ModalityCode valid values are the TradingSessionID values listed in Table 25 -")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.modality_mask_b_4 = ProtoField.new("Modality Mask B 4", "bme.bmefixedincome.orderentry.bmegate.v1.6.modalitymaskb4", ftypes.UINT32, nil, nil, nil, "Modality mask ∑ 2^(ModalityCode - 100) ModalityCode valid values are the TradingSessionID values listed in Table 25 - TradingSessionID in “BMEGate Codification Tables”")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.msg_rejected_reference = ProtoField.new("Msg Rejected Reference", "bme.bmefixedincome.orderentry.bmegate.v1.6.msgrejectedreference", ftypes.BYTES, nil, nil, nil, "Provides the seven first bytes of the message being rejected")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.network_status_value = ProtoField.new("Network Status Value", "bme.bmefixedincome.orderentry.bmegate.v1.6.networkstatusvalue", ftypes.UINT8, nil, nil, nil, "Connection status")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.news_text = ProtoField.new("News Text", "bme.bmefixedincome.orderentry.bmegate.v1.6.newstext", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.next_redemption_date = ProtoField.new("Next Redemption Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.nextredemptiondate", ftypes.INT32)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.non_availability_reason = ProtoField.new("Non Availability Reason", "bme.bmefixedincome.orderentry.bmegate.v1.6.nonavailabilityreason", ftypes.UINT8, nil, nil, nil, "Reason security halted")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.number_of_decimals = ProtoField.new("Number Of Decimals", "bme.bmefixedincome.orderentry.bmegate.v1.6.numberofdecimals", ftypes.UINT8)
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordrejreason", ftypes.STRING, nil, nil, nil, "When OrdStatus = 4/8 it contains the reason for Cancellation/Reject")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_rej_reason_2 = ProtoField.new("Ord Rej Reason 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordrejreason2", ftypes.STRING, nil, nil, nil, "When OrdStatus = 4/8 it contains the reason for Cancellation/Reject")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordrejreason", ftypes.STRING, nil, nil, nil, "When OrdStatus = 4/8 it contains the reason for Cancellation/Reject. When OrdStatus # 4/8 it may contain additional information on the status of the order")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_rej_reason_2 = ProtoField.new("Ord Rej Reason 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordrejreason2", ftypes.STRING, nil, nil, nil, "When OrdStatus = 4/8 it contains the reason for Cancellation/Reject. When OrdStatus # 4/8 it may contain additional information on the status of the order")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_status = ProtoField.new("Ord Status", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordstatus", ftypes.STRING, nil, nil, nil, "Order Status")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ord_status_2 = ProtoField.new("Ord Status 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordstatus2", ftypes.STRING, nil, nil, nil, "Order Status")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_id = ProtoField.new("Order Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.orderid", ftypes.UINT32, nil, nil, nil, "Application Order ID (unique at security level)")
@@ -195,6 +196,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.sst_ipost = ProtoField.new
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.sst_ipre = ProtoField.new("Sst Ipre", "bme.bmefixedincome.orderentry.bmegate.v1.6.sstipre", ftypes.DOUBLE, nil, nil, nil, "SSTI pretransparency threshold")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.start_date = ProtoField.new("Start Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.startdate", ftypes.INT32, nil, nil, nil, "Value date")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.static_range_type = ProtoField.new("Static Range Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.staticrangetype", ftypes.STRING)
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_repeating_group = ProtoField.new("Statistics Repeating Group", "bme.bmefixedincome.orderentry.bmegate.v1.6.statisticsrepeatinggroup", ftypes.STRING, nil, nil, nil, "Repeating group of the Statistics message, one entry per data value, DataCount entries")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.status = ProtoField.new("Status", "bme.bmefixedincome.orderentry.bmegate.v1.6.status", ftypes.UINT8, nil, nil, nil, "Request accepted or rejected")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.strippable = ProtoField.new("Strippable", "bme.bmefixedincome.orderentry.bmegate.v1.6.strippable", ftypes.UINT8)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.sub_member = ProtoField.new("Sub Member", "bme.bmefixedincome.orderentry.bmegate.v1.6.submember", ftypes.STRING, nil, nil, nil, "Submember code")
@@ -204,7 +206,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.symbol = ProtoField.new("S
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.symbol_isin = ProtoField.new("Symbol Isin", "bme.bmefixedincome.orderentry.bmegate.v1.6.symbolisin", ftypes.STRING, nil, nil, nil, "Instrument ISIN")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.test_production_ind = ProtoField.new("Test Production Ind", "bme.bmefixedincome.orderentry.bmegate.v1.6.testproductionind", ftypes.STRING, nil, nil, nil, "T: Test P: Production")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.text_c_58 = ProtoField.new("Text C 58", "bme.bmefixedincome.orderentry.bmegate.v1.6.textc58", ftypes.STRING, nil, nil, nil, "Explanation of rejection")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.text_c_65 = ProtoField.new("Text C 65", "bme.bmefixedincome.orderentry.bmegate.v1.6.textc65", ftypes.STRING, nil, nil, nil, "Explanation of rejection")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.text_c_65 = ProtoField.new("Text C 65", "bme.bmefixedincome.orderentry.bmegate.v1.6.textc65", ftypes.STRING, nil, nil, nil, "Explanation of rejection. When BusinessRejectReason = 31, the first two characters of this string will contain the specific sponsored access reject code as specified in \"Sponsored Access User Manual\"")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.time_in_force = ProtoField.new("Time In Force", "bme.bmefixedincome.orderentry.bmegate.v1.6.timeinforce", ftypes.STRING, nil, nil, nil, "GTD orders are not supported")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradsesstatus", ftypes.UINT8, nil, nil, nil, "Trading session status")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradedate", ftypes.INT64, nil, nil, nil, "Trade date and time")
@@ -213,7 +215,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_session_date = Proto
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetype", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trader = ProtoField.new("Trader", "bme.bmefixedincome.orderentry.bmegate.v1.6.trader", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trader_2 = ProtoField.new("Trader 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.trader2", ftypes.STRING, nil, nil, nil, "Trader")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingobligation", ftypes.UINT8)
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Trading Obligation", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingobligation", ftypes.UINT8, nil, nil, nil, "Trading obligation. Indicates whether the security has to be traded in a regulated exchange")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_scope_b_1 = ProtoField.new("Trading Scope B 1", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingscopeb1", ftypes.UINT8, nil, nil, nil, "Trading Scope")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Trading mode")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
@@ -232,9 +234,9 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.packet = ProtoField.new("P
 
 -- Bme BmeFixedIncome OrderEntry 1.6 Application Messages
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.business_message_reject_message = ProtoField.new("Business Message Reject Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.businessmessagerejectmessage", ftypes.STRING, nil, nil, nil, "It may be sent by the server to inform about the rejection of a supported message that is syntactically correct in an unsupported situation")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_1_leg_buy_order_entry_message = ProtoField.new("Execution Private Information 1 Leg Buy Order Entry Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation1legbuyorderentrymessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where the user is involved as Seller. T Le y")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_1_leg_sell_order_entry_message = ProtoField.new("Execution Private Information 1 Leg Sell Order Entry Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation1legsellorderentrymessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where the user is involved as Seller. T Le y")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_2_legs_message = ProtoField.new("Execution Private Information 2 Legs Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation2legsmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where two orders of the user are involved both as Buyer and Seller. T Le y")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_1_leg_buy_order_entry_message = ProtoField.new("Execution Private Information 1 Leg Buy Order Entry Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation1legbuyorderentrymessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where the user is involved as Buyer. Shares the same layout as the next message")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_1_leg_sell_order_entry_message = ProtoField.new("Execution Private Information 1 Leg Sell Order Entry Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation1legsellorderentrymessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where the user is involved as Seller")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.execution_private_information_2_legs_message = ProtoField.new("Execution Private Information 2 Legs Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.executionprivateinformation2legsmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade where two orders of the user are involved both as Buyer and Seller")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.heartbeatmessage", ftypes.STRING, nil, nil, nil, "The Heartbeat message is used by the Server to indicate that the communication is active. In the Heartbeat message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.indication_of_interest_message = ProtoField.new("Indication Of Interest Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.indicationofinterestmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to notify an indication of interest on a specific instrument. This functionality is available in Fixed Income and Derivatives")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
@@ -248,29 +250,32 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.network_status_message = P
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.new_quote_message = ProtoField.new("New Quote Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.newquotemessage", ftypes.STRING, nil, nil, nil, "Message sent by the client application to create a new quote. A new quote by the same user on the same SecurityCode and with the same ClientDataID cancels the previous one")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_and_quote_client_data_message = ProtoField.new("Order And Quote Client Data Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.orderandquoteclientdatamessage", ftypes.STRING, nil, nil, nil, "Sent by the client to set default attributes for subsequent orders and quotes. Please note that in Fixed Income it is possible to enter orders on behalf of other members (AccountMember), based on the corresponding brokerage permissions")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_and_quote_client_data_parameters_ack_nack_message = ProtoField.new("Order And Quote Client Data Parameters Ack Nack Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.orderandquoteclientdataparametersacknackmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to confirm an Order and Quote Client Data Parameters message. T Le y")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_and_quote_client_data_parameters_ack_nack_message = ProtoField.new("Order And Quote Client Data Parameters Ack Nack Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.orderandquoteclientdataparametersacknackmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to confirm an Order and Quote Client Data Parameters message")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordercancelrejectmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the rejection of a Simple order modification (MsgType = 0x47) or an Order cancellation request (MsgType = 0x46)")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_cancellation_market_member_message = ProtoField.new("Order Cancellation Market Member Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordercancellationmarketmembermessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate information order cancellation. The same message is used in Full-Depth data feeds (for order cancellations of any user), in the Order Entry Server (for cancellations of user orders) and in the Market & Order Server (for order cancellations of any user)")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.order_cancellation_request_message = ProtoField.new("Order Cancellation Request Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.ordercancellationrequestmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to cancel an order. The field OrderID must contain a reference to the order that is to be cancelled")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.quote_cancellation_market_member_message = ProtoField.new("Quote Cancellation Market Member Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.quotecancellationmarketmembermessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate information about quote cancellation. The same message is used in Full-Depth data feeds (for quote cancellations of any user), in the Order Entry Server (for cancellations of user quotes) and in the Market & Order Server (for quote cancellations of any user)")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.quote_cancellation_request_message = ProtoField.new("Quote Cancellation Request Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.quotecancellationrequestmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to cancel a quote")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.quote_modification_request_message = ProtoField.new("Quote Modification Request Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.quotemodificationrequestmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to modify a quote. Field ClientDataID is required in RF to identify a quote")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.quote_status_message = ProtoField.new("Quote Status Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.quotestatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the status of a Quote. T Le y n")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.quote_status_message = ProtoField.new("Quote Status Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.quotestatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the status of a Quote")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.reject_message = ProtoField.new("Reject Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.rejectmessage", ftypes.STRING, nil, nil, nil, "It may be sent by the server to inform about the rejection of an unsupported or syntactically incorrect message. In the Reject message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_list_cancellation_report_message = ProtoField.new("Security List Cancellation Report Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitylistcancellationreportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for cancelling previously defined securities")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "T Le y Field ng Valid values Description p th e")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition. T Le y n")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_list_message = ProtoField.new("Security List Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitylistmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to provide the definition of one security. It shares the same layout as the Security List Update Report message, but with a different Message Type")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_list_update_report_message = ProtoField.new("Security List Update Report Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitylistupdatereportmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server for reporting updates, during the session, to the security definition")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.security_status_message = ProtoField.new("Security Status Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.securitystatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform on the status of one security")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.simple_new_order_message = ProtoField.new("Simple New Order Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.simplenewordermessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to enter a new order")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.simple_new_order_with_client_data_message = ProtoField.new("Simple New Order With Client Data Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.simpleneworderwithclientdatamessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to enter a new order and, at the same time, the values for the Client Data parmeters. Note that no ClientDataID may be assigned")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.simple_order_modification_message = ProtoField.new("Simple Order Modification Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.simpleordermodificationmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to modify an order. The field OrderID must contain the client reference of the order that is to be modified")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.simple_order_modification_with_client_data_message = ProtoField.new("Simple Order Modification With Client Data Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.simpleordermodificationwithclientdatamessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to modify an order. The field OrderID must contain the client reference of the order that is to be modified")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.simple_order_status_message = ProtoField.new("Simple Order Status Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.simpleorderstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the order status. Please note that the first fields of this message are the same as the ones for Order Market Pre- Transparency Information (Msg Type = 0x03) (see section 5.4.12)")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics. Le n")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetradeamendmentorcancellation1legbuyprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade as Seller")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_message = ProtoField.new("Statistics Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.statisticsmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server to inform about closing prices and other statistics")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_1_leg_buy_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 1 Leg Buy Private Information Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetradeamendmentorcancellation1legbuyprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade as Buyer. It is also sent to inform about the amendment or cancellation of whatever origin trade where the user is involved as Buyer. Shares the same layout as the next message")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_1_leg_sell_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 1 Leg Sell Private Information Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetradeamendmentorcancellation1legsellprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade as Seller")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_trade_amendment_or_cancellation_2_legs_private_information_message = ProtoField.new("Trade Trade Amendment Or Cancellation 2 Legs Private Information Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetradeamendmentorcancellation2legsprivateinformationmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about a trade produced due to any reason other than order matching, also to inform about trades produced due to order matching in a Dark pool. The user is involved in the trade both as Buyer and Seller")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to inform about the session status in each Trading Mode")
+
+-- Bme BmeFixedIncome OrderEntry BmeGate 1.6 Generated Fields
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_repeating_group_index = ProtoField.new("Statistics Repeating Group Index", "bme.bmefixedincome.orderentry.bmegate.v1.6.statisticsrepeatinggroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -282,11 +287,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.indexes = true
 
 -- Register Bme BmeFixedIncome OrderEntry BmeGate 1.6 Show Options
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs_changed()
@@ -300,6 +307,9 @@ function omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs_changed()
   end
   if show.structs ~= omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_structs then
     show.structs = omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_structs
+  end
+  if show.indexes ~= omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_indexes then
+    show.indexes = omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_indexes
   end
 end
 
@@ -671,7 +681,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.admission_requested_by_issuer.display
     return "Admission Requested By Issuer: True (1)"
   end
   if value == 255 then
-    return "Admission Requested By Issuer: Undefined (255)"
+    return "Admission Requested By Issuer: No Value"
   end
 
   return "Admission Requested By Issuer: Unknown("..value..")"
@@ -697,14 +707,14 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator.size = 1
 
 -- Display: Aggressor Indicator
 bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator.display = function(value)
-  if value == " " then
-    return "Aggressor Indicator: Na (<whitespace>)"
-  end
   if value == "P" then
     return "Aggressor Indicator: Passive (P)"
   end
   if value == "A" then
     return "Aggressor Indicator: Aggresive (A)"
+  end
+  if value == " " then
+    return "Aggressor Indicator: Not Applicable (<whitespace>)"
   end
 
   return "Aggressor Indicator: Unknown("..value..")"
@@ -714,7 +724,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.aggressor_indicator, range, value, display)
@@ -730,14 +748,14 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator_2.size = 1
 
 -- Display: Aggressor Indicator 2
 bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator_2.display = function(value)
-  if value == " " then
-    return "Aggressor Indicator 2: Na (<whitespace>)"
-  end
   if value == "P" then
     return "Aggressor Indicator 2: Passive (P)"
   end
   if value == "A" then
     return "Aggressor Indicator 2: Aggressive (A)"
+  end
+  if value == " " then
+    return "Aggressor Indicator 2: Not Applicable (<whitespace>)"
   end
 
   return "Aggressor Indicator 2: Unknown("..value..")"
@@ -747,7 +765,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator_2.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.aggressor_indicator_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.aggressor_indicator_2, range, value, display)
@@ -770,7 +796,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.algo_flag.display = function(value)
     return "Algo Flag: True (1)"
   end
   if value == 255 then
-    return "Algo Flag: Undefined (255)"
+    return "Algo Flag: No Value"
   end
 
   return "Algo Flag: Unknown("..value..")"
@@ -803,7 +829,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.algorithmic_trade_indicator.display =
     return "Algorithmic Trade Indicator: True (1)"
   end
   if value == 255 then
-    return "Algorithmic Trade Indicator: Undefined (255)"
+    return "Algorithmic Trade Indicator: No Value"
   end
 
   return "Algorithmic Trade Indicator: Unknown("..value..")"
@@ -836,7 +862,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.algorithmic_trade_indicator_2.display
     return "Algorithmic Trade Indicator 2: True (1)"
   end
   if value == 255 then
-    return "Algorithmic Trade Indicator 2: Undefined (255)"
+    return "Algorithmic Trade Indicator 2: No Value"
   end
 
   return "Algorithmic Trade Indicator 2: Unknown("..value..")"
@@ -1060,12 +1086,22 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1 = {}
 bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.size = 8
 
 -- Display: Ask Px 1
-bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.display = function(value)
+bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Ask Px 1: No Value"
+  end
+
   return "Ask Px 1: "..value
 end
 
 -- Translate: Ask Px 1
 bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1075,7 +1111,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.dissect = function(buffer, o
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.translate(raw)
-  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.ask_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ask_px_1, range, value, display)
 
@@ -1120,7 +1156,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark.display = function(value)
     return "Benchmark: True (1)"
   end
   if value == 255 then
-    return "Benchmark: Undefined (255)"
+    return "Benchmark: No Value"
   end
 
   return "Benchmark: Unknown("..value..")"
@@ -1146,12 +1182,20 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark_curve_points_units.size = 4
 
 -- Display: Benchmark Curve Points Units
 bme_bmefixedincome_orderentry_bmegate_v1_6.benchmark_curve_points_units.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Benchmark Curve Points Units: No Value"
+  if value == "DAYS" then
+    return "Benchmark Curve Points Units: Days (DAYS)"
+  end
+  if value == "WEEK" then
+    return "Benchmark Curve Points Units: Week (WEEK)"
+  end
+  if value == "MNTH" then
+    return "Benchmark Curve Points Units: Month (MNTH)"
+  end
+  if value == "YEAR" then
+    return "Benchmark Curve Points Units: Year (YEAR)"
   end
 
-  return "Benchmark Curve Points Units: "..value
+  return "Benchmark Curve Points Units: Unknown("..value..")"
 end
 
 -- Dissect: Benchmark Curve Points Units
@@ -1276,12 +1320,22 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1 = {}
 bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.size = 8
 
 -- Display: Bid Px 1
-bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.display = function(value)
+bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Bid Px 1: No Value"
+  end
+
   return "Bid Px 1: "..value
 end
 
 -- Translate: Bid Px 1
 bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000
 end
 
@@ -1291,7 +1345,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.dissect = function(buffer, o
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.translate(raw)
-  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.display(value, buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.bid_px_1.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.bid_px_1, range, value, display)
 
@@ -1597,11 +1651,11 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code.size = 1
 
 -- Display: Ccp Code
 bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code.display = function(value)
-  if value == "0" then
-    return "Ccp Code: Na (0)"
-  end
   if value == "1" then
     return "Ccp Code: Bme Clearing… Others To Be Defined (1)"
+  end
+  if value == 0 then
+    return "Ccp Code: Not Applicable"
   end
 
   return "Ccp Code: Unknown("..value..")"
@@ -1611,7 +1665,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ccp_code, range, value, display)
@@ -1627,11 +1689,11 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code_2.size = 1
 
 -- Display: Ccp Code 2
 bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code_2.display = function(value)
-  if value == "0" then
-    return "Ccp Code 2: Na (0)"
-  end
   if value == "1" then
     return "Ccp Code 2: Bme Clearing… Others To Be Defined (1)"
+  end
+  if value == 0 then
+    return "Ccp Code 2: Not Applicable"
   end
 
   return "Ccp Code 2: Unknown("..value..")"
@@ -1641,7 +1703,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code_2.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.ccp_code_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ccp_code_2, range, value, display)
@@ -1919,7 +1989,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.coupon_quotation.display = function(v
     return "Coupon Quotation: True (1)"
   end
   if value == 255 then
-    return "Coupon Quotation: Undefined (255)"
+    return "Coupon Quotation: No Value"
   end
 
   return "Coupon Quotation: Unknown("..value..")"
@@ -1981,7 +2051,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.coupon_type.display = function(value)
     return "Coupon Type: Variable (V)"
   end
   if value == " " then
-    return "Coupon Type: Na (<whitespace>)"
+    return "Coupon Type: Not Applicable (<whitespace>)"
   end
 
   return "Coupon Type: Unknown("..value..")"
@@ -1991,7 +2061,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.coupon_type.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.coupon_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.coupon_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.coupon_type, range, value, display)
@@ -2218,7 +2296,77 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.size = 1
 
 -- Display: Data Code
 bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.display = function(value)
-  return "Data Code: "..value
+  if value == "D" then
+    return "Data Code: Average Price (D)"
+  end
+  if value == "d" then
+    return "Data Code: Previous Forward Price (d)"
+  end
+  if value == "E" then
+    return "Data Code: Published Cash Amount (E)"
+  end
+  if value == "e" then
+    return "Data Code: Order Modality Cash Amount (e)"
+  end
+  if value == "f" then
+    return "Data Code: End Of Session Indicator (f)"
+  end
+  if value == "G" then
+    return "Data Code: First (G)"
+  end
+  if value == "H" then
+    return "Data Code: High (H)"
+  end
+  if value == "h" then
+    return "Data Code: Maximum Bid (h)"
+  end
+  if value == "J" then
+    return "Data Code: Not Published Volume (J)"
+  end
+  if value == "M" then
+    return "Data Code: Last (M)"
+  end
+  if value == "N" then
+    return "Data Code: Number Of Trades (N)"
+  end
+  if value == "Q" then
+    return "Data Code: Previous Closing Price (Q)"
+  end
+  if value == "R" then
+    return "Data Code: Opening Volatility (R)"
+  end
+  if value == "V" then
+    return "Data Code: Published Volume (V)"
+  end
+  if value == "v" then
+    return "Data Code: Published Volume Order Modality (v)"
+  end
+  if value == "W" then
+    return "Data Code: Volume Of Last Trade (W)"
+  end
+  if value == "Z" then
+    return "Data Code: Low (Z)"
+  end
+  if value == "z" then
+    return "Data Code: Minimum Ask (z)"
+  end
+  if value == "j" then
+    return "Data Code: Closing Price (j)"
+  end
+  if value == "k" then
+    return "Data Code: Closing Yield (k)"
+  end
+  if value == "l" then
+    return "Data Code: Volatility (l)"
+  end
+  if value == "m" then
+    return "Data Code: Delta (m)"
+  end
+  if value == "n" then
+    return "Data Code: Forward Price (n)"
+  end
+
+  return "Data Code: Unknown("..value..")"
 end
 
 -- Dissect: Data Code
@@ -2252,6 +2400,29 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.data_count.dissect = function(buffer,
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.data_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Data Value
+bme_bmefixedincome_orderentry_bmegate_v1_6.data_value = {}
+
+-- Size: Data Value
+bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.size = 8
+
+-- Display: Data Value
+bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.display = function(value)
+  return "Data Value: "..value
+end
+
+-- Dissect: Data Value
+bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.dissect = function(buffer, offset, packet, parent)
+  local length = bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.data_value, range, value, display)
 
   return offset + length, value
 end
@@ -2294,7 +2465,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.dea_flag.display = function(value)
     return "Dea Flag: True (1)"
   end
   if value == 255 then
-    return "Dea Flag: Undefined (255)"
+    return "Dea Flag: No Value"
   end
 
   return "Dea Flag: Unknown("..value..")"
@@ -2327,7 +2498,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.dea_flag_2.display = function(value)
     return "Dea Flag 2: True (1)"
   end
   if value == 255 then
-    return "Dea Flag 2: Undefined (255)"
+    return "Dea Flag 2: No Value"
   end
 
   return "Dea Flag 2: Unknown("..value..")"
@@ -2421,7 +2592,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.deferral_waiver.display = function(va
     return "Deferral Waiver: Non Immediate Publication Deferral For Very Large Size Illiquid Market Vif 5 (F)"
   end
   if value == "G" then
-    return "Deferral Waiver: Non Immediate Publication Deferral For Et Cs Et Ns Sf Ps Emission Allowances Deff (G)"
+    return "Deferral Waiver: Deferral For ETCs ETNs SFPs Emission Allowances DEFF (G)"
   end
 
   return "Deferral Waiver: Unknown("..value..")"
@@ -3341,7 +3512,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.last_change_flag.display = function(v
     return "Last Change Flag: True (1)"
   end
   if value == 255 then
-    return "Last Change Flag: Undefined (255)"
+    return "Last Change Flag: No Value"
   end
 
   return "Last Change Flag: Unknown("..value..")"
@@ -3484,7 +3655,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.liquid_instrument.display = function(
     return "Liquid Instrument: True (1)"
   end
   if value == 255 then
-    return "Liquid Instrument: Undefined (255)"
+    return "Liquid Instrument: No Value"
   end
 
   return "Liquid Instrument: Unknown("..value..")"
@@ -3517,7 +3688,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.liquidity_provision_activity.display 
     return "Liquidity Provision Activity: True (1)"
   end
   if value == 255 then
-    return "Liquidity Provision Activity: Undefined (255)"
+    return "Liquidity Provision Activity: No Value"
   end
 
   return "Liquidity Provision Activity: Unknown("..value..")"
@@ -3550,7 +3721,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.liquidity_provision_activity_2.displa
     return "Liquidity Provision Activity 2: True (1)"
   end
   if value == 255 then
-    return "Liquidity Provision Activity 2: Undefined (255)"
+    return "Liquidity Provision Activity 2: No Value"
   end
 
   return "Liquidity Provision Activity 2: Unknown("..value..")"
@@ -3653,12 +3824,14 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.market_id.size = 4
 
 -- Display: Market Id
 bme_bmefixedincome_orderentry_bmegate_v1_6.market_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Market Id: No Value"
+  if value == "BMEX" then
+    return "Market Id: BMEX (BMEX)"
+  end
+  if value == "XNAF" then
+    return "Market Id: XNAF (XNAF)"
   end
 
-  return "Market Id: "..value
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -4441,6 +4614,39 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_rej_reason.display = function(val
   if value == "x" then
     return "Ord Rej Reason: Invalid Ork Fields (x)"
   end
+  if value == "L" then
+    return "Ord Rej Reason: Priority Change Due To Change In Price (L)"
+  end
+  if value == "M" then
+    return "Ord Rej Reason: Priority Change Due To Volume Increase (M)"
+  end
+  if value == "N" then
+    return "Ord Rej Reason: Priority Change Due To New Client Account Capacity (N)"
+  end
+  if value == "P" then
+    return "Ord Rej Reason: Priority Change Due To Both Price Change And Volume Increase (P)"
+  end
+  if value == "R" then
+    return "Ord Rej Reason: Priority Change Due To Both Price And Client Account (R)"
+  end
+  if value == "S" then
+    return "Ord Rej Reason: Priority Change Due To Both Volume Increase And Client Account (S)"
+  end
+  if value == "T" then
+    return "Ord Rej Reason: Modification Without Priority Change (T)"
+  end
+  if value == "U" then
+    return "Ord Rej Reason: Stop Order Triggered At The Close Order Activation (U)"
+  end
+  if value == "V" then
+    return "Ord Rej Reason: Not A Member Of Pit (V)"
+  end
+  if value == "Y" then
+    return "Ord Rej Reason: New Volume Shown (Y)"
+  end
+  if value == "q" then
+    return "Ord Rej Reason: Not Executed Due To Exceded Volume Cap (q)"
+  end
 
   return "Ord Rej Reason: Unknown("..value..")"
 end
@@ -4536,6 +4742,39 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.ord_rej_reason_2.display = function(v
   end
   if value == "x" then
     return "Ord Rej Reason 2: Invalid Ork Fields (x)"
+  end
+  if value == "L" then
+    return "Ord Rej Reason 2: Priority Change Due To Change In Price (L)"
+  end
+  if value == "M" then
+    return "Ord Rej Reason 2: Priority Change Due To Volume Increase (M)"
+  end
+  if value == "N" then
+    return "Ord Rej Reason 2: Priority Change Due To New Client Account Capacity (N)"
+  end
+  if value == "P" then
+    return "Ord Rej Reason 2: Priority Change Due To Both Price Change And Volume Increase (P)"
+  end
+  if value == "R" then
+    return "Ord Rej Reason 2: Priority Change Due To Both Price And Client Account (R)"
+  end
+  if value == "S" then
+    return "Ord Rej Reason 2: Priority Change Due To Both Volume Increase And Client Account (S)"
+  end
+  if value == "T" then
+    return "Ord Rej Reason 2: Modification Without Priority Change (T)"
+  end
+  if value == "U" then
+    return "Ord Rej Reason 2: Stop Order Triggered At The Close Order Activation (U)"
+  end
+  if value == "V" then
+    return "Ord Rej Reason 2: Not A Member Of Pit (V)"
+  end
+  if value == "Y" then
+    return "Ord Rej Reason 2: New Volume Shown (Y)"
+  end
+  if value == "q" then
+    return "Ord Rej Reason 2: Not Executed Due To Exceded Volume Cap (q)"
   end
 
   return "Ord Rej Reason 2: Unknown("..value..")"
@@ -5170,12 +5409,11 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.protocol_version.size = 6
 
 -- Display: Protocol Version
 bme_bmefixedincome_orderentry_bmegate_v1_6.protocol_version.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Protocol Version: No Value"
+  if value == "BBP001" then
+    return "Protocol Version: BBP001 (BBP001)"
   end
 
-  return "Protocol Version: "..value
+  return "Protocol Version: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Version
@@ -5533,6 +5771,11 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.security_code.size = 4
 
 -- Display: Security Code
 bme_bmefixedincome_orderentry_bmegate_v1_6.security_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Security Code: No Value"
+  end
+
   return "Security Code: "..value
 end
 
@@ -5595,12 +5838,35 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.security_group.size = 2
 
 -- Display: Security Group
 bme_bmefixedincome_orderentry_bmegate_v1_6.security_group.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Security Group: No Value"
+  if value == "CR" then
+    return "Security Group: MERF Corporates (CR)"
+  end
+  if value == "DB" then
+    return "Security Group: Bilbao Stock Exchange Debt (DB)"
+  end
+  if value == "DC" then
+    return "Security Group: Barcelona Stock Exchange Debt (DC)"
+  end
+  if value == "CP" then
+    return "Security Group: AIAF SEND Corporates (CP)"
+  end
+  if value == "DE" then
+    return "Security Group: AIAF Spanish Treasury Debt (DE)"
+  end
+  if value == "DT" then
+    return "Security Group: AIAF DLT Issues (DT)"
+  end
+  if value == "EX" then
+    return "Security Group: AIAF Non Spanish Issues (EX)"
+  end
+  if value == "MA" then
+    return "Security Group: MARF Corporates (MA)"
+  end
+  if value == "DS" then
+    return "Security Group: Senaf Spanish Treasury Debt (DS)"
   end
 
-  return "Security Group: "..value
+  return "Security Group: Unknown("..value..")"
 end
 
 -- Dissect: Security Group
@@ -6009,8 +6275,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.side.display = function(value)
   if value == "7" then
     return "Side: Undisclosed (7)"
   end
-  if value == "?" then
-    return "Side: Notspecified (?)"
+  if value == ? then
+    return "Side: No Value"
   end
 
   return "Side: Unknown("..value..")"
@@ -6020,7 +6286,15 @@ end
 bme_bmefixedincome_orderentry_bmegate_v1_6.side.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_orderentry_bmegate_v1_6.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = bme_bmefixedincome_orderentry_bmegate_v1_6.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.side, range, value, display)
@@ -6222,7 +6496,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.status.display = function(value)
     return "Status: True (1)"
   end
   if value == 255 then
-    return "Status: Undefined (255)"
+    return "Status: No Value"
   end
 
   return "Status: Unknown("..value..")"
@@ -6255,7 +6529,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.strippable.display = function(value)
     return "Strippable: True (1)"
   end
   if value == 255 then
-    return "Strippable: Undefined (255)"
+    return "Strippable: No Value"
   end
 
   return "Strippable: Unknown("..value..")"
@@ -6428,7 +6702,14 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.test_production_ind.size = 1
 
 -- Display: Test Production Ind
 bme_bmefixedincome_orderentry_bmegate_v1_6.test_production_ind.display = function(value)
-  return "Test Production Ind: "..value
+  if value == "T" then
+    return "Test Production Ind: Test (T)"
+  end
+  if value == "P" then
+    return "Test Production Ind: Production (P)"
+  end
+
+  return "Test Production Ind: Unknown("..value..")"
 end
 
 -- Dissect: Test Production Ind
@@ -6529,7 +6810,17 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.time_in_force.size = 1
 
 -- Display: Time In Force
 bme_bmefixedincome_orderentry_bmegate_v1_6.time_in_force.display = function(value)
-  return "Time In Force: "..value
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "3" then
+    return "Time In Force: Immediate Or Cancel IOC (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fill Or Kill FOK (4)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -6822,7 +7113,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.trading_obligation.display = function
     return "Trading Obligation: True (1)"
   end
   if value == 255 then
-    return "Trading Obligation: Undefined (255)"
+    return "Trading Obligation: No Value"
   end
 
   return "Trading Obligation: Unknown("..value..")"
@@ -8736,7 +9027,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.business_message_reject_message.size 
   bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_date_and_time.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.ref_msg_type.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.business_reject_reason.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.text_c_65.size
+  bme_bmefixedincome_orderentry_bmegate_v1_6.text_c_65.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.request_id.size
 
 -- Display: Business Message Reject Message
 bme_bmefixedincome_orderentry_bmegate_v1_6.business_message_reject_message.display = function(packet, parent, length)
@@ -8761,6 +9053,9 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.business_message_reject_message.field
 
   -- Text C 65: C
   index, text_c_65 = bme_bmefixedincome_orderentry_bmegate_v1_6.text_c_65.dissect(buffer, index, packet, parent)
+
+  -- Request Id: U
+  index, request_id = bme_bmefixedincome_orderentry_bmegate_v1_6.request_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8905,7 +9200,8 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.order_cancel_reject_message.size =
   bme_bmefixedincome_orderentry_bmegate_v1_6.order_id.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.ord_status.size + 
   bme_bmefixedincome_orderentry_bmegate_v1_6.cxl_rej_response_to.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.cxl_rej_reason.size
+  bme_bmefixedincome_orderentry_bmegate_v1_6.cxl_rej_reason.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.request_id.size
 
 -- Display: Order Cancel Reject Message
 bme_bmefixedincome_orderentry_bmegate_v1_6.order_cancel_reject_message.display = function(packet, parent, length)
@@ -8933,6 +9229,9 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.order_cancel_reject_message.fields = 
 
   -- Cxl Rej Reason: C
   index, cxl_rej_reason = bme_bmefixedincome_orderentry_bmegate_v1_6.cxl_rej_reason.dissect(buffer, index, packet, parent)
+
+  -- Request Id: U
+  index, request_id = bme_bmefixedincome_orderentry_bmegate_v1_6.request_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10871,16 +11170,77 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.security_list_message.dissect = funct
   end
 end
 
+-- Statistics Repeating Group
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group = {}
+
+-- Size: Statistics Repeating Group
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.size =
+  bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.size + 
+  bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.size
+
+-- Display: Statistics Repeating Group
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Statistics Repeating Group
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.fields = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  local index = offset
+
+  -- Implicit Statistics Repeating Group Index
+  if statistics_repeating_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_repeating_group_index, statistics_repeating_group_index)
+    iteration:set_generated()
+  end
+
+  -- Data Code: C
+  index, data_code = bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+
+  -- Data Value: 8 Byte Signed Fixed Width Integer
+  index, data_value = bme_bmefixedincome_orderentry_bmegate_v1_6.data_value.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Statistics Repeating Group
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.dissect = function(buffer, offset, packet, parent, statistics_repeating_group_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.statistics_repeating_group, buffer(offset, 0))
+    local index = bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.fields(buffer, offset, packet, parent, statistics_repeating_group_index)
+  end
+end
+
 -- Statistics Message
 bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_message = {}
 
--- Size: Statistics Message
-bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_message.size =
-  bme_bmefixedincome_orderentry_bmegate_v1_6.sequence_number.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.security_code.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_date_and_time.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.data_count.size + 
-  bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.size
+-- Calculate size of: Statistics Message
+bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + bme_bmefixedincome_orderentry_bmegate_v1_6.sequence_number.size
+
+  index = index + bme_bmefixedincome_orderentry_bmegate_v1_6.security_code.size
+
+  index = index + bme_bmefixedincome_orderentry_bmegate_v1_6.transaction_date_and_time.size
+
+  index = index + bme_bmefixedincome_orderentry_bmegate_v1_6.data_count.size
+
+  -- Calculate field size from count
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + statistics_repeating_group_count * 9
+
+  return index
+end
 
 -- Display: Statistics Message
 bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_message.display = function(packet, parent, length)
@@ -10903,8 +11263,10 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_message.fields = function(
   -- Data Count: U
   index, data_count = bme_bmefixedincome_orderentry_bmegate_v1_6.data_count.dissect(buffer, index, packet, parent)
 
-  -- Data Code: C
-  index, data_code = bme_bmefixedincome_orderentry_bmegate_v1_6.data_code.dissect(buffer, index, packet, parent)
+  -- Repeating: Statistics Repeating Group
+  for statistics_repeating_group_index = 1, data_count do
+    index, statistics_repeating_group = bme_bmefixedincome_orderentry_bmegate_v1_6.statistics_repeating_group.dissect(buffer, index, packet, parent, statistics_repeating_group_index)
+  end
 
   return index
 end

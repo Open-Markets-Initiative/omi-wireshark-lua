@@ -144,12 +144,12 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.packet = ProtoField.new("Packet", "
 -- Gpw Wse OrderEntry 1.7.6.20 Application Messages
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.bid_offer_update = ProtoField.new("Bid Offer Update", "gpw.wse.orderentry.wats.v1.7.6.20.bidofferupdate", ftypes.STRING, nil, nil, nil, "Message send during the IPO to the sell side or during the Tender Offer to the buy side")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.connection_close = ProtoField.new("Connection Close", "gpw.wse.orderentry.wats.v1.7.6.20.connectionclose", ftypes.STRING, nil, nil, nil, "The ConnectionClose message confirms the termination of a session through the trading port service")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.gap_fill = ProtoField.new("Gap Fill", "gpw.wse.orderentry.wats.v1.7.6.20.gapfill", ftypes.BYTES)
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.orderentry.wats.v1.7.6.20.heartbeat", ftypes.BYTES)
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.gap_fill = ProtoField.new("Gap Fill", "gpw.wse.orderentry.wats.v1.7.6.20.gapfill", ftypes.BYTES, nil, nil, nil, "Create a SeqNum gap bettwen current SeqNum and header::seqNum")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.heartbeat = ProtoField.new("Heartbeat", "gpw.wse.orderentry.wats.v1.7.6.20.heartbeat", ftypes.BYTES, nil, nil, nil, "Heartbeat message")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.login = ProtoField.new("Login", "gpw.wse.orderentry.wats.v1.7.6.20.login", ftypes.STRING, nil, nil, nil, "The login message authenticates a user establishing a connection to the trading port service. The login message must be the first message sent by the client application to request the initiation of a trading port session")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.login_response = ProtoField.new("Login Response", "gpw.wse.orderentry.wats.v1.7.6.20.loginresponse", ftypes.STRING, nil, nil, nil, "The login response message. The result field describes the login status, indicating whether the login was successful or not (i.e. successful login)")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.logout = ProtoField.new("Logout", "gpw.wse.orderentry.wats.v1.7.6.20.logout", ftypes.BYTES)
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.logout_response = ProtoField.new("Logout Response", "gpw.wse.orderentry.wats.v1.7.6.20.logoutresponse", ftypes.BYTES)
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.logout = ProtoField.new("Logout", "gpw.wse.orderentry.wats.v1.7.6.20.logout", ftypes.BYTES, nil, nil, nil, "The logout message is sent from the client application to terminate the communication session with the trading port")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.logout_response = ProtoField.new("Logout Response", "gpw.wse.orderentry.wats.v1.7.6.20.logoutresponse", ftypes.BYTES, nil, nil, nil, "The logout response message confirms the client logout message")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.market_maker_command = ProtoField.new("Market Maker Command", "gpw.wse.orderentry.wats.v1.7.6.20.marketmakercommand", ftypes.STRING, nil, nil, nil, "Market Maker command request")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.market_maker_command_response = ProtoField.new("Market Maker Command Response", "gpw.wse.orderentry.wats.v1.7.6.20.marketmakercommandresponse", ftypes.STRING, nil, nil, nil, "The response to the Market Maker command")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote = ProtoField.new("Mass Quote", "gpw.wse.orderentry.wats.v1.7.6.20.massquote", ftypes.STRING)
@@ -6606,6 +6606,23 @@ gpw_wse_orderentry_wats_v1_7_6_20.test.dissect = function(buffer, offset, packet
   end
 end
 
+-- Gap Fill
+gpw_wse_orderentry_wats_v1_7_6_20.gap_fill = {}
+
+-- Display: Gap Fill
+gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.display = function(packet, parent, length)
+  return "Gap Fill"
+end
+
+
+-- Dissect: Gap Fill
+gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Reject
 gpw_wse_orderentry_wats_v1_7_6_20.reject = {}
 
@@ -6650,6 +6667,23 @@ gpw_wse_orderentry_wats_v1_7_6_20.reject.dissect = function(buffer, offset, pack
   end
 end
 
+-- Heartbeat
+gpw_wse_orderentry_wats_v1_7_6_20.heartbeat = {}
+
+-- Display: Heartbeat
+gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Connection Close
 gpw_wse_orderentry_wats_v1_7_6_20.connection_close = {}
 
@@ -6688,6 +6722,40 @@ gpw_wse_orderentry_wats_v1_7_6_20.connection_close.dissect = function(buffer, of
     -- Skip element, add fields directly
     return gpw_wse_orderentry_wats_v1_7_6_20.connection_close.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Logout Response
+gpw_wse_orderentry_wats_v1_7_6_20.logout_response = {}
+
+-- Display: Logout Response
+gpw_wse_orderentry_wats_v1_7_6_20.logout_response.display = function(packet, parent, length)
+  return "Logout Response"
+end
+
+
+-- Dissect: Logout Response
+gpw_wse_orderentry_wats_v1_7_6_20.logout_response.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.logout_response.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout
+gpw_wse_orderentry_wats_v1_7_6_20.logout = {}
+
+-- Display: Logout
+gpw_wse_orderentry_wats_v1_7_6_20.logout.display = function(packet, parent, length)
+  return "Logout"
+end
+
+
+-- Dissect: Logout
+gpw_wse_orderentry_wats_v1_7_6_20.logout.dissect = function(buffer, offset, packet, parent)
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.logout.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Login Response
@@ -6813,11 +6881,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.payload.dissect = function(buffer, offset, pac
   end
   -- Dissect Logout
   if message_type == 11 then
-    return offset
+    return gpw_wse_orderentry_wats_v1_7_6_20.logout.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Response
   if message_type == 14 then
-    return offset
+    return gpw_wse_orderentry_wats_v1_7_6_20.logout_response.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Connection Close
   if message_type == 12 then
@@ -6825,7 +6893,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.payload.dissect = function(buffer, offset, pac
   end
   -- Dissect Heartbeat
   if message_type == 13 then
-    return offset
+    return gpw_wse_orderentry_wats_v1_7_6_20.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject
   if message_type == 15 then
@@ -6833,7 +6901,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.payload.dissect = function(buffer, offset, pac
   end
   -- Dissect Gap Fill
   if message_type == 34 then
-    return offset
+    return gpw_wse_orderentry_wats_v1_7_6_20.gap_fill.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test
   if message_type == 1 then
