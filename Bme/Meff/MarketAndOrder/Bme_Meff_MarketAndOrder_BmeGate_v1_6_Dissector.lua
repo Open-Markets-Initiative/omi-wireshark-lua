@@ -7282,7 +7282,7 @@ bme_meff_marketandorder_bmegate_v1_6.product_type.display = function(value)
   if value == "R" then
     return "Product Type: Roll Over (R)"
   end
-  if value == ? then
+  if value == 0 then
     return "Product Type: Not Specified"
   end
 
@@ -8895,7 +8895,7 @@ bme_meff_marketandorder_bmegate_v1_6.side.display = function(value)
   if value == "7" then
     return "Side: Undisclosed (7)"
   end
-  if value == ? then
+  if value == 0 then
     return "Side: No Value"
   end
 

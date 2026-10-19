@@ -5773,7 +5773,7 @@ bme_meff_fulldepth_bmegate_v1_6.side.display = function(value)
   if value == "7" then
     return "Side: Undisclosed (7)"
   end
-  if value == ? then
+  if value == 0 then
     return "Side: No Value"
   end
 

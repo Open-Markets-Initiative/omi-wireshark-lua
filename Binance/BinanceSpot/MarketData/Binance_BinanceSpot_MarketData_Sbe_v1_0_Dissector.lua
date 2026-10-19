@@ -754,20 +754,34 @@ binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.display = function(v
 end
 
 -- Composite: Ask Price Calculate
-binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.composite = function(buffer, offset, stored_price_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.ask_price.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_price_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.ask_price.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price, range, mantissa, mantissa_display)
 
+  local stored_price_exponent_entry = field_tree:add("Price Exponent: " .. tostring(stored_price_exponent))
+  stored_price_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_price_exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current
+
+    if stored_price_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.ask_price_calculate.composite(buffer, offset, stored_price_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.ask_price.dissect(buffer, offset, packet, parent)
 end
 
 -- Ask Qty Calculate
@@ -779,20 +793,34 @@ binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.display = function(val
 end
 
 -- Composite: Ask Qty Calculate
-binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.composite = function(buffer, offset, stored_qty_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.ask_qty.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_qty_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.ask_qty.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty, range, mantissa, mantissa_display)
 
+  local stored_qty_exponent_entry = field_tree:add("Qty Exponent: " .. tostring(stored_qty_exponent))
+  stored_qty_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Ask Qty Calculate
+binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_qty_exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current
+
+    if stored_qty_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.ask_qty_calculate.composite(buffer, offset, stored_qty_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.ask_qty.dissect(buffer, offset, packet, parent)
 end
 
 -- Bid Price Calculate
@@ -804,20 +832,34 @@ binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.display = function(v
 end
 
 -- Composite: Bid Price Calculate
-binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.composite = function(buffer, offset, stored_price_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.bid_price.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_price_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.bid_price.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price, range, mantissa, mantissa_display)
 
+  local stored_price_exponent_entry = field_tree:add("Price Exponent: " .. tostring(stored_price_exponent))
+  stored_price_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_price_exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current
+
+    if stored_price_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.bid_price_calculate.composite(buffer, offset, stored_price_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.bid_price.dissect(buffer, offset, packet, parent)
 end
 
 -- Bid Qty Calculate
@@ -829,20 +871,34 @@ binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.display = function(val
 end
 
 -- Composite: Bid Qty Calculate
-binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.composite = function(buffer, offset, stored_qty_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.bid_qty.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_qty_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.bid_qty.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty, range, mantissa, mantissa_display)
 
+  local stored_qty_exponent_entry = field_tree:add("Qty Exponent: " .. tostring(stored_qty_exponent))
+  stored_qty_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Bid Qty Calculate
+binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_qty_exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current
+
+    if stored_qty_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.bid_qty_calculate.composite(buffer, offset, stored_qty_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.bid_qty.dissect(buffer, offset, packet, parent)
 end
 
 -- Price Calculate
@@ -854,20 +910,34 @@ binance_binancespot_marketdata_sbe_v1_0.price_calculate.display = function(value
 end
 
 -- Composite: Price Calculate
-binance_binancespot_marketdata_sbe_v1_0.price_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.price_calculate.composite = function(buffer, offset, stored_price_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.price.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_price_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.price_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.price_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.price.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.price, range, mantissa, mantissa_display)
 
+  local stored_price_exponent_entry = field_tree:add("Price Exponent: " .. tostring(stored_price_exponent))
+  stored_price_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Price Calculate
+binance_binancespot_marketdata_sbe_v1_0.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_price_exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current
+
+    if stored_price_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.price_calculate.composite(buffer, offset, stored_price_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.price.dissect(buffer, offset, packet, parent)
 end
 
 -- Qty Calculate
@@ -879,20 +949,34 @@ binance_binancespot_marketdata_sbe_v1_0.qty_calculate.display = function(value)
 end
 
 -- Composite: Qty Calculate
-binance_binancespot_marketdata_sbe_v1_0.qty_calculate.composite = function(buffer, offset, packet, parent)
+binance_binancespot_marketdata_sbe_v1_0.qty_calculate.composite = function(buffer, offset, stored_qty_exponent, packet, parent)
   local length = binance_binancespot_marketdata_sbe_v1_0.qty.size
   local range = buffer(offset, length)
   local mantissa = range:le_int64()
-  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
-  local value = mantissa * (10 ^ exponent)
+  local value = mantissa * (10 ^ stored_qty_exponent)
   local display = binance_binancespot_marketdata_sbe_v1_0.qty_calculate.display(value)
-
   local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty_calculate, range, value, display)
   local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.qty.display(mantissa)
 
   field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty, range, mantissa, mantissa_display)
 
+  local stored_qty_exponent_entry = field_tree:add("Qty Exponent: " .. tostring(stored_qty_exponent))
+  stored_qty_exponent_entry:set_generated()
+
   return offset + length, value
+end
+
+-- Dissect: Qty Calculate
+binance_binancespot_marketdata_sbe_v1_0.qty_calculate.dissect = function(buffer, offset, packet, parent)
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals then
+    local stored_qty_exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current
+
+    if stored_qty_exponent ~= nil then
+      return binance_binancespot_marketdata_sbe_v1_0.qty_calculate.composite(buffer, offset, stored_qty_exponent, packet, parent)
+    end
+  end
+
+  return binance_binancespot_marketdata_sbe_v1_0.qty.dissect(buffer, offset, packet, parent)
 end
 
 
