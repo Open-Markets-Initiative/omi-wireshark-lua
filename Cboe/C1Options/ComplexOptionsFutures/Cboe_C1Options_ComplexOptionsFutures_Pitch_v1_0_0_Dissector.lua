@@ -3542,15 +3542,15 @@ cboe_c1options_complexoptionsfutures_pitch_v1_0_0.time_message.fields = function
   -- Time: Binary
   index, time = cboe_c1options_complexoptionsfutures_pitch_v1_0_0.time.dissect(buffer, index, packet, parent)
 
-  -- Epoch Time: Binary
-  index, epoch_time = cboe_c1options_complexoptionsfutures_pitch_v1_0_0.epoch_time.dissect(buffer, index, packet, parent)
-
   -- Store Time Value
   cboe_c1options_complexoptionsfutures_pitch_v1_0_0.time.current = time
 
   if not packet.visited then
     cboe_c1options_complexoptionsfutures_pitch_v1_0_0.conversation.current.time.last = time
   end
+
+  -- Epoch Time: Binary
+  index, epoch_time = cboe_c1options_complexoptionsfutures_pitch_v1_0_0.epoch_time.dissect(buffer, index, packet, parent)
 
   return index
 end

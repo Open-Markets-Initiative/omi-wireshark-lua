@@ -2045,6 +2045,13 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.stock_summary_messag
   -- Source Time: Binary
   index, source_time = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
@@ -2065,13 +2072,6 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.stock_summary_messag
 
   -- Total Volume: Binary
   index, total_volume = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.total_volume.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -2127,6 +2127,13 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.security_status_mess
   -- Source Time: Binary
   index, source_time = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
@@ -2168,13 +2175,6 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.security_status_mess
 
   -- Session State: ASCII
   index, session_state = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.session_state.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -2219,6 +2219,13 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_clear_message
   -- Source Time: Binary
   index, source_time = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
@@ -2227,13 +2234,6 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.symbol_clear_message
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.next_source_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -2442,6 +2442,13 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.sequence_number_rese
   -- Source Time: Binary
   index, source_time = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.timestamp.dissect(buffer, index, packet, parent)
 
@@ -2450,13 +2457,6 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.sequence_number_rese
 
   -- Channel Id: Binary
   index, channel_id = nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_g.conversation.current.source_time.last = source_time
-  end
 
   return index
 end

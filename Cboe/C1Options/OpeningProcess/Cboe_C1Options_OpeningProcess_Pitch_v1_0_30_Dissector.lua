@@ -1535,15 +1535,15 @@ cboe_c1options_openingprocess_pitch_v1_0_30.time_message.fields = function(buffe
   -- Time: Binary
   index, time = cboe_c1options_openingprocess_pitch_v1_0_30.time.dissect(buffer, index, packet, parent)
 
-  -- Epoch Time: Binary
-  index, epoch_time = cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.dissect(buffer, index, packet, parent)
-
   -- Store Time Value
   cboe_c1options_openingprocess_pitch_v1_0_30.time.current = time
 
   if not packet.visited then
     cboe_c1options_openingprocess_pitch_v1_0_30.conversation.current.time.last = time
   end
+
+  -- Epoch Time: Binary
+  index, epoch_time = cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1588,6 +1588,13 @@ cboe_c1options_openingprocess_pitch_v1_0_30.time_reference_message.fields = func
   -- Midnight Reference: Binary
   index, midnight_reference = cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.dissect(buffer, index, packet, parent)
 
+  -- Store Midnight Reference Value
+  cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.current = midnight_reference
+
+  if not packet.visited then
+    cboe_c1options_openingprocess_pitch_v1_0_30.conversation.current.midnight_reference.last = midnight_reference
+  end
+
   -- Time Reference: Binary
   index, time_reference = cboe_c1options_openingprocess_pitch_v1_0_30.time_reference.dissect(buffer, index, packet, parent)
 
@@ -1596,13 +1603,6 @@ cboe_c1options_openingprocess_pitch_v1_0_30.time_reference_message.fields = func
 
   -- Trade Date: Binary Date
   index, trade_date = cboe_c1options_openingprocess_pitch_v1_0_30.trade_date.dissect(buffer, index, packet, parent)
-
-  -- Store Midnight Reference Value
-  cboe_c1options_openingprocess_pitch_v1_0_30.midnight_reference.current = midnight_reference
-
-  if not packet.visited then
-    cboe_c1options_openingprocess_pitch_v1_0_30.conversation.current.midnight_reference.last = midnight_reference
-  end
 
   return index
 end

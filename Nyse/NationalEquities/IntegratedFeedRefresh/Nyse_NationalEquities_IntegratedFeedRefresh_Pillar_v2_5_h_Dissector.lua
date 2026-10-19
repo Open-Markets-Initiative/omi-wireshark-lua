@@ -2887,6 +2887,13 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.add_order_refresh_mess
   -- Source Time: Binary
   index, source_time = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -2913,13 +2920,6 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.add_order_refresh_mess
 
   -- Reserved 1: ASCII
   index, reserved_1 = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -2982,6 +2982,13 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.imbalance_message.fiel
 
   -- Source Time: Binary
   index, source_time = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
@@ -3048,13 +3055,6 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.imbalance_message.fiel
 
   -- Reserved 1: ASCII
   index, reserved_1 = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -3220,6 +3220,13 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.security_status_messag
   -- Source Time: Binary
   index, source_time = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -3261,13 +3268,6 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.security_status_messag
 
   -- Session State: ASCII
   index, session_state = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.session_state.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -3480,6 +3480,13 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.sequence_number_reset_
   -- Source Time: Binary
   index, source_time = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -3488,13 +3495,6 @@ nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.sequence_number_reset_
 
   -- Channel Id: Binary
   index, channel_id = nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nationalequities_integratedfeedrefresh_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end

@@ -107,24 +107,6 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.adap_block_i
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
--- Cboe TitaniumConsolidated TcpOneEquities CboeOne 1.4.15 Formatting
------------------------------------------------------------------------
-
--- timestamp format
-local timestamp_format_enum = {
-  { 1, "Raw", 0 },
-  { 2, "Time of Day", 1 },
-  { 3, "Full DateTime", 2 }
-}
-
--- 0=Raw, 1=TimeOfDay, 2=FullDateTime
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format = 2
-
--- Hours behind UTC (EST) for midnight calculation
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours = 5
-
-
------------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -144,9 +126,6 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_applicat
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
-
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs_changed()
 
@@ -165,12 +144,6 @@ function omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs_chan
   end
   if show.indexes ~= omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_indexes then
     show.indexes = omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_indexes
-  end
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format ~= omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.timestamp_format then
-    cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format = omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.timestamp_format
-  end
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours ~= omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.utc_offset_hours then
-    cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours = omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.utc_offset_hours
   end
 end
 
@@ -596,28 +569,12 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.last_update_timestamp =
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.last_update_timestamp.size = 8
 
 -- Display: Last Update Timestamp
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.last_update_timestamp.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 0 then
-    return "Last Update Timestamp: "..value
-  end
-
-  -- Parse nanoseconds since midnight
+cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.last_update_timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Last Update Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Last Update Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Last Update Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Update Timestamp
@@ -1400,28 +1357,12 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp = {}
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 0 then
-    return "Timestamp: "..value
-  end
-
-  -- Parse nanoseconds since midnight
+cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp.display = function(value)
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -1497,28 +1438,12 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.transaction_time = {}
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.transaction_time.size = 8
 
 -- Display: Transaction Time
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.transaction_time.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 0 then
-    return "Transaction Time: "..value
-  end
-
-  -- Parse nanoseconds since midnight
+cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.transaction_time.display = function(value)
+  -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
 
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Transaction Time: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transaction Time

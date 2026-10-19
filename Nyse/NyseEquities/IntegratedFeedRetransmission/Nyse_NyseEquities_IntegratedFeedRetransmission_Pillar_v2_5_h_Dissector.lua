@@ -3634,6 +3634,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.add_order_refresh_m
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -3660,13 +3667,6 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.add_order_refresh_m
 
   -- Reserved 1: Binary
   index, reserved_1 = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -3729,6 +3729,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_message.f
 
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
+
+  -- Store Source Time Value
+  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
@@ -3795,13 +3802,6 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.imbalance_message.f
 
   -- Reserved 1: Binary
   index, reserved_1 = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -4269,6 +4269,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.security_status_mes
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -4310,13 +4317,6 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.security_status_mes
 
   -- Session State: ASCII
   index, session_state = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.session_state.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -4361,6 +4361,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.symbol_clear_messag
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -4369,13 +4376,6 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.symbol_clear_messag
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.next_source_seq_num.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end
@@ -4588,6 +4588,13 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.sequence_number_res
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.timestamp.dissect(buffer, index, packet, parent)
 
@@ -4596,13 +4603,6 @@ nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.sequence_number_res
 
   -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.channel_id.dissect(buffer, index, packet, parent)
-
-  -- Store Source Time Value
-  nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.source_time.current = source_time
-
-  if not packet.visited then
-    nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_h.conversation.current.source_time.last = source_time
-  end
 
   return index
 end

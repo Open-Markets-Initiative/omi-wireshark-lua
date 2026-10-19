@@ -3156,15 +3156,15 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_message.fields = function
   -- Time Reference: Binary
   index, time_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference.dissect(buffer, index, packet, parent)
 
-  -- Epoch: Binary
-  index, epoch = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.epoch.dissect(buffer, index, packet, parent)
-
   -- Store Time Reference Value
   cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference.current = time_reference
 
   if not packet.visited then
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.conversation.current.time_reference.last = time_reference
   end
+
+  -- Epoch: Binary
+  index, epoch = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.epoch.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3209,15 +3209,6 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference_message.fields 
   -- Midnight Reference: Binary
   index, midnight_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.midnight_reference.dissect(buffer, index, packet, parent)
 
-  -- Time Reference: Binary
-  index, time_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference.dissect(buffer, index, packet, parent)
-
-  -- Time Offset: Binary
-  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Trade Date: Binary Date
-  index, trade_date = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.trade_date.dissect(buffer, index, packet, parent)
-
   -- Store Midnight Reference Value
   cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.midnight_reference.current = midnight_reference
 
@@ -3225,12 +3216,21 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference_message.fields 
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.conversation.current.midnight_reference.last = midnight_reference
   end
 
+  -- Time Reference: Binary
+  index, time_reference = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference.dissect(buffer, index, packet, parent)
+
   -- Store Time Reference Value
   cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.time_reference.current = time_reference
 
   if not packet.visited then
     cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.conversation.current.time_reference.last = time_reference
   end
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.trade_date.dissect(buffer, index, packet, parent)
 
   return index
 end
