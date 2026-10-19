@@ -203,7 +203,7 @@ omi_bme_bmeequities_replay_bmegate_v1_6.fields.packet = ProtoField.new("Packet",
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "bme.bmeequities.replay.bmegate.v1.6.heartbeatmessage", ftypes.STRING, nil, nil, nil, "The Heartbeat message is used by the Server to indicate that the communication is active. In the Heartbeat message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.bmeequities.replay.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.bmeequities.replay.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_bmeequities_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmeequities.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_bmeequities_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmeequities.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.bmeequities.replay.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.network_status_message = ProtoField.new("Network Status Message", "bme.bmeequities.replay.bmegate.v1.6.networkstatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server with information about the connectivity between the Server and the central systems. In the Network Status message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.bmeequities.replay.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
@@ -8180,6 +8180,23 @@ bme_bmeequities_replay_bmegate_v1_6.reject_message.dissect = function(buffer, of
   end
 end
 
+-- Logout Message
+bme_bmeequities_replay_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_bmeequities_replay_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_bmeequities_replay_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_bmeequities_replay_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_bmeequities_replay_bmegate_v1_6.logon_message = {}
 
@@ -8463,7 +8480,7 @@ bme_bmeequities_replay_bmegate_v1_6.payload.dissect = function(buffer, offset, p
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_bmeequities_replay_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

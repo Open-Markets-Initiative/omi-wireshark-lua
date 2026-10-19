@@ -484,12 +484,6 @@ nasdaq_gemxoptions_depthofmarket_itch_v2_1_2026.auction_type.display = function(
   if value == "R" then
     return "Auction Type: Reopening (R)"
   end
-  if value == "P" then
-    return "Auction Type: Price Improvement Auction (P)"
-  end
-  if value == "B" then
-    return "Auction Type: Block Auction (B)"
-  end
 
   return "Auction Type: Unknown("..value..")"
 end
@@ -1386,9 +1380,6 @@ nasdaq_gemxoptions_depthofmarket_itch_v2_1_2026.order_capacity.display = functio
   end
   if value == "O" then
     return "Order Capacity: Other Exchange Market Maker Order (O)"
-  end
-  if value == "J" then
-    return "Order Capacity: Joint Back Office (J)"
   end
   if value == " " then
     return "Order Capacity: Na (<whitespace>)"

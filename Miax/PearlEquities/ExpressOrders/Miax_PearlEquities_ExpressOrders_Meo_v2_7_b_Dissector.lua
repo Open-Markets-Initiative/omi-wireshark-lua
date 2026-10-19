@@ -4005,6 +4005,8 @@ miax_pearlequities_expressorders_meo_v2_7_b.additional_liquidity_indicator.size 
 miax_pearlequities_expressorders_meo_v2_7_b.additional_liquidity_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Nbbo Setter Joiner: 3 Bits
+  flags[#flags + 1] = "Nbbo Setter Joiner: "..bit.rshift(bit.band(value, 0x07), 0)
 
   return table.concat(flags, "|")
 end
@@ -5122,6 +5124,10 @@ miax_pearlequities_expressorders_meo_v2_7_b.routing.size = 1
 miax_pearlequities_expressorders_meo_v2_7_b.routing.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Routing Instruction: 3 Bits
+  flags[#flags + 1] = "Routing Instruction: "..bit.rshift(bit.band(value, 0x07), 0)
+  -- Routing Strategy: 5 Bits
+  flags[#flags + 1] = "Routing Strategy: "..bit.rshift(bit.band(value, 0xF8), 3)
 
   return table.concat(flags, "|")
 end
@@ -5161,6 +5167,10 @@ miax_pearlequities_expressorders_meo_v2_7_b.self_trade_protection.size = 1
 miax_pearlequities_expressorders_meo_v2_7_b.self_trade_protection.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Self Trade Protection Level: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Level: "..bit.rshift(bit.band(value, 0x07), 0)
+  -- Self Trade Protection Instruction: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Instruction: "..bit.rshift(bit.band(value, 0x38), 3)
 
   return table.concat(flags, "|")
 end

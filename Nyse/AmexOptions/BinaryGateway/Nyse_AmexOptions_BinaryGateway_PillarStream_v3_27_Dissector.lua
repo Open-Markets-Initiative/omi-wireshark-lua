@@ -9897,6 +9897,10 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.size = 1
 nyse_amexoptions_binarygateway_pillarstream_v3_27.bitfield_quote_inst.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Side 2: 2 Bits
+  flags[#flags + 1] = "Side 2: "..bit.rshift(bit.band(value, 0x03), 0)
+  -- Mm Quote Type: 3 Bits
+  flags[#flags + 1] = "Mm Quote Type: "..bit.rshift(bit.band(value, 0x1C), 2)
 
   return table.concat(flags, "|")
 end

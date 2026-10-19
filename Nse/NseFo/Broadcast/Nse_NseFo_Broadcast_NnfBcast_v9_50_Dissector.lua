@@ -8261,10 +8261,6 @@ nse_nsefo_broadcast_nnfbcast_v9_50.st_purpose.display = function(range, value, p
   if bit.band(value, 0x0100) ~= 0 then
     flags[#flags + 1] = "Exercise Style"
   end
-  -- Is Reserved 10 flag set?
-  if bit.band(value, 0x0200) ~= 0 then
-    flags[#flags + 1] = "Reserved 10"
-  end
   -- Is Egm flag set?
   if bit.band(value, 0x0400) ~= 0 then
     flags[#flags + 1] = "Egm"

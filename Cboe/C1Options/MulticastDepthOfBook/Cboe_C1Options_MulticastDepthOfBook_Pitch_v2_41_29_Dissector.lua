@@ -3257,14 +3257,6 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_flags.display = fun
   if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Display"
   end
-  -- Is Reserved Bit 1 flag set?
-  if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 1"
-  end
-  -- Is Reserved Bit 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 2"
-  end
   -- Is Aon flag set?
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Aon"

@@ -512,28 +512,28 @@ finra_trace_btds_dfi_v2_1.change_indicator.size = 1
 
 -- Display: Change Indicator
 finra_trace_btds_dfi_v2_1.change_indicator.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Change Indicator: No Price Yield Changed (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Change Indicator: Last Price Yield Changed (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Change Indicator: Low Price Yield Changed (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Change Indicator: Last Price Yield And Low Price Yield Changed (3)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Change Indicator: High Price Yield Changed (4)"
   end
-  if value == "5" then
+  if value == 5 then
     return "Change Indicator: Last Price Yield And High Price Yield Changed (5)"
   end
-  if value == "6" then
+  if value == 6 then
     return "Change Indicator: High Price Yield And Low Price Yield Changed (6)"
   end
-  if value == "7" then
+  if value == 7 then
     return "Change Indicator: All Prices Yields Changed (7)"
   end
 
@@ -544,7 +544,12 @@ end
 finra_trace_btds_dfi_v2_1.change_indicator.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.change_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = finra_trace_btds_dfi_v2_1.change_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.change_indicator, range, value, display)
@@ -4668,7 +4673,7 @@ finra_trace_btds_dfi_v2_1.trade_summary_information.fields = function(buffer, of
   -- Last Sale Yield: Numeric
   index, last_sale_yield = finra_trace_btds_dfi_v2_1.last_sale_yield.dissect(buffer, index, packet, parent)
 
-  -- Change Indicator: Alphanumeric
+  -- Change Indicator: Numeric
   index, change_indicator = finra_trace_btds_dfi_v2_1.change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -5336,7 +5341,7 @@ finra_trace_btds_dfi_v2_1.trade_report_message.fields = function(buffer, offset,
   -- Trade Information: Struct of 18 fields
   index, trade_information = finra_trace_btds_dfi_v2_1.trade_information.dissect(buffer, index, packet, parent)
 
-  -- Change Indicator: Alphanumeric
+  -- Change Indicator: Numeric
   index, change_indicator = finra_trace_btds_dfi_v2_1.change_indicator.dissect(buffer, index, packet, parent)
 
   return index

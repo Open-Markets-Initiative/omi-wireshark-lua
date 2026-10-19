@@ -1143,29 +1143,13 @@ otcmarkets_linkats_quotereferenceprice_link_v4_10_4.quote_flags.display = functi
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "State"
   end
-  -- Is Reserved 1 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
-  end
   -- Is Ask Priced flag set?
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Ask Priced"
   end
-  -- Is Second Reserved 1 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Second Reserved 1"
-  end
-  -- Is Third Reserved 1 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Third Reserved 1"
-  end
   -- Is Bid Priced flag set?
   if bit.band(value, 0x40) ~= 0 then
     flags[#flags + 1] = "Bid Priced"
-  end
-  -- Is Fourth Reserved 1 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Fourth Reserved 1"
   end
 
   return table.concat(flags, "|")

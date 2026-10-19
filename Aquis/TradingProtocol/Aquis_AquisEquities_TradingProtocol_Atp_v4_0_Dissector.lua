@@ -1710,6 +1710,10 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.size = 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Party Role: 4 Bits
+  flags[#flags + 1] = "Party Role: "..bit.rshift(bit.band(value, 0x0F), 0)
+  -- Party Role Qualifier: 4 Bits
+  flags[#flags + 1] = "Party Role Qualifier: "..bit.rshift(bit.band(value, 0xF0), 4)
 
   return table.concat(flags, "|")
 end
@@ -1749,6 +1753,10 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.size = 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Party Role: 4 Bits
+  flags[#flags + 1] = "Party Role: "..bit.rshift(bit.band(value, 0x0F), 0)
+  -- Party Role Qualifier: 4 Bits
+  flags[#flags + 1] = "Party Role Qualifier: "..bit.rshift(bit.band(value, 0xF0), 4)
 
   return table.concat(flags, "|")
 end
@@ -1788,6 +1796,10 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.size = 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Party Role: 4 Bits
+  flags[#flags + 1] = "Party Role: "..bit.rshift(bit.band(value, 0x0F), 0)
+  -- Party Role Qualifier: 4 Bits
+  flags[#flags + 1] = "Party Role Qualifier: "..bit.rshift(bit.band(value, 0xF0), 4)
 
   return table.concat(flags, "|")
 end
@@ -2190,6 +2202,10 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.status.size = 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.status.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Reason Code: 5 Bits
+  flags[#flags + 1] = "Reason Code: "..bit.rshift(bit.band(value, 0x1F), 0)
+  -- Order Status: 3 Bits
+  flags[#flags + 1] = "Order Status: "..bit.rshift(bit.band(value, 0xE0), 5)
 
   return table.concat(flags, "|")
 end
@@ -2281,10 +2297,6 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.size = 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved 1 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
-  end
   -- Is Algo Trade Flag flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Algo Trade Flag"

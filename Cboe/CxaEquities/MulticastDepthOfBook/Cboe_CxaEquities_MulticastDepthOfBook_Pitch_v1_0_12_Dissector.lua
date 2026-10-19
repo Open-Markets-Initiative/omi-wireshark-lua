@@ -1442,10 +1442,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.size = 1
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Trade From Converted Order flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Trade From Converted Order"

@@ -45,8 +45,8 @@ omi_bme_meff_orderentry_bmegate_v1_6.fields.ccp_code_2 = ProtoField.new("Ccp Cod
 omi_bme_meff_orderentry_bmegate_v1_6.fields.ccv = ProtoField.new("Ccv", "bme.meff.orderentry.bmegate.v1.6.ccv", ftypes.STRING, nil, nil, nil, "Securities Account code in CSD")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.ccv_2 = ProtoField.new("Ccv 2", "bme.meff.orderentry.bmegate.v1.6.ccv2", ftypes.STRING, nil, nil, nil, "Securities Account code in CSD")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.cfi_code = ProtoField.new("Cfi Code", "bme.meff.orderentry.bmegate.v1.6.cficode", ftypes.STRING, nil, nil, nil, "CFICode")
-omi_bme_meff_orderentry_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.meff.orderentry.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
-omi_bme_meff_orderentry_bmegate_v1_6.fields.client_data_id_2 = ProtoField.new("Client Data Id 2", "bme.meff.orderentry.bmegate.v1.6.clientdataid2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
+omi_bme_meff_orderentry_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.meff.orderentry.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes). Valid values: 1-65535 (in response messages, 0 means no ClientDataID used)")
+omi_bme_meff_orderentry_bmegate_v1_6.fields.client_data_id_2 = ProtoField.new("Client Data Id 2", "bme.meff.orderentry.bmegate.v1.6.clientdataid2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes). Valid values: 1-65535 (in response messages, 0 means no ClientDataID used)")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.client_data_reference = ProtoField.new("Client Data Reference", "bme.meff.orderentry.bmegate.v1.6.clientdatareference", ftypes.STRING, nil, nil, nil, "Free to use by clients")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.client_id = ProtoField.new("Client Id", "bme.meff.orderentry.bmegate.v1.6.clientid", ftypes.UINT32, nil, nil, nil, "Mifid II ClientID")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.client_id_2 = ProtoField.new("Client Id 2", "bme.meff.orderentry.bmegate.v1.6.clientid2", ftypes.UINT32, nil, nil, nil, "Mifid II ClientID")
@@ -64,7 +64,7 @@ omi_bme_meff_orderentry_bmegate_v1_6.fields.dea_flag_2 = ProtoField.new("Dea Fla
 omi_bme_meff_orderentry_bmegate_v1_6.fields.decisor_id = ProtoField.new("Decisor Id", "bme.meff.orderentry.bmegate.v1.6.decisorid", ftypes.UINT32, nil, nil, nil, "MIFID II DecisorID")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.decisor_id_2 = ProtoField.new("Decisor Id 2", "bme.meff.orderentry.bmegate.v1.6.decisorid2", ftypes.UINT32, nil, nil, nil, "MIFID II DecisorID")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.deferral_waiver = ProtoField.new("Deferral Waiver", "bme.meff.orderentry.bmegate.v1.6.deferralwaiver", ftypes.STRING)
-omi_bme_meff_orderentry_bmegate_v1_6.fields.delta_protection_time = ProtoField.new("Delta Protection Time", "bme.meff.orderentry.bmegate.v1.6.deltaprotectiontime", ftypes.UINT8, nil, nil, nil, "Number of seconds for Delta Protection control")
+omi_bme_meff_orderentry_bmegate_v1_6.fields.delta_protection_time = ProtoField.new("Delta Protection Time", "bme.meff.orderentry.bmegate.v1.6.deltaprotectiontime", ftypes.UINT8, nil, nil, nil, "Number of seconds for Delta Protection control. Valid values: 0-60")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.delta_protection_volume = ProtoField.new("Delta Protection Volume", "bme.meff.orderentry.bmegate.v1.6.deltaprotectionvolume", ftypes.UINT32, nil, nil, nil, "Total maximum volume during DeltaProtectionTime")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.designation = ProtoField.new("Designation", "bme.meff.orderentry.bmegate.v1.6.designation", ftypes.STRING, nil, nil, nil, "Trade situation")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.display_qty = ProtoField.new("Display Qty", "bme.meff.orderentry.bmegate.v1.6.displayqty", ftypes.UINT32, nil, nil, nil, "Visible pending volume")
@@ -274,7 +274,7 @@ omi_bme_meff_orderentry_bmegate_v1_6.fields.heartbeat_message = ProtoField.new("
 omi_bme_meff_orderentry_bmegate_v1_6.fields.indication_of_interest_message = ProtoField.new("Indication Of Interest Message", "bme.meff.orderentry.bmegate.v1.6.indicationofinterestmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to notify an indication of interest on a specific instrument. This functionality is available in Fixed Income and Derivatives")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.meff.orderentry.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.meff.orderentry.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_meff_orderentry_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.meff.orderentry.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_meff_orderentry_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.meff.orderentry.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.meff.orderentry.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.mass_orderquote_cancellation_completion_message = ProtoField.new("Mass Orderquote Cancellation Completion Message", "bme.meff.orderentry.bmegate.v1.6.massorderquotecancellationcompletionmessage", ftypes.STRING, nil, nil, nil, "Message reporting the completion of a valid mass order cancellation request. More than one message may be sent for a single RequestID")
 omi_bme_meff_orderentry_bmegate_v1_6.fields.mass_orderquote_cancellation_message = ProtoField.new("Mass Orderquote Cancellation Message", "bme.meff.orderentry.bmegate.v1.6.massorderquotecancellationmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to request the cancellation of multiple orders and or quotes, based on the specified selection criteria")
@@ -1521,11 +1521,12 @@ bme_meff_orderentry_bmegate_v1_6.client_data_id.size = 2
 
 -- Display: Client Data Id
 bme_meff_orderentry_bmegate_v1_6.client_data_id.display = function(value)
-  if value == 1 then
-    return "Client Data Id: 65535 In Response Messages 0 Means No Client Data Id Used (1)"
+  -- Check if field has value
+  if value == 0 then
+    return "Client Data Id: No Value"
   end
 
-  return "Client Data Id: Unknown("..value..")"
+  return "Client Data Id: "..value
 end
 
 -- Dissect: Client Data Id
@@ -1548,11 +1549,12 @@ bme_meff_orderentry_bmegate_v1_6.client_data_id_2.size = 2
 
 -- Display: Client Data Id 2
 bme_meff_orderentry_bmegate_v1_6.client_data_id_2.display = function(value)
-  if value == 1 then
-    return "Client Data Id 2: 65535 In Response Messages 0 Means No Client Data Id Used (1)"
+  -- Check if field has value
+  if value == 0 then
+    return "Client Data Id 2: No Value"
   end
 
-  return "Client Data Id 2: Unknown("..value..")"
+  return "Client Data Id 2: "..value
 end
 
 -- Dissect: Client Data Id 2
@@ -2166,11 +2168,7 @@ bme_meff_orderentry_bmegate_v1_6.delta_protection_time.size = 1
 
 -- Display: Delta Protection Time
 bme_meff_orderentry_bmegate_v1_6.delta_protection_time.display = function(value)
-  if value == 0 then
-    return "Delta Protection Time: 60 (0)"
-  end
-
-  return "Delta Protection Time: Unknown("..value..")"
+  return "Delta Protection Time: "..value
 end
 
 -- Dissect: Delta Protection Time
@@ -2806,7 +2804,7 @@ bme_meff_orderentry_bmegate_v1_6.family_code.display = function(value)
     return "Family Code: Futures S Div Acc (FSTCD)"
   end
   if value == "FSTCE" then
-    return "Family Code: 25 Stock Dividend Futures (FSTCE)"
+    return "Family Code: Twenty Five Stock Dividend Futures (FSTCE)"
   end
   if value == "FSTCK" then
     return "Family Code: Futures S Acciones (FSTCK)"
@@ -7003,22 +7001,22 @@ bme_meff_orderentry_bmegate_v1_6.security_sub_type.display = function(value)
     return "Security Sub Type: Put U (PUT +U)"
   end
   if value == "RBER" then
-    return "Security Sub Type: 21 Ratio Put Spread (RBER)"
+    return "Security Sub Type: Ratio 2x1 Put Spread (RBER)"
   end
   if value == "RBER+U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER+U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Plus U (RBER+U)"
   end
   if value == "RBER-U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER-U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Minus U (RBER-U)"
   end
   if value == "RBUL" then
-    return "Security Sub Type: 21 Ratio Call Spread (RBUL)"
+    return "Security Sub Type: Ratio 2x1 Call Spread (RBUL)"
   end
   if value == "RBUL+U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL+U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Plus U (RBUL+U)"
   end
   if value == "RBUL-U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL-U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Minus U (RBUL-U)"
   end
   if value == "RSK" then
     return "Security Sub Type: Risky (RSK)"
@@ -13480,6 +13478,23 @@ bme_meff_orderentry_bmegate_v1_6.reject_message.dissect = function(buffer, offse
   end
 end
 
+-- Logout Message
+bme_meff_orderentry_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_meff_orderentry_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_meff_orderentry_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_meff_orderentry_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_meff_orderentry_bmegate_v1_6.logon_message = {}
 
@@ -13763,7 +13778,7 @@ bme_meff_orderentry_bmegate_v1_6.payload.dissect = function(buffer, offset, pack
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_meff_orderentry_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

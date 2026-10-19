@@ -1925,7 +1925,7 @@ bme_meff_topofbook_bmegate_v1_6.family_code.display = function(value)
     return "Family Code: Futures S Div Acc (FSTCD)"
   end
   if value == "FSTCE" then
-    return "Family Code: 25 Stock Dividend Futures (FSTCE)"
+    return "Family Code: Twenty Five Stock Dividend Futures (FSTCE)"
   end
   if value == "FSTCK" then
     return "Family Code: Futures S Acciones (FSTCK)"
@@ -4822,22 +4822,22 @@ bme_meff_topofbook_bmegate_v1_6.security_sub_type.display = function(value)
     return "Security Sub Type: Put U (PUT +U)"
   end
   if value == "RBER" then
-    return "Security Sub Type: 21 Ratio Put Spread (RBER)"
+    return "Security Sub Type: Ratio 2x1 Put Spread (RBER)"
   end
   if value == "RBER+U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER+U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Plus U (RBER+U)"
   end
   if value == "RBER-U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER-U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Minus U (RBER-U)"
   end
   if value == "RBUL" then
-    return "Security Sub Type: 21 Ratio Call Spread (RBUL)"
+    return "Security Sub Type: Ratio 2x1 Call Spread (RBUL)"
   end
   if value == "RBUL+U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL+U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Plus U (RBUL+U)"
   end
   if value == "RBUL-U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL-U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Minus U (RBUL-U)"
   end
   if value == "RSK" then
     return "Security Sub Type: Risky (RSK)"

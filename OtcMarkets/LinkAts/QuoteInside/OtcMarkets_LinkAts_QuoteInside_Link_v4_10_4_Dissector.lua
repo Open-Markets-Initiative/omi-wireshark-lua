@@ -1215,10 +1215,6 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.quote_flags.display = function(range
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "State"
   end
-  -- Is Reserved 1 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
-  end
   -- Is Ask Priced flag set?
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Ask Priced"
@@ -1226,10 +1222,6 @@ otcmarkets_linkats_quoteinside_link_v4_10_4.quote_flags.display = function(range
   -- Is Ask Size Overflow flag set?
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Ask Size Overflow"
-  end
-  -- Is Second Reserved 1 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Second Reserved 1"
   end
   -- Is Bid Priced flag set?
   if bit.band(value, 0x40) ~= 0 then

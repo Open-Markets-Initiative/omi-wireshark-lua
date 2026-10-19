@@ -19,6 +19,19 @@
 | [Wse][Wse.Exchange] | [OrderBook][Gpw.Wse.OrderBook] | [Xdp][Omi.Encoding.Xdp] | [6.8][Gpw.Wse.OrderBook.Xdp.v6.8.Dissector] | 2/11/2020 | 1496 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.OrderBook.Xdp.v6.8.Url] - [pdf][Gpw.Wse.OrderBook.Xdp.v6.8.Pdf] |
 | [Wse][Wse.Exchange] | [PricesAndTrades][Gpw.Wse.PricesAndTrades] | [Xdp][Omi.Encoding.Xdp] | [6.8][Gpw.Wse.PricesAndTrades.Xdp.v6.8.Dissector] | 2/11/2020 | 2974 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.PricesAndTrades.Xdp.v6.8.Url] - [pdf][Gpw.Wse.PricesAndTrades.Xdp.v6.8.Pdf] |
 | [Wse][Wse.Exchange] | [Quotes][Gpw.Wse.Quotes] | [Xdp][Omi.Encoding.Xdp] | [6.8][Gpw.Wse.Quotes.Xdp.v6.8.Dissector] | 2/11/2020 | 1653 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.Quotes.Xdp.v6.8.Url] - [pdf][Gpw.Wse.Quotes.Xdp.v6.8.Pdf] |
+| [Wse][Wse.Exchange] | [ReplayBbo][Gpw.Wse.ReplayBbo] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 15103 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Pdf] |
+| [Wse][Wse.Exchange] | [ReplayFullDepth][Gpw.Wse.ReplayFullDepth] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 15586 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Pdf] |
+| [Wse][Wse.Exchange] | [SnapshotBbo][Gpw.Wse.SnapshotBbo] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 15205 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Pdf] |
+| [Wse][Wse.Exchange] | [SnapshotFullDepth][Gpw.Wse.SnapshotFullDepth] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 15321 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Pdf] |
+| [Wse][Wse.Exchange] | [StreamBbo][Gpw.Wse.StreamBbo] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 14803 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Pdf] |
+| [Wse][Wse.Exchange] | [StreamFullDepth][Gpw.Wse.StreamFullDepth] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 15286 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Pdf] |
+
+
+### Order Entry
+
+| Division | [Protocol][Omi.Gpw.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Gpw.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Wse][Wse.Exchange] | [OrderEntry][Gpw.Wse.OrderEntry] | [Wats][Omi.Encoding.Wats] | [1.7.6.20][Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Dissector] | 10/5/2026 | 7138 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Url] - [pdf][Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Pdf] |
 
 
 <p align="center"><a href="https://www.gpw.pl" title="Giełda Papier&#243;w Wartościowych w Warszawie Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Warsaw_Stock_Exchange" title="Giełda Papier&#243;w Wartościowych w Warszawie on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
@@ -41,6 +54,7 @@
 [Omi.Gpw.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Gpw/Protocols "Gpw Protocol Directory"
 [Omi.Gpw.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Gpw/Specifications "Gpw Specifications Directory"
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xdp.md "Xdp Encoding"
+[Omi.Encoding.Wats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Wats.md "Wats Encoding"
 [BondSpot.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Gpw/Protocols/BondSpot "Gpw BondSpot"
 [Wse.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Gpw/Protocols/Wse "Gpw Wse"
 [Gpw.BondSpot.Bonds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/BondSpot/Bonds.md "BondSpot Bonds"
@@ -53,8 +67,15 @@
 [Gpw.Wse.Indices]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/Indices.md "Warsaw Stock Exchange Indices"
 [Gpw.Wse.MarketInformation]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/MarketInformation.md "Warsaw Stock Exchange Market Information"
 [Gpw.Wse.OrderBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/OrderBook.md "Warsaw Stock Exchange Order Book"
+[Gpw.Wse.OrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/OrderEntry.md "Warsaw Stock Exchange Native Order Gateway"
 [Gpw.Wse.PricesAndTrades]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/PricesAndTrades.md "Warsaw Stock Exchange Prices and Trades"
 [Gpw.Wse.Quotes]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/Quotes.md "Warsaw Stock Exchange Quotes"
+[Gpw.Wse.ReplayBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/ReplayBbo.md "Warsaw Stock Exchange BBO Replay"
+[Gpw.Wse.ReplayFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/ReplayFullDepth.md "Warsaw Stock Exchange Full Depth Replay"
+[Gpw.Wse.SnapshotBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/SnapshotBbo.md "Warsaw Stock Exchange BBO Snapshot"
+[Gpw.Wse.SnapshotFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/SnapshotFullDepth.md "Warsaw Stock Exchange Full Depth Snapshot"
+[Gpw.Wse.StreamBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/StreamBbo.md "Warsaw Stock Exchange BBO Stream"
+[Gpw.Wse.StreamFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/StreamFullDepth.md "Warsaw Stock Exchange Full Depth Stream"
 
 [Gpw.BondSpot.Bonds.Xdp.v6.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/BondSpot/Bonds/Gpw_BondSpot_Bonds_Xdp_v6_8_Dissector.lua "Gpw BondSpot Bonds Xdp v6.8 Wireshark Dissector"
 [Gpw.BondSpot.Bonds.Xdp.v6.8.Url]: https://www.gpw.pl/utp-documentation "Giełda Papierów Wartościowych w Warszawie 6.8 Url"
@@ -86,9 +107,30 @@
 [Gpw.Wse.OrderBook.Xdp.v6.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/OrderBook/Gpw_Wse_OrderBook_Xdp_v6_8_Dissector.lua "Gpw Wse OrderBook Xdp v6.8 Wireshark Dissector"
 [Gpw.Wse.OrderBook.Xdp.v6.8.Url]: https://www.gpw.pl/utp-documentation "Giełda Papierów Wartościowych w Warszawie 6.8 Url"
 [Gpw.Wse.OrderBook.Xdp.v6.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wse/OrderBook/Gpw.Wse.OrderBook.Xdp.v6.8.pdf "Giełda Papierów Wartościowych w Warszawie 6.8 Pdf"
+[Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/OrderEntry/Gpw_Wse_OrderEntry_Wats_v1_7_6_20_Dissector.lua "Gpw Wse OrderEntry Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.OrderEntry.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.OrderEntry.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
 [Gpw.Wse.PricesAndTrades.Xdp.v6.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/PricesAndTrades/Gpw_Wse_PricesAndTrades_Xdp_v6_8_Dissector.lua "Gpw Wse PricesAndTrades Xdp v6.8 Wireshark Dissector"
 [Gpw.Wse.PricesAndTrades.Xdp.v6.8.Url]: https://www.gpw.pl/utp-documentation "Giełda Papierów Wartościowych w Warszawie 6.8 Url"
 [Gpw.Wse.PricesAndTrades.Xdp.v6.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wse/PricesAndTrades/Gpw.Wse.PricesAndTrades.Xdp.v6.8.pdf "Giełda Papierów Wartościowych w Warszawie 6.8 Pdf"
 [Gpw.Wse.Quotes.Xdp.v6.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/Quotes/Gpw_Wse_Quotes_Xdp_v6_8_Dissector.lua "Gpw Wse Quotes Xdp v6.8 Wireshark Dissector"
 [Gpw.Wse.Quotes.Xdp.v6.8.Url]: https://www.gpw.pl/utp-documentation "Giełda Papierów Wartościowych w Warszawie 6.8 Url"
 [Gpw.Wse.Quotes.Xdp.v6.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wse/Quotes/Gpw.Wse.Quotes.Xdp.v6.8.pdf "Giełda Papierów Wartościowych w Warszawie 6.8 Pdf"
+[Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/ReplayBbo/Gpw_Wse_ReplayBbo_Wats_v1_7_6_20_Dissector.lua "Gpw Wse ReplayBbo Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.ReplayBbo.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
+[Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/ReplayFullDepth/Gpw_Wse_ReplayFullDepth_Wats_v1_7_6_20_Dissector.lua "Gpw Wse ReplayFullDepth Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.ReplayFullDepth.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
+[Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/SnapshotBbo/Gpw_Wse_SnapshotBbo_Wats_v1_7_6_20_Dissector.lua "Gpw Wse SnapshotBbo Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.SnapshotBbo.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
+[Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/SnapshotFullDepth/Gpw_Wse_SnapshotFullDepth_Wats_v1_7_6_20_Dissector.lua "Gpw Wse SnapshotFullDepth Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.SnapshotFullDepth.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
+[Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/StreamBbo/Gpw_Wse_StreamBbo_Wats_v1_7_6_20_Dissector.lua "Gpw Wse StreamBbo Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.StreamBbo.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"
+[Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Gpw/Wse/StreamFullDepth/Gpw_Wse_StreamFullDepth_Wats_v1_7_6_20_Dissector.lua "Gpw Wse StreamFullDepth Wats v1.7.6.20 Wireshark Dissector"
+[Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Url]: https://gpwwats.pl/useful-documents-and-faqs "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Url"
+[Gpw.Wse.StreamFullDepth.Wats.v1.7.6.20.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Specifications/Wats/Gpw.Wse.MarketData.Wats.1.7.6.20.pdf "Giełda Papierów Wartościowych w Warszawie 1.7.6.20 Pdf"

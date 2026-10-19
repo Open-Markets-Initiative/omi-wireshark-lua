@@ -1874,7 +1874,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.calculation_method.size = 1
 -- Display: Calculation Method
 bme_bmefixedincome_retail5_bmegate_v1_6.calculation_method.display = function(value)
   if value == "0" then
-    return "Calculation Method: 30360 Usnasd (0)"
+    return "Calculation Method: Thirty 360 US NASD (0)"
   end
   if value == "1" then
     return "Calculation Method: Actual Actual (1)"
@@ -1886,7 +1886,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.calculation_method.display = function(va
     return "Calculation Method: Actual 365 (3)"
   end
   if value == "4" then
-    return "Calculation Method: 30360 European (4)"
+    return "Calculation Method: Thirty 360 European (4)"
   end
   if value == "5" then
     return "Calculation Method: If Days To Maturity 365 Actual 360 Else Actual 365 (5)"

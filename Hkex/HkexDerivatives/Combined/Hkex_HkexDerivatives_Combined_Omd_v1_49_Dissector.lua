@@ -5082,22 +5082,6 @@ hkex_hkexderivatives_combined_omd_v1_49.order_type.display = function(range, val
   if bit.band(value, 0x0020) ~= 0 then
     flags[#flags + 1] = "Undisclosed"
   end
-  -- Is Unused Order Type Bit 7 flag set?
-  if bit.band(value, 0x0040) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 7"
-  end
-  -- Is Unused Order Type Bit 8 flag set?
-  if bit.band(value, 0x0080) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 8"
-  end
-  -- Is Unused Order Type Bit 9 flag set?
-  if bit.band(value, 0x0100) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 9"
-  end
-  -- Is Unused Order Type Bit 10 flag set?
-  if bit.band(value, 0x0200) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 10"
-  end
   -- Is Fill And Kill Immediately flag set?
   if bit.band(value, 0x0400) ~= 0 then
     flags[#flags + 1] = "Fill And Kill Immediately"
@@ -5113,14 +5097,6 @@ hkex_hkexderivatives_combined_omd_v1_49.order_type.display = function(range, val
   -- Is Bait Or Implied Order flag set?
   if bit.band(value, 0x2000) ~= 0 then
     flags[#flags + 1] = "Bait Or Implied Order"
-  end
-  -- Is Unused Order Type Bit 15 flag set?
-  if bit.band(value, 0x4000) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 15"
-  end
-  -- Is Unused Order Type Bit 16 flag set?
-  if bit.band(value, 0x8000) ~= 0 then
-    flags[#flags + 1] = "Unused Order Type Bit 16"
   end
 
   return table.concat(flags, "|")

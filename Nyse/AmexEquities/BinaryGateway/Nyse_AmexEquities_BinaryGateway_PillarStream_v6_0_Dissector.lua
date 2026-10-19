@@ -162,7 +162,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.seq_msg_type = Prot
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.sess = ProtoField.new("Sess", "nyse.amexequities.binarygateway.pillarstream.v6.0.sess", ftypes.UINT32, nil, nil, nil, "32 bit session id (env_id[31:24], sess_num[23:0])")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.settlementtype", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side = ProtoField.new("Side", "nyse.amexequities.binarygateway.pillarstream.v6.0.side", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v6.0.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0xF000000000000000, "Side")
+omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v6.0.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, UInt64(0x00000000, 0xF0000000), "Side")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v6.0.sideofunpairedqty", ftypes.UINT8, nil, nil, nil, "SideOfUnpairedQty enum")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v6.0.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000, "SpecialOrdType")
 omi_nyse_amexequities_binarygateway_pillarstream_v6_0.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.binarygateway.pillarstream.v6.0.ssrfilingprice", ftypes.DOUBLE, nil, nil, nil, "Sell Short Restriction Filing Price used for the auction; set to 0 if not available.")
@@ -7022,6 +7022,8 @@ nyse_amexequities_binarygateway_pillarstream_v6_0.bitfield_execution_details.siz
 nyse_amexequities_binarygateway_pillarstream_v6_0.bitfield_execution_details.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Executed Trading Session: 3 Bits
+  flags[#flags + 1] = "Executed Trading Session: "..bit.rshift(bit.band(value, 0x07), 0)
 
   return table.concat(flags, "|")
 end

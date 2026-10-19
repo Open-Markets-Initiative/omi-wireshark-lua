@@ -205,7 +205,7 @@ omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.heartbeat_message = ProtoField
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.indication_of_interest_message = ProtoField.new("Indication Of Interest Message", "bme.bmefixedincome.replay.bmegate.v1.6.indicationofinterestmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to notify an indication of interest on a specific instrument. This functionality is available in Fixed Income and Derivatives")
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.bmefixedincome.replay.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.bmefixedincome.replay.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmefixedincome.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmefixedincome.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.bmefixedincome.replay.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.network_status_message = ProtoField.new("Network Status Message", "bme.bmefixedincome.replay.bmegate.v1.6.networkstatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server with information about the connectivity between the Server and the central systems. In the Network Status message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmefixedincome_replay_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.bmefixedincome.replay.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
@@ -1724,7 +1724,7 @@ bme_bmefixedincome_replay_bmegate_v1_6.calculation_method.size = 1
 -- Display: Calculation Method
 bme_bmefixedincome_replay_bmegate_v1_6.calculation_method.display = function(value)
   if value == "0" then
-    return "Calculation Method: 30360 Usnasd (0)"
+    return "Calculation Method: Thirty 360 US NASD (0)"
   end
   if value == "1" then
     return "Calculation Method: Actual Actual (1)"
@@ -1736,7 +1736,7 @@ bme_bmefixedincome_replay_bmegate_v1_6.calculation_method.display = function(val
     return "Calculation Method: Actual 365 (3)"
   end
   if value == "4" then
-    return "Calculation Method: 30360 European (4)"
+    return "Calculation Method: Thirty 360 European (4)"
   end
   if value == "5" then
     return "Calculation Method: If Days To Maturity 365 Actual 360 Else Actual 365 (5)"
@@ -7778,6 +7778,23 @@ bme_bmefixedincome_replay_bmegate_v1_6.reject_message.dissect = function(buffer,
   end
 end
 
+-- Logout Message
+bme_bmefixedincome_replay_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_bmefixedincome_replay_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_bmefixedincome_replay_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_replay_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_bmefixedincome_replay_bmegate_v1_6.logon_message = {}
 
@@ -8061,7 +8078,7 @@ bme_bmefixedincome_replay_bmegate_v1_6.payload.dissect = function(buffer, offset
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_bmefixedincome_replay_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

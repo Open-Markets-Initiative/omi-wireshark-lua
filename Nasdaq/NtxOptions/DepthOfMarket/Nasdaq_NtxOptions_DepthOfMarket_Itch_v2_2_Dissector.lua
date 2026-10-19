@@ -504,6 +504,9 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.auction_type.display = function(value)
   if value == "I" then
     return "Auction Type: Order Exposure (I)"
   end
+  if value == "B" then
+    return "Auction Type: Block Auction (B)"
+  end
 
   return "Auction Type: Unknown("..value..")"
 end

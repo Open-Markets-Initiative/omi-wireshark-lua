@@ -4889,6 +4889,12 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.party_role_qualifier.size = 1
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.party_role_qualifier.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Client Identification: 2 Bits
+  flags[#flags + 1] = "Client Identification: "..bit.rshift(bit.band(value, 0x03), 0)
+  -- Investment Decision Within Firm: 2 Bits
+  flags[#flags + 1] = "Investment Decision Within Firm: "..bit.rshift(bit.band(value, 0x0C), 2)
+  -- Execution Decision Within Firm: 2 Bits
+  flags[#flags + 1] = "Execution Decision Within Firm: "..bit.rshift(bit.band(value, 0x30), 4)
 
   return table.concat(flags, "|")
 end

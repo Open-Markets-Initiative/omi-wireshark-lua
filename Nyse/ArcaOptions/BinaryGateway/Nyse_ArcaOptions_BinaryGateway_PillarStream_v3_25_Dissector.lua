@@ -7781,6 +7781,46 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_order_instructions.si
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_order_instructions.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Security Type: 5 Bits
+  flags[#flags + 1] = "Security Type: "..value:band(0x00000000000000000000007C00000000):rshift(34)
+  -- Customer Or Firm: 5 Bits
+  flags[#flags + 1] = "Customer Or Firm: "..value:band(0x000000000000000000000F8000000000):rshift(39)
+  -- Open Close Bits: 2 Bits
+  flags[#flags + 1] = "Open Close Bits: "..value:band(0x00000000000000000000300000000000):rshift(44)
+  -- Sub Id Indicator: 5 Bits
+  flags[#flags + 1] = "Sub Id Indicator: "..value:band(0x00000000000000000007C00000000000):rshift(46)
+  -- Special Ord Type: 5 Bits
+  flags[#flags + 1] = "Special Ord Type: "..value:band(0x000000000000000000F8000000000000):rshift(51)
+  -- Locate Reqd Bits: 2 Bits
+  flags[#flags + 1] = "Locate Reqd Bits: "..value:band(0x00000000000000000300000000000000):rshift(56)
+  -- Retail Indicator: 5 Bits
+  flags[#flags + 1] = "Retail Indicator: "..value:band(0x00000000000000007C00000000000000):rshift(58)
+  -- Attributed Quote: 5 Bits
+  flags[#flags + 1] = "Attributed Quote: "..value:band(UInt64(0x00000000, 0x80000000)):rshift(63)
+  -- Order Capacity: 5 Bits
+  flags[#flags + 1] = "Order Capacity: "..value:band(0x000000000000000000000000000001F0):rshift(68)
+  -- Interest Type: 5 Bits
+  flags[#flags + 1] = "Interest Type: "..value:band(0x00000000000000000000000000003E00):rshift(73)
+  -- Trading Session Id: 5 Bits
+  flags[#flags + 1] = "Trading Session Id: "..value:band(0x0000000000000000000000000007C000):rshift(78)
+  -- Time In Force: 5 Bits
+  flags[#flags + 1] = "Time In Force: "..value:band(0x00000000000000000000000000F80000):rshift(83)
+  -- Proactive If Locked: 5 Bits
+  flags[#flags + 1] = "Proactive If Locked: "..value:band(0x0000000000000000000000001F000000):rshift(88)
+  -- Self Trade Type Bits: 5 Bits
+  flags[#flags + 1] = "Self Trade Type Bits: "..value:band(0x000000000000000000000003E0000000):rshift(93)
+  -- Cancel Instead Of Reprice: 5 Bits
+  flags[#flags + 1] = "Cancel Instead Of Reprice: "..value:band(0x00000000000000000000007C00000000):rshift(98)
+  -- Routing Inst: 5 Bits
+  flags[#flags + 1] = "Routing Inst: "..value:band(0x000000000000000000000F8000000000):rshift(103)
+  -- Extended Exec Inst: 5 Bits
+  flags[#flags + 1] = "Extended Exec Inst: "..value:band(0x00000000000000000001F00000000000):rshift(108)
+  -- Exec Inst: 5 Bits
+  flags[#flags + 1] = "Exec Inst: "..value:band(0x0000000000000000003E000000000000):rshift(113)
+  -- Ord Type: 5 Bits
+  flags[#flags + 1] = "Ord Type: "..value:band(0x000000000000000007C0000000000000):rshift(118)
+  -- Side Bits: 5 Bits
+  flags[#flags + 1] = "Side Bits: "..value:band(UInt64(0x00000000, 0xF8000000)):rshift(123)
 
   return table.concat(flags, "|")
 end
@@ -9934,6 +9974,10 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_quote_inst.size = 1
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_quote_inst.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Quote Side: 2 Bits
+  flags[#flags + 1] = "Quote Side: "..bit.rshift(bit.band(value, 0x03), 0)
+  -- Mm Quote Type: 3 Bits
+  flags[#flags + 1] = "Mm Quote Type: "..bit.rshift(bit.band(value, 0x1C), 2)
 
   return table.concat(flags, "|")
 end

@@ -4514,6 +4514,12 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.party_role_qualifiers.size = 1
 lseg_millennium_nativetradinggateway_ntgi_v21_2.party_role_qualifiers.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Client Id Qualifier: 2 Bits
+  flags[#flags + 1] = "Client Id Qualifier: "..bit.rshift(bit.band(value, 0x03), 0)
+  -- Investor Information Qualifier: 2 Bits
+  flags[#flags + 1] = "Investor Information Qualifier: "..bit.rshift(bit.band(value, 0x0C), 2)
+  -- Executing Trader Qualifier: 2 Bits
+  flags[#flags + 1] = "Executing Trader Qualifier: "..bit.rshift(bit.band(value, 0x30), 4)
 
   return table.concat(flags, "|")
 end
@@ -5188,25 +5194,13 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.waiver_flags_post_trade_flags.si
 lseg_millennium_nativetradinggateway_ntgi_v21_2.waiver_flags_post_trade_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved Bit 0 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 0"
-  end
   -- Is Clse flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Clse"
   end
-  -- Is Reserved Bit 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 2"
-  end
   -- Is Ilqd flag set?
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Ilqd"
-  end
-  -- Is Reserved Bit 4 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 4"
   end
   -- Is Rfpt flag set?
   if bit.band(value, 0x20) ~= 0 then

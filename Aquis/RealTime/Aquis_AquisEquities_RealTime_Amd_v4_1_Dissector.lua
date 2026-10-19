@@ -1233,10 +1233,6 @@ aquis_aquisequities_realtime_amd_v4_1.security_definition_flags.display = functi
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Illiquid"
   end
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Aod Enabled flag set?
   if bit.band(value, 0x0010) ~= 0 then
     flags[#flags + 1] = "Aod Enabled"

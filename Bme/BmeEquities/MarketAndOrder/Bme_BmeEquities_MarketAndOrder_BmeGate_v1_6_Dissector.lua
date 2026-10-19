@@ -63,7 +63,7 @@ omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.ccp_code_2 = ProtoField.n
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.ccv = ProtoField.new("Ccv", "bme.bmeequities.marketandorder.bmegate.v1.6.ccv", ftypes.STRING, nil, nil, nil, "Securities Account code in CSD")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.ccv_2 = ProtoField.new("Ccv 2", "bme.bmeequities.marketandorder.bmegate.v1.6.ccv2", ftypes.STRING, nil, nil, nil, "Securities Account code in CSD")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.cfi_code = ProtoField.new("Cfi Code", "bme.bmeequities.marketandorder.bmegate.v1.6.cficode", ftypes.STRING, nil, nil, nil, "CFICode")
-omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.bmeequities.marketandorder.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
+omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.bmeequities.marketandorder.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes). Valid values: 1-65535 (in response messages, 0 means no ClientDataID used)")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.client_data_id_2_b_2 = ProtoField.new("Client Data Id 2 B 2", "bme.bmeequities.marketandorder.bmegate.v1.6.clientdataid2b2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.client_data_id_2_u_2 = ProtoField.new("Client Data Id 2 U 2", "bme.bmeequities.marketandorder.bmegate.v1.6.clientdataid2u2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.client_data_reference = ProtoField.new("Client Data Reference", "bme.bmeequities.marketandorder.bmegate.v1.6.clientdatareference", ftypes.STRING, nil, nil, nil, "Free to use by clients")
@@ -296,7 +296,7 @@ omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.execution_private_informa
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "bme.bmeequities.marketandorder.bmegate.v1.6.heartbeatmessage", ftypes.STRING, nil, nil, nil, "The Heartbeat message is used by the Server to indicate that the communication is active. In the Heartbeat message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.bmeequities.marketandorder.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.bmeequities.marketandorder.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmeequities.marketandorder.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmeequities.marketandorder.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.bmeequities.marketandorder.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.mass_orderquote_cancellation_completion_message = ProtoField.new("Mass Orderquote Cancellation Completion Message", "bme.bmeequities.marketandorder.bmegate.v1.6.massorderquotecancellationcompletionmessage", ftypes.STRING, nil, nil, nil, "Message reporting the completion of a valid mass order cancellation request. More than one message may be sent for a single RequestID")
 omi_bme_bmeequities_marketandorder_bmegate_v1_6.fields.mass_orderquote_cancellation_message = ProtoField.new("Mass Orderquote Cancellation Message", "bme.bmeequities.marketandorder.bmegate.v1.6.massorderquotecancellationmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to request the cancellation of multiple orders and or quotes, based on the specified selection criteria")
@@ -551,9 +551,6 @@ bme_bmeequities_marketandorder_bmegate_v1_6.account_type.display = function(valu
   if value == "E" then
     return "Account Type: Specialist (E)"
   end
-  if value == "33" then
-    return "Account Type: Retail Customer Supported For Compatibility (33)"
-  end
 
   return "Account Type: Unknown("..value..")"
 end
@@ -581,9 +578,6 @@ bme_bmeequities_marketandorder_bmegate_v1_6.account_type_2.display = function(va
   if value == "9" then
     return "Account Type 2: Retail Service Specialist (9)"
   end
-  if value == "33" then
-    return "Account Type 2: Retail Customer Supported For Compatibility (33)"
-  end
   if value == "A" then
     return "Account Type 2: On Behalf Of Third Parties (A)"
   end
@@ -592,6 +586,9 @@ bme_bmeequities_marketandorder_bmegate_v1_6.account_type_2.display = function(va
   end
   if value == "E" then
     return "Account Type 2: Specialist (E)"
+  end
+  if value == "8" then
+    return "Account Type 2: Retail Customer Supported For Compatibility (8)"
   end
 
   return "Account Type 2: Unknown("..value..")"
@@ -1967,11 +1964,12 @@ bme_bmeequities_marketandorder_bmegate_v1_6.client_data_id.size = 2
 
 -- Display: Client Data Id
 bme_bmeequities_marketandorder_bmegate_v1_6.client_data_id.display = function(value)
-  if value == 1 then
-    return "Client Data Id: 65535 In Response Messages 0 Means No Client Data Id Used (1)"
+  -- Check if field has value
+  if value == 0 then
+    return "Client Data Id: No Value"
   end
 
-  return "Client Data Id: Unknown("..value..")"
+  return "Client Data Id: "..value
 end
 
 -- Dissect: Client Data Id
@@ -14488,6 +14486,23 @@ bme_bmeequities_marketandorder_bmegate_v1_6.reject_message.dissect = function(bu
   end
 end
 
+-- Logout Message
+bme_bmeequities_marketandorder_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_bmeequities_marketandorder_bmegate_v1_6.logon_message = {}
 
@@ -14771,7 +14786,7 @@ bme_bmeequities_marketandorder_bmegate_v1_6.payload.dissect = function(buffer, o
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_bmeequities_marketandorder_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

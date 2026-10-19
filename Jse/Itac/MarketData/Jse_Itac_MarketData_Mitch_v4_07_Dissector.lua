@@ -4835,6 +4835,8 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_flags.size = 1
 jse_itac_marketdata_mitch_v4_07.symbol_status_flags.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Unused 8: 8 Bits
+  flags[#flags + 1] = "Unused 8: "..bit.rshift(bit.band(value, 0xFF), 0)
 
   return table.concat(flags, "|")
 end

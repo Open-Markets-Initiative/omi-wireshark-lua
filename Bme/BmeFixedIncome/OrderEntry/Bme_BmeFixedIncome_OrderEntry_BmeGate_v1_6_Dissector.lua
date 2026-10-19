@@ -56,8 +56,8 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.cancellation_type = ProtoF
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ccp_code = ProtoField.new("Ccp Code", "bme.bmefixedincome.orderentry.bmegate.v1.6.ccpcode", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ccp_code_2 = ProtoField.new("Ccp Code 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.ccpcode2", ftypes.STRING, nil, nil, nil, "CCP Code")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.cfi_code = ProtoField.new("Cfi Code", "bme.bmefixedincome.orderentry.bmegate.v1.6.cficode", ftypes.STRING, nil, nil, nil, "CFICode")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_data_id_2 = ProtoField.new("Client Data Id 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientdataid2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes)")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_data_id = ProtoField.new("Client Data Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientdataid", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes). Valid values: 1-65535 (in response messages, 0 means no ClientDataID used)")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_data_id_2 = ProtoField.new("Client Data Id 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientdataid2", ftypes.UINT16, nil, nil, nil, "Client Data ID (to be used as a shortcode in orders and quotes). Valid values: 1-65535 (in response messages, 0 means no ClientDataID used)")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_data_reference = ProtoField.new("Client Data Reference", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientdatareference", ftypes.STRING, nil, nil, nil, "Free to use by clients")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_id = ProtoField.new("Client Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientid", ftypes.UINT32, nil, nil, nil, "Mifid II ClientID")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.client_id_2 = ProtoField.new("Client Id 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.clientid2", ftypes.UINT32, nil, nil, nil, "Mifid II ClientID")
@@ -239,7 +239,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.heartbeat_message = ProtoF
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.indication_of_interest_message = ProtoField.new("Indication Of Interest Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.indicationofinterestmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to notify an indication of interest on a specific instrument. This functionality is available in Fixed Income and Derivatives")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.mass_orderquote_cancellation_completion_message = ProtoField.new("Mass Orderquote Cancellation Completion Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.massorderquotecancellationcompletionmessage", ftypes.STRING, nil, nil, nil, "Message reporting the completion of a valid mass order cancellation request. More than one message may be sent for a single RequestID")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.mass_orderquote_cancellation_message = ProtoField.new("Mass Orderquote Cancellation Message", "bme.bmefixedincome.orderentry.bmegate.v1.6.massorderquotecancellationmessage", ftypes.STRING, nil, nil, nil, "Message sent by the client to request the cancellation of multiple orders and or quotes, based on the specified selection criteria")
@@ -1526,7 +1526,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.calculation_method.size = 1
 -- Display: Calculation Method
 bme_bmefixedincome_orderentry_bmegate_v1_6.calculation_method.display = function(value)
   if value == "0" then
-    return "Calculation Method: 30360 Usnasd (0)"
+    return "Calculation Method: Thirty 360 US NASD (0)"
   end
   if value == "1" then
     return "Calculation Method: Actual Actual (1)"
@@ -1538,7 +1538,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.calculation_method.display = function
     return "Calculation Method: Actual 365 (3)"
   end
   if value == "4" then
-    return "Calculation Method: 30360 European (4)"
+    return "Calculation Method: Thirty 360 European (4)"
   end
   if value == "5" then
     return "Calculation Method: If Days To Maturity 365 Actual 360 Else Actual 365 (5)"
@@ -1696,11 +1696,12 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.client_data_id.size = 2
 
 -- Display: Client Data Id
 bme_bmefixedincome_orderentry_bmegate_v1_6.client_data_id.display = function(value)
-  if value == 1 then
-    return "Client Data Id: 65535 In Response Messages 0 Means No Client Data Id Used (1)"
+  -- Check if field has value
+  if value == 0 then
+    return "Client Data Id: No Value"
   end
 
-  return "Client Data Id: Unknown("..value..")"
+  return "Client Data Id: "..value
 end
 
 -- Dissect: Client Data Id
@@ -1723,11 +1724,12 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.client_data_id_2.size = 2
 
 -- Display: Client Data Id 2
 bme_bmefixedincome_orderentry_bmegate_v1_6.client_data_id_2.display = function(value)
-  if value == 1 then
-    return "Client Data Id 2: 65535 In Response Messages 0 Means No Client Data Id Used (1)"
+  -- Check if field has value
+  if value == 0 then
+    return "Client Data Id 2: No Value"
   end
 
-  return "Client Data Id 2: Unknown("..value..")"
+  return "Client Data Id 2: "..value
 end
 
 -- Dissect: Client Data Id 2
@@ -11137,6 +11139,23 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.reject_message.dissect = function(buf
   end
 end
 
+-- Logout Message
+bme_bmefixedincome_orderentry_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_bmefixedincome_orderentry_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_bmefixedincome_orderentry_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_bmefixedincome_orderentry_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_bmefixedincome_orderentry_bmegate_v1_6.logon_message = {}
 
@@ -11420,7 +11439,7 @@ bme_bmefixedincome_orderentry_bmegate_v1_6.payload.dissect = function(buffer, of
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_bmefixedincome_orderentry_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

@@ -1620,6 +1620,8 @@ lseg_millennium_level2_mitch_v11_9.statistics_reserved.size = 1
 lseg_millennium_level2_mitch_v11_9.statistics_reserved.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Unused 8: 8 Bits
+  flags[#flags + 1] = "Unused 8: "..bit.rshift(bit.band(value, 0xFF), 0)
 
   return table.concat(flags, "|")
 end

@@ -2019,10 +2019,6 @@ asx_asxsecurities_trade_itch_v2_0.exchange_order_type.display = function(range, 
   if bit.band(value, 0x0008) ~= 0 then
     flags[#flags + 1] = "Price Stabilisation"
   end
-  -- Is Reserved Bit flag set?
-  if bit.band(value, 0x0010) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit"
-  end
   -- Is Undisclosed flag set?
   if bit.band(value, 0x0020) ~= 0 then
     flags[#flags + 1] = "Undisclosed"

@@ -2093,10 +2093,6 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.execution_flags.size = 1
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.execution_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Auction flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Auction"

@@ -484,15 +484,6 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.auction_type.display = function(value
   if value == "R" then
     return "Auction Type: Reopening (R)"
   end
-  if value == "P" then
-    return "Auction Type: Price Improvement Auction (P)"
-  end
-  if value == "I" then
-    return "Auction Type: Order Exposure (I)"
-  end
-  if value == "B" then
-    return "Auction Type: Block Auction (B)"
-  end
 
   return "Auction Type: Unknown("..value..")"
 end

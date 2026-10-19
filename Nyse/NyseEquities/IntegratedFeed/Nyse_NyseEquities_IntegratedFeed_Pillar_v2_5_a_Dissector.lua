@@ -5476,7 +5476,6 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a)
 --   Organization: New York Stock Exchange
 --   Version: 2.5.a
 --   Date: Wednesday, November 30, 2022
---   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

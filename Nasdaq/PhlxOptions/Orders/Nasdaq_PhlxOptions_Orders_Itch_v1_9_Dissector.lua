@@ -1638,6 +1638,12 @@ nasdaq_phlxoptions_orders_itch_v1_9.expiration.size = 2
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Day: 5 Bits
+  flags[#flags + 1] = "Day: "..bit.rshift(bit.band(value, 0x001F), 0)
+  -- Month: 4 Bits
+  flags[#flags + 1] = "Month: "..bit.rshift(bit.band(value, 0x01E0), 5)
+  -- Year: 7 Bits
+  flags[#flags + 1] = "Year: "..bit.rshift(bit.band(value, 0xFE00), 9)
 
   return table.concat(flags, "|")
 end

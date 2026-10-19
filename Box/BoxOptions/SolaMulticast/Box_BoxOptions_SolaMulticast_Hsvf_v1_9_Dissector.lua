@@ -418,19 +418,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.ask_size = {}
 box_boxoptions_solamulticast_hsvf_v1_9.ask_size.size = 5
 
 -- Display: Ask Size
-box_boxoptions_solamulticast_hsvf_v1_9.ask_size.display = function(value)
-  return "Ask Size: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.ask_size.display = function(value, buffer, offset, packet, parent)
+  return "Ask Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Ask Size
 box_boxoptions_solamulticast_hsvf_v1_9.ask_size.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.ask_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.ask_size.display(value, buffer, offset, packet, parent)
 
@@ -608,19 +618,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.bid_size = {}
 box_boxoptions_solamulticast_hsvf_v1_9.bid_size.size = 5
 
 -- Display: Bid Size
-box_boxoptions_solamulticast_hsvf_v1_9.bid_size.display = function(value)
-  return "Bid Size: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.bid_size.display = function(value, buffer, offset, packet, parent)
+  return "Bid Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Bid Size
 box_boxoptions_solamulticast_hsvf_v1_9.bid_size.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.bid_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.bid_size.display(value, buffer, offset, packet, parent)
 
@@ -3278,15 +3298,30 @@ box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders = {}
 box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.size = 2
 
 -- Display: Number Of Ask Orders
-box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.display = function(value)
-  return "Number Of Ask Orders: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.display = function(value, buffer, offset, packet, parent)
+  return "Number Of Ask Orders: "..string.format("%.0f", value)
 end
 
 -- Dissect: Number Of Ask Orders
 box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = box_boxoptions_solamulticast_hsvf_v1_9.number_of_ask_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.number_of_ask_orders, range, value, display)
@@ -3301,15 +3336,30 @@ box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders = {}
 box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.size = 2
 
 -- Display: Number Of Bid Orders
-box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.display = function(value)
-  return "Number Of Bid Orders: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.display = function(value, buffer, offset, packet, parent)
+  return "Number Of Bid Orders: "..string.format("%.0f", value)
 end
 
 -- Dissect: Number Of Bid Orders
 box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.number_of_bid_orders, range, value, display)
@@ -3732,19 +3782,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size = {}
 box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.size = 5
 
 -- Display: Public Customer Ask Size
-box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.display = function(value)
-  return "Public Customer Ask Size: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.display = function(value, buffer, offset, packet, parent)
+  return "Public Customer Ask Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Public Customer Ask Size
 box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.public_customer_ask_size.display(value, buffer, offset, packet, parent)
 
@@ -3760,19 +3820,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size = {}
 box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.size = 5
 
 -- Display: Public Customer Bid Size
-box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.display = function(value)
-  return "Public Customer Bid Size: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.display = function(value, buffer, offset, packet, parent)
+  return "Public Customer Bid Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Public Customer Bid Size
 box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.public_customer_bid_size.display(value, buffer, offset, packet, parent)
 
@@ -3891,19 +3961,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.requested_size = {}
 box_boxoptions_solamulticast_hsvf_v1_9.requested_size.size = 8
 
 -- Display: Requested Size
-box_boxoptions_solamulticast_hsvf_v1_9.requested_size.display = function(value)
-  return "Requested Size: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.requested_size.display = function(value, buffer, offset, packet, parent)
+  return "Requested Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Requested Size
 box_boxoptions_solamulticast_hsvf_v1_9.requested_size.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.requested_size.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.requested_size.display(value, buffer, offset, packet, parent)
 
@@ -4723,19 +4803,29 @@ box_boxoptions_solamulticast_hsvf_v1_9.volume = {}
 box_boxoptions_solamulticast_hsvf_v1_9.volume.size = 8
 
 -- Display: Volume
-box_boxoptions_solamulticast_hsvf_v1_9.volume.display = function(value)
-  return "Volume: "..value
+box_boxoptions_solamulticast_hsvf_v1_9.volume.display = function(value, buffer, offset, packet, parent)
+  return "Volume: "..string.format("%.0f", value)
 end
 
 -- Dissect: Volume
 box_boxoptions_solamulticast_hsvf_v1_9.volume.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = "Not Applicable"
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = box_boxoptions_solamulticast_hsvf_v1_9.volume.display(value, buffer, offset, packet, parent)
 

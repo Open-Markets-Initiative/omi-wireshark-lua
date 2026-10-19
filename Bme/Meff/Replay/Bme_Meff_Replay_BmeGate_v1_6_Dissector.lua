@@ -226,7 +226,7 @@ omi_bme_meff_replay_bmegate_v1_6.fields.heartbeat_message = ProtoField.new("Hear
 omi_bme_meff_replay_bmegate_v1_6.fields.indication_of_interest_message = ProtoField.new("Indication Of Interest Message", "bme.meff.replay.bmegate.v1.6.indicationofinterestmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to notify an indication of interest on a specific instrument. This functionality is available in Fixed Income and Derivatives")
 omi_bme_meff_replay_bmegate_v1_6.fields.logon_message = ProtoField.new("Logon Message", "bme.meff.replay.bmegate.v1.6.logonmessage", ftypes.STRING, nil, nil, nil, "The Logon message is used to start a session by the client application")
 omi_bme_meff_replay_bmegate_v1_6.fields.logon_response_message = ProtoField.new("Logon Response Message", "bme.meff.replay.bmegate.v1.6.logonresponsemessage", ftypes.STRING, nil, nil, nil, "The Logon Response message is used by the Server to accept a new session. In this message the sequence number will always be 0")
-omi_bme_meff_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.meff.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES)
+omi_bme_meff_replay_bmegate_v1_6.fields.logout_message = ProtoField.new("Logout Message", "bme.meff.replay.bmegate.v1.6.logoutmessage", ftypes.BYTES, nil, nil, nil, "The Logout message is used by the client application to request the end of a session")
 omi_bme_meff_replay_bmegate_v1_6.fields.logout_response_message = ProtoField.new("Logout Response Message", "bme.meff.replay.bmegate.v1.6.logoutresponsemessage", ftypes.STRING, nil, nil, nil, "The Logout message is used by the Server to notify the end of a session, whether it is solicited or unsolicited. It may also be the answer to a failed logon attempt (see Logon message)")
 omi_bme_meff_replay_bmegate_v1_6.fields.network_status_message = ProtoField.new("Network Status Message", "bme.meff.replay.bmegate.v1.6.networkstatusmessage", ftypes.STRING, nil, nil, nil, "Message sent by the server with information about the connectivity between the Server and the central systems. In the Network Status message, the SequenceNumber of the previously received message will be repeated")
 omi_bme_meff_replay_bmegate_v1_6.fields.news_message = ProtoField.new("News Message", "bme.meff.replay.bmegate.v1.6.newsmessage", ftypes.STRING, nil, nil, nil, "Used by the Server to communicate a Market Surveillance or system-wide text message")
@@ -2050,7 +2050,7 @@ bme_meff_replay_bmegate_v1_6.family_code.display = function(value)
     return "Family Code: Futures S Div Acc (FSTCD)"
   end
   if value == "FSTCE" then
-    return "Family Code: 25 Stock Dividend Futures (FSTCE)"
+    return "Family Code: Twenty Five Stock Dividend Futures (FSTCE)"
   end
   if value == "FSTCK" then
     return "Family Code: Futures S Acciones (FSTCK)"
@@ -5281,22 +5281,22 @@ bme_meff_replay_bmegate_v1_6.security_sub_type.display = function(value)
     return "Security Sub Type: Put U (PUT +U)"
   end
   if value == "RBER" then
-    return "Security Sub Type: 21 Ratio Put Spread (RBER)"
+    return "Security Sub Type: Ratio 2x1 Put Spread (RBER)"
   end
   if value == "RBER+U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER+U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Plus U (RBER+U)"
   end
   if value == "RBER-U" then
-    return "Security Sub Type: 21 Ratio Put Spread U (RBER-U)"
+    return "Security Sub Type: Ratio 2x1 Put Spread Minus U (RBER-U)"
   end
   if value == "RBUL" then
-    return "Security Sub Type: 21 Ratio Call Spread (RBUL)"
+    return "Security Sub Type: Ratio 2x1 Call Spread (RBUL)"
   end
   if value == "RBUL+U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL+U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Plus U (RBUL+U)"
   end
   if value == "RBUL-U" then
-    return "Security Sub Type: 21 Ratio Call Spread U (RBUL-U)"
+    return "Security Sub Type: Ratio 2x1 Call Spread Minus U (RBUL-U)"
   end
   if value == "RSK" then
     return "Security Sub Type: Risky (RSK)"
@@ -9447,6 +9447,23 @@ bme_meff_replay_bmegate_v1_6.reject_message.dissect = function(buffer, offset, p
   end
 end
 
+-- Logout Message
+bme_meff_replay_bmegate_v1_6.logout_message = {}
+
+-- Display: Logout Message
+bme_meff_replay_bmegate_v1_6.logout_message.display = function(packet, parent, length)
+  return "Logout Message"
+end
+
+
+-- Dissect: Logout Message
+bme_meff_replay_bmegate_v1_6.logout_message.dissect = function(buffer, offset, packet, parent)
+  local display = bme_meff_replay_bmegate_v1_6.logout_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logon Message
 bme_meff_replay_bmegate_v1_6.logon_message = {}
 
@@ -9730,7 +9747,7 @@ bme_meff_replay_bmegate_v1_6.payload.dissect = function(buffer, offset, packet, 
   end
   -- Dissect Logout Message
   if message_type == 0x35 then
-    return offset
+    return bme_meff_replay_bmegate_v1_6.logout_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Reject Message
   if message_type == 0x0D then

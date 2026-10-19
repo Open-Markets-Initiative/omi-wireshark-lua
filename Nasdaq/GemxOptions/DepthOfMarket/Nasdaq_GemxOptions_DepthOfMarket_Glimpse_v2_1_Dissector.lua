@@ -907,9 +907,6 @@ nasdaq_gemxoptions_depthofmarket_glimpse_v2_1.order_capacity.display = function(
   if value == "O" then
     return "Order Capacity: Other Exchange Market Maker Order (O)"
   end
-  if value == "J" then
-    return "Order Capacity: Joint Back Office (J)"
-  end
   if value == " " then
     return "Order Capacity: Na (<whitespace>)"
   end

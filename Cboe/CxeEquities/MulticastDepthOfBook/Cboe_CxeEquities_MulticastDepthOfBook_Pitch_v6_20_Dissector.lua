@@ -3172,10 +3172,6 @@ cboe_cxeequities_multicastdepthofbook_pitch_v6_20.add_flags.size = 1
 cboe_cxeequities_multicastdepthofbook_pitch_v6_20.add_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Si Quote flag set?
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Si Quote"

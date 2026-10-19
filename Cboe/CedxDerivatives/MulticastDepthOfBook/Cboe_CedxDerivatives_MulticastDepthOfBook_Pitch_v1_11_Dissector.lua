@@ -3005,17 +3005,9 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.summary_flags.display = fu
   if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "High Price 1"
   end
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x02) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Low Price 1 flag set?
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Low Price 1"
-  end
-  -- Is Second Unused 1 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Second Unused 1"
   end
   -- Is Open And Close Price flag set?
   if bit.band(value, 0x10) ~= 0 then

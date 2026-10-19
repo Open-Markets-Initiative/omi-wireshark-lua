@@ -326,28 +326,28 @@ finra_trace_spds_dfi_v2_1.change_indicator.size = 1
 
 -- Display: Change Indicator
 finra_trace_spds_dfi_v2_1.change_indicator.display = function(value)
-  if value == "0" then
-    return "Change Indicator: No Price Changed (0)"
+  if value == 0 then
+    return "Change Indicator: No Changed (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Change Indicator: Last Price Changed (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Change Indicator: Low Price Changed (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Change Indicator: Last Price And Low Price Changed (3)"
   end
-  if value == "4" then
+  if value == 4 then
     return "Change Indicator: High Price Changed (4)"
   end
-  if value == "5" then
+  if value == 5 then
     return "Change Indicator: Last Price And High Price Changed (5)"
   end
-  if value == "6" then
+  if value == 6 then
     return "Change Indicator: High Price And Low Price Changed (6)"
   end
-  if value == "7" then
+  if value == 7 then
     return "Change Indicator: All Prices Changed (7)"
   end
 
@@ -358,7 +358,12 @@ end
 finra_trace_spds_dfi_v2_1.change_indicator.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_spds_dfi_v2_1.change_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = finra_trace_spds_dfi_v2_1.change_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_spds_dfi_v2_1.fields.change_indicator, range, value, display)
@@ -2518,7 +2523,7 @@ finra_trace_spds_dfi_v2_1.trade_summary_information.fields = function(buffer, of
   -- Last Sale Price: Numeric
   index, last_sale_price = finra_trace_spds_dfi_v2_1.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Change Indicator: Alphanumeric
+  -- Change Indicator: Numeric
   index, change_indicator = finra_trace_spds_dfi_v2_1.change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3482,7 +3487,7 @@ finra_trace_spds_dfi_v2_1.mbs_trade_report_message.fields = function(buffer, off
   -- Mbs Trade Information: Struct of 15 fields
   index, mbs_trade_information = finra_trace_spds_dfi_v2_1.mbs_trade_information.dissect(buffer, index, packet, parent)
 
-  -- Change Indicator: Alphanumeric
+  -- Change Indicator: Numeric
   index, change_indicator = finra_trace_spds_dfi_v2_1.change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3638,7 +3643,7 @@ finra_trace_spds_dfi_v2_1.trade_report_message.fields = function(buffer, offset,
   -- Trade Information: Struct of 16 fields
   index, trade_information = finra_trace_spds_dfi_v2_1.trade_information.dissect(buffer, index, packet, parent)
 
-  -- Change Indicator: Alphanumeric
+  -- Change Indicator: Numeric
   index, change_indicator = finra_trace_spds_dfi_v2_1.change_indicator.dissect(buffer, index, packet, parent)
 
   return index

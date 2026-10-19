@@ -69,6 +69,20 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_messa
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group_index = ProtoField.new("Depth Snapshot Stream Event Message asks Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroupindex", ftypes.UINT16)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group_index = ProtoField.new("Depth Snapshot Stream Event Message bids Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroupindex", ftypes.UINT16)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group_index = ProtoField.new("Trades Stream Event Message trades Group Index", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price = ProtoField.new("Ask Price", "binance.binancespot.marketdata.sbe.v1.0.askprice", ftypes.DOUBLE)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty = ProtoField.new("Ask Qty", "binance.binancespot.marketdata.sbe.v1.0.askqty", ftypes.DOUBLE)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price = ProtoField.new("Bid Price", "binance.binancespot.marketdata.sbe.v1.0.bidprice", ftypes.DOUBLE)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty = ProtoField.new("Bid Qty", "binance.binancespot.marketdata.sbe.v1.0.bidqty", ftypes.DOUBLE)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.price = ProtoField.new("Price", "binance.binancespot.marketdata.sbe.v1.0.price", ftypes.DOUBLE)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty = ProtoField.new("Qty", "binance.binancespot.marketdata.sbe.v1.0.qty", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Binance BinanceSpot MarketData Sbe 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- Price format (true = decimal-scaled, false = raw mantissa)
+binance_binancespot_marketdata_sbe_v1_0.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -89,6 +103,7 @@ omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_repeating_groups = Pref.b
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
@@ -109,7 +124,40 @@ function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()
   if show.indexes ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes then
     show.indexes = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes
   end
+  if binance_binancespot_marketdata_sbe_v1_0.format_decimals ~= omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals then
+    binance_binancespot_marketdata_sbe_v1_0.format_decimals = omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+binance_binancespot_marketdata_sbe_v1_0.conversation = {}
+binance_binancespot_marketdata_sbe_v1_0.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+binance_binancespot_marketdata_sbe_v1_0.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+binance_binancespot_marketdata_sbe_v1_0.conversation.data = function(packet)
+  local key = binance_binancespot_marketdata_sbe_v1_0.conversation.key(packet)
+  local data = binance_binancespot_marketdata_sbe_v1_0.conversation.flows[key]
+  if data == nil then
+    data = { price_exponent = { last = nil, frames = {} }, qty_exponent = { last = nil, frames = {} } }
+    binance_binancespot_marketdata_sbe_v1_0.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+binance_binancespot_marketdata_sbe_v1_0.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -455,6 +503,16 @@ binance_binancespot_marketdata_sbe_v1_0.price_exponent = {}
 -- Size: Price Exponent
 binance_binancespot_marketdata_sbe_v1_0.price_exponent.size = 1
 
+-- Store: Price Exponent
+binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = nil
+
+-- Generated: Price Exponent
+binance_binancespot_marketdata_sbe_v1_0.price_exponent.generated = function(value, range, packet, parent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.price_exponent.display(value)
+  local price_exponent = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.price_exponent, range, value, display)
+  price_exponent:set_generated()
+end
+
 -- Display: Price Exponent
 binance_binancespot_marketdata_sbe_v1_0.price_exponent.display = function(value)
   return "Price Exponent: "..value
@@ -500,6 +558,16 @@ binance_binancespot_marketdata_sbe_v1_0.qty_exponent = {}
 
 -- Size: Qty Exponent
 binance_binancespot_marketdata_sbe_v1_0.qty_exponent.size = 1
+
+-- Store: Qty Exponent
+binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = nil
+
+-- Generated: Qty Exponent
+binance_binancespot_marketdata_sbe_v1_0.qty_exponent.generated = function(value, range, packet, parent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.display(value)
+  local qty_exponent = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty_exponent, range, value, display)
+  qty_exponent:set_generated()
+end
 
 -- Display: Qty Exponent
 binance_binancespot_marketdata_sbe_v1_0.qty_exponent.display = function(value)
@@ -673,6 +741,156 @@ binance_binancespot_marketdata_sbe_v1_0.version.dissect = function(buffer, offse
   local display = binance_binancespot_marketdata_sbe_v1_0.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price
+binance_binancespot_marketdata_sbe_v1_0.ask_price = {}
+
+-- Display: Ask Price
+binance_binancespot_marketdata_sbe_v1_0.ask_price.display = function(value)
+  return "Ask Price: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Price
+binance_binancespot_marketdata_sbe_v1_0.ask_price.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.ask_price.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.ask_price.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price, range, mantissa, mantissa_display)
+
+  return offset + length, value
+end
+
+-- Ask Qty
+binance_binancespot_marketdata_sbe_v1_0.ask_qty = {}
+
+-- Display: Ask Qty
+binance_binancespot_marketdata_sbe_v1_0.ask_qty.display = function(value)
+  return "Ask Qty: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Qty
+binance_binancespot_marketdata_sbe_v1_0.ask_qty.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.ask_qty.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.ask_qty.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.ask_qty.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty, range, mantissa, mantissa_display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+binance_binancespot_marketdata_sbe_v1_0.bid_price = {}
+
+-- Display: Bid Price
+binance_binancespot_marketdata_sbe_v1_0.bid_price.display = function(value)
+  return "Bid Price: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Price
+binance_binancespot_marketdata_sbe_v1_0.bid_price.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.bid_price.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.bid_price.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price, range, mantissa, mantissa_display)
+
+  return offset + length, value
+end
+
+-- Bid Qty
+binance_binancespot_marketdata_sbe_v1_0.bid_qty = {}
+
+-- Display: Bid Qty
+binance_binancespot_marketdata_sbe_v1_0.bid_qty.display = function(value)
+  return "Bid Qty: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Qty
+binance_binancespot_marketdata_sbe_v1_0.bid_qty.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.bid_qty.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.bid_qty.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.bid_qty.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty, range, mantissa, mantissa_display)
+
+  return offset + length, value
+end
+
+-- Price
+binance_binancespot_marketdata_sbe_v1_0.price = {}
+
+-- Display: Price
+binance_binancespot_marketdata_sbe_v1_0.price.display = function(value)
+  return "Price: " .. string.format("%g", value)
+end
+
+-- Composite: Price
+binance_binancespot_marketdata_sbe_v1_0.price.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.price_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.price.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.price, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.price.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.price, range, mantissa, mantissa_display)
+
+  return offset + length, value
+end
+
+-- Qty
+binance_binancespot_marketdata_sbe_v1_0.qty = {}
+
+-- Display: Qty
+binance_binancespot_marketdata_sbe_v1_0.qty.display = function(value)
+  return "Qty: " .. string.format("%g", value)
+end
+
+-- Composite: Qty
+binance_binancespot_marketdata_sbe_v1_0.qty.composite = function(buffer, offset, packet, parent)
+  local length = binance_binancespot_marketdata_sbe_v1_0.qty.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int64()
+  local exponent = binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current or 0
+  local value = mantissa * (10 ^ exponent)
+  local display = binance_binancespot_marketdata_sbe_v1_0.qty.display(value)
+
+  local field_tree = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty, range, value, display)
+  local mantissa_display = binance_binancespot_marketdata_sbe_v1_0.qty.display(mantissa)
+
+  field_tree:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty, range, mantissa, mantissa_display)
 
   return offset + length, value
 end
@@ -1070,6 +1288,20 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.fields =
   -- Symbol: Struct of 2 fields
   index, symbol = binance_binancespot_marketdata_sbe_v1_0.symbol.dissect(buffer, index, packet, parent)
 
+  -- Store Price Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = price_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.price_exponent.last = price_exponent
+  end
+
+  -- Store Qty Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = qty_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
+  end
+
   return index
 end
 
@@ -1359,6 +1591,20 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message.fiel
   -- Symbol: Struct of 2 fields
   index, symbol = binance_binancespot_marketdata_sbe_v1_0.symbol.dissect(buffer, index, packet, parent)
 
+  -- Store Price Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = price_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.price_exponent.last = price_exponent
+  end
+
+  -- Store Qty Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = qty_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
+  end
+
   return index
 end
 
@@ -1443,6 +1689,20 @@ binance_binancespot_marketdata_sbe_v1_0.best_bid_ask_stream_event_message.fields
 
   -- Symbol: Struct of 2 fields
   index, symbol = binance_binancespot_marketdata_sbe_v1_0.symbol.dissect(buffer, index, packet, parent)
+
+  -- Store Price Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = price_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.price_exponent.last = price_exponent
+  end
+
+  -- Store Qty Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = qty_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
+  end
 
   return index
 end
@@ -1673,6 +1933,20 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message.fields = fun
   -- Symbol: Struct of 2 fields
   index, symbol = binance_binancespot_marketdata_sbe_v1_0.symbol.dissect(buffer, index, packet, parent)
 
+  -- Store Price Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = price_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.price_exponent.last = price_exponent
+  end
+
+  -- Store Qty Exponent Value
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = qty_exponent
+
+  if not packet.visited then
+    binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
+  end
+
   return index
 end
 
@@ -1837,6 +2111,28 @@ end
 
 -- Dissect Frame
 binance_binancespot_marketdata_sbe_v1_0.frame.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = binance_binancespot_marketdata_sbe_v1_0.conversation.data(packet)
+  if not packet.visited then
+    data.price_exponent.frames[packet.number] = data.price_exponent.last
+    data.qty_exponent.frames[packet.number] = data.qty_exponent.last
+    data.price_exponent.frames[packet.number] = data.price_exponent.last
+    data.qty_exponent.frames[packet.number] = data.qty_exponent.last
+    data.price_exponent.frames[packet.number] = data.price_exponent.last
+    data.qty_exponent.frames[packet.number] = data.qty_exponent.last
+    data.price_exponent.frames[packet.number] = data.price_exponent.last
+    data.qty_exponent.frames[packet.number] = data.qty_exponent.last
+  end
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = data.price_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = data.qty_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = data.price_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = data.qty_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = data.price_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = data.qty_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = data.price_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = data.qty_exponent.frames[packet.number]
+  binance_binancespot_marketdata_sbe_v1_0.conversation.current = data
+
   local index = 0
 
   -- Sbe Message: Struct of 2 fields
@@ -1852,6 +2148,10 @@ end
 
 -- Initialize Dissector
 function omi_binance_binancespot_marketdata_sbe_v1_0.init()
+  binance_binancespot_marketdata_sbe_v1_0.price_exponent.current = nil
+  binance_binancespot_marketdata_sbe_v1_0.qty_exponent.current = nil
+  binance_binancespot_marketdata_sbe_v1_0.conversation.current = nil
+  binance_binancespot_marketdata_sbe_v1_0.conversation.flows = {}
 end
 
 -- Dissector for Binance BinanceSpot MarketData Sbe 1.0

@@ -478,15 +478,30 @@ tmx_mx_solamulticast_hsvf_v1_12.ask_size = {}
 tmx_mx_solamulticast_hsvf_v1_12.ask_size.size = 5
 
 -- Display: Ask Size
-tmx_mx_solamulticast_hsvf_v1_12.ask_size.display = function(value)
-  return "Ask Size: "..value
+tmx_mx_solamulticast_hsvf_v1_12.ask_size.display = function(value, buffer, offset, packet, parent)
+  return "Ask Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Ask Size
 tmx_mx_solamulticast_hsvf_v1_12.ask_size.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.ask_size.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12.ask_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.ask_size, range, value, display)
@@ -650,15 +665,30 @@ tmx_mx_solamulticast_hsvf_v1_12.bid_size = {}
 tmx_mx_solamulticast_hsvf_v1_12.bid_size.size = 5
 
 -- Display: Bid Size
-tmx_mx_solamulticast_hsvf_v1_12.bid_size.display = function(value)
-  return "Bid Size: "..value
+tmx_mx_solamulticast_hsvf_v1_12.bid_size.display = function(value, buffer, offset, packet, parent)
+  return "Bid Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Bid Size
 tmx_mx_solamulticast_hsvf_v1_12.bid_size.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.bid_size.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12.bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.bid_size, range, value, display)
@@ -2626,15 +2656,30 @@ tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders = {}
 tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.size = 2
 
 -- Display: Number Of Ask Orders
-tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.display = function(value)
-  return "Number Of Ask Orders: "..value
+tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.display = function(value, buffer, offset, packet, parent)
+  return "Number Of Ask Orders: "..string.format("%.0f", value)
 end
 
 -- Dissect: Number Of Ask Orders
 tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12.number_of_ask_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.number_of_ask_orders, range, value, display)
@@ -2649,15 +2694,30 @@ tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders = {}
 tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.size = 2
 
 -- Display: Number Of Bid Orders
-tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.display = function(value)
-  return "Number Of Bid Orders: "..value
+tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.display = function(value, buffer, offset, packet, parent)
+  return "Number Of Bid Orders: "..string.format("%.0f", value)
 end
 
 -- Dissect: Number Of Bid Orders
 tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12.number_of_bid_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12.fields.number_of_bid_orders, range, value, display)

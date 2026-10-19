@@ -2728,6 +2728,12 @@ nasdaq_ntxoptions_cti_itch_v1_3.expiration.size = 2
 nasdaq_ntxoptions_cti_itch_v1_3.expiration.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Expiration Day: 5 Bits
+  flags[#flags + 1] = "Expiration Day: "..bit.rshift(bit.band(value, 0x001F), 0)
+  -- Expiration Month: 4 Bits
+  flags[#flags + 1] = "Expiration Month: "..bit.rshift(bit.band(value, 0x01E0), 5)
+  -- Expiration Year: 7 Bits
+  flags[#flags + 1] = "Expiration Year: "..bit.rshift(bit.band(value, 0xFE00), 9)
 
   return table.concat(flags, "|")
 end
@@ -2922,6 +2928,12 @@ nasdaq_ntxoptions_cti_itch_v1_3.order_date.size = 2
 nasdaq_ntxoptions_cti_itch_v1_3.order_date.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Order Date Day: 5 Bits
+  flags[#flags + 1] = "Order Date Day: "..bit.rshift(bit.band(value, 0x001F), 0)
+  -- Order Date Month: 4 Bits
+  flags[#flags + 1] = "Order Date Month: "..bit.rshift(bit.band(value, 0x01E0), 5)
+  -- Order Date Year: 7 Bits
+  flags[#flags + 1] = "Order Date Year: "..bit.rshift(bit.band(value, 0xFE00), 9)
 
   return table.concat(flags, "|")
 end

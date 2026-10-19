@@ -3336,6 +3336,10 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.size = 1
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Self Trade Protection Level: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Level: "..bit.rshift(bit.band(value, 0x07), 0)
+  -- Self Trade Protection Instruction: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Instruction: "..bit.rshift(bit.band(value, 0x38), 3)
 
   return table.concat(flags, "|")
 end

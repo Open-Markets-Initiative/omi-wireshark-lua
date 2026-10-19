@@ -1835,10 +1835,6 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.note_codes_bit_field_4.display =
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Ce Capped By Esma"
   end
-  -- Is Reserved 5 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved 5"
-  end
   -- Is Pd Price Discrepancy Historical Average Share Classes flag set?
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Pd Price Discrepancy Historical Average Share Classes"

@@ -4,6 +4,8 @@
 
 Omi Lua Wireshark dissectors provide easily customized and verified viewing of common binary exchange protocols.
 
+Useful? A star on [this repository](https://github.com/Open-Markets-Initiative/omi-wireshark-lua "Omi Lua Wireshark Dissectors") helps others find these dissectors.
+
 ## Usage
 
 To dissect packets, place lua script(s) in the wireshark plugins directory.
@@ -37,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1501 | 10,512,063 |
+| 1509 | 10,614,629 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -60,8 +62,6 @@ If these dissectors are useful to you, please consider supporting the foundation
 [![Omi](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Images/Logo.png)](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative)  The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
 
 Other generated code can be found at [Omi Projects](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Projects "Open Markets Initiative Projects"); for Omi rules and regulations, see [Omi Directory](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative "Open Markets Initiative Directory").
-
-Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiative "Open Markets Initiative").
 
 ## Organizations
 
@@ -136,6 +136,7 @@ Enjoy.
 [Omi.Encoding.Cbp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Cbp.md "Cbp Encoding"
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Dfi.md "Dfi Encoding"
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xdp.md "Xdp Encoding"
+[Omi.Encoding.Wats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Wats.md "Wats Encoding"
 [Omi.Encoding.Omd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Omd.md "Omd Encoding"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/IexTp.md "IexTp Encoding"
@@ -379,6 +380,7 @@ Enjoy.
 [Finra.Trace.Btds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Btds.md "Bond Trade Dissemination Service"
 [Finra.Trace.Btds144A]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Btds144A.md "Bond Trade Dissemination Service for 144A Transactions"
 [Finra.Trace.Spds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Spds.md "Securitized Products Dissemination Service"
+[Finra.Trace.Spds144A]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Spds144A.md "Securitized Products Dissemination Service for 144A Transactions"
 [Gpw.BondSpot.Bonds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/BondSpot/Bonds.md "BondSpot Bonds"
 [Gpw.BondSpot.Indices]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/BondSpot/Indices.md "BondSpot Indices"
 [Gpw.BondSpot.MarketInformation]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/BondSpot/MarketInformation.md "BondSpot Market Information"
@@ -389,8 +391,15 @@ Enjoy.
 [Gpw.Wse.Indices]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/Indices.md "Warsaw Stock Exchange Indices"
 [Gpw.Wse.MarketInformation]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/MarketInformation.md "Warsaw Stock Exchange Market Information"
 [Gpw.Wse.OrderBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/OrderBook.md "Warsaw Stock Exchange Order Book"
+[Gpw.Wse.OrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/OrderEntry.md "Warsaw Stock Exchange Native Order Gateway"
 [Gpw.Wse.PricesAndTrades]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/PricesAndTrades.md "Warsaw Stock Exchange Prices and Trades"
 [Gpw.Wse.Quotes]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/Quotes.md "Warsaw Stock Exchange Quotes"
+[Gpw.Wse.ReplayBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/ReplayBbo.md "Warsaw Stock Exchange BBO Replay"
+[Gpw.Wse.ReplayFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/ReplayFullDepth.md "Warsaw Stock Exchange Full Depth Replay"
+[Gpw.Wse.SnapshotBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/SnapshotBbo.md "Warsaw Stock Exchange BBO Snapshot"
+[Gpw.Wse.SnapshotFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/SnapshotFullDepth.md "Warsaw Stock Exchange Full Depth Snapshot"
+[Gpw.Wse.StreamBbo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/StreamBbo.md "Warsaw Stock Exchange BBO Stream"
+[Gpw.Wse.StreamFullDepth]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Gpw/Protocols/Wse/StreamFullDepth.md "Warsaw Stock Exchange Full Depth Stream"
 [Hkex.HkexDerivatives.Combined]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/Combined.md "Orion Market Data Derivatives Combined"
 [Hkex.HkexDerivatives.CombinedRefresh]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/CombinedRefresh.md "Orion Market Data Derivatives Combined Refresh"
 [Hkex.HkexDerivatives.CombinedRetrans]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/HkexDerivatives/CombinedRetrans.md "Orion Market Data Derivatives Combined Retransmission"

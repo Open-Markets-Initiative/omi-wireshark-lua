@@ -1082,10 +1082,6 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.display = function(range, value,
   if bit.band(value, 0x0400) ~= 0 then
     flags[#flags + 1] = "Aod Enabled"
   end
-  -- Is Unused 1 flag set?
-  if bit.band(value, 0x0800) ~= 0 then
-    flags[#flags + 1] = "Unused 1"
-  end
   -- Is Illiquid flag set?
   if bit.band(value, 0x1000) ~= 0 then
     flags[#flags + 1] = "Illiquid"
