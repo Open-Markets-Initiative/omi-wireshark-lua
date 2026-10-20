@@ -39,7 +39,7 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.server_packet_type = Prot
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v2.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v2.0.shares", ftypes.STRING, nil, nil, nil, "Total number of shares being added to the book (may be less than the number of shares entered).")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v2.0.side", ftypes.STRING, nil, nil, nil, "\"B\" = buy order. \"S\" = sell order.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v2.0.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
+omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v2.0.souplf", ftypes.UINT8, nil, nil, nil, "Terminating line feed character")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v2.0.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.asciiitch.v2.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.asciiitch.v2.0.timestamp", ftypes.STRING, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
@@ -893,7 +893,7 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v2_0.soup_lf.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_asciiitch_v2_0.soup_lf.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = nasdaq_nsmequities_totalview_asciiitch_v2_0.soup_lf.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v2_0.fields.soup_lf, range, value, display)
@@ -2039,7 +2039,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.server_frame.fields = function(buffe
   -- Server Payload: Runtime Type with 4 branches
   index = nasdaq_nsmequities_totalview_asciiitch_v2_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
-  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  -- Soup Lf: 1 Byte Unsigned Fixed Width Integer Static
   index, soup_lf = nasdaq_nsmequities_totalview_asciiitch_v2_0.soup_lf.dissect(buffer, index, packet, parent)
 
   return index
@@ -2310,7 +2310,7 @@ nasdaq_nsmequities_totalview_asciiitch_v2_0.client_frame.fields = function(buffe
   -- Client Payload: Runtime Type with 3 branches
   index = nasdaq_nsmequities_totalview_asciiitch_v2_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
 
-  -- Soup Lf: 1 Byte Fixed Width Integer Static
+  -- Soup Lf: 1 Byte Unsigned Fixed Width Integer Static
   index, soup_lf = nasdaq_nsmequities_totalview_asciiitch_v2_0.soup_lf.dissect(buffer, index, packet, parent)
 
   return index
