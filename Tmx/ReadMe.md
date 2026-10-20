@@ -13,10 +13,13 @@
 | [Mx][Mx.Exchange] | [SolaMulticast][Tmx.Mx.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [1.14][Tmx.Mx.SolaMulticast.Hsvf.v1.14.Dissector] | 2/5/2024 | 13273 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.Mx.SolaMulticast.Hsvf.v1.14.Url] - [pdf][Tmx.Mx.SolaMulticast.Hsvf.v1.14.Pdf] |
 | [Mx][Mx.Exchange] | [SolaMulticast][Tmx.Mx.SolaMulticast] | [Hsvf][Omi.Encoding.Hsvf] | [2.1][Tmx.Mx.SolaMulticast.Hsvf.v2.1.Dissector] | 1/23/2019 | 773 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][Tmx.Mx.SolaMulticast.Hsvf.v2.1.Pdf] |
 | [Tsx][Tsx.Exchange] | [GlobalFx][Tmx.Tsx.GlobalFx] | [Gfx][Omi.Encoding.Gfx] | [1.0][Tmx.Tsx.GlobalFx.Gfx.v1.0.Dissector] | 5/20/2016 | 1024 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Tmx.Tsx.GlobalFx.Gfx.v1.0.Url] - [pdf][Tmx.Tsx.GlobalFx.Gfx.v1.0.Pdf] |
+| [Tsx][Tsx.Exchange] | [IndexFeed][Tmx.Tsx.IndexFeed] | [Qrtmd][Omi.Encoding.Qrtmd] | [1.19][Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Dissector] | 10/12/2021 | 1321 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Url] - [pdf][Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Pdf] |
+| [Tsx][Tsx.Exchange] | [Level1][Tmx.Tsx.Level1] | [Qrtmd][Omi.Encoding.Qrtmd] | [2.8][Tmx.Tsx.Level1.Qrtmd.v2.8.Dissector] | 8/10/2021 | 3859 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Tmx.Tsx.Level1.Qrtmd.v2.8.Url] - [pdf][Tmx.Tsx.Level1.Qrtmd.v2.8.Pdf] |
 | [Tsx][Tsx.Exchange] | [QuantumFeedLevel1][Tmx.Tsx.QuantumFeedLevel1] | [Xmt][Omi.Encoding.Xmt] | [2.6][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Dissector] | 10/20/2020 | 3026 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Url] - [pdf][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Pdf] |
 | [Tsx][Tsx.Exchange] | [QuantumFeedLevel1][Tmx.Tsx.QuantumFeedLevel1] | [Xmt][Omi.Encoding.Xmt] | [2.8][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.8.Dissector] | 2/22/2023 | 3038 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.8.Url] - [pdf][Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.8.Pdf] |
 | [Tsx][Tsx.Exchange] | [QuantumFeedLevel2][Tmx.Tsx.QuantumFeedLevel2] | [Xmt][Omi.Encoding.Xmt] | [2.1][Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.Dissector] | 10/20/2015 | 4400 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.Tsx.QuantumFeedLevel2.Xmt.v2.1.Url] |
 | [Tsx][Tsx.Exchange] | [QuantumFeedLevel2][Tmx.Tsx.QuantumFeedLevel2] | [Xmt][Omi.Encoding.Xmt] | [3.6][Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | 4427 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Url] - [pdf][Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Pdf] |
+| [TsxAlpha][TsxAlpha.Exchange] | [Level1][Tmx.TsxAlpha.Level1] | [Qrtmd][Omi.Encoding.Qrtmd] | [2.1][Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Dissector] | 10/20/2020 | 2503 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Url] - [pdf][Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Pdf] |
 | [TsxAlpha][TsxAlpha.Exchange] | [QuantumFeedLevel1][Tmx.TsxAlpha.QuantumFeedLevel1] | [Xmt][Omi.Encoding.Xmt] | [2.1][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Dissector] | 10/20/2020 | 2215 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Url] - [pdf][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Pdf] |
 | [TsxAlpha][TsxAlpha.Exchange] | [QuantumFeedLevel1][Tmx.TsxAlpha.QuantumFeedLevel1] | [Xmt][Omi.Encoding.Xmt] | [2.2][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.2.Dissector] | 4/17/2023 | 2227 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.2.Url] - [pdf][Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.2.Pdf] |
 | [TsxAlpha][TsxAlpha.Exchange] | [QuantumFeedLevel2][Tmx.TsxAlpha.QuantumFeedLevel2] | [Xmt][Omi.Encoding.Xmt] | [2.1][Tmx.TsxAlpha.QuantumFeedLevel2.Xmt.v2.1.Dissector] | 10/20/2020 | 3023 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.TsxAlpha.QuantumFeedLevel2.Xmt.v2.1.Url] - [pdf][Tmx.TsxAlpha.QuantumFeedLevel2.Xmt.v2.1.Pdf] |
@@ -52,6 +55,7 @@
 [Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
 [Omi.Encoding.Sail]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sail.md "Sail Encoding"
 [Omi.Encoding.Gfx]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Gfx.md "Gfx Encoding"
+[Omi.Encoding.Qrtmd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Qrtmd.md "Qrtmd Encoding"
 [Omi.Encoding.Xmt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xmt.md "Xmt Encoding"
 [Mx.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tmx/Protocols/Mx "Tmx Mx"
 [Tsx.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Tmx/Protocols/Tsx "Tmx Tsx"
@@ -59,8 +63,11 @@
 [Tmx.Mx.SolaMulticast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Mx/SolaMulticast.md "Sola Multicast"
 [Tmx.Mx.SolaOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Mx/SolaOrderEntry.md "Sola Order Entry"
 [Tmx.Tsx.GlobalFx]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/GlobalFx.md "Global Fx Feed"
+[Tmx.Tsx.IndexFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/IndexFeed.md "Index Feed"
+[Tmx.Tsx.Level1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/Level1.md "Level 1"
 [Tmx.Tsx.QuantumFeedLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/QuantumFeedLevel1.md "Quantum Feed Level 1"
 [Tmx.Tsx.QuantumFeedLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/Tsx/QuantumFeedLevel2.md "Quantum Feed Level 2"
+[Tmx.TsxAlpha.Level1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/TsxAlpha/Level1.md "Level 1"
 [Tmx.TsxAlpha.QuantumFeedLevel1]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/TsxAlpha/QuantumFeedLevel1.md "Quantum Feed Level 1"
 [Tmx.TsxAlpha.QuantumFeedLevel2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Protocols/TsxAlpha/QuantumFeedLevel2.md "Quantum Feed Level 2"
 
@@ -84,6 +91,12 @@
 [Tmx.Tsx.GlobalFx.Gfx.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/Tsx/GlobalFx/Tmx_Tsx_GlobalFx_Gfx_v1_0_Dissector.lua "Tmx Tsx GlobalFx Gfx v1.0 Wireshark Dissector"
 [Tmx.Tsx.GlobalFx.Gfx.v1.0.Url]: https://www.tmx.com/market-data "TMX Group 1.0 Url"
 [Tmx.Tsx.GlobalFx.Gfx.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 1.0 Pdf"
+[Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/Tsx/IndexFeed/Tmx_Tsx_IndexFeed_Qrtmd_v1_19_Dissector.lua "Tmx Tsx IndexFeed Qrtmd v1.19 Wireshark Dissector"
+[Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Url]: https://www.tmxwebstore.com/ "TMX Group 1.19 Url"
+[Tmx.Tsx.IndexFeed.Qrtmd.v1.19.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 1.19 Pdf"
+[Tmx.Tsx.Level1.Qrtmd.v2.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/Tsx/Level1/Tmx_Tsx_Level1_Qrtmd_v2_8_Dissector.lua "Tmx Tsx Level1 Qrtmd v2.8 Wireshark Dissector"
+[Tmx.Tsx.Level1.Qrtmd.v2.8.Url]: https://www.tmxwebstore.com/ "TMX Group 2.8 Url"
+[Tmx.Tsx.Level1.Qrtmd.v2.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.8 Pdf"
 [Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/Tsx/QuantumFeedLevel1/Tmx_Tsx_QuantumFeedLevel1_Xmt_v2_6_Dissector.lua "Tmx Tsx QuantumFeedLevel1 Xmt v2.6 Wireshark Dissector"
 [Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Url]: https://www.tmxwebstore.com/ "TMX Group 2.6 Url"
 [Tmx.Tsx.QuantumFeedLevel1.Xmt.v2.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.6 Pdf"
@@ -95,6 +108,9 @@
 [Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/Tsx/QuantumFeedLevel2/Tmx_Tsx_QuantumFeedLevel2_Xmt_v3_6_Dissector.lua "Tmx Tsx QuantumFeedLevel2 Xmt v3.6 Wireshark Dissector"
 [Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Url]: https://www.tmxwebstore.com/ "TMX Group 3.6 Url"
 [Tmx.Tsx.QuantumFeedLevel2.Xmt.v3.6.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 3.6 Pdf"
+[Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/TsxAlpha/Level1/Tmx_TsxAlpha_Level1_Qrtmd_v2_1_Dissector.lua "Tmx TsxAlpha Level1 Qrtmd v2.1 Wireshark Dissector"
+[Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group 2.1 Url"
+[Tmx.TsxAlpha.Level1.Qrtmd.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.1 Pdf"
 [Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Tmx/TsxAlpha/QuantumFeedLevel1/Tmx_TsxAlpha_QuantumFeedLevel1_Xmt_v2_1_Dissector.lua "Tmx TsxAlpha QuantumFeedLevel1 Xmt v2.1 Wireshark Dissector"
 [Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Url]: https://www.tmxwebstore.com/ "TMX Group 2.1 Url"
 [Tmx.TsxAlpha.QuantumFeedLevel1.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Tmx/Specifications/ "TMX Group 2.1 Pdf"
