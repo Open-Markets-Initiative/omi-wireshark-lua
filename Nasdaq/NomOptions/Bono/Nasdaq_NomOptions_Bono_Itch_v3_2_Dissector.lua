@@ -103,7 +103,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 nasdaq_nomoptions_bono_itch_v3_2.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/New_York) for midnight calculation
 nasdaq_nomoptions_bono_itch_v3_2.utc_offset_hours = 5
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
@@ -132,7 +132,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.show_sequences = Pref.bool("Show Sequ
 omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
-omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_nomoptions_bono_itch_v3_2.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nomoptions_bono_itch_v3_2.prefs_changed()

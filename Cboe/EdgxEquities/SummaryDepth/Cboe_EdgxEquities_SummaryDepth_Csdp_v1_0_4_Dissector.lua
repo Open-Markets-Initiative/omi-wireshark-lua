@@ -91,7 +91,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_edgxequities_summarydepth_csdp_v1_0_4.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/New_York) for midnight calculation
 cboe_edgxequities_summarydepth_csdp_v1_0_4.utc_offset_hours = 5
 
 
@@ -118,7 +118,7 @@ omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs.show_indexes = Pref.bool("S
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
-omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_edgxequities_summarydepth_csdp_v1_0_4.prefs_changed()

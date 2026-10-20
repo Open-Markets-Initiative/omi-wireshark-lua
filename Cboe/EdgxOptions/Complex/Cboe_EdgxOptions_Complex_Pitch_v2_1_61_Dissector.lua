@@ -126,7 +126,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_edgxoptions_complex_pitch_v2_1_61.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/New_York) for midnight calculation
 cboe_edgxoptions_complex_pitch_v2_1_61.utc_offset_hours = 5
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
@@ -157,7 +157,7 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.show_sequences = Pref.bool("Sho
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
-omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_edgxoptions_complex_pitch_v2_1_61.prefs_changed()

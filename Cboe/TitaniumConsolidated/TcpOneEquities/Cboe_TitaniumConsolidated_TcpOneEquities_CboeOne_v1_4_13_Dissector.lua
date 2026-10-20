@@ -130,7 +130,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
+-- Hours behind UTC (America/New_York) for midnight calculation
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.utc_offset_hours = 5
 
 
@@ -155,7 +155,7 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs.show_headers 
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (America/New_York) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_13.prefs_changed()

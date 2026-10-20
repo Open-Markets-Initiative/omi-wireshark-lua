@@ -67,7 +67,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 2
 
--- Hours behind UTC (GMT) for midnight calculation
+-- Hours behind UTC (Europe/London) for midnight calculation
 cboe_cxeequities_auctionfeed_asciipitch_v1_4.utc_offset_hours = 0
 
 
@@ -88,7 +88,7 @@ omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs = Pref.bool(
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (GMT) for midnight calculation")
+omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (Europe/London) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_cxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()

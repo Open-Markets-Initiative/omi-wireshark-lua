@@ -120,8 +120,8 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.timestamp_format = 2
 
--- Hours behind UTC (EST) for midnight calculation
-cboe_bxeequities_multicastdepthofbook_pitch_v6_15.utc_offset_hours = 5
+-- Hours behind UTC (Europe/London) for midnight calculation
+cboe_bxeequities_multicastdepthofbook_pitch_v6_15.utc_offset_hours = 0
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 cboe_bxeequities_multicastdepthofbook_pitch_v6_15.format_timestamp = true
@@ -149,7 +149,7 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs.show_sequences = Pre
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs.timestamp_format = Pref.enum("Time Offset Format", 2, "Time Offset display format", timestamp_format_enum, false)
-omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (Europe/London) for midnight calculation")
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_15.prefs_changed()

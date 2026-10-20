@@ -101,7 +101,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 biva_bivaequities_lastsale_itch_v1_12.timestamp_format = 2
 
--- Hours behind UTC (CST) for midnight calculation
+-- Hours behind UTC (America/Mexico_City) for midnight calculation
 biva_bivaequities_lastsale_itch_v1_12.utc_offset_hours = 6
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
@@ -130,7 +130,7 @@ omi_biva_bivaequities_lastsale_itch_v1_12.prefs.show_sequences = Pref.bool("Show
 omi_biva_bivaequities_lastsale_itch_v1_12.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_biva_bivaequities_lastsale_itch_v1_12.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
-omi_biva_bivaequities_lastsale_itch_v1_12.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 6, "Hours behind UTC (CST) for midnight calculation")
+omi_biva_bivaequities_lastsale_itch_v1_12.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 6, "Hours behind UTC (America/Mexico_City) for midnight calculation")
 
 -- Handle changed preferences
 function omi_biva_bivaequities_lastsale_itch_v1_12.prefs_changed()

@@ -103,7 +103,7 @@ local timestamp_format_enum = {
 -- 0=Raw, 1=TimeOfDay, 2=FullDateTime
 biva_bivaequities_orderentry_ouch_v1_05.timestamp_format = 2
 
--- Hours behind UTC (CST) for midnight calculation
+-- Hours behind UTC (America/Mexico_City) for midnight calculation
 biva_bivaequities_orderentry_ouch_v1_05.utc_offset_hours = 6
 
 -- assumed connection role
@@ -138,7 +138,7 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_session_messages = Pref.b
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
-omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 6, "Hours behind UTC (CST) for midnight calculation")
+omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 6, "Hours behind UTC (America/Mexico_City) for midnight calculation")
 
 -- Handle changed preferences
 function omi_biva_bivaequities_orderentry_ouch_v1_05.prefs_changed()
