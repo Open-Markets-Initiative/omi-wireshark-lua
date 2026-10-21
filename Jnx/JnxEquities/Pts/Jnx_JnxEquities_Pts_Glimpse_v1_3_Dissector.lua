@@ -1158,7 +1158,26 @@ jnx_jnxequities_pts_glimpse_v1_3.system_event.size = 1
 
 -- Display: System Event
 jnx_jnxequities_pts_glimpse_v1_3.system_event.display = function(value)
-  return "System Event: "..value
+  if value == "O" then
+    return "System Event: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "System Event: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "System Event: Start Of Market Hours (Q)"
+  end
+  if value == "M" then
+    return "System Event: End Of Market Hours (M)"
+  end
+  if value == "E" then
+    return "System Event: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "System Event: End Of Messages (C)"
+  end
+
+  return "System Event: Unknown("..value..")"
 end
 
 -- Dissect: System Event
