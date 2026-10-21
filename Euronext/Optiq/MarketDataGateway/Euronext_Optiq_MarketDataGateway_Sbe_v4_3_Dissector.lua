@@ -12197,8 +12197,8 @@ euronext_optiq_marketdatagateway_sbe_v4_3.version.size = 2
 
 -- Display: Version
 euronext_optiq_marketdatagateway_sbe_v4_3.version.display = function(value)
-  if value == 304 then
-    return "Version: Version 4.4.0"
+  if value == 303 then
+    return "Version: Version 4.3.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -18057,7 +18057,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(24, 2):le_uint()
 
-  if value == 304 then
+  if value == 303 then
     return true
   end
 

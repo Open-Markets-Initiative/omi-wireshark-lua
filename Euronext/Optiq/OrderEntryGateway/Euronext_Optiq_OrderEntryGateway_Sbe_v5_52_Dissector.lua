@@ -79,6 +79,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.current_mmp_position = Pro
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_execution_instruction = ProtoField.new("Dark Execution Instruction", "euronext.optiq.orderentrygateway.sbe.v5.52.darkexecutioninstruction", ftypes.STRING, nil, nil, nil, "DarkExecutionInstruction_set bit set")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_execution_instruction_optional = ProtoField.new("Dark Execution Instruction Optional", "euronext.optiq.orderentrygateway.sbe.v5.52.darkexecutioninstructionoptional", ftypes.STRING, nil, nil, nil, "DarkExecutionInstruction_set bit set")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_indicator = ProtoField.new("Dark Indicator", "euronext.optiq.orderentrygateway.sbe.v5.52.darkindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "DarkIndicator")
+omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_stp_indicator = ProtoField.new("Dark Stp Indicator", "euronext.optiq.orderentrygateway.sbe.v5.52.darkstpindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "DarkSTPIndicator")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dea_indicator = ProtoField.new("Dea Indicator", "euronext.optiq.orderentrygateway.sbe.v5.52.deaindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "DEAIndicator")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.declaration_id = ProtoField.new("Declaration Id", "euronext.optiq.orderentrygateway.sbe.v5.52.declarationid", ftypes.UINT64, nil, nil, nil, "declarationID")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.declaration_id_optional = ProtoField.new("Declaration Id Optional", "euronext.optiq.orderentrygateway.sbe.v5.52.declarationidoptional", ftypes.UINT64, nil, nil, nil, "declarationID")
@@ -4206,6 +4207,9 @@ euronext_optiq_orderentrygateway_sbe_v5_52.log_out_reason_code.display = functio
   if value == 5 then
     return "Log Out Reason Code: Excessive Numberof Messages Amountof Datain Bytes (5)"
   end
+  if value == 6 then
+    return "Log Out Reason Code: Logout By Market Operations (6)"
+  end
 
   return "Log Out Reason Code: Unknown("..value..")"
 end
@@ -7355,6 +7359,12 @@ euronext_optiq_orderentrygateway_sbe_v5_52.strategy_code.display = function(valu
   if value == "z" then
     return "Strategy Code: Put Straddleversus Sella Callora Put (z)"
   end
+  if value == "T" then
+    return "Strategy Code: Ic Sonesidedcombinationsameexpiry (T)"
+  end
+  if value == "U" then
+    return "Strategy Code: Ic Stwosidedcombinationsameexpiry (U)"
+  end
 
   return "Strategy Code: Unknown("..value..")"
 end
@@ -7535,6 +7545,12 @@ euronext_optiq_orderentrygateway_sbe_v5_52.strategy_code_optional.display = func
   end
   if value == "z" then
     return "Strategy Code Optional: Put Straddleversus Sella Callora Put (z)"
+  end
+  if value == "T" then
+    return "Strategy Code Optional: Ic Sonesidedcombinationsameexpiry (T)"
+  end
+  if value == "U" then
+    return "Strategy Code Optional: Ic Stwosidedcombinationsameexpiry (U)"
   end
   if value == 0 then
     return "Strategy Code Optional: No Value"
@@ -8602,8 +8618,8 @@ euronext_optiq_orderentrygateway_sbe_v5_52.version.size = 2
 
 -- Display: Version
 euronext_optiq_orderentrygateway_sbe_v5_52.version.display = function(value)
-  if value == 333 then
-    return "Version: Version 5.33.0"
+  if value == 352 then
+    return "Version: Version 5.352.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -10563,6 +10579,10 @@ euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction_optional.d
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Minimum Quantity Type"
   end
+  -- Is Dark Stp Indicator flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Dark Stp Indicator"
+  end
 
   return table.concat(flags, "|")
 end
@@ -10585,8 +10605,11 @@ euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction_optional.b
   -- Minimum Quantity Type: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.minimum_quantity_type, range, value)
 
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.reserved_3, range, value)
+  -- Dark Stp Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_stp_indicator, range, value)
+
+  -- Reserved 2: 2 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.reserved_2, range, value)
 end
 
 -- Dissect: Dark Execution Instruction Optional
@@ -10639,7 +10662,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.rfq_counterparts_group.fields = funct
   -- Last Traded Quantity: uint64_t
   index, last_traded_quantity = euronext_optiq_orderentrygateway_sbe_v5_52.last_traded_quantity.dissect(buffer, index, packet, parent)
 
-  -- Dark Execution Instruction Optional: Struct of 6 fields
+  -- Dark Execution Instruction Optional: Struct of 7 fields
   index, dark_execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction_optional.dissect(buffer, index, packet, parent)
 
   -- Minimum Order Quantity: uint64_t
@@ -14028,6 +14051,10 @@ euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.display = 
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Minimum Quantity Type"
   end
+  -- Is Dark Stp Indicator flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Dark Stp Indicator"
+  end
 
   return table.concat(flags, "|")
 end
@@ -14050,8 +14077,11 @@ euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.bits = fun
   -- Minimum Quantity Type: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.minimum_quantity_type, range, value)
 
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.reserved_3, range, value)
+  -- Dark Stp Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.dark_stp_indicator, range, value)
+
+  -- Reserved 2: 2 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.reserved_2, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
@@ -14143,7 +14173,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.rfq_notification_message.fields = fun
   -- End Client: char11
   index, end_client = euronext_optiq_orderentrygateway_sbe_v5_52.end_client.dissect(buffer, index, packet, parent)
 
-  -- Dark Execution Instruction: Struct of 6 fields
+  -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
   -- Min Order Qty: uint64_t
@@ -15609,7 +15639,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.quote_request_message.fields = functi
   -- End Client: char11
   index, end_client = euronext_optiq_orderentrygateway_sbe_v5_52.end_client.dissect(buffer, index, packet, parent)
 
-  -- Dark Execution Instruction: Struct of 6 fields
+  -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
   -- Min Order Qty: uint64_t
@@ -17229,7 +17259,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.cancel_replace_message.fields = funct
   -- Execution Instruction: Struct of 8 fields
   index, execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.execution_instruction.dissect(buffer, index, packet, parent)
 
-  -- Dark Execution Instruction: Struct of 6 fields
+  -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
@@ -18561,7 +18591,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.new_order_message.fields = function(b
   -- Execution Instruction: Struct of 8 fields
   index, execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.execution_instruction.dissect(buffer, index, packet, parent)
 
-  -- Dark Execution Instruction: Struct of 6 fields
+  -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_orderentrygateway_sbe_v5_52.dark_execution_instruction.dissect(buffer, index, packet, parent)
 
   -- Mifid Indicators: Struct of 7 fields
@@ -19087,7 +19117,7 @@ euronext_optiq_orderentrygateway_sbe_v5_52.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
-  if value == 333 then
+  if value == 352 then
     return true
   end
 

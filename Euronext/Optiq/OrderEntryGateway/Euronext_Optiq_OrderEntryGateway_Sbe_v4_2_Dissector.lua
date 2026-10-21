@@ -76,6 +76,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.cross_strategy_fields_group
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.cross_strategy_fields_groups = ProtoField.new("Cross Strategy Fields Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.crossstrategyfieldsgroups", ftypes.STRING, nil, nil, nil, "StrategyFields Block")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.current_mmp_position = ProtoField.new("Current Mmp Position", "euronext.optiq.orderentrygateway.sbe.v4.2.currentmmpposition", ftypes.INT64, nil, nil, nil, "currentMMPPosition")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dark_execution_instruction = ProtoField.new("Dark Execution Instruction", "euronext.optiq.orderentrygateway.sbe.v4.2.darkexecutioninstruction", ftypes.STRING, nil, nil, nil, "DarkExecutionInstruction_set bit set")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dark_execution_instruction_optional = ProtoField.new("Dark Execution Instruction Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.darkexecutioninstructionoptional", ftypes.STRING, nil, nil, nil, "DarkExecutionInstruction_set bit set")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dark_indicator = ProtoField.new("Dark Indicator", "euronext.optiq.orderentrygateway.sbe.v4.2.darkindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "DarkIndicator")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dea_indicator = ProtoField.new("Dea Indicator", "euronext.optiq.orderentrygateway.sbe.v4.2.deaindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "DEAIndicator")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.declaration_id = ProtoField.new("Declaration Id", "euronext.optiq.orderentrygateway.sbe.v4.2.declarationid", ftypes.UINT64, nil, nil, nil, "declarationID")
@@ -115,6 +116,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.fill_optional_field_group =
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.fill_optional_field_groups = ProtoField.new("Fill Optional Field Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.filloptionalfieldgroups", ftypes.STRING, nil, nil, nil, "OptionalFieldsFill Block")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.fill_strategy_field_group = ProtoField.new("Fill Strategy Field Group", "euronext.optiq.orderentrygateway.sbe.v4.2.fillstrategyfieldgroup", ftypes.STRING, nil, nil, nil, "StrategyFields")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.fill_strategy_field_groups = ProtoField.new("Fill Strategy Field Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.fillstrategyfieldgroups", ftypes.STRING, nil, nil, nil, "StrategyFields Block")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.final_execution_id = ProtoField.new("Final Execution Id", "euronext.optiq.orderentrygateway.sbe.v4.2.finalexecutionid", ftypes.UINT32, nil, nil, nil, "finalExecutionID")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.final_symbol_index = ProtoField.new("Final Symbol Index", "euronext.optiq.orderentrygateway.sbe.v4.2.finalsymbolindex", ftypes.UINT32, nil, nil, nil, "finalSymbolIndex")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.firm_id = ProtoField.new("Firm Id", "euronext.optiq.orderentrygateway.sbe.v4.2.firmid", ftypes.STRING, nil, nil, nil, "firmID")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.firm_id_optional = ProtoField.new("Firm Id Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.firmidoptional", ftypes.STRING, nil, nil, nil, "firmID")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.firm_id_publication = ProtoField.new("Firm Id Publication", "euronext.optiq.orderentrygateway.sbe.v4.2.firmidpublication", ftypes.UINT8, nil, nil, nil, "firmIDPublication")
@@ -144,6 +147,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_msg_seq_num = ProtoFie
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_msg_seq_num_optional = ProtoField.new("Last Msg Seq Num Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.lastmsgseqnumoptional", ftypes.UINT32, nil, nil, nil, "lastMsgSeqNum")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_shares = ProtoField.new("Last Shares", "euronext.optiq.orderentrygateway.sbe.v4.2.lastshares", ftypes.UINT64, nil, nil, nil, "lastShares")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_traded_px = ProtoField.new("Last Traded Px", "euronext.optiq.orderentrygateway.sbe.v4.2.lasttradedpx", ftypes.INT64, nil, nil, nil, "lastTradedPx")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_traded_quantity = ProtoField.new("Last Traded Quantity", "euronext.optiq.orderentrygateway.sbe.v4.2.lasttradedquantity", ftypes.UINT64, nil, nil, nil, "lastTradedQuantity")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.leaves_qty = ProtoField.new("Leaves Qty", "euronext.optiq.orderentrygateway.sbe.v4.2.leavesqty", ftypes.UINT64, nil, nil, nil, "leavesQty")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.leg_1 = ProtoField.new("Leg 1", "euronext.optiq.orderentrygateway.sbe.v4.2.leg1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Leg1")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.leg_2 = ProtoField.new("Leg 2", "euronext.optiq.orderentrygateway.sbe.v4.2.leg2", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Leg2")
@@ -191,6 +195,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.mifid_indicators_optional =
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.mifid_short_codes_group = ProtoField.new("Mifid Short Codes Group", "euronext.optiq.orderentrygateway.sbe.v4.2.mifidshortcodesgroup", ftypes.STRING, nil, nil, nil, "MiFIDShortcodes")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.mifid_short_codes_groups = ProtoField.new("Mifid Short Codes Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.mifidshortcodesgroups", ftypes.STRING, nil, nil, nil, "MiFIDShortcodes Block")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.min_order_qty = ProtoField.new("Min Order Qty", "euronext.optiq.orderentrygateway.sbe.v4.2.minorderqty", ftypes.UINT64, nil, nil, nil, "minOrderQty")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.minimum_order_quantity = ProtoField.new("Minimum Order Quantity", "euronext.optiq.orderentrygateway.sbe.v4.2.minimumorderquantity", ftypes.UINT64, nil, nil, nil, "minimumOrderQuantity")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.minimum_quantity_type = ProtoField.new("Minimum Quantity Type", "euronext.optiq.orderentrygateway.sbe.v4.2.minimumquantitytype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "MinimumQuantityType")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.miscellaneous_fee_amount = ProtoField.new("Miscellaneous Fee Amount", "euronext.optiq.orderentrygateway.sbe.v4.2.miscellaneousfeeamount", ftypes.INT64, nil, nil, nil, "miscellaneousFeeAmount")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.mmp_ack_group = ProtoField.new("Mmp Ack Group", "euronext.optiq.orderentrygateway.sbe.v4.2.mmpackgroup", ftypes.STRING, nil, nil, nil, "MMPSection2")
@@ -237,6 +242,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_id = ProtoField.new("
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_id_optional = ProtoField.new("Order Id Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.orderidoptional", ftypes.UINT64, nil, nil, nil, "orderID")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_optional_fields_group = ProtoField.new("Order Optional Fields Group", "euronext.optiq.orderentrygateway.sbe.v4.2.orderoptionalfieldsgroup", ftypes.STRING, nil, nil, nil, "OptionalFields")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_optional_fields_groups = ProtoField.new("Order Optional Fields Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.orderoptionalfieldsgroups", ftypes.STRING, nil, nil, nil, "OptionalFields Block")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_origin = ProtoField.new("Order Origin", "euronext.optiq.orderentrygateway.sbe.v4.2.orderorigin", ftypes.UINT8, nil, nil, nil, "orderOrigin")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_price = ProtoField.new("Order Price", "euronext.optiq.orderentrygateway.sbe.v4.2.orderprice", ftypes.INT64, nil, nil, nil, "orderPrice")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_priority = ProtoField.new("Order Priority", "euronext.optiq.orderentrygateway.sbe.v4.2.orderpriority", ftypes.UINT64, nil, nil, nil, "orderPriority")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_px = ProtoField.new("Order Px", "euronext.optiq.orderentrygateway.sbe.v4.2.orderpx", ftypes.INT64, nil, nil, nil, "orderPx")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_px_optional = ProtoField.new("Order Px Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.orderpxoptional", ftypes.INT64, nil, nil, nil, "orderPx")
@@ -283,7 +290,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.request_type = ProtoField.n
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.request_with_client_order_id = ProtoField.new("Request With Client Order Id", "euronext.optiq.orderentrygateway.sbe.v4.2.requestwithclientorderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "RequestWithClientOrderID")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_2 = ProtoField.new("Reserved 2", "euronext.optiq.orderentrygateway.sbe.v4.2.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0, "2 reserved bits")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_3 = ProtoField.new("Reserved 3", "euronext.optiq.orderentrygateway.sbe.v4.2.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0, "3 reserved bits")
-omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_4 = ProtoField.new("Reserved 4", "euronext.optiq.orderentrygateway.sbe.v4.2.reserved4", ftypes.UINT8, nil, base.DEC, 0xF0, "4 reserved bits")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_5 = ProtoField.new("Reserved 5", "euronext.optiq.orderentrygateway.sbe.v4.2.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.orderentrygateway.sbe.v4.2.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.response_type = ProtoField.new("Response Type", "euronext.optiq.orderentrygateway.sbe.v4.2.responsetype", ftypes.UINT8, nil, nil, nil, "responseType")
@@ -292,6 +298,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfe_answer = ProtoField.new
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfpt = ProtoField.new("Rfpt", "euronext.optiq.orderentrygateway.sbe.v4.2.rfpt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_answer = ProtoField.new("Rfq Answer", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqanswer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "RFQAnswer")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_confirmation = ProtoField.new("Rfq Confirmation", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqconfirmation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "RFQConfirmation")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_group = ProtoField.new("Rfq Counterparts Group", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqcounterpartsgroup", ftypes.STRING, nil, nil, nil, "RFQCounterparts")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_groups = ProtoField.new("Rfq Counterparts Groups", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqcounterpartsgroups", ftypes.STRING, nil, nil, nil, "RFQCounterparts Block")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_update_type = ProtoField.new("Rfq Update Type", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqupdatetype", ftypes.UINT8, nil, nil, nil, "rFQUpdateType")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.orderentrygateway.sbe.v4.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.security_req_id = ProtoField.new("Security Req Id", "euronext.optiq.orderentrygateway.sbe.v4.2.securityreqid", ftypes.INT64, nil, nil, nil, "securityReqID")
@@ -301,6 +309,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.sending_time_optional = Pro
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_1 = ProtoField.new("Session 1", "euronext.optiq.orderentrygateway.sbe.v4.2.session1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Session1")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_2 = ProtoField.new("Session 2", "euronext.optiq.orderentrygateway.sbe.v4.2.session2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Session2")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_3 = ProtoField.new("Session 3", "euronext.optiq.orderentrygateway.sbe.v4.2.session3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Session3")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_4 = ProtoField.new("Session 4", "euronext.optiq.orderentrygateway.sbe.v4.2.session4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Session4")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.settlement_flag = ProtoField.new("Settlement Flag", "euronext.optiq.orderentrygateway.sbe.v4.2.settlementflag", ftypes.UINT8, nil, nil, nil, "settlementFlag")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.settlement_flag_optional = ProtoField.new("Settlement Flag Optional", "euronext.optiq.orderentrygateway.sbe.v4.2.settlementflagoptional", ftypes.UINT8, nil, nil, nil, "settlementFlag")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.settlement_period = ProtoField.new("Settlement Period", "euronext.optiq.orderentrygateway.sbe.v4.2.settlementperiod", ftypes.UINT8, nil, nil, nil, "settlementPeriod")
@@ -405,6 +414,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.quotes_message = ProtoField
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reject_message = ProtoField.new("Reject Message", "euronext.optiq.orderentrygateway.sbe.v4.2.rejectmessage", ftypes.STRING, nil, nil, nil, "RejectMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.request_for_execution_message = ProtoField.new("Request For Execution Message", "euronext.optiq.orderentrygateway.sbe.v4.2.requestforexecutionmessage", ftypes.STRING, nil, nil, nil, "RequestForExecutionMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.request_for_implied_execution_message = ProtoField.new("Request For Implied Execution Message", "euronext.optiq.orderentrygateway.sbe.v4.2.requestforimpliedexecutionmessage", ftypes.STRING, nil, nil, nil, "RequestForImpliedExecutionMessage")
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_audit_message = ProtoField.new("Rfq Audit Message", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqauditmessage", ftypes.STRING, nil, nil, nil, "RFQAuditMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_matching_status_message = ProtoField.new("Rfq Matching Status Message", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqmatchingstatusmessage", ftypes.STRING, nil, nil, nil, "RFQMatchingStatusMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_notification_message = ProtoField.new("Rfq Notification Message", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqnotificationmessage", ftypes.STRING, nil, nil, nil, "RFQNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfqlp_matching_status_message = ProtoField.new("Rfqlp Matching Status Message", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqlpmatchingstatusmessage", ftypes.STRING, nil, nil, nil, "RFQLPMatchingStatusMessage")
@@ -440,6 +450,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_optional_fields_group
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.other_not_used_group_index = ProtoField.new("Other Not Used Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.othernotusedgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.quote_acks_group_index = ProtoField.new("Quote Acks Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.quoteacksgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.quotes_rep_group_index = ProtoField.new("Quotes Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.quotesrepgroupindex", ftypes.UINT16)
+omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_group_index = ProtoField.new("Rfq Counterparts Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.rfqcounterpartsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.strategy_legs_group_index = ProtoField.new("Strategy Legs Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.strategylegsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.wholesale_ack_clearing_group_index = ProtoField.new("Wholesale Ack Clearing Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.wholesaleackclearinggroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.wholesale_ack_legs_group_index = ProtoField.new("Wholesale Ack Legs Group Index", "euronext.optiq.orderentrygateway.sbe.v4.2.wholesaleacklegsgroupindex", ftypes.UINT16)
@@ -835,6 +846,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.ack_type.display = function(value)
   end
   if value == 21 then
     return "Ack Type: Rfie Ack (21)"
+  end
+  if value == 22 then
+    return "Ack Type: Cross Order Ack (22)"
   end
 
   return "Ack Type: Unknown("..value..")"
@@ -1375,6 +1389,15 @@ euronext_optiq_orderentrygateway_sbe_v4_2.ccpid.size = 1
 euronext_optiq_orderentrygateway_sbe_v4_2.ccpid.display = function(value)
   if value == 1 then
     return "Ccpid: Lch Sa (1)"
+  end
+  if value == 2 then
+    return "Ccpid: Bilateral Settlement (2)"
+  end
+  if value == 3 then
+    return "Ccpid: Lch Limited (3)"
+  end
+  if value == 5 then
+    return "Ccpid: Sixx Clear (5)"
   end
   if value == 6 then
     return "Ccpid: Euro Ccp (6)"
@@ -2501,6 +2524,62 @@ euronext_optiq_orderentrygateway_sbe_v4_2.family_id.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Final Execution Id
+euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id = {}
+
+-- Size: Final Execution Id
+euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.size = 4
+
+-- Display: Final Execution Id
+euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Final Execution Id: No Value"
+  end
+
+  return "Final Execution Id: "..value
+end
+
+-- Dissect: Final Execution Id
+euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.final_execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Final Symbol Index
+euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index = {}
+
+-- Size: Final Symbol Index
+euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.size = 4
+
+-- Display: Final Symbol Index
+euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Final Symbol Index: No Value"
+  end
+
+  return "Final Symbol Index: "..value
+end
+
+-- Dissect: Final Symbol Index
+euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.final_symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
 -- Firm Id
 euronext_optiq_orderentrygateway_sbe_v4_2.firm_id = {}
 
@@ -2982,6 +3061,12 @@ euronext_optiq_orderentrygateway_sbe_v4_2.kill_reason.display = function(value)
   if value == 36 then
     return "Kill Reason: Order Cancelledduetoapotentialtradeoutside Fs Plimits (36)"
   end
+  if value == 37 then
+    return "Kill Reason: Remaining Rfc Quantity Cancelled (37)"
+  end
+  if value == 38 then
+    return "Kill Reason: Order Cancelledduetoanincorrect Reactor Response (38)"
+  end
 
   return "Kill Reason: Unknown("..value..")"
 end
@@ -3137,6 +3222,34 @@ euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_px.dissect = function(buff
   local display = euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_traded_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Traded Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity = {}
+
+-- Size: Last Traded Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.size = 8
+
+-- Display: Last Traded Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Traded Quantity: No Value"
+  end
+
+  return "Last Traded Quantity: "..value
+end
+
+-- Dissect: Last Traded Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.last_traded_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -4108,6 +4221,34 @@ euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.dissect = function(buffe
   return offset + length, value
 end
 
+-- Minimum Order Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity = {}
+
+-- Size: Minimum Order Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.size = 8
+
+-- Display: Minimum Order Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Minimum Order Quantity: No Value"
+  end
+
+  return "Minimum Order Quantity: "..value
+end
+
+-- Dissect: Minimum Order Quantity
+euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.minimum_order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Miscellaneous Fee Amount
 euronext_optiq_orderentrygateway_sbe_v4_2.miscellaneous_fee_amount = {}
 
@@ -4859,6 +5000,67 @@ euronext_optiq_orderentrygateway_sbe_v4_2.order_id_optional.dissect = function(b
   local display = euronext_optiq_orderentrygateway_sbe_v4_2.order_id_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Origin
+euronext_optiq_orderentrygateway_sbe_v4_2.order_origin = {}
+
+-- Size: Order Origin
+euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.size = 1
+
+-- Display: Order Origin
+euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.display = function(value)
+  if value == 1 then
+    return "Order Origin: Cob (1)"
+  end
+  if value == 2 then
+    return "Order Origin: Lp Answer (2)"
+  end
+  if value == 255 then
+    return "Order Origin: No Value"
+  end
+
+  return "Order Origin: Unknown("..value..")"
+end
+
+-- Dissect: Order Origin
+euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_origin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Price
+euronext_optiq_orderentrygateway_sbe_v4_2.order_price = {}
+
+-- Size: Order Price
+euronext_optiq_orderentrygateway_sbe_v4_2.order_price.size = 8
+
+-- Display: Order Price
+euronext_optiq_orderentrygateway_sbe_v4_2.order_price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Order Price: No Value"
+  end
+
+  return "Order Price: "..value
+end
+
+-- Dissect: Order Price
+euronext_optiq_orderentrygateway_sbe_v4_2.order_price.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_orderentrygateway_sbe_v4_2.order_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.order_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.order_price, range, value, display)
 
   return offset + length, value
 end
@@ -7058,6 +7260,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.template_id.display = function(value)
   if value == 67 then
     return "Template Id: Cross Order Message (67)"
   end
+  if value == 72 then
+    return "Template Id: Rfq Audit Message (72)"
+  end
   if value == 100 then
     return "Template Id: Logon Message (100)"
   end
@@ -7354,6 +7559,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.trade_type.display = function(value)
   if value == 40 then
     return "Trade Type: Guaranteed Cross Negotiateddeal Oilq (40)"
   end
+  if value == 41 then
+    return "Trade Type: Largein Scale Trade (41)"
+  end
   if value == 42 then
     return "Trade Type: Largein Scale Tradeinbasispoints (42)"
   end
@@ -7363,8 +7571,20 @@ euronext_optiq_orderentrygateway_sbe_v4_2.trade_type.display = function(value)
   if value == 44 then
     return "Trade Type: Strategy Leg Largein Scale Tradeinbasispoints (44)"
   end
-  if value == 41 then
-    return "Trade Type: Largein Scale Trade (41)"
+  if value == 46 then
+    return "Trade Type: Non Standard Settlement (46)"
+  end
+  if value == 47 then
+    return "Trade Type: Repurchase Agreement Repo (47)"
+  end
+  if value == 48 then
+    return "Trade Type: Exchange Granted Trade (48)"
+  end
+  if value == 49 then
+    return "Trade Type: Other (49)"
+  end
+  if value == 50 then
+    return "Trade Type: Odd Lot (50)"
   end
   if value == 100 then
     return "Trade Type: Conventional Trade Provisionalprice (100)"
@@ -7752,8 +7972,8 @@ euronext_optiq_orderentrygateway_sbe_v4_2.version.size = 2
 
 -- Display: Version
 euronext_optiq_orderentrygateway_sbe_v4_2.version.display = function(value)
-  if value == 203 then
-    return "Version: Version 2.0.1"
+  if value == 302 then
+    return "Version: Version 4.2.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -9309,6 +9529,286 @@ euronext_optiq_orderentrygateway_sbe_v4_2.logon_message.dissect = function(buffe
   else
     -- Skip element, add fields directly
     return euronext_optiq_orderentrygateway_sbe_v4_2.logon_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Dark Execution Instruction Optional
+euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional = {}
+
+-- Size: Dark Execution Instruction Optional
+euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.size = 1
+
+-- Display: Dark Execution Instruction Optional
+euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Dark Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Dark Indicator"
+  end
+  -- Is Deferred Trade Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Deferred Trade Indicator"
+  end
+  -- Is Displayed Order Interaction flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Displayed Order Interaction"
+  end
+  -- Is Sweep Order Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Sweep Order Indicator"
+  end
+  -- Is Minimum Quantity Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Minimum Quantity Type"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Dark Execution Instruction Optional
+euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.bits = function(range, value, packet, parent)
+
+  -- Dark Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dark_indicator, range, value)
+
+  -- Deferred Trade Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.deferred_trade_indicator, range, value)
+
+  -- Displayed Order Interaction: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.displayed_order_interaction, range, value)
+
+  -- Sweep Order Indicator: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.sweep_order_indicator, range, value)
+
+  -- Minimum Quantity Type: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.minimum_quantity_type, range, value)
+
+  -- Reserved 3: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_3, range, value)
+end
+
+-- Dissect: Dark Execution Instruction Optional
+euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.dissect = function(buffer, offset, packet, parent)
+  local size = euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.display(range, value, packet, parent)
+  local element = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.dark_execution_instruction_optional, range, display)
+
+  if show.structs then
+    euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group = {}
+
+-- Size: Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.size =
+  euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.order_price.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.size
+
+-- Display: Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.fields = function(buffer, offset, packet, parent, rfq_counterparts_group_index)
+  local index = offset
+
+  -- Implicit Rfq Counterparts Group Index
+  if rfq_counterparts_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_group_index, rfq_counterparts_group_index)
+    iteration:set_generated()
+  end
+
+  -- Order Origin: OrderOrigin_enum
+  index, order_origin = euronext_optiq_orderentrygateway_sbe_v4_2.order_origin.dissect(buffer, index, packet, parent)
+
+  -- Order Price: int64_t
+  index, order_price = euronext_optiq_orderentrygateway_sbe_v4_2.order_price.dissect(buffer, index, packet, parent)
+
+  -- Last Traded Quantity: uint64_t
+  index, last_traded_quantity = euronext_optiq_orderentrygateway_sbe_v4_2.last_traded_quantity.dissect(buffer, index, packet, parent)
+
+  -- Dark Execution Instruction Optional: Struct of 6 fields
+  index, dark_execution_instruction_optional = euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction_optional.dissect(buffer, index, packet, parent)
+
+  -- Minimum Order Quantity: uint64_t
+  index, minimum_order_quantity = euronext_optiq_orderentrygateway_sbe_v4_2.minimum_order_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Counterparts Group
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.dissect = function(buffer, offset, packet, parent, rfq_counterparts_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_group, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.fields(buffer, offset, packet, parent, rfq_counterparts_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.fields(buffer, offset, packet, parent, rfq_counterparts_group_index)
+  end
+end
+
+-- Rfq Counterparts Groups
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups = {}
+
+-- Calculate size of: Rfq Counterparts Groups
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.group_size_encoding.size
+
+  -- Calculate field size from count
+  local rfq_counterparts_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + rfq_counterparts_group_count * 26
+
+  return index
+end
+
+-- Display: Rfq Counterparts Groups
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Counterparts Groups
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = euronext_optiq_orderentrygateway_sbe_v4_2.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Rfq Counterparts Group
+  for rfq_counterparts_group_index = 1, num_in_group do
+    index, rfq_counterparts_group = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_group.dissect(buffer, index, packet, parent, rfq_counterparts_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Rfq Counterparts Groups
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_counterparts_groups, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Rfq Audit Message
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message = {}
+
+-- Calculate size of: Rfq Audit Message
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.msg_seq_num.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.firm_id.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.book_in.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.book_out_time.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.oeg_in_from_me.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.oeg_out_to_member.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.quote_req_id.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.symbol_index.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.emm.size
+
+  index = index + euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Rfq Audit Message
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Audit Message
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Seq Num: uint32_t
+  index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v4_2.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Firm Id: char8
+  index, firm_id = euronext_optiq_orderentrygateway_sbe_v4_2.firm_id.dissect(buffer, index, packet, parent)
+
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_orderentrygateway_sbe_v4_2.book_in.dissect(buffer, index, packet, parent)
+
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v4_2.book_out_time.dissect(buffer, index, packet, parent)
+
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v4_2.oeg_in_from_me.dissect(buffer, index, packet, parent)
+
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v4_2.oeg_out_to_member.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: uint64_t
+  index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v4_2.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: uint32_t
+  index, symbol_index = euronext_optiq_orderentrygateway_sbe_v4_2.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Emm: EMM_enum
+  index, emm = euronext_optiq_orderentrygateway_sbe_v4_2.emm.dissect(buffer, index, packet, parent)
+
+  -- Rfq Counterparts Groups: Struct of 2 fields
+  index, rfq_counterparts_groups = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_counterparts_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Audit Message
+euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.rfq_audit_message, buffer(offset, 0))
+    local index = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12573,7 +13073,8 @@ euronext_optiq_orderentrygateway_sbe_v4_2.rfq_notification_message.size =
   euronext_optiq_orderentrygateway_sbe_v4_2.side_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v4_2.end_client.size + 
   euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction.size + 
-  euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.size
+  euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.account_type_optional.size
 
 -- Display: Rfq Notification Message
 euronext_optiq_orderentrygateway_sbe_v4_2.rfq_notification_message.display = function(packet, parent, length)
@@ -12631,6 +13132,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.rfq_notification_message.fields = func
 
   -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.dissect(buffer, index, packet, parent)
+
+  -- Account Type Optional: AccountType_enum
+  index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v4_2.account_type_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14033,7 +14537,8 @@ euronext_optiq_orderentrygateway_sbe_v4_2.quote_request_message.size =
   euronext_optiq_orderentrygateway_sbe_v4_2.firm_id_publication.size + 
   euronext_optiq_orderentrygateway_sbe_v4_2.end_client.size + 
   euronext_optiq_orderentrygateway_sbe_v4_2.dark_execution_instruction.size + 
-  euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.size
+  euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.account_type_optional.size
 
 -- Display: Quote Request Message
 euronext_optiq_orderentrygateway_sbe_v4_2.quote_request_message.display = function(packet, parent, length)
@@ -14085,6 +14590,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.quote_request_message.fields = functio
 
   -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v4_2.min_order_qty.dissect(buffer, index, packet, parent)
+
+  -- Account Type Optional: AccountType_enum
+  index, account_type_optional = euronext_optiq_orderentrygateway_sbe_v4_2.account_type_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15296,6 +15804,10 @@ euronext_optiq_orderentrygateway_sbe_v4_2.trading_session.display = function(ran
   if bit.band(value, 0x08) ~= 0 then
     flags[#flags + 1] = "Session 3"
   end
+  -- Is Session 4 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Session 4"
+  end
 
   return table.concat(flags, "|")
 end
@@ -15315,8 +15827,11 @@ euronext_optiq_orderentrygateway_sbe_v4_2.trading_session.bits = function(range,
   -- Session 3: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_3, range, value)
 
-  -- Reserved 4: 4 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_4, range, value)
+  -- Session 4: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.session_4, range, value)
+
+  -- Reserved 3: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_2.fields.reserved_3, range, value)
 end
 
 -- Dissect: Trading Session
@@ -15382,7 +15897,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2.cancel_replace_optional_field_group.fi
   -- Order Expiration Date: uint16_t
   index, order_expiration_date = euronext_optiq_orderentrygateway_sbe_v4_2.order_expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: Struct of 5 fields
+  -- Trading Session: Struct of 6 fields
   index, trading_session = euronext_optiq_orderentrygateway_sbe_v4_2.trading_session.dissect(buffer, index, packet, parent)
 
   -- Stop Triggered Time In Force: TriggeredStopTimeInForce_enum
@@ -15864,7 +16379,9 @@ euronext_optiq_orderentrygateway_sbe_v4_2.fill_derivatives_field_group = {}
 -- Size: Fill Derivatives Field Group
 euronext_optiq_orderentrygateway_sbe_v4_2.fill_derivatives_field_group.size =
   euronext_optiq_orderentrygateway_sbe_v4_2.evaluated_price.size + 
-  euronext_optiq_orderentrygateway_sbe_v4_2.message_price_notation.size
+  euronext_optiq_orderentrygateway_sbe_v4_2.message_price_notation.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.size + 
+  euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.size
 
 -- Display: Fill Derivatives Field Group
 euronext_optiq_orderentrygateway_sbe_v4_2.fill_derivatives_field_group.display = function(packet, parent, length)
@@ -15886,6 +16403,12 @@ euronext_optiq_orderentrygateway_sbe_v4_2.fill_derivatives_field_group.fields = 
 
   -- Message Price Notation: MessagePriceNotation_enum
   index, message_price_notation = euronext_optiq_orderentrygateway_sbe_v4_2.message_price_notation.dissect(buffer, index, packet, parent)
+
+  -- Final Symbol Index: uint32_t
+  index, final_symbol_index = euronext_optiq_orderentrygateway_sbe_v4_2.final_symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Final Execution Id: uint32_t
+  index, final_execution_id = euronext_optiq_orderentrygateway_sbe_v4_2.final_execution_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15919,7 +16442,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2.fill_derivatives_field_groups.size = f
 
   -- Calculate field size from count
   local fill_derivatives_field_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + fill_derivatives_field_group_count * 9
+  index = index + fill_derivatives_field_group_count * 17
 
   return index
 end
@@ -16781,7 +17304,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2.order_optional_fields_group.fields = f
   -- Peg Offset: int8_t
   index, peg_offset = euronext_optiq_orderentrygateway_sbe_v4_2.peg_offset.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: Struct of 5 fields
+  -- Trading Session: Struct of 6 fields
   index, trading_session = euronext_optiq_orderentrygateway_sbe_v4_2.trading_session.dissect(buffer, index, packet, parent)
 
   -- Undisclosed Iceberg Type: UndisclosedIcebergType_enum
@@ -17196,6 +17719,10 @@ euronext_optiq_orderentrygateway_sbe_v4_2.payload.dissect = function(buffer, off
   if template_id == 67 then
     return euronext_optiq_orderentrygateway_sbe_v4_2.cross_order_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Rfq Audit Message
+  if template_id == 72 then
+    return euronext_optiq_orderentrygateway_sbe_v4_2.rfq_audit_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Logon Message
   if template_id == 100 then
     return euronext_optiq_orderentrygateway_sbe_v4_2.logon_message.dissect(buffer, offset, packet, parent)
@@ -17369,7 +17896,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2.message.fields = function(buffer, offs
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- Payload: Runtime Type with 51 branches
+  -- Payload: Runtime Type with 52 branches
   index = euronext_optiq_orderentrygateway_sbe_v4_2.payload.dissect(buffer, index, packet, parent, template_id)
 
   return index
@@ -17496,7 +18023,7 @@ euronext_optiq_orderentrygateway_sbe_v4_2.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
-  if value == 203 then
+  if value == 302 then
     return true
   end
 

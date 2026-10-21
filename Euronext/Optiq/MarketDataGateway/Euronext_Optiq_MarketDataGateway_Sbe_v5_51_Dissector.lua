@@ -239,10 +239,12 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mifid_quantity_measurement
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mifid_transaction_id = ProtoField.new("Mifid Transaction Id", "euronext.optiq.marketdatagateway.sbe.v5.51.mifidtransactionid", ftypes.STRING, nil, nil, nil, "miFIDTransactionID")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mifidii_liquid_flag = ProtoField.new("Mifidii Liquid Flag", "euronext.optiq.marketdatagateway.sbe.v5.51.mifidiiliquidflag", ftypes.UINT8, nil, nil, nil, "mIFIDIILiquidFlag")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.minimum_amount = ProtoField.new("Minimum Amount", "euronext.optiq.marketdatagateway.sbe.v5.51.minimumamount", ftypes.INT64, nil, nil, nil, "minimumAmount")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.missing_price = ProtoField.new("Missing Price", "euronext.optiq.marketdatagateway.sbe.v5.51.missingprice", ftypes.STRING, nil, nil, nil, "missingPrice")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mm_protections = ProtoField.new("Mm Protections", "euronext.optiq.marketdatagateway.sbe.v5.51.mmprotections", ftypes.STRING, nil, nil, nil, "MMProtections_set bit set")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_agency_cross_trade_indicator = ProtoField.new("Mmt Agency Cross Trade Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtagencycrosstradeindicator", ftypes.STRING, nil, nil, nil, "mMTAgencyCrossTradeIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_algorithmic_indicator = ProtoField.new("Mmt Algorithmic Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtalgorithmicindicator", ftypes.STRING, nil, nil, nil, "mMTAlgorithmicIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_benchmark_indicator = ProtoField.new("Mmt Benchmark Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtbenchmarkindicator", ftypes.STRING, nil, nil, nil, "mMTBenchmarkIndicator")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_contingent_transaction_indicator = ProtoField.new("Mmt Contingent Transaction Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtcontingenttransactionindicator", ftypes.STRING, nil, nil, nil, "mMTContingentTransactionIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_contributionto_price = ProtoField.new("Mmt Contributionto Price", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtcontributiontoprice", ftypes.STRING, nil, nil, nil, "mMTContributiontoPrice")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_duplicative_indicator = ProtoField.new("Mmt Duplicative Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtduplicativeindicator", ftypes.STRING, nil, nil, nil, "mMTDuplicativeIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_market_mechanism = ProtoField.new("Mmt Market Mechanism", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtmarketmechanism", ftypes.UINT8, nil, nil, nil, "mMTMarketMechanism")
@@ -250,8 +252,12 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_modification_indicator
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_modification_indicator_optional = ProtoField.new("Mmt Modification Indicator Optional", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtmodificationindicatoroptional", ftypes.STRING, nil, nil, nil, "mMTModificationIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_negotiation_indicator = ProtoField.new("Mmt Negotiation Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtnegotiationindicator", ftypes.STRING, nil, nil, nil, "mMTNegotiationIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_off_book_automated_indicator = ProtoField.new("Mmt Off Book Automated Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtoffbookautomatedindicator", ftypes.STRING, nil, nil, nil, "mMTOffBookAutomatedIndicator")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_portfolio_transaction_indicator = ProtoField.new("Mmt Portfolio Transaction Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtportfoliotransactionindicator", ftypes.STRING, nil, nil, nil, "mMTPortfolioTransactionIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_post_trade_deferral = ProtoField.new("Mmt Post Trade Deferral", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtposttradedeferral", ftypes.STRING, nil, nil, nil, "mMTPostTradeDeferral")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale = ProtoField.new("Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtpretradetransparencywaiverrelatedtosizeandscale", ftypes.STRING, nil, nil, nil, "mMTPreTradeTransparencyWaiverRelatedtoSizeandScale")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode = ProtoField.new("Mmt Publication Mode", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtpublicationmode", ftypes.STRING, nil, nil, nil, "mMTPublicationMode")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode_illiquid = ProtoField.new("Mmt Publication Mode Illiquid", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtpublicationmodeilliquid", ftypes.STRING, nil, nil, nil, "mMTPublicationModeIlliquid")
+omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode_size_specific = ProtoField.new("Mmt Publication Mode Size Specific", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtpublicationmodesizespecific", ftypes.STRING, nil, nil, nil, "mMTPublicationModeSizeSpecific")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_special_dividend_indicator = ProtoField.new("Mmt Special Dividend Indicator", "euronext.optiq.marketdatagateway.sbe.v5.51.mmtspecialdividendindicator", ftypes.STRING, nil, nil, nil, "mMTSpecialDividendIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_trading_mode = ProtoField.new("Mmt Trading Mode", "euronext.optiq.marketdatagateway.sbe.v5.51.mmttradingmode", ftypes.STRING, nil, nil, nil, "mMTTradingMode")
 omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_transaction_category = ProtoField.new("Mmt Transaction Category", "euronext.optiq.marketdatagateway.sbe.v5.51.mmttransactioncategory", ftypes.STRING, nil, nil, nil, "mMTTransactionCategory")
@@ -3024,6 +3030,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.efficient_mmt_trading_mode.display = 
   if value == "U" then
     return "Efficient Mmt Trading Mode: Unscheduled Auctionequal Uncrossing (U)"
   end
+  if value == "P" then
+    return "Efficient Mmt Trading Mode: On Demand Auctionequal Frequent Batched Auction (P)"
+  end
   if value == 0 then
     return "Efficient Mmt Trading Mode: No Value"
   end
@@ -3431,6 +3440,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.exchange_code.display = function(valu
   end
   if value == "E" then
     return "Exchange Code: Milan Equity Derivatives (E)"
+  end
+  if value == "T" then
+    return "Exchange Code: Milan Interest Rate Derivatives (T)"
   end
 
   return "Exchange Code: Unknown("..value..")"
@@ -4204,6 +4216,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.inst_unit_exp.display = function(valu
   end
   if value == 5 then
     return "Inst Unit Exp: Percentageof Nominal Including Accrued Interest Dirty (5)"
+  end
+  if value == 6 then
+    return "Inst Unit Exp: Percentageof Par Value (6)"
   end
   if value == 7 then
     return "Inst Unit Exp: Yield (7)"
@@ -6665,6 +6680,45 @@ euronext_optiq_marketdatagateway_sbe_v5_51.minimum_amount.dissect = function(buf
   return offset + length, value
 end
 
+-- Missing Price
+euronext_optiq_marketdatagateway_sbe_v5_51.missing_price = {}
+
+-- Size: Missing Price
+euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.size = 4
+
+-- Display: Missing Price
+euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Missing Price: No Value"
+  end
+
+  return "Missing Price: "..value
+end
+
+-- Dissect: Missing Price
+euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.missing_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mmt Agency Cross Trade Indicator
 euronext_optiq_marketdatagateway_sbe_v5_51.mmt_agency_cross_trade_indicator = {}
 
@@ -6782,6 +6836,45 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_benchmark_indicator.dissect = fun
   return offset + length, value
 end
 
+-- Mmt Contingent Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator = {}
+
+-- Size: Mmt Contingent Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.size = 4
+
+-- Display: Mmt Contingent Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mmt Contingent Transaction Indicator: No Value"
+  end
+
+  return "Mmt Contingent Transaction Indicator: "..value
+end
+
+-- Dissect: Mmt Contingent Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_contingent_transaction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mmt Contributionto Price
 euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contributionto_price = {}
 
@@ -6885,6 +6978,12 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_market_mechanism.display = functi
   end
   if value == 6 then
     return "Mmt Market Mechanism: Requestfor Quotes (6)"
+  end
+  if value == 8 then
+    return "Mmt Market Mechanism: Hybrid System (8)"
+  end
+  if value == 9 then
+    return "Mmt Market Mechanism: Any Other Excluding Hybrid (9)"
   end
   if value == 255 then
     return "Mmt Market Mechanism: No Value"
@@ -7071,6 +7170,45 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_off_book_automated_indicator.diss
   return offset + length, value
 end
 
+-- Mmt Portfolio Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator = {}
+
+-- Size: Mmt Portfolio Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.size = 4
+
+-- Display: Mmt Portfolio Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mmt Portfolio Transaction Indicator: No Value"
+  end
+
+  return "Mmt Portfolio Transaction Indicator: "..value
+end
+
+-- Dissect: Mmt Portfolio Transaction Indicator
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_portfolio_transaction_indicator, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mmt Post Trade Deferral
 euronext_optiq_marketdatagateway_sbe_v5_51.mmt_post_trade_deferral = {}
 
@@ -7110,6 +7248,45 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_post_trade_deferral.dissect = fun
   return offset + length, value
 end
 
+-- Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale = {}
+
+-- Size: Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.size = 4
+
+-- Display: Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale: No Value"
+  end
+
+  return "Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale: "..value
+end
+
+-- Dissect: Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mmt Publication Mode
 euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode = {}
 
@@ -7145,6 +7322,84 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode.dissect = functi
   local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mmt Publication Mode Illiquid
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid = {}
+
+-- Size: Mmt Publication Mode Illiquid
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.size = 4
+
+-- Display: Mmt Publication Mode Illiquid
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mmt Publication Mode Illiquid: No Value"
+  end
+
+  return "Mmt Publication Mode Illiquid: "..value
+end
+
+-- Dissect: Mmt Publication Mode Illiquid
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode_illiquid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mmt Publication Mode Size Specific
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific = {}
+
+-- Size: Mmt Publication Mode Size Specific
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.size = 4
+
+-- Display: Mmt Publication Mode Size Specific
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mmt Publication Mode Size Specific: No Value"
+  end
+
+  return "Mmt Publication Mode Size Specific: "..value
+end
+
+-- Dissect: Mmt Publication Mode Size Specific
+euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz(ENC_UTF_8)
+  else
+    value = range:string(ENC_UTF_8)
+  end
+
+  local display = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_51.fields.mmt_publication_mode_size_specific, range, value, display)
 
   return offset + length, value
 end
@@ -7233,6 +7488,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.mmt_trading_mode.display = function(v
   end
   if value == "U" then
     return "Mmt Trading Mode: Unscheduled Auctionequal Uncrossing (U)"
+  end
+  if value == "P" then
+    return "Mmt Trading Mode: On Demand Auctionequal Frequent Batched Auction (P)"
   end
   if value == 0 then
     return "Mmt Trading Mode: No Value"
@@ -8965,6 +9223,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.pricing_algorithm.display = function(
   end
   if value == 2 then
     return "Pricing Algorithm: Market On Close (2)"
+  end
+  if value == 3 then
+    return "Pricing Algorithm: Standardwith Negative Prices (3)"
   end
 
   return "Pricing Algorithm: Unknown("..value..")"
@@ -12210,6 +12471,9 @@ euronext_optiq_marketdatagateway_sbe_v5_51.underlying_subtype.display = function
   if value == 25 then
     return "Underlying Subtype: Polypropylene (25)"
   end
+  if value == 26 then
+    return "Underlying Subtype: Bonds Basket (26)"
+  end
   if value == 255 then
     return "Underlying Subtype: No Value"
   end
@@ -12722,8 +12986,8 @@ euronext_optiq_marketdatagateway_sbe_v5_51.version.size = 2
 
 -- Display: Version
 euronext_optiq_marketdatagateway_sbe_v5_51.version.display = function(value)
-  if value == 333 then
-    return "Version: Version 5.33.0"
+  if value == 351 then
+    return "Version: Version 5.251.0"
   end
 
   return "Version: Unknown("..value..")"
@@ -17287,6 +17551,18 @@ euronext_optiq_marketdatagateway_sbe_v5_51.full_trade_information_message.size =
 
   index = index + euronext_optiq_marketdatagateway_sbe_v5_51.trade_unique_identifier.size
 
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.size
+
+  index = index + euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.size
+
   index = index + euronext_optiq_marketdatagateway_sbe_v5_51.not_used_groups.size(buffer, offset + index)
 
   return index
@@ -17462,6 +17738,24 @@ euronext_optiq_marketdatagateway_sbe_v5_51.full_trade_information_message.fields
 
   -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_marketdatagateway_sbe_v5_51.trade_unique_identifier.dissect(buffer, index, packet, parent)
+
+  -- Missing Price: char4
+  index, missing_price = euronext_optiq_marketdatagateway_sbe_v5_51.missing_price.dissect(buffer, index, packet, parent)
+
+  -- Mmt Pre Trade Transparency Waiver Relatedto Sizeand Scale: char4
+  index, mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_pre_trade_transparency_waiver_relatedto_sizeand_scale.dissect(buffer, index, packet, parent)
+
+  -- Mmt Portfolio Transaction Indicator: char4
+  index, mmt_portfolio_transaction_indicator = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_portfolio_transaction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Mmt Contingent Transaction Indicator: char4
+  index, mmt_contingent_transaction_indicator = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_contingent_transaction_indicator.dissect(buffer, index, packet, parent)
+
+  -- Mmt Publication Mode Illiquid: char4
+  index, mmt_publication_mode_illiquid = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_illiquid.dissect(buffer, index, packet, parent)
+
+  -- Mmt Publication Mode Size Specific: char4
+  index, mmt_publication_mode_size_specific = euronext_optiq_marketdatagateway_sbe_v5_51.mmt_publication_mode_size_specific.dissect(buffer, index, packet, parent)
 
   -- Not Used Groups: Struct of 2 fields
   index, not_used_groups = euronext_optiq_marketdatagateway_sbe_v5_51.not_used_groups.dissect(buffer, index, packet, parent)
@@ -18683,7 +18977,7 @@ euronext_optiq_marketdatagateway_sbe_v5_51.version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(24, 2):le_uint()
 
-  if value == 333 then
+  if value == 351 then
     return true
   end
 
