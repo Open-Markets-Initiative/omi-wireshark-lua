@@ -42,6 +42,7 @@ omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.reserved_2 = ProtoFiel
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.reserved_3 = ProtoField.new("Reserved 3", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.reserved_9 = ProtoField.new("Reserved 9", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.reserved9", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.security_type = ProtoField.new("Security Type", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.securitytype", ftypes.STRING, nil, nil, nil, "Instrument class of the security")
+omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_message = ProtoField.new("Sequenced Message", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.sequencedmessage", ftypes.STRING, nil, nil, nil, "The higher-level protocol message carried by a Sequenced Data Packet")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.server_packet_type = ProtoField.new("Server Packet Type", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying the packet the server sends")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.shares = ProtoField.new("Shares", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.shares", ftypes.UINT32, nil, nil, nil, "Total number of shares associated with the order being added to the book")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.shortable = ProtoField.new("Shortable", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.shortable", ftypes.STRING, nil, nil, nil, "Indicates the short status of a security")
@@ -55,7 +56,7 @@ omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.username = ProtoField.
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.client_packet = ProtoField.new("Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.clientpacket", ftypes.STRING, nil, nil, nil, "Tradelogiq SoupTcp Packet sent by the client")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.client_packet_header = ProtoField.new("Client Packet Header", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.clientpacketheader", ftypes.STRING, nil, nil, nil, "Tradelogiq SoupTcp Client Packet Header")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.client_soup_tcp_packet = ProtoField.new("Soup Tcp Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.clientsouptcppacket", ftypes.STRING, nil, nil, nil, "Soup Tcp Packet sent by the client")
-omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol")
+omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets carry a higher-level protocol message; zero message bytes indicate no more messages available")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.server_packet = ProtoField.new("Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.serverpacket", ftypes.STRING, nil, nil, nil, "Tradelogiq SoupTcp Packet sent by the server")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.server_packet_header = ProtoField.new("Server Packet Header", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.serverpacketheader", ftypes.STRING, nil, nil, nil, "Tradelogiq SoupTcp Server Packet Header")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.server_soup_tcp_packet = ProtoField.new("Soup Tcp Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.serversouptcppacket", ftypes.STRING, nil, nil, nil, "Soup Tcp Packet sent by the server")
@@ -75,6 +76,9 @@ omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.login_request_packet =
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.logout_request = ProtoField.new("Logout Request", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.logoutrequest", ftypes.BYTES, nil, nil, nil, "The client may send a Logout Request Packet to request the connection be terminated")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The server should send a Server Heartbeat Packet anytime more than 1 second passes where no data has been sent to the client")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Unsequenced Data Packets act as an envelope to carry the actual data messages that are transferred from the client to the server")
+
+-- Tradelogiq LynxAts SnapshotRecovery Itch 1.09 Generated Fields
+omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "tradelogiq.lynxats.snapshotrecovery.itch.v1.09.sequenceddatapacketsequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Tradelogiq LynxAts SnapshotRecovery Itch 1.09 Formatting
@@ -112,6 +116,7 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.session_messages = true
+show.sequences = true
 
 -- Register Tradelogiq LynxAts SnapshotRecovery Itch 1.09 Show Options
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -121,6 +126,7 @@ omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_application_messag
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (UTC) for midnight calculation")
@@ -141,6 +147,9 @@ function omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs_changed()
   if show.structs ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_structs then
     show.structs = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_structs
   end
+  if show.sequences ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_sequences then
+    show.sequences = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.show_sequences
+  end
   if tradelogiq_lynxats_snapshotrecovery_itch_v1_09.timestamp_format ~= omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.timestamp_format then
     tradelogiq_lynxats_snapshotrecovery_itch_v1_09.timestamp_format = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.timestamp_format
   end
@@ -148,6 +157,41 @@ function omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs_changed()
     tradelogiq_lynxats_snapshotrecovery_itch_v1_09.utc_offset_hours = omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation = {}
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_frame = nil
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.data = function(packet)
+  local key = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.key(packet)
+  local data = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.flows[key]
+  if data == nil then
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -196,7 +240,12 @@ end
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.accepted_sequence_number, range, value, display)
@@ -816,7 +865,12 @@ end
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = "Not Applicable"
+  end
+
   local display = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.requested_sequence_number, range, value, display)
@@ -1547,6 +1601,57 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dissect = function(buffer
   return offset
 end
 
+-- Sequenced Message
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message = {}
+
+-- Calculate size of: Sequenced Message
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.message_type.size
+
+  -- Parse runtime size of: Payload
+  index = index + buffer(offset + index - 4, 2):uint()
+
+  return index
+end
+
+-- Display: Sequenced Message
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Message
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: 1 Byte Ascii String Enum with 5 values
+  index, message_type = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.message_type.dissect(buffer, index, packet, parent)
+
+  -- Payload: Runtime Type with 5 branches
+  index = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Sequenced Message
+tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_message, buffer(offset, 0))
+    local index = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Sequenced Data Packet
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_data_packet = {}
 
@@ -1554,10 +1659,12 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_data_packet = {}
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_data_packet.size = function(buffer, offset)
   local index = 0
 
-  index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.message_type.size
+  local packet_length = buffer(offset - 3, 2):uint()
 
-  -- Parse runtime size of: Payload
-  index = index + buffer(offset + index - 4, 2):uint()
+  if packet_length > 1 then
+    index = index + tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.size(buffer, offset + index)
+
+  end
 
   return index
 end
@@ -1571,11 +1678,54 @@ end
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_data_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 5 values
-  index, message_type = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.message_type.dissect(buffer, index, packet, parent)
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_frame ~= packet.number or tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence >= #memo then
+          tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_frame = packet.number
+          tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence = 0
+        end
+        tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence + 1
+        local value = memo[tradelogiq_lynxats_snapshotrecovery_itch_v1_09.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
 
-  -- Payload: Runtime Type with 5 branches
-  index = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.payload.dissect(buffer, index, packet, parent, message_type)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime optional field: Sequenced Message
+  local sequenced_message = nil
+
+  local sequenced_message_exists = packet_length > 1
+
+  if sequenced_message_exists then
+    index, sequenced_message = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.sequenced_message.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -1677,6 +1827,13 @@ tradelogiq_lynxats_snapshotrecovery_itch_v1_09.login_accepted_packet.fields = fu
 
   -- Accepted Sequence Number: 20 Byte Ascii String
   index, accepted_sequence_number = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
 
   return index
 end
@@ -1844,6 +2001,14 @@ end
 
 -- Dissect Server Packet
 tradelogiq_lynxats_snapshotrecovery_itch_v1_09.server_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.data(packet)
+  if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
+  end
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Tcp Packet
@@ -2190,6 +2355,9 @@ end
 
 -- Initialize Dissector
 function omi_tradelogiq_lynxats_snapshotrecovery_itch_v1_09.init()
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.accepted_sequence_number.current = nil
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.current = nil
+  tradelogiq_lynxats_snapshotrecovery_itch_v1_09.conversation.flows = {}
 end
 
 -- Connection roles for Tradelogiq LynxAts SnapshotRecovery Itch 1.09: Client is the initiator, Server is the acceptor
