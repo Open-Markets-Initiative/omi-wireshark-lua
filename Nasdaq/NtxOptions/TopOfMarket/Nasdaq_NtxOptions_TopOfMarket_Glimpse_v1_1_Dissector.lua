@@ -21,8 +21,8 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_cust_size_long = Proto
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_cust_size_short = ProtoField.new("Ask Cust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askcustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer quantity on the ask side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_market_order_size_long = ProtoField.new("Ask Market Order Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askmarketordersizelong", ftypes.UINT32, nil, nil, nil, "Number of market order contracts on the ask side")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_market_order_size_short = ProtoField.new("Ask Market Order Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askmarketordersizeshort", ftypes.UINT16, nil, nil, nil, "Number of market order contracts on the ask side")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askpricelong", ftypes.UINT32, nil, nil, nil, "Best ask price in fixed point format with 6 whole number places followed by 4 decimal digits")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askpriceshort", ftypes.UINT16, nil, nil, nil, "Best ask price in fixed point format with 3 whole number places followed by 2 decimal digits")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askpricelong", ftypes.DOUBLE, nil, nil, nil, "Best ask price in fixed point format with 6 whole number places followed by 4 decimal digits")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "Best ask price in fixed point format with 3 whole number places followed by 2 decimal digits")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_procust_size_long = ProtoField.new("Ask ProCust Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askprocustsizelong", ftypes.UINT32, nil, nil, nil, "Customer professional quantity on the ask side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_procust_size_short = ProtoField.new("Ask ProCust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.askprocustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer professional quantity on the ask side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.asksizelong", ftypes.UINT32, nil, nil, nil, "Aggregated number of contracts on the ask side being displayed in the options market at the current time.")
@@ -31,8 +31,8 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_cust_size_long = Proto
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_cust_size_short = ProtoField.new("Bid Cust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidcustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer quantity on the bid side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_market_order_size_long = ProtoField.new("Bid Market Order Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidmarketordersizelong", ftypes.UINT32, nil, nil, nil, "Number of market order contracts on the bid side")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_market_order_size_short = ProtoField.new("Bid Market Order Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidmarketordersizeshort", ftypes.UINT16, nil, nil, nil, "Number of market order contracts on the bid side")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidpricelong", ftypes.UINT32, nil, nil, nil, "Best bid price in fixed point format with 6 whole number places followed by 4 decimal digits")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidpriceshort", ftypes.UINT16, nil, nil, nil, "Best bid price in fixed point format with 3 whole number places followed by 2 decimal digits")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "Best bid price in fixed point format with 6 whole number places followed by 4 decimal digits")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "Best bid price in fixed point format with 3 whole number places followed by 2 decimal digits")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_procust_size_long = ProtoField.new("Bid ProCust Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidprocustsizelong", ftypes.UINT32, nil, nil, nil, "Customer professional quantity on the bid side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_procust_size_short = ProtoField.new("Bid ProCust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidprocustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer professional quantity on the bid side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.bidsizelong", ftypes.UINT32, nil, nil, nil, "Aggregated number of contracts on the bid side being displayed in the options market at the current time.")
@@ -47,7 +47,7 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.event_code = ProtoField.ne
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.expirationdate", ftypes.UINT8, nil, nil, nil, "Day of the Month of expiration (1-31)")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.expirationmonth", ftypes.UINT8, nil, nil, nil, "Expiration Month of the option (1-12)")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.expirationyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the year of the option expiration")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.explicitstrikeprice", ftypes.UINT32, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.explicitstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.financial_product = ProtoField.new("Financial Product", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.financialproduct", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.instrumentid", ftypes.UINT32, nil, nil, nil, "Integer ID of the option, as defined in the Options Directory Message.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.instrument_long_name = ProtoField.new("Instrument Long Name", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.instrumentlongname", ftypes.STRING)
@@ -60,9 +60,9 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.mpv = ProtoField.new("Mpv"
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.optiontype", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.password = ProtoField.new("Password", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_long = ProtoField.new("Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.pricelong", ftypes.UINT32, nil, nil, nil, "Best bid or ask price in fixed point format with 6 whole number places followed by 4 decimal digits, the side determined by Message Type.")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_long = ProtoField.new("Price Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.pricelong", ftypes.DOUBLE, nil, nil, nil, "Best bid or ask price in fixed point format with 6 whole number places followed by 4 decimal digits, the side determined by Message Type.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_notation = ProtoField.new("Price Notation", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.pricenotation", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_short = ProtoField.new("Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.priceshort", ftypes.UINT16, nil, nil, nil, "Best bid or Ask price in fixed point format with 3 whole number places followed by 2 decimal digits")
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_short = ProtoField.new("Price Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.priceshort", ftypes.DOUBLE, nil, nil, nil, "Best bid or Ask price in fixed point format with 3 whole number places followed by 2 decimal digits")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.procust_size_long = ProtoField.new("ProCust Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.procustsizelong", ftypes.UINT32, nil, nil, nil, "Customer professional quantity on the bid or ask side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.procust_size_short = ProtoField.new("ProCust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.procustsizeshort", ftypes.UINT16, nil, nil, nil, "Customer professional quantity on the bid or ask side.")
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.quotecondition", ftypes.STRING)
@@ -418,11 +418,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.display = function(val
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price Long
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_long, range, value, display)
@@ -441,11 +447,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.display = function(va
   return "Ask Price Short: "..value
 end
 
+-- Translate: Ask Price Short
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price Short
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.ask_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.ask_price_short, range, value, display)
@@ -648,11 +660,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.display = function(val
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price Long
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_long, range, value, display)
@@ -671,11 +689,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.display = function(va
   return "Bid Price Short: "..value
 end
 
+-- Translate: Bid Price Short
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price Short
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.bid_price_short, range, value, display)
@@ -1082,11 +1106,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.display = funct
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.explicit_strike_price, range, value, display)
@@ -1401,11 +1431,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.display = function(value)
   return "Price Long: "..value
 end
 
+-- Translate: Price Long
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price Long
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_long, range, value, display)
@@ -1447,11 +1483,17 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.display = function(value)
   return "Price Short: "..value
 end
 
+-- Translate: Price Short
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price Short
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.translate(raw)
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.price_short, range, value, display)
@@ -1673,6 +1715,12 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message_type.display = func
   end
   if value == "M" then
     return "Sequenced Message Type: Snapshot Message (M)"
+  end
+  if value == "a" then
+    return "Sequenced Message Type: Best Ask Update Short Form Message (a)"
+  end
+  if value == "A" then
+    return "Sequenced Message Type: Best Ask Update Long Form Message (A)"
   end
 
   return "Sequenced Message Type: Unknown("..value..")"
@@ -2722,6 +2770,14 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message.dissect = function(
   if sequenced_message_type == "M" then
     return nasdaq_ntxoptions_topofmarket_glimpse_v1_1.snapshot_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Best Bid Or Ask Update Short Form Message
+  if sequenced_message_type == "a" then
+    return nasdaq_ntxoptions_topofmarket_glimpse_v1_1.best_bid_or_ask_update_short_form_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Best Bid Or Ask Update Long Form Message
+  if sequenced_message_type == "A" then
+    return nasdaq_ntxoptions_topofmarket_glimpse_v1_1.best_bid_or_ask_update_long_form_message.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -2785,7 +2841,7 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_data_packet.fields = functi
     end
   end
 
-  -- Sequenced Message Type: 1 Byte Ascii String Enum with 8 values
+  -- Sequenced Message Type: 1 Byte Ascii String Enum with 10 values
   index, sequenced_message_type = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.sequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Sequenced Message: Runtime Type with 8 branches

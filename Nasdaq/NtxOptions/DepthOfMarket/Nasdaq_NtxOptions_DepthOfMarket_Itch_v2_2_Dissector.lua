@@ -17,19 +17,19 @@ local nasdaq_ntxoptions_depthofmarket_itch_v2_2 = {}
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsequencenumber", ftypes.STRING, nil, nil, nil, "The sequence number in ASCII of the next Sequenced Message to be sent. Left padded with spaces.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into. Left padded with spaces.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.askpricelong", ftypes.UINT32, nil, nil, nil, "The display ask price of the quote.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.askpriceshort", ftypes.UINT16, nil, nil, nil, "The display ask price of the quote.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.askpricelong", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the quote.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "The display ask price of the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.askreferencenumber", ftypes.UINT64, nil, nil, nil, "The ask reference number associated with the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.asksizelong", ftypes.UINT32, nil, nil, nil, "The display ask quantity of the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.asksizeshort", ftypes.UINT16, nil, nil, nil, "The display ask quantity of the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.auctionid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies the Auction for the trading day.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.auctiontype", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_ask_price = ProtoField.new("Best Ask Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestaskprice", ftypes.UINT32, nil, nil, nil, "Best Ask Price.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_ask_price = ProtoField.new("Best Ask Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestaskprice", ftypes.DOUBLE, nil, nil, nil, "Best Ask Price.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_ask_quantity = ProtoField.new("Best Ask Quantity", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestaskquantity", ftypes.UINT32, nil, nil, nil, "Best Ask Quantity.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_bid_price = ProtoField.new("Best Bid Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestbidprice", ftypes.UINT32, nil, nil, nil, "Best Bid Price.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_bid_price = ProtoField.new("Best Bid Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestbidprice", ftypes.DOUBLE, nil, nil, nil, "Best Bid Price.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_bid_quantity = ProtoField.new("Best Bid Quantity", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bestbidquantity", ftypes.UINT32, nil, nil, nil, "Best Bid Quantity.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidpricelong", ftypes.UINT32, nil, nil, nil, "The display bid price of the quote.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidpriceshort", ftypes.UINT16, nil, nil, nil, "The display bid price of the quote.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the quote.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "The display bid price of the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidreferencenumber", ftypes.UINT64, nil, nil, nil, "The bid reference number associated with the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidsizelong", ftypes.UINT32, nil, nil, nil, "The display bid quantity of the quote.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.bidsizeshort", ftypes.UINT16, nil, nil, nil, "The display bid quantity of the quote.")
@@ -48,10 +48,10 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.executed_volume = ProtoFiel
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.expirationdate", ftypes.UINT8, nil, nil, nil, "Day of the Month of expiration (1-31)")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.expirationmonth", ftypes.UINT8, nil, nil, nil, "Expiration Month of the option (1-12)")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.expirationyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the year of the option expiration")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.explicitstrikeprice", ftypes.UINT32, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.explicitstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.financial_product = ProtoField.new("Financial Product", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.financialproduct", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.imbalancedirection", ftypes.STRING, nil, nil, nil, "Indicates the market side of the imbalance.")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.imbalanceprice", ftypes.UINT32, nil, nil, nil, "Imbalance Price.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.imbalanceprice", ftypes.DOUBLE, nil, nil, nil, "Imbalance Price.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Imbalance volume.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.instrumentid", ftypes.UINT32, nil, nil, nil, "Integer ID of the option, as defined in the Derivative Directory Message.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.instrument_long_name = ProtoField.new("Instrument Long Name", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.instrumentlongname", ftypes.STRING)
@@ -74,9 +74,9 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.original_reference_number =
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.paired_quantity = ProtoField.new("Paired Quantity", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pairedquantity", ftypes.UINT32, nil, nil, nil, "The total amount that are eligible to be matched at the Current Reference Price.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.password = ProtoField.new("Password", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pricelong", ftypes.UINT32, nil, nil, nil, "The display price of the new order.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pricelong", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_notation = ProtoField.new("Price Notation", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.pricenotation", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_short = ProtoField.new("Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.priceshort", ftypes.UINT16, nil, nil, nil, "The display price of the new order.")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_short = ProtoField.new("Price Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.priceshort", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.printable = ProtoField.new("Printable", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.printable", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.rank = ProtoField.new("Rank", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.rank", ftypes.UINT16, nil, nil, nil, "Order rank on the book.")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.reference_number = ProtoField.new("Reference Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.referencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the order being executed.")
@@ -368,11 +368,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.display = function(valu
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price Long
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_long, range, value, display)
@@ -391,11 +397,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.display = function(val
   return "Ask Price Short: "..value
 end
 
+-- Translate: Ask Price Short
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price Short
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.ask_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.ask_price_short, range, value, display)
@@ -545,11 +557,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.display = function(valu
   return "Best Ask Price: "..value
 end
 
+-- Translate: Best Ask Price
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Best Ask Price
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_ask_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_ask_price, range, value, display)
@@ -591,11 +609,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.display = function(valu
   return "Best Bid Price: "..value
 end
 
+-- Translate: Best Bid Price
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Best Bid Price
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.best_bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.best_bid_price, range, value, display)
@@ -637,11 +661,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.display = function(valu
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price Long
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_long, range, value, display)
@@ -660,11 +690,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.display = function(val
   return "Bid Price Short: "..value
 end
 
+-- Translate: Bid Price Short
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price Short
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.bid_price_short, range, value, display)
@@ -1183,11 +1219,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.display = functi
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.explicit_strike_price, range, value, display)
@@ -1259,11 +1301,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.display = function(val
   return "Imbalance Price: "..value
 end
 
+-- Translate: Imbalance Price
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Imbalance Price
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.imbalance_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.imbalance_price, range, value, display)
@@ -1879,11 +1927,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.display = function(value)
   return "Price Long: "..value
 end
 
+-- Translate: Price Long
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price Long
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_long, range, value, display)
@@ -1925,11 +1979,17 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.display = function(value)
   return "Price Short: "..value
 end
 
+-- Translate: Price Short
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.translate = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price Short
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.translate(raw)
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.price_short, range, value, display)
