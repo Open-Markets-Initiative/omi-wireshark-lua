@@ -23,10 +23,10 @@ omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.dr_status = ProtoField.new
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.eas_value = ProtoField.new("Eas Value", "hkex.hkexsecurities.indexretrans.omd.v1.44.easvalue", ftypes.DOUBLE, nil, nil, nil, "Estimated Average Settlement Value. 2 implied decimal places.")
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.end_seq_num = ProtoField.new("End Seq Num", "hkex.hkexsecurities.indexretrans.omd.v1.44.endseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number of last message in range to be resent.")
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.exception = ProtoField.new("Exception", "hkex.hkexsecurities.indexretrans.omd.v1.44.exception", ftypes.STRING, nil, nil, nil, "Exception indicator.")
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler", ftypes.STRING, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler2", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler3", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler", ftypes.BYTES, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler2", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.indexretrans.omd.v1.44.filler3", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.high_value = ProtoField.new("High Value", "hkex.hkexsecurities.indexretrans.omd.v1.44.highvalue", ftypes.DOUBLE, nil, nil, nil, "Highest value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.indexretrans.omd.v1.44.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.indexretrans.omd.v1.44.indexsource", ftypes.STRING, nil, nil, nil, "Index or market information source.")
@@ -354,7 +354,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_44.filler.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_44.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexretrans_omd_v1_44.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler, range, value, display)
@@ -377,7 +377,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_44.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_1, range, value, display)
@@ -400,7 +400,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_44.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_2, range, value, display)
@@ -423,7 +423,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_44.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexretrans_omd_v1_44.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.filler_3, range, value, display)
@@ -1772,7 +1772,7 @@ hkex_hkexsecurities_indexretrans_omd_v1_44.packet_header.fields = function(buffe
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexsecurities_indexretrans_omd_v1_44.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Filler: 1 Byte Ascii String
+  -- Filler: 1 Byte
   index, filler = hkex_hkexsecurities_indexretrans_omd_v1_44.filler.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

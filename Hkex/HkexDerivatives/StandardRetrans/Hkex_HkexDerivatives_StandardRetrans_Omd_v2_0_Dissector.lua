@@ -44,13 +44,13 @@ omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.effective_last_trading_
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.hkexderivatives.standardretrans.omd.v2.0.effectivetomorrow", ftypes.UINT8, nil, nil, nil, "Declaration for instrument to be traded the next day")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.end_seq_num = ProtoField.new("End Seq Num", "hkex.hkexderivatives.standardretrans.omd.v2.0.endseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number of")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.exchange = ProtoField.new("Exchange", "hkex.hkexderivatives.standardretrans.omd.v2.0.exchange", ftypes.UINT16, nil, nil, nil, "Exchange Identifier")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler1", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler10", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler2", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler3", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler4", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler5", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler6", ftypes.STRING, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler1", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler10", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler2", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler3", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler4", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler5", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.standardretrans.omd.v2.0.filler6", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.standardretrans.omd.v2.0.firsttradingdate", ftypes.UINT32, nil, nil, nil, "The first trading date")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.standardretrans.omd.v2.0.firsttradingtime", ftypes.UINT64, nil, nil, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.standardretrans.omd.v2.0.grossoi", ftypes.INT32, nil, nil, nil, "If DayIndicator = 1,")
@@ -99,7 +99,7 @@ omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.price_quotation_factor 
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.standardretrans.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.standardretrans.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.standardretrans.omd.v2.0.retransstatus", ftypes.UINT8, nil, nil, nil, "Status of the Retransmission response")
-omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.standardretrans.omd.v2.0.secondfiller3", ftypes.STRING, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.standardretrans.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.standardretrans.omd.v2.0.sendtime", ftypes.UINT64, nil, nil, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.standardretrans.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.standardretrans.omd.v2.0.session", ftypes.UINT8, nil, nil, nil, "Session indicator used to distinguish between the T and T+1 sessions")
@@ -927,7 +927,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_1, range, value, display)
@@ -950,7 +950,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_10.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_10.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_10, range, value, display)
@@ -973,7 +973,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_2, range, value, display)
@@ -996,7 +996,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_3, range, value, display)
@@ -1019,7 +1019,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_4, range, value, display)
@@ -1042,7 +1042,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_5.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_5.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_5, range, value, display)
@@ -1065,7 +1065,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_6.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.filler_6, range, value, display)
@@ -2322,7 +2322,7 @@ end
 hkex_hkexderivatives_standardretrans_omd_v2_0.second_filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardretrans_omd_v2_0.second_filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_standardretrans_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardretrans_omd_v2_0.fields.second_filler_3, range, value, display)
@@ -3451,7 +3451,7 @@ hkex_hkexderivatives_standardretrans_omd_v2_0.market_status.fields = function(bu
   -- Instrument Class Key: Uint32
   index, instrument_class_key = hkex_hkexderivatives_standardretrans_omd_v2_0.instrument_class_key.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
 
   -- Actual Start Time: Uint64
@@ -4171,7 +4171,7 @@ hkex_hkexderivatives_standardretrans_omd_v2_0.open_interest_message.fields = fun
   -- Day Indicator: Uint16
   index, day_indicator = hkex_hkexderivatives_standardretrans_omd_v2_0.day_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: String
+  -- Filler 6: 6 Byte
   index, filler_6 = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_6.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Uint32
@@ -4391,7 +4391,7 @@ hkex_hkexderivatives_standardretrans_omd_v2_0.calculated_opening_price_message.f
   -- Calculated Opening Price: Int64
   index, calculated_opening_price = hkex_hkexderivatives_standardretrans_omd_v2_0.calculated_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_standardretrans_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
 
   -- Calculated Opening Quantity: Uint64

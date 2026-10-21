@@ -46,16 +46,16 @@ omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.entitlement_composite = 
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.face_value = ProtoField.new("Face Value", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.facevalue", ftypes.UINT64, nil, nil, nil, "Face value of a bond security. See DecimalsInFaceValue for the number of decimal places. 0 means Not available.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.face_value_composite = ProtoField.new("Face Value Composite", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.facevaluecomposite", ftypes.STRING, nil, nil, nil, "Bond face value scaled at runtime by DecimalsInFaceValue. 0 mantissa means Not available.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.face_value_currency = ProtoField.new("Face Value Currency", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.facevaluecurrency", ftypes.STRING, nil, nil, nil, "Currency code of Face Value.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler", ftypes.STRING, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler2", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler3", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_37 = ProtoField.new("Filler 37", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler37", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler4", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_44 = ProtoField.new("Filler 44", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler44", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_62 = ProtoField.new("Filler 62", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler62", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler63", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.fourthfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler", ftypes.BYTES, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler2", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler3", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_37 = ProtoField.new("Filler 37", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler37", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler4", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_44 = ProtoField.new("Filler 44", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler44", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_62 = ProtoField.new("Filler 62", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler62", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.filler63", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.fourthfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.free_text = ProtoField.new("Free Text", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.freetext", ftypes.STRING, nil, nil, nil, "Free text associated to the security. When there is no free text, spaces are present instead.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.headline = ProtoField.new("Headline", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.headline", ftypes.BYTES, nil, nil, nil, "News headline. ASCII encoded if NewsType is EXN, Unicode UTF-16LE encoded if NewsType is EXC.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.high_price = ProtoField.new("High Price", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest trade price currently performed for a security. 3 implied decimal places.")
@@ -105,8 +105,8 @@ omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.price_level = ProtoField
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.product_type = ProtoField.new("Product Type", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.producttype", ftypes.UINT8, nil, nil, nil, "Product type of the security.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.reference_price = ProtoField.new("Reference Price", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price of the security for order input in POS and CAS. 3 implied decimal places. 0 if the reference price is not available.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.release_time = ProtoField.new("Release Time", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.releasetime", ftypes.UINT64, nil, nil, nil, "Release time of the news. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.secondfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_2 = ProtoField.new("Second Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.secondfiller2", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.secondfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_2 = ProtoField.new("Second Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.secondfiller2", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.securitycode", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a security available for trading.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.securitynamegb", ftypes.BYTES, nil, nil, nil, "Security name in Simplified Chinese using Unicode UTF-16LE encoding.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.securitynamegccs", ftypes.BYTES, nil, nil, nil, "Security name in Traditional Chinese using Unicode UTF-16LE encoding.")
@@ -125,8 +125,8 @@ omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.strike_price_1 = ProtoFi
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.strike_price_2 = ProtoField.new("Strike Price 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.strikeprice2", ftypes.DOUBLE, nil, nil, nil, "Upper strike price of the security if it has lower and upper strike prices. 3 implied decimal places. Value is 0 if the security has only one strike price.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.style = ProtoField.new("Style", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.style", ftypes.STRING, nil, nil, nil, "Style of the warrant.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.suspensionindicator", ftypes.UINT8, nil, nil, nil, "Indicate whether the security is currently halted/suspended for trading. 'Resume' means the security is now available for trading.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.thirdfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_2 = ProtoField.new("Third Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.thirdfiller2", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.thirdfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_2 = ProtoField.new("Third Filler 2", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.thirdfiller2", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.trading_ses_control_flag = ProtoField.new("Trading Ses Control Flag", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.tradingsescontrolflag", ftypes.STRING, nil, nil, nil, "Indicates how control of trading session and sub-session transitions are performed.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.trading_ses_status = ProtoField.new("Trading Ses Status", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.tradingsesstatus", ftypes.UINT8, nil, nil, nil, "Status of the current trading session.")
 omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "hkex.hkexsecurities.premiumrefresh.omd.v1.45.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Trading session sub-identifier.")
@@ -946,7 +946,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler, range, value, display)
@@ -969,7 +969,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_1, range, value, display)
@@ -992,7 +992,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_2, range, value, display)
@@ -1015,7 +1015,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_3, range, value, display)
@@ -1038,7 +1038,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_37.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_37.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_37.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_37, range, value, display)
@@ -1061,7 +1061,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_4, range, value, display)
@@ -1084,7 +1084,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_44.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_44.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_44.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_44, range, value, display)
@@ -1107,7 +1107,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_62.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_62.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_62, range, value, display)
@@ -1130,7 +1130,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_63.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_63.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler_63.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.filler_63, range, value, display)
@@ -1153,7 +1153,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.fourth_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.fourth_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.fourth_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.fourth_filler_1, range, value, display)
@@ -1196,10 +1196,20 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.display = function(value)
 end
 
 -- Dissect: Headline
-hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.dissect = function(buffer, offset, packet, parent)
+hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.dissect = function(buffer, offset, packet, parent, news_type)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.size
   local range = buffer(offset, length)
-  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
+
+  -- Text encoding News Type selects
+  local text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  if news_type == "EXN" then
+    text_encoding = ENC_ASCII
+  end
+  if news_type == "EXC" then
+    text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  end
+
+  local value = range:string(text_encoding)
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.headline, range, value, display)
@@ -1752,10 +1762,20 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.display = function(value)
 end
 
 -- Dissect: News Line
-hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.dissect = function(buffer, offset, packet, parent)
+hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.dissect = function(buffer, offset, packet, parent, news_type)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.size
   local range = buffer(offset, length)
-  local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
+
+  -- Text encoding News Type selects
+  local text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  if news_type == "EXN" then
+    text_encoding = ENC_ASCII
+  end
+  if news_type == "EXC" then
+    text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  end
+
+  local value = range:string(text_encoding)
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.news_line, range, value, display)
@@ -2451,7 +2471,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_1, range, value, display)
@@ -2474,7 +2494,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.second_filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.second_filler_2, range, value, display)
@@ -2987,7 +3007,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_1, range, value, display)
@@ -3010,7 +3030,7 @@ end
 hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumrefresh_omd_v1_45.third_filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_premiumrefresh_omd_v1_45.fields.third_filler_2, range, value, display)
@@ -4805,7 +4825,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line_item.fields = function(bu
   end
 
   -- News Line: Binary
-  index, news_line = hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.dissect(buffer, index, packet, parent)
+  index, news_line = hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_line.dissect(buffer, index, packet, parent, news_type)
 
   return index
 end
@@ -4986,7 +5006,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_message.fields = function(buff
   index, news_id = hkex_hkexsecurities_premiumrefresh_omd_v1_45.news_id.dissect(buffer, index, packet, parent)
 
   -- Headline: Binary
-  index, headline = hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.dissect(buffer, index, packet, parent)
+  index, headline = hkex_hkexsecurities_premiumrefresh_omd_v1_45.headline.dissect(buffer, index, packet, parent, news_type)
 
   -- Cancel Flag: String
   index, cancel_flag = hkex_hkexsecurities_premiumrefresh_omd_v1_45.cancel_flag.dissect(buffer, index, packet, parent)
@@ -5486,7 +5506,7 @@ hkex_hkexsecurities_premiumrefresh_omd_v1_45.packet_header.fields = function(buf
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexsecurities_premiumrefresh_omd_v1_45.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Filler: 1 Byte Ascii String
+  -- Filler: 1 Byte
   index, filler = hkex_hkexsecurities_premiumrefresh_omd_v1_45.filler.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

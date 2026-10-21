@@ -20,9 +20,9 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.currency_code = ProtoField.new("C
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.dr_status = ProtoField.new("Dr Status", "hkex.hkexsecurities.index.omd.v1.45.drstatus", ftypes.UINT32, nil, nil, nil, "Status during site failover.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.eas_value = ProtoField.new("Eas Value", "hkex.hkexsecurities.index.omd.v1.45.easvalue", ftypes.DOUBLE, nil, nil, nil, "Estimated Average Settlement Value. 2 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.exception = ProtoField.new("Exception", "hkex.hkexsecurities.index.omd.v1.45.exception", ftypes.STRING, nil, nil, nil, "Exception indicator.")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.index.omd.v1.45.filler", ftypes.STRING, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.index.omd.v1.45.filler1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.index.omd.v1.45.filler3", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.index.omd.v1.45.filler", ftypes.BYTES, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.index.omd.v1.45.filler1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.index.omd.v1.45.filler3", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.high_value = ProtoField.new("High Value", "hkex.hkexsecurities.index.omd.v1.45.highvalue", ftypes.DOUBLE, nil, nil, nil, "Highest value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.index.omd.v1.45.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.index.omd.v1.45.indexsource", ftypes.STRING, nil, nil, nil, "Index or market information source.")
@@ -274,7 +274,7 @@ end
 hkex_hkexsecurities_index_omd_v1_45.filler.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_index_omd_v1_45.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_index_omd_v1_45.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler, range, value, display)
@@ -297,7 +297,7 @@ end
 hkex_hkexsecurities_index_omd_v1_45.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_index_omd_v1_45.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_index_omd_v1_45.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_1, range, value, display)
@@ -320,7 +320,7 @@ end
 hkex_hkexsecurities_index_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_index_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_index_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_index_omd_v1_45.fields.filler_3, range, value, display)
@@ -1338,7 +1338,7 @@ hkex_hkexsecurities_index_omd_v1_45.packet_header.fields = function(buffer, offs
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexsecurities_index_omd_v1_45.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Filler: 1 Byte Ascii String
+  -- Filler: 1 Byte
   index, filler = hkex_hkexsecurities_index_omd_v1_45.filler.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

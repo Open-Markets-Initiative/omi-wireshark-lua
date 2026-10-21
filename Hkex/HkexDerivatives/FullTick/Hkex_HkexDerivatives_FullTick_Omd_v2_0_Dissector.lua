@@ -39,12 +39,12 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.dr_status = ProtoField.new("Dr
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.effective_last_trading_date = ProtoField.new("Effective Last Trading Date", "hkex.hkexderivatives.fulltick.omd.v2.0.effectivelasttradingdate", ftypes.UINT32, nil, nil, nil, "Sets the effective last trading date")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.hkexderivatives.fulltick.omd.v2.0.effectivetomorrow", ftypes.UINT8, nil, nil, nil, "Declaration for instrument to be traded the next day")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.exchange = ProtoField.new("Exchange", "hkex.hkexderivatives.fulltick.omd.v2.0.exchange", ftypes.UINT16, nil, nil, nil, "Exchange Identifier")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.fulltick.omd.v2.0.filler1", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.fulltick.omd.v2.0.filler10", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.fulltick.omd.v2.0.filler2", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.fulltick.omd.v2.0.filler3", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.fulltick.omd.v2.0.filler4", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.fulltick.omd.v2.0.filler5", ftypes.STRING, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.fulltick.omd.v2.0.filler1", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.fulltick.omd.v2.0.filler10", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.fulltick.omd.v2.0.filler2", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.fulltick.omd.v2.0.filler3", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.fulltick.omd.v2.0.filler4", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.fulltick.omd.v2.0.filler5", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingdate", ftypes.UINT32, nil, nil, nil, "The first trading date")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingtime", ftypes.UINT64, nil, nil, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.fulltick.omd.v2.0.header", ftypes.BYTES)
@@ -89,7 +89,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.price_quotation_factor = Proto
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.fulltick.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.fulltick.omd.v2.0.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.fulltick.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltick.omd.v2.0.secondfiller3", ftypes.STRING, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltick.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltick.omd.v2.0.sendtime", ftypes.UINT64, nil, nil, nil, "Send time of segment")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.fulltick.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.fulltick.omd.v2.0.settlementcurrencyid", ftypes.STRING, nil, nil, nil, "Full descriptive name of the Settlement Currency")
@@ -809,7 +809,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_1, range, value, display)
@@ -832,7 +832,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_10.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_10.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_10, range, value, display)
@@ -855,7 +855,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_2, range, value, display)
@@ -878,7 +878,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_3, range, value, display)
@@ -901,7 +901,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_4, range, value, display)
@@ -924,7 +924,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.filler_5.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.filler_5.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.filler_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_5, range, value, display)
@@ -2084,7 +2084,7 @@ end
 hkex_hkexderivatives_fulltick_omd_v2_0.second_filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltick_omd_v2_0.second_filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_fulltick_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.second_filler_3, range, value, display)
@@ -3065,7 +3065,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.vcm_trigger.fields = function(buffer, off
   -- Vcm Upper Price: Int64
   index, vcm_upper_price = hkex_hkexderivatives_fulltick_omd_v2_0.vcm_upper_price.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: String
+  -- Filler 2: 2 Byte
   index, filler_2 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3169,7 +3169,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.instrument_status.fields = function(buffe
   -- Instrument Status Code: Uint8
   index, instrument_status_code = hkex_hkexderivatives_fulltick_omd_v2_0.instrument_status_code.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: String
+  -- Filler 2: 2 Byte
   index, filler_2 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3229,7 +3229,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.market_status.fields = function(buffer, o
   -- Instrument Class Key: Uint32
   index, instrument_class_key = hkex_hkexderivatives_fulltick_omd_v2_0.instrument_class_key.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
 
   -- Actual Start Time: Uint64
@@ -3585,7 +3585,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.class_definition.fields = function(buffer
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_fulltick_omd_v2_0.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: String
+  -- Filler 2: 2 Byte
   index, filler_2 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3811,7 +3811,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.modify_order.fields = function(buffer, of
   -- Side: Uint8
   index, side = hkex_hkexderivatives_fulltick_omd_v2_0.side.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: String
+  -- Filler 2: 2 Byte
   index, filler_2 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_2.dissect(buffer, index, packet, parent)
 
   -- Order Type: Uint8
@@ -4077,7 +4077,7 @@ hkex_hkexderivatives_fulltick_omd_v2_0.calculated_opening_price_message.fields =
   -- Calculated Opening Price: Int64
   index, calculated_opening_price = hkex_hkexderivatives_fulltick_omd_v2_0.calculated_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_fulltick_omd_v2_0.filler_4.dissect(buffer, index, packet, parent)
 
   -- Calculated Opening Quantity: Uint64

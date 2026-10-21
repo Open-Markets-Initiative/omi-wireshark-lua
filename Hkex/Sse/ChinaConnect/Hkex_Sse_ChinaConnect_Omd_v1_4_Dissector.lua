@@ -21,15 +21,15 @@ omi_hkex_sse_chinaconnect_omd_v1_4.fields.ask_price = ProtoField.new("Ask Price"
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.bid_price = ProtoField.new("Bid Price", "hkex.sse.chinaconnect.omd.v1.4.bidprice", ftypes.DOUBLE, nil, nil, nil, "The bid price. Provides Virtual Auction Price during Call Auction period. 3 implied decimal places. 0 means N/A.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.currency_code = ProtoField.new("Currency Code", "hkex.sse.chinaconnect.omd.v1.4.currencycode", ftypes.STRING, nil, nil, nil, "Base currency code of the market.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.dr_status = ProtoField.new("Dr Status", "hkex.sse.chinaconnect.omd.v1.4.drstatus", ftypes.UINT32, nil, nil, nil, "Status during site failover.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler = ProtoField.new("Filler", "hkex.sse.chinaconnect.omd.v1.4.filler", ftypes.STRING, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_1 = ProtoField.new("Filler 1", "hkex.sse.chinaconnect.omd.v1.4.filler1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_12 = ProtoField.new("Filler 12", "hkex.sse.chinaconnect.omd.v1.4.filler12", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_2 = ProtoField.new("Filler 2", "hkex.sse.chinaconnect.omd.v1.4.filler2", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_3 = ProtoField.new("Filler 3", "hkex.sse.chinaconnect.omd.v1.4.filler3", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_6 = ProtoField.new("Filler 6", "hkex.sse.chinaconnect.omd.v1.4.filler6", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.sse.chinaconnect.omd.v1.4.filler60", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_7 = ProtoField.new("Filler 7", "hkex.sse.chinaconnect.omd.v1.4.filler7", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_8 = ProtoField.new("Filler 8", "hkex.sse.chinaconnect.omd.v1.4.filler8", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler = ProtoField.new("Filler", "hkex.sse.chinaconnect.omd.v1.4.filler", ftypes.BYTES, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_1 = ProtoField.new("Filler 1", "hkex.sse.chinaconnect.omd.v1.4.filler1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_12 = ProtoField.new("Filler 12", "hkex.sse.chinaconnect.omd.v1.4.filler12", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_2 = ProtoField.new("Filler 2", "hkex.sse.chinaconnect.omd.v1.4.filler2", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_3 = ProtoField.new("Filler 3", "hkex.sse.chinaconnect.omd.v1.4.filler3", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_6 = ProtoField.new("Filler 6", "hkex.sse.chinaconnect.omd.v1.4.filler6", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.sse.chinaconnect.omd.v1.4.filler60", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_7 = ProtoField.new("Filler 7", "hkex.sse.chinaconnect.omd.v1.4.filler7", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_8 = ProtoField.new("Filler 8", "hkex.sse.chinaconnect.omd.v1.4.filler8", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.high_price = ProtoField.new("High Price", "hkex.sse.chinaconnect.omd.v1.4.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest trade price currently performed for a security. 3 implied decimal places.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.instrument_type = ProtoField.new("Instrument Type", "hkex.sse.chinaconnect.omd.v1.4.instrumenttype", ftypes.STRING, nil, nil, nil, "Instrument type of the security.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.isin_code = ProtoField.new("Isin Code", "hkex.sse.chinaconnect.omd.v1.4.isincode", ftypes.STRING, nil, nil, nil, "ISIN code of the security.")
@@ -307,7 +307,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler, range, value, display)
@@ -330,7 +330,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_1, range, value, display)
@@ -353,7 +353,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_12.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_12.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_12, range, value, display)
@@ -376,7 +376,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_2, range, value, display)
@@ -399,7 +399,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_3, range, value, display)
@@ -422,7 +422,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_6.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_6, range, value, display)
@@ -445,7 +445,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_60.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_60.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_60, range, value, display)
@@ -468,7 +468,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_7.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_7.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_7, range, value, display)
@@ -491,7 +491,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.filler_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_sse_chinaconnect_omd_v1_4.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.filler_8, range, value, display)
@@ -1855,7 +1855,7 @@ hkex_sse_chinaconnect_omd_v1_4.packet_header.fields = function(buffer, offset, p
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_sse_chinaconnect_omd_v1_4.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Filler: 1 Byte Ascii String
+  -- Filler: 1 Byte
   index, filler = hkex_sse_chinaconnect_omd_v1_4.filler.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

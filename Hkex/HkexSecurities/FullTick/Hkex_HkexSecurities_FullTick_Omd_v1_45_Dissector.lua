@@ -44,16 +44,16 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.entitlement_composite = ProtoF
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.face_value = ProtoField.new("Face Value", "hkex.hkexsecurities.fulltick.omd.v1.45.facevalue", ftypes.UINT64, nil, nil, nil, "Face value of a bond security. See DecimalsInFaceValue for the number of decimal places. 0 means Not available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.face_value_composite = ProtoField.new("Face Value Composite", "hkex.hkexsecurities.fulltick.omd.v1.45.facevaluecomposite", ftypes.STRING, nil, nil, nil, "Bond face value scaled at runtime by DecimalsInFaceValue. 0 mantissa means Not available.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.face_value_currency = ProtoField.new("Face Value Currency", "hkex.hkexsecurities.fulltick.omd.v1.45.facevaluecurrency", ftypes.STRING, nil, nil, nil, "Currency code of Face Value.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.fulltick.omd.v1.45.filler", ftypes.STRING, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.filler1", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.fulltick.omd.v1.45.filler2", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.fulltick.omd.v1.45.filler3", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_37 = ProtoField.new("Filler 37", "hkex.hkexsecurities.fulltick.omd.v1.45.filler37", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexsecurities.fulltick.omd.v1.45.filler4", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_44 = ProtoField.new("Filler 44", "hkex.hkexsecurities.fulltick.omd.v1.45.filler44", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_62 = ProtoField.new("Filler 62", "hkex.hkexsecurities.fulltick.omd.v1.45.filler62", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.fulltick.omd.v1.45.filler63", ftypes.STRING, nil, nil, nil, "Padding.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.fourthfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler = ProtoField.new("Filler", "hkex.hkexsecurities.fulltick.omd.v1.45.filler", ftypes.BYTES, nil, nil, nil, "Reserved filler byte (OMD does not use payload compression)")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.filler1", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexsecurities.fulltick.omd.v1.45.filler2", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexsecurities.fulltick.omd.v1.45.filler3", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_37 = ProtoField.new("Filler 37", "hkex.hkexsecurities.fulltick.omd.v1.45.filler37", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexsecurities.fulltick.omd.v1.45.filler4", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_44 = ProtoField.new("Filler 44", "hkex.hkexsecurities.fulltick.omd.v1.45.filler44", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_62 = ProtoField.new("Filler 62", "hkex.hkexsecurities.fulltick.omd.v1.45.filler62", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_63 = ProtoField.new("Filler 63", "hkex.hkexsecurities.fulltick.omd.v1.45.filler63", ftypes.BYTES, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.fourth_filler_1 = ProtoField.new("Fourth Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.fourthfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.free_text = ProtoField.new("Free Text", "hkex.hkexsecurities.fulltick.omd.v1.45.freetext", ftypes.STRING, nil, nil, nil, "Free text associated to the security. When there is no free text, spaces are present instead.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.instrument_type = ProtoField.new("Instrument Type", "hkex.hkexsecurities.fulltick.omd.v1.45.instrumenttype", ftypes.STRING, nil, nil, nil, "Instrument type of the security.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.investor_type = ProtoField.new("Investor Type", "hkex.hkexsecurities.fulltick.omd.v1.45.investortype", ftypes.STRING, nil, nil, nil, "Investor type of a bond security.")
@@ -88,7 +88,7 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.price = ProtoField.new("Price"
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.product_type = ProtoField.new("Product Type", "hkex.hkexsecurities.fulltick.omd.v1.45.producttype", ftypes.UINT8, nil, nil, nil, "Product type of the security.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.quantity = ProtoField.new("Quantity", "hkex.hkexsecurities.fulltick.omd.v1.45.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.reference_price = ProtoField.new("Reference Price", "hkex.hkexsecurities.fulltick.omd.v1.45.referenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price of the security for order input in POS and CAS. 3 implied decimal places. 0 if the reference price is not available.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.secondfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.second_filler_1 = ProtoField.new("Second Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.secondfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.security_code = ProtoField.new("Security Code", "hkex.hkexsecurities.fulltick.omd.v1.45.securitycode", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a security available for trading. 5 digit security codes with possible values 1 to 99999.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.hkexsecurities.fulltick.omd.v1.45.securitynamegb", ftypes.BYTES, nil, nil, nil, "Security name in Simplified Chinese using Unicode UTF-16LE encoding.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.security_name_gccs = ProtoField.new("Security Name Gccs", "hkex.hkexsecurities.fulltick.omd.v1.45.securitynamegccs", ftypes.BYTES, nil, nil, nil, "Security name in Traditional Chinese using Unicode UTF-16LE encoding.")
@@ -104,7 +104,7 @@ omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.strike_price_1 = ProtoField.ne
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.strike_price_2 = ProtoField.new("Strike Price 2", "hkex.hkexsecurities.fulltick.omd.v1.45.strikeprice2", ftypes.DOUBLE, nil, nil, nil, "Upper strike price of the security if it has lower and upper strike prices. 3 implied decimal places. Value is 0 if the security has only one strike price.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.style = ProtoField.new("Style", "hkex.hkexsecurities.fulltick.omd.v1.45.style", ftypes.STRING, nil, nil, nil, "Style of the warrant.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.suspension_indicator = ProtoField.new("Suspension Indicator", "hkex.hkexsecurities.fulltick.omd.v1.45.suspensionindicator", ftypes.UINT8, nil, nil, nil, "Indicate whether the security is currently halted/suspended for trading. 'Resume' means the security is now available for trading.")
-omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.thirdfiller1", ftypes.STRING, nil, nil, nil, "Padding.")
+omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.third_filler_1 = ProtoField.new("Third Filler 1", "hkex.hkexsecurities.fulltick.omd.v1.45.thirdfiller1", ftypes.BYTES, nil, nil, nil, "Padding.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexsecurities.fulltick.omd.v1.45.tradeid", ftypes.UINT32, nil, nil, nil, "Unique identifier per security for each trade performed within the trading system. Starting from 1, incrementing by 1. Reset for each trading day.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexsecurities.fulltick.omd.v1.45.tradetime", ftypes.UINT64, nil, nil, nil, "Time of trade. Nanoseconds since Unix epoch UTC. Precision to microsecond.")
 omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.trading_ses_control_flag = ProtoField.new("Trading Ses Control Flag", "hkex.hkexsecurities.fulltick.omd.v1.45.tradingsescontrolflag", ftypes.STRING, nil, nil, nil, "Indicates how control of trading session and sub-session transitions are performed.")
@@ -890,7 +890,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler, range, value, display)
@@ -913,7 +913,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_1, range, value, display)
@@ -936,7 +936,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_2, range, value, display)
@@ -959,7 +959,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_3, range, value, display)
@@ -982,7 +982,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_37.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_37.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_37.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_37, range, value, display)
@@ -1005,7 +1005,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_4, range, value, display)
@@ -1028,7 +1028,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_44.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_44.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_44.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_44, range, value, display)
@@ -1051,7 +1051,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_62.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_62.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_62.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_62, range, value, display)
@@ -1074,7 +1074,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.filler_63.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.filler_63.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.filler_63.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.filler_63, range, value, display)
@@ -1097,7 +1097,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.fourth_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.fourth_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.fourth_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.fourth_filler_1, range, value, display)
@@ -2088,7 +2088,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.second_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.second_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.second_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.second_filler_1, range, value, display)
@@ -2526,7 +2526,7 @@ end
 hkex_hkexsecurities_fulltick_omd_v1_45.third_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltick_omd_v1_45.third_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_fulltick_omd_v1_45.third_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltick_omd_v1_45.fields.third_filler_1, range, value, display)
@@ -4677,7 +4677,7 @@ hkex_hkexsecurities_fulltick_omd_v1_45.packet_header.fields = function(buffer, o
   -- Msg Count: 1 Byte Unsigned Fixed Width Integer
   index, msg_count = hkex_hkexsecurities_fulltick_omd_v1_45.msg_count.dissect(buffer, index, packet, parent)
 
-  -- Filler: 1 Byte Ascii String
+  -- Filler: 1 Byte
   index, filler = hkex_hkexsecurities_fulltick_omd_v1_45.filler.dissect(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer

@@ -45,13 +45,13 @@ omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.decimal_in_underlying_p
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_last_trading_date = ProtoField.new("Effective Last Trading Date", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.effectivelasttradingdate", ftypes.UINT32, nil, nil, nil, "Sets the effective last trading date")
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.effective_tomorrow = ProtoField.new("Effective Tomorrow", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.effectivetomorrow", ftypes.UINT8, nil, nil, nil, "Declaration for instrument to be traded the next day")
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.exchange = ProtoField.new("Exchange", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.exchange", ftypes.UINT16, nil, nil, nil, "Exchange Identifier")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler1", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler2", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler3", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler4", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler6", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_7 = ProtoField.new("Filler 7", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler7", ftypes.STRING, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_8 = ProtoField.new("Filler 8", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler8", ftypes.STRING, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler1", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler2", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler3", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler4", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler6", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_7 = ProtoField.new("Filler 7", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler7", ftypes.BYTES, nil, nil, nil, "Padding")
+omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_8 = ProtoField.new("Filler 8", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.filler8", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.financial_product = ProtoField.new("Financial Product", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.financialproduct", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.grossoi", ftypes.INT32, nil, nil, nil, "If DayIndicator = 1,")
 omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.combinedrefresh.omd.v2.2.header", ftypes.BYTES, nil, nil, nil, "Header. In the case of multiple fragments, this field is only populated in the first fragment.")
@@ -927,7 +927,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_1, range, value, display)
@@ -950,7 +950,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_2, range, value, display)
@@ -973,7 +973,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_3, range, value, display)
@@ -996,7 +996,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_4, range, value, display)
@@ -1019,7 +1019,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_6, range, value, display)
@@ -1042,7 +1042,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_7.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_7.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_7, range, value, display)
@@ -1065,7 +1065,7 @@ end
 hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_combinedrefresh_omd_v2_2.fields.filler_8, range, value, display)
@@ -3623,7 +3623,7 @@ hkex_hkexderivatives_combinedrefresh_omd_v2_2.instrument_definition.fields = fun
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -3819,7 +3819,7 @@ hkex_hkexderivatives_combinedrefresh_omd_v2_2.commodity_definition.fields = func
   -- Effective Tomorrow: Uint8
   index, effective_tomorrow = hkex_hkexderivatives_combinedrefresh_omd_v2_2.effective_tomorrow.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: String
+  -- Filler 6: 6 Byte
   index, filler_6 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.dissect(buffer, index, packet, parent)
 
   return index
@@ -3867,7 +3867,7 @@ hkex_hkexderivatives_combinedrefresh_omd_v2_2.open_interest_message.fields = fun
   -- Day Indicator: Uint16
   index, day_indicator = hkex_hkexderivatives_combinedrefresh_omd_v2_2.day_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: String
+  -- Filler 6: 6 Byte
   index, filler_6 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_6.dissect(buffer, index, packet, parent)
 
   -- Orderbook Id: Uint32
@@ -4056,7 +4056,7 @@ hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price_message.f
   -- Calculated Opening Price: Int64
   index, calculated_opening_price = hkex_hkexderivatives_combinedrefresh_omd_v2_2.calculated_opening_price.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: String
+  -- Filler 4: 4 Byte
   index, filler_4 = hkex_hkexderivatives_combinedrefresh_omd_v2_2.filler_4.dissect(buffer, index, packet, parent)
 
   -- Calculated Opening Quantity: Uint64
