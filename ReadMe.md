@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1554 | 11,116,329 |
+| 1553 | 11,116,154 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -74,10 +74,6 @@ Other generated code can be found at [Omi Projects](https://github.com/Open-Mark
 ## Consolidators and Sips
 
 > [Cqs][Cqs.Consolidator] · [Cts][Cts.Consolidator] · [MdcsRealtime][MdcsRealtime.Consolidator] · [NordicMarkets][NordicMarkets.Consolidator] · [NyseConsolidated][NyseConsolidated.Consolidator] · [Opra][Opra.Consolidator] · [TitaniumConsolidated][TitaniumConsolidated.Consolidator] · [Uqdf][Uqdf.Consolidator] · [Utdf][Utdf.Consolidator] · [Utp][Utp.Consolidator]
-
-## Redistributors
-
-> [IceDataServices][IceDataServices.Redistributor]
 
 ## Platforms
 
@@ -143,7 +139,6 @@ Enjoy.
 [Omi.Encoding.Xdp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xdp.md "Xdp Encoding"
 [Omi.Encoding.Wats]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Wats.md "Wats Encoding"
 [Omi.Encoding.Omd]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Omd.md "Omd Encoding"
-[Omi.Encoding.Ctf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ctf.md "Ctf Encoding"
 [Omi.Encoding.iMpact]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/iMpact.md "iMpact Encoding"
 [Omi.Encoding.IexTp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/IexTp.md "IexTp Encoding"
 [Omi.Encoding.Snap]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Snap.md "Snap Encoding"
@@ -450,7 +445,6 @@ Enjoy.
 [Hkex.Szse.ChinaConnect]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/Szse/ChinaConnect.md "Orion Market Data China Connect"
 [Hkex.Szse.ChinaConnectRefresh]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/Szse/ChinaConnectRefresh.md "Orion Market Data China Connect Refresh"
 [Hkex.Szse.ChinaConnectRetrans]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Hkex/Protocols/Szse/ChinaConnectRetrans.md "Orion Market Data China Connect Retransmission"
-[Ice.IceDataServices.ConsolidatedFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceDataServices/ConsolidatedFeed.md "ConsolidatedFeed"
 [Ice.IceFutures.Bgw]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceFutures/Bgw.md "Binary Order Gateway"
 [Ice.IceFutures.Mdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Ice/Protocols/IceFutures/Mdf.md "Multicast Data Feed"
 [Iex.IexEquities.Deep]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Iex/Protocols/IexEquities/Deep.md "Depth Of Book"
@@ -985,7 +979,6 @@ Enjoy.
 [Globex.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Cme/Protocols/Globex "CME Globex"
 [HkexDerivatives.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Hkex/Protocols/HkexDerivatives "Hkex Derivatives Market"
 [HkexSecurities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Hkex/Protocols/HkexSecurities "Hkex Securities Market"
-[IceDataServices.Redistributor]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Ice/Protocols/IceDataServices "ICE Data Services"
 [IceFutures.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Ice/Protocols/IceFutures "Intercontinental Exchange Futures"
 [IexEquities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Iex/Protocols/IexEquities "IEX Equities"
 [IexOptions.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Iex/Protocols/IexOptions "IEX Options"
