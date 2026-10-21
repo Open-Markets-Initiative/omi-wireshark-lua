@@ -1661,17 +1661,15 @@ end
 hkex_hkexsecurities_mmdh_omd_v2_1.headline.dissect = function(buffer, offset, packet, parent, news_type)
   local length = hkex_hkexsecurities_mmdh_omd_v2_1.headline.size
   local range = buffer(offset, length)
-
-  -- Text encoding News Type selects
-  local text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  -- text encoding News Type selects
+  local encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
   if news_type == "EXN" then
-    text_encoding = ENC_ASCII
-  end
-  if news_type == "EXC" then
-    text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+    encoding = ENC_ASCII
+  elseif news_type == "EXC" then
+    encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
   end
 
-  local value = range:string(text_encoding)
+  local value = range:string(encoding)
   local display = hkex_hkexsecurities_mmdh_omd_v2_1.headline.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.headline, range, value, display)
@@ -2682,17 +2680,15 @@ end
 hkex_hkexsecurities_mmdh_omd_v2_1.news_line.dissect = function(buffer, offset, packet, parent, news_type)
   local length = hkex_hkexsecurities_mmdh_omd_v2_1.news_line.size
   local range = buffer(offset, length)
-
-  -- Text encoding News Type selects
-  local text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+  -- text encoding News Type selects
+  local encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
   if news_type == "EXN" then
-    text_encoding = ENC_ASCII
-  end
-  if news_type == "EXC" then
-    text_encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
+    encoding = ENC_ASCII
+  elseif news_type == "EXC" then
+    encoding = ENC_UTF_16 + ENC_LITTLE_ENDIAN
   end
 
-  local value = range:string(text_encoding)
+  local value = range:string(encoding)
   local display = hkex_hkexsecurities_mmdh_omd_v2_1.news_line.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_mmdh_omd_v2_1.fields.news_line, range, value, display)
