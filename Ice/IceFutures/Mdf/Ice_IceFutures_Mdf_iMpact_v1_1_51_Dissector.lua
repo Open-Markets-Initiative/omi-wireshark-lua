@@ -15,8 +15,8 @@ local ice_icefutures_mdf_impact_v1_1_51 = {}
 -----------------------------------------------------------------------
 
 -- Ice IceFutures Mdf iMpact 1.1.51 Fields
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_distribution = ProtoField.new("Accrued Distribution", "ice.icefutures.mdf.impact.v1.1.51.accrueddistribution", ftypes.INT8, nil, nil, nil, "The sum of all daily distributions")
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_funding = ProtoField.new("Accrued Funding", "ice.icefutures.mdf.impact.v1.1.51.accruedfunding", ftypes.INT8, nil, nil, nil, "The sum of all daily funding values")
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_distribution = ProtoField.new("Accrued Distribution", "ice.icefutures.mdf.impact.v1.1.51.accrueddistribution", ftypes.DOUBLE, nil, nil, nil, "The sum of all daily distributions. Daily Distribution on a given day is equal to the latest UKXCD value (published the business day prior) subtracted from the prior value of UKXCD. Daily Distributions (t) = Distribution Index (t) - Distribution Index (t-1) NumDecimals will be 2.")
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_funding = ProtoField.new("Accrued Funding", "ice.icefutures.mdf.impact.v1.1.51.accruedfunding", ftypes.DOUBLE, nil, nil, nil, "The sum of all daily funding values. Daily Funding is calculated on a given day using the following formula: Daily Funding(t) = Index Close (t-1) * Funding Rate (t-1) * (Funding Days (t) / Annualization Factor) NumDecimals will be 6")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.agg_bid_qty = ProtoField.new("Agg Bid Qty", "ice.icefutures.mdf.impact.v1.1.51.aggbidqty", ftypes.INT32, nil, nil, nil, "Aggregate bid quantity")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.agg_offer_qty = ProtoField.new("Agg Offer Qty", "ice.icefutures.mdf.impact.v1.1.51.aggofferqty", ftypes.INT32, nil, nil, nil, "Aggregate offer quantity")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.aggressor_side = ProtoField.new("Aggressor Side", "ice.icefutures.mdf.impact.v1.1.51.aggressorside", ftypes.STRING)
@@ -45,7 +45,7 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.currency = ProtoField.new("Currency
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.icefutures.mdf.impact.v1.1.51.dealpricedenominator", ftypes.STRING, nil, nil, nil, "Denominator for the deal price fields in the market. For most markets, this is the same as OrderPriceDenominator. However, it could be different for some crack or spread markets.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.icefutures.mdf.impact.v1.1.51.deliverybegindatetime", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.icefutures.mdf.impact.v1.1.51.deliveryenddatetime", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.delta = ProtoField.new("Delta", "ice.icefutures.mdf.impact.v1.1.51.delta", ftypes.INT64, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.")
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.delta = ProtoField.new("Delta", "ice.icefutures.mdf.impact.v1.1.51.delta", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.description = ProtoField.new("Description", "ice.icefutures.mdf.impact.v1.1.51.description", ftypes.STRING, nil, nil, nil, "The auction runs twice daily at 10:30am and 3:00pm London time. The values disseminated via this field are: ‘GOLD_1030’, ‘GOLD_1500’")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.efp_volume = ProtoField.new("Efp Volume", "ice.icefutures.mdf.impact.v1.1.51.efpvolume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.efs_volume = ProtoField.new("Efs Volume", "ice.icefutures.mdf.impact.v1.1.51.efsvolume", ftypes.INT32)
@@ -259,10 +259,10 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.unit_qty_denominator = ProtoField.n
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.icefutures.mdf.impact.v1.1.51.unitquantity", ftypes.INT32, nil, nil, nil, "The quantity in unit of measurement per lot. For example, it is 1000 barrels per lot for Brent.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_2 = ProtoField.new("Unused 2", "ice.icefutures.mdf.impact.v1.1.51.unused2", ftypes.UINT8, nil, base.DEC, 0xC0, "Reserved")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_7 = ProtoField.new("Unused 7", "ice.icefutures.mdf.impact.v1.1.51.unused7", ftypes.UINT8, nil, base.DEC, 0xFE, "Reserved")
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.51.usdprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in USD. Use 2 decimal places for USD Price.")
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.51.usdprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in USD. Please apply OrderPriceDenominator. Use 2 decimal places for USD Price for Gold and 3 decimal places for Silver.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.icefutures.mdf.impact.v1.1.51.valuationdateapplyingdate", ftypes.STRING, nil, nil, nil, "The date this price is effective for")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.51.valuationdatetime", ftypes.INT64, nil, nil, nil, "Date time the settlement price is for")
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.volatility = ProtoField.new("Volatility", "ice.icefutures.mdf.impact.v1.1.51.volatility", ftypes.INT64, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, volatility of 3.00 will be sent as 300.")
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.volatility = ProtoField.new("Volatility", "ice.icefutures.mdf.impact.v1.1.51.volatility", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, volatility of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.volume = ProtoField.new("Volume", "ice.icefutures.mdf.impact.v1.1.51.volume", ftypes.INT32, nil, nil, nil, "Electronic trade volume only, excluding block and other volumes.")
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.vwap = ProtoField.new("Vwap", "ice.icefutures.mdf.impact.v1.1.51.vwap", ftypes.INT64, nil, nil, nil, "Weighted Average Price. DealPriceDenominator for the market should be applied to get the real price.")
 
@@ -371,18 +371,24 @@ end
 ice_icefutures_mdf_impact_v1_1_51.accrued_distribution = {}
 
 -- Size: Accrued Distribution
-ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.size = 1
+ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.size = 8
 
 -- Display: Accrued Distribution
 ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.display = function(value)
   return "Accrued Distribution: "..value
 end
 
+-- Translate: Accrued Distribution
+ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Accrued Distribution
 ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_51.accrued_distribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_distribution, range, value, display)
@@ -394,18 +400,24 @@ end
 ice_icefutures_mdf_impact_v1_1_51.accrued_funding = {}
 
 -- Size: Accrued Funding
-ice_icefutures_mdf_impact_v1_1_51.accrued_funding.size = 1
+ice_icefutures_mdf_impact_v1_1_51.accrued_funding.size = 8
 
 -- Display: Accrued Funding
 ice_icefutures_mdf_impact_v1_1_51.accrued_funding.display = function(value)
   return "Accrued Funding: "..value
 end
 
+-- Translate: Accrued Funding
+ice_icefutures_mdf_impact_v1_1_51.accrued_funding.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Accrued Funding
 ice_icefutures_mdf_impact_v1_1_51.accrued_funding.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_51.accrued_funding.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_51.accrued_funding.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_51.accrued_funding.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.accrued_funding, range, value, display)
@@ -1253,11 +1265,17 @@ ice_icefutures_mdf_impact_v1_1_51.delta.display = function(value)
   return "Delta: "..value
 end
 
+-- Translate: Delta
+ice_icefutures_mdf_impact_v1_1_51.delta.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Delta
 ice_icefutures_mdf_impact_v1_1_51.delta.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_51.delta.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_51.delta.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_51.delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.delta, range, value, display)
@@ -8060,11 +8078,17 @@ ice_icefutures_mdf_impact_v1_1_51.volatility.display = function(value)
   return "Volatility: "..value
 end
 
+-- Translate: Volatility
+ice_icefutures_mdf_impact_v1_1_51.volatility.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Volatility
 ice_icefutures_mdf_impact_v1_1_51.volatility.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_51.volatility.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_51.volatility.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_51.volatility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.volatility, range, value, display)

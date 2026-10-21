@@ -32,21 +32,21 @@ omi_ice_icefutures_mdf_impact_v1_1_24.fields.currency = ProtoField.new("Currency
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.deal_price_denominator = ProtoField.new("Deal Price Denominator", "ice.icefutures.mdf.impact.v1.1.24.dealpricedenominator", ftypes.STRING, nil, nil, nil, "Denominator for the deal price fields in the market. For most markets, this is the same as OrderPriceDenominator. However, it could be different for some crack or spread markets.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.delivery_begin_date_time = ProtoField.new("Delivery Begin Date Time", "ice.icefutures.mdf.impact.v1.1.24.deliverybegindatetime", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.delivery_end_date_time = ProtoField.new("Delivery End Date Time", "ice.icefutures.mdf.impact.v1.1.24.deliveryenddatetime", ftypes.INT64)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.delta = ProtoField.new("Delta", "ice.icefutures.mdf.impact.v1.1.24.delta", ftypes.INT64, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.")
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.delta = ProtoField.new("Delta", "ice.icefutures.mdf.impact.v1.1.24.delta", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, delta of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.description = ProtoField.new("Description", "ice.icefutures.mdf.impact.v1.1.24.description", ftypes.STRING, nil, nil, nil, "The auction runs twice daily at 10:30am and 3:00pm London time. The values disseminated via this field are: ‘GOLD_1030’, ‘GOLD_1500’")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.efp_volume = ProtoField.new("Efp Volume", "ice.icefutures.mdf.impact.v1.1.24.efpvolume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.efs_volume = ProtoField.new("Efs Volume", "ice.icefutures.mdf.impact.v1.1.24.efsvolume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.end_day = ProtoField.new("End Day", "ice.icefutures.mdf.impact.v1.1.24.endday", ftypes.INT16)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.end_month = ProtoField.new("End Month", "ice.icefutures.mdf.impact.v1.1.24.endmonth", ftypes.INT16, nil, nil, nil, "Month range 1-12")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.end_year = ProtoField.new("End Year", "ice.icefutures.mdf.impact.v1.1.24.endyear", ftypes.INT16, nil, nil, nil, "4 digit year")
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.eur_price = ProtoField.new("Eur Price", "ice.icefutures.mdf.impact.v1.1.24.eurprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in EUR. Use 3 decimal places for EUR Price.")
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.eur_price = ProtoField.new("Eur Price", "ice.icefutures.mdf.impact.v1.1.24.eurprice", ftypes.DOUBLE, nil, nil, nil, "Auctioneers price for the round in EUR. Use 3 decimal places for EUR Price.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.event_code = ProtoField.new("Event Code", "ice.icefutures.mdf.impact.v1.1.24.eventcode", ftypes.STRING, nil, nil, nil, "Event code: ‘0’ – Normal trade, ‘1’ – Cancelled trade, ‘2’ – Adjusted trade")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.event_type = ProtoField.new("Event Type", "ice.icefutures.mdf.impact.v1.1.24.eventtype", ftypes.STRING, nil, nil, nil, "‘A’ – Implication Disabled for the Market")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.extra_data = ProtoField.new("Extra Data", "ice.icefutures.mdf.impact.v1.1.24.extradata", ftypes.BYTES, nil, nil, nil, "Message bytes past the fields this version decodes")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.extra_flags = ProtoField.new("Extra Flags", "ice.icefutures.mdf.impact.v1.1.24.extraflags", ftypes.INT8, nil, nil, nil, "Bit 0 (Least Significant Bit): IsRFCCrossing – indicate this is a RFC Crossing Deal if set to 1.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.icefutures.mdf.impact.v1.1.24.flexallowed", ftypes.STRING, nil, nil, nil, "Indicates if flexible strikes can be created for the option market. ‘Y’ or ‘N’")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.icefutures.mdf.impact.v1.1.24.futurescontractsymbol", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.gbp_price = ProtoField.new("Gbp Price", "ice.icefutures.mdf.impact.v1.1.24.gbpprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in GBP. Use 3 decimal places for GBP Price.")
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.gbp_price = ProtoField.new("Gbp Price", "ice.icefutures.mdf.impact.v1.1.24.gbpprice", ftypes.DOUBLE, nil, nil, nil, "Auctioneers price for the round in GBP. Use 3 decimal places for GBP Price.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.icefutures.mdf.impact.v1.1.24.gtallowed", ftypes.STRING, nil, nil, nil, "Indicates if GTC is allowed in the market. ‘Y’ or ‘N’")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "ice.icefutures.mdf.impact.v1.1.24.guaranteedcrosssupported", ftypes.STRING, nil, nil, nil, "Indicates if Guarantee Cross is supported in the market. ‘Y’ or ‘N’")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "ice.icefutures.mdf.impact.v1.1.24.haspreopenvolume", ftypes.STRING, nil, nil, nil, "Indicates message contains PreOpenVolume. ‘Y’ or ‘N’")
@@ -194,10 +194,10 @@ omi_ice_icefutures_mdf_impact_v1_1_24.fields.underlying_market_id = ProtoField.n
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.icefutures.mdf.impact.v1.1.24.unitofmeasure", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.icefutures.mdf.impact.v1.1.24.unitqtydenominator", ftypes.STRING, nil, nil, nil, "Denominator for UnitQuantity. Clients should also apply UnitQtyDenominator when calculating LotSize. This field will be ‘0’ for most of the markets.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.icefutures.mdf.impact.v1.1.24.unitquantity", ftypes.INT32, nil, nil, nil, "The quantity in unit of measurement per lot. For example, it is 1000 barrels per lot for Brent.")
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.24.usdprice", ftypes.INT64, nil, nil, nil, "Auctioneers price for the round in USD. Use 2 decimal places for USD Price.")
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.24.usdprice", ftypes.DOUBLE, nil, nil, nil, "Auctioneers price for the round in USD. Use 2 decimal places for USD Price.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.icefutures.mdf.impact.v1.1.24.valuationdateapplyingdate", ftypes.STRING, nil, nil, nil, "The date this price is effective for")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.24.valuationdatetime", ftypes.INT64, nil, nil, nil, "Date time the settlement price is for")
-omi_ice_icefutures_mdf_impact_v1_1_24.fields.volatility = ProtoField.new("Volatility", "ice.icefutures.mdf.impact.v1.1.24.volatility", ftypes.INT64, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, volatility of 3.00 will be sent as 300.")
+omi_ice_icefutures_mdf_impact_v1_1_24.fields.volatility = ProtoField.new("Volatility", "ice.icefutures.mdf.impact.v1.1.24.volatility", ftypes.DOUBLE, nil, nil, nil, "Apply 2 as the denominator to get the real value. For example, volatility of 3.00 will be sent as 300.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.volume = ProtoField.new("Volume", "ice.icefutures.mdf.impact.v1.1.24.volume", ftypes.INT32, nil, nil, nil, "Electronic trade volume only, excluding block and other volumes.")
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.vwap = ProtoField.new("Vwap", "ice.icefutures.mdf.impact.v1.1.24.vwap", ftypes.INT64, nil, nil, nil, "Weighted Average Price. DealPriceDenominator for the market should be applied to get the real price.")
 
@@ -812,11 +812,17 @@ ice_icefutures_mdf_impact_v1_1_24.delta.display = function(value)
   return "Delta: "..value
 end
 
+-- Translate: Delta
+ice_icefutures_mdf_impact_v1_1_24.delta.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Delta
 ice_icefutures_mdf_impact_v1_1_24.delta.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_24.delta.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_24.delta.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_24.delta.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_24.fields.delta, range, value, display)
@@ -989,11 +995,17 @@ ice_icefutures_mdf_impact_v1_1_24.eur_price.display = function(value)
   return "Eur Price: "..value
 end
 
+-- Translate: Eur Price
+ice_icefutures_mdf_impact_v1_1_24.eur_price.translate = function(raw)
+  return raw:tonumber()/1000
+end
+
 -- Dissect: Eur Price
 ice_icefutures_mdf_impact_v1_1_24.eur_price.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_24.eur_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_24.eur_price.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_24.eur_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_24.fields.eur_price, range, value, display)
@@ -1211,11 +1223,17 @@ ice_icefutures_mdf_impact_v1_1_24.gbp_price.display = function(value)
   return "Gbp Price: "..value
 end
 
+-- Translate: Gbp Price
+ice_icefutures_mdf_impact_v1_1_24.gbp_price.translate = function(raw)
+  return raw:tonumber()/1000
+end
+
 -- Dissect: Gbp Price
 ice_icefutures_mdf_impact_v1_1_24.gbp_price.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_24.gbp_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_24.gbp_price.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_24.gbp_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_24.fields.gbp_price, range, value, display)
@@ -6330,11 +6348,17 @@ ice_icefutures_mdf_impact_v1_1_24.usd_price.display = function(value)
   return "Usd Price: "..value
 end
 
+-- Translate: Usd Price
+ice_icefutures_mdf_impact_v1_1_24.usd_price.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Usd Price
 ice_icefutures_mdf_impact_v1_1_24.usd_price.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_24.usd_price.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_24.usd_price.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_24.usd_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_24.fields.usd_price, range, value, display)
@@ -6403,11 +6427,17 @@ ice_icefutures_mdf_impact_v1_1_24.volatility.display = function(value)
   return "Volatility: "..value
 end
 
+-- Translate: Volatility
+ice_icefutures_mdf_impact_v1_1_24.volatility.translate = function(raw)
+  return raw:tonumber()/100
+end
+
 -- Dissect: Volatility
 ice_icefutures_mdf_impact_v1_1_24.volatility.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_24.volatility.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = ice_icefutures_mdf_impact_v1_1_24.volatility.translate(raw)
   local display = ice_icefutures_mdf_impact_v1_1_24.volatility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_24.fields.volatility, range, value, display)
